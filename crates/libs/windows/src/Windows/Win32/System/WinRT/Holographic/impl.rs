@@ -33,19 +33,14 @@ impl IHolographicCameraInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHolographicCameraInterop>,
-            ::windows::core::GetTrustLevel,
-            CreateDirect3D12BackBufferResource::<Impl, IMPL_OFFSET>,
-            CreateDirect3D12HardwareProtectedBackBufferResource::<Impl, IMPL_OFFSET>,
-            AcquireDirect3D12BufferResource::<Impl, IMPL_OFFSET>,
-            AcquireDirect3D12BufferResourceWithTimeout::<Impl, IMPL_OFFSET>,
-            UnacquireDirect3D12BufferResource::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraInterop, BASE_OFFSET>(),
+            CreateDirect3D12BackBufferResource: CreateDirect3D12BackBufferResource::<Impl, IMPL_OFFSET>,
+            CreateDirect3D12HardwareProtectedBackBufferResource: CreateDirect3D12HardwareProtectedBackBufferResource::<Impl, IMPL_OFFSET>,
+            AcquireDirect3D12BufferResource: AcquireDirect3D12BufferResource::<Impl, IMPL_OFFSET>,
+            AcquireDirect3D12BufferResourceWithTimeout: AcquireDirect3D12BufferResourceWithTimeout::<Impl, IMPL_OFFSET>,
+            UnacquireDirect3D12BufferResource: UnacquireDirect3D12BufferResource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCameraInterop as ::windows::core::Interface>::IID
@@ -71,7 +66,11 @@ impl IHolographicCameraRenderingParametersInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraRenderingParametersInterop>, ::windows::core::GetTrustLevel, CommitDirect3D12Resource::<Impl, IMPL_OFFSET>, CommitDirect3D12ResourceWithDepthData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraRenderingParametersInterop, BASE_OFFSET>(),
+            CommitDirect3D12Resource: CommitDirect3D12Resource::<Impl, IMPL_OFFSET>,
+            CommitDirect3D12ResourceWithDepthData: CommitDirect3D12ResourceWithDepthData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCameraRenderingParametersInterop as ::windows::core::Interface>::IID
@@ -112,19 +111,14 @@ impl IHolographicQuadLayerInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHolographicQuadLayerInterop>,
-            ::windows::core::GetTrustLevel,
-            CreateDirect3D12ContentBufferResource::<Impl, IMPL_OFFSET>,
-            CreateDirect3D12HardwareProtectedContentBufferResource::<Impl, IMPL_OFFSET>,
-            AcquireDirect3D12BufferResource::<Impl, IMPL_OFFSET>,
-            AcquireDirect3D12BufferResourceWithTimeout::<Impl, IMPL_OFFSET>,
-            UnacquireDirect3D12BufferResource::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayerInterop, BASE_OFFSET>(),
+            CreateDirect3D12ContentBufferResource: CreateDirect3D12ContentBufferResource::<Impl, IMPL_OFFSET>,
+            CreateDirect3D12HardwareProtectedContentBufferResource: CreateDirect3D12HardwareProtectedContentBufferResource::<Impl, IMPL_OFFSET>,
+            AcquireDirect3D12BufferResource: AcquireDirect3D12BufferResource::<Impl, IMPL_OFFSET>,
+            AcquireDirect3D12BufferResourceWithTimeout: AcquireDirect3D12BufferResourceWithTimeout::<Impl, IMPL_OFFSET>,
+            UnacquireDirect3D12BufferResource: UnacquireDirect3D12BufferResource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicQuadLayerInterop as ::windows::core::Interface>::IID
@@ -145,7 +139,10 @@ impl IHolographicQuadLayerUpdateParametersInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicQuadLayerUpdateParametersInterop>, ::windows::core::GetTrustLevel, CommitDirect3D12Resource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayerUpdateParametersInterop, BASE_OFFSET>(),
+            CommitDirect3D12Resource: CommitDirect3D12Resource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicQuadLayerUpdateParametersInterop as ::windows::core::Interface>::IID

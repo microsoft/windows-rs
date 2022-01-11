@@ -6,13 +6,13 @@ impl IContentPrefetcherTaskTrigger {
     #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TriggerContentPrefetcherTask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, packagefullname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), packagefullname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).TriggerContentPrefetcherTask)(::core::mem::transmute_copy(self), packagefullname.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRegisteredForContentPrefetch<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, packagefullname: Param0) -> ::windows::core::Result<u8> {
         let mut result__: u8 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), packagefullname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
+        (::windows::core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::core::mem::transmute_copy(self), packagefullname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
     }
 }
 impl ::core::convert::From<IContentPrefetcherTaskTrigger> for ::windows::core::IInspectable {
@@ -77,18 +77,17 @@ unsafe impl ::windows::core::Interface for IContentPrefetcherTaskTrigger {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContentPrefetcherTaskTriggerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: super::super::Foundation::PWSTR, isregistered: *mut u8) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IContentPrefetcherTaskTriggerVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub TriggerContentPrefetcherTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    TriggerContentPrefetcherTask: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsRegisteredForContentPrefetch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: super::super::Foundation::PWSTR, isregistered: *mut u8) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsRegisteredForContentPrefetch: usize,
+}
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]

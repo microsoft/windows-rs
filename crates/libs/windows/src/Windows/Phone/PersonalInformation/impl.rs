@@ -93,24 +93,19 @@ impl IContactAddressVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStreetAddress(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IContactAddress>,
-            ::windows::core::GetTrustLevel,
-            Country::<Impl, IMPL_OFFSET>,
-            SetCountry::<Impl, IMPL_OFFSET>,
-            Locality::<Impl, IMPL_OFFSET>,
-            SetLocality::<Impl, IMPL_OFFSET>,
-            Region::<Impl, IMPL_OFFSET>,
-            SetRegion::<Impl, IMPL_OFFSET>,
-            PostalCode::<Impl, IMPL_OFFSET>,
-            SetPostalCode::<Impl, IMPL_OFFSET>,
-            StreetAddress::<Impl, IMPL_OFFSET>,
-            SetStreetAddress::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactAddress, BASE_OFFSET>(),
+            Country: Country::<Impl, IMPL_OFFSET>,
+            SetCountry: SetCountry::<Impl, IMPL_OFFSET>,
+            Locality: Locality::<Impl, IMPL_OFFSET>,
+            SetLocality: SetLocality::<Impl, IMPL_OFFSET>,
+            Region: Region::<Impl, IMPL_OFFSET>,
+            SetRegion: SetRegion::<Impl, IMPL_OFFSET>,
+            PostalCode: PostalCode::<Impl, IMPL_OFFSET>,
+            SetPostalCode: SetPostalCode::<Impl, IMPL_OFFSET>,
+            StreetAddress: StreetAddress::<Impl, IMPL_OFFSET>,
+            SetStreetAddress: SetStreetAddress::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactAddress as ::windows::core::Interface>::IID
@@ -174,7 +169,13 @@ impl IContactChangeRecordVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactChangeRecord>, ::windows::core::GetTrustLevel, ChangeType::<Impl, IMPL_OFFSET>, RevisionNumber::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, RemoteId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactChangeRecord, BASE_OFFSET>(),
+            ChangeType: ChangeType::<Impl, IMPL_OFFSET>,
+            RevisionNumber: RevisionNumber::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            RemoteId: RemoteId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactChangeRecord as ::windows::core::Interface>::IID
@@ -347,30 +348,25 @@ impl IContactInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IContactInformation>,
-            ::windows::core::GetTrustLevel,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            SetDisplayName::<Impl, IMPL_OFFSET>,
-            FamilyName::<Impl, IMPL_OFFSET>,
-            SetFamilyName::<Impl, IMPL_OFFSET>,
-            GivenName::<Impl, IMPL_OFFSET>,
-            SetGivenName::<Impl, IMPL_OFFSET>,
-            HonorificPrefix::<Impl, IMPL_OFFSET>,
-            SetHonorificPrefix::<Impl, IMPL_OFFSET>,
-            HonorificSuffix::<Impl, IMPL_OFFSET>,
-            SetHonorificSuffix::<Impl, IMPL_OFFSET>,
-            GetDisplayPictureAsync::<Impl, IMPL_OFFSET>,
-            SetDisplayPictureAsync::<Impl, IMPL_OFFSET>,
-            DisplayPicture::<Impl, IMPL_OFFSET>,
-            GetPropertiesAsync::<Impl, IMPL_OFFSET>,
-            ToVcardAsync::<Impl, IMPL_OFFSET>,
-            ToVcardWithOptionsAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactInformation, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            FamilyName: FamilyName::<Impl, IMPL_OFFSET>,
+            SetFamilyName: SetFamilyName::<Impl, IMPL_OFFSET>,
+            GivenName: GivenName::<Impl, IMPL_OFFSET>,
+            SetGivenName: SetGivenName::<Impl, IMPL_OFFSET>,
+            HonorificPrefix: HonorificPrefix::<Impl, IMPL_OFFSET>,
+            SetHonorificPrefix: SetHonorificPrefix::<Impl, IMPL_OFFSET>,
+            HonorificSuffix: HonorificSuffix::<Impl, IMPL_OFFSET>,
+            SetHonorificSuffix: SetHonorificSuffix::<Impl, IMPL_OFFSET>,
+            GetDisplayPictureAsync: GetDisplayPictureAsync::<Impl, IMPL_OFFSET>,
+            SetDisplayPictureAsync: SetDisplayPictureAsync::<Impl, IMPL_OFFSET>,
+            DisplayPicture: DisplayPicture::<Impl, IMPL_OFFSET>,
+            GetPropertiesAsync: GetPropertiesAsync::<Impl, IMPL_OFFSET>,
+            ToVcardAsync: ToVcardAsync::<Impl, IMPL_OFFSET>,
+            ToVcardWithOptionsAsync: ToVcardWithOptionsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactInformation as ::windows::core::Interface>::IID
@@ -403,7 +399,11 @@ impl IContactInformation2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayPictureDate(&*(&returnvalue as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactInformation2>, ::windows::core::GetTrustLevel, DisplayPictureDate::<Impl, IMPL_OFFSET>, SetDisplayPictureDate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactInformation2, BASE_OFFSET>(),
+            DisplayPictureDate: DisplayPictureDate::<Impl, IMPL_OFFSET>,
+            SetDisplayPictureDate: SetDisplayPictureDate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactInformation2 as ::windows::core::Interface>::IID
@@ -431,7 +431,10 @@ impl IContactInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactInformationStatics>, ::windows::core::GetTrustLevel, ParseVcardAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactInformationStatics, BASE_OFFSET>(),
+            ParseVcardAsync: ParseVcardAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactInformationStatics as ::windows::core::Interface>::IID
@@ -476,7 +479,12 @@ impl IContactQueryOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOrderBy(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactQueryOptions>, ::windows::core::GetTrustLevel, DesiredFields::<Impl, IMPL_OFFSET>, OrderBy::<Impl, IMPL_OFFSET>, SetOrderBy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactQueryOptions, BASE_OFFSET>(),
+            DesiredFields: DesiredFields::<Impl, IMPL_OFFSET>,
+            OrderBy: OrderBy::<Impl, IMPL_OFFSET>,
+            SetOrderBy: SetOrderBy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactQueryOptions as ::windows::core::Interface>::IID
@@ -540,7 +548,13 @@ impl IContactQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactQueryResult>, ::windows::core::GetTrustLevel, GetContactCountAsync::<Impl, IMPL_OFFSET>, GetContactsAsync::<Impl, IMPL_OFFSET>, GetContactsAsyncInRange::<Impl, IMPL_OFFSET>, GetCurrentQueryOptions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactQueryResult, BASE_OFFSET>(),
+            GetContactCountAsync: GetContactCountAsync::<Impl, IMPL_OFFSET>,
+            GetContactsAsync: GetContactsAsync::<Impl, IMPL_OFFSET>,
+            GetContactsAsyncInRange: GetContactsAsyncInRange::<Impl, IMPL_OFFSET>,
+            GetCurrentQueryOptions: GetCurrentQueryOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactQueryResult as ::windows::core::Interface>::IID
@@ -676,24 +690,19 @@ impl IContactStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IContactStore>,
-            ::windows::core::GetTrustLevel,
-            FindContactByRemoteIdAsync::<Impl, IMPL_OFFSET>,
-            FindContactByIdAsync::<Impl, IMPL_OFFSET>,
-            DeleteContactAsync::<Impl, IMPL_OFFSET>,
-            CreateContactQueryDefault::<Impl, IMPL_OFFSET>,
-            CreateContactQueryWithOptions::<Impl, IMPL_OFFSET>,
-            DeleteAsync::<Impl, IMPL_OFFSET>,
-            RevisionNumber::<Impl, IMPL_OFFSET>,
-            GetChangesAsync::<Impl, IMPL_OFFSET>,
-            LoadExtendedPropertiesAsync::<Impl, IMPL_OFFSET>,
-            SaveExtendedPropertiesAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactStore, BASE_OFFSET>(),
+            FindContactByRemoteIdAsync: FindContactByRemoteIdAsync::<Impl, IMPL_OFFSET>,
+            FindContactByIdAsync: FindContactByIdAsync::<Impl, IMPL_OFFSET>,
+            DeleteContactAsync: DeleteContactAsync::<Impl, IMPL_OFFSET>,
+            CreateContactQueryDefault: CreateContactQueryDefault::<Impl, IMPL_OFFSET>,
+            CreateContactQueryWithOptions: CreateContactQueryWithOptions::<Impl, IMPL_OFFSET>,
+            DeleteAsync: DeleteAsync::<Impl, IMPL_OFFSET>,
+            RevisionNumber: RevisionNumber::<Impl, IMPL_OFFSET>,
+            GetChangesAsync: GetChangesAsync::<Impl, IMPL_OFFSET>,
+            LoadExtendedPropertiesAsync: LoadExtendedPropertiesAsync::<Impl, IMPL_OFFSET>,
+            SaveExtendedPropertiesAsync: SaveExtendedPropertiesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactStore as ::windows::core::Interface>::IID
@@ -721,7 +730,10 @@ impl IContactStore2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactStore2>, ::windows::core::GetTrustLevel, CreateMeContactAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactStore2, BASE_OFFSET>(),
+            CreateMeContactAsync: CreateMeContactAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactStore2 as ::windows::core::Interface>::IID
@@ -761,7 +773,11 @@ impl IContactStoreStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactStoreStatics>, ::windows::core::GetTrustLevel, CreateOrOpenAsync::<Impl, IMPL_OFFSET>, CreateOrOpenWithOptionsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactStoreStatics, BASE_OFFSET>(),
+            CreateOrOpenAsync: CreateOrOpenAsync::<Impl, IMPL_OFFSET>,
+            CreateOrOpenWithOptionsAsync: CreateOrOpenWithOptionsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactStoreStatics as ::windows::core::Interface>::IID
@@ -1197,49 +1213,44 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IKnownContactPropertiesStatics>,
-            ::windows::core::GetTrustLevel,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            FamilyName::<Impl, IMPL_OFFSET>,
-            GivenName::<Impl, IMPL_OFFSET>,
-            HonorificPrefix::<Impl, IMPL_OFFSET>,
-            HonorificSuffix::<Impl, IMPL_OFFSET>,
-            AdditionalName::<Impl, IMPL_OFFSET>,
-            Address::<Impl, IMPL_OFFSET>,
-            OtherAddress::<Impl, IMPL_OFFSET>,
-            Email::<Impl, IMPL_OFFSET>,
-            WorkAddress::<Impl, IMPL_OFFSET>,
-            WorkTelephone::<Impl, IMPL_OFFSET>,
-            JobTitle::<Impl, IMPL_OFFSET>,
-            Birthdate::<Impl, IMPL_OFFSET>,
-            Anniversary::<Impl, IMPL_OFFSET>,
-            Telephone::<Impl, IMPL_OFFSET>,
-            MobileTelephone::<Impl, IMPL_OFFSET>,
-            Url::<Impl, IMPL_OFFSET>,
-            Notes::<Impl, IMPL_OFFSET>,
-            WorkFax::<Impl, IMPL_OFFSET>,
-            Children::<Impl, IMPL_OFFSET>,
-            SignificantOther::<Impl, IMPL_OFFSET>,
-            CompanyName::<Impl, IMPL_OFFSET>,
-            CompanyTelephone::<Impl, IMPL_OFFSET>,
-            HomeFax::<Impl, IMPL_OFFSET>,
-            AlternateTelephone::<Impl, IMPL_OFFSET>,
-            Manager::<Impl, IMPL_OFFSET>,
-            Nickname::<Impl, IMPL_OFFSET>,
-            OfficeLocation::<Impl, IMPL_OFFSET>,
-            WorkEmail::<Impl, IMPL_OFFSET>,
-            YomiGivenName::<Impl, IMPL_OFFSET>,
-            YomiFamilyName::<Impl, IMPL_OFFSET>,
-            YomiCompanyName::<Impl, IMPL_OFFSET>,
-            OtherEmail::<Impl, IMPL_OFFSET>,
-            AlternateMobileTelephone::<Impl, IMPL_OFFSET>,
-            AlternateWorkTelephone::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownContactPropertiesStatics, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            FamilyName: FamilyName::<Impl, IMPL_OFFSET>,
+            GivenName: GivenName::<Impl, IMPL_OFFSET>,
+            HonorificPrefix: HonorificPrefix::<Impl, IMPL_OFFSET>,
+            HonorificSuffix: HonorificSuffix::<Impl, IMPL_OFFSET>,
+            AdditionalName: AdditionalName::<Impl, IMPL_OFFSET>,
+            Address: Address::<Impl, IMPL_OFFSET>,
+            OtherAddress: OtherAddress::<Impl, IMPL_OFFSET>,
+            Email: Email::<Impl, IMPL_OFFSET>,
+            WorkAddress: WorkAddress::<Impl, IMPL_OFFSET>,
+            WorkTelephone: WorkTelephone::<Impl, IMPL_OFFSET>,
+            JobTitle: JobTitle::<Impl, IMPL_OFFSET>,
+            Birthdate: Birthdate::<Impl, IMPL_OFFSET>,
+            Anniversary: Anniversary::<Impl, IMPL_OFFSET>,
+            Telephone: Telephone::<Impl, IMPL_OFFSET>,
+            MobileTelephone: MobileTelephone::<Impl, IMPL_OFFSET>,
+            Url: Url::<Impl, IMPL_OFFSET>,
+            Notes: Notes::<Impl, IMPL_OFFSET>,
+            WorkFax: WorkFax::<Impl, IMPL_OFFSET>,
+            Children: Children::<Impl, IMPL_OFFSET>,
+            SignificantOther: SignificantOther::<Impl, IMPL_OFFSET>,
+            CompanyName: CompanyName::<Impl, IMPL_OFFSET>,
+            CompanyTelephone: CompanyTelephone::<Impl, IMPL_OFFSET>,
+            HomeFax: HomeFax::<Impl, IMPL_OFFSET>,
+            AlternateTelephone: AlternateTelephone::<Impl, IMPL_OFFSET>,
+            Manager: Manager::<Impl, IMPL_OFFSET>,
+            Nickname: Nickname::<Impl, IMPL_OFFSET>,
+            OfficeLocation: OfficeLocation::<Impl, IMPL_OFFSET>,
+            WorkEmail: WorkEmail::<Impl, IMPL_OFFSET>,
+            YomiGivenName: YomiGivenName::<Impl, IMPL_OFFSET>,
+            YomiFamilyName: YomiFamilyName::<Impl, IMPL_OFFSET>,
+            YomiCompanyName: YomiCompanyName::<Impl, IMPL_OFFSET>,
+            OtherEmail: OtherEmail::<Impl, IMPL_OFFSET>,
+            AlternateMobileTelephone: AlternateMobileTelephone::<Impl, IMPL_OFFSET>,
+            AlternateWorkTelephone: AlternateWorkTelephone::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownContactPropertiesStatics as ::windows::core::Interface>::IID
@@ -1332,21 +1343,16 @@ impl IStoredContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStoredContact>,
-            ::windows::core::GetTrustLevel,
-            Store::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            RemoteId::<Impl, IMPL_OFFSET>,
-            SetRemoteId::<Impl, IMPL_OFFSET>,
-            GetExtendedPropertiesAsync::<Impl, IMPL_OFFSET>,
-            SaveAsync::<Impl, IMPL_OFFSET>,
-            ReplaceExistingContactAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoredContact, BASE_OFFSET>(),
+            Store: Store::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            RemoteId: RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId: SetRemoteId::<Impl, IMPL_OFFSET>,
+            GetExtendedPropertiesAsync: GetExtendedPropertiesAsync::<Impl, IMPL_OFFSET>,
+            SaveAsync: SaveAsync::<Impl, IMPL_OFFSET>,
+            ReplaceExistingContactAsync: ReplaceExistingContactAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoredContact as ::windows::core::Interface>::IID
@@ -1386,7 +1392,11 @@ impl IStoredContactFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoredContactFactory>, ::windows::core::GetTrustLevel, CreateStoredContact::<Impl, IMPL_OFFSET>, CreateStoredContactFromInformation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoredContactFactory, BASE_OFFSET>(),
+            CreateStoredContact: CreateStoredContact::<Impl, IMPL_OFFSET>,
+            CreateStoredContactFromInformation: CreateStoredContactFromInformation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoredContactFactory as ::windows::core::Interface>::IID

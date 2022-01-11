@@ -56,7 +56,13 @@ impl IInstalledDesktopAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledDesktopApp>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, Publisher::<Impl, IMPL_OFFSET>, DisplayVersion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInstalledDesktopApp, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            Publisher: Publisher::<Impl, IMPL_OFFSET>,
+            DisplayVersion: DisplayVersion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstalledDesktopApp as ::windows::core::Interface>::IID
@@ -84,7 +90,10 @@ impl IInstalledDesktopAppStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledDesktopAppStatics>, ::windows::core::GetTrustLevel, GetInventoryAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInstalledDesktopAppStatics, BASE_OFFSET>(),
+            GetInventoryAsync: GetInventoryAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstalledDesktopAppStatics as ::windows::core::Interface>::IID

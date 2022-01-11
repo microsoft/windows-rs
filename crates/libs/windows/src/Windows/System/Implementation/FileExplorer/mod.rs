@@ -8,15 +8,10 @@ unsafe impl ::windows::core::Interface for ISysStorageProviderEventReceivedEvent
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISysStorageProviderEventReceivedEventArgsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-);
+pub struct ISysStorageProviderEventReceivedEventArgsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Json: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISysStorageProviderEventReceivedEventArgsFactory(::windows::core::IUnknown);
@@ -26,15 +21,10 @@ unsafe impl ::windows::core::Interface for ISysStorageProviderEventReceivedEvent
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISysStorageProviderEventReceivedEventArgsFactoryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, json: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ISysStorageProviderEventReceivedEventArgsFactoryVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, json: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
 #[repr(transparent)]
 pub struct ISysStorageProviderEventSource(::windows::core::IUnknown);
@@ -45,14 +35,14 @@ impl ISysStorageProviderEventSource {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).EventReceived)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'System_Implementation_FileExplorer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEventReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEventReceived)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::convert::From<ISysStorageProviderEventSource> for ::windows::core::IInspectable {
@@ -120,18 +110,17 @@ unsafe impl ::windows::core::Interface for ISysStorageProviderEventSource {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISysStorageProviderEventSourceVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct ISysStorageProviderEventSourceVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub EventReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    EventReceived: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveEventReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveEventReceived: usize,
+}
 #[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
 #[repr(transparent)]
 pub struct ISysStorageProviderHandlerFactory(::windows::core::IUnknown);
@@ -141,7 +130,7 @@ impl ISysStorageProviderHandlerFactory {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), syncrootid.into_param().abi(), &mut result__).from_abi::<ISysStorageProviderHttpRequestProvider>(result__)
+            (::windows::core::Interface::vtable(this).GetHttpRequestProvider)(::core::mem::transmute_copy(this), syncrootid.into_param().abi(), &mut result__).from_abi::<ISysStorageProviderHttpRequestProvider>(result__)
         }
     }
     #[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
@@ -149,7 +138,7 @@ impl ISysStorageProviderHandlerFactory {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), syncrootid.into_param().abi(), eventname.into_param().abi(), &mut result__).from_abi::<ISysStorageProviderEventSource>(result__)
+            (::windows::core::Interface::vtable(this).GetEventSource)(::core::mem::transmute_copy(this), syncrootid.into_param().abi(), eventname.into_param().abi(), &mut result__).from_abi::<ISysStorageProviderEventSource>(result__)
         }
     }
 }
@@ -218,16 +207,11 @@ unsafe impl ::windows::core::Interface for ISysStorageProviderHandlerFactory {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISysStorageProviderHandlerFactoryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ISysStorageProviderHandlerFactoryVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub GetHttpRequestProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetEventSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
 #[repr(transparent)]
 pub struct ISysStorageProviderHttpRequestProvider(::windows::core::IUnknown);
@@ -238,7 +222,7 @@ impl ISysStorageProviderHttpRequestProvider {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>(result__)
+            (::windows::core::Interface::vtable(this).SendRequestAsync)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>(result__)
         }
     }
 }
@@ -307,16 +291,13 @@ unsafe impl ::windows::core::Interface for ISysStorageProviderHttpRequestProvide
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISysStorageProviderHttpRequestProviderVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Web_Http"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Web_Http")))] usize,
-);
+pub struct ISysStorageProviderHttpRequestProviderVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
+    pub SendRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Web_Http")))]
+    SendRequestAsync: usize,
+}
 #[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
 #[repr(transparent)]
 pub struct SysStorageProviderEventReceivedEventArgs(::windows::core::IUnknown);
@@ -326,14 +307,14 @@ impl SysStorageProviderEventReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Json)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(json: Param0) -> ::windows::core::Result<SysStorageProviderEventReceivedEventArgs> {
         Self::ISysStorageProviderEventReceivedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), json.into_param().abi(), &mut result__).from_abi::<SysStorageProviderEventReceivedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), json.into_param().abi(), &mut result__).from_abi::<SysStorageProviderEventReceivedEventArgs>(result__)
         })
     }
     #[doc(hidden)]

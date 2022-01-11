@@ -54,7 +54,14 @@ impl ICompositorControllerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCommitNeeded(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositorController>, ::windows::core::GetTrustLevel, Compositor::<Impl, IMPL_OFFSET>, Commit::<Impl, IMPL_OFFSET>, EnsurePreviousCommitCompletedAsync::<Impl, IMPL_OFFSET>, CommitNeeded::<Impl, IMPL_OFFSET>, RemoveCommitNeeded::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositorController, BASE_OFFSET>(),
+            Compositor: Compositor::<Impl, IMPL_OFFSET>,
+            Commit: Commit::<Impl, IMPL_OFFSET>,
+            EnsurePreviousCommitCompletedAsync: EnsurePreviousCommitCompletedAsync::<Impl, IMPL_OFFSET>,
+            CommitNeeded: CommitNeeded::<Impl, IMPL_OFFSET>,
+            RemoveCommitNeeded: RemoveCommitNeeded::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompositorController as ::windows::core::Interface>::IID

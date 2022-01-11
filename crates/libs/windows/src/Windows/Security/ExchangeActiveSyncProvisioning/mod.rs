@@ -15,7 +15,7 @@ impl EasClientDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -23,7 +23,7 @@ impl EasClientDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).OperatingSystem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -31,7 +31,7 @@ impl EasClientDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FriendlyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -39,7 +39,7 @@ impl EasClientDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SystemManufacturer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -47,7 +47,7 @@ impl EasClientDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SystemProductName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -55,7 +55,7 @@ impl EasClientDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SystemSku)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -63,7 +63,7 @@ impl EasClientDeviceInformation {
         let this = &::windows::core::Interface::cast::<IEasClientDeviceInformation2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SystemHardwareVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -71,7 +71,7 @@ impl EasClientDeviceInformation {
         let this = &::windows::core::Interface::cast::<IEasClientDeviceInformation2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SystemFirmwareVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -157,52 +157,52 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).RequireEncryption)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
     pub fn SetRequireEncryption(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequireEncryption)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
     pub fn MinPasswordLength(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).MinPasswordLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
     pub fn SetMinPasswordLength(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMinPasswordLength)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
     pub fn DisallowConvenienceLogon(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).DisallowConvenienceLogon)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
     pub fn SetDisallowConvenienceLogon(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisallowConvenienceLogon)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
     pub fn MinPasswordComplexCharacters(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).MinPasswordComplexCharacters)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
     pub fn SetMinPasswordComplexCharacters(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMinPasswordComplexCharacters)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
@@ -210,40 +210,40 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).PasswordExpiration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPasswordExpiration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPasswordExpiration)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
     pub fn PasswordHistory(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).PasswordHistory)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
     pub fn SetPasswordHistory(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPasswordHistory)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
     pub fn MaxPasswordFailedAttempts(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).MaxPasswordFailedAttempts)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
     pub fn SetMaxPasswordFailedAttempts(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxPasswordFailedAttempts)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
@@ -251,21 +251,21 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).MaxInactivityTimeLock)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxInactivityTimeLock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxInactivityTimeLock)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
     pub fn CheckCompliance(&self) -> ::windows::core::Result<EasComplianceResults> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasComplianceResults>(result__)
+            (::windows::core::Interface::vtable(this).CheckCompliance)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasComplianceResults>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning', 'Foundation'*"]
@@ -274,7 +274,7 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<EasComplianceResults>>(result__)
+            (::windows::core::Interface::vtable(this).ApplyAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<EasComplianceResults>>(result__)
         }
     }
 }
@@ -353,7 +353,7 @@ impl EasComplianceResults {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Compliant)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -361,7 +361,7 @@ impl EasComplianceResults {
         let this = self;
         unsafe {
             let mut result__: EasRequireEncryptionResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasRequireEncryptionResult>(result__)
+            (::windows::core::Interface::vtable(this).RequireEncryptionResult)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasRequireEncryptionResult>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -369,7 +369,7 @@ impl EasComplianceResults {
         let this = self;
         unsafe {
             let mut result__: EasMinPasswordLengthResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasMinPasswordLengthResult>(result__)
+            (::windows::core::Interface::vtable(this).MinPasswordLengthResult)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasMinPasswordLengthResult>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -377,7 +377,7 @@ impl EasComplianceResults {
         let this = self;
         unsafe {
             let mut result__: EasDisallowConvenienceLogonResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasDisallowConvenienceLogonResult>(result__)
+            (::windows::core::Interface::vtable(this).DisallowConvenienceLogonResult)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasDisallowConvenienceLogonResult>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -385,7 +385,7 @@ impl EasComplianceResults {
         let this = self;
         unsafe {
             let mut result__: EasMinPasswordComplexCharactersResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasMinPasswordComplexCharactersResult>(result__)
+            (::windows::core::Interface::vtable(this).MinPasswordComplexCharactersResult)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasMinPasswordComplexCharactersResult>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -393,7 +393,7 @@ impl EasComplianceResults {
         let this = self;
         unsafe {
             let mut result__: EasPasswordExpirationResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasPasswordExpirationResult>(result__)
+            (::windows::core::Interface::vtable(this).PasswordExpirationResult)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasPasswordExpirationResult>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -401,7 +401,7 @@ impl EasComplianceResults {
         let this = self;
         unsafe {
             let mut result__: EasPasswordHistoryResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasPasswordHistoryResult>(result__)
+            (::windows::core::Interface::vtable(this).PasswordHistoryResult)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasPasswordHistoryResult>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -409,7 +409,7 @@ impl EasComplianceResults {
         let this = self;
         unsafe {
             let mut result__: EasMaxPasswordFailedAttemptsResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasMaxPasswordFailedAttemptsResult>(result__)
+            (::windows::core::Interface::vtable(this).MaxPasswordFailedAttemptsResult)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasMaxPasswordFailedAttemptsResult>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -417,7 +417,7 @@ impl EasComplianceResults {
         let this = self;
         unsafe {
             let mut result__: EasMaxInactivityTimeLockResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasMaxInactivityTimeLockResult>(result__)
+            (::windows::core::Interface::vtable(this).MaxInactivityTimeLockResult)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasMaxInactivityTimeLockResult>(result__)
         }
     }
     #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -425,7 +425,7 @@ impl EasComplianceResults {
         let this = &::windows::core::Interface::cast::<IEasComplianceResults2>(self)?;
         unsafe {
             let mut result__: EasEncryptionProviderType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasEncryptionProviderType>(result__)
+            (::windows::core::Interface::vtable(this).EncryptionProviderType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasEncryptionProviderType>(result__)
         }
     }
 }
@@ -863,20 +863,15 @@ unsafe impl ::windows::core::Interface for IEasClientDeviceInformation {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasClientDeviceInformationVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-);
+pub struct IEasClientDeviceInformationVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub OperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SystemManufacturer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SystemProductName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SystemSku: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEasClientDeviceInformation2(::windows::core::IUnknown);
@@ -886,16 +881,11 @@ unsafe impl ::windows::core::Interface for IEasClientDeviceInformation2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasClientDeviceInformation2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-);
+pub struct IEasClientDeviceInformation2Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub SystemHardwareVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SystemFirmwareVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEasClientSecurityPolicy(::windows::core::IUnknown);
@@ -905,37 +895,42 @@ unsafe impl ::windows::core::Interface for IEasClientSecurityPolicy {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasClientSecurityPolicyVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct IEasClientSecurityPolicyVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub RequireEncryption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetRequireEncryption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub MinPasswordLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
+    pub SetMinPasswordLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
+    pub DisallowConvenienceLogon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetDisallowConvenienceLogon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub MinPasswordComplexCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
+    pub SetMinPasswordComplexCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub PasswordExpiration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PasswordExpiration: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetPasswordExpiration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetPasswordExpiration: usize,
+    pub PasswordHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub SetPasswordHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
+    pub MaxPasswordFailedAttempts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
+    pub SetMaxPasswordFailedAttempts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub MaxInactivityTimeLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    MaxInactivityTimeLock: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetMaxInactivityTimeLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetMaxInactivityTimeLock: usize,
+    pub CheckCompliance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ApplyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ApplyAsync: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEasComplianceResults(::windows::core::IUnknown);
@@ -945,23 +940,18 @@ unsafe impl ::windows::core::Interface for IEasComplianceResults {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasComplianceResultsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasRequireEncryptionResult) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMinPasswordLengthResult) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasDisallowConvenienceLogonResult) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMinPasswordComplexCharactersResult) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasPasswordExpirationResult) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasPasswordHistoryResult) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMaxPasswordFailedAttemptsResult) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMaxInactivityTimeLockResult) -> ::windows::core::HRESULT,
-);
+pub struct IEasComplianceResultsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Compliant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub RequireEncryptionResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasRequireEncryptionResult) -> ::windows::core::HRESULT,
+    pub MinPasswordLengthResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMinPasswordLengthResult) -> ::windows::core::HRESULT,
+    pub DisallowConvenienceLogonResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasDisallowConvenienceLogonResult) -> ::windows::core::HRESULT,
+    pub MinPasswordComplexCharactersResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMinPasswordComplexCharactersResult) -> ::windows::core::HRESULT,
+    pub PasswordExpirationResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasPasswordExpirationResult) -> ::windows::core::HRESULT,
+    pub PasswordHistoryResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasPasswordHistoryResult) -> ::windows::core::HRESULT,
+    pub MaxPasswordFailedAttemptsResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMaxPasswordFailedAttemptsResult) -> ::windows::core::HRESULT,
+    pub MaxInactivityTimeLockResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMaxInactivityTimeLockResult) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEasComplianceResults2(::windows::core::IUnknown);
@@ -971,14 +961,9 @@ unsafe impl ::windows::core::Interface for IEasComplianceResults2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasComplianceResults2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasEncryptionProviderType) -> ::windows::core::HRESULT,
-);
+pub struct IEasComplianceResults2Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub EncryptionProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasEncryptionProviderType) -> ::windows::core::HRESULT,
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -32,7 +32,11 @@ impl IBufferProtectUnprotectResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBufferProtectUnprotectResult>, ::windows::core::GetTrustLevel, Buffer::<Impl, IMPL_OFFSET>, ProtectionInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBufferProtectUnprotectResult, BASE_OFFSET>(),
+            Buffer: Buffer::<Impl, IMPL_OFFSET>,
+            ProtectionInfo: ProtectionInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBufferProtectUnprotectResult as ::windows::core::Interface>::IID
@@ -72,7 +76,11 @@ impl IDataProtectionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataProtectionInfo>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Identity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataProtectionInfo, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Identity: Identity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataProtectionInfo as ::windows::core::Interface>::IID
@@ -164,20 +172,15 @@ impl IDataProtectionManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDataProtectionManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            ProtectAsync::<Impl, IMPL_OFFSET>,
-            UnprotectAsync::<Impl, IMPL_OFFSET>,
-            ProtectStreamAsync::<Impl, IMPL_OFFSET>,
-            UnprotectStreamAsync::<Impl, IMPL_OFFSET>,
-            GetProtectionInfoAsync::<Impl, IMPL_OFFSET>,
-            GetStreamProtectionInfoAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataProtectionManagerStatics, BASE_OFFSET>(),
+            ProtectAsync: ProtectAsync::<Impl, IMPL_OFFSET>,
+            UnprotectAsync: UnprotectAsync::<Impl, IMPL_OFFSET>,
+            ProtectStreamAsync: ProtectStreamAsync::<Impl, IMPL_OFFSET>,
+            UnprotectStreamAsync: UnprotectStreamAsync::<Impl, IMPL_OFFSET>,
+            GetProtectionInfoAsync: GetProtectionInfoAsync::<Impl, IMPL_OFFSET>,
+            GetStreamProtectionInfoAsync: GetStreamProtectionInfoAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataProtectionManagerStatics as ::windows::core::Interface>::IID
@@ -229,7 +232,12 @@ impl IFileProtectionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileProtectionInfo>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, IsRoamable::<Impl, IMPL_OFFSET>, Identity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileProtectionInfo, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            IsRoamable: IsRoamable::<Impl, IMPL_OFFSET>,
+            Identity: Identity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileProtectionInfo as ::windows::core::Interface>::IID
@@ -257,7 +265,10 @@ impl IFileProtectionInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileProtectionInfo2>, ::windows::core::GetTrustLevel, IsProtectWhileOpenSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileProtectionInfo2, BASE_OFFSET>(),
+            IsProtectWhileOpenSupported: IsProtectWhileOpenSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileProtectionInfo2 as ::windows::core::Interface>::IID
@@ -362,21 +373,16 @@ impl IFileProtectionManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFileProtectionManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            ProtectAsync::<Impl, IMPL_OFFSET>,
-            CopyProtectionAsync::<Impl, IMPL_OFFSET>,
-            GetProtectionInfoAsync::<Impl, IMPL_OFFSET>,
-            SaveFileAsContainerAsync::<Impl, IMPL_OFFSET>,
-            LoadFileFromContainerAsync::<Impl, IMPL_OFFSET>,
-            LoadFileFromContainerWithTargetAsync::<Impl, IMPL_OFFSET>,
-            CreateProtectedAndOpenAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileProtectionManagerStatics, BASE_OFFSET>(),
+            ProtectAsync: ProtectAsync::<Impl, IMPL_OFFSET>,
+            CopyProtectionAsync: CopyProtectionAsync::<Impl, IMPL_OFFSET>,
+            GetProtectionInfoAsync: GetProtectionInfoAsync::<Impl, IMPL_OFFSET>,
+            SaveFileAsContainerAsync: SaveFileAsContainerAsync::<Impl, IMPL_OFFSET>,
+            LoadFileFromContainerAsync: LoadFileFromContainerAsync::<Impl, IMPL_OFFSET>,
+            LoadFileFromContainerWithTargetAsync: LoadFileFromContainerWithTargetAsync::<Impl, IMPL_OFFSET>,
+            CreateProtectedAndOpenAsync: CreateProtectedAndOpenAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileProtectionManagerStatics as ::windows::core::Interface>::IID
@@ -428,7 +434,12 @@ impl IFileProtectionManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileProtectionManagerStatics2>, ::windows::core::GetTrustLevel, IsContainerAsync::<Impl, IMPL_OFFSET>, LoadFileFromContainerWithTargetAndNameCollisionOptionAsync::<Impl, IMPL_OFFSET>, SaveFileAsContainerWithSharingAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileProtectionManagerStatics2, BASE_OFFSET>(),
+            IsContainerAsync: IsContainerAsync::<Impl, IMPL_OFFSET>,
+            LoadFileFromContainerWithTargetAndNameCollisionOptionAsync: LoadFileFromContainerWithTargetAndNameCollisionOptionAsync::<Impl, IMPL_OFFSET>,
+            SaveFileAsContainerWithSharingAsync: SaveFileAsContainerWithSharingAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileProtectionManagerStatics2 as ::windows::core::Interface>::IID
@@ -468,7 +479,11 @@ impl IFileProtectionManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileProtectionManagerStatics3>, ::windows::core::GetTrustLevel, UnprotectAsync::<Impl, IMPL_OFFSET>, UnprotectWithOptionsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileProtectionManagerStatics3, BASE_OFFSET>(),
+            UnprotectAsync: UnprotectAsync::<Impl, IMPL_OFFSET>,
+            UnprotectWithOptionsAsync: UnprotectWithOptionsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileProtectionManagerStatics3 as ::windows::core::Interface>::IID
@@ -525,7 +540,13 @@ impl IFileRevocationManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileRevocationManagerStatics>, ::windows::core::GetTrustLevel, ProtectAsync::<Impl, IMPL_OFFSET>, CopyProtectionAsync::<Impl, IMPL_OFFSET>, Revoke::<Impl, IMPL_OFFSET>, GetStatusAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileRevocationManagerStatics, BASE_OFFSET>(),
+            ProtectAsync: ProtectAsync::<Impl, IMPL_OFFSET>,
+            CopyProtectionAsync: CopyProtectionAsync::<Impl, IMPL_OFFSET>,
+            Revoke: Revoke::<Impl, IMPL_OFFSET>,
+            GetStatusAsync: GetStatusAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileRevocationManagerStatics as ::windows::core::Interface>::IID
@@ -558,7 +579,11 @@ impl IFileUnprotectOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileUnprotectOptions>, ::windows::core::GetTrustLevel, SetAudit::<Impl, IMPL_OFFSET>, Audit::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileUnprotectOptions, BASE_OFFSET>(),
+            SetAudit: SetAudit::<Impl, IMPL_OFFSET>,
+            Audit: Audit::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileUnprotectOptions as ::windows::core::Interface>::IID
@@ -586,7 +611,7 @@ impl IFileUnprotectOptionsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileUnprotectOptionsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFileUnprotectOptionsFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileUnprotectOptionsFactory as ::windows::core::Interface>::IID
@@ -614,7 +639,10 @@ impl IProtectedAccessResumedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedAccessResumedEventArgs>, ::windows::core::GetTrustLevel, Identities::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectedAccessResumedEventArgs, BASE_OFFSET>(),
+            Identities: Identities::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectedAccessResumedEventArgs as ::windows::core::Interface>::IID
@@ -666,7 +694,12 @@ impl IProtectedAccessSuspendingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedAccessSuspendingEventArgs>, ::windows::core::GetTrustLevel, Identities::<Impl, IMPL_OFFSET>, Deadline::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectedAccessSuspendingEventArgs, BASE_OFFSET>(),
+            Identities: Identities::<Impl, IMPL_OFFSET>,
+            Deadline: Deadline::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectedAccessSuspendingEventArgs as ::windows::core::Interface>::IID
@@ -706,7 +739,11 @@ impl IProtectedContainerExportResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedContainerExportResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, File::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectedContainerExportResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            File: File::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectedContainerExportResult as ::windows::core::Interface>::IID
@@ -746,7 +783,11 @@ impl IProtectedContainerImportResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedContainerImportResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, File::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectedContainerImportResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            File: File::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectedContainerImportResult as ::windows::core::Interface>::IID
@@ -774,7 +815,10 @@ impl IProtectedContentRevokedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedContentRevokedEventArgs>, ::windows::core::GetTrustLevel, Identities::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectedContentRevokedEventArgs, BASE_OFFSET>(),
+            Identities: Identities::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectedContentRevokedEventArgs as ::windows::core::Interface>::IID
@@ -826,7 +870,12 @@ impl IProtectedFileCreateResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedFileCreateResult>, ::windows::core::GetTrustLevel, File::<Impl, IMPL_OFFSET>, Stream::<Impl, IMPL_OFFSET>, ProtectionInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectedFileCreateResult, BASE_OFFSET>(),
+            File: File::<Impl, IMPL_OFFSET>,
+            Stream: Stream::<Impl, IMPL_OFFSET>,
+            ProtectionInfo: ProtectionInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectedFileCreateResult as ::windows::core::Interface>::IID
@@ -910,22 +959,17 @@ impl IProtectionPolicyAuditInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProtectionPolicyAuditInfo>,
-            ::windows::core::GetTrustLevel,
-            SetAction::<Impl, IMPL_OFFSET>,
-            Action::<Impl, IMPL_OFFSET>,
-            SetDataDescription::<Impl, IMPL_OFFSET>,
-            DataDescription::<Impl, IMPL_OFFSET>,
-            SetSourceDescription::<Impl, IMPL_OFFSET>,
-            SourceDescription::<Impl, IMPL_OFFSET>,
-            SetTargetDescription::<Impl, IMPL_OFFSET>,
-            TargetDescription::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyAuditInfo, BASE_OFFSET>(),
+            SetAction: SetAction::<Impl, IMPL_OFFSET>,
+            Action: Action::<Impl, IMPL_OFFSET>,
+            SetDataDescription: SetDataDescription::<Impl, IMPL_OFFSET>,
+            DataDescription: DataDescription::<Impl, IMPL_OFFSET>,
+            SetSourceDescription: SetSourceDescription::<Impl, IMPL_OFFSET>,
+            SourceDescription: SourceDescription::<Impl, IMPL_OFFSET>,
+            SetTargetDescription: SetTargetDescription::<Impl, IMPL_OFFSET>,
+            TargetDescription: TargetDescription::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectionPolicyAuditInfo as ::windows::core::Interface>::IID
@@ -970,7 +1014,11 @@ impl IProtectionPolicyAuditInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionPolicyAuditInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithActionAndDataDescription::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyAuditInfoFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithActionAndDataDescription: CreateWithActionAndDataDescription::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectionPolicyAuditInfoFactory as ::windows::core::Interface>::IID
@@ -1003,7 +1051,11 @@ impl IProtectionPolicyManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionPolicyManager>, ::windows::core::GetTrustLevel, SetIdentity::<Impl, IMPL_OFFSET>, Identity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManager, BASE_OFFSET>(),
+            SetIdentity: SetIdentity::<Impl, IMPL_OFFSET>,
+            Identity: Identity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectionPolicyManager as ::windows::core::Interface>::IID
@@ -1036,7 +1088,11 @@ impl IProtectionPolicyManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionPolicyManager2>, ::windows::core::GetTrustLevel, SetShowEnterpriseIndicator::<Impl, IMPL_OFFSET>, ShowEnterpriseIndicator::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManager2, BASE_OFFSET>(),
+            SetShowEnterpriseIndicator: SetShowEnterpriseIndicator::<Impl, IMPL_OFFSET>,
+            ShowEnterpriseIndicator: ShowEnterpriseIndicator::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectionPolicyManager2 as ::windows::core::Interface>::IID
@@ -1197,29 +1253,24 @@ impl IProtectionPolicyManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProtectionPolicyManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            IsIdentityManaged::<Impl, IMPL_OFFSET>,
-            TryApplyProcessUIPolicy::<Impl, IMPL_OFFSET>,
-            ClearProcessUIPolicy::<Impl, IMPL_OFFSET>,
-            CreateCurrentThreadNetworkContext::<Impl, IMPL_OFFSET>,
-            GetPrimaryManagedIdentityForNetworkEndpointAsync::<Impl, IMPL_OFFSET>,
-            RevokeContent::<Impl, IMPL_OFFSET>,
-            GetForCurrentView::<Impl, IMPL_OFFSET>,
-            ProtectedAccessSuspending::<Impl, IMPL_OFFSET>,
-            RemoveProtectedAccessSuspending::<Impl, IMPL_OFFSET>,
-            ProtectedAccessResumed::<Impl, IMPL_OFFSET>,
-            RemoveProtectedAccessResumed::<Impl, IMPL_OFFSET>,
-            ProtectedContentRevoked::<Impl, IMPL_OFFSET>,
-            RemoveProtectedContentRevoked::<Impl, IMPL_OFFSET>,
-            CheckAccess::<Impl, IMPL_OFFSET>,
-            RequestAccessAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManagerStatics, BASE_OFFSET>(),
+            IsIdentityManaged: IsIdentityManaged::<Impl, IMPL_OFFSET>,
+            TryApplyProcessUIPolicy: TryApplyProcessUIPolicy::<Impl, IMPL_OFFSET>,
+            ClearProcessUIPolicy: ClearProcessUIPolicy::<Impl, IMPL_OFFSET>,
+            CreateCurrentThreadNetworkContext: CreateCurrentThreadNetworkContext::<Impl, IMPL_OFFSET>,
+            GetPrimaryManagedIdentityForNetworkEndpointAsync: GetPrimaryManagedIdentityForNetworkEndpointAsync::<Impl, IMPL_OFFSET>,
+            RevokeContent: RevokeContent::<Impl, IMPL_OFFSET>,
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+            ProtectedAccessSuspending: ProtectedAccessSuspending::<Impl, IMPL_OFFSET>,
+            RemoveProtectedAccessSuspending: RemoveProtectedAccessSuspending::<Impl, IMPL_OFFSET>,
+            ProtectedAccessResumed: ProtectedAccessResumed::<Impl, IMPL_OFFSET>,
+            RemoveProtectedAccessResumed: RemoveProtectedAccessResumed::<Impl, IMPL_OFFSET>,
+            ProtectedContentRevoked: ProtectedContentRevoked::<Impl, IMPL_OFFSET>,
+            RemoveProtectedContentRevoked: RemoveProtectedContentRevoked::<Impl, IMPL_OFFSET>,
+            CheckAccess: CheckAccess::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectionPolicyManagerStatics as ::windows::core::Interface>::IID
@@ -1336,23 +1387,18 @@ impl IProtectionPolicyManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProtectionPolicyManagerStatics2>,
-            ::windows::core::GetTrustLevel,
-            HasContentBeenRevokedSince::<Impl, IMPL_OFFSET>,
-            CheckAccessForApp::<Impl, IMPL_OFFSET>,
-            RequestAccessForAppAsync::<Impl, IMPL_OFFSET>,
-            GetEnforcementLevel::<Impl, IMPL_OFFSET>,
-            IsUserDecryptionAllowed::<Impl, IMPL_OFFSET>,
-            IsProtectionUnderLockRequired::<Impl, IMPL_OFFSET>,
-            PolicyChanged::<Impl, IMPL_OFFSET>,
-            RemovePolicyChanged::<Impl, IMPL_OFFSET>,
-            IsProtectionEnabled::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManagerStatics2, BASE_OFFSET>(),
+            HasContentBeenRevokedSince: HasContentBeenRevokedSince::<Impl, IMPL_OFFSET>,
+            CheckAccessForApp: CheckAccessForApp::<Impl, IMPL_OFFSET>,
+            RequestAccessForAppAsync: RequestAccessForAppAsync::<Impl, IMPL_OFFSET>,
+            GetEnforcementLevel: GetEnforcementLevel::<Impl, IMPL_OFFSET>,
+            IsUserDecryptionAllowed: IsUserDecryptionAllowed::<Impl, IMPL_OFFSET>,
+            IsProtectionUnderLockRequired: IsProtectionUnderLockRequired::<Impl, IMPL_OFFSET>,
+            PolicyChanged: PolicyChanged::<Impl, IMPL_OFFSET>,
+            RemovePolicyChanged: RemovePolicyChanged::<Impl, IMPL_OFFSET>,
+            IsProtectionEnabled: IsProtectionEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectionPolicyManagerStatics2 as ::windows::core::Interface>::IID
@@ -1445,19 +1491,14 @@ impl IProtectionPolicyManagerStatics3Vtbl {
                 )
                 .into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProtectionPolicyManagerStatics3>,
-            ::windows::core::GetTrustLevel,
-            RequestAccessWithAuditingInfoAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessWithMessageAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessForAppWithAuditingInfoAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessForAppWithMessageAsync::<Impl, IMPL_OFFSET>,
-            LogAuditEvent::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManagerStatics3, BASE_OFFSET>(),
+            RequestAccessWithAuditingInfoAsync: RequestAccessWithAuditingInfoAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessWithMessageAsync: RequestAccessWithMessageAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessForAppWithAuditingInfoAsync: RequestAccessForAppWithAuditingInfoAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessForAppWithMessageAsync: RequestAccessForAppWithMessageAsync::<Impl, IMPL_OFFSET>,
+            LogAuditEvent: LogAuditEvent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectionPolicyManagerStatics3 as ::windows::core::Interface>::IID
@@ -1637,25 +1678,20 @@ impl IProtectionPolicyManagerStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProtectionPolicyManagerStatics4>,
-            ::windows::core::GetTrustLevel,
-            IsRoamableProtectionEnabled::<Impl, IMPL_OFFSET>,
-            RequestAccessWithBehaviorAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessForAppWithBehaviorAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessToFilesForAppAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessToFilesForAppWithMessageAndBehaviorAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessToFilesForProcessAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessToFilesForProcessWithMessageAndBehaviorAsync::<Impl, IMPL_OFFSET>,
-            IsFileProtectionRequiredAsync::<Impl, IMPL_OFFSET>,
-            IsFileProtectionRequiredForNewFileAsync::<Impl, IMPL_OFFSET>,
-            PrimaryManagedIdentity::<Impl, IMPL_OFFSET>,
-            GetPrimaryManagedIdentityForIdentity::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManagerStatics4, BASE_OFFSET>(),
+            IsRoamableProtectionEnabled: IsRoamableProtectionEnabled::<Impl, IMPL_OFFSET>,
+            RequestAccessWithBehaviorAsync: RequestAccessWithBehaviorAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessForAppWithBehaviorAsync: RequestAccessForAppWithBehaviorAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessToFilesForAppAsync: RequestAccessToFilesForAppAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessToFilesForAppWithMessageAndBehaviorAsync: RequestAccessToFilesForAppWithMessageAndBehaviorAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessToFilesForProcessAsync: RequestAccessToFilesForProcessAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessToFilesForProcessWithMessageAndBehaviorAsync: RequestAccessToFilesForProcessWithMessageAndBehaviorAsync::<Impl, IMPL_OFFSET>,
+            IsFileProtectionRequiredAsync: IsFileProtectionRequiredAsync::<Impl, IMPL_OFFSET>,
+            IsFileProtectionRequiredForNewFileAsync: IsFileProtectionRequiredForNewFileAsync::<Impl, IMPL_OFFSET>,
+            PrimaryManagedIdentity: PrimaryManagedIdentity::<Impl, IMPL_OFFSET>,
+            GetPrimaryManagedIdentityForIdentity: GetPrimaryManagedIdentityForIdentity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectionPolicyManagerStatics4 as ::windows::core::Interface>::IID
@@ -1670,7 +1706,7 @@ impl ::windows::core::RuntimeName for IThreadNetworkContext {
 #[cfg(feature = "implement_exclusive")]
 impl IThreadNetworkContextVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThreadNetworkContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IThreadNetworkContextVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThreadNetworkContext>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IThreadNetworkContext, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IThreadNetworkContext as ::windows::core::Interface>::IID

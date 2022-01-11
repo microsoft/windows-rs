@@ -68,7 +68,14 @@ impl ISceneBoundingBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneBoundingBox>, ::windows::core::GetTrustLevel, Center::<Impl, IMPL_OFFSET>, Extents::<Impl, IMPL_OFFSET>, Max::<Impl, IMPL_OFFSET>, Min::<Impl, IMPL_OFFSET>, Size::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneBoundingBox, BASE_OFFSET>(),
+            Center: Center::<Impl, IMPL_OFFSET>,
+            Extents: Extents::<Impl, IMPL_OFFSET>,
+            Max: Max::<Impl, IMPL_OFFSET>,
+            Min: Min::<Impl, IMPL_OFFSET>,
+            Size: Size::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneBoundingBox as ::windows::core::Interface>::IID
@@ -96,7 +103,7 @@ impl ISceneComponentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneComponent>, ::windows::core::GetTrustLevel, ComponentType::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneComponent, BASE_OFFSET>(), ComponentType: ComponentType::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneComponent as ::windows::core::Interface>::IID
@@ -111,7 +118,7 @@ impl ::windows::core::RuntimeName for ISceneComponentCollection {
 #[cfg(feature = "implement_exclusive")]
 impl ISceneComponentCollectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneComponentCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneComponentCollectionVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneComponentCollection>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneComponentCollection, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneComponentCollection as ::windows::core::Interface>::IID
@@ -126,7 +133,7 @@ impl ::windows::core::RuntimeName for ISceneComponentFactory {
 #[cfg(feature = "implement_exclusive")]
 impl ISceneComponentFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneComponentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneComponentFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneComponentFactory>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneComponentFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneComponentFactory as ::windows::core::Interface>::IID
@@ -141,7 +148,7 @@ impl ::windows::core::RuntimeName for ISceneMaterial {
 #[cfg(feature = "implement_exclusive")]
 impl ISceneMaterialVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMaterialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMaterialVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneMaterial>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMaterial, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneMaterial as ::windows::core::Interface>::IID
@@ -156,7 +163,7 @@ impl ::windows::core::RuntimeName for ISceneMaterialFactory {
 #[cfg(feature = "implement_exclusive")]
 impl ISceneMaterialFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMaterialFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMaterialFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneMaterialFactory>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMaterialFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneMaterialFactory as ::windows::core::Interface>::IID
@@ -171,7 +178,7 @@ impl ::windows::core::RuntimeName for ISceneMaterialInput {
 #[cfg(feature = "implement_exclusive")]
 impl ISceneMaterialInputVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMaterialInputImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMaterialInputVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneMaterialInput>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMaterialInput, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneMaterialInput as ::windows::core::Interface>::IID
@@ -186,7 +193,7 @@ impl ::windows::core::RuntimeName for ISceneMaterialInputFactory {
 #[cfg(feature = "implement_exclusive")]
 impl ISceneMaterialInputFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMaterialInputFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMaterialInputFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneMaterialInputFactory>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMaterialInputFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneMaterialInputFactory as ::windows::core::Interface>::IID
@@ -236,7 +243,13 @@ impl ISceneMeshVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FillMeshAttribute(semantic, format, &*(&memory as *const <super::super::super::Foundation::MemoryBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::MemoryBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneMesh>, ::windows::core::GetTrustLevel, Bounds::<Impl, IMPL_OFFSET>, PrimitiveTopology::<Impl, IMPL_OFFSET>, SetPrimitiveTopology::<Impl, IMPL_OFFSET>, FillMeshAttribute::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMesh, BASE_OFFSET>(),
+            Bounds: Bounds::<Impl, IMPL_OFFSET>,
+            PrimitiveTopology: PrimitiveTopology::<Impl, IMPL_OFFSET>,
+            SetPrimitiveTopology: SetPrimitiveTopology::<Impl, IMPL_OFFSET>,
+            FillMeshAttribute: FillMeshAttribute::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneMesh as ::windows::core::Interface>::IID
@@ -251,7 +264,7 @@ impl ::windows::core::RuntimeName for ISceneMeshMaterialAttributeMap {
 #[cfg(feature = "implement_exclusive")]
 impl ISceneMeshMaterialAttributeMapVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMeshMaterialAttributeMapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMeshMaterialAttributeMapVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneMeshMaterialAttributeMap>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMeshMaterialAttributeMap, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneMeshMaterialAttributeMap as ::windows::core::Interface>::IID
@@ -313,7 +326,14 @@ impl ISceneMeshRendererComponentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneMeshRendererComponent>, ::windows::core::GetTrustLevel, Material::<Impl, IMPL_OFFSET>, SetMaterial::<Impl, IMPL_OFFSET>, Mesh::<Impl, IMPL_OFFSET>, SetMesh::<Impl, IMPL_OFFSET>, UVMappings::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMeshRendererComponent, BASE_OFFSET>(),
+            Material: Material::<Impl, IMPL_OFFSET>,
+            SetMaterial: SetMaterial::<Impl, IMPL_OFFSET>,
+            Mesh: Mesh::<Impl, IMPL_OFFSET>,
+            SetMesh: SetMesh::<Impl, IMPL_OFFSET>,
+            UVMappings: UVMappings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneMeshRendererComponent as ::windows::core::Interface>::IID
@@ -341,7 +361,7 @@ impl ISceneMeshRendererComponentStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneMeshRendererComponentStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMeshRendererComponentStatics, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneMeshRendererComponentStatics as ::windows::core::Interface>::IID
@@ -369,7 +389,7 @@ impl ISceneMeshStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneMeshStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMeshStatics, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneMeshStatics as ::windows::core::Interface>::IID
@@ -470,24 +490,19 @@ impl ISceneMetallicRoughnessMaterialVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRoughnessFactor(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISceneMetallicRoughnessMaterial>,
-            ::windows::core::GetTrustLevel,
-            BaseColorInput::<Impl, IMPL_OFFSET>,
-            SetBaseColorInput::<Impl, IMPL_OFFSET>,
-            BaseColorFactor::<Impl, IMPL_OFFSET>,
-            SetBaseColorFactor::<Impl, IMPL_OFFSET>,
-            MetallicFactor::<Impl, IMPL_OFFSET>,
-            SetMetallicFactor::<Impl, IMPL_OFFSET>,
-            MetallicRoughnessInput::<Impl, IMPL_OFFSET>,
-            SetMetallicRoughnessInput::<Impl, IMPL_OFFSET>,
-            RoughnessFactor::<Impl, IMPL_OFFSET>,
-            SetRoughnessFactor::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMetallicRoughnessMaterial, BASE_OFFSET>(),
+            BaseColorInput: BaseColorInput::<Impl, IMPL_OFFSET>,
+            SetBaseColorInput: SetBaseColorInput::<Impl, IMPL_OFFSET>,
+            BaseColorFactor: BaseColorFactor::<Impl, IMPL_OFFSET>,
+            SetBaseColorFactor: SetBaseColorFactor::<Impl, IMPL_OFFSET>,
+            MetallicFactor: MetallicFactor::<Impl, IMPL_OFFSET>,
+            SetMetallicFactor: SetMetallicFactor::<Impl, IMPL_OFFSET>,
+            MetallicRoughnessInput: MetallicRoughnessInput::<Impl, IMPL_OFFSET>,
+            SetMetallicRoughnessInput: SetMetallicRoughnessInput::<Impl, IMPL_OFFSET>,
+            RoughnessFactor: RoughnessFactor::<Impl, IMPL_OFFSET>,
+            SetRoughnessFactor: SetRoughnessFactor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneMetallicRoughnessMaterial as ::windows::core::Interface>::IID
@@ -515,7 +530,10 @@ impl ISceneMetallicRoughnessMaterialStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneMetallicRoughnessMaterialStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMetallicRoughnessMaterialStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneMetallicRoughnessMaterialStatics as ::windows::core::Interface>::IID
@@ -633,26 +651,21 @@ impl ISceneModelTransformVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTranslation(&*(&value as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISceneModelTransform>,
-            ::windows::core::GetTrustLevel,
-            Orientation::<Impl, IMPL_OFFSET>,
-            SetOrientation::<Impl, IMPL_OFFSET>,
-            RotationAngle::<Impl, IMPL_OFFSET>,
-            SetRotationAngle::<Impl, IMPL_OFFSET>,
-            RotationAngleInDegrees::<Impl, IMPL_OFFSET>,
-            SetRotationAngleInDegrees::<Impl, IMPL_OFFSET>,
-            RotationAxis::<Impl, IMPL_OFFSET>,
-            SetRotationAxis::<Impl, IMPL_OFFSET>,
-            Scale::<Impl, IMPL_OFFSET>,
-            SetScale::<Impl, IMPL_OFFSET>,
-            Translation::<Impl, IMPL_OFFSET>,
-            SetTranslation::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneModelTransform, BASE_OFFSET>(),
+            Orientation: Orientation::<Impl, IMPL_OFFSET>,
+            SetOrientation: SetOrientation::<Impl, IMPL_OFFSET>,
+            RotationAngle: RotationAngle::<Impl, IMPL_OFFSET>,
+            SetRotationAngle: SetRotationAngle::<Impl, IMPL_OFFSET>,
+            RotationAngleInDegrees: RotationAngleInDegrees::<Impl, IMPL_OFFSET>,
+            SetRotationAngleInDegrees: SetRotationAngleInDegrees::<Impl, IMPL_OFFSET>,
+            RotationAxis: RotationAxis::<Impl, IMPL_OFFSET>,
+            SetRotationAxis: SetRotationAxis::<Impl, IMPL_OFFSET>,
+            Scale: Scale::<Impl, IMPL_OFFSET>,
+            SetScale: SetScale::<Impl, IMPL_OFFSET>,
+            Translation: Translation::<Impl, IMPL_OFFSET>,
+            SetTranslation: SetTranslation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneModelTransform as ::windows::core::Interface>::IID
@@ -728,7 +741,14 @@ impl ISceneNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneNode>, ::windows::core::GetTrustLevel, Children::<Impl, IMPL_OFFSET>, Components::<Impl, IMPL_OFFSET>, Parent::<Impl, IMPL_OFFSET>, Transform::<Impl, IMPL_OFFSET>, FindFirstComponentOfType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneNode, BASE_OFFSET>(),
+            Children: Children::<Impl, IMPL_OFFSET>,
+            Components: Components::<Impl, IMPL_OFFSET>,
+            Parent: Parent::<Impl, IMPL_OFFSET>,
+            Transform: Transform::<Impl, IMPL_OFFSET>,
+            FindFirstComponentOfType: FindFirstComponentOfType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneNode as ::windows::core::Interface>::IID
@@ -743,7 +763,7 @@ impl ::windows::core::RuntimeName for ISceneNodeCollection {
 #[cfg(feature = "implement_exclusive")]
 impl ISceneNodeCollectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneNodeCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneNodeCollectionVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneNodeCollection>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneNodeCollection, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneNodeCollection as ::windows::core::Interface>::IID
@@ -771,7 +791,7 @@ impl ISceneNodeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneNodeStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneNodeStatics, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneNodeStatics as ::windows::core::Interface>::IID
@@ -786,7 +806,7 @@ impl ::windows::core::RuntimeName for ISceneObject {
 #[cfg(feature = "implement_exclusive")]
 impl ISceneObjectVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneObjectVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneObject>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneObject, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneObject as ::windows::core::Interface>::IID
@@ -801,7 +821,7 @@ impl ::windows::core::RuntimeName for ISceneObjectFactory {
 #[cfg(feature = "implement_exclusive")]
 impl ISceneObjectFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneObjectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneObjectFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneObjectFactory>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneObjectFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneObjectFactory as ::windows::core::Interface>::IID
@@ -970,32 +990,27 @@ impl IScenePbrMaterialVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOcclusionStrength(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IScenePbrMaterial>,
-            ::windows::core::GetTrustLevel,
-            AlphaCutoff::<Impl, IMPL_OFFSET>,
-            SetAlphaCutoff::<Impl, IMPL_OFFSET>,
-            AlphaMode::<Impl, IMPL_OFFSET>,
-            SetAlphaMode::<Impl, IMPL_OFFSET>,
-            EmissiveInput::<Impl, IMPL_OFFSET>,
-            SetEmissiveInput::<Impl, IMPL_OFFSET>,
-            EmissiveFactor::<Impl, IMPL_OFFSET>,
-            SetEmissiveFactor::<Impl, IMPL_OFFSET>,
-            IsDoubleSided::<Impl, IMPL_OFFSET>,
-            SetIsDoubleSided::<Impl, IMPL_OFFSET>,
-            NormalInput::<Impl, IMPL_OFFSET>,
-            SetNormalInput::<Impl, IMPL_OFFSET>,
-            NormalScale::<Impl, IMPL_OFFSET>,
-            SetNormalScale::<Impl, IMPL_OFFSET>,
-            OcclusionInput::<Impl, IMPL_OFFSET>,
-            SetOcclusionInput::<Impl, IMPL_OFFSET>,
-            OcclusionStrength::<Impl, IMPL_OFFSET>,
-            SetOcclusionStrength::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScenePbrMaterial, BASE_OFFSET>(),
+            AlphaCutoff: AlphaCutoff::<Impl, IMPL_OFFSET>,
+            SetAlphaCutoff: SetAlphaCutoff::<Impl, IMPL_OFFSET>,
+            AlphaMode: AlphaMode::<Impl, IMPL_OFFSET>,
+            SetAlphaMode: SetAlphaMode::<Impl, IMPL_OFFSET>,
+            EmissiveInput: EmissiveInput::<Impl, IMPL_OFFSET>,
+            SetEmissiveInput: SetEmissiveInput::<Impl, IMPL_OFFSET>,
+            EmissiveFactor: EmissiveFactor::<Impl, IMPL_OFFSET>,
+            SetEmissiveFactor: SetEmissiveFactor::<Impl, IMPL_OFFSET>,
+            IsDoubleSided: IsDoubleSided::<Impl, IMPL_OFFSET>,
+            SetIsDoubleSided: SetIsDoubleSided::<Impl, IMPL_OFFSET>,
+            NormalInput: NormalInput::<Impl, IMPL_OFFSET>,
+            SetNormalInput: SetNormalInput::<Impl, IMPL_OFFSET>,
+            NormalScale: NormalScale::<Impl, IMPL_OFFSET>,
+            SetNormalScale: SetNormalScale::<Impl, IMPL_OFFSET>,
+            OcclusionInput: OcclusionInput::<Impl, IMPL_OFFSET>,
+            SetOcclusionInput: SetOcclusionInput::<Impl, IMPL_OFFSET>,
+            OcclusionStrength: OcclusionStrength::<Impl, IMPL_OFFSET>,
+            SetOcclusionStrength: SetOcclusionStrength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScenePbrMaterial as ::windows::core::Interface>::IID
@@ -1010,7 +1025,7 @@ impl ::windows::core::RuntimeName for IScenePbrMaterialFactory {
 #[cfg(feature = "implement_exclusive")]
 impl IScenePbrMaterialFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScenePbrMaterialFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScenePbrMaterialFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScenePbrMaterialFactory>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IScenePbrMaterialFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScenePbrMaterialFactory as ::windows::core::Interface>::IID
@@ -1025,7 +1040,7 @@ impl ::windows::core::RuntimeName for ISceneRendererComponent {
 #[cfg(feature = "implement_exclusive")]
 impl ISceneRendererComponentVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneRendererComponentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneRendererComponentVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneRendererComponent>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneRendererComponent, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneRendererComponent as ::windows::core::Interface>::IID
@@ -1040,7 +1055,7 @@ impl ::windows::core::RuntimeName for ISceneRendererComponentFactory {
 #[cfg(feature = "implement_exclusive")]
 impl ISceneRendererComponentFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneRendererComponentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneRendererComponentFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneRendererComponentFactory>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneRendererComponentFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneRendererComponentFactory as ::windows::core::Interface>::IID
@@ -1124,22 +1139,17 @@ impl ISceneSurfaceMaterialInputVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWrappingVMode(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISceneSurfaceMaterialInput>,
-            ::windows::core::GetTrustLevel,
-            BitmapInterpolationMode::<Impl, IMPL_OFFSET>,
-            SetBitmapInterpolationMode::<Impl, IMPL_OFFSET>,
-            Surface::<Impl, IMPL_OFFSET>,
-            SetSurface::<Impl, IMPL_OFFSET>,
-            WrappingUMode::<Impl, IMPL_OFFSET>,
-            SetWrappingUMode::<Impl, IMPL_OFFSET>,
-            WrappingVMode::<Impl, IMPL_OFFSET>,
-            SetWrappingVMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneSurfaceMaterialInput, BASE_OFFSET>(),
+            BitmapInterpolationMode: BitmapInterpolationMode::<Impl, IMPL_OFFSET>,
+            SetBitmapInterpolationMode: SetBitmapInterpolationMode::<Impl, IMPL_OFFSET>,
+            Surface: Surface::<Impl, IMPL_OFFSET>,
+            SetSurface: SetSurface::<Impl, IMPL_OFFSET>,
+            WrappingUMode: WrappingUMode::<Impl, IMPL_OFFSET>,
+            SetWrappingUMode: SetWrappingUMode::<Impl, IMPL_OFFSET>,
+            WrappingVMode: WrappingVMode::<Impl, IMPL_OFFSET>,
+            SetWrappingVMode: SetWrappingVMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneSurfaceMaterialInput as ::windows::core::Interface>::IID
@@ -1167,7 +1177,7 @@ impl ISceneSurfaceMaterialInputStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneSurfaceMaterialInputStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneSurfaceMaterialInputStatics, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneSurfaceMaterialInputStatics as ::windows::core::Interface>::IID
@@ -1200,7 +1210,11 @@ impl ISceneVisualVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRoot(&*(&value as *const <SceneNode as ::windows::core::Abi>::Abi as *const <SceneNode as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneVisual>, ::windows::core::GetTrustLevel, Root::<Impl, IMPL_OFFSET>, SetRoot::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneVisual, BASE_OFFSET>(),
+            Root: Root::<Impl, IMPL_OFFSET>,
+            SetRoot: SetRoot::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneVisual as ::windows::core::Interface>::IID
@@ -1228,7 +1242,7 @@ impl ISceneVisualStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneVisualStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneVisualStatics, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneVisualStatics as ::windows::core::Interface>::IID

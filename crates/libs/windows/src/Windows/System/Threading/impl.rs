@@ -44,7 +44,12 @@ impl IThreadPoolStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThreadPoolStatics>, ::windows::core::GetTrustLevel, RunAsync::<Impl, IMPL_OFFSET>, RunWithPriorityAsync::<Impl, IMPL_OFFSET>, RunWithPriorityAndOptionsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IThreadPoolStatics, BASE_OFFSET>(),
+            RunAsync: RunAsync::<Impl, IMPL_OFFSET>,
+            RunWithPriorityAsync: RunWithPriorityAsync::<Impl, IMPL_OFFSET>,
+            RunWithPriorityAndOptionsAsync: RunWithPriorityAndOptionsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IThreadPoolStatics as ::windows::core::Interface>::IID
@@ -89,7 +94,12 @@ impl IThreadPoolTimerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Cancel().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThreadPoolTimer>, ::windows::core::GetTrustLevel, Period::<Impl, IMPL_OFFSET>, Delay::<Impl, IMPL_OFFSET>, Cancel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IThreadPoolTimer, BASE_OFFSET>(),
+            Period: Period::<Impl, IMPL_OFFSET>,
+            Delay: Delay::<Impl, IMPL_OFFSET>,
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IThreadPoolTimer as ::windows::core::Interface>::IID
@@ -161,7 +171,13 @@ impl IThreadPoolTimerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThreadPoolTimerStatics>, ::windows::core::GetTrustLevel, CreatePeriodicTimer::<Impl, IMPL_OFFSET>, CreateTimer::<Impl, IMPL_OFFSET>, CreatePeriodicTimerWithCompletion::<Impl, IMPL_OFFSET>, CreateTimerWithCompletion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IThreadPoolTimerStatics, BASE_OFFSET>(),
+            CreatePeriodicTimer: CreatePeriodicTimer::<Impl, IMPL_OFFSET>,
+            CreateTimer: CreateTimer::<Impl, IMPL_OFFSET>,
+            CreatePeriodicTimerWithCompletion: CreatePeriodicTimerWithCompletion::<Impl, IMPL_OFFSET>,
+            CreateTimerWithCompletion: CreateTimerWithCompletion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IThreadPoolTimerStatics as ::windows::core::Interface>::IID

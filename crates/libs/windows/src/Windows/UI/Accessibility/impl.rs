@@ -32,7 +32,11 @@ impl IScreenReaderPositionChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScreenReaderPositionChangedEventArgs>, ::windows::core::GetTrustLevel, ScreenPositionInRawPixels::<Impl, IMPL_OFFSET>, IsReadingText::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScreenReaderPositionChangedEventArgs, BASE_OFFSET>(),
+            ScreenPositionInRawPixels: ScreenPositionInRawPixels::<Impl, IMPL_OFFSET>,
+            IsReadingText: IsReadingText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScreenReaderPositionChangedEventArgs as ::windows::core::Interface>::IID
@@ -77,7 +81,12 @@ impl IScreenReaderServiceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveScreenReaderPositionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScreenReaderService>, ::windows::core::GetTrustLevel, CurrentScreenReaderPosition::<Impl, IMPL_OFFSET>, ScreenReaderPositionChanged::<Impl, IMPL_OFFSET>, RemoveScreenReaderPositionChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScreenReaderService, BASE_OFFSET>(),
+            CurrentScreenReaderPosition: CurrentScreenReaderPosition::<Impl, IMPL_OFFSET>,
+            ScreenReaderPositionChanged: ScreenReaderPositionChanged::<Impl, IMPL_OFFSET>,
+            RemoveScreenReaderPositionChanged: RemoveScreenReaderPositionChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScreenReaderService as ::windows::core::Interface>::IID

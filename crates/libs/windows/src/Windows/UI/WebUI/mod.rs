@@ -8,7 +8,7 @@ impl ActivatedDeferral {
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Complete)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 impl ::core::clone::Clone for ActivatedDeferral {
@@ -91,7 +91,7 @@ impl ActivatedEventHandler {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs>>(&self, sender: Param0, eventargs: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), eventargs.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), eventargs.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -103,7 +103,7 @@ struct ActivatedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::core::Result<()> + 'static> ActivatedEventHandlerBox<F> {
-    const VTABLE: ActivatedEventHandlerVtbl = ActivatedEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: ActivatedEventHandlerVtbl = ActivatedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<ActivatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -163,13 +163,13 @@ unsafe impl ::windows::core::RuntimeType for ActivatedEventHandler {
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ActivatedEventHandlerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "ApplicationModel_Activation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Activation"))] usize,
-);
+pub struct ActivatedEventHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "ApplicationModel_Activation")]
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Activation"))]
+    Invoke: usize,
+}
 #[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct ActivatedOperation(::windows::core::IUnknown);
@@ -179,7 +179,7 @@ impl ActivatedOperation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedDeferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedDeferral>(result__)
         }
     }
 }
@@ -261,7 +261,7 @@ impl BackgroundActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(result__)
+            (::windows::core::Interface::vtable(this).TaskInstance)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(result__)
         }
     }
 }
@@ -390,7 +390,7 @@ impl BackgroundActivatedEventHandler {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>>(&self, sender: Param0, eventargs: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), eventargs.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), eventargs.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -402,7 +402,7 @@ struct BackgroundActivatedEventHandlerBox<F: FnMut(&::core::option::Option<::win
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::core::Result<()> + 'static> BackgroundActivatedEventHandlerBox<F> {
-    const VTABLE: BackgroundActivatedEventHandlerVtbl = BackgroundActivatedEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: BackgroundActivatedEventHandlerVtbl = BackgroundActivatedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<BackgroundActivatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -462,13 +462,13 @@ unsafe impl ::windows::core::RuntimeType for BackgroundActivatedEventHandler {
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct BackgroundActivatedEventHandlerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "ApplicationModel_Activation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Activation"))] usize,
-);
+pub struct BackgroundActivatedEventHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "ApplicationModel_Activation")]
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Activation"))]
+    Invoke: usize,
+}
 #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
@@ -481,7 +481,7 @@ impl EnteredBackgroundEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -610,7 +610,7 @@ impl EnteredBackgroundEventHandler {
     #[cfg(feature = "ApplicationModel")]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, super::super::ApplicationModel::IEnteredBackgroundEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -622,7 +622,7 @@ struct EnteredBackgroundEventHandlerBox<F: FnMut(&::core::option::Option<::windo
 }
 #[cfg(feature = "ApplicationModel")]
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::core::Result<()> + 'static> EnteredBackgroundEventHandlerBox<F> {
-    const VTABLE: EnteredBackgroundEventHandlerVtbl = EnteredBackgroundEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: EnteredBackgroundEventHandlerVtbl = EnteredBackgroundEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<EnteredBackgroundEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -682,13 +682,13 @@ unsafe impl ::windows::core::RuntimeType for EnteredBackgroundEventHandler {
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct EnteredBackgroundEventHandlerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "ApplicationModel")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel"))] usize,
-);
+pub struct EnteredBackgroundEventHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "ApplicationModel")]
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel"))]
+    Invoke: usize,
+}
 #[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct HtmlPrintDocumentSource(::windows::core::IUnknown);
@@ -697,118 +697,118 @@ impl HtmlPrintDocumentSource {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn Content(&self) -> ::windows::core::Result<PrintContent> {
         let this = self;
         unsafe {
             let mut result__: PrintContent = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintContent>(result__)
+            (::windows::core::Interface::vtable(this).Content)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintContent>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn SetContent(&self, value: PrintContent) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContent)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn LeftMargin(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).LeftMargin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn SetLeftMargin(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLeftMargin)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn TopMargin(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).TopMargin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn SetTopMargin(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTopMargin)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn RightMargin(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).RightMargin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn SetRightMargin(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRightMargin)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn BottomMargin(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).BottomMargin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn SetBottomMargin(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBottomMargin)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn EnableHeaderFooter(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).EnableHeaderFooter)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn SetEnableHeaderFooter(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEnableHeaderFooter)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn ShrinkToFit(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ShrinkToFit)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn SetShrinkToFit(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShrinkToFit)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn PercentScale(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).PercentScale)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn SetPercentScale(&self, scalepercent: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), scalepercent).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPercentScale)(::core::mem::transmute_copy(this), scalepercent).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn PageRange(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PageRange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -816,7 +816,7 @@ impl HtmlPrintDocumentSource {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), strpagerange.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TrySetPageRange)(::core::mem::transmute_copy(this), strpagerange.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -949,15 +949,10 @@ unsafe impl ::windows::core::Interface for IActivatedDeferral {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActivatedDeferralVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IActivatedDeferralVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct IActivatedEventArgsDeferral(::windows::core::IUnknown);
@@ -967,7 +962,7 @@ impl IActivatedEventArgsDeferral {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -1036,15 +1031,10 @@ unsafe impl ::windows::core::Interface for IActivatedEventArgsDeferral {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActivatedEventArgsDeferralVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IActivatedEventArgsDeferralVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub ActivatedOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IActivatedOperation(::windows::core::IUnknown);
@@ -1054,15 +1044,10 @@ unsafe impl ::windows::core::Interface for IActivatedOperation {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActivatedOperationVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IActivatedOperationVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHtmlPrintDocumentSource(::windows::core::IUnknown);
@@ -1072,32 +1057,27 @@ unsafe impl ::windows::core::Interface for IHtmlPrintDocumentSource {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHtmlPrintDocumentSourceVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintContent) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PrintContent) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scalepercent: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpagerange: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
-);
+pub struct IHtmlPrintDocumentSourceVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintContent) -> ::windows::core::HRESULT,
+    pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PrintContent) -> ::windows::core::HRESULT,
+    pub LeftMargin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub SetLeftMargin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
+    pub TopMargin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub SetTopMargin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
+    pub RightMargin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub SetRightMargin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
+    pub BottomMargin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub SetBottomMargin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
+    pub EnableHeaderFooter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetEnableHeaderFooter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub ShrinkToFit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetShrinkToFit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub PercentScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub SetPercentScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scalepercent: f32) -> ::windows::core::HRESULT,
+    pub PageRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub TrySetPageRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpagerange: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INewWebUIViewCreatedEventArgs(::windows::core::IUnknown);
@@ -1107,20 +1087,19 @@ unsafe impl ::windows::core::Interface for INewWebUIViewCreatedEventArgs {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INewWebUIViewCreatedEventArgsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "ApplicationModel_Activation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Activation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct INewWebUIViewCreatedEventArgsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub WebUIView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "ApplicationModel_Activation")]
+    pub ActivatedEventArgs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Activation"))]
+    ActivatedEventArgs: usize,
+    pub HasPendingNavigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUIActivationStatics(::windows::core::IUnknown);
@@ -1130,30 +1109,41 @@ unsafe impl ::windows::core::Interface for IWebUIActivationStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUIActivationStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Activation", feature = "Foundation")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct IWebUIActivationStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
+    pub Activated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel_Activation", feature = "Foundation")))]
+    Activated: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveActivated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveActivated: usize,
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
+    pub Suspending: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation")))]
+    Suspending: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveSuspending: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveSuspending: usize,
+    #[cfg(feature = "Foundation")]
+    pub Resuming: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Resuming: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveResuming: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveResuming: usize,
+    #[cfg(feature = "Foundation")]
+    pub Navigated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Navigated: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveNavigated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveNavigated: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUIActivationStatics2(::windows::core::IUnknown);
@@ -1163,23 +1153,26 @@ unsafe impl ::windows::core::Interface for IWebUIActivationStatics2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUIActivationStatics2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-);
+pub struct IWebUIActivationStatics2Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
+    pub LeavingBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation")))]
+    LeavingBackground: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveLeavingBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveLeavingBackground: usize,
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
+    pub EnteredBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation")))]
+    EnteredBackground: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveEnteredBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveEnteredBackground: usize,
+    pub EnablePrelaunch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUIActivationStatics3(::windows::core::IUnknown);
@@ -1189,18 +1182,17 @@ unsafe impl ::windows::core::Interface for IWebUIActivationStatics3 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUIActivationStatics3Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, launcharguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Core", feature = "Foundation")))] usize,
-    #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, launcharguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System")))] usize,
-);
+pub struct IWebUIActivationStatics3Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
+    pub RequestRestartAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, launcharguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel_Core", feature = "Foundation")))]
+    RequestRestartAsync: usize,
+    #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System"))]
+    pub RequestRestartForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, launcharguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System")))]
+    RequestRestartForUserAsync: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUIActivationStatics4(::windows::core::IUnknown);
@@ -1210,22 +1202,25 @@ unsafe impl ::windows::core::Interface for IWebUIActivationStatics4 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUIActivationStatics4Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Activation", feature = "Foundation")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct IWebUIActivationStatics4Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub NewWebUIViewCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    NewWebUIViewCreated: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveNewWebUIViewCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveNewWebUIViewCreated: usize,
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
+    pub BackgroundActivated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel_Activation", feature = "Foundation")))]
+    BackgroundActivated: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveBackgroundActivated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveBackgroundActivated: usize,
+}
 #[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct IWebUIBackgroundTaskInstance(::windows::core::IUnknown);
@@ -1235,13 +1230,13 @@ impl IWebUIBackgroundTaskInstance {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Succeeded)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn SetSucceeded(&self, succeeded: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), succeeded).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSucceeded)(::core::mem::transmute_copy(this), succeeded).ok() }
     }
 }
 impl ::core::convert::From<IWebUIBackgroundTaskInstance> for ::windows::core::IInspectable {
@@ -1309,16 +1304,11 @@ unsafe impl ::windows::core::Interface for IWebUIBackgroundTaskInstance {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUIBackgroundTaskInstanceVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, succeeded: bool) -> ::windows::core::HRESULT,
-);
+pub struct IWebUIBackgroundTaskInstanceVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetSucceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, succeeded: bool) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUIBackgroundTaskInstanceStatics(::windows::core::IUnknown);
@@ -1328,15 +1318,10 @@ unsafe impl ::windows::core::Interface for IWebUIBackgroundTaskInstanceStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUIBackgroundTaskInstanceStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IWebUIBackgroundTaskInstanceStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUINavigatedDeferral(::windows::core::IUnknown);
@@ -1346,15 +1331,10 @@ unsafe impl ::windows::core::Interface for IWebUINavigatedDeferral {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUINavigatedDeferralVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IWebUINavigatedDeferralVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct IWebUINavigatedEventArgs(::windows::core::IUnknown);
@@ -1364,7 +1344,7 @@ impl IWebUINavigatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebUINavigatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).NavigatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebUINavigatedOperation>(result__)
         }
     }
 }
@@ -1433,15 +1413,10 @@ unsafe impl ::windows::core::Interface for IWebUINavigatedEventArgs {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUINavigatedEventArgsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IWebUINavigatedEventArgsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub NavigatedOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUINavigatedOperation(::windows::core::IUnknown);
@@ -1451,15 +1426,10 @@ unsafe impl ::windows::core::Interface for IWebUINavigatedOperation {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUINavigatedOperationVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IWebUINavigatedOperationVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUIView(::windows::core::IUnknown);
@@ -1469,25 +1439,28 @@ unsafe impl ::windows::core::Interface for IWebUIView {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUIViewVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Activation", feature = "Foundation")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-);
+pub struct IWebUIViewVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub ApplicationViewId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Closed: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveClosed: usize,
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
+    pub Activated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel_Activation", feature = "Foundation")))]
+    Activated: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveActivated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveActivated: usize,
+    pub IgnoreApplicationContentUriRulesNavigationRestrictions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIgnoreApplicationContentUriRulesNavigationRestrictions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUIViewStatics(::windows::core::IUnknown);
@@ -1497,18 +1470,17 @@ unsafe impl ::windows::core::Interface for IWebUIViewStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUIViewStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct IWebUIViewStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreateAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub CreateWithUriAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreateWithUriAsync: usize,
+}
 #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
@@ -1521,7 +1493,7 @@ impl LeavingBackgroundEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1650,7 +1622,7 @@ impl LeavingBackgroundEventHandler {
     #[cfg(feature = "ApplicationModel")]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, super::super::ApplicationModel::ILeavingBackgroundEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -1662,7 +1634,7 @@ struct LeavingBackgroundEventHandlerBox<F: FnMut(&::core::option::Option<::windo
 }
 #[cfg(feature = "ApplicationModel")]
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::core::Result<()> + 'static> LeavingBackgroundEventHandlerBox<F> {
-    const VTABLE: LeavingBackgroundEventHandlerVtbl = LeavingBackgroundEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: LeavingBackgroundEventHandlerVtbl = LeavingBackgroundEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<LeavingBackgroundEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -1722,13 +1694,13 @@ unsafe impl ::windows::core::RuntimeType for LeavingBackgroundEventHandler {
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct LeavingBackgroundEventHandlerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "ApplicationModel")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel"))] usize,
-);
+pub struct LeavingBackgroundEventHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "ApplicationModel")]
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel"))]
+    Invoke: usize,
+}
 #[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct NavigatedEventHandler(pub ::windows::core::IUnknown);
@@ -1740,7 +1712,7 @@ impl NavigatedEventHandler {
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, IWebUINavigatedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1750,7 +1722,7 @@ struct NavigatedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<IWebUINavigatedEventArgs>) -> ::windows::core::Result<()> + 'static> NavigatedEventHandlerBox<F> {
-    const VTABLE: NavigatedEventHandlerVtbl = NavigatedEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: NavigatedEventHandlerVtbl = NavigatedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<NavigatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -1803,7 +1775,10 @@ unsafe impl ::windows::core::RuntimeType for NavigatedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct NavigatedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+pub struct NavigatedEventHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct NewWebUIViewCreatedEventArgs(::windows::core::IUnknown);
@@ -1813,7 +1788,7 @@ impl NewWebUIViewCreatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebUIView>(result__)
+            (::windows::core::Interface::vtable(this).WebUIView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebUIView>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -1822,7 +1797,7 @@ impl NewWebUIViewCreatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedEventArgs)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -1830,7 +1805,7 @@ impl NewWebUIViewCreatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasPendingNavigate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
@@ -1839,7 +1814,7 @@ impl NewWebUIViewCreatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1955,7 +1930,7 @@ impl ResumingEventHandler {
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, sender: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1965,7 +1940,7 @@ struct ResumingEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core:
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + 'static> ResumingEventHandlerBox<F> {
-    const VTABLE: ResumingEventHandlerVtbl = ResumingEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: ResumingEventHandlerVtbl = ResumingEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<ResumingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -2018,7 +1993,10 @@ unsafe impl ::windows::core::RuntimeType for ResumingEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ResumingEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub struct ResumingEventHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
@@ -2029,7 +2007,7 @@ impl SuspendingDeferral {
     #[cfg(feature = "ApplicationModel")]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Complete)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -2151,7 +2129,7 @@ impl SuspendingEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::SuspendingOperation>(result__)
+            (::windows::core::Interface::vtable(this).SuspendingOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::SuspendingOperation>(result__)
         }
     }
 }
@@ -2276,7 +2254,7 @@ impl SuspendingEventHandler {
     #[cfg(feature = "ApplicationModel")]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, super::super::ApplicationModel::ISuspendingEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -2288,7 +2266,7 @@ struct SuspendingEventHandlerBox<F: FnMut(&::core::option::Option<::windows::cor
 }
 #[cfg(feature = "ApplicationModel")]
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::core::Result<()> + 'static> SuspendingEventHandlerBox<F> {
-    const VTABLE: SuspendingEventHandlerVtbl = SuspendingEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: SuspendingEventHandlerVtbl = SuspendingEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<SuspendingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -2348,13 +2326,13 @@ unsafe impl ::windows::core::RuntimeType for SuspendingEventHandler {
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct SuspendingEventHandlerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "ApplicationModel")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel"))] usize,
-);
+pub struct SuspendingEventHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "ApplicationModel")]
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel"))]
+    Invoke: usize,
+}
 #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
@@ -2367,7 +2345,7 @@ impl SuspendingOperation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::SuspendingDeferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::SuspendingDeferral>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel', 'Foundation'*"]
@@ -2376,7 +2354,7 @@ impl SuspendingOperation {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).Deadline)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
 }
@@ -2495,89 +2473,89 @@ impl WebUIApplication {
     pub fn Activated<'a, Param0: ::windows::core::IntoParam<'a, ActivatedEventHandler>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Activated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IWebUIActivationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveActivated)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel', 'Foundation'*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn Suspending<'a, Param0: ::windows::core::IntoParam<'a, SuspendingEventHandler>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Suspending)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSuspending<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IWebUIActivationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveSuspending)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Resuming<'a, Param0: ::windows::core::IntoParam<'a, ResumingEventHandler>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Resuming)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveResuming<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IWebUIActivationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveResuming)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Navigated<'a, Param0: ::windows::core::IntoParam<'a, NavigatedEventHandler>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Navigated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNavigated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IWebUIActivationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveNavigated)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel', 'Foundation'*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn LeavingBackground<'a, Param0: ::windows::core::IntoParam<'a, LeavingBackgroundEventHandler>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics2(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).LeavingBackground)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLeavingBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IWebUIActivationStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveLeavingBackground)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel', 'Foundation'*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn EnteredBackground<'a, Param0: ::windows::core::IntoParam<'a, EnteredBackgroundEventHandler>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics2(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).EnteredBackground)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnteredBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IWebUIActivationStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveEnteredBackground)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn EnablePrelaunch(value: bool) -> ::windows::core::Result<()> {
-        Self::IWebUIActivationStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() })
+        Self::IWebUIActivationStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).EnablePrelaunch)(::core::mem::transmute_copy(this), value).ok() })
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Core', 'Foundation'*"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
     pub fn RequestRestartAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(launcharguments: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>> {
         Self::IWebUIActivationStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), launcharguments.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>(result__)
+            (::windows::core::Interface::vtable(this).RequestRestartAsync)(::core::mem::transmute_copy(this), launcharguments.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>(result__)
         })
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Core', 'Foundation', 'System'*"]
@@ -2585,7 +2563,7 @@ impl WebUIApplication {
     pub fn RequestRestartForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, launcharguments: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>> {
         Self::IWebUIActivationStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), user.into_param().abi(), launcharguments.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>(result__)
+            (::windows::core::Interface::vtable(this).RequestRestartForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), launcharguments.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>(result__)
         })
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
@@ -2593,26 +2571,26 @@ impl WebUIApplication {
     pub fn NewWebUIViewCreated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<NewWebUIViewCreatedEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics4(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NewWebUIViewCreated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNewWebUIViewCreated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IWebUIActivationStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveNewWebUIViewCreated)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation'*"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub fn BackgroundActivated<'a, Param0: ::windows::core::IntoParam<'a, BackgroundActivatedEventHandler>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics4(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BackgroundActivated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBackgroundActivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IWebUIActivationStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveBackgroundActivated)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn IWebUIActivationStatics<R, F: FnOnce(&IWebUIActivationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -2650,7 +2628,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -2659,7 +2637,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -2668,7 +2646,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -2676,7 +2654,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -2685,7 +2663,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -2694,7 +2672,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Appointments_AppointmentsProvider'*"]
@@ -2703,7 +2681,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Appointments::AppointmentsProvider::AddAppointmentOperation>(result__)
+            (::windows::core::Interface::vtable(this).AddAppointmentOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Appointments::AppointmentsProvider::AddAppointmentOperation>(result__)
         }
     }
 }
@@ -2930,7 +2908,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -2939,7 +2917,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -2948,7 +2926,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -2956,7 +2934,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -2965,7 +2943,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -2974,7 +2952,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Appointments_AppointmentsProvider'*"]
@@ -2983,7 +2961,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Appointments::AppointmentsProvider::RemoveAppointmentOperation>(result__)
+            (::windows::core::Interface::vtable(this).RemoveAppointmentOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Appointments::AppointmentsProvider::RemoveAppointmentOperation>(result__)
         }
     }
 }
@@ -3210,7 +3188,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -3219,7 +3197,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -3228,7 +3206,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -3236,7 +3214,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -3245,7 +3223,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -3254,7 +3232,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Appointments_AppointmentsProvider'*"]
@@ -3263,7 +3241,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceAppointmentOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>(result__)
         }
     }
 }
@@ -3490,7 +3468,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -3499,7 +3477,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -3508,7 +3486,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -3516,7 +3494,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -3525,7 +3503,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -3534,7 +3512,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation'*"]
@@ -3543,7 +3521,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+            (::windows::core::Interface::vtable(this).InstanceStartDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -3552,7 +3530,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).LocalId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -3561,7 +3539,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RoamingId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -3788,7 +3766,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -3797,7 +3775,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -3806,7 +3784,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -3814,7 +3792,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -3823,7 +3801,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -3832,7 +3810,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation'*"]
@@ -3841,7 +3819,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).TimeToShow)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation'*"]
@@ -3850,7 +3828,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -4072,7 +4050,7 @@ impl WebUIBackgroundTaskInstance {
     pub fn Current() -> ::windows::core::Result<IWebUIBackgroundTaskInstance> {
         Self::IWebUIBackgroundTaskInstanceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IWebUIBackgroundTaskInstance>(result__)
+            (::windows::core::Interface::vtable(this).Current)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IWebUIBackgroundTaskInstance>(result__)
         })
     }
     #[doc(hidden)]
@@ -4094,7 +4072,7 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).InstanceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Background'*"]
@@ -4103,7 +4081,7 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::BackgroundTaskRegistration>(result__)
+            (::windows::core::Interface::vtable(this).Task)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::BackgroundTaskRegistration>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Background'*"]
@@ -4112,14 +4090,14 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Progress)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Background'*"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn SetProgress(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProgress)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Background'*"]
     #[cfg(feature = "ApplicationModel_Background")]
@@ -4127,7 +4105,7 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).TriggerDetails)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Background', 'Foundation'*"]
@@ -4136,14 +4114,14 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), cancelhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Canceled)(::core::mem::transmute_copy(this), cancelhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Background', 'Foundation'*"]
     #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation"))]
     pub fn RemoveCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCanceled)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Background'*"]
     #[cfg(feature = "ApplicationModel_Background")]
@@ -4151,7 +4129,7 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).SuspendedCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Background'*"]
@@ -4160,7 +4138,7 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::BackgroundTaskDeferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::BackgroundTaskDeferral>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -4168,13 +4146,13 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Succeeded)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn SetSucceeded(&self, succeeded: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), succeeded).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSucceeded)(::core::mem::transmute_copy(this), succeeded).ok() }
     }
 }
 impl ::core::clone::Clone for WebUIBackgroundTaskInstanceRuntimeClass {
@@ -4303,7 +4281,7 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -4312,7 +4290,7 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -4321,7 +4299,7 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -4329,7 +4307,7 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -4338,7 +4316,7 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -4347,7 +4325,7 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ConnectionId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -4552,7 +4530,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -4561,7 +4539,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -4570,7 +4548,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -4578,7 +4556,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -4587,7 +4565,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Storage_Provider'*"]
@@ -4596,7 +4574,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Provider::CachedFileUpdaterUI>(result__)
+            (::windows::core::Interface::vtable(this).CachedFileUpdaterUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Provider::CachedFileUpdaterUI>(result__)
         }
     }
 }
@@ -4797,7 +4775,7 @@ impl WebUICameraSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -4806,7 +4784,7 @@ impl WebUICameraSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -4815,7 +4793,7 @@ impl WebUICameraSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -4823,7 +4801,7 @@ impl WebUICameraSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -4832,7 +4810,7 @@ impl WebUICameraSettingsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).VideoDeviceController)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -4841,7 +4819,7 @@ impl WebUICameraSettingsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).VideoDeviceExtension)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
 }
@@ -5016,7 +4994,7 @@ impl WebUICommandLineActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5025,7 +5003,7 @@ impl WebUICommandLineActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5034,7 +5012,7 @@ impl WebUICommandLineActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -5042,7 +5020,7 @@ impl WebUICommandLineActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -5051,7 +5029,7 @@ impl WebUICommandLineActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5060,7 +5038,7 @@ impl WebUICommandLineActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::CommandLineActivationOperation>(result__)
+            (::windows::core::Interface::vtable(this).Operation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::CommandLineActivationOperation>(result__)
         }
     }
 }
@@ -5265,7 +5243,7 @@ impl WebUIContactCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5274,7 +5252,7 @@ impl WebUIContactCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5283,7 +5261,7 @@ impl WebUIContactCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -5291,7 +5269,7 @@ impl WebUIContactCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5300,7 +5278,7 @@ impl WebUIContactCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5309,7 +5287,7 @@ impl WebUIContactCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5318,7 +5296,7 @@ impl WebUIContactCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Contacts'*"]
@@ -5327,7 +5305,7 @@ impl WebUIContactCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
         }
     }
 }
@@ -5528,7 +5506,7 @@ impl WebUIContactMapActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5537,7 +5515,7 @@ impl WebUIContactMapActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5546,7 +5524,7 @@ impl WebUIContactMapActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -5554,7 +5532,7 @@ impl WebUIContactMapActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5563,7 +5541,7 @@ impl WebUIContactMapActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Contacts'*"]
@@ -5572,7 +5550,7 @@ impl WebUIContactMapActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::ContactAddress>(result__)
+            (::windows::core::Interface::vtable(this).Address)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::ContactAddress>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Contacts'*"]
@@ -5581,7 +5559,7 @@ impl WebUIContactMapActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
         }
     }
 }
@@ -5782,7 +5760,7 @@ impl WebUIContactMessageActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5791,7 +5769,7 @@ impl WebUIContactMessageActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5800,7 +5778,7 @@ impl WebUIContactMessageActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -5808,7 +5786,7 @@ impl WebUIContactMessageActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5817,7 +5795,7 @@ impl WebUIContactMessageActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5826,7 +5804,7 @@ impl WebUIContactMessageActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -5835,7 +5813,7 @@ impl WebUIContactMessageActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Contacts'*"]
@@ -5844,7 +5822,7 @@ impl WebUIContactMessageActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
         }
     }
 }
@@ -6045,7 +6023,7 @@ impl WebUIContactPanelActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6054,7 +6032,7 @@ impl WebUIContactPanelActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6063,7 +6041,7 @@ impl WebUIContactPanelActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -6071,7 +6049,7 @@ impl WebUIContactPanelActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -6080,7 +6058,7 @@ impl WebUIContactPanelActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Contacts'*"]
@@ -6089,7 +6067,7 @@ impl WebUIContactPanelActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::ContactPanel>(result__)
+            (::windows::core::Interface::vtable(this).ContactPanel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::ContactPanel>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Contacts'*"]
@@ -6098,7 +6076,7 @@ impl WebUIContactPanelActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
         }
     }
 }
@@ -6303,7 +6281,7 @@ impl WebUIContactPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6312,7 +6290,7 @@ impl WebUIContactPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6321,7 +6299,7 @@ impl WebUIContactPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -6329,7 +6307,7 @@ impl WebUIContactPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Contacts_Provider'*"]
@@ -6338,7 +6316,7 @@ impl WebUIContactPickerActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Provider::ContactPickerUI>(result__)
+            (::windows::core::Interface::vtable(this).ContactPickerUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Provider::ContactPickerUI>(result__)
         }
     }
 }
@@ -6513,7 +6491,7 @@ impl WebUIContactPostActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6522,7 +6500,7 @@ impl WebUIContactPostActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6531,7 +6509,7 @@ impl WebUIContactPostActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -6539,7 +6517,7 @@ impl WebUIContactPostActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6548,7 +6526,7 @@ impl WebUIContactPostActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6557,7 +6535,7 @@ impl WebUIContactPostActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6566,7 +6544,7 @@ impl WebUIContactPostActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Contacts'*"]
@@ -6575,7 +6553,7 @@ impl WebUIContactPostActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
         }
     }
 }
@@ -6776,7 +6754,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6785,7 +6763,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6794,7 +6772,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -6802,7 +6780,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6811,7 +6789,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6820,7 +6798,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -6829,7 +6807,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Contacts'*"]
@@ -6838,7 +6816,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
         }
     }
 }
@@ -7039,7 +7017,7 @@ impl WebUIDeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7048,7 +7026,7 @@ impl WebUIDeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7057,7 +7035,7 @@ impl WebUIDeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -7065,7 +7043,7 @@ impl WebUIDeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -7074,7 +7052,7 @@ impl WebUIDeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7083,7 +7061,7 @@ impl WebUIDeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7092,7 +7070,7 @@ impl WebUIDeviceActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceInformationId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7101,7 +7079,7 @@ impl WebUIDeviceActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -7328,7 +7306,7 @@ impl WebUIDevicePairingActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7337,7 +7315,7 @@ impl WebUIDevicePairingActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7346,7 +7324,7 @@ impl WebUIDevicePairingActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -7354,7 +7332,7 @@ impl WebUIDevicePairingActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -7363,7 +7341,7 @@ impl WebUIDevicePairingActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Devices_Enumeration'*"]
@@ -7372,7 +7350,7 @@ impl WebUIDevicePairingActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Enumeration::DeviceInformation>(result__)
+            (::windows::core::Interface::vtable(this).DeviceInformation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Enumeration::DeviceInformation>(result__)
         }
     }
 }
@@ -7573,7 +7551,7 @@ impl WebUIDialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7582,7 +7560,7 @@ impl WebUIDialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7591,7 +7569,7 @@ impl WebUIDialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -7599,7 +7577,7 @@ impl WebUIDialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -7608,7 +7586,7 @@ impl WebUIDialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7617,7 +7595,7 @@ impl WebUIDialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7626,7 +7604,7 @@ impl WebUIDialReceiverActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AppName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7635,7 +7613,7 @@ impl WebUIDialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Arguments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7644,7 +7622,7 @@ impl WebUIDialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TileId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -7897,7 +7875,7 @@ impl WebUIFileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7906,7 +7884,7 @@ impl WebUIFileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7915,7 +7893,7 @@ impl WebUIFileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -7923,7 +7901,7 @@ impl WebUIFileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -7932,7 +7910,7 @@ impl WebUIFileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7941,7 +7919,7 @@ impl WebUIFileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation_Collections', 'Storage'*"]
@@ -7950,7 +7928,7 @@ impl WebUIFileActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
+            (::windows::core::Interface::vtable(this).Files)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -7959,7 +7937,7 @@ impl WebUIFileActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Storage_Search'*"]
@@ -7968,7 +7946,7 @@ impl WebUIFileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Search::StorageFileQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).NeighboringFilesQuery)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Search::StorageFileQueryResult>(result__)
         }
     }
 }
@@ -8221,7 +8199,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -8230,7 +8208,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -8239,7 +8217,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -8247,7 +8225,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -8256,7 +8234,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Storage_Pickers_Provider'*"]
@@ -8265,7 +8243,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileOpenPickerUI>(result__)
+            (::windows::core::Interface::vtable(this).FileOpenPickerUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileOpenPickerUI>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -8274,7 +8252,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -8501,7 +8479,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -8510,7 +8488,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -8519,7 +8497,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -8527,7 +8505,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -8536,7 +8514,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation_Collections'*"]
@@ -8545,7 +8523,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).ContinuationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation_Collections', 'Storage', 'deprecated'*"]
@@ -8554,7 +8532,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).Files)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>(result__)
         }
     }
 }
@@ -8781,7 +8759,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -8790,7 +8768,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -8799,7 +8777,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -8807,7 +8785,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -8816,7 +8794,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Storage_Pickers_Provider'*"]
@@ -8825,7 +8803,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileSavePickerUI>(result__)
+            (::windows::core::Interface::vtable(this).FileSavePickerUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileSavePickerUI>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -8834,7 +8812,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -8843,7 +8821,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).EnterpriseId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -9070,7 +9048,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -9079,7 +9057,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -9088,7 +9066,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -9096,7 +9074,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -9105,7 +9083,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation_Collections'*"]
@@ -9114,7 +9092,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).ContinuationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Storage', 'deprecated'*"]
@@ -9123,7 +9101,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
+            (::windows::core::Interface::vtable(this).File)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
         }
     }
 }
@@ -9350,7 +9328,7 @@ impl WebUIFolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -9359,7 +9337,7 @@ impl WebUIFolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -9368,7 +9346,7 @@ impl WebUIFolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -9376,7 +9354,7 @@ impl WebUIFolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -9385,7 +9363,7 @@ impl WebUIFolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation_Collections'*"]
@@ -9394,7 +9372,7 @@ impl WebUIFolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).ContinuationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Storage', 'deprecated'*"]
@@ -9403,7 +9381,7 @@ impl WebUIFolderPickerContinuationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
+            (::windows::core::Interface::vtable(this).Folder)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
         }
     }
 }
@@ -9630,7 +9608,7 @@ impl WebUILaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -9639,7 +9617,7 @@ impl WebUILaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -9648,7 +9626,7 @@ impl WebUILaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -9656,7 +9634,7 @@ impl WebUILaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -9665,7 +9643,7 @@ impl WebUILaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -9674,7 +9652,7 @@ impl WebUILaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -9683,7 +9661,7 @@ impl WebUILaunchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Arguments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -9692,7 +9670,7 @@ impl WebUILaunchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TileId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -9701,7 +9679,7 @@ impl WebUILaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::TileActivatedInfo>(result__)
+            (::windows::core::Interface::vtable(this).TileActivatedInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::TileActivatedInfo>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -9710,7 +9688,7 @@ impl WebUILaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).PrelaunchActivated)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -9989,7 +9967,7 @@ impl WebUILockScreenActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -9998,7 +9976,7 @@ impl WebUILockScreenActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -10007,7 +9985,7 @@ impl WebUILockScreenActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -10015,7 +9993,7 @@ impl WebUILockScreenActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -10024,7 +10002,7 @@ impl WebUILockScreenActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -10033,7 +10011,7 @@ impl WebUILockScreenActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -10042,7 +10020,7 @@ impl WebUILockScreenActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Info)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
 }
@@ -10269,7 +10247,7 @@ impl WebUILockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -10278,7 +10256,7 @@ impl WebUILockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -10287,7 +10265,7 @@ impl WebUILockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -10295,7 +10273,7 @@ impl WebUILockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -10304,7 +10282,7 @@ impl WebUILockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -10313,7 +10291,7 @@ impl WebUILockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Arguments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -10322,7 +10300,7 @@ impl WebUILockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TileId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Calls'*"]
@@ -10331,7 +10309,7 @@ impl WebUILockScreenCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Calls::LockScreenCallUI>(result__)
+            (::windows::core::Interface::vtable(this).CallUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Calls::LockScreenCallUI>(result__)
         }
     }
 }
@@ -10558,7 +10536,7 @@ impl WebUILockScreenComponentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -10567,7 +10545,7 @@ impl WebUILockScreenComponentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -10576,7 +10554,7 @@ impl WebUILockScreenComponentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -10584,7 +10562,7 @@ impl WebUILockScreenComponentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -10728,7 +10706,7 @@ impl WebUINavigatedDeferral {
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Complete)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 impl ::core::clone::Clone for WebUINavigatedDeferral {
@@ -10806,7 +10784,7 @@ impl WebUINavigatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebUINavigatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).NavigatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebUINavigatedOperation>(result__)
         }
     }
 }
@@ -10907,7 +10885,7 @@ impl WebUINavigatedOperation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebUINavigatedDeferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebUINavigatedDeferral>(result__)
         }
     }
 }
@@ -10989,7 +10967,7 @@ impl WebUIPhoneCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -10998,7 +10976,7 @@ impl WebUIPhoneCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -11007,7 +10985,7 @@ impl WebUIPhoneCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -11015,7 +10993,7 @@ impl WebUIPhoneCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -11024,7 +11002,7 @@ impl WebUIPhoneCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -11033,7 +11011,7 @@ impl WebUIPhoneCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).LineId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
 }
@@ -11238,7 +11216,7 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -11247,7 +11225,7 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -11256,7 +11234,7 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -11264,7 +11242,7 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Devices_Printers_Extensions'*"]
@@ -11273,7 +11251,7 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::Print3DWorkflow>(result__)
+            (::windows::core::Interface::vtable(this).Workflow)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::Print3DWorkflow>(result__)
         }
     }
 }
@@ -11448,7 +11426,7 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -11457,7 +11435,7 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -11466,7 +11444,7 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -11474,7 +11452,7 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Devices_Printers_Extensions'*"]
@@ -11483,7 +11461,7 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::PrintTaskConfiguration>(result__)
+            (::windows::core::Interface::vtable(this).Configuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::PrintTaskConfiguration>(result__)
         }
     }
 }
@@ -11658,7 +11636,7 @@ impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -11667,7 +11645,7 @@ impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -11676,7 +11654,7 @@ impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -11684,7 +11662,7 @@ impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -11833,7 +11811,7 @@ impl WebUIProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -11842,7 +11820,7 @@ impl WebUIProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -11851,7 +11829,7 @@ impl WebUIProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -11859,7 +11837,7 @@ impl WebUIProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -11868,7 +11846,7 @@ impl WebUIProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -11877,7 +11855,7 @@ impl WebUIProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation'*"]
@@ -11886,7 +11864,7 @@ impl WebUIProtocolActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -11895,7 +11873,7 @@ impl WebUIProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation_Collections'*"]
@@ -11904,7 +11882,7 @@ impl WebUIProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).Data)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
 }
@@ -12157,7 +12135,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -12166,7 +12144,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -12175,7 +12153,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -12183,7 +12161,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -12192,7 +12170,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -12201,7 +12179,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation'*"]
@@ -12210,7 +12188,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -12219,7 +12197,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation_Collections'*"]
@@ -12228,7 +12206,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).Data)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -12237,7 +12215,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::ProtocolForResultsOperation>(result__)
+            (::windows::core::Interface::vtable(this).ProtocolForResultsOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::ProtocolForResultsOperation>(result__)
         }
     }
 }
@@ -12516,7 +12494,7 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -12525,7 +12503,7 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -12534,7 +12512,7 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -12542,7 +12520,7 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -12551,7 +12529,7 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -12560,7 +12538,7 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).SharedContext)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
 }
@@ -12761,7 +12739,7 @@ impl WebUISearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -12770,7 +12748,7 @@ impl WebUISearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -12779,7 +12757,7 @@ impl WebUISearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -12787,7 +12765,7 @@ impl WebUISearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -12796,7 +12774,7 @@ impl WebUISearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -12805,7 +12783,7 @@ impl WebUISearchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).QueryText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -12814,7 +12792,7 @@ impl WebUISearchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Language)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Search'*"]
@@ -12823,7 +12801,7 @@ impl WebUISearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Search::SearchPaneQueryLinguisticDetails>(result__)
+            (::windows::core::Interface::vtable(this).LinguisticDetails)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Search::SearchPaneQueryLinguisticDetails>(result__)
         }
     }
 }
@@ -13050,7 +13028,7 @@ impl WebUIShareTargetActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -13059,7 +13037,7 @@ impl WebUIShareTargetActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -13068,7 +13046,7 @@ impl WebUIShareTargetActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -13076,7 +13054,7 @@ impl WebUIShareTargetActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -13085,7 +13063,7 @@ impl WebUIShareTargetActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_DataTransfer_ShareTarget'*"]
@@ -13094,7 +13072,7 @@ impl WebUIShareTargetActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::DataTransfer::ShareTarget::ShareOperation>(result__)
+            (::windows::core::Interface::vtable(this).ShareOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::DataTransfer::ShareTarget::ShareOperation>(result__)
         }
     }
 }
@@ -13295,7 +13273,7 @@ impl WebUIStartupTaskActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -13304,7 +13282,7 @@ impl WebUIStartupTaskActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -13313,7 +13291,7 @@ impl WebUIStartupTaskActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -13321,7 +13299,7 @@ impl WebUIStartupTaskActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -13330,7 +13308,7 @@ impl WebUIStartupTaskActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -13339,7 +13317,7 @@ impl WebUIStartupTaskActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TaskId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -13544,7 +13522,7 @@ impl WebUIToastNotificationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -13553,7 +13531,7 @@ impl WebUIToastNotificationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -13562,7 +13540,7 @@ impl WebUIToastNotificationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -13570,7 +13548,7 @@ impl WebUIToastNotificationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -13579,7 +13557,7 @@ impl WebUIToastNotificationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -13588,7 +13566,7 @@ impl WebUIToastNotificationActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Argument)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation_Collections'*"]
@@ -13597,7 +13575,7 @@ impl WebUIToastNotificationActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).UserInput)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
 }
@@ -13798,7 +13776,7 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -13807,7 +13785,7 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -13816,7 +13794,7 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -13824,7 +13802,7 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_UserDataAccounts_Provider'*"]
@@ -13833,7 +13811,7 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::UserDataAccounts::Provider::IUserDataAccountProviderOperation>(result__)
+            (::windows::core::Interface::vtable(this).Operation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::UserDataAccounts::Provider::IUserDataAccountProviderOperation>(result__)
         }
     }
 }
@@ -14005,7 +13983,7 @@ impl WebUIView {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
@@ -14014,14 +13992,14 @@ impl WebUIView {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation'*"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
@@ -14029,34 +14007,34 @@ impl WebUIView {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Activated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveActivated)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn IgnoreApplicationContentUriRulesNavigationRestrictions(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IgnoreApplicationContentUriRulesNavigationRestrictions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
     pub fn SetIgnoreApplicationContentUriRulesNavigationRestrictions(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIgnoreApplicationContentUriRulesNavigationRestrictions)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WebUIView>> {
         Self::IWebUIViewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WebUIView>>(result__)
+            (::windows::core::Interface::vtable(this).CreateAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WebUIView>>(result__)
         })
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation'*"]
@@ -14064,7 +14042,7 @@ impl WebUIView {
     pub fn CreateWithUriAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(uri: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WebUIView>> {
         Self::IWebUIViewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WebUIView>>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithUriAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WebUIView>>(result__)
         })
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
@@ -14073,14 +14051,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).Source)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn SetSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, source: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), source.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::core::mem::transmute_copy(this), source.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
     #[cfg(feature = "Web_UI")]
@@ -14088,7 +14066,7 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DocumentTitle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
@@ -14097,7 +14075,7 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanGoBack)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
@@ -14106,14 +14084,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanGoForward)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
     #[cfg(feature = "Web_UI")]
     pub fn SetDefaultBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultBackgroundColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
     #[cfg(feature = "Web_UI")]
@@ -14121,7 +14099,7 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Color>(result__)
+            (::windows::core::Interface::vtable(this).DefaultBackgroundColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Color>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
@@ -14130,7 +14108,7 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ContainsFullScreenElement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
@@ -14139,7 +14117,7 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Web::UI::WebViewControlSettings>(result__)
+            (::windows::core::Interface::vtable(this).Settings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Web::UI::WebViewControlSettings>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation_Collections', 'Web_UI'*"]
@@ -14148,56 +14126,56 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Web::UI::WebViewControlDeferredPermissionRequest>>(result__)
+            (::windows::core::Interface::vtable(this).DeferredPermissionRequests)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Web::UI::WebViewControlDeferredPermissionRequest>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
     #[cfg(feature = "Web_UI")]
     pub fn GoForward(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GoForward)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
     #[cfg(feature = "Web_UI")]
     pub fn GoBack(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GoBack)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
     #[cfg(feature = "Web_UI")]
     pub fn Refresh(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Refresh)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
     #[cfg(feature = "Web_UI")]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn Navigate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, source: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), source.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Navigate)(::core::mem::transmute_copy(this), source.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
     #[cfg(feature = "Web_UI")]
     pub fn NavigateToString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, text: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), text.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NavigateToString)(::core::mem::transmute_copy(this), text.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web", feature = "Web_UI"))]
     pub fn NavigateToLocalStreamUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Web::IUriToStreamResolver>>(&self, source: Param0, streamresolver: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), source.into_param().abi(), streamresolver.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NavigateToLocalStreamUri)(::core::mem::transmute_copy(this), source.into_param().abi(), streamresolver.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_Http', 'Web_UI'*"]
     #[cfg(all(feature = "Web_Http", feature = "Web_UI"))]
     pub fn NavigateWithHttpRequestMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Web::Http::HttpRequestMessage>>(&self, requestmessage: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), requestmessage.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NavigateWithHttpRequestMessage)(::core::mem::transmute_copy(this), requestmessage.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Foundation_Collections', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Web_UI"))]
@@ -14205,7 +14183,7 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), scriptname.into_param().abi(), arguments.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).InvokeScriptAsync)(::core::mem::transmute_copy(this), scriptname.into_param().abi(), arguments.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Storage_Streams', 'Web_UI'*"]
@@ -14214,7 +14192,7 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).CapturePreviewToStreamAsync)(::core::mem::transmute_copy(this), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_DataTransfer', 'Foundation', 'Web_UI'*"]
@@ -14223,7 +14201,7 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>>(result__)
+            (::windows::core::Interface::vtable(this).CaptureSelectedContentToDataPackageAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
@@ -14232,14 +14210,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), contentidentifier.into_param().abi(), relativepath.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).BuildLocalStreamUri)(::core::mem::transmute_copy(this), contentidentifier.into_param().abi(), relativepath.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
     #[cfg(feature = "Web_UI")]
     pub fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut ::core::option::Option<super::super::Web::UI::WebViewControlDeferredPermissionRequest>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), id, result as *mut _ as _).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetDeferredPermissionRequestById)(::core::mem::transmute_copy(this), id, result as *mut _ as _).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14247,14 +14225,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NavigationStarting)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveNavigationStarting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationStarting)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14262,14 +14240,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ContentLoading)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveContentLoading<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveContentLoading)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14277,14 +14255,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DOMContentLoaded)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveDOMContentLoaded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDOMContentLoaded)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14292,14 +14270,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NavigationCompleted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveNavigationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationCompleted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14307,14 +14285,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).FrameNavigationStarting)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveFrameNavigationStarting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).38)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveFrameNavigationStarting)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14322,14 +14300,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).39)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).FrameContentLoading)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveFrameContentLoading<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).40)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveFrameContentLoading)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14337,14 +14315,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).41)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).FrameDOMContentLoaded)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveFrameDOMContentLoaded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).42)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveFrameDOMContentLoaded)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14352,14 +14330,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).43)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).FrameNavigationCompleted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveFrameNavigationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).44)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveFrameNavigationCompleted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14367,14 +14345,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).45)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ScriptNotify)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveScriptNotify<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).46)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveScriptNotify)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14382,14 +14360,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).47)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).LongRunningScriptDetected)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveLongRunningScriptDetected<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).48)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLongRunningScriptDetected)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14397,14 +14375,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).49)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).UnsafeContentWarningDisplaying)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveUnsafeContentWarningDisplaying<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).50)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUnsafeContentWarningDisplaying)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14412,14 +14390,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).51)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).UnviewableContentIdentified)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveUnviewableContentIdentified<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).52)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUnviewableContentIdentified)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14427,14 +14405,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).53)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PermissionRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemovePermissionRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).54)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePermissionRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14442,14 +14420,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).55)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).UnsupportedUriSchemeIdentified)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveUnsupportedUriSchemeIdentified<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).56)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUnsupportedUriSchemeIdentified)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14457,14 +14435,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).57)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NewWindowRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveNewWindowRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).58)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNewWindowRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14472,14 +14450,14 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).59)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ContainsFullScreenElementChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveContainsFullScreenElementChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).60)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveContainsFullScreenElementChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -14487,20 +14465,20 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).61)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).WebResourceRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveWebResourceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).62)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveWebResourceRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_WebUI', 'Web_UI'*"]
     #[cfg(feature = "Web_UI")]
     pub fn AddInitializeScript<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, script: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), script.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInitializeScript)(::core::mem::transmute_copy(this), script.into_param().abi()).ok() }
     }
     #[doc(hidden)]
     pub fn IWebUIViewStatics<R, F: FnOnce(&IWebUIViewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -14638,7 +14616,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -14647,7 +14625,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -14656,7 +14634,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -14664,7 +14642,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -14673,7 +14651,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Media_SpeechRecognition'*"]
@@ -14682,7 +14660,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::SpeechRecognition::SpeechRecognitionResult>(result__)
+            (::windows::core::Interface::vtable(this).Result)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::SpeechRecognition::SpeechRecognitionResult>(result__)
         }
     }
 }
@@ -14883,7 +14861,7 @@ impl WebUIWalletActionActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -14892,7 +14870,7 @@ impl WebUIWalletActionActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -14901,7 +14879,7 @@ impl WebUIWalletActionActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -14909,7 +14887,7 @@ impl WebUIWalletActionActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -14918,7 +14896,7 @@ impl WebUIWalletActionActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ItemId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'ApplicationModel_Wallet'*"]
@@ -14927,7 +14905,7 @@ impl WebUIWalletActionActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::ApplicationModel::Wallet::WalletActionKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Wallet::WalletActionKind>(result__)
+            (::windows::core::Interface::vtable(this).ActionKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Wallet::WalletActionKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -14936,7 +14914,7 @@ impl WebUIWalletActionActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ActionId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -15111,7 +15089,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -15120,7 +15098,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -15129,7 +15107,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -15137,7 +15115,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'System'*"]
@@ -15146,7 +15124,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Security_Authentication_Web_Provider'*"]
@@ -15155,7 +15133,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation>(result__)
+            (::windows::core::Interface::vtable(this).Operation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation>(result__)
         }
     }
 }
@@ -15356,7 +15334,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -15365,7 +15343,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
@@ -15374,7 +15352,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI'*"]
@@ -15382,7 +15360,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            (::windows::core::Interface::vtable(this).ActivatedOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Foundation_Collections'*"]
@@ -15391,7 +15369,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).ContinuationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'Security_Authentication_Web'*"]
@@ -15400,7 +15378,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
+            (::windows::core::Interface::vtable(this).WebAuthenticationResult)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
         }
     }
 }

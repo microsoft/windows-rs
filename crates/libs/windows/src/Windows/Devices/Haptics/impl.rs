@@ -68,7 +68,14 @@ impl IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownSimpleHapticsControllerWaveformsStatics>, ::windows::core::GetTrustLevel, Click::<Impl, IMPL_OFFSET>, BuzzContinuous::<Impl, IMPL_OFFSET>, RumbleContinuous::<Impl, IMPL_OFFSET>, Press::<Impl, IMPL_OFFSET>, Release::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownSimpleHapticsControllerWaveformsStatics, BASE_OFFSET>(),
+            Click: Click::<Impl, IMPL_OFFSET>,
+            BuzzContinuous: BuzzContinuous::<Impl, IMPL_OFFSET>,
+            RumbleContinuous: RumbleContinuous::<Impl, IMPL_OFFSET>,
+            Press: Press::<Impl, IMPL_OFFSET>,
+            Release: Release::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownSimpleHapticsControllerWaveformsStatics as ::windows::core::Interface>::IID
@@ -204,24 +211,19 @@ impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IKnownSimpleHapticsControllerWaveformsStatics2>,
-            ::windows::core::GetTrustLevel,
-            BrushContinuous::<Impl, IMPL_OFFSET>,
-            ChiselMarkerContinuous::<Impl, IMPL_OFFSET>,
-            EraserContinuous::<Impl, IMPL_OFFSET>,
-            Error::<Impl, IMPL_OFFSET>,
-            GalaxyPenContinuous::<Impl, IMPL_OFFSET>,
-            Hover::<Impl, IMPL_OFFSET>,
-            InkContinuous::<Impl, IMPL_OFFSET>,
-            MarkerContinuous::<Impl, IMPL_OFFSET>,
-            PencilContinuous::<Impl, IMPL_OFFSET>,
-            Success::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownSimpleHapticsControllerWaveformsStatics2, BASE_OFFSET>(),
+            BrushContinuous: BrushContinuous::<Impl, IMPL_OFFSET>,
+            ChiselMarkerContinuous: ChiselMarkerContinuous::<Impl, IMPL_OFFSET>,
+            EraserContinuous: EraserContinuous::<Impl, IMPL_OFFSET>,
+            Error: Error::<Impl, IMPL_OFFSET>,
+            GalaxyPenContinuous: GalaxyPenContinuous::<Impl, IMPL_OFFSET>,
+            Hover: Hover::<Impl, IMPL_OFFSET>,
+            InkContinuous: InkContinuous::<Impl, IMPL_OFFSET>,
+            MarkerContinuous: MarkerContinuous::<Impl, IMPL_OFFSET>,
+            PencilContinuous: PencilContinuous::<Impl, IMPL_OFFSET>,
+            Success: Success::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownSimpleHapticsControllerWaveformsStatics2 as ::windows::core::Interface>::IID
@@ -334,25 +336,20 @@ impl ISimpleHapticsControllerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendHapticFeedbackForPlayCount(&*(&feedback as *const <SimpleHapticsControllerFeedback as ::windows::core::Abi>::Abi as *const <SimpleHapticsControllerFeedback as ::windows::core::DefaultType>::DefaultType), intensity, playcount, &*(&replaypauseinterval as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISimpleHapticsController>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            SupportedFeedback::<Impl, IMPL_OFFSET>,
-            IsIntensitySupported::<Impl, IMPL_OFFSET>,
-            IsPlayCountSupported::<Impl, IMPL_OFFSET>,
-            IsPlayDurationSupported::<Impl, IMPL_OFFSET>,
-            IsReplayPauseIntervalSupported::<Impl, IMPL_OFFSET>,
-            StopFeedback::<Impl, IMPL_OFFSET>,
-            SendHapticFeedback::<Impl, IMPL_OFFSET>,
-            SendHapticFeedbackWithIntensity::<Impl, IMPL_OFFSET>,
-            SendHapticFeedbackForDuration::<Impl, IMPL_OFFSET>,
-            SendHapticFeedbackForPlayCount::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISimpleHapticsController, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SupportedFeedback: SupportedFeedback::<Impl, IMPL_OFFSET>,
+            IsIntensitySupported: IsIntensitySupported::<Impl, IMPL_OFFSET>,
+            IsPlayCountSupported: IsPlayCountSupported::<Impl, IMPL_OFFSET>,
+            IsPlayDurationSupported: IsPlayDurationSupported::<Impl, IMPL_OFFSET>,
+            IsReplayPauseIntervalSupported: IsReplayPauseIntervalSupported::<Impl, IMPL_OFFSET>,
+            StopFeedback: StopFeedback::<Impl, IMPL_OFFSET>,
+            SendHapticFeedback: SendHapticFeedback::<Impl, IMPL_OFFSET>,
+            SendHapticFeedbackWithIntensity: SendHapticFeedbackWithIntensity::<Impl, IMPL_OFFSET>,
+            SendHapticFeedbackForDuration: SendHapticFeedbackForDuration::<Impl, IMPL_OFFSET>,
+            SendHapticFeedbackForPlayCount: SendHapticFeedbackForPlayCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISimpleHapticsController as ::windows::core::Interface>::IID
@@ -392,7 +389,11 @@ impl ISimpleHapticsControllerFeedbackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISimpleHapticsControllerFeedback>, ::windows::core::GetTrustLevel, Waveform::<Impl, IMPL_OFFSET>, Duration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISimpleHapticsControllerFeedback, BASE_OFFSET>(),
+            Waveform: Waveform::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISimpleHapticsControllerFeedback as ::windows::core::Interface>::IID
@@ -432,7 +433,11 @@ impl IVibrationDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVibrationDevice>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, SimpleHapticsController::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVibrationDevice, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SimpleHapticsController: SimpleHapticsController::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVibrationDevice as ::windows::core::Interface>::IID
@@ -508,7 +513,14 @@ impl IVibrationDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVibrationDeviceStatics>, ::windows::core::GetTrustLevel, RequestAccessAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>, FindAllAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVibrationDeviceStatics, BASE_OFFSET>(),
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+            FindAllAsync: FindAllAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVibrationDeviceStatics as ::windows::core::Interface>::IID

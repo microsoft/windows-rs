@@ -8,17 +8,12 @@ unsafe impl ::windows::core::Interface for IUserDataAccountPartnerAccountInfo {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAccountPartnerAccountInfoVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataAccountProviderPartnerAccountKind) -> ::windows::core::HRESULT,
-);
+pub struct IUserDataAccountPartnerAccountInfoVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub AccountKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataAccountProviderPartnerAccountKind) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataAccountProviderAddAccountOperation(::windows::core::IUnknown);
@@ -28,18 +23,15 @@ unsafe impl ::windows::core::Interface for IUserDataAccountProviderAddAccountOpe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAccountProviderAddAccountOperationVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::UserDataAccountContentKinds) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdataaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-);
+pub struct IUserDataAccountProviderAddAccountOperationVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub ContentKinds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::UserDataAccountContentKinds) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub PartnerAccountInfos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    PartnerAccountInfos: usize,
+    pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdataaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
 #[repr(transparent)]
 pub struct IUserDataAccountProviderOperation(::windows::core::IUnknown);
@@ -49,7 +41,7 @@ impl IUserDataAccountProviderOperation {
         let this = self;
         unsafe {
             let mut result__: UserDataAccountProviderOperationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAccountProviderOperationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAccountProviderOperationKind>(result__)
         }
     }
 }
@@ -118,15 +110,10 @@ unsafe impl ::windows::core::Interface for IUserDataAccountProviderOperation {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAccountProviderOperationVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataAccountProviderOperationKind) -> ::windows::core::HRESULT,
-);
+pub struct IUserDataAccountProviderOperationVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataAccountProviderOperationKind) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataAccountProviderResolveErrorsOperation(::windows::core::IUnknown);
@@ -136,16 +123,11 @@ unsafe impl ::windows::core::Interface for IUserDataAccountProviderResolveErrors
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAccountProviderResolveErrorsOperationVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IUserDataAccountProviderResolveErrorsOperationVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub UserDataAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataAccountProviderSettingsOperation(::windows::core::IUnknown);
@@ -155,16 +137,11 @@ unsafe impl ::windows::core::Interface for IUserDataAccountProviderSettingsOpera
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAccountProviderSettingsOperationVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IUserDataAccountProviderSettingsOperationVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub UserDataAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
 #[repr(transparent)]
 pub struct UserDataAccountPartnerAccountInfo(::windows::core::IUnknown);
@@ -174,7 +151,7 @@ impl UserDataAccountPartnerAccountInfo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
@@ -182,7 +159,7 @@ impl UserDataAccountPartnerAccountInfo {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Priority)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
@@ -190,7 +167,7 @@ impl UserDataAccountPartnerAccountInfo {
         let this = self;
         unsafe {
             let mut result__: UserDataAccountProviderPartnerAccountKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAccountProviderPartnerAccountKind>(result__)
+            (::windows::core::Interface::vtable(this).AccountKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAccountProviderPartnerAccountKind>(result__)
         }
     }
 }
@@ -271,7 +248,7 @@ impl UserDataAccountProviderAddAccountOperation {
         let this = self;
         unsafe {
             let mut result__: super::UserDataAccountContentKinds = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UserDataAccountContentKinds>(result__)
+            (::windows::core::Interface::vtable(this).ContentKinds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UserDataAccountContentKinds>(result__)
         }
     }
     #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider', 'Foundation_Collections'*"]
@@ -280,20 +257,20 @@ impl UserDataAccountProviderAddAccountOperation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<UserDataAccountPartnerAccountInfo>>(result__)
+            (::windows::core::Interface::vtable(this).PartnerAccountInfos)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<UserDataAccountPartnerAccountInfo>>(result__)
         }
     }
     #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn ReportCompleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, userdataaccountid: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), userdataaccountid.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::core::mem::transmute_copy(this), userdataaccountid.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn Kind(&self) -> ::windows::core::Result<UserDataAccountProviderOperationKind> {
         let this = &::windows::core::Interface::cast::<IUserDataAccountProviderOperation>(self)?;
         unsafe {
             let mut result__: UserDataAccountProviderOperationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAccountProviderOperationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAccountProviderOperationKind>(result__)
         }
     }
 }
@@ -463,7 +440,7 @@ impl UserDataAccountProviderResolveErrorsOperation {
         let this = &::windows::core::Interface::cast::<IUserDataAccountProviderOperation>(self)?;
         unsafe {
             let mut result__: UserDataAccountProviderOperationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAccountProviderOperationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAccountProviderOperationKind>(result__)
         }
     }
     #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
@@ -471,13 +448,13 @@ impl UserDataAccountProviderResolveErrorsOperation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UserDataAccountId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn ReportCompleted(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 impl ::core::clone::Clone for UserDataAccountProviderResolveErrorsOperation {
@@ -579,7 +556,7 @@ impl UserDataAccountProviderSettingsOperation {
         let this = &::windows::core::Interface::cast::<IUserDataAccountProviderOperation>(self)?;
         unsafe {
             let mut result__: UserDataAccountProviderOperationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAccountProviderOperationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAccountProviderOperationKind>(result__)
         }
     }
     #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
@@ -587,13 +564,13 @@ impl UserDataAccountProviderSettingsOperation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UserDataAccountId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn ReportCompleted(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 impl ::core::clone::Clone for UserDataAccountProviderSettingsOperation {

@@ -19,7 +19,12 @@ impl IPhotoAcquireVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CreatePhotoSource::<Impl, IMPL_OFFSET>, Acquire::<Impl, IMPL_OFFSET>, EnumResults::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreatePhotoSource: CreatePhotoSource::<Impl, IMPL_OFFSET>,
+            Acquire: Acquire::<Impl, IMPL_OFFSET>,
+            EnumResults: EnumResults::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoAcquire as ::windows::core::Interface>::IID
@@ -46,7 +51,12 @@ impl IPhotoAcquireDeviceSelectionDialogVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetTitle::<Impl, IMPL_OFFSET>, SetSubmitButtonText::<Impl, IMPL_OFFSET>, DoModal::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            SetSubmitButtonText: SetSubmitButtonText::<Impl, IMPL_OFFSET>,
+            DoModal: DoModal::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoAcquireDeviceSelectionDialog as ::windows::core::Interface>::IID
@@ -103,7 +113,18 @@ impl IPhotoAcquireItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetItemName::<Impl, IMPL_OFFSET>, GetThumbnail::<Impl, IMPL_OFFSET>, GetProperty::<Impl, IMPL_OFFSET>, SetProperty::<Impl, IMPL_OFFSET>, GetStream::<Impl, IMPL_OFFSET>, CanDelete::<Impl, IMPL_OFFSET>, Delete::<Impl, IMPL_OFFSET>, GetSubItemCount::<Impl, IMPL_OFFSET>, GetSubItemAt::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetItemName: GetItemName::<Impl, IMPL_OFFSET>,
+            GetThumbnail: GetThumbnail::<Impl, IMPL_OFFSET>,
+            GetProperty: GetProperty::<Impl, IMPL_OFFSET>,
+            SetProperty: SetProperty::<Impl, IMPL_OFFSET>,
+            GetStream: GetStream::<Impl, IMPL_OFFSET>,
+            CanDelete: CanDelete::<Impl, IMPL_OFFSET>,
+            Delete: Delete::<Impl, IMPL_OFFSET>,
+            GetSubItemCount: GetSubItemCount::<Impl, IMPL_OFFSET>,
+            GetSubItemAt: GetSubItemAt::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoAcquireItem as ::windows::core::Interface>::IID
@@ -140,7 +161,14 @@ impl IPhotoAcquireOptionsDialogVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Initialize::<Impl, IMPL_OFFSET>, Create::<Impl, IMPL_OFFSET>, Destroy::<Impl, IMPL_OFFSET>, DoModal::<Impl, IMPL_OFFSET>, SaveData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Destroy: Destroy::<Impl, IMPL_OFFSET>,
+            DoModal: DoModal::<Impl, IMPL_OFFSET>,
+            SaveData: SaveData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoAcquireOptionsDialog as ::windows::core::Interface>::IID
@@ -172,7 +200,13 @@ impl IPhotoAcquirePluginVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Initialize::<Impl, IMPL_OFFSET>, ProcessItem::<Impl, IMPL_OFFSET>, TransferComplete::<Impl, IMPL_OFFSET>, DisplayConfigureDialog::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            ProcessItem: ProcessItem::<Impl, IMPL_OFFSET>,
+            TransferComplete: TransferComplete::<Impl, IMPL_OFFSET>,
+            DisplayConfigureDialog: DisplayConfigureDialog::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoAcquirePlugin as ::windows::core::Interface>::IID
@@ -279,30 +313,28 @@ impl IPhotoAcquireProgressCBVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Cancelled::<Impl, IMPL_OFFSET>,
-            StartEnumeration::<Impl, IMPL_OFFSET>,
-            FoundItem::<Impl, IMPL_OFFSET>,
-            EndEnumeration::<Impl, IMPL_OFFSET>,
-            StartTransfer::<Impl, IMPL_OFFSET>,
-            StartItemTransfer::<Impl, IMPL_OFFSET>,
-            DirectoryCreated::<Impl, IMPL_OFFSET>,
-            UpdateTransferPercent::<Impl, IMPL_OFFSET>,
-            EndItemTransfer::<Impl, IMPL_OFFSET>,
-            EndTransfer::<Impl, IMPL_OFFSET>,
-            StartDelete::<Impl, IMPL_OFFSET>,
-            StartItemDelete::<Impl, IMPL_OFFSET>,
-            UpdateDeletePercent::<Impl, IMPL_OFFSET>,
-            EndItemDelete::<Impl, IMPL_OFFSET>,
-            EndDelete::<Impl, IMPL_OFFSET>,
-            EndSession::<Impl, IMPL_OFFSET>,
-            GetDeleteAfterAcquire::<Impl, IMPL_OFFSET>,
-            ErrorAdvise::<Impl, IMPL_OFFSET>,
-            GetUserInput::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Cancelled: Cancelled::<Impl, IMPL_OFFSET>,
+            StartEnumeration: StartEnumeration::<Impl, IMPL_OFFSET>,
+            FoundItem: FoundItem::<Impl, IMPL_OFFSET>,
+            EndEnumeration: EndEnumeration::<Impl, IMPL_OFFSET>,
+            StartTransfer: StartTransfer::<Impl, IMPL_OFFSET>,
+            StartItemTransfer: StartItemTransfer::<Impl, IMPL_OFFSET>,
+            DirectoryCreated: DirectoryCreated::<Impl, IMPL_OFFSET>,
+            UpdateTransferPercent: UpdateTransferPercent::<Impl, IMPL_OFFSET>,
+            EndItemTransfer: EndItemTransfer::<Impl, IMPL_OFFSET>,
+            EndTransfer: EndTransfer::<Impl, IMPL_OFFSET>,
+            StartDelete: StartDelete::<Impl, IMPL_OFFSET>,
+            StartItemDelete: StartItemDelete::<Impl, IMPL_OFFSET>,
+            UpdateDeletePercent: UpdateDeletePercent::<Impl, IMPL_OFFSET>,
+            EndItemDelete: EndItemDelete::<Impl, IMPL_OFFSET>,
+            EndDelete: EndDelete::<Impl, IMPL_OFFSET>,
+            EndSession: EndSession::<Impl, IMPL_OFFSET>,
+            GetDeleteAfterAcquire: GetDeleteAfterAcquire::<Impl, IMPL_OFFSET>,
+            ErrorAdvise: ErrorAdvise::<Impl, IMPL_OFFSET>,
+            GetUserInput: GetUserInput::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoAcquireProgressCB as ::windows::core::Interface>::IID
@@ -379,24 +411,22 @@ impl IPhotoAcquireSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            InitializeFromRegistry::<Impl, IMPL_OFFSET>,
-            SetFlags::<Impl, IMPL_OFFSET>,
-            SetOutputFilenameTemplate::<Impl, IMPL_OFFSET>,
-            SetSequencePaddingWidth::<Impl, IMPL_OFFSET>,
-            SetSequenceZeroPadding::<Impl, IMPL_OFFSET>,
-            SetGroupTag::<Impl, IMPL_OFFSET>,
-            SetAcquisitionTime::<Impl, IMPL_OFFSET>,
-            GetFlags::<Impl, IMPL_OFFSET>,
-            GetOutputFilenameTemplate::<Impl, IMPL_OFFSET>,
-            GetSequencePaddingWidth::<Impl, IMPL_OFFSET>,
-            GetSequenceZeroPadding::<Impl, IMPL_OFFSET>,
-            GetGroupTag::<Impl, IMPL_OFFSET>,
-            GetAcquisitionTime::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            InitializeFromRegistry: InitializeFromRegistry::<Impl, IMPL_OFFSET>,
+            SetFlags: SetFlags::<Impl, IMPL_OFFSET>,
+            SetOutputFilenameTemplate: SetOutputFilenameTemplate::<Impl, IMPL_OFFSET>,
+            SetSequencePaddingWidth: SetSequencePaddingWidth::<Impl, IMPL_OFFSET>,
+            SetSequenceZeroPadding: SetSequenceZeroPadding::<Impl, IMPL_OFFSET>,
+            SetGroupTag: SetGroupTag::<Impl, IMPL_OFFSET>,
+            SetAcquisitionTime: SetAcquisitionTime::<Impl, IMPL_OFFSET>,
+            GetFlags: GetFlags::<Impl, IMPL_OFFSET>,
+            GetOutputFilenameTemplate: GetOutputFilenameTemplate::<Impl, IMPL_OFFSET>,
+            GetSequencePaddingWidth: GetSequencePaddingWidth::<Impl, IMPL_OFFSET>,
+            GetSequenceZeroPadding: GetSequenceZeroPadding::<Impl, IMPL_OFFSET>,
+            GetGroupTag: GetGroupTag::<Impl, IMPL_OFFSET>,
+            GetAcquisitionTime: GetAcquisitionTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoAcquireSettings as ::windows::core::Interface>::IID
@@ -448,7 +478,17 @@ impl IPhotoAcquireSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetFriendlyName::<Impl, IMPL_OFFSET>, GetDeviceIcons::<Impl, IMPL_OFFSET>, InitializeItemList::<Impl, IMPL_OFFSET>, GetItemCount::<Impl, IMPL_OFFSET>, GetItemAt::<Impl, IMPL_OFFSET>, GetPhotoAcquireSettings::<Impl, IMPL_OFFSET>, GetDeviceId::<Impl, IMPL_OFFSET>, BindToObject::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetFriendlyName: GetFriendlyName::<Impl, IMPL_OFFSET>,
+            GetDeviceIcons: GetDeviceIcons::<Impl, IMPL_OFFSET>,
+            InitializeItemList: InitializeItemList::<Impl, IMPL_OFFSET>,
+            GetItemCount: GetItemCount::<Impl, IMPL_OFFSET>,
+            GetItemAt: GetItemAt::<Impl, IMPL_OFFSET>,
+            GetPhotoAcquireSettings: GetPhotoAcquireSettings::<Impl, IMPL_OFFSET>,
+            GetDeviceId: GetDeviceId::<Impl, IMPL_OFFSET>,
+            BindToObject: BindToObject::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoAcquireSource as ::windows::core::Interface>::IID
@@ -465,7 +505,7 @@ impl IPhotoProgressActionCBVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, DoAction::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), DoAction: DoAction::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoProgressActionCB as ::windows::core::Interface>::IID
@@ -567,29 +607,27 @@ impl IPhotoProgressDialogVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Create::<Impl, IMPL_OFFSET>,
-            GetWindow::<Impl, IMPL_OFFSET>,
-            Destroy::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            ShowCheckbox::<Impl, IMPL_OFFSET>,
-            SetCheckboxText::<Impl, IMPL_OFFSET>,
-            SetCheckboxCheck::<Impl, IMPL_OFFSET>,
-            SetCheckboxTooltip::<Impl, IMPL_OFFSET>,
-            IsCheckboxChecked::<Impl, IMPL_OFFSET>,
-            SetCaption::<Impl, IMPL_OFFSET>,
-            SetImage::<Impl, IMPL_OFFSET>,
-            SetPercentComplete::<Impl, IMPL_OFFSET>,
-            SetProgressText::<Impl, IMPL_OFFSET>,
-            SetActionLinkCallback::<Impl, IMPL_OFFSET>,
-            SetActionLinkText::<Impl, IMPL_OFFSET>,
-            ShowActionLink::<Impl, IMPL_OFFSET>,
-            IsCancelled::<Impl, IMPL_OFFSET>,
-            GetUserInput::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            GetWindow: GetWindow::<Impl, IMPL_OFFSET>,
+            Destroy: Destroy::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            ShowCheckbox: ShowCheckbox::<Impl, IMPL_OFFSET>,
+            SetCheckboxText: SetCheckboxText::<Impl, IMPL_OFFSET>,
+            SetCheckboxCheck: SetCheckboxCheck::<Impl, IMPL_OFFSET>,
+            SetCheckboxTooltip: SetCheckboxTooltip::<Impl, IMPL_OFFSET>,
+            IsCheckboxChecked: IsCheckboxChecked::<Impl, IMPL_OFFSET>,
+            SetCaption: SetCaption::<Impl, IMPL_OFFSET>,
+            SetImage: SetImage::<Impl, IMPL_OFFSET>,
+            SetPercentComplete: SetPercentComplete::<Impl, IMPL_OFFSET>,
+            SetProgressText: SetProgressText::<Impl, IMPL_OFFSET>,
+            SetActionLinkCallback: SetActionLinkCallback::<Impl, IMPL_OFFSET>,
+            SetActionLinkText: SetActionLinkText::<Impl, IMPL_OFFSET>,
+            ShowActionLink: ShowActionLink::<Impl, IMPL_OFFSET>,
+            IsCancelled: IsCancelled::<Impl, IMPL_OFFSET>,
+            GetUserInput: GetUserInput::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoProgressDialog as ::windows::core::Interface>::IID
@@ -651,21 +689,19 @@ impl IUserInputStringVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetSubmitButtonText::<Impl, IMPL_OFFSET>,
-            GetPrompt::<Impl, IMPL_OFFSET>,
-            GetStringId::<Impl, IMPL_OFFSET>,
-            GetStringType::<Impl, IMPL_OFFSET>,
-            GetTooltipText::<Impl, IMPL_OFFSET>,
-            GetMaxLength::<Impl, IMPL_OFFSET>,
-            GetDefault::<Impl, IMPL_OFFSET>,
-            GetMruCount::<Impl, IMPL_OFFSET>,
-            GetMruEntryAt::<Impl, IMPL_OFFSET>,
-            GetImage::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetSubmitButtonText: GetSubmitButtonText::<Impl, IMPL_OFFSET>,
+            GetPrompt: GetPrompt::<Impl, IMPL_OFFSET>,
+            GetStringId: GetStringId::<Impl, IMPL_OFFSET>,
+            GetStringType: GetStringType::<Impl, IMPL_OFFSET>,
+            GetTooltipText: GetTooltipText::<Impl, IMPL_OFFSET>,
+            GetMaxLength: GetMaxLength::<Impl, IMPL_OFFSET>,
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            GetMruCount: GetMruCount::<Impl, IMPL_OFFSET>,
+            GetMruEntryAt: GetMruEntryAt::<Impl, IMPL_OFFSET>,
+            GetImage: GetImage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserInputString as ::windows::core::Interface>::IID

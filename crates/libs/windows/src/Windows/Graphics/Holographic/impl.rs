@@ -71,21 +71,16 @@ impl IHolographicCameraVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFarPlaneDistance(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHolographicCamera>,
-            ::windows::core::GetTrustLevel,
-            RenderTargetSize::<Impl, IMPL_OFFSET>,
-            ViewportScaleFactor::<Impl, IMPL_OFFSET>,
-            SetViewportScaleFactor::<Impl, IMPL_OFFSET>,
-            IsStereo::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            SetNearPlaneDistance::<Impl, IMPL_OFFSET>,
-            SetFarPlaneDistance::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCamera, BASE_OFFSET>(),
+            RenderTargetSize: RenderTargetSize::<Impl, IMPL_OFFSET>,
+            ViewportScaleFactor: ViewportScaleFactor::<Impl, IMPL_OFFSET>,
+            SetViewportScaleFactor: SetViewportScaleFactor::<Impl, IMPL_OFFSET>,
+            IsStereo: IsStereo::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SetNearPlaneDistance: SetNearPlaneDistance::<Impl, IMPL_OFFSET>,
+            SetFarPlaneDistance: SetFarPlaneDistance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCamera as ::windows::core::Interface>::IID
@@ -137,7 +132,12 @@ impl IHolographicCamera2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera2>, ::windows::core::GetTrustLevel, LeftViewportParameters::<Impl, IMPL_OFFSET>, RightViewportParameters::<Impl, IMPL_OFFSET>, Display::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCamera2, BASE_OFFSET>(),
+            LeftViewportParameters: LeftViewportParameters::<Impl, IMPL_OFFSET>,
+            RightViewportParameters: RightViewportParameters::<Impl, IMPL_OFFSET>,
+            Display: Display::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCamera2 as ::windows::core::Interface>::IID
@@ -194,7 +194,13 @@ impl IHolographicCamera3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera3>, ::windows::core::GetTrustLevel, IsPrimaryLayerEnabled::<Impl, IMPL_OFFSET>, SetIsPrimaryLayerEnabled::<Impl, IMPL_OFFSET>, MaxQuadLayerCount::<Impl, IMPL_OFFSET>, QuadLayers::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCamera3, BASE_OFFSET>(),
+            IsPrimaryLayerEnabled: IsPrimaryLayerEnabled::<Impl, IMPL_OFFSET>,
+            SetIsPrimaryLayerEnabled: SetIsPrimaryLayerEnabled::<Impl, IMPL_OFFSET>,
+            MaxQuadLayerCount: MaxQuadLayerCount::<Impl, IMPL_OFFSET>,
+            QuadLayers: QuadLayers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCamera3 as ::windows::core::Interface>::IID
@@ -222,7 +228,10 @@ impl IHolographicCamera4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera4>, ::windows::core::GetTrustLevel, CanOverrideViewport::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCamera4, BASE_OFFSET>(),
+            CanOverrideViewport: CanOverrideViewport::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCamera4 as ::windows::core::Interface>::IID
@@ -267,7 +276,12 @@ impl IHolographicCamera5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsHardwareContentProtectionEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera5>, ::windows::core::GetTrustLevel, IsHardwareContentProtectionSupported::<Impl, IMPL_OFFSET>, IsHardwareContentProtectionEnabled::<Impl, IMPL_OFFSET>, SetIsHardwareContentProtectionEnabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCamera5, BASE_OFFSET>(),
+            IsHardwareContentProtectionSupported: IsHardwareContentProtectionSupported::<Impl, IMPL_OFFSET>,
+            IsHardwareContentProtectionEnabled: IsHardwareContentProtectionEnabled::<Impl, IMPL_OFFSET>,
+            SetIsHardwareContentProtectionEnabled: SetIsHardwareContentProtectionEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCamera5 as ::windows::core::Interface>::IID
@@ -295,7 +309,10 @@ impl IHolographicCamera6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera6>, ::windows::core::GetTrustLevel, ViewConfiguration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCamera6, BASE_OFFSET>(),
+            ViewConfiguration: ViewConfiguration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCamera6 as ::windows::core::Interface>::IID
@@ -407,22 +424,17 @@ impl IHolographicCameraPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHolographicCameraPose>,
-            ::windows::core::GetTrustLevel,
-            HolographicCamera::<Impl, IMPL_OFFSET>,
-            Viewport::<Impl, IMPL_OFFSET>,
-            TryGetViewTransform::<Impl, IMPL_OFFSET>,
-            ProjectionTransform::<Impl, IMPL_OFFSET>,
-            TryGetCullingFrustum::<Impl, IMPL_OFFSET>,
-            TryGetVisibleFrustum::<Impl, IMPL_OFFSET>,
-            NearPlaneDistance::<Impl, IMPL_OFFSET>,
-            FarPlaneDistance::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraPose, BASE_OFFSET>(),
+            HolographicCamera: HolographicCamera::<Impl, IMPL_OFFSET>,
+            Viewport: Viewport::<Impl, IMPL_OFFSET>,
+            TryGetViewTransform: TryGetViewTransform::<Impl, IMPL_OFFSET>,
+            ProjectionTransform: ProjectionTransform::<Impl, IMPL_OFFSET>,
+            TryGetCullingFrustum: TryGetCullingFrustum::<Impl, IMPL_OFFSET>,
+            TryGetVisibleFrustum: TryGetVisibleFrustum::<Impl, IMPL_OFFSET>,
+            NearPlaneDistance: NearPlaneDistance::<Impl, IMPL_OFFSET>,
+            FarPlaneDistance: FarPlaneDistance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCameraPose as ::windows::core::Interface>::IID
@@ -453,7 +465,12 @@ impl IHolographicCameraPose2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OverrideViewport(&*(&leftviewport as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), &*(&rightviewport as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraPose2>, ::windows::core::GetTrustLevel, OverrideViewTransform::<Impl, IMPL_OFFSET>, OverrideProjectionTransform::<Impl, IMPL_OFFSET>, OverrideViewport::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraPose2, BASE_OFFSET>(),
+            OverrideViewTransform: OverrideViewTransform::<Impl, IMPL_OFFSET>,
+            OverrideProjectionTransform: OverrideProjectionTransform::<Impl, IMPL_OFFSET>,
+            OverrideViewport: OverrideViewport::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCameraPose2 as ::windows::core::Interface>::IID
@@ -521,19 +538,14 @@ impl IHolographicCameraRenderingParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHolographicCameraRenderingParameters>,
-            ::windows::core::GetTrustLevel,
-            SetFocusPoint::<Impl, IMPL_OFFSET>,
-            SetFocusPointWithNormal::<Impl, IMPL_OFFSET>,
-            SetFocusPointWithNormalLinearVelocity::<Impl, IMPL_OFFSET>,
-            Direct3D11Device::<Impl, IMPL_OFFSET>,
-            Direct3D11BackBuffer::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraRenderingParameters, BASE_OFFSET>(),
+            SetFocusPoint: SetFocusPoint::<Impl, IMPL_OFFSET>,
+            SetFocusPointWithNormal: SetFocusPointWithNormal::<Impl, IMPL_OFFSET>,
+            SetFocusPointWithNormalLinearVelocity: SetFocusPointWithNormalLinearVelocity::<Impl, IMPL_OFFSET>,
+            Direct3D11Device: Direct3D11Device::<Impl, IMPL_OFFSET>,
+            Direct3D11BackBuffer: Direct3D11BackBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCameraRenderingParameters as ::windows::core::Interface>::IID
@@ -571,7 +583,12 @@ impl IHolographicCameraRenderingParameters2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CommitDirect3D11DepthBuffer(&*(&value as *const <super::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::Abi>::Abi as *const <super::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraRenderingParameters2>, ::windows::core::GetTrustLevel, ReprojectionMode::<Impl, IMPL_OFFSET>, SetReprojectionMode::<Impl, IMPL_OFFSET>, CommitDirect3D11DepthBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraRenderingParameters2, BASE_OFFSET>(),
+            ReprojectionMode: ReprojectionMode::<Impl, IMPL_OFFSET>,
+            SetReprojectionMode: SetReprojectionMode::<Impl, IMPL_OFFSET>,
+            CommitDirect3D11DepthBuffer: CommitDirect3D11DepthBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCameraRenderingParameters2 as ::windows::core::Interface>::IID
@@ -604,7 +621,11 @@ impl IHolographicCameraRenderingParameters3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsContentProtectionEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraRenderingParameters3>, ::windows::core::GetTrustLevel, IsContentProtectionEnabled::<Impl, IMPL_OFFSET>, SetIsContentProtectionEnabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraRenderingParameters3, BASE_OFFSET>(),
+            IsContentProtectionEnabled: IsContentProtectionEnabled::<Impl, IMPL_OFFSET>,
+            SetIsContentProtectionEnabled: SetIsContentProtectionEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCameraRenderingParameters3 as ::windows::core::Interface>::IID
@@ -637,7 +658,11 @@ impl IHolographicCameraRenderingParameters4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDepthReprojectionMethod(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraRenderingParameters4>, ::windows::core::GetTrustLevel, DepthReprojectionMethod::<Impl, IMPL_OFFSET>, SetDepthReprojectionMethod::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraRenderingParameters4, BASE_OFFSET>(),
+            DepthReprojectionMethod: DepthReprojectionMethod::<Impl, IMPL_OFFSET>,
+            SetDepthReprojectionMethod: SetDepthReprojectionMethod::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCameraRenderingParameters4 as ::windows::core::Interface>::IID
@@ -679,7 +704,11 @@ impl IHolographicCameraViewportParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraViewportParameters>, ::windows::core::GetTrustLevel, HiddenAreaMesh::<Impl, IMPL_OFFSET>, VisibleAreaMesh::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraViewportParameters, BASE_OFFSET>(),
+            HiddenAreaMesh: HiddenAreaMesh::<Impl, IMPL_OFFSET>,
+            VisibleAreaMesh: VisibleAreaMesh::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicCameraViewportParameters as ::windows::core::Interface>::IID
@@ -767,7 +796,15 @@ impl IHolographicDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicDisplay>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, MaxViewportSize::<Impl, IMPL_OFFSET>, IsStereo::<Impl, IMPL_OFFSET>, IsOpaque::<Impl, IMPL_OFFSET>, AdapterId::<Impl, IMPL_OFFSET>, SpatialLocator::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicDisplay, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            MaxViewportSize: MaxViewportSize::<Impl, IMPL_OFFSET>,
+            IsStereo: IsStereo::<Impl, IMPL_OFFSET>,
+            IsOpaque: IsOpaque::<Impl, IMPL_OFFSET>,
+            AdapterId: AdapterId::<Impl, IMPL_OFFSET>,
+            SpatialLocator: SpatialLocator::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicDisplay as ::windows::core::Interface>::IID
@@ -795,7 +832,7 @@ impl IHolographicDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicDisplay2>, ::windows::core::GetTrustLevel, RefreshRate::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicDisplay2, BASE_OFFSET>(), RefreshRate: RefreshRate::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicDisplay2 as ::windows::core::Interface>::IID
@@ -823,7 +860,10 @@ impl IHolographicDisplay3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicDisplay3>, ::windows::core::GetTrustLevel, TryGetViewConfiguration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicDisplay3, BASE_OFFSET>(),
+            TryGetViewConfiguration: TryGetViewConfiguration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicDisplay3 as ::windows::core::Interface>::IID
@@ -851,7 +891,7 @@ impl IHolographicDisplayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicDisplayStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicDisplayStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicDisplayStatics as ::windows::core::Interface>::IID
@@ -961,23 +1001,18 @@ impl IHolographicFrameVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).WaitForFrameToFinish().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHolographicFrame>,
-            ::windows::core::GetTrustLevel,
-            AddedCameras::<Impl, IMPL_OFFSET>,
-            RemovedCameras::<Impl, IMPL_OFFSET>,
-            GetRenderingParameters::<Impl, IMPL_OFFSET>,
-            Duration::<Impl, IMPL_OFFSET>,
-            CurrentPrediction::<Impl, IMPL_OFFSET>,
-            UpdateCurrentPrediction::<Impl, IMPL_OFFSET>,
-            PresentUsingCurrentPrediction::<Impl, IMPL_OFFSET>,
-            PresentUsingCurrentPredictionWithBehavior::<Impl, IMPL_OFFSET>,
-            WaitForFrameToFinish::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicFrame, BASE_OFFSET>(),
+            AddedCameras: AddedCameras::<Impl, IMPL_OFFSET>,
+            RemovedCameras: RemovedCameras::<Impl, IMPL_OFFSET>,
+            GetRenderingParameters: GetRenderingParameters::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            CurrentPrediction: CurrentPrediction::<Impl, IMPL_OFFSET>,
+            UpdateCurrentPrediction: UpdateCurrentPrediction::<Impl, IMPL_OFFSET>,
+            PresentUsingCurrentPrediction: PresentUsingCurrentPrediction::<Impl, IMPL_OFFSET>,
+            PresentUsingCurrentPredictionWithBehavior: PresentUsingCurrentPredictionWithBehavior::<Impl, IMPL_OFFSET>,
+            WaitForFrameToFinish: WaitForFrameToFinish::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicFrame as ::windows::core::Interface>::IID
@@ -1005,7 +1040,10 @@ impl IHolographicFrame2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFrame2>, ::windows::core::GetTrustLevel, GetQuadLayerUpdateParameters::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicFrame2, BASE_OFFSET>(),
+            GetQuadLayerUpdateParameters: GetQuadLayerUpdateParameters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicFrame2 as ::windows::core::Interface>::IID
@@ -1033,7 +1071,7 @@ impl IHolographicFrame3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFrame3>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicFrame3, BASE_OFFSET>(), Id: Id::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicFrame3 as ::windows::core::Interface>::IID
@@ -1073,7 +1111,11 @@ impl IHolographicFramePredictionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFramePrediction>, ::windows::core::GetTrustLevel, CameraPoses::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicFramePrediction, BASE_OFFSET>(),
+            CameraPoses: CameraPoses::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicFramePrediction as ::windows::core::Interface>::IID
@@ -1101,7 +1143,10 @@ impl IHolographicFramePresentationMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFramePresentationMonitor>, ::windows::core::GetTrustLevel, ReadReports::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicFramePresentationMonitor, BASE_OFFSET>(),
+            ReadReports: ReadReports::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicFramePresentationMonitor as ::windows::core::Interface>::IID
@@ -1177,19 +1222,14 @@ impl IHolographicFramePresentationReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHolographicFramePresentationReport>,
-            ::windows::core::GetTrustLevel,
-            CompositorGpuDuration::<Impl, IMPL_OFFSET>,
-            AppGpuDuration::<Impl, IMPL_OFFSET>,
-            AppGpuOverrun::<Impl, IMPL_OFFSET>,
-            MissedPresentationOpportunityCount::<Impl, IMPL_OFFSET>,
-            PresentationCount::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicFramePresentationReport, BASE_OFFSET>(),
+            CompositorGpuDuration: CompositorGpuDuration::<Impl, IMPL_OFFSET>,
+            AppGpuDuration: AppGpuDuration::<Impl, IMPL_OFFSET>,
+            AppGpuOverrun: AppGpuOverrun::<Impl, IMPL_OFFSET>,
+            MissedPresentationOpportunityCount: MissedPresentationOpportunityCount::<Impl, IMPL_OFFSET>,
+            PresentationCount: PresentationCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicFramePresentationReport as ::windows::core::Interface>::IID
@@ -1265,19 +1305,14 @@ impl IHolographicFrameRenderingReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHolographicFrameRenderingReport>,
-            ::windows::core::GetTrustLevel,
-            FrameId::<Impl, IMPL_OFFSET>,
-            MissedLatchCount::<Impl, IMPL_OFFSET>,
-            SystemRelativeFrameReadyTime::<Impl, IMPL_OFFSET>,
-            SystemRelativeActualGpuFinishTime::<Impl, IMPL_OFFSET>,
-            SystemRelativeTargetLatchTime::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicFrameRenderingReport, BASE_OFFSET>(),
+            FrameId: FrameId::<Impl, IMPL_OFFSET>,
+            MissedLatchCount: MissedLatchCount::<Impl, IMPL_OFFSET>,
+            SystemRelativeFrameReadyTime: SystemRelativeFrameReadyTime::<Impl, IMPL_OFFSET>,
+            SystemRelativeActualGpuFinishTime: SystemRelativeActualGpuFinishTime::<Impl, IMPL_OFFSET>,
+            SystemRelativeTargetLatchTime: SystemRelativeTargetLatchTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicFrameRenderingReport as ::windows::core::Interface>::IID
@@ -1305,7 +1340,10 @@ impl IHolographicFrameScanoutMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFrameScanoutMonitor>, ::windows::core::GetTrustLevel, ReadReports::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicFrameScanoutMonitor, BASE_OFFSET>(),
+            ReadReports: ReadReports::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicFrameScanoutMonitor as ::windows::core::Interface>::IID
@@ -1381,19 +1419,14 @@ impl IHolographicFrameScanoutReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHolographicFrameScanoutReport>,
-            ::windows::core::GetTrustLevel,
-            RenderingReport::<Impl, IMPL_OFFSET>,
-            MissedScanoutCount::<Impl, IMPL_OFFSET>,
-            SystemRelativeLatchTime::<Impl, IMPL_OFFSET>,
-            SystemRelativeScanoutStartTime::<Impl, IMPL_OFFSET>,
-            SystemRelativePhotonTime::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicFrameScanoutReport, BASE_OFFSET>(),
+            RenderingReport: RenderingReport::<Impl, IMPL_OFFSET>,
+            MissedScanoutCount: MissedScanoutCount::<Impl, IMPL_OFFSET>,
+            SystemRelativeLatchTime: SystemRelativeLatchTime::<Impl, IMPL_OFFSET>,
+            SystemRelativeScanoutStartTime: SystemRelativeScanoutStartTime::<Impl, IMPL_OFFSET>,
+            SystemRelativePhotonTime: SystemRelativePhotonTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicFrameScanoutReport as ::windows::core::Interface>::IID
@@ -1433,7 +1466,11 @@ impl IHolographicQuadLayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicQuadLayer>, ::windows::core::GetTrustLevel, PixelFormat::<Impl, IMPL_OFFSET>, Size::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayer, BASE_OFFSET>(),
+            PixelFormat: PixelFormat::<Impl, IMPL_OFFSET>,
+            Size: Size::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicQuadLayer as ::windows::core::Interface>::IID
@@ -1473,7 +1510,11 @@ impl IHolographicQuadLayerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicQuadLayerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithPixelFormat::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayerFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithPixelFormat: CreateWithPixelFormat::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicQuadLayerFactory as ::windows::core::Interface>::IID
@@ -1532,20 +1573,15 @@ impl IHolographicQuadLayerUpdateParametersVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateLocationWithDisplayRelativeMode(&*(&position as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), &*(&orientation as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHolographicQuadLayerUpdateParameters>,
-            ::windows::core::GetTrustLevel,
-            AcquireBufferToUpdateContent::<Impl, IMPL_OFFSET>,
-            UpdateViewport::<Impl, IMPL_OFFSET>,
-            UpdateContentProtectionEnabled::<Impl, IMPL_OFFSET>,
-            UpdateExtents::<Impl, IMPL_OFFSET>,
-            UpdateLocationWithStationaryMode::<Impl, IMPL_OFFSET>,
-            UpdateLocationWithDisplayRelativeMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayerUpdateParameters, BASE_OFFSET>(),
+            AcquireBufferToUpdateContent: AcquireBufferToUpdateContent::<Impl, IMPL_OFFSET>,
+            UpdateViewport: UpdateViewport::<Impl, IMPL_OFFSET>,
+            UpdateContentProtectionEnabled: UpdateContentProtectionEnabled::<Impl, IMPL_OFFSET>,
+            UpdateExtents: UpdateExtents::<Impl, IMPL_OFFSET>,
+            UpdateLocationWithStationaryMode: UpdateLocationWithStationaryMode::<Impl, IMPL_OFFSET>,
+            UpdateLocationWithDisplayRelativeMode: UpdateLocationWithDisplayRelativeMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicQuadLayerUpdateParameters as ::windows::core::Interface>::IID
@@ -1585,7 +1621,11 @@ impl IHolographicQuadLayerUpdateParameters2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicQuadLayerUpdateParameters2>, ::windows::core::GetTrustLevel, CanAcquireWithHardwareProtection::<Impl, IMPL_OFFSET>, AcquireBufferToUpdateContentWithHardwareProtection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayerUpdateParameters2, BASE_OFFSET>(),
+            CanAcquireWithHardwareProtection: CanAcquireWithHardwareProtection::<Impl, IMPL_OFFSET>,
+            AcquireBufferToUpdateContentWithHardwareProtection: AcquireBufferToUpdateContentWithHardwareProtection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicQuadLayerUpdateParameters2 as ::windows::core::Interface>::IID
@@ -1664,21 +1704,16 @@ impl IHolographicSpaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHolographicSpace>,
-            ::windows::core::GetTrustLevel,
-            PrimaryAdapterId::<Impl, IMPL_OFFSET>,
-            SetDirect3D11Device::<Impl, IMPL_OFFSET>,
-            CameraAdded::<Impl, IMPL_OFFSET>,
-            RemoveCameraAdded::<Impl, IMPL_OFFSET>,
-            CameraRemoved::<Impl, IMPL_OFFSET>,
-            RemoveCameraRemoved::<Impl, IMPL_OFFSET>,
-            CreateNextFrame::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicSpace, BASE_OFFSET>(),
+            PrimaryAdapterId: PrimaryAdapterId::<Impl, IMPL_OFFSET>,
+            SetDirect3D11Device: SetDirect3D11Device::<Impl, IMPL_OFFSET>,
+            CameraAdded: CameraAdded::<Impl, IMPL_OFFSET>,
+            RemoveCameraAdded: RemoveCameraAdded::<Impl, IMPL_OFFSET>,
+            CameraRemoved: CameraRemoved::<Impl, IMPL_OFFSET>,
+            RemoveCameraRemoved: RemoveCameraRemoved::<Impl, IMPL_OFFSET>,
+            CreateNextFrame: CreateNextFrame::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicSpace as ::windows::core::Interface>::IID
@@ -1745,20 +1780,15 @@ impl IHolographicSpace2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHolographicSpace2>,
-            ::windows::core::GetTrustLevel,
-            UserPresence::<Impl, IMPL_OFFSET>,
-            UserPresenceChanged::<Impl, IMPL_OFFSET>,
-            RemoveUserPresenceChanged::<Impl, IMPL_OFFSET>,
-            WaitForNextFrameReady::<Impl, IMPL_OFFSET>,
-            WaitForNextFrameReadyWithHeadStart::<Impl, IMPL_OFFSET>,
-            CreateFramePresentationMonitor::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicSpace2, BASE_OFFSET>(),
+            UserPresence: UserPresence::<Impl, IMPL_OFFSET>,
+            UserPresenceChanged: UserPresenceChanged::<Impl, IMPL_OFFSET>,
+            RemoveUserPresenceChanged: RemoveUserPresenceChanged::<Impl, IMPL_OFFSET>,
+            WaitForNextFrameReady: WaitForNextFrameReady::<Impl, IMPL_OFFSET>,
+            WaitForNextFrameReadyWithHeadStart: WaitForNextFrameReadyWithHeadStart::<Impl, IMPL_OFFSET>,
+            CreateFramePresentationMonitor: CreateFramePresentationMonitor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicSpace2 as ::windows::core::Interface>::IID
@@ -1786,7 +1816,10 @@ impl IHolographicSpace3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpace3>, ::windows::core::GetTrustLevel, CreateFrameScanoutMonitor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicSpace3, BASE_OFFSET>(),
+            CreateFrameScanoutMonitor: CreateFrameScanoutMonitor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicSpace3 as ::windows::core::Interface>::IID
@@ -1826,7 +1859,11 @@ impl IHolographicSpaceCameraAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceCameraAddedEventArgs>, ::windows::core::GetTrustLevel, Camera::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicSpaceCameraAddedEventArgs, BASE_OFFSET>(),
+            Camera: Camera::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicSpaceCameraAddedEventArgs as ::windows::core::Interface>::IID
@@ -1854,7 +1891,10 @@ impl IHolographicSpaceCameraRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceCameraRemovedEventArgs>, ::windows::core::GetTrustLevel, Camera::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicSpaceCameraRemovedEventArgs, BASE_OFFSET>(),
+            Camera: Camera::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicSpaceCameraRemovedEventArgs as ::windows::core::Interface>::IID
@@ -1882,7 +1922,10 @@ impl IHolographicSpaceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceStatics>, ::windows::core::GetTrustLevel, CreateForCoreWindow::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicSpaceStatics, BASE_OFFSET>(),
+            CreateForCoreWindow: CreateForCoreWindow::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicSpaceStatics as ::windows::core::Interface>::IID
@@ -1939,7 +1982,13 @@ impl IHolographicSpaceStatics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsAvailableChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceStatics2>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>, IsAvailable::<Impl, IMPL_OFFSET>, IsAvailableChanged::<Impl, IMPL_OFFSET>, RemoveIsAvailableChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicSpaceStatics2, BASE_OFFSET>(),
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+            IsAvailable: IsAvailable::<Impl, IMPL_OFFSET>,
+            IsAvailableChanged: IsAvailableChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsAvailableChanged: RemoveIsAvailableChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicSpaceStatics2 as ::windows::core::Interface>::IID
@@ -1967,7 +2016,10 @@ impl IHolographicSpaceStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceStatics3>, ::windows::core::GetTrustLevel, IsConfigured::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicSpaceStatics3, BASE_OFFSET>(),
+            IsConfigured: IsConfigured::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicSpaceStatics3 as ::windows::core::Interface>::IID
@@ -2113,26 +2165,21 @@ impl IHolographicViewConfigurationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEnabled(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHolographicViewConfiguration>,
-            ::windows::core::GetTrustLevel,
-            NativeRenderTargetSize::<Impl, IMPL_OFFSET>,
-            RenderTargetSize::<Impl, IMPL_OFFSET>,
-            RequestRenderTargetSize::<Impl, IMPL_OFFSET>,
-            SupportedPixelFormats::<Impl, IMPL_OFFSET>,
-            PixelFormat::<Impl, IMPL_OFFSET>,
-            SetPixelFormat::<Impl, IMPL_OFFSET>,
-            IsStereo::<Impl, IMPL_OFFSET>,
-            RefreshRate::<Impl, IMPL_OFFSET>,
-            Kind::<Impl, IMPL_OFFSET>,
-            Display::<Impl, IMPL_OFFSET>,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            SetIsEnabled::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicViewConfiguration, BASE_OFFSET>(),
+            NativeRenderTargetSize: NativeRenderTargetSize::<Impl, IMPL_OFFSET>,
+            RenderTargetSize: RenderTargetSize::<Impl, IMPL_OFFSET>,
+            RequestRenderTargetSize: RequestRenderTargetSize::<Impl, IMPL_OFFSET>,
+            SupportedPixelFormats: SupportedPixelFormats::<Impl, IMPL_OFFSET>,
+            PixelFormat: PixelFormat::<Impl, IMPL_OFFSET>,
+            SetPixelFormat: SetPixelFormat::<Impl, IMPL_OFFSET>,
+            IsStereo: IsStereo::<Impl, IMPL_OFFSET>,
+            RefreshRate: RefreshRate::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            Display: Display::<Impl, IMPL_OFFSET>,
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled: SetIsEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicViewConfiguration as ::windows::core::Interface>::IID
@@ -2160,7 +2207,10 @@ impl IHolographicViewConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicViewConfiguration2>, ::windows::core::GetTrustLevel, SupportedDepthReprojectionMethods::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicViewConfiguration2, BASE_OFFSET>(),
+            SupportedDepthReprojectionMethods: SupportedDepthReprojectionMethods::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicViewConfiguration2 as ::windows::core::Interface>::IID

@@ -1267,16 +1267,16 @@ pub struct IPrintDialogCallback(::windows::core::IUnknown);
 impl IPrintDialogCallback {
     #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
     pub unsafe fn InitDone(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).InitDone)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
     pub unsafe fn SelectionChange(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).SelectionChange)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HandleMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, hdlg: Param0, umsg: u32, wparam: Param2, lparam: Param3, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), hdlg.into_param().abi(), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(presult)).ok()
+        (::windows::core::Interface::vtable(self).HandleMessage)(::core::mem::transmute_copy(self), hdlg.into_param().abi(), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(presult)).ok()
     }
 }
 impl ::core::convert::From<IPrintDialogCallback> for ::windows::core::IUnknown {
@@ -1321,15 +1321,15 @@ unsafe impl ::windows::core::Interface for IPrintDialogCallback {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintDialogCallbackVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IPrintDialogCallbackVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub InitDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub HandleMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    HandleMessage: usize,
+}
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 #[repr(transparent)]
 pub struct IPrintDialogServices(::windows::core::IUnknown);
@@ -1337,17 +1337,17 @@ impl IPrintDialogServices {
     #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Interface::vtable(self).GetCurrentDevMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCurrentPrinterName(&self, pprintername: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprintername), ::core::mem::transmute(pcchsize)).ok()
+        (::windows::core::Interface::vtable(self).GetCurrentPrinterName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprintername), ::core::mem::transmute(pcchsize)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCurrentPortName(&self, pportname: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pportname), ::core::mem::transmute(pcchsize)).ok()
+        (::windows::core::Interface::vtable(self).GetCurrentPortName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pportname), ::core::mem::transmute(pcchsize)).ok()
     }
 }
 impl ::core::convert::From<IPrintDialogServices> for ::windows::core::IUnknown {
@@ -1392,17 +1392,21 @@ unsafe impl ::windows::core::Interface for IPrintDialogServices {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintDialogServicesVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintername: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportname: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IPrintDialogServicesVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub GetCurrentDevMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
+    GetCurrentDevMode: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetCurrentPrinterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintername: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetCurrentPrinterName: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetCurrentPortName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportname: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetCurrentPortName: usize,
+}
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCCHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;

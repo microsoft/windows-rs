@@ -59,7 +59,15 @@ impl ISyndicationAttributeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationAttribute>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, Namespace::<Impl, IMPL_OFFSET>, SetNamespace::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationAttribute, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            Namespace: Namespace::<Impl, IMPL_OFFSET>,
+            SetNamespace: SetNamespace::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationAttribute as ::windows::core::Interface>::IID
@@ -91,7 +99,10 @@ impl ISyndicationAttributeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationAttributeFactory>, ::windows::core::GetTrustLevel, CreateSyndicationAttribute::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationAttributeFactory, BASE_OFFSET>(),
+            CreateSyndicationAttribute: CreateSyndicationAttribute::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationAttributeFactory as ::windows::core::Interface>::IID
@@ -158,7 +169,15 @@ impl ISyndicationCategoryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTerm(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationCategory>, ::windows::core::GetTrustLevel, Label::<Impl, IMPL_OFFSET>, SetLabel::<Impl, IMPL_OFFSET>, Scheme::<Impl, IMPL_OFFSET>, SetScheme::<Impl, IMPL_OFFSET>, Term::<Impl, IMPL_OFFSET>, SetTerm::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationCategory, BASE_OFFSET>(),
+            Label: Label::<Impl, IMPL_OFFSET>,
+            SetLabel: SetLabel::<Impl, IMPL_OFFSET>,
+            Scheme: Scheme::<Impl, IMPL_OFFSET>,
+            SetScheme: SetScheme::<Impl, IMPL_OFFSET>,
+            Term: Term::<Impl, IMPL_OFFSET>,
+            SetTerm: SetTerm::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationCategory as ::windows::core::Interface>::IID
@@ -198,7 +217,11 @@ impl ISyndicationCategoryFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationCategoryFactory>, ::windows::core::GetTrustLevel, CreateSyndicationCategory::<Impl, IMPL_OFFSET>, CreateSyndicationCategoryEx::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationCategoryFactory, BASE_OFFSET>(),
+            CreateSyndicationCategory: CreateSyndicationCategory::<Impl, IMPL_OFFSET>,
+            CreateSyndicationCategoryEx: CreateSyndicationCategoryEx::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationCategoryFactory as ::windows::core::Interface>::IID
@@ -316,26 +339,21 @@ impl ISyndicationClientVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISyndicationClient>,
-            ::windows::core::GetTrustLevel,
-            ServerCredential::<Impl, IMPL_OFFSET>,
-            SetServerCredential::<Impl, IMPL_OFFSET>,
-            ProxyCredential::<Impl, IMPL_OFFSET>,
-            SetProxyCredential::<Impl, IMPL_OFFSET>,
-            MaxResponseBufferSize::<Impl, IMPL_OFFSET>,
-            SetMaxResponseBufferSize::<Impl, IMPL_OFFSET>,
-            Timeout::<Impl, IMPL_OFFSET>,
-            SetTimeout::<Impl, IMPL_OFFSET>,
-            BypassCacheOnRetrieve::<Impl, IMPL_OFFSET>,
-            SetBypassCacheOnRetrieve::<Impl, IMPL_OFFSET>,
-            SetRequestHeader::<Impl, IMPL_OFFSET>,
-            RetrieveFeedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationClient, BASE_OFFSET>(),
+            ServerCredential: ServerCredential::<Impl, IMPL_OFFSET>,
+            SetServerCredential: SetServerCredential::<Impl, IMPL_OFFSET>,
+            ProxyCredential: ProxyCredential::<Impl, IMPL_OFFSET>,
+            SetProxyCredential: SetProxyCredential::<Impl, IMPL_OFFSET>,
+            MaxResponseBufferSize: MaxResponseBufferSize::<Impl, IMPL_OFFSET>,
+            SetMaxResponseBufferSize: SetMaxResponseBufferSize::<Impl, IMPL_OFFSET>,
+            Timeout: Timeout::<Impl, IMPL_OFFSET>,
+            SetTimeout: SetTimeout::<Impl, IMPL_OFFSET>,
+            BypassCacheOnRetrieve: BypassCacheOnRetrieve::<Impl, IMPL_OFFSET>,
+            SetBypassCacheOnRetrieve: SetBypassCacheOnRetrieve::<Impl, IMPL_OFFSET>,
+            SetRequestHeader: SetRequestHeader::<Impl, IMPL_OFFSET>,
+            RetrieveFeedAsync: RetrieveFeedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationClient as ::windows::core::Interface>::IID
@@ -363,7 +381,10 @@ impl ISyndicationClientFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationClientFactory>, ::windows::core::GetTrustLevel, CreateSyndicationClient::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationClientFactory, BASE_OFFSET>(),
+            CreateSyndicationClient: CreateSyndicationClient::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationClientFactory as ::windows::core::Interface>::IID
@@ -396,7 +417,11 @@ impl ISyndicationContentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSourceUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationContent>, ::windows::core::GetTrustLevel, SourceUri::<Impl, IMPL_OFFSET>, SetSourceUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationContent, BASE_OFFSET>(),
+            SourceUri: SourceUri::<Impl, IMPL_OFFSET>,
+            SetSourceUri: SetSourceUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationContent as ::windows::core::Interface>::IID
@@ -436,7 +461,11 @@ impl ISyndicationContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationContentFactory>, ::windows::core::GetTrustLevel, CreateSyndicationContent::<Impl, IMPL_OFFSET>, CreateSyndicationContentWithSourceUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationContentFactory, BASE_OFFSET>(),
+            CreateSyndicationContent: CreateSyndicationContent::<Impl, IMPL_OFFSET>,
+            CreateSyndicationContentWithSourceUri: CreateSyndicationContentWithSourceUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationContentFactory as ::windows::core::Interface>::IID
@@ -464,7 +493,7 @@ impl ISyndicationErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationErrorStatics>, ::windows::core::GetTrustLevel, GetStatus::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationErrorStatics, BASE_OFFSET>(), GetStatus: GetStatus::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationErrorStatics as ::windows::core::Interface>::IID
@@ -746,42 +775,37 @@ impl ISyndicationFeedVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LoadFromXml(&*(&feeddocument as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISyndicationFeed>,
-            ::windows::core::GetTrustLevel,
-            Authors::<Impl, IMPL_OFFSET>,
-            Categories::<Impl, IMPL_OFFSET>,
-            Contributors::<Impl, IMPL_OFFSET>,
-            Generator::<Impl, IMPL_OFFSET>,
-            SetGenerator::<Impl, IMPL_OFFSET>,
-            IconUri::<Impl, IMPL_OFFSET>,
-            SetIconUri::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            SetId::<Impl, IMPL_OFFSET>,
-            Items::<Impl, IMPL_OFFSET>,
-            LastUpdatedTime::<Impl, IMPL_OFFSET>,
-            SetLastUpdatedTime::<Impl, IMPL_OFFSET>,
-            Links::<Impl, IMPL_OFFSET>,
-            ImageUri::<Impl, IMPL_OFFSET>,
-            SetImageUri::<Impl, IMPL_OFFSET>,
-            Rights::<Impl, IMPL_OFFSET>,
-            SetRights::<Impl, IMPL_OFFSET>,
-            Subtitle::<Impl, IMPL_OFFSET>,
-            SetSubtitle::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            FirstUri::<Impl, IMPL_OFFSET>,
-            LastUri::<Impl, IMPL_OFFSET>,
-            NextUri::<Impl, IMPL_OFFSET>,
-            PreviousUri::<Impl, IMPL_OFFSET>,
-            SourceFormat::<Impl, IMPL_OFFSET>,
-            Load::<Impl, IMPL_OFFSET>,
-            LoadFromXml::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationFeed, BASE_OFFSET>(),
+            Authors: Authors::<Impl, IMPL_OFFSET>,
+            Categories: Categories::<Impl, IMPL_OFFSET>,
+            Contributors: Contributors::<Impl, IMPL_OFFSET>,
+            Generator: Generator::<Impl, IMPL_OFFSET>,
+            SetGenerator: SetGenerator::<Impl, IMPL_OFFSET>,
+            IconUri: IconUri::<Impl, IMPL_OFFSET>,
+            SetIconUri: SetIconUri::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            Items: Items::<Impl, IMPL_OFFSET>,
+            LastUpdatedTime: LastUpdatedTime::<Impl, IMPL_OFFSET>,
+            SetLastUpdatedTime: SetLastUpdatedTime::<Impl, IMPL_OFFSET>,
+            Links: Links::<Impl, IMPL_OFFSET>,
+            ImageUri: ImageUri::<Impl, IMPL_OFFSET>,
+            SetImageUri: SetImageUri::<Impl, IMPL_OFFSET>,
+            Rights: Rights::<Impl, IMPL_OFFSET>,
+            SetRights: SetRights::<Impl, IMPL_OFFSET>,
+            Subtitle: Subtitle::<Impl, IMPL_OFFSET>,
+            SetSubtitle: SetSubtitle::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            FirstUri: FirstUri::<Impl, IMPL_OFFSET>,
+            LastUri: LastUri::<Impl, IMPL_OFFSET>,
+            NextUri: NextUri::<Impl, IMPL_OFFSET>,
+            PreviousUri: PreviousUri::<Impl, IMPL_OFFSET>,
+            SourceFormat: SourceFormat::<Impl, IMPL_OFFSET>,
+            Load: Load::<Impl, IMPL_OFFSET>,
+            LoadFromXml: LoadFromXml::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationFeed as ::windows::core::Interface>::IID
@@ -813,7 +837,10 @@ impl ISyndicationFeedFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationFeedFactory>, ::windows::core::GetTrustLevel, CreateSyndicationFeed::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationFeedFactory, BASE_OFFSET>(),
+            CreateSyndicationFeed: CreateSyndicationFeed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationFeedFactory as ::windows::core::Interface>::IID
@@ -880,7 +907,15 @@ impl ISyndicationGeneratorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVersion(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationGenerator>, ::windows::core::GetTrustLevel, Text::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>, SetUri::<Impl, IMPL_OFFSET>, Version::<Impl, IMPL_OFFSET>, SetVersion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationGenerator, BASE_OFFSET>(),
+            Text: Text::<Impl, IMPL_OFFSET>,
+            SetText: SetText::<Impl, IMPL_OFFSET>,
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            SetUri: SetUri::<Impl, IMPL_OFFSET>,
+            Version: Version::<Impl, IMPL_OFFSET>,
+            SetVersion: SetVersion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationGenerator as ::windows::core::Interface>::IID
@@ -908,7 +943,10 @@ impl ISyndicationGeneratorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationGeneratorFactory>, ::windows::core::GetTrustLevel, CreateSyndicationGenerator::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationGeneratorFactory, BASE_OFFSET>(),
+            CreateSyndicationGenerator: CreateSyndicationGenerator::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationGeneratorFactory as ::windows::core::Interface>::IID
@@ -1183,42 +1221,37 @@ impl ISyndicationItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LoadFromXml(&*(&itemdocument as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISyndicationItem>,
-            ::windows::core::GetTrustLevel,
-            Authors::<Impl, IMPL_OFFSET>,
-            Categories::<Impl, IMPL_OFFSET>,
-            Contributors::<Impl, IMPL_OFFSET>,
-            Content::<Impl, IMPL_OFFSET>,
-            SetContent::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            SetId::<Impl, IMPL_OFFSET>,
-            LastUpdatedTime::<Impl, IMPL_OFFSET>,
-            SetLastUpdatedTime::<Impl, IMPL_OFFSET>,
-            Links::<Impl, IMPL_OFFSET>,
-            PublishedDate::<Impl, IMPL_OFFSET>,
-            SetPublishedDate::<Impl, IMPL_OFFSET>,
-            Rights::<Impl, IMPL_OFFSET>,
-            SetRights::<Impl, IMPL_OFFSET>,
-            Source::<Impl, IMPL_OFFSET>,
-            SetSource::<Impl, IMPL_OFFSET>,
-            Summary::<Impl, IMPL_OFFSET>,
-            SetSummary::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            CommentsUri::<Impl, IMPL_OFFSET>,
-            SetCommentsUri::<Impl, IMPL_OFFSET>,
-            EditUri::<Impl, IMPL_OFFSET>,
-            EditMediaUri::<Impl, IMPL_OFFSET>,
-            ETag::<Impl, IMPL_OFFSET>,
-            ItemUri::<Impl, IMPL_OFFSET>,
-            Load::<Impl, IMPL_OFFSET>,
-            LoadFromXml::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationItem, BASE_OFFSET>(),
+            Authors: Authors::<Impl, IMPL_OFFSET>,
+            Categories: Categories::<Impl, IMPL_OFFSET>,
+            Contributors: Contributors::<Impl, IMPL_OFFSET>,
+            Content: Content::<Impl, IMPL_OFFSET>,
+            SetContent: SetContent::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            LastUpdatedTime: LastUpdatedTime::<Impl, IMPL_OFFSET>,
+            SetLastUpdatedTime: SetLastUpdatedTime::<Impl, IMPL_OFFSET>,
+            Links: Links::<Impl, IMPL_OFFSET>,
+            PublishedDate: PublishedDate::<Impl, IMPL_OFFSET>,
+            SetPublishedDate: SetPublishedDate::<Impl, IMPL_OFFSET>,
+            Rights: Rights::<Impl, IMPL_OFFSET>,
+            SetRights: SetRights::<Impl, IMPL_OFFSET>,
+            Source: Source::<Impl, IMPL_OFFSET>,
+            SetSource: SetSource::<Impl, IMPL_OFFSET>,
+            Summary: Summary::<Impl, IMPL_OFFSET>,
+            SetSummary: SetSummary::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            CommentsUri: CommentsUri::<Impl, IMPL_OFFSET>,
+            SetCommentsUri: SetCommentsUri::<Impl, IMPL_OFFSET>,
+            EditUri: EditUri::<Impl, IMPL_OFFSET>,
+            EditMediaUri: EditMediaUri::<Impl, IMPL_OFFSET>,
+            ETag: ETag::<Impl, IMPL_OFFSET>,
+            ItemUri: ItemUri::<Impl, IMPL_OFFSET>,
+            Load: Load::<Impl, IMPL_OFFSET>,
+            LoadFromXml: LoadFromXml::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationItem as ::windows::core::Interface>::IID
@@ -1246,7 +1279,10 @@ impl ISyndicationItemFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationItemFactory>, ::windows::core::GetTrustLevel, CreateSyndicationItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationItemFactory, BASE_OFFSET>(),
+            CreateSyndicationItem: CreateSyndicationItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationItemFactory as ::windows::core::Interface>::IID
@@ -1364,26 +1400,21 @@ impl ISyndicationLinkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResourceLanguage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISyndicationLink>,
-            ::windows::core::GetTrustLevel,
-            Length::<Impl, IMPL_OFFSET>,
-            SetLength::<Impl, IMPL_OFFSET>,
-            MediaType::<Impl, IMPL_OFFSET>,
-            SetMediaType::<Impl, IMPL_OFFSET>,
-            Relationship::<Impl, IMPL_OFFSET>,
-            SetRelationship::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            Uri::<Impl, IMPL_OFFSET>,
-            SetUri::<Impl, IMPL_OFFSET>,
-            ResourceLanguage::<Impl, IMPL_OFFSET>,
-            SetResourceLanguage::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationLink, BASE_OFFSET>(),
+            Length: Length::<Impl, IMPL_OFFSET>,
+            SetLength: SetLength::<Impl, IMPL_OFFSET>,
+            MediaType: MediaType::<Impl, IMPL_OFFSET>,
+            SetMediaType: SetMediaType::<Impl, IMPL_OFFSET>,
+            Relationship: Relationship::<Impl, IMPL_OFFSET>,
+            SetRelationship: SetRelationship::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            SetUri: SetUri::<Impl, IMPL_OFFSET>,
+            ResourceLanguage: ResourceLanguage::<Impl, IMPL_OFFSET>,
+            SetResourceLanguage: SetResourceLanguage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationLink as ::windows::core::Interface>::IID
@@ -1429,7 +1460,11 @@ impl ISyndicationLinkFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationLinkFactory>, ::windows::core::GetTrustLevel, CreateSyndicationLink::<Impl, IMPL_OFFSET>, CreateSyndicationLinkEx::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationLinkFactory, BASE_OFFSET>(),
+            CreateSyndicationLink: CreateSyndicationLink::<Impl, IMPL_OFFSET>,
+            CreateSyndicationLinkEx: CreateSyndicationLinkEx::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationLinkFactory as ::windows::core::Interface>::IID
@@ -1566,27 +1601,22 @@ impl ISyndicationNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISyndicationNode>,
-            ::windows::core::GetTrustLevel,
-            NodeName::<Impl, IMPL_OFFSET>,
-            SetNodeName::<Impl, IMPL_OFFSET>,
-            NodeNamespace::<Impl, IMPL_OFFSET>,
-            SetNodeNamespace::<Impl, IMPL_OFFSET>,
-            NodeValue::<Impl, IMPL_OFFSET>,
-            SetNodeValue::<Impl, IMPL_OFFSET>,
-            Language::<Impl, IMPL_OFFSET>,
-            SetLanguage::<Impl, IMPL_OFFSET>,
-            BaseUri::<Impl, IMPL_OFFSET>,
-            SetBaseUri::<Impl, IMPL_OFFSET>,
-            AttributeExtensions::<Impl, IMPL_OFFSET>,
-            ElementExtensions::<Impl, IMPL_OFFSET>,
-            GetXmlDocument::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationNode, BASE_OFFSET>(),
+            NodeName: NodeName::<Impl, IMPL_OFFSET>,
+            SetNodeName: SetNodeName::<Impl, IMPL_OFFSET>,
+            NodeNamespace: NodeNamespace::<Impl, IMPL_OFFSET>,
+            SetNodeNamespace: SetNodeNamespace::<Impl, IMPL_OFFSET>,
+            NodeValue: NodeValue::<Impl, IMPL_OFFSET>,
+            SetNodeValue: SetNodeValue::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+            SetLanguage: SetLanguage::<Impl, IMPL_OFFSET>,
+            BaseUri: BaseUri::<Impl, IMPL_OFFSET>,
+            SetBaseUri: SetBaseUri::<Impl, IMPL_OFFSET>,
+            AttributeExtensions: AttributeExtensions::<Impl, IMPL_OFFSET>,
+            ElementExtensions: ElementExtensions::<Impl, IMPL_OFFSET>,
+            GetXmlDocument: GetXmlDocument::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationNode as ::windows::core::Interface>::IID
@@ -1618,7 +1648,10 @@ impl ISyndicationNodeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationNodeFactory>, ::windows::core::GetTrustLevel, CreateSyndicationNode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationNodeFactory, BASE_OFFSET>(),
+            CreateSyndicationNode: CreateSyndicationNode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationNodeFactory as ::windows::core::Interface>::IID
@@ -1685,7 +1718,15 @@ impl ISyndicationPersonVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationPerson>, ::windows::core::GetTrustLevel, Email::<Impl, IMPL_OFFSET>, SetEmail::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>, SetUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationPerson, BASE_OFFSET>(),
+            Email: Email::<Impl, IMPL_OFFSET>,
+            SetEmail: SetEmail::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            SetUri: SetUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationPerson as ::windows::core::Interface>::IID
@@ -1729,7 +1770,11 @@ impl ISyndicationPersonFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationPersonFactory>, ::windows::core::GetTrustLevel, CreateSyndicationPerson::<Impl, IMPL_OFFSET>, CreateSyndicationPersonEx::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationPersonFactory, BASE_OFFSET>(),
+            CreateSyndicationPerson: CreateSyndicationPerson::<Impl, IMPL_OFFSET>,
+            CreateSyndicationPersonEx: CreateSyndicationPersonEx::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationPersonFactory as ::windows::core::Interface>::IID
@@ -1796,7 +1841,15 @@ impl ISyndicationTextVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetXml(&*(&value as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationText>, ::windows::core::GetTrustLevel, Text::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>, SetType::<Impl, IMPL_OFFSET>, Xml::<Impl, IMPL_OFFSET>, SetXml::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationText, BASE_OFFSET>(),
+            Text: Text::<Impl, IMPL_OFFSET>,
+            SetText: SetText::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+            SetType: SetType::<Impl, IMPL_OFFSET>,
+            Xml: Xml::<Impl, IMPL_OFFSET>,
+            SetXml: SetXml::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationText as ::windows::core::Interface>::IID
@@ -1836,7 +1889,11 @@ impl ISyndicationTextFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationTextFactory>, ::windows::core::GetTrustLevel, CreateSyndicationText::<Impl, IMPL_OFFSET>, CreateSyndicationTextEx::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationTextFactory, BASE_OFFSET>(),
+            CreateSyndicationText: CreateSyndicationText::<Impl, IMPL_OFFSET>,
+            CreateSyndicationTextEx: CreateSyndicationTextEx::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISyndicationTextFactory as ::windows::core::Interface>::IID

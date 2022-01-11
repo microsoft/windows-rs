@@ -9,7 +9,7 @@ impl INetDiagExtensibleHelperVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ResolveAttributes::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), ResolveAttributes: ResolveAttributes::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetDiagExtensibleHelper as ::windows::core::Interface>::IID
@@ -111,29 +111,27 @@ impl INetDiagHelperVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Initialize::<Impl, IMPL_OFFSET>,
-            GetDiagnosticsInfo::<Impl, IMPL_OFFSET>,
-            GetKeyAttributes::<Impl, IMPL_OFFSET>,
-            LowHealth::<Impl, IMPL_OFFSET>,
-            HighUtilization::<Impl, IMPL_OFFSET>,
-            GetLowerHypotheses::<Impl, IMPL_OFFSET>,
-            GetDownStreamHypotheses::<Impl, IMPL_OFFSET>,
-            GetHigherHypotheses::<Impl, IMPL_OFFSET>,
-            GetUpStreamHypotheses::<Impl, IMPL_OFFSET>,
-            Repair::<Impl, IMPL_OFFSET>,
-            Validate::<Impl, IMPL_OFFSET>,
-            GetRepairInfo::<Impl, IMPL_OFFSET>,
-            GetLifeTime::<Impl, IMPL_OFFSET>,
-            SetLifeTime::<Impl, IMPL_OFFSET>,
-            GetCacheTime::<Impl, IMPL_OFFSET>,
-            GetAttributes::<Impl, IMPL_OFFSET>,
-            Cancel::<Impl, IMPL_OFFSET>,
-            Cleanup::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            GetDiagnosticsInfo: GetDiagnosticsInfo::<Impl, IMPL_OFFSET>,
+            GetKeyAttributes: GetKeyAttributes::<Impl, IMPL_OFFSET>,
+            LowHealth: LowHealth::<Impl, IMPL_OFFSET>,
+            HighUtilization: HighUtilization::<Impl, IMPL_OFFSET>,
+            GetLowerHypotheses: GetLowerHypotheses::<Impl, IMPL_OFFSET>,
+            GetDownStreamHypotheses: GetDownStreamHypotheses::<Impl, IMPL_OFFSET>,
+            GetHigherHypotheses: GetHigherHypotheses::<Impl, IMPL_OFFSET>,
+            GetUpStreamHypotheses: GetUpStreamHypotheses::<Impl, IMPL_OFFSET>,
+            Repair: Repair::<Impl, IMPL_OFFSET>,
+            Validate: Validate::<Impl, IMPL_OFFSET>,
+            GetRepairInfo: GetRepairInfo::<Impl, IMPL_OFFSET>,
+            GetLifeTime: GetLifeTime::<Impl, IMPL_OFFSET>,
+            SetLifeTime: SetLifeTime::<Impl, IMPL_OFFSET>,
+            GetCacheTime: GetCacheTime::<Impl, IMPL_OFFSET>,
+            GetAttributes: GetAttributes::<Impl, IMPL_OFFSET>,
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+            Cleanup: Cleanup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetDiagHelper as ::windows::core::Interface>::IID
@@ -160,7 +158,12 @@ impl INetDiagHelperExVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ReconfirmLowHealth::<Impl, IMPL_OFFSET>, SetUtilities::<Impl, IMPL_OFFSET>, ReproduceFailure::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ReconfirmLowHealth: ReconfirmLowHealth::<Impl, IMPL_OFFSET>,
+            SetUtilities: SetUtilities::<Impl, IMPL_OFFSET>,
+            ReproduceFailure: ReproduceFailure::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetDiagHelperEx as ::windows::core::Interface>::IID
@@ -177,7 +180,7 @@ impl INetDiagHelperInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetAttributeInfo::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetAttributeInfo: GetAttributeInfo::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetDiagHelperInfo as ::windows::core::Interface>::IID
@@ -192,7 +195,7 @@ impl INetDiagHelperUtilFactoryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CreateUtilityInstance::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateUtilityInstance: CreateUtilityInstance::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetDiagHelperUtilFactory as ::windows::core::Interface>::IID

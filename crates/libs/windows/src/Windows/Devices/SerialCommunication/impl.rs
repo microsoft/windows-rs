@@ -20,7 +20,7 @@ impl IErrorReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IErrorReceivedEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IErrorReceivedEventArgs, BASE_OFFSET>(), Error: Error::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IErrorReceivedEventArgs as ::windows::core::Interface>::IID
@@ -48,7 +48,7 @@ impl IPinChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPinChangedEventArgs>, ::windows::core::GetTrustLevel, PinChange::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPinChangedEventArgs, BASE_OFFSET>(), PinChange: PinChange::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPinChangedEventArgs as ::windows::core::Interface>::IID
@@ -376,47 +376,42 @@ impl ISerialDeviceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePinChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISerialDevice>,
-            ::windows::core::GetTrustLevel,
-            BaudRate::<Impl, IMPL_OFFSET>,
-            SetBaudRate::<Impl, IMPL_OFFSET>,
-            BreakSignalState::<Impl, IMPL_OFFSET>,
-            SetBreakSignalState::<Impl, IMPL_OFFSET>,
-            BytesReceived::<Impl, IMPL_OFFSET>,
-            CarrierDetectState::<Impl, IMPL_OFFSET>,
-            ClearToSendState::<Impl, IMPL_OFFSET>,
-            DataBits::<Impl, IMPL_OFFSET>,
-            SetDataBits::<Impl, IMPL_OFFSET>,
-            DataSetReadyState::<Impl, IMPL_OFFSET>,
-            Handshake::<Impl, IMPL_OFFSET>,
-            SetHandshake::<Impl, IMPL_OFFSET>,
-            IsDataTerminalReadyEnabled::<Impl, IMPL_OFFSET>,
-            SetIsDataTerminalReadyEnabled::<Impl, IMPL_OFFSET>,
-            IsRequestToSendEnabled::<Impl, IMPL_OFFSET>,
-            SetIsRequestToSendEnabled::<Impl, IMPL_OFFSET>,
-            Parity::<Impl, IMPL_OFFSET>,
-            SetParity::<Impl, IMPL_OFFSET>,
-            PortName::<Impl, IMPL_OFFSET>,
-            ReadTimeout::<Impl, IMPL_OFFSET>,
-            SetReadTimeout::<Impl, IMPL_OFFSET>,
-            StopBits::<Impl, IMPL_OFFSET>,
-            SetStopBits::<Impl, IMPL_OFFSET>,
-            UsbVendorId::<Impl, IMPL_OFFSET>,
-            UsbProductId::<Impl, IMPL_OFFSET>,
-            WriteTimeout::<Impl, IMPL_OFFSET>,
-            SetWriteTimeout::<Impl, IMPL_OFFSET>,
-            InputStream::<Impl, IMPL_OFFSET>,
-            OutputStream::<Impl, IMPL_OFFSET>,
-            ErrorReceived::<Impl, IMPL_OFFSET>,
-            RemoveErrorReceived::<Impl, IMPL_OFFSET>,
-            PinChanged::<Impl, IMPL_OFFSET>,
-            RemovePinChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISerialDevice, BASE_OFFSET>(),
+            BaudRate: BaudRate::<Impl, IMPL_OFFSET>,
+            SetBaudRate: SetBaudRate::<Impl, IMPL_OFFSET>,
+            BreakSignalState: BreakSignalState::<Impl, IMPL_OFFSET>,
+            SetBreakSignalState: SetBreakSignalState::<Impl, IMPL_OFFSET>,
+            BytesReceived: BytesReceived::<Impl, IMPL_OFFSET>,
+            CarrierDetectState: CarrierDetectState::<Impl, IMPL_OFFSET>,
+            ClearToSendState: ClearToSendState::<Impl, IMPL_OFFSET>,
+            DataBits: DataBits::<Impl, IMPL_OFFSET>,
+            SetDataBits: SetDataBits::<Impl, IMPL_OFFSET>,
+            DataSetReadyState: DataSetReadyState::<Impl, IMPL_OFFSET>,
+            Handshake: Handshake::<Impl, IMPL_OFFSET>,
+            SetHandshake: SetHandshake::<Impl, IMPL_OFFSET>,
+            IsDataTerminalReadyEnabled: IsDataTerminalReadyEnabled::<Impl, IMPL_OFFSET>,
+            SetIsDataTerminalReadyEnabled: SetIsDataTerminalReadyEnabled::<Impl, IMPL_OFFSET>,
+            IsRequestToSendEnabled: IsRequestToSendEnabled::<Impl, IMPL_OFFSET>,
+            SetIsRequestToSendEnabled: SetIsRequestToSendEnabled::<Impl, IMPL_OFFSET>,
+            Parity: Parity::<Impl, IMPL_OFFSET>,
+            SetParity: SetParity::<Impl, IMPL_OFFSET>,
+            PortName: PortName::<Impl, IMPL_OFFSET>,
+            ReadTimeout: ReadTimeout::<Impl, IMPL_OFFSET>,
+            SetReadTimeout: SetReadTimeout::<Impl, IMPL_OFFSET>,
+            StopBits: StopBits::<Impl, IMPL_OFFSET>,
+            SetStopBits: SetStopBits::<Impl, IMPL_OFFSET>,
+            UsbVendorId: UsbVendorId::<Impl, IMPL_OFFSET>,
+            UsbProductId: UsbProductId::<Impl, IMPL_OFFSET>,
+            WriteTimeout: WriteTimeout::<Impl, IMPL_OFFSET>,
+            SetWriteTimeout: SetWriteTimeout::<Impl, IMPL_OFFSET>,
+            InputStream: InputStream::<Impl, IMPL_OFFSET>,
+            OutputStream: OutputStream::<Impl, IMPL_OFFSET>,
+            ErrorReceived: ErrorReceived::<Impl, IMPL_OFFSET>,
+            RemoveErrorReceived: RemoveErrorReceived::<Impl, IMPL_OFFSET>,
+            PinChanged: PinChanged::<Impl, IMPL_OFFSET>,
+            RemovePinChanged: RemovePinChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISerialDevice as ::windows::core::Interface>::IID
@@ -480,7 +475,13 @@ impl ISerialDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISerialDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromPortName::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromUsbVidPid::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISerialDeviceStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromPortName: GetDeviceSelectorFromPortName::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromUsbVidPid: GetDeviceSelectorFromUsbVidPid::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISerialDeviceStatics as ::windows::core::Interface>::IID

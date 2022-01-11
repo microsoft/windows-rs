@@ -68,19 +68,14 @@ impl ILowLevelDevicesAggregateProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILowLevelDevicesAggregateProvider>,
-            ::windows::core::GetTrustLevel,
-            AdcControllerProvider::<Impl, IMPL_OFFSET>,
-            PwmControllerProvider::<Impl, IMPL_OFFSET>,
-            GpioControllerProvider::<Impl, IMPL_OFFSET>,
-            I2cControllerProvider::<Impl, IMPL_OFFSET>,
-            SpiControllerProvider::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILowLevelDevicesAggregateProvider, BASE_OFFSET>(),
+            AdcControllerProvider: AdcControllerProvider::<Impl, IMPL_OFFSET>,
+            PwmControllerProvider: PwmControllerProvider::<Impl, IMPL_OFFSET>,
+            GpioControllerProvider: GpioControllerProvider::<Impl, IMPL_OFFSET>,
+            I2cControllerProvider: I2cControllerProvider::<Impl, IMPL_OFFSET>,
+            SpiControllerProvider: SpiControllerProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILowLevelDevicesAggregateProvider as ::windows::core::Interface>::IID
@@ -114,7 +109,10 @@ impl ILowLevelDevicesAggregateProviderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILowLevelDevicesAggregateProviderFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILowLevelDevicesAggregateProviderFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILowLevelDevicesAggregateProviderFactory as ::windows::core::Interface>::IID
@@ -129,7 +127,7 @@ impl ::windows::core::RuntimeName for ILowLevelDevicesController {
 #[cfg(feature = "implement_exclusive")]
 impl ILowLevelDevicesControllerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLevelDevicesControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILowLevelDevicesControllerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILowLevelDevicesController>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILowLevelDevicesController, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILowLevelDevicesController as ::windows::core::Interface>::IID
@@ -162,7 +160,11 @@ impl ILowLevelDevicesControllerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultProvider(&*(&value as *const <ILowLevelDevicesAggregateProvider as ::windows::core::Abi>::Abi as *const <ILowLevelDevicesAggregateProvider as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILowLevelDevicesControllerStatics>, ::windows::core::GetTrustLevel, DefaultProvider::<Impl, IMPL_OFFSET>, SetDefaultProvider::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILowLevelDevicesControllerStatics, BASE_OFFSET>(),
+            DefaultProvider: DefaultProvider::<Impl, IMPL_OFFSET>,
+            SetDefaultProvider: SetDefaultProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILowLevelDevicesControllerStatics as ::windows::core::Interface>::IID

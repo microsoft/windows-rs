@@ -324,7 +324,7 @@ impl INetDiagExtensibleHelper {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResolveAttributes(&self, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgkeyattributes), ::core::mem::transmute(pcelt), ::core::mem::transmute(prgmatchvalues)).ok()
+        (::windows::core::Interface::vtable(self).ResolveAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgkeyattributes), ::core::mem::transmute(pcelt), ::core::mem::transmute(prgmatchvalues)).ok()
     }
 }
 impl ::core::convert::From<INetDiagExtensibleHelper> for ::windows::core::IUnknown {
@@ -369,13 +369,13 @@ unsafe impl ::windows::core::Interface for INetDiagExtensibleHelper {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetDiagExtensibleHelperVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct INetDiagExtensibleHelperVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ResolveAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ResolveAttributes: usize,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 #[repr(transparent)]
 pub struct INetDiagHelper(::windows::core::IUnknown);
@@ -383,91 +383,91 @@ impl INetDiagHelper {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize(&self, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgattributes)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgattributes)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
     pub unsafe fn GetDiagnosticsInfo(&self) -> ::windows::core::Result<*mut DiagnosticsInfo> {
         let mut result__: *mut DiagnosticsInfo = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut DiagnosticsInfo>(result__)
+        (::windows::core::Interface::vtable(self).GetDiagnosticsInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut DiagnosticsInfo>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetKeyAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprgattributes)).ok()
+        (::windows::core::Interface::vtable(self).GetKeyAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprgattributes)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LowHealth<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszinstancedescription: Param0, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pwszinstancedescription.into_param().abi(), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
+        (::windows::core::Interface::vtable(self).LowHealth)(::core::mem::transmute_copy(self), pwszinstancedescription.into_param().abi(), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HighUtilization<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszinstancedescription: Param0, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pwszinstancedescription.into_param().abi(), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
+        (::windows::core::Interface::vtable(self).HighUtilization)(::core::mem::transmute_copy(self), pwszinstancedescription.into_param().abi(), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLowerHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprghypotheses)).ok()
+        (::windows::core::Interface::vtable(self).GetLowerHypotheses)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprghypotheses)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDownStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprghypotheses)).ok()
+        (::windows::core::Interface::vtable(self).GetDownStreamHypotheses)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprghypotheses)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHigherHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprghypotheses)).ok()
+        (::windows::core::Interface::vtable(self).GetHigherHypotheses)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprghypotheses)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUpStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprghypotheses)).ok()
+        (::windows::core::Interface::vtable(self).GetUpStreamHypotheses)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprghypotheses)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Repair(&self, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
+        (::windows::core::Interface::vtable(self).Repair)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
     pub unsafe fn Validate(&self, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(problem), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
+        (::windows::core::Interface::vtable(self).Validate)(::core::mem::transmute_copy(self), ::core::mem::transmute(problem), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRepairInfo(&self, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(problem), ::core::mem::transmute(pcelt), ::core::mem::transmute(ppinfo)).ok()
+        (::windows::core::Interface::vtable(self).GetRepairInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(problem), ::core::mem::transmute(pcelt), ::core::mem::transmute(ppinfo)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLifeTime(&self) -> ::windows::core::Result<LIFE_TIME> {
         let mut result__: LIFE_TIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LIFE_TIME>(result__)
+        (::windows::core::Interface::vtable(self).GetLifeTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LIFE_TIME>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLifeTime<'a, Param0: ::windows::core::IntoParam<'a, LIFE_TIME>>(&self, lifetime: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), lifetime.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLifeTime)(::core::mem::transmute_copy(self), lifetime.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCacheTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__: super::super::Foundation::FILETIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
+        (::windows::core::Interface::vtable(self).GetCacheTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprgattributes)).ok()
+        (::windows::core::Interface::vtable(self).GetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprgattributes)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Cancel)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
     pub unsafe fn Cleanup(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Cleanup)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<INetDiagHelper> for ::windows::core::IUnknown {
@@ -512,43 +512,69 @@ unsafe impl ::windows::core::Interface for INetDiagHelper {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetDiagHelperVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinfo: *mut *mut DiagnosticsInfo) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszinstancedescription: super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszinstancedescription: super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plifetime: *mut LIFE_TIME) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lifetime: LIFE_TIME) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcachetime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct INetDiagHelperVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Initialize: usize,
+    pub GetDiagnosticsInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinfo: *mut *mut DiagnosticsInfo) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetKeyAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetKeyAttributes: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub LowHealth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszinstancedescription: super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    LowHealth: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub HighUtilization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszinstancedescription: super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    HighUtilization: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetLowerHypotheses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetLowerHypotheses: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetDownStreamHypotheses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetDownStreamHypotheses: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetHigherHypotheses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetHigherHypotheses: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetUpStreamHypotheses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetUpStreamHypotheses: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Repair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Repair: usize,
+    pub Validate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetRepairInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetRepairInfo: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetLifeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plifetime: *mut LIFE_TIME) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetLifeTime: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetLifeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lifetime: LIFE_TIME) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetLifeTime: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetCacheTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcachetime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetCacheTime: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetAttributes: usize,
+    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Cleanup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 #[repr(transparent)]
 pub struct INetDiagHelperEx(::windows::core::IUnknown);
@@ -556,15 +582,15 @@ impl INetDiagHelperEx {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut super::super::Foundation::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(presults), ::core::mem::transmute(ppwszupdateddescription), ::core::mem::transmute(pupdatedstatus)).ok()
+        (::windows::core::Interface::vtable(self).ReconfirmLowHealth)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(presults), ::core::mem::transmute(ppwszupdateddescription), ::core::mem::transmute(pupdatedstatus)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
     pub unsafe fn SetUtilities<'a, Param0: ::windows::core::IntoParam<'a, INetDiagHelperUtilFactory>>(&self, putilities: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), putilities.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetUtilities)(::core::mem::transmute_copy(self), putilities.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
     pub unsafe fn ReproduceFailure(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ReproduceFailure)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<INetDiagHelperEx> for ::windows::core::IUnknown {
@@ -609,15 +635,15 @@ unsafe impl ::windows::core::Interface for INetDiagHelperEx {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetDiagHelperExVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut super::super::Foundation::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, putilities: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct INetDiagHelperExVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ReconfirmLowHealth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut super::super::Foundation::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ReconfirmLowHealth: usize,
+    pub SetUtilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, putilities: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ReproduceFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 #[repr(transparent)]
 pub struct INetDiagHelperInfo(::windows::core::IUnknown);
@@ -625,7 +651,7 @@ impl INetDiagHelperInfo {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributeInfo(&self, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprgattributeinfos)).ok()
+        (::windows::core::Interface::vtable(self).GetAttributeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprgattributeinfos)).ok()
     }
 }
 impl ::core::convert::From<INetDiagHelperInfo> for ::windows::core::IUnknown {
@@ -670,13 +696,13 @@ unsafe impl ::windows::core::Interface for INetDiagHelperInfo {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetDiagHelperInfoVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct INetDiagHelperInfoVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetAttributeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetAttributeInfo: usize,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 #[repr(transparent)]
 pub struct INetDiagHelperUtilFactory(::windows::core::IUnknown);
@@ -684,7 +710,7 @@ impl INetDiagHelperUtilFactory {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
     pub unsafe fn CreateUtilityInstance<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateUtilityInstance)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<INetDiagHelperUtilFactory> for ::windows::core::IUnknown {
@@ -729,7 +755,10 @@ unsafe impl ::windows::core::Interface for INetDiagHelperUtilFactory {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetDiagHelperUtilFactoryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub struct INetDiagHelperUtilFactoryVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub CreateUtilityInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

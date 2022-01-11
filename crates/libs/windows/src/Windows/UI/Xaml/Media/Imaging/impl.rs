@@ -127,28 +127,23 @@ impl IBitmapImageVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveImageFailed(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBitmapImage>,
-            ::windows::core::GetTrustLevel,
-            CreateOptions::<Impl, IMPL_OFFSET>,
-            SetCreateOptions::<Impl, IMPL_OFFSET>,
-            UriSource::<Impl, IMPL_OFFSET>,
-            SetUriSource::<Impl, IMPL_OFFSET>,
-            DecodePixelWidth::<Impl, IMPL_OFFSET>,
-            SetDecodePixelWidth::<Impl, IMPL_OFFSET>,
-            DecodePixelHeight::<Impl, IMPL_OFFSET>,
-            SetDecodePixelHeight::<Impl, IMPL_OFFSET>,
-            DownloadProgress::<Impl, IMPL_OFFSET>,
-            RemoveDownloadProgress::<Impl, IMPL_OFFSET>,
-            ImageOpened::<Impl, IMPL_OFFSET>,
-            RemoveImageOpened::<Impl, IMPL_OFFSET>,
-            ImageFailed::<Impl, IMPL_OFFSET>,
-            RemoveImageFailed::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapImage, BASE_OFFSET>(),
+            CreateOptions: CreateOptions::<Impl, IMPL_OFFSET>,
+            SetCreateOptions: SetCreateOptions::<Impl, IMPL_OFFSET>,
+            UriSource: UriSource::<Impl, IMPL_OFFSET>,
+            SetUriSource: SetUriSource::<Impl, IMPL_OFFSET>,
+            DecodePixelWidth: DecodePixelWidth::<Impl, IMPL_OFFSET>,
+            SetDecodePixelWidth: SetDecodePixelWidth::<Impl, IMPL_OFFSET>,
+            DecodePixelHeight: DecodePixelHeight::<Impl, IMPL_OFFSET>,
+            SetDecodePixelHeight: SetDecodePixelHeight::<Impl, IMPL_OFFSET>,
+            DownloadProgress: DownloadProgress::<Impl, IMPL_OFFSET>,
+            RemoveDownloadProgress: RemoveDownloadProgress::<Impl, IMPL_OFFSET>,
+            ImageOpened: ImageOpened::<Impl, IMPL_OFFSET>,
+            RemoveImageOpened: RemoveImageOpened::<Impl, IMPL_OFFSET>,
+            ImageFailed: ImageFailed::<Impl, IMPL_OFFSET>,
+            RemoveImageFailed: RemoveImageFailed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapImage as ::windows::core::Interface>::IID
@@ -181,7 +176,11 @@ impl IBitmapImage2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDecodePixelType(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapImage2>, ::windows::core::GetTrustLevel, DecodePixelType::<Impl, IMPL_OFFSET>, SetDecodePixelType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapImage2, BASE_OFFSET>(),
+            DecodePixelType: DecodePixelType::<Impl, IMPL_OFFSET>,
+            SetDecodePixelType: SetDecodePixelType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapImage2 as ::windows::core::Interface>::IID
@@ -248,7 +247,15 @@ impl IBitmapImage3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapImage3>, ::windows::core::GetTrustLevel, IsAnimatedBitmap::<Impl, IMPL_OFFSET>, IsPlaying::<Impl, IMPL_OFFSET>, AutoPlay::<Impl, IMPL_OFFSET>, SetAutoPlay::<Impl, IMPL_OFFSET>, Play::<Impl, IMPL_OFFSET>, Stop::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapImage3, BASE_OFFSET>(),
+            IsAnimatedBitmap: IsAnimatedBitmap::<Impl, IMPL_OFFSET>,
+            IsPlaying: IsPlaying::<Impl, IMPL_OFFSET>,
+            AutoPlay: AutoPlay::<Impl, IMPL_OFFSET>,
+            SetAutoPlay: SetAutoPlay::<Impl, IMPL_OFFSET>,
+            Play: Play::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapImage3 as ::windows::core::Interface>::IID
@@ -276,7 +283,10 @@ impl IBitmapImageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapImageFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithUriSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapImageFactory, BASE_OFFSET>(),
+            CreateInstanceWithUriSource: CreateInstanceWithUriSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapImageFactory as ::windows::core::Interface>::IID
@@ -340,7 +350,13 @@ impl IBitmapImageStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapImageStatics>, ::windows::core::GetTrustLevel, CreateOptionsProperty::<Impl, IMPL_OFFSET>, UriSourceProperty::<Impl, IMPL_OFFSET>, DecodePixelWidthProperty::<Impl, IMPL_OFFSET>, DecodePixelHeightProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapImageStatics, BASE_OFFSET>(),
+            CreateOptionsProperty: CreateOptionsProperty::<Impl, IMPL_OFFSET>,
+            UriSourceProperty: UriSourceProperty::<Impl, IMPL_OFFSET>,
+            DecodePixelWidthProperty: DecodePixelWidthProperty::<Impl, IMPL_OFFSET>,
+            DecodePixelHeightProperty: DecodePixelHeightProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapImageStatics as ::windows::core::Interface>::IID
@@ -368,7 +384,10 @@ impl IBitmapImageStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapImageStatics2>, ::windows::core::GetTrustLevel, DecodePixelTypeProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapImageStatics2, BASE_OFFSET>(),
+            DecodePixelTypeProperty: DecodePixelTypeProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapImageStatics2 as ::windows::core::Interface>::IID
@@ -420,7 +439,12 @@ impl IBitmapImageStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapImageStatics3>, ::windows::core::GetTrustLevel, IsAnimatedBitmapProperty::<Impl, IMPL_OFFSET>, IsPlayingProperty::<Impl, IMPL_OFFSET>, AutoPlayProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapImageStatics3, BASE_OFFSET>(),
+            IsAnimatedBitmapProperty: IsAnimatedBitmapProperty::<Impl, IMPL_OFFSET>,
+            IsPlayingProperty: IsPlayingProperty::<Impl, IMPL_OFFSET>,
+            AutoPlayProperty: AutoPlayProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapImageStatics3 as ::windows::core::Interface>::IID
@@ -477,7 +501,13 @@ impl IBitmapSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapSource>, ::windows::core::GetTrustLevel, PixelWidth::<Impl, IMPL_OFFSET>, PixelHeight::<Impl, IMPL_OFFSET>, SetSource::<Impl, IMPL_OFFSET>, SetSourceAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapSource, BASE_OFFSET>(),
+            PixelWidth: PixelWidth::<Impl, IMPL_OFFSET>,
+            PixelHeight: PixelHeight::<Impl, IMPL_OFFSET>,
+            SetSource: SetSource::<Impl, IMPL_OFFSET>,
+            SetSourceAsync: SetSourceAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapSource as ::windows::core::Interface>::IID
@@ -505,7 +535,10 @@ impl IBitmapSourceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapSourceFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapSourceFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapSourceFactory as ::windows::core::Interface>::IID
@@ -545,7 +578,11 @@ impl IBitmapSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapSourceStatics>, ::windows::core::GetTrustLevel, PixelWidthProperty::<Impl, IMPL_OFFSET>, PixelHeightProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapSourceStatics, BASE_OFFSET>(),
+            PixelWidthProperty: PixelWidthProperty::<Impl, IMPL_OFFSET>,
+            PixelHeightProperty: PixelHeightProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapSourceStatics as ::windows::core::Interface>::IID
@@ -578,7 +615,11 @@ impl IDownloadProgressEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProgress(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDownloadProgressEventArgs>, ::windows::core::GetTrustLevel, Progress::<Impl, IMPL_OFFSET>, SetProgress::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDownloadProgressEventArgs, BASE_OFFSET>(),
+            Progress: Progress::<Impl, IMPL_OFFSET>,
+            SetProgress: SetProgress::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDownloadProgressEventArgs as ::windows::core::Interface>::IID
@@ -654,7 +695,14 @@ impl IRenderTargetBitmapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRenderTargetBitmap>, ::windows::core::GetTrustLevel, PixelWidth::<Impl, IMPL_OFFSET>, PixelHeight::<Impl, IMPL_OFFSET>, RenderAsync::<Impl, IMPL_OFFSET>, RenderToSizeAsync::<Impl, IMPL_OFFSET>, GetPixelsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRenderTargetBitmap, BASE_OFFSET>(),
+            PixelWidth: PixelWidth::<Impl, IMPL_OFFSET>,
+            PixelHeight: PixelHeight::<Impl, IMPL_OFFSET>,
+            RenderAsync: RenderAsync::<Impl, IMPL_OFFSET>,
+            RenderToSizeAsync: RenderToSizeAsync::<Impl, IMPL_OFFSET>,
+            GetPixelsAsync: GetPixelsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRenderTargetBitmap as ::windows::core::Interface>::IID
@@ -694,7 +742,11 @@ impl IRenderTargetBitmapStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRenderTargetBitmapStatics>, ::windows::core::GetTrustLevel, PixelWidthProperty::<Impl, IMPL_OFFSET>, PixelHeightProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRenderTargetBitmapStatics, BASE_OFFSET>(),
+            PixelWidthProperty: PixelWidthProperty::<Impl, IMPL_OFFSET>,
+            PixelHeightProperty: PixelHeightProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRenderTargetBitmapStatics as ::windows::core::Interface>::IID
@@ -722,7 +774,10 @@ impl ISoftwareBitmapSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISoftwareBitmapSource>, ::windows::core::GetTrustLevel, SetBitmapAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISoftwareBitmapSource, BASE_OFFSET>(),
+            SetBitmapAsync: SetBitmapAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISoftwareBitmapSource as ::windows::core::Interface>::IID
@@ -737,7 +792,7 @@ impl ::windows::core::RuntimeName for ISurfaceImageSource {
 #[cfg(feature = "implement_exclusive")]
 impl ISurfaceImageSourceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISurfaceImageSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISurfaceImageSourceVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISurfaceImageSource>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISurfaceImageSource, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISurfaceImageSource as ::windows::core::Interface>::IID
@@ -777,7 +832,11 @@ impl ISurfaceImageSourceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISurfaceImageSourceFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithDimensions::<Impl, IMPL_OFFSET>, CreateInstanceWithDimensionsAndOpacity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISurfaceImageSourceFactory, BASE_OFFSET>(),
+            CreateInstanceWithDimensions: CreateInstanceWithDimensions::<Impl, IMPL_OFFSET>,
+            CreateInstanceWithDimensionsAndOpacity: CreateInstanceWithDimensionsAndOpacity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISurfaceImageSourceFactory as ::windows::core::Interface>::IID
@@ -890,25 +949,20 @@ impl ISvgImageSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISvgImageSource>,
-            ::windows::core::GetTrustLevel,
-            UriSource::<Impl, IMPL_OFFSET>,
-            SetUriSource::<Impl, IMPL_OFFSET>,
-            RasterizePixelWidth::<Impl, IMPL_OFFSET>,
-            SetRasterizePixelWidth::<Impl, IMPL_OFFSET>,
-            RasterizePixelHeight::<Impl, IMPL_OFFSET>,
-            SetRasterizePixelHeight::<Impl, IMPL_OFFSET>,
-            Opened::<Impl, IMPL_OFFSET>,
-            RemoveOpened::<Impl, IMPL_OFFSET>,
-            OpenFailed::<Impl, IMPL_OFFSET>,
-            RemoveOpenFailed::<Impl, IMPL_OFFSET>,
-            SetSourceAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISvgImageSource, BASE_OFFSET>(),
+            UriSource: UriSource::<Impl, IMPL_OFFSET>,
+            SetUriSource: SetUriSource::<Impl, IMPL_OFFSET>,
+            RasterizePixelWidth: RasterizePixelWidth::<Impl, IMPL_OFFSET>,
+            SetRasterizePixelWidth: SetRasterizePixelWidth::<Impl, IMPL_OFFSET>,
+            RasterizePixelHeight: RasterizePixelHeight::<Impl, IMPL_OFFSET>,
+            SetRasterizePixelHeight: SetRasterizePixelHeight::<Impl, IMPL_OFFSET>,
+            Opened: Opened::<Impl, IMPL_OFFSET>,
+            RemoveOpened: RemoveOpened::<Impl, IMPL_OFFSET>,
+            OpenFailed: OpenFailed::<Impl, IMPL_OFFSET>,
+            RemoveOpenFailed: RemoveOpenFailed::<Impl, IMPL_OFFSET>,
+            SetSourceAsync: SetSourceAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISvgImageSource as ::windows::core::Interface>::IID
@@ -948,7 +1002,11 @@ impl ISvgImageSourceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISvgImageSourceFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>, CreateInstanceWithUriSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISvgImageSourceFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+            CreateInstanceWithUriSource: CreateInstanceWithUriSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISvgImageSourceFactory as ::windows::core::Interface>::IID
@@ -976,7 +1034,7 @@ impl ISvgImageSourceFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISvgImageSourceFailedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISvgImageSourceFailedEventArgs, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISvgImageSourceFailedEventArgs as ::windows::core::Interface>::IID
@@ -991,7 +1049,7 @@ impl ::windows::core::RuntimeName for ISvgImageSourceOpenedEventArgs {
 #[cfg(feature = "implement_exclusive")]
 impl ISvgImageSourceOpenedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISvgImageSourceOpenedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISvgImageSourceOpenedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISvgImageSourceOpenedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISvgImageSourceOpenedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISvgImageSourceOpenedEventArgs as ::windows::core::Interface>::IID
@@ -1043,7 +1101,12 @@ impl ISvgImageSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISvgImageSourceStatics>, ::windows::core::GetTrustLevel, UriSourceProperty::<Impl, IMPL_OFFSET>, RasterizePixelWidthProperty::<Impl, IMPL_OFFSET>, RasterizePixelHeightProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISvgImageSourceStatics, BASE_OFFSET>(),
+            UriSourceProperty: UriSourceProperty::<Impl, IMPL_OFFSET>,
+            RasterizePixelWidthProperty: RasterizePixelWidthProperty::<Impl, IMPL_OFFSET>,
+            RasterizePixelHeightProperty: RasterizePixelHeightProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISvgImageSourceStatics as ::windows::core::Interface>::IID
@@ -1058,7 +1121,7 @@ impl ::windows::core::RuntimeName for IVirtualSurfaceImageSource {
 #[cfg(feature = "implement_exclusive")]
 impl IVirtualSurfaceImageSourceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualSurfaceImageSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVirtualSurfaceImageSourceVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVirtualSurfaceImageSource>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVirtualSurfaceImageSource, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVirtualSurfaceImageSource as ::windows::core::Interface>::IID
@@ -1098,7 +1161,11 @@ impl IVirtualSurfaceImageSourceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVirtualSurfaceImageSourceFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithDimensions::<Impl, IMPL_OFFSET>, CreateInstanceWithDimensionsAndOpacity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVirtualSurfaceImageSourceFactory, BASE_OFFSET>(),
+            CreateInstanceWithDimensions: CreateInstanceWithDimensions::<Impl, IMPL_OFFSET>,
+            CreateInstanceWithDimensionsAndOpacity: CreateInstanceWithDimensionsAndOpacity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVirtualSurfaceImageSourceFactory as ::windows::core::Interface>::IID
@@ -1131,7 +1198,11 @@ impl IWriteableBitmapVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Invalidate().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWriteableBitmap>, ::windows::core::GetTrustLevel, PixelBuffer::<Impl, IMPL_OFFSET>, Invalidate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWriteableBitmap, BASE_OFFSET>(),
+            PixelBuffer: PixelBuffer::<Impl, IMPL_OFFSET>,
+            Invalidate: Invalidate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWriteableBitmap as ::windows::core::Interface>::IID
@@ -1159,7 +1230,10 @@ impl IWriteableBitmapFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWriteableBitmapFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithDimensions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWriteableBitmapFactory, BASE_OFFSET>(),
+            CreateInstanceWithDimensions: CreateInstanceWithDimensions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWriteableBitmapFactory as ::windows::core::Interface>::IID
@@ -1174,7 +1248,7 @@ impl ::windows::core::RuntimeName for IXamlRenderingBackgroundTask {
 #[cfg(feature = "implement_exclusive")]
 impl IXamlRenderingBackgroundTaskVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlRenderingBackgroundTaskImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlRenderingBackgroundTaskVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlRenderingBackgroundTask>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlRenderingBackgroundTask, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlRenderingBackgroundTask as ::windows::core::Interface>::IID
@@ -1202,7 +1276,10 @@ impl IXamlRenderingBackgroundTaskFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlRenderingBackgroundTaskFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlRenderingBackgroundTaskFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlRenderingBackgroundTaskFactory as ::windows::core::Interface>::IID
@@ -1223,7 +1300,10 @@ impl IXamlRenderingBackgroundTaskOverridesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnRun(&*(&taskinstance as *const <super::super::super::super::ApplicationModel::Background::IBackgroundTaskInstance as ::windows::core::Abi>::Abi as *const <super::super::super::super::ApplicationModel::Background::IBackgroundTaskInstance as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlRenderingBackgroundTaskOverrides>, ::windows::core::GetTrustLevel, OnRun::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlRenderingBackgroundTaskOverrides, BASE_OFFSET>(),
+            OnRun: OnRun::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlRenderingBackgroundTaskOverrides as ::windows::core::Interface>::IID

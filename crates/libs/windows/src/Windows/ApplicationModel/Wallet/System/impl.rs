@@ -68,7 +68,14 @@ impl IWalletItemSystemStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemSystemStore>, ::windows::core::GetTrustLevel, GetItemsAsync::<Impl, IMPL_OFFSET>, DeleteAsync::<Impl, IMPL_OFFSET>, ImportItemAsync::<Impl, IMPL_OFFSET>, GetAppStatusForItem::<Impl, IMPL_OFFSET>, LaunchAppForItemAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletItemSystemStore, BASE_OFFSET>(),
+            GetItemsAsync: GetItemsAsync::<Impl, IMPL_OFFSET>,
+            DeleteAsync: DeleteAsync::<Impl, IMPL_OFFSET>,
+            ImportItemAsync: ImportItemAsync::<Impl, IMPL_OFFSET>,
+            GetAppStatusForItem: GetAppStatusForItem::<Impl, IMPL_OFFSET>,
+            LaunchAppForItemAsync: LaunchAppForItemAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletItemSystemStore as ::windows::core::Interface>::IID
@@ -101,7 +108,11 @@ impl IWalletItemSystemStore2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemsChanged(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemSystemStore2>, ::windows::core::GetTrustLevel, ItemsChanged::<Impl, IMPL_OFFSET>, RemoveItemsChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletItemSystemStore2, BASE_OFFSET>(),
+            ItemsChanged: ItemsChanged::<Impl, IMPL_OFFSET>,
+            RemoveItemsChanged: RemoveItemsChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletItemSystemStore2 as ::windows::core::Interface>::IID
@@ -129,7 +140,10 @@ impl IWalletManagerSystemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletManagerSystemStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletManagerSystemStatics, BASE_OFFSET>(),
+            RequestStoreAsync: RequestStoreAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletManagerSystemStatics as ::windows::core::Interface>::IID

@@ -138,26 +138,21 @@ impl IBackgroundEnergyManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRecentEnergyUsageReturnedToLow(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBackgroundEnergyManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            LowUsageLevel::<Impl, IMPL_OFFSET>,
-            NearMaxAcceptableUsageLevel::<Impl, IMPL_OFFSET>,
-            MaxAcceptableUsageLevel::<Impl, IMPL_OFFSET>,
-            ExcessiveUsageLevel::<Impl, IMPL_OFFSET>,
-            NearTerminationUsageLevel::<Impl, IMPL_OFFSET>,
-            TerminationUsageLevel::<Impl, IMPL_OFFSET>,
-            RecentEnergyUsage::<Impl, IMPL_OFFSET>,
-            RecentEnergyUsageLevel::<Impl, IMPL_OFFSET>,
-            RecentEnergyUsageIncreased::<Impl, IMPL_OFFSET>,
-            RemoveRecentEnergyUsageIncreased::<Impl, IMPL_OFFSET>,
-            RecentEnergyUsageReturnedToLow::<Impl, IMPL_OFFSET>,
-            RemoveRecentEnergyUsageReturnedToLow::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundEnergyManagerStatics, BASE_OFFSET>(),
+            LowUsageLevel: LowUsageLevel::<Impl, IMPL_OFFSET>,
+            NearMaxAcceptableUsageLevel: NearMaxAcceptableUsageLevel::<Impl, IMPL_OFFSET>,
+            MaxAcceptableUsageLevel: MaxAcceptableUsageLevel::<Impl, IMPL_OFFSET>,
+            ExcessiveUsageLevel: ExcessiveUsageLevel::<Impl, IMPL_OFFSET>,
+            NearTerminationUsageLevel: NearTerminationUsageLevel::<Impl, IMPL_OFFSET>,
+            TerminationUsageLevel: TerminationUsageLevel::<Impl, IMPL_OFFSET>,
+            RecentEnergyUsage: RecentEnergyUsage::<Impl, IMPL_OFFSET>,
+            RecentEnergyUsageLevel: RecentEnergyUsageLevel::<Impl, IMPL_OFFSET>,
+            RecentEnergyUsageIncreased: RecentEnergyUsageIncreased::<Impl, IMPL_OFFSET>,
+            RemoveRecentEnergyUsageIncreased: RemoveRecentEnergyUsageIncreased::<Impl, IMPL_OFFSET>,
+            RecentEnergyUsageReturnedToLow: RecentEnergyUsageReturnedToLow::<Impl, IMPL_OFFSET>,
+            RemoveRecentEnergyUsageReturnedToLow: RemoveRecentEnergyUsageReturnedToLow::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundEnergyManagerStatics as ::windows::core::Interface>::IID
@@ -279,24 +274,19 @@ impl IForegroundEnergyManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRecentEnergyUsageReturnedToLow(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IForegroundEnergyManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            LowUsageLevel::<Impl, IMPL_OFFSET>,
-            NearMaxAcceptableUsageLevel::<Impl, IMPL_OFFSET>,
-            MaxAcceptableUsageLevel::<Impl, IMPL_OFFSET>,
-            ExcessiveUsageLevel::<Impl, IMPL_OFFSET>,
-            RecentEnergyUsage::<Impl, IMPL_OFFSET>,
-            RecentEnergyUsageLevel::<Impl, IMPL_OFFSET>,
-            RecentEnergyUsageIncreased::<Impl, IMPL_OFFSET>,
-            RemoveRecentEnergyUsageIncreased::<Impl, IMPL_OFFSET>,
-            RecentEnergyUsageReturnedToLow::<Impl, IMPL_OFFSET>,
-            RemoveRecentEnergyUsageReturnedToLow::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IForegroundEnergyManagerStatics, BASE_OFFSET>(),
+            LowUsageLevel: LowUsageLevel::<Impl, IMPL_OFFSET>,
+            NearMaxAcceptableUsageLevel: NearMaxAcceptableUsageLevel::<Impl, IMPL_OFFSET>,
+            MaxAcceptableUsageLevel: MaxAcceptableUsageLevel::<Impl, IMPL_OFFSET>,
+            ExcessiveUsageLevel: ExcessiveUsageLevel::<Impl, IMPL_OFFSET>,
+            RecentEnergyUsage: RecentEnergyUsage::<Impl, IMPL_OFFSET>,
+            RecentEnergyUsageLevel: RecentEnergyUsageLevel::<Impl, IMPL_OFFSET>,
+            RecentEnergyUsageIncreased: RecentEnergyUsageIncreased::<Impl, IMPL_OFFSET>,
+            RemoveRecentEnergyUsageIncreased: RemoveRecentEnergyUsageIncreased::<Impl, IMPL_OFFSET>,
+            RecentEnergyUsageReturnedToLow: RecentEnergyUsageReturnedToLow::<Impl, IMPL_OFFSET>,
+            RemoveRecentEnergyUsageReturnedToLow: RemoveRecentEnergyUsageReturnedToLow::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IForegroundEnergyManagerStatics as ::windows::core::Interface>::IID
@@ -457,29 +447,24 @@ impl IPowerManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemainingDischargeTimeChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPowerManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            EnergySaverStatus::<Impl, IMPL_OFFSET>,
-            EnergySaverStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveEnergySaverStatusChanged::<Impl, IMPL_OFFSET>,
-            BatteryStatus::<Impl, IMPL_OFFSET>,
-            BatteryStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveBatteryStatusChanged::<Impl, IMPL_OFFSET>,
-            PowerSupplyStatus::<Impl, IMPL_OFFSET>,
-            PowerSupplyStatusChanged::<Impl, IMPL_OFFSET>,
-            RemovePowerSupplyStatusChanged::<Impl, IMPL_OFFSET>,
-            RemainingChargePercent::<Impl, IMPL_OFFSET>,
-            RemainingChargePercentChanged::<Impl, IMPL_OFFSET>,
-            RemoveRemainingChargePercentChanged::<Impl, IMPL_OFFSET>,
-            RemainingDischargeTime::<Impl, IMPL_OFFSET>,
-            RemainingDischargeTimeChanged::<Impl, IMPL_OFFSET>,
-            RemoveRemainingDischargeTimeChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPowerManagerStatics, BASE_OFFSET>(),
+            EnergySaverStatus: EnergySaverStatus::<Impl, IMPL_OFFSET>,
+            EnergySaverStatusChanged: EnergySaverStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveEnergySaverStatusChanged: RemoveEnergySaverStatusChanged::<Impl, IMPL_OFFSET>,
+            BatteryStatus: BatteryStatus::<Impl, IMPL_OFFSET>,
+            BatteryStatusChanged: BatteryStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveBatteryStatusChanged: RemoveBatteryStatusChanged::<Impl, IMPL_OFFSET>,
+            PowerSupplyStatus: PowerSupplyStatus::<Impl, IMPL_OFFSET>,
+            PowerSupplyStatusChanged: PowerSupplyStatusChanged::<Impl, IMPL_OFFSET>,
+            RemovePowerSupplyStatusChanged: RemovePowerSupplyStatusChanged::<Impl, IMPL_OFFSET>,
+            RemainingChargePercent: RemainingChargePercent::<Impl, IMPL_OFFSET>,
+            RemainingChargePercentChanged: RemainingChargePercentChanged::<Impl, IMPL_OFFSET>,
+            RemoveRemainingChargePercentChanged: RemoveRemainingChargePercentChanged::<Impl, IMPL_OFFSET>,
+            RemainingDischargeTime: RemainingDischargeTime::<Impl, IMPL_OFFSET>,
+            RemainingDischargeTimeChanged: RemainingDischargeTimeChanged::<Impl, IMPL_OFFSET>,
+            RemoveRemainingDischargeTimeChanged: RemoveRemainingDischargeTimeChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPowerManagerStatics as ::windows::core::Interface>::IID

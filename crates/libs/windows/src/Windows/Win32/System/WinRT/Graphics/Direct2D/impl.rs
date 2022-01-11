@@ -14,7 +14,11 @@ impl IGeometrySource2DInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetGeometry::<Impl, IMPL_OFFSET>, TryGetGeometryUsingFactory::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetGeometry: GetGeometry::<Impl, IMPL_OFFSET>,
+            TryGetGeometryUsingFactory: TryGetGeometryUsingFactory::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeometrySource2DInterop as ::windows::core::Interface>::IID
@@ -56,7 +60,15 @@ impl IGraphicsEffectD2D1InteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetEffectId::<Impl, IMPL_OFFSET>, GetNamedPropertyMapping::<Impl, IMPL_OFFSET>, GetPropertyCount::<Impl, IMPL_OFFSET>, GetProperty::<Impl, IMPL_OFFSET>, GetSource::<Impl, IMPL_OFFSET>, GetSourceCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetEffectId: GetEffectId::<Impl, IMPL_OFFSET>,
+            GetNamedPropertyMapping: GetNamedPropertyMapping::<Impl, IMPL_OFFSET>,
+            GetPropertyCount: GetPropertyCount::<Impl, IMPL_OFFSET>,
+            GetProperty: GetProperty::<Impl, IMPL_OFFSET>,
+            GetSource: GetSource::<Impl, IMPL_OFFSET>,
+            GetSourceCount: GetSourceCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGraphicsEffectD2D1Interop as ::windows::core::Interface>::IID

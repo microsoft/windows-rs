@@ -152,26 +152,21 @@ impl IClosedCaptionPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IClosedCaptionPropertiesStatics>,
-            ::windows::core::GetTrustLevel,
-            FontColor::<Impl, IMPL_OFFSET>,
-            ComputedFontColor::<Impl, IMPL_OFFSET>,
-            FontOpacity::<Impl, IMPL_OFFSET>,
-            FontSize::<Impl, IMPL_OFFSET>,
-            FontStyle::<Impl, IMPL_OFFSET>,
-            FontEffect::<Impl, IMPL_OFFSET>,
-            BackgroundColor::<Impl, IMPL_OFFSET>,
-            ComputedBackgroundColor::<Impl, IMPL_OFFSET>,
-            BackgroundOpacity::<Impl, IMPL_OFFSET>,
-            RegionColor::<Impl, IMPL_OFFSET>,
-            ComputedRegionColor::<Impl, IMPL_OFFSET>,
-            RegionOpacity::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IClosedCaptionPropertiesStatics, BASE_OFFSET>(),
+            FontColor: FontColor::<Impl, IMPL_OFFSET>,
+            ComputedFontColor: ComputedFontColor::<Impl, IMPL_OFFSET>,
+            FontOpacity: FontOpacity::<Impl, IMPL_OFFSET>,
+            FontSize: FontSize::<Impl, IMPL_OFFSET>,
+            FontStyle: FontStyle::<Impl, IMPL_OFFSET>,
+            FontEffect: FontEffect::<Impl, IMPL_OFFSET>,
+            BackgroundColor: BackgroundColor::<Impl, IMPL_OFFSET>,
+            ComputedBackgroundColor: ComputedBackgroundColor::<Impl, IMPL_OFFSET>,
+            BackgroundOpacity: BackgroundOpacity::<Impl, IMPL_OFFSET>,
+            RegionColor: RegionColor::<Impl, IMPL_OFFSET>,
+            ComputedRegionColor: ComputedRegionColor::<Impl, IMPL_OFFSET>,
+            RegionOpacity: RegionOpacity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IClosedCaptionPropertiesStatics as ::windows::core::Interface>::IID

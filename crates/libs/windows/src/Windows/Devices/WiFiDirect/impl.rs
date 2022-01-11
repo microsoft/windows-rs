@@ -71,21 +71,16 @@ impl IWiFiDirectAdvertisementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWiFiDirectAdvertisement>,
-            ::windows::core::GetTrustLevel,
-            InformationElements::<Impl, IMPL_OFFSET>,
-            SetInformationElements::<Impl, IMPL_OFFSET>,
-            ListenStateDiscoverability::<Impl, IMPL_OFFSET>,
-            SetListenStateDiscoverability::<Impl, IMPL_OFFSET>,
-            IsAutonomousGroupOwnerEnabled::<Impl, IMPL_OFFSET>,
-            SetIsAutonomousGroupOwnerEnabled::<Impl, IMPL_OFFSET>,
-            LegacySettings::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectAdvertisement, BASE_OFFSET>(),
+            InformationElements: InformationElements::<Impl, IMPL_OFFSET>,
+            SetInformationElements: SetInformationElements::<Impl, IMPL_OFFSET>,
+            ListenStateDiscoverability: ListenStateDiscoverability::<Impl, IMPL_OFFSET>,
+            SetListenStateDiscoverability: SetListenStateDiscoverability::<Impl, IMPL_OFFSET>,
+            IsAutonomousGroupOwnerEnabled: IsAutonomousGroupOwnerEnabled::<Impl, IMPL_OFFSET>,
+            SetIsAutonomousGroupOwnerEnabled: SetIsAutonomousGroupOwnerEnabled::<Impl, IMPL_OFFSET>,
+            LegacySettings: LegacySettings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectAdvertisement as ::windows::core::Interface>::IID
@@ -113,7 +108,10 @@ impl IWiFiDirectAdvertisement2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectAdvertisement2>, ::windows::core::GetTrustLevel, SupportedConfigurationMethods::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectAdvertisement2, BASE_OFFSET>(),
+            SupportedConfigurationMethods: SupportedConfigurationMethods::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectAdvertisement2 as ::windows::core::Interface>::IID
@@ -180,20 +178,15 @@ impl IWiFiDirectAdvertisementPublisherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWiFiDirectAdvertisementPublisher>,
-            ::windows::core::GetTrustLevel,
-            Advertisement::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            StatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectAdvertisementPublisher, BASE_OFFSET>(),
+            Advertisement: Advertisement::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            StatusChanged: StatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged: RemoveStatusChanged::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectAdvertisementPublisher as ::windows::core::Interface>::IID
@@ -233,7 +226,11 @@ impl IWiFiDirectAdvertisementPublisherStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectAdvertisementPublisherStatusChangedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Error::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectAdvertisementPublisherStatusChangedEventArgs, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Error: Error::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectAdvertisementPublisherStatusChangedEventArgs as ::windows::core::Interface>::IID
@@ -266,7 +263,11 @@ impl IWiFiDirectConnectionListenerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveConnectionRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectConnectionListener>, ::windows::core::GetTrustLevel, ConnectionRequested::<Impl, IMPL_OFFSET>, RemoveConnectionRequested::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectConnectionListener, BASE_OFFSET>(),
+            ConnectionRequested: ConnectionRequested::<Impl, IMPL_OFFSET>,
+            RemoveConnectionRequested: RemoveConnectionRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectConnectionListener as ::windows::core::Interface>::IID
@@ -299,7 +300,11 @@ impl IWiFiDirectConnectionParametersVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGroupOwnerIntent(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectConnectionParameters>, ::windows::core::GetTrustLevel, GroupOwnerIntent::<Impl, IMPL_OFFSET>, SetGroupOwnerIntent::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectConnectionParameters, BASE_OFFSET>(),
+            GroupOwnerIntent: GroupOwnerIntent::<Impl, IMPL_OFFSET>,
+            SetGroupOwnerIntent: SetGroupOwnerIntent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectConnectionParameters as ::windows::core::Interface>::IID
@@ -344,7 +349,12 @@ impl IWiFiDirectConnectionParameters2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreferredPairingProcedure(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectConnectionParameters2>, ::windows::core::GetTrustLevel, PreferenceOrderedConfigurationMethods::<Impl, IMPL_OFFSET>, PreferredPairingProcedure::<Impl, IMPL_OFFSET>, SetPreferredPairingProcedure::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectConnectionParameters2, BASE_OFFSET>(),
+            PreferenceOrderedConfigurationMethods: PreferenceOrderedConfigurationMethods::<Impl, IMPL_OFFSET>,
+            PreferredPairingProcedure: PreferredPairingProcedure::<Impl, IMPL_OFFSET>,
+            SetPreferredPairingProcedure: SetPreferredPairingProcedure::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectConnectionParameters2 as ::windows::core::Interface>::IID
@@ -372,7 +382,10 @@ impl IWiFiDirectConnectionParametersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectConnectionParametersStatics>, ::windows::core::GetTrustLevel, GetDevicePairingKinds::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectConnectionParametersStatics, BASE_OFFSET>(),
+            GetDevicePairingKinds: GetDevicePairingKinds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectConnectionParametersStatics as ::windows::core::Interface>::IID
@@ -400,7 +413,10 @@ impl IWiFiDirectConnectionRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectConnectionRequest>, ::windows::core::GetTrustLevel, DeviceInformation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectConnectionRequest, BASE_OFFSET>(),
+            DeviceInformation: DeviceInformation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectConnectionRequest as ::windows::core::Interface>::IID
@@ -428,7 +444,10 @@ impl IWiFiDirectConnectionRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectConnectionRequestedEventArgs>, ::windows::core::GetTrustLevel, GetConnectionRequest::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectConnectionRequestedEventArgs, BASE_OFFSET>(),
+            GetConnectionRequest: GetConnectionRequest::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectConnectionRequestedEventArgs as ::windows::core::Interface>::IID
@@ -497,19 +516,14 @@ impl IWiFiDirectDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWiFiDirectDevice>,
-            ::windows::core::GetTrustLevel,
-            ConnectionStatus::<Impl, IMPL_OFFSET>,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            ConnectionStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveConnectionStatusChanged::<Impl, IMPL_OFFSET>,
-            GetConnectionEndpointPairs::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectDevice, BASE_OFFSET>(),
+            ConnectionStatus: ConnectionStatus::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            ConnectionStatusChanged: ConnectionStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveConnectionStatusChanged: RemoveConnectionStatusChanged::<Impl, IMPL_OFFSET>,
+            GetConnectionEndpointPairs: GetConnectionEndpointPairs::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectDevice as ::windows::core::Interface>::IID
@@ -549,7 +563,11 @@ impl IWiFiDirectDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectDeviceStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectDeviceStatics as ::windows::core::Interface>::IID
@@ -589,7 +607,11 @@ impl IWiFiDirectDeviceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectDeviceStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectDeviceStatics2, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectDeviceStatics2 as ::windows::core::Interface>::IID
@@ -656,7 +678,15 @@ impl IWiFiDirectInformationElementVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectInformationElement>, ::windows::core::GetTrustLevel, Oui::<Impl, IMPL_OFFSET>, SetOui::<Impl, IMPL_OFFSET>, OuiType::<Impl, IMPL_OFFSET>, SetOuiType::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectInformationElement, BASE_OFFSET>(),
+            Oui: Oui::<Impl, IMPL_OFFSET>,
+            SetOui: SetOui::<Impl, IMPL_OFFSET>,
+            OuiType: OuiType::<Impl, IMPL_OFFSET>,
+            SetOuiType: SetOuiType::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectInformationElement as ::windows::core::Interface>::IID
@@ -696,7 +726,11 @@ impl IWiFiDirectInformationElementStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectInformationElementStatics>, ::windows::core::GetTrustLevel, CreateFromBuffer::<Impl, IMPL_OFFSET>, CreateFromDeviceInformation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectInformationElementStatics, BASE_OFFSET>(),
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+            CreateFromDeviceInformation: CreateFromDeviceInformation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectInformationElementStatics as ::windows::core::Interface>::IID
@@ -763,7 +797,15 @@ impl IWiFiDirectLegacySettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPassphrase(&*(&value as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectLegacySettings>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, IMPL_OFFSET>, SetIsEnabled::<Impl, IMPL_OFFSET>, Ssid::<Impl, IMPL_OFFSET>, SetSsid::<Impl, IMPL_OFFSET>, Passphrase::<Impl, IMPL_OFFSET>, SetPassphrase::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiDirectLegacySettings, BASE_OFFSET>(),
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled: SetIsEnabled::<Impl, IMPL_OFFSET>,
+            Ssid: Ssid::<Impl, IMPL_OFFSET>,
+            SetSsid: SetSsid::<Impl, IMPL_OFFSET>,
+            Passphrase: Passphrase::<Impl, IMPL_OFFSET>,
+            SetPassphrase: SetPassphrase::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiDirectLegacySettings as ::windows::core::Interface>::IID

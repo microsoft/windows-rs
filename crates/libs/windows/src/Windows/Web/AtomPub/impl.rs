@@ -146,25 +146,20 @@ impl IAtomPubClientVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CancelAsyncOperations().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAtomPubClient>,
-            ::windows::core::GetTrustLevel,
-            RetrieveServiceDocumentAsync::<Impl, IMPL_OFFSET>,
-            RetrieveMediaResourceAsync::<Impl, IMPL_OFFSET>,
-            RetrieveResourceAsync::<Impl, IMPL_OFFSET>,
-            CreateResourceAsync::<Impl, IMPL_OFFSET>,
-            CreateMediaResourceAsync::<Impl, IMPL_OFFSET>,
-            UpdateMediaResourceAsync::<Impl, IMPL_OFFSET>,
-            UpdateResourceAsync::<Impl, IMPL_OFFSET>,
-            UpdateResourceItemAsync::<Impl, IMPL_OFFSET>,
-            DeleteResourceAsync::<Impl, IMPL_OFFSET>,
-            DeleteResourceItemAsync::<Impl, IMPL_OFFSET>,
-            CancelAsyncOperations::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAtomPubClient, BASE_OFFSET>(),
+            RetrieveServiceDocumentAsync: RetrieveServiceDocumentAsync::<Impl, IMPL_OFFSET>,
+            RetrieveMediaResourceAsync: RetrieveMediaResourceAsync::<Impl, IMPL_OFFSET>,
+            RetrieveResourceAsync: RetrieveResourceAsync::<Impl, IMPL_OFFSET>,
+            CreateResourceAsync: CreateResourceAsync::<Impl, IMPL_OFFSET>,
+            CreateMediaResourceAsync: CreateMediaResourceAsync::<Impl, IMPL_OFFSET>,
+            UpdateMediaResourceAsync: UpdateMediaResourceAsync::<Impl, IMPL_OFFSET>,
+            UpdateResourceAsync: UpdateResourceAsync::<Impl, IMPL_OFFSET>,
+            UpdateResourceItemAsync: UpdateResourceItemAsync::<Impl, IMPL_OFFSET>,
+            DeleteResourceAsync: DeleteResourceAsync::<Impl, IMPL_OFFSET>,
+            DeleteResourceItemAsync: DeleteResourceItemAsync::<Impl, IMPL_OFFSET>,
+            CancelAsyncOperations: CancelAsyncOperations::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAtomPubClient as ::windows::core::Interface>::IID
@@ -192,7 +187,10 @@ impl IAtomPubClientFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAtomPubClientFactory>, ::windows::core::GetTrustLevel, CreateAtomPubClientWithCredentials::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAtomPubClientFactory, BASE_OFFSET>(),
+            CreateAtomPubClientWithCredentials: CreateAtomPubClientWithCredentials::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAtomPubClientFactory as ::windows::core::Interface>::IID
@@ -256,7 +254,13 @@ impl IResourceCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceCollection>, ::windows::core::GetTrustLevel, Title::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>, Categories::<Impl, IMPL_OFFSET>, Accepts::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IResourceCollection, BASE_OFFSET>(),
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            Categories: Categories::<Impl, IMPL_OFFSET>,
+            Accepts: Accepts::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResourceCollection as ::windows::core::Interface>::IID
@@ -284,7 +288,7 @@ impl IServiceDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServiceDocument>, ::windows::core::GetTrustLevel, Workspaces::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IServiceDocument, BASE_OFFSET>(), Workspaces: Workspaces::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IServiceDocument as ::windows::core::Interface>::IID
@@ -324,7 +328,11 @@ impl IWorkspaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWorkspace>, ::windows::core::GetTrustLevel, Title::<Impl, IMPL_OFFSET>, Collections::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWorkspace, BASE_OFFSET>(),
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Collections: Collections::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWorkspace as ::windows::core::Interface>::IID

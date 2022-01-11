@@ -20,7 +20,7 @@ impl IResourceLoaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoader>, ::windows::core::GetTrustLevel, GetString::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IResourceLoader, BASE_OFFSET>(), GetString: GetString::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResourceLoader as ::windows::core::Interface>::IID
@@ -48,7 +48,7 @@ impl IResourceLoader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoader2>, ::windows::core::GetTrustLevel, GetStringForUri::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IResourceLoader2, BASE_OFFSET>(), GetStringForUri: GetStringForUri::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResourceLoader2 as ::windows::core::Interface>::IID
@@ -76,7 +76,10 @@ impl IResourceLoaderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoaderFactory>, ::windows::core::GetTrustLevel, CreateResourceLoaderByName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IResourceLoaderFactory, BASE_OFFSET>(),
+            CreateResourceLoaderByName: CreateResourceLoaderByName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResourceLoaderFactory as ::windows::core::Interface>::IID
@@ -104,7 +107,10 @@ impl IResourceLoaderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoaderStatics>, ::windows::core::GetTrustLevel, GetStringForReference::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IResourceLoaderStatics, BASE_OFFSET>(),
+            GetStringForReference: GetStringForReference::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResourceLoaderStatics as ::windows::core::Interface>::IID
@@ -168,7 +174,13 @@ impl IResourceLoaderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoaderStatics2>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>, GetForCurrentViewWithName::<Impl, IMPL_OFFSET>, GetForViewIndependentUse::<Impl, IMPL_OFFSET>, GetForViewIndependentUseWithName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IResourceLoaderStatics2, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+            GetForCurrentViewWithName: GetForCurrentViewWithName::<Impl, IMPL_OFFSET>,
+            GetForViewIndependentUse: GetForViewIndependentUse::<Impl, IMPL_OFFSET>,
+            GetForViewIndependentUseWithName: GetForViewIndependentUseWithName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResourceLoaderStatics2 as ::windows::core::Interface>::IID
@@ -196,7 +208,10 @@ impl IResourceLoaderStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoaderStatics3>, ::windows::core::GetTrustLevel, GetForUIContext::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IResourceLoaderStatics3, BASE_OFFSET>(),
+            GetForUIContext: GetForUIContext::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResourceLoaderStatics3 as ::windows::core::Interface>::IID
@@ -224,7 +239,10 @@ impl IResourceLoaderStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoaderStatics4>, ::windows::core::GetTrustLevel, GetDefaultPriPath::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IResourceLoaderStatics4, BASE_OFFSET>(),
+            GetDefaultPriPath: GetDefaultPriPath::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResourceLoaderStatics4 as ::windows::core::Interface>::IID

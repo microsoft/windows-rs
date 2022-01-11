@@ -44,7 +44,12 @@ impl IDtdEntityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDtdEntity>, ::windows::core::GetTrustLevel, PublicId::<Impl, IMPL_OFFSET>, SystemId::<Impl, IMPL_OFFSET>, NotationName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDtdEntity, BASE_OFFSET>(),
+            PublicId: PublicId::<Impl, IMPL_OFFSET>,
+            SystemId: SystemId::<Impl, IMPL_OFFSET>,
+            NotationName: NotationName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDtdEntity as ::windows::core::Interface>::IID
@@ -84,7 +89,11 @@ impl IDtdNotationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDtdNotation>, ::windows::core::GetTrustLevel, PublicId::<Impl, IMPL_OFFSET>, SystemId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDtdNotation, BASE_OFFSET>(),
+            PublicId: PublicId::<Impl, IMPL_OFFSET>,
+            SystemId: SystemId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDtdNotation as ::windows::core::Interface>::IID
@@ -141,7 +150,13 @@ impl IXmlAttributeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlAttribute>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Specified::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlAttribute, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Specified: Specified::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlAttribute as ::windows::core::Interface>::IID
@@ -156,7 +171,7 @@ impl ::windows::core::RuntimeName for IXmlCDataSection {
 #[cfg(feature = "implement_exclusive")]
 impl IXmlCDataSectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXmlCDataSectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXmlCDataSectionVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlCDataSection>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlCDataSection, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlCDataSection as ::windows::core::Interface>::IID
@@ -230,22 +245,17 @@ impl IXmlCharacterDataVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReplaceData(offset, count, &*(&data as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXmlCharacterData>,
-            ::windows::core::GetTrustLevel,
-            Data::<Impl, IMPL_OFFSET>,
-            SetData::<Impl, IMPL_OFFSET>,
-            Length::<Impl, IMPL_OFFSET>,
-            SubstringData::<Impl, IMPL_OFFSET>,
-            AppendData::<Impl, IMPL_OFFSET>,
-            InsertData::<Impl, IMPL_OFFSET>,
-            DeleteData::<Impl, IMPL_OFFSET>,
-            ReplaceData::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlCharacterData, BASE_OFFSET>(),
+            Data: Data::<Impl, IMPL_OFFSET>,
+            SetData: SetData::<Impl, IMPL_OFFSET>,
+            Length: Length::<Impl, IMPL_OFFSET>,
+            SubstringData: SubstringData::<Impl, IMPL_OFFSET>,
+            AppendData: AppendData::<Impl, IMPL_OFFSET>,
+            InsertData: InsertData::<Impl, IMPL_OFFSET>,
+            DeleteData: DeleteData::<Impl, IMPL_OFFSET>,
+            ReplaceData: ReplaceData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlCharacterData as ::windows::core::Interface>::IID
@@ -260,7 +270,7 @@ impl ::windows::core::RuntimeName for IXmlComment {
 #[cfg(feature = "implement_exclusive")]
 impl IXmlCommentVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXmlCommentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXmlCommentVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlComment>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlComment, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlComment as ::windows::core::Interface>::IID
@@ -480,31 +490,26 @@ impl IXmlDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXmlDocument>,
-            ::windows::core::GetTrustLevel,
-            Doctype::<Impl, IMPL_OFFSET>,
-            Implementation::<Impl, IMPL_OFFSET>,
-            DocumentElement::<Impl, IMPL_OFFSET>,
-            CreateElement::<Impl, IMPL_OFFSET>,
-            CreateDocumentFragment::<Impl, IMPL_OFFSET>,
-            CreateTextNode::<Impl, IMPL_OFFSET>,
-            CreateComment::<Impl, IMPL_OFFSET>,
-            CreateProcessingInstruction::<Impl, IMPL_OFFSET>,
-            CreateAttribute::<Impl, IMPL_OFFSET>,
-            CreateEntityReference::<Impl, IMPL_OFFSET>,
-            GetElementsByTagName::<Impl, IMPL_OFFSET>,
-            CreateCDataSection::<Impl, IMPL_OFFSET>,
-            DocumentUri::<Impl, IMPL_OFFSET>,
-            CreateAttributeNS::<Impl, IMPL_OFFSET>,
-            CreateElementNS::<Impl, IMPL_OFFSET>,
-            GetElementById::<Impl, IMPL_OFFSET>,
-            ImportNode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlDocument, BASE_OFFSET>(),
+            Doctype: Doctype::<Impl, IMPL_OFFSET>,
+            Implementation: Implementation::<Impl, IMPL_OFFSET>,
+            DocumentElement: DocumentElement::<Impl, IMPL_OFFSET>,
+            CreateElement: CreateElement::<Impl, IMPL_OFFSET>,
+            CreateDocumentFragment: CreateDocumentFragment::<Impl, IMPL_OFFSET>,
+            CreateTextNode: CreateTextNode::<Impl, IMPL_OFFSET>,
+            CreateComment: CreateComment::<Impl, IMPL_OFFSET>,
+            CreateProcessingInstruction: CreateProcessingInstruction::<Impl, IMPL_OFFSET>,
+            CreateAttribute: CreateAttribute::<Impl, IMPL_OFFSET>,
+            CreateEntityReference: CreateEntityReference::<Impl, IMPL_OFFSET>,
+            GetElementsByTagName: GetElementsByTagName::<Impl, IMPL_OFFSET>,
+            CreateCDataSection: CreateCDataSection::<Impl, IMPL_OFFSET>,
+            DocumentUri: DocumentUri::<Impl, IMPL_OFFSET>,
+            CreateAttributeNS: CreateAttributeNS::<Impl, IMPL_OFFSET>,
+            CreateElementNS: CreateElementNS::<Impl, IMPL_OFFSET>,
+            GetElementById: GetElementById::<Impl, IMPL_OFFSET>,
+            ImportNode: ImportNode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlDocument as ::windows::core::Interface>::IID
@@ -519,7 +524,7 @@ impl ::windows::core::RuntimeName for IXmlDocumentFragment {
 #[cfg(feature = "implement_exclusive")]
 impl IXmlDocumentFragmentVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXmlDocumentFragmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXmlDocumentFragmentVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlDocumentFragment>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlDocumentFragment, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlDocumentFragment as ::windows::core::Interface>::IID
@@ -557,7 +562,12 @@ impl IXmlDocumentIOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlDocumentIO>, ::windows::core::GetTrustLevel, LoadXml::<Impl, IMPL_OFFSET>, LoadXmlWithSettings::<Impl, IMPL_OFFSET>, SaveToFileAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlDocumentIO, BASE_OFFSET>(),
+            LoadXml: LoadXml::<Impl, IMPL_OFFSET>,
+            LoadXmlWithSettings: LoadXmlWithSettings::<Impl, IMPL_OFFSET>,
+            SaveToFileAsync: SaveToFileAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlDocumentIO as ::windows::core::Interface>::IID
@@ -583,7 +593,11 @@ impl IXmlDocumentIO2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LoadXmlFromBufferWithSettings(&*(&buffer as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), &*(&loadsettings as *const <XmlLoadSettings as ::windows::core::Abi>::Abi as *const <XmlLoadSettings as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlDocumentIO2>, ::windows::core::GetTrustLevel, LoadXmlFromBuffer::<Impl, IMPL_OFFSET>, LoadXmlFromBufferWithSettings::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlDocumentIO2, BASE_OFFSET>(),
+            LoadXmlFromBuffer: LoadXmlFromBuffer::<Impl, IMPL_OFFSET>,
+            LoadXmlFromBufferWithSettings: LoadXmlFromBufferWithSettings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlDocumentIO2 as ::windows::core::Interface>::IID
@@ -647,7 +661,13 @@ impl IXmlDocumentStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlDocumentStatics>, ::windows::core::GetTrustLevel, LoadFromUriAsync::<Impl, IMPL_OFFSET>, LoadFromUriWithSettingsAsync::<Impl, IMPL_OFFSET>, LoadFromFileAsync::<Impl, IMPL_OFFSET>, LoadFromFileWithSettingsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlDocumentStatics, BASE_OFFSET>(),
+            LoadFromUriAsync: LoadFromUriAsync::<Impl, IMPL_OFFSET>,
+            LoadFromUriWithSettingsAsync: LoadFromUriWithSettingsAsync::<Impl, IMPL_OFFSET>,
+            LoadFromFileAsync: LoadFromFileAsync::<Impl, IMPL_OFFSET>,
+            LoadFromFileWithSettingsAsync: LoadFromFileWithSettingsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlDocumentStatics as ::windows::core::Interface>::IID
@@ -699,7 +719,12 @@ impl IXmlDocumentTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlDocumentType>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Entities::<Impl, IMPL_OFFSET>, Notations::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlDocumentType, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Entities: Entities::<Impl, IMPL_OFFSET>,
+            Notations: Notations::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlDocumentType as ::windows::core::Interface>::IID
@@ -727,7 +752,7 @@ impl IXmlDomImplementationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlDomImplementation>, ::windows::core::GetTrustLevel, HasFeature::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlDomImplementation, BASE_OFFSET>(), HasFeature: HasFeature::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlDomImplementation as ::windows::core::Interface>::IID
@@ -877,27 +902,22 @@ impl IXmlElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXmlElement>,
-            ::windows::core::GetTrustLevel,
-            TagName::<Impl, IMPL_OFFSET>,
-            GetAttribute::<Impl, IMPL_OFFSET>,
-            SetAttribute::<Impl, IMPL_OFFSET>,
-            RemoveAttribute::<Impl, IMPL_OFFSET>,
-            GetAttributeNode::<Impl, IMPL_OFFSET>,
-            SetAttributeNode::<Impl, IMPL_OFFSET>,
-            RemoveAttributeNode::<Impl, IMPL_OFFSET>,
-            GetElementsByTagName::<Impl, IMPL_OFFSET>,
-            SetAttributeNS::<Impl, IMPL_OFFSET>,
-            GetAttributeNS::<Impl, IMPL_OFFSET>,
-            RemoveAttributeNS::<Impl, IMPL_OFFSET>,
-            SetAttributeNodeNS::<Impl, IMPL_OFFSET>,
-            GetAttributeNodeNS::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlElement, BASE_OFFSET>(),
+            TagName: TagName::<Impl, IMPL_OFFSET>,
+            GetAttribute: GetAttribute::<Impl, IMPL_OFFSET>,
+            SetAttribute: SetAttribute::<Impl, IMPL_OFFSET>,
+            RemoveAttribute: RemoveAttribute::<Impl, IMPL_OFFSET>,
+            GetAttributeNode: GetAttributeNode::<Impl, IMPL_OFFSET>,
+            SetAttributeNode: SetAttributeNode::<Impl, IMPL_OFFSET>,
+            RemoveAttributeNode: RemoveAttributeNode::<Impl, IMPL_OFFSET>,
+            GetElementsByTagName: GetElementsByTagName::<Impl, IMPL_OFFSET>,
+            SetAttributeNS: SetAttributeNS::<Impl, IMPL_OFFSET>,
+            GetAttributeNS: GetAttributeNS::<Impl, IMPL_OFFSET>,
+            RemoveAttributeNS: RemoveAttributeNS::<Impl, IMPL_OFFSET>,
+            SetAttributeNodeNS: SetAttributeNodeNS::<Impl, IMPL_OFFSET>,
+            GetAttributeNodeNS: GetAttributeNodeNS::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlElement as ::windows::core::Interface>::IID
@@ -912,7 +932,7 @@ impl ::windows::core::RuntimeName for IXmlEntityReference {
 #[cfg(feature = "implement_exclusive")]
 impl IXmlEntityReferenceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXmlEntityReferenceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXmlEntityReferenceVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlEntityReference>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlEntityReference, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlEntityReference as ::windows::core::Interface>::IID
@@ -1013,24 +1033,19 @@ impl IXmlLoadSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetElementContentWhiteSpace(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXmlLoadSettings>,
-            ::windows::core::GetTrustLevel,
-            MaxElementDepth::<Impl, IMPL_OFFSET>,
-            SetMaxElementDepth::<Impl, IMPL_OFFSET>,
-            ProhibitDtd::<Impl, IMPL_OFFSET>,
-            SetProhibitDtd::<Impl, IMPL_OFFSET>,
-            ResolveExternals::<Impl, IMPL_OFFSET>,
-            SetResolveExternals::<Impl, IMPL_OFFSET>,
-            ValidateOnParse::<Impl, IMPL_OFFSET>,
-            SetValidateOnParse::<Impl, IMPL_OFFSET>,
-            ElementContentWhiteSpace::<Impl, IMPL_OFFSET>,
-            SetElementContentWhiteSpace::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlLoadSettings, BASE_OFFSET>(),
+            MaxElementDepth: MaxElementDepth::<Impl, IMPL_OFFSET>,
+            SetMaxElementDepth: SetMaxElementDepth::<Impl, IMPL_OFFSET>,
+            ProhibitDtd: ProhibitDtd::<Impl, IMPL_OFFSET>,
+            SetProhibitDtd: SetProhibitDtd::<Impl, IMPL_OFFSET>,
+            ResolveExternals: ResolveExternals::<Impl, IMPL_OFFSET>,
+            SetResolveExternals: SetResolveExternals::<Impl, IMPL_OFFSET>,
+            ValidateOnParse: ValidateOnParse::<Impl, IMPL_OFFSET>,
+            SetValidateOnParse: SetValidateOnParse::<Impl, IMPL_OFFSET>,
+            ElementContentWhiteSpace: ElementContentWhiteSpace::<Impl, IMPL_OFFSET>,
+            SetElementContentWhiteSpace: SetElementContentWhiteSpace::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlLoadSettings as ::windows::core::Interface>::IID
@@ -1142,22 +1157,17 @@ impl IXmlNamedNodeMapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXmlNamedNodeMap>,
-            ::windows::core::GetTrustLevel,
-            Length::<Impl, IMPL_OFFSET>,
-            Item::<Impl, IMPL_OFFSET>,
-            GetNamedItem::<Impl, IMPL_OFFSET>,
-            SetNamedItem::<Impl, IMPL_OFFSET>,
-            RemoveNamedItem::<Impl, IMPL_OFFSET>,
-            GetNamedItemNS::<Impl, IMPL_OFFSET>,
-            RemoveNamedItemNS::<Impl, IMPL_OFFSET>,
-            SetNamedItemNS::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlNamedNodeMap, BASE_OFFSET>(),
+            Length: Length::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            GetNamedItem: GetNamedItem::<Impl, IMPL_OFFSET>,
+            SetNamedItem: SetNamedItem::<Impl, IMPL_OFFSET>,
+            RemoveNamedItem: RemoveNamedItem::<Impl, IMPL_OFFSET>,
+            GetNamedItemNS: GetNamedItemNS::<Impl, IMPL_OFFSET>,
+            RemoveNamedItemNS: RemoveNamedItemNS::<Impl, IMPL_OFFSET>,
+            SetNamedItemNS: SetNamedItemNS::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlNamedNodeMap as ::windows::core::Interface>::IID
@@ -1425,37 +1435,32 @@ impl IXmlNodeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPrefix(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXmlNode>,
-            ::windows::core::GetTrustLevel,
-            NodeValue::<Impl, IMPL_OFFSET>,
-            SetNodeValue::<Impl, IMPL_OFFSET>,
-            NodeType::<Impl, IMPL_OFFSET>,
-            NodeName::<Impl, IMPL_OFFSET>,
-            ParentNode::<Impl, IMPL_OFFSET>,
-            ChildNodes::<Impl, IMPL_OFFSET>,
-            FirstChild::<Impl, IMPL_OFFSET>,
-            LastChild::<Impl, IMPL_OFFSET>,
-            PreviousSibling::<Impl, IMPL_OFFSET>,
-            NextSibling::<Impl, IMPL_OFFSET>,
-            Attributes::<Impl, IMPL_OFFSET>,
-            HasChildNodes::<Impl, IMPL_OFFSET>,
-            OwnerDocument::<Impl, IMPL_OFFSET>,
-            InsertBefore::<Impl, IMPL_OFFSET>,
-            ReplaceChild::<Impl, IMPL_OFFSET>,
-            RemoveChild::<Impl, IMPL_OFFSET>,
-            AppendChild::<Impl, IMPL_OFFSET>,
-            CloneNode::<Impl, IMPL_OFFSET>,
-            NamespaceUri::<Impl, IMPL_OFFSET>,
-            LocalName::<Impl, IMPL_OFFSET>,
-            Prefix::<Impl, IMPL_OFFSET>,
-            Normalize::<Impl, IMPL_OFFSET>,
-            SetPrefix::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlNode, BASE_OFFSET>(),
+            NodeValue: NodeValue::<Impl, IMPL_OFFSET>,
+            SetNodeValue: SetNodeValue::<Impl, IMPL_OFFSET>,
+            NodeType: NodeType::<Impl, IMPL_OFFSET>,
+            NodeName: NodeName::<Impl, IMPL_OFFSET>,
+            ParentNode: ParentNode::<Impl, IMPL_OFFSET>,
+            ChildNodes: ChildNodes::<Impl, IMPL_OFFSET>,
+            FirstChild: FirstChild::<Impl, IMPL_OFFSET>,
+            LastChild: LastChild::<Impl, IMPL_OFFSET>,
+            PreviousSibling: PreviousSibling::<Impl, IMPL_OFFSET>,
+            NextSibling: NextSibling::<Impl, IMPL_OFFSET>,
+            Attributes: Attributes::<Impl, IMPL_OFFSET>,
+            HasChildNodes: HasChildNodes::<Impl, IMPL_OFFSET>,
+            OwnerDocument: OwnerDocument::<Impl, IMPL_OFFSET>,
+            InsertBefore: InsertBefore::<Impl, IMPL_OFFSET>,
+            ReplaceChild: ReplaceChild::<Impl, IMPL_OFFSET>,
+            RemoveChild: RemoveChild::<Impl, IMPL_OFFSET>,
+            AppendChild: AppendChild::<Impl, IMPL_OFFSET>,
+            CloneNode: CloneNode::<Impl, IMPL_OFFSET>,
+            NamespaceUri: NamespaceUri::<Impl, IMPL_OFFSET>,
+            LocalName: LocalName::<Impl, IMPL_OFFSET>,
+            Prefix: Prefix::<Impl, IMPL_OFFSET>,
+            Normalize: Normalize::<Impl, IMPL_OFFSET>,
+            SetPrefix: SetPrefix::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlNode as ::windows::core::Interface>::IID
@@ -1495,7 +1500,11 @@ impl IXmlNodeListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlNodeList>, ::windows::core::GetTrustLevel, Length::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlNodeList, BASE_OFFSET>(),
+            Length: Length::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlNodeList as ::windows::core::Interface>::IID
@@ -1556,7 +1565,13 @@ impl IXmlNodeSelectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlNodeSelector>, ::windows::core::GetTrustLevel, SelectSingleNode::<Impl, IMPL_OFFSET>, SelectNodes::<Impl, IMPL_OFFSET>, SelectSingleNodeNS::<Impl, IMPL_OFFSET>, SelectNodesNS::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlNodeSelector, BASE_OFFSET>(),
+            SelectSingleNode: SelectSingleNode::<Impl, IMPL_OFFSET>,
+            SelectNodes: SelectNodes::<Impl, IMPL_OFFSET>,
+            SelectSingleNodeNS: SelectSingleNodeNS::<Impl, IMPL_OFFSET>,
+            SelectNodesNS: SelectNodesNS::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlNodeSelector as ::windows::core::Interface>::IID
@@ -1598,7 +1613,12 @@ impl IXmlNodeSerializerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInnerText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlNodeSerializer>, ::windows::core::GetTrustLevel, GetXml::<Impl, IMPL_OFFSET>, InnerText::<Impl, IMPL_OFFSET>, SetInnerText::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlNodeSerializer, BASE_OFFSET>(),
+            GetXml: GetXml::<Impl, IMPL_OFFSET>,
+            InnerText: InnerText::<Impl, IMPL_OFFSET>,
+            SetInnerText: SetInnerText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlNodeSerializer as ::windows::core::Interface>::IID
@@ -1643,7 +1663,12 @@ impl IXmlProcessingInstructionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetData(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlProcessingInstruction>, ::windows::core::GetTrustLevel, Target::<Impl, IMPL_OFFSET>, Data::<Impl, IMPL_OFFSET>, SetData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlProcessingInstruction, BASE_OFFSET>(),
+            Target: Target::<Impl, IMPL_OFFSET>,
+            Data: Data::<Impl, IMPL_OFFSET>,
+            SetData: SetData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlProcessingInstruction as ::windows::core::Interface>::IID
@@ -1668,7 +1693,7 @@ impl IXmlTextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXmlText>, ::windows::core::GetTrustLevel, SplitText::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlText, BASE_OFFSET>(), SplitText: SplitText::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlText as ::windows::core::Interface>::IID

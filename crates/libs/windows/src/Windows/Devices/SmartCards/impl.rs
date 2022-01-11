@@ -20,7 +20,7 @@ impl ICardAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICardAddedEventArgs>, ::windows::core::GetTrustLevel, SmartCard::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICardAddedEventArgs, BASE_OFFSET>(), SmartCard: SmartCard::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICardAddedEventArgs as ::windows::core::Interface>::IID
@@ -48,7 +48,7 @@ impl ICardRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICardRemovedEventArgs>, ::windows::core::GetTrustLevel, SmartCard::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICardRemovedEventArgs, BASE_OFFSET>(), SmartCard: SmartCard::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICardRemovedEventArgs as ::windows::core::Interface>::IID
@@ -88,7 +88,11 @@ impl IKnownSmartCardAppletIdsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownSmartCardAppletIds>, ::windows::core::GetTrustLevel, PaymentSystemEnvironment::<Impl, IMPL_OFFSET>, ProximityPaymentSystemEnvironment::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownSmartCardAppletIds, BASE_OFFSET>(),
+            PaymentSystemEnvironment: PaymentSystemEnvironment::<Impl, IMPL_OFFSET>,
+            ProximityPaymentSystemEnvironment: ProximityPaymentSystemEnvironment::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownSmartCardAppletIds as ::windows::core::Interface>::IID
@@ -140,7 +144,12 @@ impl ISmartCardVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCard>, ::windows::core::GetTrustLevel, Reader::<Impl, IMPL_OFFSET>, GetStatusAsync::<Impl, IMPL_OFFSET>, GetAnswerToResetAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCard, BASE_OFFSET>(),
+            Reader: Reader::<Impl, IMPL_OFFSET>,
+            GetStatusAsync: GetStatusAsync::<Impl, IMPL_OFFSET>,
+            GetAnswerToResetAsync: GetAnswerToResetAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCard as ::windows::core::Interface>::IID
@@ -236,23 +245,18 @@ impl ISmartCardAppletIdGroupVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutomaticEnablement(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroup>,
-            ::windows::core::GetTrustLevel,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            SetDisplayName::<Impl, IMPL_OFFSET>,
-            AppletIds::<Impl, IMPL_OFFSET>,
-            SmartCardEmulationCategory::<Impl, IMPL_OFFSET>,
-            SetSmartCardEmulationCategory::<Impl, IMPL_OFFSET>,
-            SmartCardEmulationType::<Impl, IMPL_OFFSET>,
-            SetSmartCardEmulationType::<Impl, IMPL_OFFSET>,
-            AutomaticEnablement::<Impl, IMPL_OFFSET>,
-            SetAutomaticEnablement::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardAppletIdGroup, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            AppletIds: AppletIds::<Impl, IMPL_OFFSET>,
+            SmartCardEmulationCategory: SmartCardEmulationCategory::<Impl, IMPL_OFFSET>,
+            SetSmartCardEmulationCategory: SetSmartCardEmulationCategory::<Impl, IMPL_OFFSET>,
+            SmartCardEmulationType: SmartCardEmulationType::<Impl, IMPL_OFFSET>,
+            SetSmartCardEmulationType: SetSmartCardEmulationType::<Impl, IMPL_OFFSET>,
+            AutomaticEnablement: AutomaticEnablement::<Impl, IMPL_OFFSET>,
+            SetAutomaticEnablement: SetAutomaticEnablement::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardAppletIdGroup as ::windows::core::Interface>::IID
@@ -331,21 +335,16 @@ impl ISmartCardAppletIdGroup2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSecureUserAuthenticationRequired(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroup2>,
-            ::windows::core::GetTrustLevel,
-            Logo::<Impl, IMPL_OFFSET>,
-            SetLogo::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            SetDescription::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            SecureUserAuthenticationRequired::<Impl, IMPL_OFFSET>,
-            SetSecureUserAuthenticationRequired::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardAppletIdGroup2, BASE_OFFSET>(),
+            Logo: Logo::<Impl, IMPL_OFFSET>,
+            SetLogo: SetLogo::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            SecureUserAuthenticationRequired: SecureUserAuthenticationRequired::<Impl, IMPL_OFFSET>,
+            SetSecureUserAuthenticationRequired: SetSecureUserAuthenticationRequired::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardAppletIdGroup2 as ::windows::core::Interface>::IID
@@ -378,7 +377,7 @@ impl ISmartCardAppletIdGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardAppletIdGroupFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardAppletIdGroupFactory as ::windows::core::Interface>::IID
@@ -454,19 +453,14 @@ impl ISmartCardAppletIdGroupRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroupRegistration>,
-            ::windows::core::GetTrustLevel,
-            ActivationPolicy::<Impl, IMPL_OFFSET>,
-            AppletIdGroup::<Impl, IMPL_OFFSET>,
-            RequestActivationPolicyChangeAsync::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            SetAutomaticResponseApdusAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardAppletIdGroupRegistration, BASE_OFFSET>(),
+            ActivationPolicy: ActivationPolicy::<Impl, IMPL_OFFSET>,
+            AppletIdGroup: AppletIdGroup::<Impl, IMPL_OFFSET>,
+            RequestActivationPolicyChangeAsync: RequestActivationPolicyChangeAsync::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SetAutomaticResponseApdusAsync: SetAutomaticResponseApdusAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardAppletIdGroupRegistration as ::windows::core::Interface>::IID
@@ -506,7 +500,11 @@ impl ISmartCardAppletIdGroupRegistration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroupRegistration2>, ::windows::core::GetTrustLevel, SmartCardReaderId::<Impl, IMPL_OFFSET>, SetPropertiesAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardAppletIdGroupRegistration2, BASE_OFFSET>(),
+            SmartCardReaderId: SmartCardReaderId::<Impl, IMPL_OFFSET>,
+            SetPropertiesAsync: SetPropertiesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardAppletIdGroupRegistration2 as ::windows::core::Interface>::IID
@@ -534,7 +532,10 @@ impl ISmartCardAppletIdGroupStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroupStatics>, ::windows::core::GetTrustLevel, MaxAppletIds::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardAppletIdGroupStatics, BASE_OFFSET>(),
+            MaxAppletIds: MaxAppletIds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardAppletIdGroupStatics as ::windows::core::Interface>::IID
@@ -635,24 +636,19 @@ impl ISmartCardAutomaticResponseApduVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResponseApdu(&*(&value as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardAutomaticResponseApdu>,
-            ::windows::core::GetTrustLevel,
-            CommandApdu::<Impl, IMPL_OFFSET>,
-            SetCommandApdu::<Impl, IMPL_OFFSET>,
-            CommandApduBitMask::<Impl, IMPL_OFFSET>,
-            SetCommandApduBitMask::<Impl, IMPL_OFFSET>,
-            ShouldMatchLength::<Impl, IMPL_OFFSET>,
-            SetShouldMatchLength::<Impl, IMPL_OFFSET>,
-            AppletId::<Impl, IMPL_OFFSET>,
-            SetAppletId::<Impl, IMPL_OFFSET>,
-            ResponseApdu::<Impl, IMPL_OFFSET>,
-            SetResponseApdu::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardAutomaticResponseApdu, BASE_OFFSET>(),
+            CommandApdu: CommandApdu::<Impl, IMPL_OFFSET>,
+            SetCommandApdu: SetCommandApdu::<Impl, IMPL_OFFSET>,
+            CommandApduBitMask: CommandApduBitMask::<Impl, IMPL_OFFSET>,
+            SetCommandApduBitMask: SetCommandApduBitMask::<Impl, IMPL_OFFSET>,
+            ShouldMatchLength: ShouldMatchLength::<Impl, IMPL_OFFSET>,
+            SetShouldMatchLength: SetShouldMatchLength::<Impl, IMPL_OFFSET>,
+            AppletId: AppletId::<Impl, IMPL_OFFSET>,
+            SetAppletId: SetAppletId::<Impl, IMPL_OFFSET>,
+            ResponseApdu: ResponseApdu::<Impl, IMPL_OFFSET>,
+            SetResponseApdu: SetResponseApdu::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardAutomaticResponseApdu as ::windows::core::Interface>::IID
@@ -702,7 +698,13 @@ impl ISmartCardAutomaticResponseApdu2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOutputState(&*(&value as *const <super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAutomaticResponseApdu2>, ::windows::core::GetTrustLevel, InputState::<Impl, IMPL_OFFSET>, SetInputState::<Impl, IMPL_OFFSET>, OutputState::<Impl, IMPL_OFFSET>, SetOutputState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardAutomaticResponseApdu2, BASE_OFFSET>(),
+            InputState: InputState::<Impl, IMPL_OFFSET>,
+            SetInputState: SetInputState::<Impl, IMPL_OFFSET>,
+            OutputState: OutputState::<Impl, IMPL_OFFSET>,
+            SetOutputState: SetOutputState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardAutomaticResponseApdu2 as ::windows::core::Interface>::IID
@@ -735,7 +737,11 @@ impl ISmartCardAutomaticResponseApdu3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowWhenCryptogramGeneratorNotPrepared(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAutomaticResponseApdu3>, ::windows::core::GetTrustLevel, AllowWhenCryptogramGeneratorNotPrepared::<Impl, IMPL_OFFSET>, SetAllowWhenCryptogramGeneratorNotPrepared::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardAutomaticResponseApdu3, BASE_OFFSET>(),
+            AllowWhenCryptogramGeneratorNotPrepared: AllowWhenCryptogramGeneratorNotPrepared::<Impl, IMPL_OFFSET>,
+            SetAllowWhenCryptogramGeneratorNotPrepared: SetAllowWhenCryptogramGeneratorNotPrepared::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardAutomaticResponseApdu3 as ::windows::core::Interface>::IID
@@ -763,7 +769,10 @@ impl ISmartCardAutomaticResponseApduFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAutomaticResponseApduFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardAutomaticResponseApduFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardAutomaticResponseApduFactory as ::windows::core::Interface>::IID
@@ -839,19 +848,14 @@ impl ISmartCardChallengeContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardChallengeContext>,
-            ::windows::core::GetTrustLevel,
-            Challenge::<Impl, IMPL_OFFSET>,
-            VerifyResponseAsync::<Impl, IMPL_OFFSET>,
-            ProvisionAsync::<Impl, IMPL_OFFSET>,
-            ProvisionAsyncWithNewCardId::<Impl, IMPL_OFFSET>,
-            ChangeAdministrativeKeyAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardChallengeContext, BASE_OFFSET>(),
+            Challenge: Challenge::<Impl, IMPL_OFFSET>,
+            VerifyResponseAsync: VerifyResponseAsync::<Impl, IMPL_OFFSET>,
+            ProvisionAsync: ProvisionAsync::<Impl, IMPL_OFFSET>,
+            ProvisionAsyncWithNewCardId: ProvisionAsyncWithNewCardId::<Impl, IMPL_OFFSET>,
+            ChangeAdministrativeKeyAsync: ChangeAdministrativeKeyAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardChallengeContext as ::windows::core::Interface>::IID
@@ -879,7 +883,7 @@ impl ISmartCardConnectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardConnect>, ::windows::core::GetTrustLevel, ConnectAsync::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardConnect, BASE_OFFSET>(), ConnectAsync: ConnectAsync::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardConnect as ::windows::core::Interface>::IID
@@ -907,7 +911,7 @@ impl ISmartCardConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardConnection>, ::windows::core::GetTrustLevel, TransmitAsync::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardConnection, BASE_OFFSET>(), TransmitAsync: TransmitAsync::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardConnection as ::windows::core::Interface>::IID
@@ -1078,26 +1082,21 @@ impl ISmartCardCryptogramGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGenerator>,
-            ::windows::core::GetTrustLevel,
-            SupportedCryptogramMaterialTypes::<Impl, IMPL_OFFSET>,
-            SupportedCryptogramAlgorithms::<Impl, IMPL_OFFSET>,
-            SupportedCryptogramMaterialPackageFormats::<Impl, IMPL_OFFSET>,
-            SupportedCryptogramMaterialPackageConfirmationResponseFormats::<Impl, IMPL_OFFSET>,
-            SupportedSmartCardCryptogramStorageKeyCapabilities::<Impl, IMPL_OFFSET>,
-            DeleteCryptogramMaterialStorageKeyAsync::<Impl, IMPL_OFFSET>,
-            CreateCryptogramMaterialStorageKeyAsync::<Impl, IMPL_OFFSET>,
-            RequestCryptogramMaterialStorageKeyInfoAsync::<Impl, IMPL_OFFSET>,
-            ImportCryptogramMaterialPackageAsync::<Impl, IMPL_OFFSET>,
-            TryProvePossessionOfCryptogramMaterialPackageAsync::<Impl, IMPL_OFFSET>,
-            RequestUnlockCryptogramMaterialForUseAsync::<Impl, IMPL_OFFSET>,
-            DeleteCryptogramMaterialPackageAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramGenerator, BASE_OFFSET>(),
+            SupportedCryptogramMaterialTypes: SupportedCryptogramMaterialTypes::<Impl, IMPL_OFFSET>,
+            SupportedCryptogramAlgorithms: SupportedCryptogramAlgorithms::<Impl, IMPL_OFFSET>,
+            SupportedCryptogramMaterialPackageFormats: SupportedCryptogramMaterialPackageFormats::<Impl, IMPL_OFFSET>,
+            SupportedCryptogramMaterialPackageConfirmationResponseFormats: SupportedCryptogramMaterialPackageConfirmationResponseFormats::<Impl, IMPL_OFFSET>,
+            SupportedSmartCardCryptogramStorageKeyCapabilities: SupportedSmartCardCryptogramStorageKeyCapabilities::<Impl, IMPL_OFFSET>,
+            DeleteCryptogramMaterialStorageKeyAsync: DeleteCryptogramMaterialStorageKeyAsync::<Impl, IMPL_OFFSET>,
+            CreateCryptogramMaterialStorageKeyAsync: CreateCryptogramMaterialStorageKeyAsync::<Impl, IMPL_OFFSET>,
+            RequestCryptogramMaterialStorageKeyInfoAsync: RequestCryptogramMaterialStorageKeyInfoAsync::<Impl, IMPL_OFFSET>,
+            ImportCryptogramMaterialPackageAsync: ImportCryptogramMaterialPackageAsync::<Impl, IMPL_OFFSET>,
+            TryProvePossessionOfCryptogramMaterialPackageAsync: TryProvePossessionOfCryptogramMaterialPackageAsync::<Impl, IMPL_OFFSET>,
+            RequestUnlockCryptogramMaterialForUseAsync: RequestUnlockCryptogramMaterialForUseAsync::<Impl, IMPL_OFFSET>,
+            DeleteCryptogramMaterialPackageAsync: DeleteCryptogramMaterialPackageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramGenerator as ::windows::core::Interface>::IID
@@ -1177,19 +1176,14 @@ impl ISmartCardCryptogramGenerator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGenerator2>,
-            ::windows::core::GetTrustLevel,
-            ValidateRequestApduAsync::<Impl, IMPL_OFFSET>,
-            GetAllCryptogramStorageKeyCharacteristicsAsync::<Impl, IMPL_OFFSET>,
-            GetAllCryptogramMaterialPackageCharacteristicsAsync::<Impl, IMPL_OFFSET>,
-            GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync::<Impl, IMPL_OFFSET>,
-            GetAllCryptogramMaterialCharacteristicsAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramGenerator2, BASE_OFFSET>(),
+            ValidateRequestApduAsync: ValidateRequestApduAsync::<Impl, IMPL_OFFSET>,
+            GetAllCryptogramStorageKeyCharacteristicsAsync: GetAllCryptogramStorageKeyCharacteristicsAsync::<Impl, IMPL_OFFSET>,
+            GetAllCryptogramMaterialPackageCharacteristicsAsync: GetAllCryptogramMaterialPackageCharacteristicsAsync::<Impl, IMPL_OFFSET>,
+            GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync: GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync::<Impl, IMPL_OFFSET>,
+            GetAllCryptogramMaterialCharacteristicsAsync: GetAllCryptogramMaterialCharacteristicsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramGenerator2 as ::windows::core::Interface>::IID
@@ -1217,7 +1211,10 @@ impl ISmartCardCryptogramGeneratorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGeneratorStatics>, ::windows::core::GetTrustLevel, GetSmartCardCryptogramGeneratorAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramGeneratorStatics, BASE_OFFSET>(),
+            GetSmartCardCryptogramGeneratorAsync: GetSmartCardCryptogramGeneratorAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramGeneratorStatics as ::windows::core::Interface>::IID
@@ -1245,7 +1242,10 @@ impl ISmartCardCryptogramGeneratorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGeneratorStatics2>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramGeneratorStatics2, BASE_OFFSET>(),
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramGeneratorStatics2 as ::windows::core::Interface>::IID
@@ -1285,7 +1285,11 @@ impl ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, IMPL_OFFSET>, Characteristics::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult, BASE_OFFSET>(),
+            OperationStatus: OperationStatus::<Impl, IMPL_OFFSET>,
+            Characteristics: Characteristics::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult as ::windows::core::Interface>::IID
@@ -1325,7 +1329,11 @@ impl ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtb
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, IMPL_OFFSET>, Characteristics::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, BASE_OFFSET>(),
+            OperationStatus: OperationStatus::<Impl, IMPL_OFFSET>,
+            Characteristics: Characteristics::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult as ::windows::core::Interface>::IID
@@ -1365,7 +1373,11 @@ impl ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, IMPL_OFFSET>, Characteristics::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, BASE_OFFSET>(),
+            OperationStatus: OperationStatus::<Impl, IMPL_OFFSET>,
+            Characteristics: Characteristics::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult as ::windows::core::Interface>::IID
@@ -1477,22 +1489,17 @@ impl ISmartCardCryptogramMaterialCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramMaterialCharacteristics>,
-            ::windows::core::GetTrustLevel,
-            MaterialName::<Impl, IMPL_OFFSET>,
-            AllowedAlgorithms::<Impl, IMPL_OFFSET>,
-            AllowedProofOfPossessionAlgorithms::<Impl, IMPL_OFFSET>,
-            AllowedValidations::<Impl, IMPL_OFFSET>,
-            MaterialType::<Impl, IMPL_OFFSET>,
-            ProtectionMethod::<Impl, IMPL_OFFSET>,
-            ProtectionVersion::<Impl, IMPL_OFFSET>,
-            MaterialLength::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramMaterialCharacteristics, BASE_OFFSET>(),
+            MaterialName: MaterialName::<Impl, IMPL_OFFSET>,
+            AllowedAlgorithms: AllowedAlgorithms::<Impl, IMPL_OFFSET>,
+            AllowedProofOfPossessionAlgorithms: AllowedProofOfPossessionAlgorithms::<Impl, IMPL_OFFSET>,
+            AllowedValidations: AllowedValidations::<Impl, IMPL_OFFSET>,
+            MaterialType: MaterialType::<Impl, IMPL_OFFSET>,
+            ProtectionMethod: ProtectionMethod::<Impl, IMPL_OFFSET>,
+            ProtectionVersion: ProtectionVersion::<Impl, IMPL_OFFSET>,
+            MaterialLength: MaterialLength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramMaterialCharacteristics as ::windows::core::Interface>::IID
@@ -1556,7 +1563,13 @@ impl ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramMaterialPackageCharacteristics>, ::windows::core::GetTrustLevel, PackageName::<Impl, IMPL_OFFSET>, StorageKeyName::<Impl, IMPL_OFFSET>, DateImported::<Impl, IMPL_OFFSET>, PackageFormat::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramMaterialPackageCharacteristics, BASE_OFFSET>(),
+            PackageName: PackageName::<Impl, IMPL_OFFSET>,
+            StorageKeyName: StorageKeyName::<Impl, IMPL_OFFSET>,
+            DateImported: DateImported::<Impl, IMPL_OFFSET>,
+            PackageFormat: PackageFormat::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramMaterialPackageCharacteristics as ::windows::core::Interface>::IID
@@ -1596,7 +1609,11 @@ impl ISmartCardCryptogramMaterialPossessionProofVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramMaterialPossessionProof>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, IMPL_OFFSET>, Proof::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramMaterialPossessionProof, BASE_OFFSET>(),
+            OperationStatus: OperationStatus::<Impl, IMPL_OFFSET>,
+            Proof: Proof::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramMaterialPossessionProof as ::windows::core::Interface>::IID
@@ -1765,32 +1782,27 @@ impl ISmartCardCryptogramPlacementStepVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetChainedOutputStep(&*(&value as *const <SmartCardCryptogramPlacementStep as ::windows::core::Abi>::Abi as *const <SmartCardCryptogramPlacementStep as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramPlacementStep>,
-            ::windows::core::GetTrustLevel,
-            Algorithm::<Impl, IMPL_OFFSET>,
-            SetAlgorithm::<Impl, IMPL_OFFSET>,
-            SourceData::<Impl, IMPL_OFFSET>,
-            SetSourceData::<Impl, IMPL_OFFSET>,
-            CryptogramMaterialPackageName::<Impl, IMPL_OFFSET>,
-            SetCryptogramMaterialPackageName::<Impl, IMPL_OFFSET>,
-            CryptogramMaterialName::<Impl, IMPL_OFFSET>,
-            SetCryptogramMaterialName::<Impl, IMPL_OFFSET>,
-            TemplateOffset::<Impl, IMPL_OFFSET>,
-            SetTemplateOffset::<Impl, IMPL_OFFSET>,
-            CryptogramOffset::<Impl, IMPL_OFFSET>,
-            SetCryptogramOffset::<Impl, IMPL_OFFSET>,
-            CryptogramLength::<Impl, IMPL_OFFSET>,
-            SetCryptogramLength::<Impl, IMPL_OFFSET>,
-            CryptogramPlacementOptions::<Impl, IMPL_OFFSET>,
-            SetCryptogramPlacementOptions::<Impl, IMPL_OFFSET>,
-            ChainedOutputStep::<Impl, IMPL_OFFSET>,
-            SetChainedOutputStep::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramPlacementStep, BASE_OFFSET>(),
+            Algorithm: Algorithm::<Impl, IMPL_OFFSET>,
+            SetAlgorithm: SetAlgorithm::<Impl, IMPL_OFFSET>,
+            SourceData: SourceData::<Impl, IMPL_OFFSET>,
+            SetSourceData: SetSourceData::<Impl, IMPL_OFFSET>,
+            CryptogramMaterialPackageName: CryptogramMaterialPackageName::<Impl, IMPL_OFFSET>,
+            SetCryptogramMaterialPackageName: SetCryptogramMaterialPackageName::<Impl, IMPL_OFFSET>,
+            CryptogramMaterialName: CryptogramMaterialName::<Impl, IMPL_OFFSET>,
+            SetCryptogramMaterialName: SetCryptogramMaterialName::<Impl, IMPL_OFFSET>,
+            TemplateOffset: TemplateOffset::<Impl, IMPL_OFFSET>,
+            SetTemplateOffset: SetTemplateOffset::<Impl, IMPL_OFFSET>,
+            CryptogramOffset: CryptogramOffset::<Impl, IMPL_OFFSET>,
+            SetCryptogramOffset: SetCryptogramOffset::<Impl, IMPL_OFFSET>,
+            CryptogramLength: CryptogramLength::<Impl, IMPL_OFFSET>,
+            SetCryptogramLength: SetCryptogramLength::<Impl, IMPL_OFFSET>,
+            CryptogramPlacementOptions: CryptogramPlacementOptions::<Impl, IMPL_OFFSET>,
+            SetCryptogramPlacementOptions: SetCryptogramPlacementOptions::<Impl, IMPL_OFFSET>,
+            ChainedOutputStep: ChainedOutputStep::<Impl, IMPL_OFFSET>,
+            SetChainedOutputStep: SetChainedOutputStep::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramPlacementStep as ::windows::core::Interface>::IID
@@ -1854,7 +1866,13 @@ impl ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramStorageKeyCharacteristics>, ::windows::core::GetTrustLevel, StorageKeyName::<Impl, IMPL_OFFSET>, DateCreated::<Impl, IMPL_OFFSET>, Algorithm::<Impl, IMPL_OFFSET>, Capabilities::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramStorageKeyCharacteristics, BASE_OFFSET>(),
+            StorageKeyName: StorageKeyName::<Impl, IMPL_OFFSET>,
+            DateCreated: DateCreated::<Impl, IMPL_OFFSET>,
+            Algorithm: Algorithm::<Impl, IMPL_OFFSET>,
+            Capabilities: Capabilities::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramStorageKeyCharacteristics as ::windows::core::Interface>::IID
@@ -1954,21 +1972,16 @@ impl ISmartCardCryptogramStorageKeyInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramStorageKeyInfo>,
-            ::windows::core::GetTrustLevel,
-            OperationStatus::<Impl, IMPL_OFFSET>,
-            PublicKeyBlobType::<Impl, IMPL_OFFSET>,
-            PublicKey::<Impl, IMPL_OFFSET>,
-            AttestationStatus::<Impl, IMPL_OFFSET>,
-            Attestation::<Impl, IMPL_OFFSET>,
-            AttestationCertificateChain::<Impl, IMPL_OFFSET>,
-            Capabilities::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramStorageKeyInfo, BASE_OFFSET>(),
+            OperationStatus: OperationStatus::<Impl, IMPL_OFFSET>,
+            PublicKeyBlobType: PublicKeyBlobType::<Impl, IMPL_OFFSET>,
+            PublicKey: PublicKey::<Impl, IMPL_OFFSET>,
+            AttestationStatus: AttestationStatus::<Impl, IMPL_OFFSET>,
+            Attestation: Attestation::<Impl, IMPL_OFFSET>,
+            AttestationCertificateChain: AttestationCertificateChain::<Impl, IMPL_OFFSET>,
+            Capabilities: Capabilities::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramStorageKeyInfo as ::windows::core::Interface>::IID
@@ -1996,7 +2009,10 @@ impl ISmartCardCryptogramStorageKeyInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramStorageKeyInfo2>, ::windows::core::GetTrustLevel, OperationalRequirements::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardCryptogramStorageKeyInfo2, BASE_OFFSET>(),
+            OperationalRequirements: OperationalRequirements::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardCryptogramStorageKeyInfo2 as ::windows::core::Interface>::IID
@@ -2024,7 +2040,10 @@ impl ISmartCardEmulatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulator>, ::windows::core::GetTrustLevel, EnablementPolicy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardEmulator, BASE_OFFSET>(),
+            EnablementPolicy: EnablementPolicy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardEmulator as ::windows::core::Interface>::IID
@@ -2091,20 +2110,15 @@ impl ISmartCardEmulator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardEmulator2>,
-            ::windows::core::GetTrustLevel,
-            ApduReceived::<Impl, IMPL_OFFSET>,
-            RemoveApduReceived::<Impl, IMPL_OFFSET>,
-            ConnectionDeactivated::<Impl, IMPL_OFFSET>,
-            RemoveConnectionDeactivated::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            IsHostCardEmulationSupported::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardEmulator2, BASE_OFFSET>(),
+            ApduReceived: ApduReceived::<Impl, IMPL_OFFSET>,
+            RemoveApduReceived: RemoveApduReceived::<Impl, IMPL_OFFSET>,
+            ConnectionDeactivated: ConnectionDeactivated::<Impl, IMPL_OFFSET>,
+            RemoveConnectionDeactivated: RemoveConnectionDeactivated::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            IsHostCardEmulationSupported: IsHostCardEmulationSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardEmulator2 as ::windows::core::Interface>::IID
@@ -2168,7 +2182,13 @@ impl ISmartCardEmulatorApduReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorApduReceivedEventArgs>, ::windows::core::GetTrustLevel, CommandApdu::<Impl, IMPL_OFFSET>, ConnectionProperties::<Impl, IMPL_OFFSET>, TryRespondAsync::<Impl, IMPL_OFFSET>, AutomaticResponseStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardEmulatorApduReceivedEventArgs, BASE_OFFSET>(),
+            CommandApdu: CommandApdu::<Impl, IMPL_OFFSET>,
+            ConnectionProperties: ConnectionProperties::<Impl, IMPL_OFFSET>,
+            TryRespondAsync: TryRespondAsync::<Impl, IMPL_OFFSET>,
+            AutomaticResponseStatus: AutomaticResponseStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardEmulatorApduReceivedEventArgs as ::windows::core::Interface>::IID
@@ -2208,7 +2228,11 @@ impl ISmartCardEmulatorApduReceivedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorApduReceivedEventArgs2>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>, TryRespondWithStateAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardEmulatorApduReceivedEventArgs2, BASE_OFFSET>(),
+            State: State::<Impl, IMPL_OFFSET>,
+            TryRespondWithStateAsync: TryRespondWithStateAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardEmulatorApduReceivedEventArgs2 as ::windows::core::Interface>::IID
@@ -2255,7 +2279,11 @@ impl ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>, ::windows::core::GetTrustLevel, TryRespondWithCryptogramsAsync::<Impl, IMPL_OFFSET>, TryRespondWithCryptogramsAndStateAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardEmulatorApduReceivedEventArgsWithCryptograms, BASE_OFFSET>(),
+            TryRespondWithCryptogramsAsync: TryRespondWithCryptogramsAsync::<Impl, IMPL_OFFSET>,
+            TryRespondWithCryptogramsAndStateAsync: TryRespondWithCryptogramsAndStateAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms as ::windows::core::Interface>::IID
@@ -2295,7 +2323,11 @@ impl ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorConnectionDeactivatedEventArgs>, ::windows::core::GetTrustLevel, ConnectionProperties::<Impl, IMPL_OFFSET>, Reason::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardEmulatorConnectionDeactivatedEventArgs, BASE_OFFSET>(),
+            ConnectionProperties: ConnectionProperties::<Impl, IMPL_OFFSET>,
+            Reason: Reason::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardEmulatorConnectionDeactivatedEventArgs as ::windows::core::Interface>::IID
@@ -2335,7 +2367,11 @@ impl ISmartCardEmulatorConnectionPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorConnectionProperties>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Source::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardEmulatorConnectionProperties, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Source: Source::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardEmulatorConnectionProperties as ::windows::core::Interface>::IID
@@ -2363,7 +2399,10 @@ impl ISmartCardEmulatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardEmulatorStatics, BASE_OFFSET>(),
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardEmulatorStatics as ::windows::core::Interface>::IID
@@ -2427,18 +2466,13 @@ impl ISmartCardEmulatorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorStatics2>,
-            ::windows::core::GetTrustLevel,
-            GetAppletIdGroupRegistrationsAsync::<Impl, IMPL_OFFSET>,
-            RegisterAppletIdGroupAsync::<Impl, IMPL_OFFSET>,
-            UnregisterAppletIdGroupAsync::<Impl, IMPL_OFFSET>,
-            MaxAppletIdGroupRegistrations::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardEmulatorStatics2, BASE_OFFSET>(),
+            GetAppletIdGroupRegistrationsAsync: GetAppletIdGroupRegistrationsAsync::<Impl, IMPL_OFFSET>,
+            RegisterAppletIdGroupAsync: RegisterAppletIdGroupAsync::<Impl, IMPL_OFFSET>,
+            UnregisterAppletIdGroupAsync: UnregisterAppletIdGroupAsync::<Impl, IMPL_OFFSET>,
+            MaxAppletIdGroupRegistrations: MaxAppletIdGroupRegistrations::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardEmulatorStatics2 as ::windows::core::Interface>::IID
@@ -2466,7 +2500,10 @@ impl ISmartCardEmulatorStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorStatics3>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardEmulatorStatics3, BASE_OFFSET>(),
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardEmulatorStatics3 as ::windows::core::Interface>::IID
@@ -2584,26 +2621,21 @@ impl ISmartCardPinPolicyVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSpecialCharacters(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardPinPolicy>,
-            ::windows::core::GetTrustLevel,
-            MinLength::<Impl, IMPL_OFFSET>,
-            SetMinLength::<Impl, IMPL_OFFSET>,
-            MaxLength::<Impl, IMPL_OFFSET>,
-            SetMaxLength::<Impl, IMPL_OFFSET>,
-            UppercaseLetters::<Impl, IMPL_OFFSET>,
-            SetUppercaseLetters::<Impl, IMPL_OFFSET>,
-            LowercaseLetters::<Impl, IMPL_OFFSET>,
-            SetLowercaseLetters::<Impl, IMPL_OFFSET>,
-            Digits::<Impl, IMPL_OFFSET>,
-            SetDigits::<Impl, IMPL_OFFSET>,
-            SpecialCharacters::<Impl, IMPL_OFFSET>,
-            SetSpecialCharacters::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardPinPolicy, BASE_OFFSET>(),
+            MinLength: MinLength::<Impl, IMPL_OFFSET>,
+            SetMinLength: SetMinLength::<Impl, IMPL_OFFSET>,
+            MaxLength: MaxLength::<Impl, IMPL_OFFSET>,
+            SetMaxLength: SetMaxLength::<Impl, IMPL_OFFSET>,
+            UppercaseLetters: UppercaseLetters::<Impl, IMPL_OFFSET>,
+            SetUppercaseLetters: SetUppercaseLetters::<Impl, IMPL_OFFSET>,
+            LowercaseLetters: LowercaseLetters::<Impl, IMPL_OFFSET>,
+            SetLowercaseLetters: SetLowercaseLetters::<Impl, IMPL_OFFSET>,
+            Digits: Digits::<Impl, IMPL_OFFSET>,
+            SetDigits: SetDigits::<Impl, IMPL_OFFSET>,
+            SpecialCharacters: SpecialCharacters::<Impl, IMPL_OFFSET>,
+            SetSpecialCharacters: SetSpecialCharacters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardPinPolicy as ::windows::core::Interface>::IID
@@ -2624,7 +2656,7 @@ impl ISmartCardPinResetDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardPinResetDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardPinResetDeferral, BASE_OFFSET>(), Complete: Complete::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardPinResetDeferral as ::windows::core::Interface>::IID
@@ -2681,7 +2713,13 @@ impl ISmartCardPinResetRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResponse(&*(&response as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardPinResetRequest>, ::windows::core::GetTrustLevel, Challenge::<Impl, IMPL_OFFSET>, Deadline::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>, SetResponse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardPinResetRequest, BASE_OFFSET>(),
+            Challenge: Challenge::<Impl, IMPL_OFFSET>,
+            Deadline: Deadline::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            SetResponse: SetResponse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardPinResetRequest as ::windows::core::Interface>::IID
@@ -2769,20 +2807,15 @@ impl ISmartCardProvisioningVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardProvisioning>,
-            ::windows::core::GetTrustLevel,
-            SmartCard::<Impl, IMPL_OFFSET>,
-            GetIdAsync::<Impl, IMPL_OFFSET>,
-            GetNameAsync::<Impl, IMPL_OFFSET>,
-            GetChallengeContextAsync::<Impl, IMPL_OFFSET>,
-            RequestPinChangeAsync::<Impl, IMPL_OFFSET>,
-            RequestPinResetAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardProvisioning, BASE_OFFSET>(),
+            SmartCard: SmartCard::<Impl, IMPL_OFFSET>,
+            GetIdAsync: GetIdAsync::<Impl, IMPL_OFFSET>,
+            GetNameAsync: GetNameAsync::<Impl, IMPL_OFFSET>,
+            GetChallengeContextAsync: GetChallengeContextAsync::<Impl, IMPL_OFFSET>,
+            RequestPinChangeAsync: RequestPinChangeAsync::<Impl, IMPL_OFFSET>,
+            RequestPinResetAsync: RequestPinResetAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardProvisioning as ::windows::core::Interface>::IID
@@ -2810,7 +2843,10 @@ impl ISmartCardProvisioning2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardProvisioning2>, ::windows::core::GetTrustLevel, GetAuthorityKeyContainerNameAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardProvisioning2, BASE_OFFSET>(),
+            GetAuthorityKeyContainerNameAsync: GetAuthorityKeyContainerNameAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardProvisioning2 as ::windows::core::Interface>::IID
@@ -2883,18 +2919,13 @@ impl ISmartCardProvisioningStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardProvisioningStatics>,
-            ::windows::core::GetTrustLevel,
-            FromSmartCardAsync::<Impl, IMPL_OFFSET>,
-            RequestVirtualSmartCardCreationAsync::<Impl, IMPL_OFFSET>,
-            RequestVirtualSmartCardCreationAsyncWithCardId::<Impl, IMPL_OFFSET>,
-            RequestVirtualSmartCardDeletionAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardProvisioningStatics, BASE_OFFSET>(),
+            FromSmartCardAsync: FromSmartCardAsync::<Impl, IMPL_OFFSET>,
+            RequestVirtualSmartCardCreationAsync: RequestVirtualSmartCardCreationAsync::<Impl, IMPL_OFFSET>,
+            RequestVirtualSmartCardCreationAsyncWithCardId: RequestVirtualSmartCardCreationAsyncWithCardId::<Impl, IMPL_OFFSET>,
+            RequestVirtualSmartCardDeletionAsync: RequestVirtualSmartCardDeletionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardProvisioningStatics as ::windows::core::Interface>::IID
@@ -2943,7 +2974,11 @@ impl ISmartCardProvisioningStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardProvisioningStatics2>, ::windows::core::GetTrustLevel, RequestAttestedVirtualSmartCardCreationAsync::<Impl, IMPL_OFFSET>, RequestAttestedVirtualSmartCardCreationAsyncWithCardId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardProvisioningStatics2, BASE_OFFSET>(),
+            RequestAttestedVirtualSmartCardCreationAsync: RequestAttestedVirtualSmartCardCreationAsync::<Impl, IMPL_OFFSET>,
+            RequestAttestedVirtualSmartCardCreationAsyncWithCardId: RequestAttestedVirtualSmartCardCreationAsyncWithCardId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardProvisioningStatics2 as ::windows::core::Interface>::IID
@@ -3053,23 +3088,18 @@ impl ISmartCardReaderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCardRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmartCardReader>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            Kind::<Impl, IMPL_OFFSET>,
-            GetStatusAsync::<Impl, IMPL_OFFSET>,
-            FindAllCardsAsync::<Impl, IMPL_OFFSET>,
-            CardAdded::<Impl, IMPL_OFFSET>,
-            RemoveCardAdded::<Impl, IMPL_OFFSET>,
-            CardRemoved::<Impl, IMPL_OFFSET>,
-            RemoveCardRemoved::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardReader, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            GetStatusAsync: GetStatusAsync::<Impl, IMPL_OFFSET>,
+            FindAllCardsAsync: FindAllCardsAsync::<Impl, IMPL_OFFSET>,
+            CardAdded: CardAdded::<Impl, IMPL_OFFSET>,
+            RemoveCardAdded: RemoveCardAdded::<Impl, IMPL_OFFSET>,
+            CardRemoved: CardRemoved::<Impl, IMPL_OFFSET>,
+            RemoveCardRemoved: RemoveCardRemoved::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardReader as ::windows::core::Interface>::IID
@@ -3121,7 +3151,12 @@ impl ISmartCardReaderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardReaderStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorWithKind::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardReaderStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorWithKind: GetDeviceSelectorWithKind::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardReaderStatics as ::windows::core::Interface>::IID
@@ -3173,7 +3208,12 @@ impl ISmartCardTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTriggerDetails>, ::windows::core::GetTrustLevel, TriggerType::<Impl, IMPL_OFFSET>, SourceAppletId::<Impl, IMPL_OFFSET>, TriggerData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardTriggerDetails, BASE_OFFSET>(),
+            TriggerType: TriggerType::<Impl, IMPL_OFFSET>,
+            SourceAppletId: SourceAppletId::<Impl, IMPL_OFFSET>,
+            TriggerData: TriggerData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardTriggerDetails as ::windows::core::Interface>::IID
@@ -3225,7 +3265,12 @@ impl ISmartCardTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTriggerDetails2>, ::windows::core::GetTrustLevel, Emulator::<Impl, IMPL_OFFSET>, TryLaunchCurrentAppAsync::<Impl, IMPL_OFFSET>, TryLaunchCurrentAppWithBehaviorAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardTriggerDetails2, BASE_OFFSET>(),
+            Emulator: Emulator::<Impl, IMPL_OFFSET>,
+            TryLaunchCurrentAppAsync: TryLaunchCurrentAppAsync::<Impl, IMPL_OFFSET>,
+            TryLaunchCurrentAppWithBehaviorAsync: TryLaunchCurrentAppWithBehaviorAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardTriggerDetails2 as ::windows::core::Interface>::IID
@@ -3253,7 +3298,7 @@ impl ISmartCardTriggerDetails3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTriggerDetails3>, ::windows::core::GetTrustLevel, SmartCard::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardTriggerDetails3, BASE_OFFSET>(), SmartCard: SmartCard::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardTriggerDetails3 as ::windows::core::Interface>::IID

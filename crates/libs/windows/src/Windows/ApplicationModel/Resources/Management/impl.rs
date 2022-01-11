@@ -80,7 +80,15 @@ impl IIndexedResourceCandidateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIndexedResourceCandidate>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>, Metadata::<Impl, IMPL_OFFSET>, Qualifiers::<Impl, IMPL_OFFSET>, ValueAsString::<Impl, IMPL_OFFSET>, GetQualifierValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIndexedResourceCandidate, BASE_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            Metadata: Metadata::<Impl, IMPL_OFFSET>,
+            Qualifiers: Qualifiers::<Impl, IMPL_OFFSET>,
+            ValueAsString: ValueAsString::<Impl, IMPL_OFFSET>,
+            GetQualifierValue: GetQualifierValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIndexedResourceCandidate as ::windows::core::Interface>::IID
@@ -120,7 +128,11 @@ impl IIndexedResourceQualifierVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIndexedResourceQualifier>, ::windows::core::GetTrustLevel, QualifierName::<Impl, IMPL_OFFSET>, QualifierValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIndexedResourceQualifier, BASE_OFFSET>(),
+            QualifierName: QualifierName::<Impl, IMPL_OFFSET>,
+            QualifierValue: QualifierValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIndexedResourceQualifier as ::windows::core::Interface>::IID
@@ -160,7 +172,11 @@ impl IResourceIndexerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceIndexer>, ::windows::core::GetTrustLevel, IndexFilePath::<Impl, IMPL_OFFSET>, IndexFileContentsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IResourceIndexer, BASE_OFFSET>(),
+            IndexFilePath: IndexFilePath::<Impl, IMPL_OFFSET>,
+            IndexFileContentsAsync: IndexFileContentsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResourceIndexer as ::windows::core::Interface>::IID
@@ -188,7 +204,10 @@ impl IResourceIndexerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceIndexerFactory>, ::windows::core::GetTrustLevel, CreateResourceIndexer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IResourceIndexerFactory, BASE_OFFSET>(),
+            CreateResourceIndexer: CreateResourceIndexer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResourceIndexerFactory as ::windows::core::Interface>::IID
@@ -216,7 +235,10 @@ impl IResourceIndexerFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceIndexerFactory2>, ::windows::core::GetTrustLevel, CreateResourceIndexerWithExtension::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IResourceIndexerFactory2, BASE_OFFSET>(),
+            CreateResourceIndexerWithExtension: CreateResourceIndexerWithExtension::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResourceIndexerFactory2 as ::windows::core::Interface>::IID

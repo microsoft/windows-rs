@@ -20,7 +20,7 @@ impl ICurrentTimeChangeRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrentTimeChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, Time::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrentTimeChangeRequestedEventArgs, BASE_OFFSET>(), Time: Time::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrentTimeChangeRequestedEventArgs as ::windows::core::Interface>::IID
@@ -48,7 +48,7 @@ impl IMuteChangeRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMuteChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, Mute::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMuteChangeRequestedEventArgs, BASE_OFFSET>(), Mute: Mute::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMuteChangeRequestedEventArgs as ::windows::core::Interface>::IID
@@ -127,21 +127,16 @@ impl IPlayToConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveError(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPlayToConnection>,
-            ::windows::core::GetTrustLevel,
-            State::<Impl, IMPL_OFFSET>,
-            StateChanged::<Impl, IMPL_OFFSET>,
-            RemoveStateChanged::<Impl, IMPL_OFFSET>,
-            Transferred::<Impl, IMPL_OFFSET>,
-            RemoveTransferred::<Impl, IMPL_OFFSET>,
-            Error::<Impl, IMPL_OFFSET>,
-            RemoveError::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToConnection, BASE_OFFSET>(),
+            State: State::<Impl, IMPL_OFFSET>,
+            StateChanged: StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged: RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            Transferred: Transferred::<Impl, IMPL_OFFSET>,
+            RemoveTransferred: RemoveTransferred::<Impl, IMPL_OFFSET>,
+            Error: Error::<Impl, IMPL_OFFSET>,
+            RemoveError: RemoveError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayToConnection as ::windows::core::Interface>::IID
@@ -181,7 +176,11 @@ impl IPlayToConnectionErrorEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToConnectionErrorEventArgs>, ::windows::core::GetTrustLevel, Code::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToConnectionErrorEventArgs, BASE_OFFSET>(),
+            Code: Code::<Impl, IMPL_OFFSET>,
+            Message: Message::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayToConnectionErrorEventArgs as ::windows::core::Interface>::IID
@@ -221,7 +220,11 @@ impl IPlayToConnectionStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToConnectionStateChangedEventArgs>, ::windows::core::GetTrustLevel, PreviousState::<Impl, IMPL_OFFSET>, CurrentState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToConnectionStateChangedEventArgs, BASE_OFFSET>(),
+            PreviousState: PreviousState::<Impl, IMPL_OFFSET>,
+            CurrentState: CurrentState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayToConnectionStateChangedEventArgs as ::windows::core::Interface>::IID
@@ -261,7 +264,11 @@ impl IPlayToConnectionTransferredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToConnectionTransferredEventArgs>, ::windows::core::GetTrustLevel, PreviousSource::<Impl, IMPL_OFFSET>, CurrentSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToConnectionTransferredEventArgs, BASE_OFFSET>(),
+            PreviousSource: PreviousSource::<Impl, IMPL_OFFSET>,
+            CurrentSource: CurrentSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayToConnectionTransferredEventArgs as ::windows::core::Interface>::IID
@@ -328,20 +335,15 @@ impl IPlayToManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPlayToManager>,
-            ::windows::core::GetTrustLevel,
-            SourceRequested::<Impl, IMPL_OFFSET>,
-            RemoveSourceRequested::<Impl, IMPL_OFFSET>,
-            SourceSelected::<Impl, IMPL_OFFSET>,
-            RemoveSourceSelected::<Impl, IMPL_OFFSET>,
-            SetDefaultSourceSelection::<Impl, IMPL_OFFSET>,
-            DefaultSourceSelection::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToManager, BASE_OFFSET>(),
+            SourceRequested: SourceRequested::<Impl, IMPL_OFFSET>,
+            RemoveSourceRequested: RemoveSourceRequested::<Impl, IMPL_OFFSET>,
+            SourceSelected: SourceSelected::<Impl, IMPL_OFFSET>,
+            RemoveSourceSelected: RemoveSourceSelected::<Impl, IMPL_OFFSET>,
+            SetDefaultSourceSelection: SetDefaultSourceSelection::<Impl, IMPL_OFFSET>,
+            DefaultSourceSelection: DefaultSourceSelection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayToManager as ::windows::core::Interface>::IID
@@ -374,7 +376,11 @@ impl IPlayToManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowPlayToUI().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>, ShowPlayToUI::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToManagerStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+            ShowPlayToUI: ShowPlayToUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayToManagerStatics as ::windows::core::Interface>::IID
@@ -707,55 +713,50 @@ impl IPlayToReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPlayToReceiver>,
-            ::windows::core::GetTrustLevel,
-            PlayRequested::<Impl, IMPL_OFFSET>,
-            RemovePlayRequested::<Impl, IMPL_OFFSET>,
-            PauseRequested::<Impl, IMPL_OFFSET>,
-            RemovePauseRequested::<Impl, IMPL_OFFSET>,
-            SourceChangeRequested::<Impl, IMPL_OFFSET>,
-            RemoveSourceChangeRequested::<Impl, IMPL_OFFSET>,
-            PlaybackRateChangeRequested::<Impl, IMPL_OFFSET>,
-            RemovePlaybackRateChangeRequested::<Impl, IMPL_OFFSET>,
-            CurrentTimeChangeRequested::<Impl, IMPL_OFFSET>,
-            RemoveCurrentTimeChangeRequested::<Impl, IMPL_OFFSET>,
-            MuteChangeRequested::<Impl, IMPL_OFFSET>,
-            RemoveMuteChangeRequested::<Impl, IMPL_OFFSET>,
-            VolumeChangeRequested::<Impl, IMPL_OFFSET>,
-            RemoveVolumeChangeRequested::<Impl, IMPL_OFFSET>,
-            TimeUpdateRequested::<Impl, IMPL_OFFSET>,
-            RemoveTimeUpdateRequested::<Impl, IMPL_OFFSET>,
-            StopRequested::<Impl, IMPL_OFFSET>,
-            RemoveStopRequested::<Impl, IMPL_OFFSET>,
-            NotifyVolumeChange::<Impl, IMPL_OFFSET>,
-            NotifyRateChange::<Impl, IMPL_OFFSET>,
-            NotifyLoadedMetadata::<Impl, IMPL_OFFSET>,
-            NotifyTimeUpdate::<Impl, IMPL_OFFSET>,
-            NotifyDurationChange::<Impl, IMPL_OFFSET>,
-            NotifySeeking::<Impl, IMPL_OFFSET>,
-            NotifySeeked::<Impl, IMPL_OFFSET>,
-            NotifyPaused::<Impl, IMPL_OFFSET>,
-            NotifyPlaying::<Impl, IMPL_OFFSET>,
-            NotifyEnded::<Impl, IMPL_OFFSET>,
-            NotifyError::<Impl, IMPL_OFFSET>,
-            NotifyStopped::<Impl, IMPL_OFFSET>,
-            FriendlyName::<Impl, IMPL_OFFSET>,
-            SetFriendlyName::<Impl, IMPL_OFFSET>,
-            SetSupportsImage::<Impl, IMPL_OFFSET>,
-            SupportsImage::<Impl, IMPL_OFFSET>,
-            SetSupportsAudio::<Impl, IMPL_OFFSET>,
-            SupportsAudio::<Impl, IMPL_OFFSET>,
-            SetSupportsVideo::<Impl, IMPL_OFFSET>,
-            SupportsVideo::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            StartAsync::<Impl, IMPL_OFFSET>,
-            StopAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToReceiver, BASE_OFFSET>(),
+            PlayRequested: PlayRequested::<Impl, IMPL_OFFSET>,
+            RemovePlayRequested: RemovePlayRequested::<Impl, IMPL_OFFSET>,
+            PauseRequested: PauseRequested::<Impl, IMPL_OFFSET>,
+            RemovePauseRequested: RemovePauseRequested::<Impl, IMPL_OFFSET>,
+            SourceChangeRequested: SourceChangeRequested::<Impl, IMPL_OFFSET>,
+            RemoveSourceChangeRequested: RemoveSourceChangeRequested::<Impl, IMPL_OFFSET>,
+            PlaybackRateChangeRequested: PlaybackRateChangeRequested::<Impl, IMPL_OFFSET>,
+            RemovePlaybackRateChangeRequested: RemovePlaybackRateChangeRequested::<Impl, IMPL_OFFSET>,
+            CurrentTimeChangeRequested: CurrentTimeChangeRequested::<Impl, IMPL_OFFSET>,
+            RemoveCurrentTimeChangeRequested: RemoveCurrentTimeChangeRequested::<Impl, IMPL_OFFSET>,
+            MuteChangeRequested: MuteChangeRequested::<Impl, IMPL_OFFSET>,
+            RemoveMuteChangeRequested: RemoveMuteChangeRequested::<Impl, IMPL_OFFSET>,
+            VolumeChangeRequested: VolumeChangeRequested::<Impl, IMPL_OFFSET>,
+            RemoveVolumeChangeRequested: RemoveVolumeChangeRequested::<Impl, IMPL_OFFSET>,
+            TimeUpdateRequested: TimeUpdateRequested::<Impl, IMPL_OFFSET>,
+            RemoveTimeUpdateRequested: RemoveTimeUpdateRequested::<Impl, IMPL_OFFSET>,
+            StopRequested: StopRequested::<Impl, IMPL_OFFSET>,
+            RemoveStopRequested: RemoveStopRequested::<Impl, IMPL_OFFSET>,
+            NotifyVolumeChange: NotifyVolumeChange::<Impl, IMPL_OFFSET>,
+            NotifyRateChange: NotifyRateChange::<Impl, IMPL_OFFSET>,
+            NotifyLoadedMetadata: NotifyLoadedMetadata::<Impl, IMPL_OFFSET>,
+            NotifyTimeUpdate: NotifyTimeUpdate::<Impl, IMPL_OFFSET>,
+            NotifyDurationChange: NotifyDurationChange::<Impl, IMPL_OFFSET>,
+            NotifySeeking: NotifySeeking::<Impl, IMPL_OFFSET>,
+            NotifySeeked: NotifySeeked::<Impl, IMPL_OFFSET>,
+            NotifyPaused: NotifyPaused::<Impl, IMPL_OFFSET>,
+            NotifyPlaying: NotifyPlaying::<Impl, IMPL_OFFSET>,
+            NotifyEnded: NotifyEnded::<Impl, IMPL_OFFSET>,
+            NotifyError: NotifyError::<Impl, IMPL_OFFSET>,
+            NotifyStopped: NotifyStopped::<Impl, IMPL_OFFSET>,
+            FriendlyName: FriendlyName::<Impl, IMPL_OFFSET>,
+            SetFriendlyName: SetFriendlyName::<Impl, IMPL_OFFSET>,
+            SetSupportsImage: SetSupportsImage::<Impl, IMPL_OFFSET>,
+            SupportsImage: SupportsImage::<Impl, IMPL_OFFSET>,
+            SetSupportsAudio: SetSupportsAudio::<Impl, IMPL_OFFSET>,
+            SupportsAudio: SupportsAudio::<Impl, IMPL_OFFSET>,
+            SetSupportsVideo: SetSupportsVideo::<Impl, IMPL_OFFSET>,
+            SupportsVideo: SupportsVideo::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            StartAsync: StartAsync::<Impl, IMPL_OFFSET>,
+            StopAsync: StopAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayToReceiver as ::windows::core::Interface>::IID
@@ -805,7 +806,13 @@ impl IPlayToSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PlayNext().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSource>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>, Next::<Impl, IMPL_OFFSET>, SetNext::<Impl, IMPL_OFFSET>, PlayNext::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToSource, BASE_OFFSET>(),
+            Connection: Connection::<Impl, IMPL_OFFSET>,
+            Next: Next::<Impl, IMPL_OFFSET>,
+            SetNext: SetNext::<Impl, IMPL_OFFSET>,
+            PlayNext: PlayNext::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayToSource as ::windows::core::Interface>::IID
@@ -826,7 +833,7 @@ impl IPlayToSourceDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToSourceDeferral, BASE_OFFSET>(), Complete: Complete::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayToSourceDeferral as ::windows::core::Interface>::IID
@@ -876,7 +883,13 @@ impl IPlayToSourceRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSource(&*(&value as *const <PlayToSource as ::windows::core::Abi>::Abi as *const <PlayToSource as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceRequest>, ::windows::core::GetTrustLevel, Deadline::<Impl, IMPL_OFFSET>, DisplayErrorString::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>, SetSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToSourceRequest, BASE_OFFSET>(),
+            Deadline: Deadline::<Impl, IMPL_OFFSET>,
+            DisplayErrorString: DisplayErrorString::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            SetSource: SetSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayToSourceRequest as ::windows::core::Interface>::IID
@@ -904,7 +917,10 @@ impl IPlayToSourceRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceRequestedEventArgs>, ::windows::core::GetTrustLevel, SourceRequest::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToSourceRequestedEventArgs, BASE_OFFSET>(),
+            SourceRequest: SourceRequest::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayToSourceRequestedEventArgs as ::windows::core::Interface>::IID
@@ -980,7 +996,14 @@ impl IPlayToSourceSelectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceSelectedEventArgs>, ::windows::core::GetTrustLevel, FriendlyName::<Impl, IMPL_OFFSET>, Icon::<Impl, IMPL_OFFSET>, SupportsImage::<Impl, IMPL_OFFSET>, SupportsAudio::<Impl, IMPL_OFFSET>, SupportsVideo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToSourceSelectedEventArgs, BASE_OFFSET>(),
+            FriendlyName: FriendlyName::<Impl, IMPL_OFFSET>,
+            Icon: Icon::<Impl, IMPL_OFFSET>,
+            SupportsImage: SupportsImage::<Impl, IMPL_OFFSET>,
+            SupportsAudio: SupportsAudio::<Impl, IMPL_OFFSET>,
+            SupportsVideo: SupportsVideo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayToSourceSelectedEventArgs as ::windows::core::Interface>::IID
@@ -1013,7 +1036,11 @@ impl IPlayToSourceWithPreferredSourceUriVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreferredSourceUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceWithPreferredSourceUri>, ::windows::core::GetTrustLevel, PreferredSourceUri::<Impl, IMPL_OFFSET>, SetPreferredSourceUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToSourceWithPreferredSourceUri, BASE_OFFSET>(),
+            PreferredSourceUri: PreferredSourceUri::<Impl, IMPL_OFFSET>,
+            SetPreferredSourceUri: SetPreferredSourceUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayToSourceWithPreferredSourceUri as ::windows::core::Interface>::IID
@@ -1041,7 +1068,7 @@ impl IPlaybackRateChangeRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaybackRateChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, Rate::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPlaybackRateChangeRequestedEventArgs, BASE_OFFSET>(), Rate: Rate::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlaybackRateChangeRequestedEventArgs as ::windows::core::Interface>::IID
@@ -1177,24 +1204,19 @@ impl ISourceChangeRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISourceChangeRequestedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            Stream::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            Author::<Impl, IMPL_OFFSET>,
-            Album::<Impl, IMPL_OFFSET>,
-            Genre::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            Date::<Impl, IMPL_OFFSET>,
-            Thumbnail::<Impl, IMPL_OFFSET>,
-            Rating::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISourceChangeRequestedEventArgs, BASE_OFFSET>(),
+            Stream: Stream::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Author: Author::<Impl, IMPL_OFFSET>,
+            Album: Album::<Impl, IMPL_OFFSET>,
+            Genre: Genre::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            Date: Date::<Impl, IMPL_OFFSET>,
+            Thumbnail: Thumbnail::<Impl, IMPL_OFFSET>,
+            Rating: Rating::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISourceChangeRequestedEventArgs as ::windows::core::Interface>::IID
@@ -1222,7 +1244,7 @@ impl IVolumeChangeRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVolumeChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, Volume::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVolumeChangeRequestedEventArgs, BASE_OFFSET>(), Volume: Volume::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVolumeChangeRequestedEventArgs as ::windows::core::Interface>::IID

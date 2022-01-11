@@ -139,28 +139,23 @@ impl INDClientVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INDClient>,
-            ::windows::core::GetTrustLevel,
-            RegistrationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveRegistrationCompleted::<Impl, IMPL_OFFSET>,
-            ProximityDetectionCompleted::<Impl, IMPL_OFFSET>,
-            RemoveProximityDetectionCompleted::<Impl, IMPL_OFFSET>,
-            LicenseFetchCompleted::<Impl, IMPL_OFFSET>,
-            RemoveLicenseFetchCompleted::<Impl, IMPL_OFFSET>,
-            ReRegistrationNeeded::<Impl, IMPL_OFFSET>,
-            RemoveReRegistrationNeeded::<Impl, IMPL_OFFSET>,
-            ClosedCaptionDataReceived::<Impl, IMPL_OFFSET>,
-            RemoveClosedCaptionDataReceived::<Impl, IMPL_OFFSET>,
-            StartAsync::<Impl, IMPL_OFFSET>,
-            LicenseFetchAsync::<Impl, IMPL_OFFSET>,
-            ReRegistrationAsync::<Impl, IMPL_OFFSET>,
-            Close::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDClient, BASE_OFFSET>(),
+            RegistrationCompleted: RegistrationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveRegistrationCompleted: RemoveRegistrationCompleted::<Impl, IMPL_OFFSET>,
+            ProximityDetectionCompleted: ProximityDetectionCompleted::<Impl, IMPL_OFFSET>,
+            RemoveProximityDetectionCompleted: RemoveProximityDetectionCompleted::<Impl, IMPL_OFFSET>,
+            LicenseFetchCompleted: LicenseFetchCompleted::<Impl, IMPL_OFFSET>,
+            RemoveLicenseFetchCompleted: RemoveLicenseFetchCompleted::<Impl, IMPL_OFFSET>,
+            ReRegistrationNeeded: ReRegistrationNeeded::<Impl, IMPL_OFFSET>,
+            RemoveReRegistrationNeeded: RemoveReRegistrationNeeded::<Impl, IMPL_OFFSET>,
+            ClosedCaptionDataReceived: ClosedCaptionDataReceived::<Impl, IMPL_OFFSET>,
+            RemoveClosedCaptionDataReceived: RemoveClosedCaptionDataReceived::<Impl, IMPL_OFFSET>,
+            StartAsync: StartAsync::<Impl, IMPL_OFFSET>,
+            LicenseFetchAsync: LicenseFetchAsync::<Impl, IMPL_OFFSET>,
+            ReRegistrationAsync: ReRegistrationAsync::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDClient as ::windows::core::Interface>::IID
@@ -188,7 +183,7 @@ impl INDClientFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDClientFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, INDClientFactory, BASE_OFFSET>(), CreateInstance: CreateInstance::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDClientFactory as ::windows::core::Interface>::IID
@@ -241,7 +236,12 @@ impl INDClosedCaptionDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDClosedCaptionDataReceivedEventArgs>, ::windows::core::GetTrustLevel, ClosedCaptionDataFormat::<Impl, IMPL_OFFSET>, PresentationTimestamp::<Impl, IMPL_OFFSET>, ClosedCaptionData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDClosedCaptionDataReceivedEventArgs, BASE_OFFSET>(),
+            ClosedCaptionDataFormat: ClosedCaptionDataFormat::<Impl, IMPL_OFFSET>,
+            PresentationTimestamp: PresentationTimestamp::<Impl, IMPL_OFFSET>,
+            ClosedCaptionData: ClosedCaptionData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDClosedCaptionDataReceivedEventArgs as ::windows::core::Interface>::IID
@@ -283,7 +283,11 @@ impl INDCustomDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDCustomData>, ::windows::core::GetTrustLevel, CustomDataTypeID::<Impl, IMPL_OFFSET>, CustomData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDCustomData, BASE_OFFSET>(),
+            CustomDataTypeID: CustomDataTypeID::<Impl, IMPL_OFFSET>,
+            CustomData: CustomData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDCustomData as ::windows::core::Interface>::IID
@@ -311,7 +315,10 @@ impl INDCustomDataFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDCustomDataFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDCustomDataFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDCustomDataFactory as ::windows::core::Interface>::IID
@@ -400,23 +407,18 @@ impl INDDownloadEngineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INDDownloadEngine>,
-            ::windows::core::GetTrustLevel,
-            Open::<Impl, IMPL_OFFSET>,
-            Pause::<Impl, IMPL_OFFSET>,
-            Resume::<Impl, IMPL_OFFSET>,
-            Close::<Impl, IMPL_OFFSET>,
-            Seek::<Impl, IMPL_OFFSET>,
-            CanSeek::<Impl, IMPL_OFFSET>,
-            BufferFullMinThresholdInSamples::<Impl, IMPL_OFFSET>,
-            BufferFullMaxThresholdInSamples::<Impl, IMPL_OFFSET>,
-            Notifier::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDDownloadEngine, BASE_OFFSET>(),
+            Open: Open::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+            Seek: Seek::<Impl, IMPL_OFFSET>,
+            CanSeek: CanSeek::<Impl, IMPL_OFFSET>,
+            BufferFullMinThresholdInSamples: BufferFullMinThresholdInSamples::<Impl, IMPL_OFFSET>,
+            BufferFullMaxThresholdInSamples: BufferFullMaxThresholdInSamples::<Impl, IMPL_OFFSET>,
+            Notifier: Notifier::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDDownloadEngine as ::windows::core::Interface>::IID
@@ -462,20 +464,15 @@ impl INDDownloadEngineNotifierVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnNetworkError().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INDDownloadEngineNotifier>,
-            ::windows::core::GetTrustLevel,
-            OnStreamOpened::<Impl, IMPL_OFFSET>,
-            OnPlayReadyObjectReceived::<Impl, IMPL_OFFSET>,
-            OnContentIDReceived::<Impl, IMPL_OFFSET>,
-            OnDataReceived::<Impl, IMPL_OFFSET>,
-            OnEndOfStream::<Impl, IMPL_OFFSET>,
-            OnNetworkError::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDDownloadEngineNotifier, BASE_OFFSET>(),
+            OnStreamOpened: OnStreamOpened::<Impl, IMPL_OFFSET>,
+            OnPlayReadyObjectReceived: OnPlayReadyObjectReceived::<Impl, IMPL_OFFSET>,
+            OnContentIDReceived: OnContentIDReceived::<Impl, IMPL_OFFSET>,
+            OnDataReceived: OnDataReceived::<Impl, IMPL_OFFSET>,
+            OnEndOfStream: OnEndOfStream::<Impl, IMPL_OFFSET>,
+            OnNetworkError: OnNetworkError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDDownloadEngineNotifier as ::windows::core::Interface>::IID
@@ -503,7 +500,10 @@ impl INDLicenseFetchCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDLicenseFetchCompletedEventArgs>, ::windows::core::GetTrustLevel, ResponseCustomData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDLicenseFetchCompletedEventArgs, BASE_OFFSET>(),
+            ResponseCustomData: ResponseCustomData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDLicenseFetchCompletedEventArgs as ::windows::core::Interface>::IID
@@ -561,7 +561,13 @@ impl INDLicenseFetchDescriptorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLicenseFetchChallengeCustomData(&*(&licensefetchchallengecustomdata as *const <INDCustomData as ::windows::core::Abi>::Abi as *const <INDCustomData as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDLicenseFetchDescriptor>, ::windows::core::GetTrustLevel, ContentIDType::<Impl, IMPL_OFFSET>, ContentID::<Impl, IMPL_OFFSET>, LicenseFetchChallengeCustomData::<Impl, IMPL_OFFSET>, SetLicenseFetchChallengeCustomData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDLicenseFetchDescriptor, BASE_OFFSET>(),
+            ContentIDType: ContentIDType::<Impl, IMPL_OFFSET>,
+            ContentID: ContentID::<Impl, IMPL_OFFSET>,
+            LicenseFetchChallengeCustomData: LicenseFetchChallengeCustomData::<Impl, IMPL_OFFSET>,
+            SetLicenseFetchChallengeCustomData: SetLicenseFetchChallengeCustomData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDLicenseFetchDescriptor as ::windows::core::Interface>::IID
@@ -589,7 +595,10 @@ impl INDLicenseFetchDescriptorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDLicenseFetchDescriptorFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDLicenseFetchDescriptorFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDLicenseFetchDescriptorFactory as ::windows::core::Interface>::IID
@@ -617,7 +626,10 @@ impl INDLicenseFetchResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDLicenseFetchResult>, ::windows::core::GetTrustLevel, ResponseCustomData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDLicenseFetchResult, BASE_OFFSET>(),
+            ResponseCustomData: ResponseCustomData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDLicenseFetchResult as ::windows::core::Interface>::IID
@@ -681,18 +693,13 @@ impl INDMessengerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INDMessenger>,
-            ::windows::core::GetTrustLevel,
-            SendRegistrationRequestAsync::<Impl, IMPL_OFFSET>,
-            SendProximityDetectionStartAsync::<Impl, IMPL_OFFSET>,
-            SendProximityDetectionResponseAsync::<Impl, IMPL_OFFSET>,
-            SendLicenseFetchRequestAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDMessenger, BASE_OFFSET>(),
+            SendRegistrationRequestAsync: SendRegistrationRequestAsync::<Impl, IMPL_OFFSET>,
+            SendProximityDetectionStartAsync: SendProximityDetectionStartAsync::<Impl, IMPL_OFFSET>,
+            SendProximityDetectionResponseAsync: SendProximityDetectionResponseAsync::<Impl, IMPL_OFFSET>,
+            SendLicenseFetchRequestAsync: SendLicenseFetchRequestAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDMessenger as ::windows::core::Interface>::IID
@@ -720,7 +727,10 @@ impl INDProximityDetectionCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDProximityDetectionCompletedEventArgs>, ::windows::core::GetTrustLevel, ProximityDetectionRetryCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDProximityDetectionCompletedEventArgs, BASE_OFFSET>(),
+            ProximityDetectionRetryCount: ProximityDetectionRetryCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDProximityDetectionCompletedEventArgs as ::windows::core::Interface>::IID
@@ -777,18 +787,13 @@ impl INDRegistrationCompletedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransmitterCertificateAccepted(accept).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INDRegistrationCompletedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            ResponseCustomData::<Impl, IMPL_OFFSET>,
-            TransmitterProperties::<Impl, IMPL_OFFSET>,
-            TransmitterCertificateAccepted::<Impl, IMPL_OFFSET>,
-            SetTransmitterCertificateAccepted::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDRegistrationCompletedEventArgs, BASE_OFFSET>(),
+            ResponseCustomData: ResponseCustomData::<Impl, IMPL_OFFSET>,
+            TransmitterProperties: TransmitterProperties::<Impl, IMPL_OFFSET>,
+            TransmitterCertificateAccepted: TransmitterCertificateAccepted::<Impl, IMPL_OFFSET>,
+            SetTransmitterCertificateAccepted: SetTransmitterCertificateAccepted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDRegistrationCompletedEventArgs as ::windows::core::Interface>::IID
@@ -817,7 +822,7 @@ impl INDSendResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDSendResult>, ::windows::core::GetTrustLevel, Response::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, INDSendResult, BASE_OFFSET>(), Response: Response::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDSendResult as ::windows::core::Interface>::IID
@@ -845,7 +850,10 @@ impl INDStartResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDStartResult>, ::windows::core::GetTrustLevel, MediaStreamSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDStartResult, BASE_OFFSET>(),
+            MediaStreamSource: MediaStreamSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDStartResult as ::windows::core::Interface>::IID
@@ -873,7 +881,7 @@ impl INDStorageFileHelperVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDStorageFileHelper>, ::windows::core::GetTrustLevel, GetFileURLs::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, INDStorageFileHelper, BASE_OFFSET>(), GetFileURLs: GetFileURLs::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDStorageFileHelper as ::windows::core::Interface>::IID
@@ -928,7 +936,14 @@ impl INDStreamParserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDStreamParser>, ::windows::core::GetTrustLevel, ParseData::<Impl, IMPL_OFFSET>, GetStreamInformation::<Impl, IMPL_OFFSET>, BeginOfStream::<Impl, IMPL_OFFSET>, EndOfStream::<Impl, IMPL_OFFSET>, Notifier::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDStreamParser, BASE_OFFSET>(),
+            ParseData: ParseData::<Impl, IMPL_OFFSET>,
+            GetStreamInformation: GetStreamInformation::<Impl, IMPL_OFFSET>,
+            BeginOfStream: BeginOfStream::<Impl, IMPL_OFFSET>,
+            EndOfStream: EndOfStream::<Impl, IMPL_OFFSET>,
+            Notifier: Notifier::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDStreamParser as ::windows::core::Interface>::IID
@@ -971,7 +986,13 @@ impl INDStreamParserNotifierVtbl {
                 .OnBeginSetupDecryptor(&*(&descriptor as *const <super::super::Core::IMediaStreamDescriptor as ::windows::core::Abi>::Abi as *const <super::super::Core::IMediaStreamDescriptor as ::windows::core::DefaultType>::DefaultType), &*(&keyid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&probytes), proBytes_array_size as _))
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDStreamParserNotifier>, ::windows::core::GetTrustLevel, OnContentIDReceived::<Impl, IMPL_OFFSET>, OnMediaStreamDescriptorCreated::<Impl, IMPL_OFFSET>, OnSampleParsed::<Impl, IMPL_OFFSET>, OnBeginSetupDecryptor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDStreamParserNotifier, BASE_OFFSET>(),
+            OnContentIDReceived: OnContentIDReceived::<Impl, IMPL_OFFSET>,
+            OnMediaStreamDescriptorCreated: OnMediaStreamDescriptorCreated::<Impl, IMPL_OFFSET>,
+            OnSampleParsed: OnSampleParsed::<Impl, IMPL_OFFSET>,
+            OnBeginSetupDecryptor: OnBeginSetupDecryptor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDStreamParserNotifier as ::windows::core::Interface>::IID
@@ -999,7 +1020,10 @@ impl INDTCPMessengerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INDTCPMessengerFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDTCPMessengerFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDTCPMessengerFactory as ::windows::core::Interface>::IID
@@ -1150,25 +1174,20 @@ impl INDTransmitterPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INDTransmitterProperties>,
-            ::windows::core::GetTrustLevel,
-            CertificateType::<Impl, IMPL_OFFSET>,
-            PlatformIdentifier::<Impl, IMPL_OFFSET>,
-            SupportedFeatures::<Impl, IMPL_OFFSET>,
-            SecurityLevel::<Impl, IMPL_OFFSET>,
-            SecurityVersion::<Impl, IMPL_OFFSET>,
-            ExpirationDate::<Impl, IMPL_OFFSET>,
-            ClientID::<Impl, IMPL_OFFSET>,
-            ModelDigest::<Impl, IMPL_OFFSET>,
-            ModelManufacturerName::<Impl, IMPL_OFFSET>,
-            ModelName::<Impl, IMPL_OFFSET>,
-            ModelNumber::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INDTransmitterProperties, BASE_OFFSET>(),
+            CertificateType: CertificateType::<Impl, IMPL_OFFSET>,
+            PlatformIdentifier: PlatformIdentifier::<Impl, IMPL_OFFSET>,
+            SupportedFeatures: SupportedFeatures::<Impl, IMPL_OFFSET>,
+            SecurityLevel: SecurityLevel::<Impl, IMPL_OFFSET>,
+            SecurityVersion: SecurityVersion::<Impl, IMPL_OFFSET>,
+            ExpirationDate: ExpirationDate::<Impl, IMPL_OFFSET>,
+            ClientID: ClientID::<Impl, IMPL_OFFSET>,
+            ModelDigest: ModelDigest::<Impl, IMPL_OFFSET>,
+            ModelManufacturerName: ModelManufacturerName::<Impl, IMPL_OFFSET>,
+            ModelName: ModelName::<Impl, IMPL_OFFSET>,
+            ModelNumber: ModelNumber::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDTransmitterProperties as ::windows::core::Interface>::IID
@@ -1305,24 +1324,19 @@ impl IPlayReadyContentHeaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPlayReadyContentHeader>,
-            ::windows::core::GetTrustLevel,
-            KeyId::<Impl, IMPL_OFFSET>,
-            KeyIdString::<Impl, IMPL_OFFSET>,
-            LicenseAcquisitionUrl::<Impl, IMPL_OFFSET>,
-            LicenseAcquisitionUserInterfaceUrl::<Impl, IMPL_OFFSET>,
-            DomainServiceId::<Impl, IMPL_OFFSET>,
-            EncryptionType::<Impl, IMPL_OFFSET>,
-            CustomAttributes::<Impl, IMPL_OFFSET>,
-            DecryptorSetup::<Impl, IMPL_OFFSET>,
-            GetSerializedHeader::<Impl, IMPL_OFFSET>,
-            HeaderWithEmbeddedUpdates::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyContentHeader, BASE_OFFSET>(),
+            KeyId: KeyId::<Impl, IMPL_OFFSET>,
+            KeyIdString: KeyIdString::<Impl, IMPL_OFFSET>,
+            LicenseAcquisitionUrl: LicenseAcquisitionUrl::<Impl, IMPL_OFFSET>,
+            LicenseAcquisitionUserInterfaceUrl: LicenseAcquisitionUserInterfaceUrl::<Impl, IMPL_OFFSET>,
+            DomainServiceId: DomainServiceId::<Impl, IMPL_OFFSET>,
+            EncryptionType: EncryptionType::<Impl, IMPL_OFFSET>,
+            CustomAttributes: CustomAttributes::<Impl, IMPL_OFFSET>,
+            DecryptorSetup: DecryptorSetup::<Impl, IMPL_OFFSET>,
+            GetSerializedHeader: GetSerializedHeader::<Impl, IMPL_OFFSET>,
+            HeaderWithEmbeddedUpdates: HeaderWithEmbeddedUpdates::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyContentHeader as ::windows::core::Interface>::IID
@@ -1364,7 +1378,11 @@ impl IPlayReadyContentHeader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyContentHeader2>, ::windows::core::GetTrustLevel, KeyIds::<Impl, IMPL_OFFSET>, KeyIdStrings::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyContentHeader2, BASE_OFFSET>(),
+            KeyIds: KeyIds::<Impl, IMPL_OFFSET>,
+            KeyIdStrings: KeyIdStrings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyContentHeader2 as ::windows::core::Interface>::IID
@@ -1430,7 +1448,12 @@ impl IPlayReadyContentHeaderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyContentHeaderFactory>, ::windows::core::GetTrustLevel, CreateInstanceFromWindowsMediaDrmHeader::<Impl, IMPL_OFFSET>, CreateInstanceFromComponents::<Impl, IMPL_OFFSET>, CreateInstanceFromPlayReadyHeader::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyContentHeaderFactory, BASE_OFFSET>(),
+            CreateInstanceFromWindowsMediaDrmHeader: CreateInstanceFromWindowsMediaDrmHeader::<Impl, IMPL_OFFSET>,
+            CreateInstanceFromComponents: CreateInstanceFromComponents::<Impl, IMPL_OFFSET>,
+            CreateInstanceFromPlayReadyHeader: CreateInstanceFromPlayReadyHeader::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyContentHeaderFactory as ::windows::core::Interface>::IID
@@ -1467,7 +1490,10 @@ impl IPlayReadyContentHeaderFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyContentHeaderFactory2>, ::windows::core::GetTrustLevel, CreateInstanceFromComponents2::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyContentHeaderFactory2, BASE_OFFSET>(),
+            CreateInstanceFromComponents2: CreateInstanceFromComponents2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyContentHeaderFactory2 as ::windows::core::Interface>::IID
@@ -1495,7 +1521,10 @@ impl IPlayReadyContentResolverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyContentResolver>, ::windows::core::GetTrustLevel, ServiceRequest::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyContentResolver, BASE_OFFSET>(),
+            ServiceRequest: ServiceRequest::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyContentResolver as ::windows::core::Interface>::IID
@@ -1571,7 +1600,14 @@ impl IPlayReadyDomainVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyDomain>, ::windows::core::GetTrustLevel, AccountId::<Impl, IMPL_OFFSET>, ServiceId::<Impl, IMPL_OFFSET>, Revision::<Impl, IMPL_OFFSET>, FriendlyName::<Impl, IMPL_OFFSET>, DomainJoinUrl::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyDomain, BASE_OFFSET>(),
+            AccountId: AccountId::<Impl, IMPL_OFFSET>,
+            ServiceId: ServiceId::<Impl, IMPL_OFFSET>,
+            Revision: Revision::<Impl, IMPL_OFFSET>,
+            FriendlyName: FriendlyName::<Impl, IMPL_OFFSET>,
+            DomainJoinUrl: DomainJoinUrl::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyDomain as ::windows::core::Interface>::IID
@@ -1599,7 +1635,10 @@ impl IPlayReadyDomainIterableFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyDomainIterableFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyDomainIterableFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyDomainIterableFactory as ::windows::core::Interface>::IID
@@ -1666,20 +1705,15 @@ impl IPlayReadyDomainJoinServiceRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDomainServiceId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPlayReadyDomainJoinServiceRequest>,
-            ::windows::core::GetTrustLevel,
-            DomainAccountId::<Impl, IMPL_OFFSET>,
-            SetDomainAccountId::<Impl, IMPL_OFFSET>,
-            DomainFriendlyName::<Impl, IMPL_OFFSET>,
-            SetDomainFriendlyName::<Impl, IMPL_OFFSET>,
-            DomainServiceId::<Impl, IMPL_OFFSET>,
-            SetDomainServiceId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyDomainJoinServiceRequest, BASE_OFFSET>(),
+            DomainAccountId: DomainAccountId::<Impl, IMPL_OFFSET>,
+            SetDomainAccountId: SetDomainAccountId::<Impl, IMPL_OFFSET>,
+            DomainFriendlyName: DomainFriendlyName::<Impl, IMPL_OFFSET>,
+            SetDomainFriendlyName: SetDomainFriendlyName::<Impl, IMPL_OFFSET>,
+            DomainServiceId: DomainServiceId::<Impl, IMPL_OFFSET>,
+            SetDomainServiceId: SetDomainServiceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyDomainJoinServiceRequest as ::windows::core::Interface>::IID
@@ -1729,7 +1763,13 @@ impl IPlayReadyDomainLeaveServiceRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDomainServiceId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyDomainLeaveServiceRequest>, ::windows::core::GetTrustLevel, DomainAccountId::<Impl, IMPL_OFFSET>, SetDomainAccountId::<Impl, IMPL_OFFSET>, DomainServiceId::<Impl, IMPL_OFFSET>, SetDomainServiceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyDomainLeaveServiceRequest, BASE_OFFSET>(),
+            DomainAccountId: DomainAccountId::<Impl, IMPL_OFFSET>,
+            SetDomainAccountId: SetDomainAccountId::<Impl, IMPL_OFFSET>,
+            DomainServiceId: DomainServiceId::<Impl, IMPL_OFFSET>,
+            SetDomainServiceId: SetDomainServiceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyDomainLeaveServiceRequest as ::windows::core::Interface>::IID
@@ -1758,7 +1798,10 @@ impl IPlayReadyITADataGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyITADataGenerator>, ::windows::core::GetTrustLevel, GenerateData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyITADataGenerator, BASE_OFFSET>(),
+            GenerateData: GenerateData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyITADataGenerator as ::windows::core::Interface>::IID
@@ -1773,7 +1816,7 @@ impl ::windows::core::RuntimeName for IPlayReadyIndividualizationServiceRequest 
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPlayReadyIndividualizationServiceRequestVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayReadyIndividualizationServiceRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayReadyIndividualizationServiceRequestVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyIndividualizationServiceRequest>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyIndividualizationServiceRequest, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyIndividualizationServiceRequest as ::windows::core::Interface>::IID
@@ -1873,21 +1916,16 @@ impl IPlayReadyLicenseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPlayReadyLicense>,
-            ::windows::core::GetTrustLevel,
-            FullyEvaluated::<Impl, IMPL_OFFSET>,
-            UsableForPlay::<Impl, IMPL_OFFSET>,
-            ExpirationDate::<Impl, IMPL_OFFSET>,
-            ExpireAfterFirstPlay::<Impl, IMPL_OFFSET>,
-            DomainAccountID::<Impl, IMPL_OFFSET>,
-            ChainDepth::<Impl, IMPL_OFFSET>,
-            GetKIDAtChainDepth::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicense, BASE_OFFSET>(),
+            FullyEvaluated: FullyEvaluated::<Impl, IMPL_OFFSET>,
+            UsableForPlay: UsableForPlay::<Impl, IMPL_OFFSET>,
+            ExpirationDate: ExpirationDate::<Impl, IMPL_OFFSET>,
+            ExpireAfterFirstPlay: ExpireAfterFirstPlay::<Impl, IMPL_OFFSET>,
+            DomainAccountID: DomainAccountID::<Impl, IMPL_OFFSET>,
+            ChainDepth: ChainDepth::<Impl, IMPL_OFFSET>,
+            GetKIDAtChainDepth: GetKIDAtChainDepth::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyLicense as ::windows::core::Interface>::IID
@@ -1951,7 +1989,13 @@ impl IPlayReadyLicense2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyLicense2>, ::windows::core::GetTrustLevel, SecureStopId::<Impl, IMPL_OFFSET>, SecurityLevel::<Impl, IMPL_OFFSET>, InMemoryOnly::<Impl, IMPL_OFFSET>, ExpiresInRealTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicense2, BASE_OFFSET>(),
+            SecureStopId: SecureStopId::<Impl, IMPL_OFFSET>,
+            SecurityLevel: SecurityLevel::<Impl, IMPL_OFFSET>,
+            InMemoryOnly: InMemoryOnly::<Impl, IMPL_OFFSET>,
+            ExpiresInRealTime: ExpiresInRealTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyLicense2 as ::windows::core::Interface>::IID
@@ -2001,7 +2045,13 @@ impl IPlayReadyLicenseAcquisitionServiceRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDomainServiceId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyLicenseAcquisitionServiceRequest>, ::windows::core::GetTrustLevel, ContentHeader::<Impl, IMPL_OFFSET>, SetContentHeader::<Impl, IMPL_OFFSET>, DomainServiceId::<Impl, IMPL_OFFSET>, SetDomainServiceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseAcquisitionServiceRequest, BASE_OFFSET>(),
+            ContentHeader: ContentHeader::<Impl, IMPL_OFFSET>,
+            SetContentHeader: SetContentHeader::<Impl, IMPL_OFFSET>,
+            DomainServiceId: DomainServiceId::<Impl, IMPL_OFFSET>,
+            SetDomainServiceId: SetDomainServiceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyLicenseAcquisitionServiceRequest as ::windows::core::Interface>::IID
@@ -2029,7 +2079,10 @@ impl IPlayReadyLicenseAcquisitionServiceRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyLicenseAcquisitionServiceRequest2>, ::windows::core::GetTrustLevel, SessionId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseAcquisitionServiceRequest2, BASE_OFFSET>(),
+            SessionId: SessionId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyLicenseAcquisitionServiceRequest2 as ::windows::core::Interface>::IID
@@ -2057,7 +2110,10 @@ impl IPlayReadyLicenseAcquisitionServiceRequest3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyLicenseAcquisitionServiceRequest3>, ::windows::core::GetTrustLevel, CreateLicenseIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseAcquisitionServiceRequest3, BASE_OFFSET>(),
+            CreateLicenseIterable: CreateLicenseIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyLicenseAcquisitionServiceRequest3 as ::windows::core::Interface>::IID
@@ -2085,7 +2141,10 @@ impl IPlayReadyLicenseIterableFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyLicenseIterableFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseIterableFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyLicenseIterableFactory as ::windows::core::Interface>::IID
@@ -2113,7 +2172,10 @@ impl IPlayReadyLicenseManagementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyLicenseManagement>, ::windows::core::GetTrustLevel, DeleteLicenses::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseManagement, BASE_OFFSET>(),
+            DeleteLicenses: DeleteLicenses::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyLicenseManagement as ::windows::core::Interface>::IID
@@ -2143,7 +2205,11 @@ impl IPlayReadyLicenseSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureMediaProtectionManager(&*(&mpm as *const <super::MediaProtectionManager as ::windows::core::Abi>::Abi as *const <super::MediaProtectionManager as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyLicenseSession>, ::windows::core::GetTrustLevel, CreateLAServiceRequest::<Impl, IMPL_OFFSET>, ConfigureMediaProtectionManager::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseSession, BASE_OFFSET>(),
+            CreateLAServiceRequest: CreateLAServiceRequest::<Impl, IMPL_OFFSET>,
+            ConfigureMediaProtectionManager: ConfigureMediaProtectionManager::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyLicenseSession as ::windows::core::Interface>::IID
@@ -2171,7 +2237,10 @@ impl IPlayReadyLicenseSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyLicenseSession2>, ::windows::core::GetTrustLevel, CreateLicenseIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseSession2, BASE_OFFSET>(),
+            CreateLicenseIterable: CreateLicenseIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyLicenseSession2 as ::windows::core::Interface>::IID
@@ -2199,7 +2268,10 @@ impl IPlayReadyLicenseSessionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyLicenseSessionFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseSessionFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyLicenseSessionFactory as ::windows::core::Interface>::IID
@@ -2233,7 +2305,11 @@ impl IPlayReadyMeteringReportServiceRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMeteringCertificate(::core::slice::from_raw_parts(::core::mem::transmute_copy(&meteringcertbytes), meteringCertBytes_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyMeteringReportServiceRequest>, ::windows::core::GetTrustLevel, MeteringCertificate::<Impl, IMPL_OFFSET>, SetMeteringCertificate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyMeteringReportServiceRequest, BASE_OFFSET>(),
+            MeteringCertificate: MeteringCertificate::<Impl, IMPL_OFFSET>,
+            SetMeteringCertificate: SetMeteringCertificate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyMeteringReportServiceRequest as ::windows::core::Interface>::IID
@@ -2248,7 +2324,7 @@ impl ::windows::core::RuntimeName for IPlayReadyRevocationServiceRequest {
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPlayReadyRevocationServiceRequestVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayReadyRevocationServiceRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayReadyRevocationServiceRequestVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyRevocationServiceRequest>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyRevocationServiceRequest, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyRevocationServiceRequest as ::windows::core::Interface>::IID
@@ -2276,7 +2352,10 @@ impl IPlayReadySecureStopIterableFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadySecureStopIterableFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadySecureStopIterableFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadySecureStopIterableFactory as ::windows::core::Interface>::IID
@@ -2353,7 +2432,14 @@ impl IPlayReadySecureStopServiceRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadySecureStopServiceRequest>, ::windows::core::GetTrustLevel, SessionID::<Impl, IMPL_OFFSET>, StartTime::<Impl, IMPL_OFFSET>, UpdateTime::<Impl, IMPL_OFFSET>, Stopped::<Impl, IMPL_OFFSET>, PublisherCertificate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadySecureStopServiceRequest, BASE_OFFSET>(),
+            SessionID: SessionID::<Impl, IMPL_OFFSET>,
+            StartTime: StartTime::<Impl, IMPL_OFFSET>,
+            UpdateTime: UpdateTime::<Impl, IMPL_OFFSET>,
+            Stopped: Stopped::<Impl, IMPL_OFFSET>,
+            PublisherCertificate: PublisherCertificate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadySecureStopServiceRequest as ::windows::core::Interface>::IID
@@ -2393,7 +2479,11 @@ impl IPlayReadySecureStopServiceRequestFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadySecureStopServiceRequestFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>, CreateInstanceFromSessionID::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadySecureStopServiceRequestFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+            CreateInstanceFromSessionID: CreateInstanceFromSessionID::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadySecureStopServiceRequestFactory as ::windows::core::Interface>::IID
@@ -2503,23 +2593,18 @@ impl IPlayReadyServiceRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPlayReadyServiceRequest>,
-            ::windows::core::GetTrustLevel,
-            Uri::<Impl, IMPL_OFFSET>,
-            SetUri::<Impl, IMPL_OFFSET>,
-            ResponseCustomData::<Impl, IMPL_OFFSET>,
-            ChallengeCustomData::<Impl, IMPL_OFFSET>,
-            SetChallengeCustomData::<Impl, IMPL_OFFSET>,
-            BeginServiceRequest::<Impl, IMPL_OFFSET>,
-            NextServiceRequest::<Impl, IMPL_OFFSET>,
-            GenerateManualEnablingChallenge::<Impl, IMPL_OFFSET>,
-            ProcessManualEnablingResponse::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyServiceRequest, BASE_OFFSET>(),
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            SetUri: SetUri::<Impl, IMPL_OFFSET>,
+            ResponseCustomData: ResponseCustomData::<Impl, IMPL_OFFSET>,
+            ChallengeCustomData: ChallengeCustomData::<Impl, IMPL_OFFSET>,
+            SetChallengeCustomData: SetChallengeCustomData::<Impl, IMPL_OFFSET>,
+            BeginServiceRequest: BeginServiceRequest::<Impl, IMPL_OFFSET>,
+            NextServiceRequest: NextServiceRequest::<Impl, IMPL_OFFSET>,
+            GenerateManualEnablingChallenge: GenerateManualEnablingChallenge::<Impl, IMPL_OFFSET>,
+            ProcessManualEnablingResponse: ProcessManualEnablingResponse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyServiceRequest as ::windows::core::Interface>::IID
@@ -2572,7 +2657,12 @@ impl IPlayReadySoapMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadySoapMessage>, ::windows::core::GetTrustLevel, GetMessageBody::<Impl, IMPL_OFFSET>, MessageHeaders::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadySoapMessage, BASE_OFFSET>(),
+            GetMessageBody: GetMessageBody::<Impl, IMPL_OFFSET>,
+            MessageHeaders: MessageHeaders::<Impl, IMPL_OFFSET>,
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadySoapMessage as ::windows::core::Interface>::IID
@@ -2684,22 +2774,17 @@ impl IPlayReadyStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPlayReadyStatics>,
-            ::windows::core::GetTrustLevel,
-            DomainJoinServiceRequestType::<Impl, IMPL_OFFSET>,
-            DomainLeaveServiceRequestType::<Impl, IMPL_OFFSET>,
-            IndividualizationServiceRequestType::<Impl, IMPL_OFFSET>,
-            LicenseAcquirerServiceRequestType::<Impl, IMPL_OFFSET>,
-            MeteringReportServiceRequestType::<Impl, IMPL_OFFSET>,
-            RevocationServiceRequestType::<Impl, IMPL_OFFSET>,
-            MediaProtectionSystemId::<Impl, IMPL_OFFSET>,
-            PlayReadySecurityVersion::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyStatics, BASE_OFFSET>(),
+            DomainJoinServiceRequestType: DomainJoinServiceRequestType::<Impl, IMPL_OFFSET>,
+            DomainLeaveServiceRequestType: DomainLeaveServiceRequestType::<Impl, IMPL_OFFSET>,
+            IndividualizationServiceRequestType: IndividualizationServiceRequestType::<Impl, IMPL_OFFSET>,
+            LicenseAcquirerServiceRequestType: LicenseAcquirerServiceRequestType::<Impl, IMPL_OFFSET>,
+            MeteringReportServiceRequestType: MeteringReportServiceRequestType::<Impl, IMPL_OFFSET>,
+            RevocationServiceRequestType: RevocationServiceRequestType::<Impl, IMPL_OFFSET>,
+            MediaProtectionSystemId: MediaProtectionSystemId::<Impl, IMPL_OFFSET>,
+            PlayReadySecurityVersion: PlayReadySecurityVersion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyStatics as ::windows::core::Interface>::IID
@@ -2727,7 +2812,10 @@ impl IPlayReadyStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyStatics2>, ::windows::core::GetTrustLevel, PlayReadyCertificateSecurityLevel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyStatics2, BASE_OFFSET>(),
+            PlayReadyCertificateSecurityLevel: PlayReadyCertificateSecurityLevel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyStatics2 as ::windows::core::Interface>::IID
@@ -2767,7 +2855,11 @@ impl IPlayReadyStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyStatics3>, ::windows::core::GetTrustLevel, SecureStopServiceRequestType::<Impl, IMPL_OFFSET>, CheckSupportedHardware::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyStatics3, BASE_OFFSET>(),
+            SecureStopServiceRequestType: SecureStopServiceRequestType::<Impl, IMPL_OFFSET>,
+            CheckSupportedHardware: CheckSupportedHardware::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyStatics3 as ::windows::core::Interface>::IID
@@ -2807,7 +2899,11 @@ impl IPlayReadyStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyStatics4>, ::windows::core::GetTrustLevel, InputTrustAuthorityToCreate::<Impl, IMPL_OFFSET>, ProtectionSystemId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyStatics4, BASE_OFFSET>(),
+            InputTrustAuthorityToCreate: InputTrustAuthorityToCreate::<Impl, IMPL_OFFSET>,
+            ProtectionSystemId: ProtectionSystemId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyStatics4 as ::windows::core::Interface>::IID
@@ -2852,7 +2948,12 @@ impl IPlayReadyStatics5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetHardwareDRMDisabled().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayReadyStatics5>, ::windows::core::GetTrustLevel, HardwareDRMDisabledAtTime::<Impl, IMPL_OFFSET>, HardwareDRMDisabledUntilTime::<Impl, IMPL_OFFSET>, ResetHardwareDRMDisabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyStatics5, BASE_OFFSET>(),
+            HardwareDRMDisabledAtTime: HardwareDRMDisabledAtTime::<Impl, IMPL_OFFSET>,
+            HardwareDRMDisabledUntilTime: HardwareDRMDisabledUntilTime::<Impl, IMPL_OFFSET>,
+            ResetHardwareDRMDisabled: ResetHardwareDRMDisabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlayReadyStatics5 as ::windows::core::Interface>::IID

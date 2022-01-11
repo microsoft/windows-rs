@@ -8,18 +8,13 @@ unsafe impl ::windows::core::Interface for IMdmAllowPolicyStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMdmAllowPolicyStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-);
+pub struct IMdmAllowPolicyStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub IsBrowserAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsCameraAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsMicrosoftAccountAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsStoreAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMdmPolicyStatics2(::windows::core::IUnknown);
@@ -29,15 +24,10 @@ unsafe impl ::windows::core::Interface for IMdmPolicyStatics2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMdmPolicyStatics2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MessagingSyncPolicy) -> ::windows::core::HRESULT,
-);
+pub struct IMdmPolicyStatics2Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub GetMessagingSyncPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MessagingSyncPolicy) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWorkplaceSettingsStatics(::windows::core::IUnknown);
@@ -47,15 +37,10 @@ unsafe impl ::windows::core::Interface for IWorkplaceSettingsStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWorkplaceSettingsStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-);
+pub struct IWorkplaceSettingsStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub IsMicrosoftAccountOptional: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Management_Workplace'*"]
 pub struct MdmPolicy {}
 impl MdmPolicy {
@@ -63,35 +48,35 @@ impl MdmPolicy {
     pub fn IsBrowserAllowed() -> ::windows::core::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsBrowserAllowed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: 'Management_Workplace'*"]
     pub fn IsCameraAllowed() -> ::windows::core::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCameraAllowed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: 'Management_Workplace'*"]
     pub fn IsMicrosoftAccountAllowed() -> ::windows::core::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsMicrosoftAccountAllowed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: 'Management_Workplace'*"]
     pub fn IsStoreAllowed() -> ::windows::core::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsStoreAllowed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: 'Management_Workplace'*"]
     pub fn GetMessagingSyncPolicy() -> ::windows::core::Result<MessagingSyncPolicy> {
         Self::IMdmPolicyStatics2(|this| unsafe {
             let mut result__: MessagingSyncPolicy = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MessagingSyncPolicy>(result__)
+            (::windows::core::Interface::vtable(this).GetMessagingSyncPolicy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MessagingSyncPolicy>(result__)
         })
     }
     #[doc(hidden)]
@@ -149,7 +134,7 @@ impl WorkplaceSettings {
     pub fn IsMicrosoftAccountOptional() -> ::windows::core::Result<bool> {
         Self::IWorkplaceSettingsStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsMicrosoftAccountOptional)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]

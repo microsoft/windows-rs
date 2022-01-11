@@ -117,26 +117,21 @@ impl IMessageDialogVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOptions(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMessageDialog>,
-            ::windows::core::GetTrustLevel,
-            Title::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            Commands::<Impl, IMPL_OFFSET>,
-            DefaultCommandIndex::<Impl, IMPL_OFFSET>,
-            SetDefaultCommandIndex::<Impl, IMPL_OFFSET>,
-            CancelCommandIndex::<Impl, IMPL_OFFSET>,
-            SetCancelCommandIndex::<Impl, IMPL_OFFSET>,
-            Content::<Impl, IMPL_OFFSET>,
-            SetContent::<Impl, IMPL_OFFSET>,
-            ShowAsync::<Impl, IMPL_OFFSET>,
-            Options::<Impl, IMPL_OFFSET>,
-            SetOptions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMessageDialog, BASE_OFFSET>(),
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            Commands: Commands::<Impl, IMPL_OFFSET>,
+            DefaultCommandIndex: DefaultCommandIndex::<Impl, IMPL_OFFSET>,
+            SetDefaultCommandIndex: SetDefaultCommandIndex::<Impl, IMPL_OFFSET>,
+            CancelCommandIndex: CancelCommandIndex::<Impl, IMPL_OFFSET>,
+            SetCancelCommandIndex: SetCancelCommandIndex::<Impl, IMPL_OFFSET>,
+            Content: Content::<Impl, IMPL_OFFSET>,
+            SetContent: SetContent::<Impl, IMPL_OFFSET>,
+            ShowAsync: ShowAsync::<Impl, IMPL_OFFSET>,
+            Options: Options::<Impl, IMPL_OFFSET>,
+            SetOptions: SetOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMessageDialog as ::windows::core::Interface>::IID
@@ -176,7 +171,11 @@ impl IMessageDialogFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessageDialogFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithTitle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMessageDialogFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithTitle: CreateWithTitle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMessageDialogFactory as ::windows::core::Interface>::IID
@@ -240,7 +239,13 @@ impl IPopupMenuVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopupMenu>, ::windows::core::GetTrustLevel, Commands::<Impl, IMPL_OFFSET>, ShowAsync::<Impl, IMPL_OFFSET>, ShowAsyncWithRect::<Impl, IMPL_OFFSET>, ShowAsyncWithRectAndPlacement::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPopupMenu, BASE_OFFSET>(),
+            Commands: Commands::<Impl, IMPL_OFFSET>,
+            ShowAsync: ShowAsync::<Impl, IMPL_OFFSET>,
+            ShowAsyncWithRect: ShowAsyncWithRect::<Impl, IMPL_OFFSET>,
+            ShowAsyncWithRectAndPlacement: ShowAsyncWithRectAndPlacement::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPopupMenu as ::windows::core::Interface>::IID
@@ -304,7 +309,15 @@ impl IUICommandVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetId(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUICommand>, ::windows::core::GetTrustLevel, Label::<Impl, IMPL_OFFSET>, SetLabel::<Impl, IMPL_OFFSET>, Invoked::<Impl, IMPL_OFFSET>, SetInvoked::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, SetId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUICommand, BASE_OFFSET>(),
+            Label: Label::<Impl, IMPL_OFFSET>,
+            SetLabel: SetLabel::<Impl, IMPL_OFFSET>,
+            Invoked: Invoked::<Impl, IMPL_OFFSET>,
+            SetInvoked: SetInvoked::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUICommand as ::windows::core::Interface>::IID
@@ -360,7 +373,12 @@ impl IUICommandFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUICommandFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithHandler::<Impl, IMPL_OFFSET>, CreateWithHandlerAndId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUICommandFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithHandler: CreateWithHandler::<Impl, IMPL_OFFSET>,
+            CreateWithHandlerAndId: CreateWithHandlerAndId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUICommandFactory as ::windows::core::Interface>::IID

@@ -7,7 +7,7 @@ impl ::windows::core::RuntimeName for IPalmRejectionDelayZonePreview {
 #[cfg(feature = "implement_exclusive")]
 impl IPalmRejectionDelayZonePreviewVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPalmRejectionDelayZonePreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPalmRejectionDelayZonePreviewVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPalmRejectionDelayZonePreview>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPalmRejectionDelayZonePreview, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPalmRejectionDelayZonePreview as ::windows::core::Interface>::IID
@@ -52,7 +52,11 @@ impl IPalmRejectionDelayZonePreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPalmRejectionDelayZonePreviewStatics>, ::windows::core::GetTrustLevel, CreateForVisual::<Impl, IMPL_OFFSET>, CreateForVisualWithViewportClip::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPalmRejectionDelayZonePreviewStatics, BASE_OFFSET>(),
+            CreateForVisual: CreateForVisual::<Impl, IMPL_OFFSET>,
+            CreateForVisualWithViewportClip: CreateForVisualWithViewportClip::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPalmRejectionDelayZonePreviewStatics as ::windows::core::Interface>::IID

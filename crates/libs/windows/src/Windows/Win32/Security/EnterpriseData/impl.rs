@@ -18,7 +18,11 @@ impl IProtectionPolicyManagerInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionPolicyManagerInterop>, ::windows::core::GetTrustLevel, RequestAccessForWindowAsync::<Impl, IMPL_OFFSET>, GetForWindow::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManagerInterop, BASE_OFFSET>(),
+            RequestAccessForWindowAsync: RequestAccessForWindowAsync::<Impl, IMPL_OFFSET>,
+            GetForWindow: GetForWindow::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectionPolicyManagerInterop as ::windows::core::Interface>::IID
@@ -59,19 +63,14 @@ impl IProtectionPolicyManagerInterop2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProtectionPolicyManagerInterop2>,
-            ::windows::core::GetTrustLevel,
-            RequestAccessForAppWithWindowAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessWithAuditingInfoForWindowAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessWithMessageForWindowAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessForAppWithAuditingInfoForWindowAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessForAppWithMessageForWindowAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManagerInterop2, BASE_OFFSET>(),
+            RequestAccessForAppWithWindowAsync: RequestAccessForAppWithWindowAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessWithAuditingInfoForWindowAsync: RequestAccessWithAuditingInfoForWindowAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessWithMessageForWindowAsync: RequestAccessWithMessageForWindowAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessForAppWithAuditingInfoForWindowAsync: RequestAccessForAppWithAuditingInfoForWindowAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessForAppWithMessageForWindowAsync: RequestAccessForAppWithMessageForWindowAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectionPolicyManagerInterop2 as ::windows::core::Interface>::IID
@@ -117,20 +116,15 @@ impl IProtectionPolicyManagerInterop3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProtectionPolicyManagerInterop3>,
-            ::windows::core::GetTrustLevel,
-            RequestAccessWithBehaviorForWindowAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessForAppWithBehaviorForWindowAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessToFilesForAppForWindowAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessToFilesForProcessForWindowAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManagerInterop3, BASE_OFFSET>(),
+            RequestAccessWithBehaviorForWindowAsync: RequestAccessWithBehaviorForWindowAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessForAppWithBehaviorForWindowAsync: RequestAccessForAppWithBehaviorForWindowAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessToFilesForAppForWindowAsync: RequestAccessToFilesForAppForWindowAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync: RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessToFilesForProcessForWindowAsync: RequestAccessToFilesForProcessForWindowAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync: RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectionPolicyManagerInterop3 as ::windows::core::Interface>::IID

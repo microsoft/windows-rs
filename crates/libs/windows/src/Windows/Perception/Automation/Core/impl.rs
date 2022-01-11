@@ -13,7 +13,10 @@ impl ICorePerceptionAutomationStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetActivationFactoryProvider(&*(&provider as *const <super::super::super::Foundation::IGetActivationFactory as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IGetActivationFactory as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICorePerceptionAutomationStatics>, ::windows::core::GetTrustLevel, SetActivationFactoryProvider::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICorePerceptionAutomationStatics, BASE_OFFSET>(),
+            SetActivationFactoryProvider: SetActivationFactoryProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICorePerceptionAutomationStatics as ::windows::core::Interface>::IID

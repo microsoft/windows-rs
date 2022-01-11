@@ -107,24 +107,19 @@ impl ICastingConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICastingConnection>,
-            ::windows::core::GetTrustLevel,
-            State::<Impl, IMPL_OFFSET>,
-            Device::<Impl, IMPL_OFFSET>,
-            Source::<Impl, IMPL_OFFSET>,
-            SetSource::<Impl, IMPL_OFFSET>,
-            StateChanged::<Impl, IMPL_OFFSET>,
-            RemoveStateChanged::<Impl, IMPL_OFFSET>,
-            ErrorOccurred::<Impl, IMPL_OFFSET>,
-            RemoveErrorOccurred::<Impl, IMPL_OFFSET>,
-            RequestStartCastingAsync::<Impl, IMPL_OFFSET>,
-            DisconnectAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICastingConnection, BASE_OFFSET>(),
+            State: State::<Impl, IMPL_OFFSET>,
+            Device: Device::<Impl, IMPL_OFFSET>,
+            Source: Source::<Impl, IMPL_OFFSET>,
+            SetSource: SetSource::<Impl, IMPL_OFFSET>,
+            StateChanged: StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged: RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            ErrorOccurred: ErrorOccurred::<Impl, IMPL_OFFSET>,
+            RemoveErrorOccurred: RemoveErrorOccurred::<Impl, IMPL_OFFSET>,
+            RequestStartCastingAsync: RequestStartCastingAsync::<Impl, IMPL_OFFSET>,
+            DisconnectAsync: DisconnectAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICastingConnection as ::windows::core::Interface>::IID
@@ -164,7 +159,11 @@ impl ICastingConnectionErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingConnectionErrorOccurredEventArgs>, ::windows::core::GetTrustLevel, ErrorStatus::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICastingConnectionErrorOccurredEventArgs, BASE_OFFSET>(),
+            ErrorStatus: ErrorStatus::<Impl, IMPL_OFFSET>,
+            Message: Message::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICastingConnectionErrorOccurredEventArgs as ::windows::core::Interface>::IID
@@ -240,7 +239,14 @@ impl ICastingDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingDevice>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, FriendlyName::<Impl, IMPL_OFFSET>, Icon::<Impl, IMPL_OFFSET>, GetSupportedCastingPlaybackTypesAsync::<Impl, IMPL_OFFSET>, CreateCastingConnection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICastingDevice, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            FriendlyName: FriendlyName::<Impl, IMPL_OFFSET>,
+            Icon: Icon::<Impl, IMPL_OFFSET>,
+            GetSupportedCastingPlaybackTypesAsync: GetSupportedCastingPlaybackTypesAsync::<Impl, IMPL_OFFSET>,
+            CreateCastingConnection: CreateCastingConnection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICastingDevice as ::windows::core::Interface>::IID
@@ -329,23 +335,18 @@ impl ICastingDevicePickerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Hide().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICastingDevicePicker>,
-            ::windows::core::GetTrustLevel,
-            Filter::<Impl, IMPL_OFFSET>,
-            Appearance::<Impl, IMPL_OFFSET>,
-            CastingDeviceSelected::<Impl, IMPL_OFFSET>,
-            RemoveCastingDeviceSelected::<Impl, IMPL_OFFSET>,
-            CastingDevicePickerDismissed::<Impl, IMPL_OFFSET>,
-            RemoveCastingDevicePickerDismissed::<Impl, IMPL_OFFSET>,
-            Show::<Impl, IMPL_OFFSET>,
-            ShowWithPlacement::<Impl, IMPL_OFFSET>,
-            Hide::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICastingDevicePicker, BASE_OFFSET>(),
+            Filter: Filter::<Impl, IMPL_OFFSET>,
+            Appearance: Appearance::<Impl, IMPL_OFFSET>,
+            CastingDeviceSelected: CastingDeviceSelected::<Impl, IMPL_OFFSET>,
+            RemoveCastingDeviceSelected: RemoveCastingDeviceSelected::<Impl, IMPL_OFFSET>,
+            CastingDevicePickerDismissed: CastingDevicePickerDismissed::<Impl, IMPL_OFFSET>,
+            RemoveCastingDevicePickerDismissed: RemoveCastingDevicePickerDismissed::<Impl, IMPL_OFFSET>,
+            Show: Show::<Impl, IMPL_OFFSET>,
+            ShowWithPlacement: ShowWithPlacement::<Impl, IMPL_OFFSET>,
+            Hide: Hide::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICastingDevicePicker as ::windows::core::Interface>::IID
@@ -424,21 +425,16 @@ impl ICastingDevicePickerFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICastingDevicePickerFilter>,
-            ::windows::core::GetTrustLevel,
-            SupportsAudio::<Impl, IMPL_OFFSET>,
-            SetSupportsAudio::<Impl, IMPL_OFFSET>,
-            SupportsVideo::<Impl, IMPL_OFFSET>,
-            SetSupportsVideo::<Impl, IMPL_OFFSET>,
-            SupportsPictures::<Impl, IMPL_OFFSET>,
-            SetSupportsPictures::<Impl, IMPL_OFFSET>,
-            SupportedCastingSources::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICastingDevicePickerFilter, BASE_OFFSET>(),
+            SupportsAudio: SupportsAudio::<Impl, IMPL_OFFSET>,
+            SetSupportsAudio: SetSupportsAudio::<Impl, IMPL_OFFSET>,
+            SupportsVideo: SupportsVideo::<Impl, IMPL_OFFSET>,
+            SetSupportsVideo: SetSupportsVideo::<Impl, IMPL_OFFSET>,
+            SupportsPictures: SupportsPictures::<Impl, IMPL_OFFSET>,
+            SetSupportsPictures: SetSupportsPictures::<Impl, IMPL_OFFSET>,
+            SupportedCastingSources: SupportedCastingSources::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICastingDevicePickerFilter as ::windows::core::Interface>::IID
@@ -466,7 +462,10 @@ impl ICastingDeviceSelectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingDeviceSelectedEventArgs>, ::windows::core::GetTrustLevel, SelectedCastingDevice::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICastingDeviceSelectedEventArgs, BASE_OFFSET>(),
+            SelectedCastingDevice: SelectedCastingDevice::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICastingDeviceSelectedEventArgs as ::windows::core::Interface>::IID
@@ -530,7 +529,13 @@ impl ICastingDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromCastingSourceAsync::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, DeviceInfoSupportsCastingAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICastingDeviceStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromCastingSourceAsync: GetDeviceSelectorFromCastingSourceAsync::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            DeviceInfoSupportsCastingAsync: DeviceInfoSupportsCastingAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICastingDeviceStatics as ::windows::core::Interface>::IID
@@ -563,7 +568,11 @@ impl ICastingSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreferredSourceUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingSource>, ::windows::core::GetTrustLevel, PreferredSourceUri::<Impl, IMPL_OFFSET>, SetPreferredSourceUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICastingSource, BASE_OFFSET>(),
+            PreferredSourceUri: PreferredSourceUri::<Impl, IMPL_OFFSET>,
+            SetPreferredSourceUri: SetPreferredSourceUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICastingSource as ::windows::core::Interface>::IID

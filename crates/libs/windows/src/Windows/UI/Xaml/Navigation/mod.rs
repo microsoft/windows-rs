@@ -8,13 +8,13 @@ impl FrameNavigationOptions {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsNavigationStackEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn SetIsNavigationStackEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsNavigationStackEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Media_Animation'*"]
     #[cfg(feature = "UI_Xaml_Media_Animation")]
@@ -22,20 +22,20 @@ impl FrameNavigationOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Animation::NavigationTransitionInfo>(result__)
+            (::windows::core::Interface::vtable(this).TransitionInfoOverride)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Animation::NavigationTransitionInfo>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Media_Animation'*"]
     #[cfg(feature = "UI_Xaml_Media_Animation")]
     pub fn SetTransitionInfoOverride<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Animation::NavigationTransitionInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTransitionInfoOverride)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn new() -> ::windows::core::Result<FrameNavigationOptions> {
         Self::IFrameNavigationOptionsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FrameNavigationOptions>(result__)
+            (::windows::core::Interface::vtable(this).new)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FrameNavigationOptions>(result__)
         })
     }
     #[doc(hidden)]
@@ -121,20 +121,19 @@ unsafe impl ::windows::core::Interface for IFrameNavigationOptions {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameNavigationOptionsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Media_Animation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Media_Animation"))] usize,
-    #[cfg(feature = "UI_Xaml_Media_Animation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Media_Animation"))] usize,
-);
+pub struct IFrameNavigationOptionsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub IsNavigationStackEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIsNavigationStackEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media_Animation")]
+    pub TransitionInfoOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Media_Animation"))]
+    TransitionInfoOverride: usize,
+    #[cfg(feature = "UI_Xaml_Media_Animation")]
+    pub SetTransitionInfoOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Media_Animation"))]
+    SetTransitionInfoOverride: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFrameNavigationOptionsFactory(::windows::core::IUnknown);
@@ -144,15 +143,10 @@ unsafe impl ::windows::core::Interface for IFrameNavigationOptionsFactory {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameNavigationOptionsFactoryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IFrameNavigationOptionsFactoryVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INavigatingCancelEventArgs(::windows::core::IUnknown);
@@ -162,19 +156,16 @@ unsafe impl ::windows::core::Interface for INavigatingCancelEventArgs {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigatingCancelEventArgsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NavigationMode) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Interop")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Interop"))] usize,
-);
+pub struct INavigatingCancelEventArgsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetCancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub NavigationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NavigationMode) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Interop")]
+    pub SourcePageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Interop"))]
+    SourcePageType: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INavigatingCancelEventArgs2(::windows::core::IUnknown);
@@ -184,17 +175,14 @@ unsafe impl ::windows::core::Interface for INavigatingCancelEventArgs2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigatingCancelEventArgs2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Media_Animation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Media_Animation"))] usize,
-);
+pub struct INavigatingCancelEventArgs2Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media_Animation")]
+    pub NavigationTransitionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Media_Animation"))]
+    NavigationTransitionInfo: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INavigationEventArgs(::windows::core::IUnknown);
@@ -204,23 +192,24 @@ unsafe impl ::windows::core::Interface for INavigationEventArgs {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigationEventArgsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Interop")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Interop"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NavigationMode) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct INavigationEventArgsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Interop")]
+    pub SourcePageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Interop"))]
+    SourcePageType: usize,
+    pub NavigationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NavigationMode) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Uri: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetUri: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INavigationEventArgs2(::windows::core::IUnknown);
@@ -230,16 +219,13 @@ unsafe impl ::windows::core::Interface for INavigationEventArgs2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigationEventArgs2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Media_Animation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Media_Animation"))] usize,
-);
+pub struct INavigationEventArgs2Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "UI_Xaml_Media_Animation")]
+    pub NavigationTransitionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Media_Animation"))]
+    NavigationTransitionInfo: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INavigationFailedEventArgs(::windows::core::IUnknown);
@@ -249,19 +235,16 @@ unsafe impl ::windows::core::Interface for INavigationFailedEventArgs {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigationFailedEventArgsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Interop")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Interop"))] usize,
-);
+pub struct INavigationFailedEventArgsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Exception: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Interop")]
+    pub SourcePageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Interop"))]
+    SourcePageType: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPageStackEntry(::windows::core::IUnknown);
@@ -271,19 +254,18 @@ unsafe impl ::windows::core::Interface for IPageStackEntry {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPageStackEntryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Interop")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Interop"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Media_Animation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Media_Animation"))] usize,
-);
+pub struct IPageStackEntryVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "UI_Xaml_Interop")]
+    pub SourcePageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Interop"))]
+    SourcePageType: usize,
+    pub Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media_Animation")]
+    pub NavigationTransitionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Media_Animation"))]
+    NavigationTransitionInfo: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPageStackEntryFactory(::windows::core::IUnknown);
@@ -293,16 +275,13 @@ unsafe impl ::windows::core::Interface for IPageStackEntryFactory {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPageStackEntryFactoryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "UI_Xaml_Interop", feature = "UI_Xaml_Media_Animation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcepagetype: ::core::mem::ManuallyDrop<super::Interop::TypeName>, parameter: *mut ::core::ffi::c_void, navigationtransitioninfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "UI_Xaml_Interop", feature = "UI_Xaml_Media_Animation")))] usize,
-);
+pub struct IPageStackEntryFactoryVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "UI_Xaml_Interop", feature = "UI_Xaml_Media_Animation"))]
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcepagetype: ::core::mem::ManuallyDrop<super::Interop::TypeName>, parameter: *mut ::core::ffi::c_void, navigationtransitioninfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "UI_Xaml_Interop", feature = "UI_Xaml_Media_Animation")))]
+    CreateInstance: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPageStackEntryStatics(::windows::core::IUnknown);
@@ -312,15 +291,10 @@ unsafe impl ::windows::core::Interface for IPageStackEntryStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPageStackEntryStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IPageStackEntryStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub SourcePageTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct LoadCompletedEventHandler(pub ::windows::core::IUnknown);
@@ -332,7 +306,7 @@ impl LoadCompletedEventHandler {
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, NavigationEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -342,7 +316,7 @@ struct LoadCompletedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigationEventArgs>) -> ::windows::core::Result<()> + 'static> LoadCompletedEventHandlerBox<F> {
-    const VTABLE: LoadCompletedEventHandlerVtbl = LoadCompletedEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: LoadCompletedEventHandlerVtbl = LoadCompletedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<LoadCompletedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -395,7 +369,10 @@ unsafe impl ::windows::core::RuntimeType for LoadCompletedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct LoadCompletedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+pub struct LoadCompletedEventHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigatedEventHandler(pub ::windows::core::IUnknown);
@@ -407,7 +384,7 @@ impl NavigatedEventHandler {
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, NavigationEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -417,7 +394,7 @@ struct NavigatedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigationEventArgs>) -> ::windows::core::Result<()> + 'static> NavigatedEventHandlerBox<F> {
-    const VTABLE: NavigatedEventHandlerVtbl = NavigatedEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: NavigatedEventHandlerVtbl = NavigatedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<NavigatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -470,7 +447,10 @@ unsafe impl ::windows::core::RuntimeType for NavigatedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct NavigatedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+pub struct NavigatedEventHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigatingCancelEventArgs(::windows::core::IUnknown);
@@ -480,20 +460,20 @@ impl NavigatingCancelEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Cancel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn SetCancel(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCancel)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn NavigationMode(&self) -> ::windows::core::Result<NavigationMode> {
         let this = self;
         unsafe {
             let mut result__: NavigationMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NavigationMode>(result__)
+            (::windows::core::Interface::vtable(this).NavigationMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NavigationMode>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Interop'*"]
@@ -502,7 +482,7 @@ impl NavigatingCancelEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<super::Interop::TypeName> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Interop::TypeName>(result__)
+            (::windows::core::Interface::vtable(this).SourcePageType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Interop::TypeName>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
@@ -510,7 +490,7 @@ impl NavigatingCancelEventArgs {
         let this = &::windows::core::Interface::cast::<INavigatingCancelEventArgs2>(self)?;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Parameter)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Media_Animation'*"]
@@ -519,7 +499,7 @@ impl NavigatingCancelEventArgs {
         let this = &::windows::core::Interface::cast::<INavigatingCancelEventArgs2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Animation::NavigationTransitionInfo>(result__)
+            (::windows::core::Interface::vtable(this).NavigationTransitionInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Animation::NavigationTransitionInfo>(result__)
         }
     }
 }
@@ -602,7 +582,7 @@ impl NavigatingCancelEventHandler {
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, NavigatingCancelEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -612,7 +592,7 @@ struct NavigatingCancelEventHandlerBox<F: FnMut(&::core::option::Option<::window
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigatingCancelEventArgs>) -> ::windows::core::Result<()> + 'static> NavigatingCancelEventHandlerBox<F> {
-    const VTABLE: NavigatingCancelEventHandlerVtbl = NavigatingCancelEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: NavigatingCancelEventHandlerVtbl = NavigatingCancelEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<NavigatingCancelEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -665,7 +645,10 @@ unsafe impl ::windows::core::RuntimeType for NavigatingCancelEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct NavigatingCancelEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+pub struct NavigatingCancelEventHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigationCacheMode(pub i32);
@@ -709,7 +692,7 @@ impl NavigationEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Content)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
@@ -717,7 +700,7 @@ impl NavigationEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Parameter)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Interop'*"]
@@ -726,7 +709,7 @@ impl NavigationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<super::Interop::TypeName> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Interop::TypeName>(result__)
+            (::windows::core::Interface::vtable(this).SourcePageType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Interop::TypeName>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
@@ -734,7 +717,7 @@ impl NavigationEventArgs {
         let this = self;
         unsafe {
             let mut result__: NavigationMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NavigationMode>(result__)
+            (::windows::core::Interface::vtable(this).NavigationMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NavigationMode>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation', 'Foundation'*"]
@@ -743,14 +726,14 @@ impl NavigationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Media_Animation'*"]
     #[cfg(feature = "UI_Xaml_Media_Animation")]
@@ -758,7 +741,7 @@ impl NavigationEventArgs {
         let this = &::windows::core::Interface::cast::<INavigationEventArgs2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Animation::NavigationTransitionInfo>(result__)
+            (::windows::core::Interface::vtable(this).NavigationTransitionInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Animation::NavigationTransitionInfo>(result__)
         }
     }
 }
@@ -839,7 +822,7 @@ impl NavigationFailedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).Exception)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
@@ -847,13 +830,13 @@ impl NavigationFailedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Interop'*"]
     #[cfg(feature = "UI_Xaml_Interop")]
@@ -861,7 +844,7 @@ impl NavigationFailedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<super::Interop::TypeName> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Interop::TypeName>(result__)
+            (::windows::core::Interface::vtable(this).SourcePageType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Interop::TypeName>(result__)
         }
     }
 }
@@ -944,7 +927,7 @@ impl NavigationFailedEventHandler {
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, NavigationFailedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -954,7 +937,7 @@ struct NavigationFailedEventHandlerBox<F: FnMut(&::core::option::Option<::window
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigationFailedEventArgs>) -> ::windows::core::Result<()> + 'static> NavigationFailedEventHandlerBox<F> {
-    const VTABLE: NavigationFailedEventHandlerVtbl = NavigationFailedEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: NavigationFailedEventHandlerVtbl = NavigationFailedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<NavigationFailedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -1007,7 +990,10 @@ unsafe impl ::windows::core::RuntimeType for NavigationFailedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct NavigationFailedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+pub struct NavigationFailedEventHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigationMode(pub i32);
@@ -1054,7 +1040,7 @@ impl NavigationStoppedEventHandler {
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, NavigationEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1064,7 +1050,7 @@ struct NavigationStoppedEventHandlerBox<F: FnMut(&::core::option::Option<::windo
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigationEventArgs>) -> ::windows::core::Result<()> + 'static> NavigationStoppedEventHandlerBox<F> {
-    const VTABLE: NavigationStoppedEventHandlerVtbl = NavigationStoppedEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: NavigationStoppedEventHandlerVtbl = NavigationStoppedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<NavigationStoppedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -1117,7 +1103,10 @@ unsafe impl ::windows::core::RuntimeType for NavigationStoppedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct NavigationStoppedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+pub struct NavigationStoppedEventHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct PageStackEntry(::windows::core::IUnknown);
@@ -1128,7 +1117,7 @@ impl PageStackEntry {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<super::Interop::TypeName> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Interop::TypeName>(result__)
+            (::windows::core::Interface::vtable(this).SourcePageType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Interop::TypeName>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
@@ -1136,7 +1125,7 @@ impl PageStackEntry {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Parameter)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Media_Animation'*"]
@@ -1145,7 +1134,7 @@ impl PageStackEntry {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Animation::NavigationTransitionInfo>(result__)
+            (::windows::core::Interface::vtable(this).NavigationTransitionInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Animation::NavigationTransitionInfo>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Interop', 'UI_Xaml_Media_Animation'*"]
@@ -1153,14 +1142,14 @@ impl PageStackEntry {
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::Interop::TypeName>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, super::Media::Animation::NavigationTransitionInfo>>(sourcepagetype: Param0, parameter: Param1, navigationtransitioninfo: Param2) -> ::windows::core::Result<PageStackEntry> {
         Self::IPageStackEntryFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), sourcepagetype.into_param().abi(), parameter.into_param().abi(), navigationtransitioninfo.into_param().abi(), &mut result__).from_abi::<PageStackEntry>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), sourcepagetype.into_param().abi(), parameter.into_param().abi(), navigationtransitioninfo.into_param().abi(), &mut result__).from_abi::<PageStackEntry>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn SourcePageTypeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPageStackEntryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SourcePageTypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]

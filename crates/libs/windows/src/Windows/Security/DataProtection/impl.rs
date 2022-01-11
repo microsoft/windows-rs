@@ -20,7 +20,10 @@ impl IUserDataAvailabilityStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAvailabilityStateChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAvailabilityStateChangedEventArgs, BASE_OFFSET>(),
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAvailabilityStateChangedEventArgs as ::windows::core::Interface>::IID
@@ -60,7 +63,11 @@ impl IUserDataBufferUnprotectResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataBufferUnprotectResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, UnprotectedBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataBufferUnprotectResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            UnprotectedBuffer: UnprotectedBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataBufferUnprotectResult as ::windows::core::Interface>::IID
@@ -153,21 +160,16 @@ impl IUserDataProtectionManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDataAvailabilityStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserDataProtectionManager>,
-            ::windows::core::GetTrustLevel,
-            ProtectStorageItemAsync::<Impl, IMPL_OFFSET>,
-            GetStorageItemProtectionInfoAsync::<Impl, IMPL_OFFSET>,
-            ProtectBufferAsync::<Impl, IMPL_OFFSET>,
-            UnprotectBufferAsync::<Impl, IMPL_OFFSET>,
-            IsContinuedDataAvailabilityExpected::<Impl, IMPL_OFFSET>,
-            DataAvailabilityStateChanged::<Impl, IMPL_OFFSET>,
-            RemoveDataAvailabilityStateChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataProtectionManager, BASE_OFFSET>(),
+            ProtectStorageItemAsync: ProtectStorageItemAsync::<Impl, IMPL_OFFSET>,
+            GetStorageItemProtectionInfoAsync: GetStorageItemProtectionInfoAsync::<Impl, IMPL_OFFSET>,
+            ProtectBufferAsync: ProtectBufferAsync::<Impl, IMPL_OFFSET>,
+            UnprotectBufferAsync: UnprotectBufferAsync::<Impl, IMPL_OFFSET>,
+            IsContinuedDataAvailabilityExpected: IsContinuedDataAvailabilityExpected::<Impl, IMPL_OFFSET>,
+            DataAvailabilityStateChanged: DataAvailabilityStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveDataAvailabilityStateChanged: RemoveDataAvailabilityStateChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataProtectionManager as ::windows::core::Interface>::IID
@@ -207,7 +209,11 @@ impl IUserDataProtectionManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataProtectionManagerStatics>, ::windows::core::GetTrustLevel, TryGetDefault::<Impl, IMPL_OFFSET>, TryGetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataProtectionManagerStatics, BASE_OFFSET>(),
+            TryGetDefault: TryGetDefault::<Impl, IMPL_OFFSET>,
+            TryGetForUser: TryGetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataProtectionManagerStatics as ::windows::core::Interface>::IID
@@ -235,7 +241,10 @@ impl IUserDataStorageItemProtectionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataStorageItemProtectionInfo>, ::windows::core::GetTrustLevel, Availability::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataStorageItemProtectionInfo, BASE_OFFSET>(),
+            Availability: Availability::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataStorageItemProtectionInfo as ::windows::core::Interface>::IID

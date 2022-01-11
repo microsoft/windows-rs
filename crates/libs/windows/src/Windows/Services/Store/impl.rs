@@ -32,7 +32,11 @@ impl IStoreAcquireLicenseResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreAcquireLicenseResult>, ::windows::core::GetTrustLevel, StorePackageLicense::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreAcquireLicenseResult, BASE_OFFSET>(),
+            StorePackageLicense: StorePackageLicense::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreAcquireLicenseResult as ::windows::core::Interface>::IID
@@ -156,23 +160,18 @@ impl IStoreAppLicenseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStoreAppLicense>,
-            ::windows::core::GetTrustLevel,
-            SkuStoreId::<Impl, IMPL_OFFSET>,
-            IsActive::<Impl, IMPL_OFFSET>,
-            IsTrial::<Impl, IMPL_OFFSET>,
-            ExpirationDate::<Impl, IMPL_OFFSET>,
-            ExtendedJsonData::<Impl, IMPL_OFFSET>,
-            AddOnLicenses::<Impl, IMPL_OFFSET>,
-            TrialTimeRemaining::<Impl, IMPL_OFFSET>,
-            IsTrialOwnedByThisUser::<Impl, IMPL_OFFSET>,
-            TrialUniqueId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreAppLicense, BASE_OFFSET>(),
+            SkuStoreId: SkuStoreId::<Impl, IMPL_OFFSET>,
+            IsActive: IsActive::<Impl, IMPL_OFFSET>,
+            IsTrial: IsTrial::<Impl, IMPL_OFFSET>,
+            ExpirationDate: ExpirationDate::<Impl, IMPL_OFFSET>,
+            ExtendedJsonData: ExtendedJsonData::<Impl, IMPL_OFFSET>,
+            AddOnLicenses: AddOnLicenses::<Impl, IMPL_OFFSET>,
+            TrialTimeRemaining: TrialTimeRemaining::<Impl, IMPL_OFFSET>,
+            IsTrialOwnedByThisUser: IsTrialOwnedByThisUser::<Impl, IMPL_OFFSET>,
+            TrialUniqueId: TrialUniqueId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreAppLicense as ::windows::core::Interface>::IID
@@ -200,7 +199,7 @@ impl IStoreAppLicense2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreAppLicense2>, ::windows::core::GetTrustLevel, IsDiscLicense::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreAppLicense2, BASE_OFFSET>(), IsDiscLicense: IsDiscLicense::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreAppLicense2 as ::windows::core::Interface>::IID
@@ -288,20 +287,15 @@ impl IStoreAvailabilityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStoreAvailability>,
-            ::windows::core::GetTrustLevel,
-            StoreId::<Impl, IMPL_OFFSET>,
-            EndDate::<Impl, IMPL_OFFSET>,
-            Price::<Impl, IMPL_OFFSET>,
-            ExtendedJsonData::<Impl, IMPL_OFFSET>,
-            RequestPurchaseAsync::<Impl, IMPL_OFFSET>,
-            RequestPurchaseWithPurchasePropertiesAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreAvailability, BASE_OFFSET>(),
+            StoreId: StoreId::<Impl, IMPL_OFFSET>,
+            EndDate: EndDate::<Impl, IMPL_OFFSET>,
+            Price: Price::<Impl, IMPL_OFFSET>,
+            ExtendedJsonData: ExtendedJsonData::<Impl, IMPL_OFFSET>,
+            RequestPurchaseAsync: RequestPurchaseAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseWithPurchasePropertiesAsync: RequestPurchaseWithPurchasePropertiesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreAvailability as ::windows::core::Interface>::IID
@@ -353,7 +347,12 @@ impl IStoreCanAcquireLicenseResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreCanAcquireLicenseResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, LicensableSku::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreCanAcquireLicenseResult, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            LicensableSku: LicensableSku::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreCanAcquireLicenseResult as ::windows::core::Interface>::IID
@@ -465,22 +464,17 @@ impl IStoreCollectionDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStoreCollectionData>,
-            ::windows::core::GetTrustLevel,
-            IsTrial::<Impl, IMPL_OFFSET>,
-            CampaignId::<Impl, IMPL_OFFSET>,
-            DeveloperOfferId::<Impl, IMPL_OFFSET>,
-            AcquiredDate::<Impl, IMPL_OFFSET>,
-            StartDate::<Impl, IMPL_OFFSET>,
-            EndDate::<Impl, IMPL_OFFSET>,
-            TrialTimeRemaining::<Impl, IMPL_OFFSET>,
-            ExtendedJsonData::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreCollectionData, BASE_OFFSET>(),
+            IsTrial: IsTrial::<Impl, IMPL_OFFSET>,
+            CampaignId: CampaignId::<Impl, IMPL_OFFSET>,
+            DeveloperOfferId: DeveloperOfferId::<Impl, IMPL_OFFSET>,
+            AcquiredDate: AcquiredDate::<Impl, IMPL_OFFSET>,
+            StartDate: StartDate::<Impl, IMPL_OFFSET>,
+            EndDate: EndDate::<Impl, IMPL_OFFSET>,
+            TrialTimeRemaining: TrialTimeRemaining::<Impl, IMPL_OFFSET>,
+            ExtendedJsonData: ExtendedJsonData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreCollectionData as ::windows::core::Interface>::IID
@@ -544,7 +538,13 @@ impl IStoreConsumableResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreConsumableResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, TrackingId::<Impl, IMPL_OFFSET>, BalanceRemaining::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreConsumableResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            TrackingId: TrackingId::<Impl, IMPL_OFFSET>,
+            BalanceRemaining: BalanceRemaining::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreConsumableResult as ::windows::core::Interface>::IID
@@ -808,35 +808,30 @@ impl IStoreContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStoreContext>,
-            ::windows::core::GetTrustLevel,
-            User::<Impl, IMPL_OFFSET>,
-            OfflineLicensesChanged::<Impl, IMPL_OFFSET>,
-            RemoveOfflineLicensesChanged::<Impl, IMPL_OFFSET>,
-            GetCustomerPurchaseIdAsync::<Impl, IMPL_OFFSET>,
-            GetCustomerCollectionsIdAsync::<Impl, IMPL_OFFSET>,
-            GetAppLicenseAsync::<Impl, IMPL_OFFSET>,
-            GetStoreProductForCurrentAppAsync::<Impl, IMPL_OFFSET>,
-            GetStoreProductsAsync::<Impl, IMPL_OFFSET>,
-            GetAssociatedStoreProductsAsync::<Impl, IMPL_OFFSET>,
-            GetAssociatedStoreProductsWithPagingAsync::<Impl, IMPL_OFFSET>,
-            GetUserCollectionAsync::<Impl, IMPL_OFFSET>,
-            GetUserCollectionWithPagingAsync::<Impl, IMPL_OFFSET>,
-            ReportConsumableFulfillmentAsync::<Impl, IMPL_OFFSET>,
-            GetConsumableBalanceRemainingAsync::<Impl, IMPL_OFFSET>,
-            AcquireStoreLicenseForOptionalPackageAsync::<Impl, IMPL_OFFSET>,
-            RequestPurchaseAsync::<Impl, IMPL_OFFSET>,
-            RequestPurchaseWithPurchasePropertiesAsync::<Impl, IMPL_OFFSET>,
-            GetAppAndOptionalStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
-            RequestDownloadStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
-            RequestDownloadAndInstallStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
-            RequestDownloadAndInstallStorePackagesAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreContext, BASE_OFFSET>(),
+            User: User::<Impl, IMPL_OFFSET>,
+            OfflineLicensesChanged: OfflineLicensesChanged::<Impl, IMPL_OFFSET>,
+            RemoveOfflineLicensesChanged: RemoveOfflineLicensesChanged::<Impl, IMPL_OFFSET>,
+            GetCustomerPurchaseIdAsync: GetCustomerPurchaseIdAsync::<Impl, IMPL_OFFSET>,
+            GetCustomerCollectionsIdAsync: GetCustomerCollectionsIdAsync::<Impl, IMPL_OFFSET>,
+            GetAppLicenseAsync: GetAppLicenseAsync::<Impl, IMPL_OFFSET>,
+            GetStoreProductForCurrentAppAsync: GetStoreProductForCurrentAppAsync::<Impl, IMPL_OFFSET>,
+            GetStoreProductsAsync: GetStoreProductsAsync::<Impl, IMPL_OFFSET>,
+            GetAssociatedStoreProductsAsync: GetAssociatedStoreProductsAsync::<Impl, IMPL_OFFSET>,
+            GetAssociatedStoreProductsWithPagingAsync: GetAssociatedStoreProductsWithPagingAsync::<Impl, IMPL_OFFSET>,
+            GetUserCollectionAsync: GetUserCollectionAsync::<Impl, IMPL_OFFSET>,
+            GetUserCollectionWithPagingAsync: GetUserCollectionWithPagingAsync::<Impl, IMPL_OFFSET>,
+            ReportConsumableFulfillmentAsync: ReportConsumableFulfillmentAsync::<Impl, IMPL_OFFSET>,
+            GetConsumableBalanceRemainingAsync: GetConsumableBalanceRemainingAsync::<Impl, IMPL_OFFSET>,
+            AcquireStoreLicenseForOptionalPackageAsync: AcquireStoreLicenseForOptionalPackageAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseAsync: RequestPurchaseAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseWithPurchasePropertiesAsync: RequestPurchaseWithPurchasePropertiesAsync::<Impl, IMPL_OFFSET>,
+            GetAppAndOptionalStorePackageUpdatesAsync: GetAppAndOptionalStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
+            RequestDownloadStorePackageUpdatesAsync: RequestDownloadStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
+            RequestDownloadAndInstallStorePackageUpdatesAsync: RequestDownloadAndInstallStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
+            RequestDownloadAndInstallStorePackagesAsync: RequestDownloadAndInstallStorePackagesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreContext as ::windows::core::Interface>::IID
@@ -864,7 +859,10 @@ impl IStoreContext2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreContext2>, ::windows::core::GetTrustLevel, FindStoreProductForPackageAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreContext2, BASE_OFFSET>(),
+            FindStoreProductForPackageAsync: FindStoreProductForPackageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreContext2 as ::windows::core::Interface>::IID
@@ -1052,28 +1050,23 @@ impl IStoreContext3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStoreContext3>,
-            ::windows::core::GetTrustLevel,
-            CanSilentlyDownloadStorePackageUpdates::<Impl, IMPL_OFFSET>,
-            TrySilentDownloadStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
-            TrySilentDownloadAndInstallStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
-            CanAcquireStoreLicenseForOptionalPackageAsync::<Impl, IMPL_OFFSET>,
-            CanAcquireStoreLicenseAsync::<Impl, IMPL_OFFSET>,
-            GetStoreProductsWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            GetAssociatedStoreQueueItemsAsync::<Impl, IMPL_OFFSET>,
-            GetStoreQueueItemsAsync::<Impl, IMPL_OFFSET>,
-            RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync::<Impl, IMPL_OFFSET>,
-            DownloadAndInstallStorePackagesAsync::<Impl, IMPL_OFFSET>,
-            RequestUninstallStorePackageAsync::<Impl, IMPL_OFFSET>,
-            RequestUninstallStorePackageByStoreIdAsync::<Impl, IMPL_OFFSET>,
-            UninstallStorePackageAsync::<Impl, IMPL_OFFSET>,
-            UninstallStorePackageByStoreIdAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreContext3, BASE_OFFSET>(),
+            CanSilentlyDownloadStorePackageUpdates: CanSilentlyDownloadStorePackageUpdates::<Impl, IMPL_OFFSET>,
+            TrySilentDownloadStorePackageUpdatesAsync: TrySilentDownloadStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
+            TrySilentDownloadAndInstallStorePackageUpdatesAsync: TrySilentDownloadAndInstallStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
+            CanAcquireStoreLicenseForOptionalPackageAsync: CanAcquireStoreLicenseForOptionalPackageAsync::<Impl, IMPL_OFFSET>,
+            CanAcquireStoreLicenseAsync: CanAcquireStoreLicenseAsync::<Impl, IMPL_OFFSET>,
+            GetStoreProductsWithOptionsAsync: GetStoreProductsWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            GetAssociatedStoreQueueItemsAsync: GetAssociatedStoreQueueItemsAsync::<Impl, IMPL_OFFSET>,
+            GetStoreQueueItemsAsync: GetStoreQueueItemsAsync::<Impl, IMPL_OFFSET>,
+            RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync: RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync::<Impl, IMPL_OFFSET>,
+            DownloadAndInstallStorePackagesAsync: DownloadAndInstallStorePackagesAsync::<Impl, IMPL_OFFSET>,
+            RequestUninstallStorePackageAsync: RequestUninstallStorePackageAsync::<Impl, IMPL_OFFSET>,
+            RequestUninstallStorePackageByStoreIdAsync: RequestUninstallStorePackageByStoreIdAsync::<Impl, IMPL_OFFSET>,
+            UninstallStorePackageAsync: UninstallStorePackageAsync::<Impl, IMPL_OFFSET>,
+            UninstallStorePackageByStoreIdAsync: UninstallStorePackageByStoreIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreContext3 as ::windows::core::Interface>::IID
@@ -1113,7 +1106,11 @@ impl IStoreContext4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreContext4>, ::windows::core::GetTrustLevel, RequestRateAndReviewAppAsync::<Impl, IMPL_OFFSET>, SetInstallOrderForAssociatedStoreQueueItemsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreContext4, BASE_OFFSET>(),
+            RequestRateAndReviewAppAsync: RequestRateAndReviewAppAsync::<Impl, IMPL_OFFSET>,
+            SetInstallOrderForAssociatedStoreQueueItemsAsync: SetInstallOrderForAssociatedStoreQueueItemsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreContext4 as ::windows::core::Interface>::IID
@@ -1153,7 +1150,11 @@ impl IStoreContextStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreContextStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreContextStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreContextStatics as ::windows::core::Interface>::IID
@@ -1229,7 +1230,14 @@ impl IStoreImageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreImage>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, ImagePurposeTag::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>, Height::<Impl, IMPL_OFFSET>, Caption::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreImage, BASE_OFFSET>(),
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            ImagePurposeTag: ImagePurposeTag::<Impl, IMPL_OFFSET>,
+            Width: Width::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+            Caption: Caption::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreImage as ::windows::core::Interface>::IID
@@ -1305,7 +1313,14 @@ impl IStoreLicenseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreLicense>, ::windows::core::GetTrustLevel, SkuStoreId::<Impl, IMPL_OFFSET>, IsActive::<Impl, IMPL_OFFSET>, ExpirationDate::<Impl, IMPL_OFFSET>, ExtendedJsonData::<Impl, IMPL_OFFSET>, InAppOfferToken::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreLicense, BASE_OFFSET>(),
+            SkuStoreId: SkuStoreId::<Impl, IMPL_OFFSET>,
+            IsActive: IsActive::<Impl, IMPL_OFFSET>,
+            ExpirationDate: ExpirationDate::<Impl, IMPL_OFFSET>,
+            ExtendedJsonData: ExtendedJsonData::<Impl, IMPL_OFFSET>,
+            InAppOfferToken: InAppOfferToken::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreLicense as ::windows::core::Interface>::IID
@@ -1338,7 +1353,11 @@ impl IStorePackageInstallOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowForcedAppRestart(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageInstallOptions>, ::windows::core::GetTrustLevel, AllowForcedAppRestart::<Impl, IMPL_OFFSET>, SetAllowForcedAppRestart::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorePackageInstallOptions, BASE_OFFSET>(),
+            AllowForcedAppRestart: AllowForcedAppRestart::<Impl, IMPL_OFFSET>,
+            SetAllowForcedAppRestart: SetAllowForcedAppRestart::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorePackageInstallOptions as ::windows::core::Interface>::IID
@@ -1400,7 +1419,14 @@ impl IStorePackageLicenseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReleaseLicense().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageLicense>, ::windows::core::GetTrustLevel, LicenseLost::<Impl, IMPL_OFFSET>, RemoveLicenseLost::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>, IsValid::<Impl, IMPL_OFFSET>, ReleaseLicense::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorePackageLicense, BASE_OFFSET>(),
+            LicenseLost: LicenseLost::<Impl, IMPL_OFFSET>,
+            RemoveLicenseLost: RemoveLicenseLost::<Impl, IMPL_OFFSET>,
+            Package: Package::<Impl, IMPL_OFFSET>,
+            IsValid: IsValid::<Impl, IMPL_OFFSET>,
+            ReleaseLicense: ReleaseLicense::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorePackageLicense as ::windows::core::Interface>::IID
@@ -1440,7 +1466,11 @@ impl IStorePackageUpdateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageUpdate>, ::windows::core::GetTrustLevel, Package::<Impl, IMPL_OFFSET>, Mandatory::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorePackageUpdate, BASE_OFFSET>(),
+            Package: Package::<Impl, IMPL_OFFSET>,
+            Mandatory: Mandatory::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorePackageUpdate as ::windows::core::Interface>::IID
@@ -1480,7 +1510,11 @@ impl IStorePackageUpdateResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageUpdateResult>, ::windows::core::GetTrustLevel, OverallState::<Impl, IMPL_OFFSET>, StorePackageUpdateStatuses::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorePackageUpdateResult, BASE_OFFSET>(),
+            OverallState: OverallState::<Impl, IMPL_OFFSET>,
+            StorePackageUpdateStatuses: StorePackageUpdateStatuses::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorePackageUpdateResult as ::windows::core::Interface>::IID
@@ -1508,7 +1542,10 @@ impl IStorePackageUpdateResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageUpdateResult2>, ::windows::core::GetTrustLevel, StoreQueueItems::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorePackageUpdateResult2, BASE_OFFSET>(),
+            StoreQueueItems: StoreQueueItems::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorePackageUpdateResult2 as ::windows::core::Interface>::IID
@@ -1596,20 +1633,15 @@ impl IStorePriceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStorePrice>,
-            ::windows::core::GetTrustLevel,
-            FormattedBasePrice::<Impl, IMPL_OFFSET>,
-            FormattedPrice::<Impl, IMPL_OFFSET>,
-            IsOnSale::<Impl, IMPL_OFFSET>,
-            SaleEndDate::<Impl, IMPL_OFFSET>,
-            CurrencyCode::<Impl, IMPL_OFFSET>,
-            FormattedRecurrencePrice::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorePrice, BASE_OFFSET>(),
+            FormattedBasePrice: FormattedBasePrice::<Impl, IMPL_OFFSET>,
+            FormattedPrice: FormattedPrice::<Impl, IMPL_OFFSET>,
+            IsOnSale: IsOnSale::<Impl, IMPL_OFFSET>,
+            SaleEndDate: SaleEndDate::<Impl, IMPL_OFFSET>,
+            CurrencyCode: CurrencyCode::<Impl, IMPL_OFFSET>,
+            FormattedRecurrencePrice: FormattedRecurrencePrice::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorePrice as ::windows::core::Interface>::IID
@@ -1841,32 +1873,27 @@ impl IStoreProductVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStoreProduct>,
-            ::windows::core::GetTrustLevel,
-            StoreId::<Impl, IMPL_OFFSET>,
-            Language::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            ProductKind::<Impl, IMPL_OFFSET>,
-            HasDigitalDownload::<Impl, IMPL_OFFSET>,
-            Keywords::<Impl, IMPL_OFFSET>,
-            Images::<Impl, IMPL_OFFSET>,
-            Videos::<Impl, IMPL_OFFSET>,
-            Skus::<Impl, IMPL_OFFSET>,
-            IsInUserCollection::<Impl, IMPL_OFFSET>,
-            Price::<Impl, IMPL_OFFSET>,
-            ExtendedJsonData::<Impl, IMPL_OFFSET>,
-            LinkUri::<Impl, IMPL_OFFSET>,
-            GetIsAnySkuInstalledAsync::<Impl, IMPL_OFFSET>,
-            RequestPurchaseAsync::<Impl, IMPL_OFFSET>,
-            RequestPurchaseWithPurchasePropertiesAsync::<Impl, IMPL_OFFSET>,
-            InAppOfferToken::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreProduct, BASE_OFFSET>(),
+            StoreId: StoreId::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            ProductKind: ProductKind::<Impl, IMPL_OFFSET>,
+            HasDigitalDownload: HasDigitalDownload::<Impl, IMPL_OFFSET>,
+            Keywords: Keywords::<Impl, IMPL_OFFSET>,
+            Images: Images::<Impl, IMPL_OFFSET>,
+            Videos: Videos::<Impl, IMPL_OFFSET>,
+            Skus: Skus::<Impl, IMPL_OFFSET>,
+            IsInUserCollection: IsInUserCollection::<Impl, IMPL_OFFSET>,
+            Price: Price::<Impl, IMPL_OFFSET>,
+            ExtendedJsonData: ExtendedJsonData::<Impl, IMPL_OFFSET>,
+            LinkUri: LinkUri::<Impl, IMPL_OFFSET>,
+            GetIsAnySkuInstalledAsync: GetIsAnySkuInstalledAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseAsync: RequestPurchaseAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseWithPurchasePropertiesAsync: RequestPurchaseWithPurchasePropertiesAsync::<Impl, IMPL_OFFSET>,
+            InAppOfferToken: InAppOfferToken::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreProduct as ::windows::core::Interface>::IID
@@ -1894,7 +1921,7 @@ impl IStoreProductOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreProductOptions>, ::windows::core::GetTrustLevel, ActionFilters::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreProductOptions, BASE_OFFSET>(), ActionFilters: ActionFilters::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreProductOptions as ::windows::core::Interface>::IID
@@ -1958,7 +1985,13 @@ impl IStoreProductPagedQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreProductPagedQueryResult>, ::windows::core::GetTrustLevel, Products::<Impl, IMPL_OFFSET>, HasMoreResults::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, GetNextAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreProductPagedQueryResult, BASE_OFFSET>(),
+            Products: Products::<Impl, IMPL_OFFSET>,
+            HasMoreResults: HasMoreResults::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            GetNextAsync: GetNextAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreProductPagedQueryResult as ::windows::core::Interface>::IID
@@ -1998,7 +2031,11 @@ impl IStoreProductQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreProductQueryResult>, ::windows::core::GetTrustLevel, Products::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreProductQueryResult, BASE_OFFSET>(),
+            Products: Products::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreProductQueryResult as ::windows::core::Interface>::IID
@@ -2038,7 +2075,11 @@ impl IStoreProductResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreProductResult>, ::windows::core::GetTrustLevel, Product::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreProductResult, BASE_OFFSET>(),
+            Product: Product::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreProductResult as ::windows::core::Interface>::IID
@@ -2088,7 +2129,13 @@ impl IStorePurchasePropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExtendedJsonData(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePurchaseProperties>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, ExtendedJsonData::<Impl, IMPL_OFFSET>, SetExtendedJsonData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorePurchaseProperties, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            ExtendedJsonData: ExtendedJsonData::<Impl, IMPL_OFFSET>,
+            SetExtendedJsonData: SetExtendedJsonData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorePurchaseProperties as ::windows::core::Interface>::IID
@@ -2116,7 +2163,7 @@ impl IStorePurchasePropertiesFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePurchasePropertiesFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IStorePurchasePropertiesFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorePurchasePropertiesFactory as ::windows::core::Interface>::IID
@@ -2156,7 +2203,11 @@ impl IStorePurchaseResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePurchaseResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorePurchaseResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorePurchaseResult as ::windows::core::Interface>::IID
@@ -2254,22 +2305,17 @@ impl IStoreQueueItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStoreQueueItem>,
-            ::windows::core::GetTrustLevel,
-            ProductId::<Impl, IMPL_OFFSET>,
-            PackageFamilyName::<Impl, IMPL_OFFSET>,
-            InstallKind::<Impl, IMPL_OFFSET>,
-            GetCurrentStatus::<Impl, IMPL_OFFSET>,
-            Completed::<Impl, IMPL_OFFSET>,
-            RemoveCompleted::<Impl, IMPL_OFFSET>,
-            StatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreQueueItem, BASE_OFFSET>(),
+            ProductId: ProductId::<Impl, IMPL_OFFSET>,
+            PackageFamilyName: PackageFamilyName::<Impl, IMPL_OFFSET>,
+            InstallKind: InstallKind::<Impl, IMPL_OFFSET>,
+            GetCurrentStatus: GetCurrentStatus::<Impl, IMPL_OFFSET>,
+            Completed: Completed::<Impl, IMPL_OFFSET>,
+            RemoveCompleted: RemoveCompleted::<Impl, IMPL_OFFSET>,
+            StatusChanged: StatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged: RemoveStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreQueueItem as ::windows::core::Interface>::IID
@@ -2321,7 +2367,12 @@ impl IStoreQueueItem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreQueueItem2>, ::windows::core::GetTrustLevel, CancelInstallAsync::<Impl, IMPL_OFFSET>, PauseInstallAsync::<Impl, IMPL_OFFSET>, ResumeInstallAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreQueueItem2, BASE_OFFSET>(),
+            CancelInstallAsync: CancelInstallAsync::<Impl, IMPL_OFFSET>,
+            PauseInstallAsync: PauseInstallAsync::<Impl, IMPL_OFFSET>,
+            ResumeInstallAsync: ResumeInstallAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreQueueItem2 as ::windows::core::Interface>::IID
@@ -2349,7 +2400,7 @@ impl IStoreQueueItemCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreQueueItemCompletedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreQueueItemCompletedEventArgs, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreQueueItemCompletedEventArgs as ::windows::core::Interface>::IID
@@ -2413,7 +2464,13 @@ impl IStoreQueueItemStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreQueueItemStatus>, ::windows::core::GetTrustLevel, PackageInstallState::<Impl, IMPL_OFFSET>, PackageInstallExtendedState::<Impl, IMPL_OFFSET>, UpdateStatus::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreQueueItemStatus, BASE_OFFSET>(),
+            PackageInstallState: PackageInstallState::<Impl, IMPL_OFFSET>,
+            PackageInstallExtendedState: PackageInstallExtendedState::<Impl, IMPL_OFFSET>,
+            UpdateStatus: UpdateStatus::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreQueueItemStatus as ::windows::core::Interface>::IID
@@ -2477,7 +2534,13 @@ impl IStoreRateAndReviewResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreRateAndReviewResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, ExtendedJsonData::<Impl, IMPL_OFFSET>, WasUpdated::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreRateAndReviewResult, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            ExtendedJsonData: ExtendedJsonData::<Impl, IMPL_OFFSET>,
+            WasUpdated: WasUpdated::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreRateAndReviewResult as ::windows::core::Interface>::IID
@@ -2505,7 +2568,10 @@ impl IStoreRequestHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreRequestHelperStatics>, ::windows::core::GetTrustLevel, SendRequestAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreRequestHelperStatics, BASE_OFFSET>(),
+            SendRequestAsync: SendRequestAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreRequestHelperStatics as ::windows::core::Interface>::IID
@@ -2545,7 +2611,11 @@ impl IStoreSendRequestResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreSendRequestResult>, ::windows::core::GetTrustLevel, Response::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreSendRequestResult, BASE_OFFSET>(),
+            Response: Response::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreSendRequestResult as ::windows::core::Interface>::IID
@@ -2573,7 +2643,10 @@ impl IStoreSendRequestResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreSendRequestResult2>, ::windows::core::GetTrustLevel, HttpStatusCode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreSendRequestResult2, BASE_OFFSET>(),
+            HttpStatusCode: HttpStatusCode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreSendRequestResult2 as ::windows::core::Interface>::IID
@@ -2817,33 +2890,28 @@ impl IStoreSkuVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStoreSku>,
-            ::windows::core::GetTrustLevel,
-            StoreId::<Impl, IMPL_OFFSET>,
-            Language::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            IsTrial::<Impl, IMPL_OFFSET>,
-            CustomDeveloperData::<Impl, IMPL_OFFSET>,
-            Images::<Impl, IMPL_OFFSET>,
-            Videos::<Impl, IMPL_OFFSET>,
-            Availabilities::<Impl, IMPL_OFFSET>,
-            Price::<Impl, IMPL_OFFSET>,
-            ExtendedJsonData::<Impl, IMPL_OFFSET>,
-            IsInUserCollection::<Impl, IMPL_OFFSET>,
-            BundledSkus::<Impl, IMPL_OFFSET>,
-            CollectionData::<Impl, IMPL_OFFSET>,
-            GetIsInstalledAsync::<Impl, IMPL_OFFSET>,
-            RequestPurchaseAsync::<Impl, IMPL_OFFSET>,
-            RequestPurchaseWithPurchasePropertiesAsync::<Impl, IMPL_OFFSET>,
-            IsSubscription::<Impl, IMPL_OFFSET>,
-            SubscriptionInfo::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreSku, BASE_OFFSET>(),
+            StoreId: StoreId::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            IsTrial: IsTrial::<Impl, IMPL_OFFSET>,
+            CustomDeveloperData: CustomDeveloperData::<Impl, IMPL_OFFSET>,
+            Images: Images::<Impl, IMPL_OFFSET>,
+            Videos: Videos::<Impl, IMPL_OFFSET>,
+            Availabilities: Availabilities::<Impl, IMPL_OFFSET>,
+            Price: Price::<Impl, IMPL_OFFSET>,
+            ExtendedJsonData: ExtendedJsonData::<Impl, IMPL_OFFSET>,
+            IsInUserCollection: IsInUserCollection::<Impl, IMPL_OFFSET>,
+            BundledSkus: BundledSkus::<Impl, IMPL_OFFSET>,
+            CollectionData: CollectionData::<Impl, IMPL_OFFSET>,
+            GetIsInstalledAsync: GetIsInstalledAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseAsync: RequestPurchaseAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseWithPurchasePropertiesAsync: RequestPurchaseWithPurchasePropertiesAsync::<Impl, IMPL_OFFSET>,
+            IsSubscription: IsSubscription::<Impl, IMPL_OFFSET>,
+            SubscriptionInfo: SubscriptionInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreSku as ::windows::core::Interface>::IID
@@ -2919,7 +2987,14 @@ impl IStoreSubscriptionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreSubscriptionInfo>, ::windows::core::GetTrustLevel, BillingPeriod::<Impl, IMPL_OFFSET>, BillingPeriodUnit::<Impl, IMPL_OFFSET>, HasTrialPeriod::<Impl, IMPL_OFFSET>, TrialPeriod::<Impl, IMPL_OFFSET>, TrialPeriodUnit::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreSubscriptionInfo, BASE_OFFSET>(),
+            BillingPeriod: BillingPeriod::<Impl, IMPL_OFFSET>,
+            BillingPeriodUnit: BillingPeriodUnit::<Impl, IMPL_OFFSET>,
+            HasTrialPeriod: HasTrialPeriod::<Impl, IMPL_OFFSET>,
+            TrialPeriod: TrialPeriod::<Impl, IMPL_OFFSET>,
+            TrialPeriodUnit: TrialPeriodUnit::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreSubscriptionInfo as ::windows::core::Interface>::IID
@@ -2959,7 +3034,11 @@ impl IStoreUninstallStorePackageResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreUninstallStorePackageResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreUninstallStorePackageResult, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreUninstallStorePackageResult as ::windows::core::Interface>::IID
@@ -3047,7 +3126,15 @@ impl IStoreVideoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreVideo>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, VideoPurposeTag::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>, Height::<Impl, IMPL_OFFSET>, Caption::<Impl, IMPL_OFFSET>, PreviewImage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStoreVideo, BASE_OFFSET>(),
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            VideoPurposeTag: VideoPurposeTag::<Impl, IMPL_OFFSET>,
+            Width: Width::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+            Caption: Caption::<Impl, IMPL_OFFSET>,
+            PreviewImage: PreviewImage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStoreVideo as ::windows::core::Interface>::IID

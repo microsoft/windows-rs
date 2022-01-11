@@ -32,7 +32,11 @@ impl IAdaptiveNotificationContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveNotificationContent>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, Hints::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveNotificationContent, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            Hints: Hints::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveNotificationContent as ::windows::core::Interface>::IID
@@ -82,7 +86,13 @@ impl IAdaptiveNotificationTextVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLanguage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveNotificationText>, ::windows::core::GetTrustLevel, Text::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>, SetLanguage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveNotificationText, BASE_OFFSET>(),
+            Text: Text::<Impl, IMPL_OFFSET>,
+            SetText: SetText::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+            SetLanguage: SetLanguage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveNotificationText as ::windows::core::Interface>::IID
@@ -127,7 +137,12 @@ impl IBadgeNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeNotification>, ::windows::core::GetTrustLevel, Content::<Impl, IMPL_OFFSET>, SetExpirationTime::<Impl, IMPL_OFFSET>, ExpirationTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBadgeNotification, BASE_OFFSET>(),
+            Content: Content::<Impl, IMPL_OFFSET>,
+            SetExpirationTime: SetExpirationTime::<Impl, IMPL_OFFSET>,
+            ExpirationTime: ExpirationTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBadgeNotification as ::windows::core::Interface>::IID
@@ -155,7 +170,10 @@ impl IBadgeNotificationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeNotificationFactory>, ::windows::core::GetTrustLevel, CreateBadgeNotification::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBadgeNotificationFactory, BASE_OFFSET>(),
+            CreateBadgeNotification: CreateBadgeNotification::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBadgeNotificationFactory as ::windows::core::Interface>::IID
@@ -219,18 +237,13 @@ impl IBadgeUpdateManagerForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBadgeUpdateManagerForUser>,
-            ::windows::core::GetTrustLevel,
-            CreateBadgeUpdaterForApplication::<Impl, IMPL_OFFSET>,
-            CreateBadgeUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>,
-            CreateBadgeUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>,
-            User::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBadgeUpdateManagerForUser, BASE_OFFSET>(),
+            CreateBadgeUpdaterForApplication: CreateBadgeUpdaterForApplication::<Impl, IMPL_OFFSET>,
+            CreateBadgeUpdaterForApplicationWithId: CreateBadgeUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>,
+            CreateBadgeUpdaterForSecondaryTile: CreateBadgeUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBadgeUpdateManagerForUser as ::windows::core::Interface>::IID
@@ -294,18 +307,13 @@ impl IBadgeUpdateManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBadgeUpdateManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            CreateBadgeUpdaterForApplication::<Impl, IMPL_OFFSET>,
-            CreateBadgeUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>,
-            CreateBadgeUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>,
-            GetTemplateContent::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBadgeUpdateManagerStatics, BASE_OFFSET>(),
+            CreateBadgeUpdaterForApplication: CreateBadgeUpdaterForApplication::<Impl, IMPL_OFFSET>,
+            CreateBadgeUpdaterForApplicationWithId: CreateBadgeUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>,
+            CreateBadgeUpdaterForSecondaryTile: CreateBadgeUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>,
+            GetTemplateContent: GetTemplateContent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBadgeUpdateManagerStatics as ::windows::core::Interface>::IID
@@ -333,7 +341,10 @@ impl IBadgeUpdateManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeUpdateManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBadgeUpdateManagerStatics2, BASE_OFFSET>(),
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBadgeUpdateManagerStatics2 as ::windows::core::Interface>::IID
@@ -374,7 +385,14 @@ impl IBadgeUpdaterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopPeriodicUpdate().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeUpdater>, ::windows::core::GetTrustLevel, Update::<Impl, IMPL_OFFSET>, Clear::<Impl, IMPL_OFFSET>, StartPeriodicUpdate::<Impl, IMPL_OFFSET>, StartPeriodicUpdateAtTime::<Impl, IMPL_OFFSET>, StopPeriodicUpdate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBadgeUpdater, BASE_OFFSET>(),
+            Update: Update::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdate: StartPeriodicUpdate::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdateAtTime: StartPeriodicUpdateAtTime::<Impl, IMPL_OFFSET>,
+            StopPeriodicUpdate: StopPeriodicUpdate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBadgeUpdater as ::windows::core::Interface>::IID
@@ -462,7 +480,15 @@ impl IKnownAdaptiveNotificationHintsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownAdaptiveNotificationHintsStatics>, ::windows::core::GetTrustLevel, Style::<Impl, IMPL_OFFSET>, Wrap::<Impl, IMPL_OFFSET>, MaxLines::<Impl, IMPL_OFFSET>, MinLines::<Impl, IMPL_OFFSET>, TextStacking::<Impl, IMPL_OFFSET>, Align::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownAdaptiveNotificationHintsStatics, BASE_OFFSET>(),
+            Style: Style::<Impl, IMPL_OFFSET>,
+            Wrap: Wrap::<Impl, IMPL_OFFSET>,
+            MaxLines: MaxLines::<Impl, IMPL_OFFSET>,
+            MinLines: MinLines::<Impl, IMPL_OFFSET>,
+            TextStacking: TextStacking::<Impl, IMPL_OFFSET>,
+            Align: Align::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownAdaptiveNotificationHintsStatics as ::windows::core::Interface>::IID
@@ -706,33 +732,28 @@ impl IKnownAdaptiveNotificationTextStylesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IKnownAdaptiveNotificationTextStylesStatics>,
-            ::windows::core::GetTrustLevel,
-            Caption::<Impl, IMPL_OFFSET>,
-            Body::<Impl, IMPL_OFFSET>,
-            Base::<Impl, IMPL_OFFSET>,
-            Subtitle::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            Subheader::<Impl, IMPL_OFFSET>,
-            Header::<Impl, IMPL_OFFSET>,
-            TitleNumeral::<Impl, IMPL_OFFSET>,
-            SubheaderNumeral::<Impl, IMPL_OFFSET>,
-            HeaderNumeral::<Impl, IMPL_OFFSET>,
-            CaptionSubtle::<Impl, IMPL_OFFSET>,
-            BodySubtle::<Impl, IMPL_OFFSET>,
-            BaseSubtle::<Impl, IMPL_OFFSET>,
-            SubtitleSubtle::<Impl, IMPL_OFFSET>,
-            TitleSubtle::<Impl, IMPL_OFFSET>,
-            SubheaderSubtle::<Impl, IMPL_OFFSET>,
-            SubheaderNumeralSubtle::<Impl, IMPL_OFFSET>,
-            HeaderSubtle::<Impl, IMPL_OFFSET>,
-            HeaderNumeralSubtle::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownAdaptiveNotificationTextStylesStatics, BASE_OFFSET>(),
+            Caption: Caption::<Impl, IMPL_OFFSET>,
+            Body: Body::<Impl, IMPL_OFFSET>,
+            Base: Base::<Impl, IMPL_OFFSET>,
+            Subtitle: Subtitle::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Subheader: Subheader::<Impl, IMPL_OFFSET>,
+            Header: Header::<Impl, IMPL_OFFSET>,
+            TitleNumeral: TitleNumeral::<Impl, IMPL_OFFSET>,
+            SubheaderNumeral: SubheaderNumeral::<Impl, IMPL_OFFSET>,
+            HeaderNumeral: HeaderNumeral::<Impl, IMPL_OFFSET>,
+            CaptionSubtle: CaptionSubtle::<Impl, IMPL_OFFSET>,
+            BodySubtle: BodySubtle::<Impl, IMPL_OFFSET>,
+            BaseSubtle: BaseSubtle::<Impl, IMPL_OFFSET>,
+            SubtitleSubtle: SubtitleSubtle::<Impl, IMPL_OFFSET>,
+            TitleSubtle: TitleSubtle::<Impl, IMPL_OFFSET>,
+            SubheaderSubtle: SubheaderSubtle::<Impl, IMPL_OFFSET>,
+            SubheaderNumeralSubtle: SubheaderNumeralSubtle::<Impl, IMPL_OFFSET>,
+            HeaderSubtle: HeaderSubtle::<Impl, IMPL_OFFSET>,
+            HeaderNumeralSubtle: HeaderNumeralSubtle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownAdaptiveNotificationTextStylesStatics as ::windows::core::Interface>::IID
@@ -760,7 +781,10 @@ impl IKnownNotificationBindingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownNotificationBindingsStatics>, ::windows::core::GetTrustLevel, ToastGeneric::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownNotificationBindingsStatics, BASE_OFFSET>(),
+            ToastGeneric: ToastGeneric::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownNotificationBindingsStatics as ::windows::core::Interface>::IID
@@ -810,7 +834,13 @@ impl INotificationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVisual(&*(&value as *const <NotificationVisual as ::windows::core::Abi>::Abi as *const <NotificationVisual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotification>, ::windows::core::GetTrustLevel, ExpirationTime::<Impl, IMPL_OFFSET>, SetExpirationTime::<Impl, IMPL_OFFSET>, Visual::<Impl, IMPL_OFFSET>, SetVisual::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INotification, BASE_OFFSET>(),
+            ExpirationTime: ExpirationTime::<Impl, IMPL_OFFSET>,
+            SetExpirationTime: SetExpirationTime::<Impl, IMPL_OFFSET>,
+            Visual: Visual::<Impl, IMPL_OFFSET>,
+            SetVisual: SetVisual::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotification as ::windows::core::Interface>::IID
@@ -884,7 +914,15 @@ impl INotificationBindingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotificationBinding>, ::windows::core::GetTrustLevel, Template::<Impl, IMPL_OFFSET>, SetTemplate::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>, SetLanguage::<Impl, IMPL_OFFSET>, Hints::<Impl, IMPL_OFFSET>, GetTextElements::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INotificationBinding, BASE_OFFSET>(),
+            Template: Template::<Impl, IMPL_OFFSET>,
+            SetTemplate: SetTemplate::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+            SetLanguage: SetLanguage::<Impl, IMPL_OFFSET>,
+            Hints: Hints::<Impl, IMPL_OFFSET>,
+            GetTextElements: GetTextElements::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotificationBinding as ::windows::core::Interface>::IID
@@ -929,7 +967,12 @@ impl INotificationDataVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSequenceNumber(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotificationData>, ::windows::core::GetTrustLevel, Values::<Impl, IMPL_OFFSET>, SequenceNumber::<Impl, IMPL_OFFSET>, SetSequenceNumber::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INotificationData, BASE_OFFSET>(),
+            Values: Values::<Impl, IMPL_OFFSET>,
+            SequenceNumber: SequenceNumber::<Impl, IMPL_OFFSET>,
+            SetSequenceNumber: SetSequenceNumber::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotificationData as ::windows::core::Interface>::IID
@@ -969,7 +1012,11 @@ impl INotificationDataFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotificationDataFactory>, ::windows::core::GetTrustLevel, CreateNotificationDataWithValuesAndSequenceNumber::<Impl, IMPL_OFFSET>, CreateNotificationDataWithValues::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INotificationDataFactory, BASE_OFFSET>(),
+            CreateNotificationDataWithValuesAndSequenceNumber: CreateNotificationDataWithValuesAndSequenceNumber::<Impl, IMPL_OFFSET>,
+            CreateNotificationDataWithValues: CreateNotificationDataWithValues::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotificationDataFactory as ::windows::core::Interface>::IID
@@ -1026,7 +1073,13 @@ impl INotificationVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotificationVisual>, ::windows::core::GetTrustLevel, Language::<Impl, IMPL_OFFSET>, SetLanguage::<Impl, IMPL_OFFSET>, Bindings::<Impl, IMPL_OFFSET>, GetBinding::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INotificationVisual, BASE_OFFSET>(),
+            Language: Language::<Impl, IMPL_OFFSET>,
+            SetLanguage: SetLanguage::<Impl, IMPL_OFFSET>,
+            Bindings: Bindings::<Impl, IMPL_OFFSET>,
+            GetBinding: GetBinding::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotificationVisual as ::windows::core::Interface>::IID
@@ -1117,22 +1170,17 @@ impl IScheduledTileNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IScheduledTileNotification>,
-            ::windows::core::GetTrustLevel,
-            Content::<Impl, IMPL_OFFSET>,
-            DeliveryTime::<Impl, IMPL_OFFSET>,
-            SetExpirationTime::<Impl, IMPL_OFFSET>,
-            ExpirationTime::<Impl, IMPL_OFFSET>,
-            SetTag::<Impl, IMPL_OFFSET>,
-            Tag::<Impl, IMPL_OFFSET>,
-            SetId::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScheduledTileNotification, BASE_OFFSET>(),
+            Content: Content::<Impl, IMPL_OFFSET>,
+            DeliveryTime: DeliveryTime::<Impl, IMPL_OFFSET>,
+            SetExpirationTime: SetExpirationTime::<Impl, IMPL_OFFSET>,
+            ExpirationTime: ExpirationTime::<Impl, IMPL_OFFSET>,
+            SetTag: SetTag::<Impl, IMPL_OFFSET>,
+            Tag: Tag::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScheduledTileNotification as ::windows::core::Interface>::IID
@@ -1160,7 +1208,10 @@ impl IScheduledTileNotificationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledTileNotificationFactory>, ::windows::core::GetTrustLevel, CreateScheduledTileNotification::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScheduledTileNotificationFactory, BASE_OFFSET>(),
+            CreateScheduledTileNotification: CreateScheduledTileNotification::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScheduledTileNotificationFactory as ::windows::core::Interface>::IID
@@ -1241,7 +1292,15 @@ impl IScheduledToastNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotification>, ::windows::core::GetTrustLevel, Content::<Impl, IMPL_OFFSET>, DeliveryTime::<Impl, IMPL_OFFSET>, SnoozeInterval::<Impl, IMPL_OFFSET>, MaximumSnoozeCount::<Impl, IMPL_OFFSET>, SetId::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScheduledToastNotification, BASE_OFFSET>(),
+            Content: Content::<Impl, IMPL_OFFSET>,
+            DeliveryTime: DeliveryTime::<Impl, IMPL_OFFSET>,
+            SnoozeInterval: SnoozeInterval::<Impl, IMPL_OFFSET>,
+            MaximumSnoozeCount: MaximumSnoozeCount::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScheduledToastNotification as ::windows::core::Interface>::IID
@@ -1308,7 +1367,15 @@ impl IScheduledToastNotification2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotification2>, ::windows::core::GetTrustLevel, SetTag::<Impl, IMPL_OFFSET>, Tag::<Impl, IMPL_OFFSET>, SetGroup::<Impl, IMPL_OFFSET>, Group::<Impl, IMPL_OFFSET>, SetSuppressPopup::<Impl, IMPL_OFFSET>, SuppressPopup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScheduledToastNotification2, BASE_OFFSET>(),
+            SetTag: SetTag::<Impl, IMPL_OFFSET>,
+            Tag: Tag::<Impl, IMPL_OFFSET>,
+            SetGroup: SetGroup::<Impl, IMPL_OFFSET>,
+            Group: Group::<Impl, IMPL_OFFSET>,
+            SetSuppressPopup: SetSuppressPopup::<Impl, IMPL_OFFSET>,
+            SuppressPopup: SuppressPopup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScheduledToastNotification2 as ::windows::core::Interface>::IID
@@ -1358,7 +1425,13 @@ impl IScheduledToastNotification3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRemoteId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotification3>, ::windows::core::GetTrustLevel, NotificationMirroring::<Impl, IMPL_OFFSET>, SetNotificationMirroring::<Impl, IMPL_OFFSET>, RemoteId::<Impl, IMPL_OFFSET>, SetRemoteId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScheduledToastNotification3, BASE_OFFSET>(),
+            NotificationMirroring: NotificationMirroring::<Impl, IMPL_OFFSET>,
+            SetNotificationMirroring: SetNotificationMirroring::<Impl, IMPL_OFFSET>,
+            RemoteId: RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId: SetRemoteId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScheduledToastNotification3 as ::windows::core::Interface>::IID
@@ -1391,7 +1464,11 @@ impl IScheduledToastNotification4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExpirationTime(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotification4>, ::windows::core::GetTrustLevel, ExpirationTime::<Impl, IMPL_OFFSET>, SetExpirationTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScheduledToastNotification4, BASE_OFFSET>(),
+            ExpirationTime: ExpirationTime::<Impl, IMPL_OFFSET>,
+            SetExpirationTime: SetExpirationTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScheduledToastNotification4 as ::windows::core::Interface>::IID
@@ -1436,7 +1513,11 @@ impl IScheduledToastNotificationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotificationFactory>, ::windows::core::GetTrustLevel, CreateScheduledToastNotification::<Impl, IMPL_OFFSET>, CreateScheduledToastNotificationRecurring::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScheduledToastNotificationFactory, BASE_OFFSET>(),
+            CreateScheduledToastNotification: CreateScheduledToastNotification::<Impl, IMPL_OFFSET>,
+            CreateScheduledToastNotificationRecurring: CreateScheduledToastNotificationRecurring::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScheduledToastNotificationFactory as ::windows::core::Interface>::IID
@@ -1493,7 +1574,13 @@ impl IScheduledToastNotificationShowingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotificationShowingEventArgs>, ::windows::core::GetTrustLevel, Cancel::<Impl, IMPL_OFFSET>, SetCancel::<Impl, IMPL_OFFSET>, ScheduledToastNotification::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScheduledToastNotificationShowingEventArgs, BASE_OFFSET>(),
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+            SetCancel: SetCancel::<Impl, IMPL_OFFSET>,
+            ScheduledToastNotification: ScheduledToastNotification::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScheduledToastNotificationShowingEventArgs as ::windows::core::Interface>::IID
@@ -1521,7 +1608,7 @@ impl IShownTileNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShownTileNotification>, ::windows::core::GetTrustLevel, Arguments::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IShownTileNotification, BASE_OFFSET>(), Arguments: Arguments::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IShownTileNotification as ::windows::core::Interface>::IID
@@ -1566,7 +1653,12 @@ impl ITileFlyoutNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileFlyoutNotification>, ::windows::core::GetTrustLevel, Content::<Impl, IMPL_OFFSET>, SetExpirationTime::<Impl, IMPL_OFFSET>, ExpirationTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITileFlyoutNotification, BASE_OFFSET>(),
+            Content: Content::<Impl, IMPL_OFFSET>,
+            SetExpirationTime: SetExpirationTime::<Impl, IMPL_OFFSET>,
+            ExpirationTime: ExpirationTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITileFlyoutNotification as ::windows::core::Interface>::IID
@@ -1594,7 +1686,10 @@ impl ITileFlyoutNotificationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileFlyoutNotificationFactory>, ::windows::core::GetTrustLevel, CreateTileFlyoutNotification::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITileFlyoutNotificationFactory, BASE_OFFSET>(),
+            CreateTileFlyoutNotification: CreateTileFlyoutNotification::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITileFlyoutNotificationFactory as ::windows::core::Interface>::IID
@@ -1658,18 +1753,13 @@ impl ITileFlyoutUpdateManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITileFlyoutUpdateManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            CreateTileFlyoutUpdaterForApplication::<Impl, IMPL_OFFSET>,
-            CreateTileFlyoutUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>,
-            CreateTileFlyoutUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>,
-            GetTemplateContent::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITileFlyoutUpdateManagerStatics, BASE_OFFSET>(),
+            CreateTileFlyoutUpdaterForApplication: CreateTileFlyoutUpdaterForApplication::<Impl, IMPL_OFFSET>,
+            CreateTileFlyoutUpdaterForApplicationWithId: CreateTileFlyoutUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>,
+            CreateTileFlyoutUpdaterForSecondaryTile: CreateTileFlyoutUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>,
+            GetTemplateContent: GetTemplateContent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITileFlyoutUpdateManagerStatics as ::windows::core::Interface>::IID
@@ -1722,20 +1812,15 @@ impl ITileFlyoutUpdaterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITileFlyoutUpdater>,
-            ::windows::core::GetTrustLevel,
-            Update::<Impl, IMPL_OFFSET>,
-            Clear::<Impl, IMPL_OFFSET>,
-            StartPeriodicUpdate::<Impl, IMPL_OFFSET>,
-            StartPeriodicUpdateAtTime::<Impl, IMPL_OFFSET>,
-            StopPeriodicUpdate::<Impl, IMPL_OFFSET>,
-            Setting::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITileFlyoutUpdater, BASE_OFFSET>(),
+            Update: Update::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdate: StartPeriodicUpdate::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdateAtTime: StartPeriodicUpdateAtTime::<Impl, IMPL_OFFSET>,
+            StopPeriodicUpdate: StopPeriodicUpdate::<Impl, IMPL_OFFSET>,
+            Setting: Setting::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITileFlyoutUpdater as ::windows::core::Interface>::IID
@@ -1797,7 +1882,14 @@ impl ITileNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileNotification>, ::windows::core::GetTrustLevel, Content::<Impl, IMPL_OFFSET>, SetExpirationTime::<Impl, IMPL_OFFSET>, ExpirationTime::<Impl, IMPL_OFFSET>, SetTag::<Impl, IMPL_OFFSET>, Tag::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITileNotification, BASE_OFFSET>(),
+            Content: Content::<Impl, IMPL_OFFSET>,
+            SetExpirationTime: SetExpirationTime::<Impl, IMPL_OFFSET>,
+            ExpirationTime: ExpirationTime::<Impl, IMPL_OFFSET>,
+            SetTag: SetTag::<Impl, IMPL_OFFSET>,
+            Tag: Tag::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITileNotification as ::windows::core::Interface>::IID
@@ -1825,7 +1917,10 @@ impl ITileNotificationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileNotificationFactory>, ::windows::core::GetTrustLevel, CreateTileNotification::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITileNotificationFactory, BASE_OFFSET>(),
+            CreateTileNotification: CreateTileNotification::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITileNotificationFactory as ::windows::core::Interface>::IID
@@ -1889,7 +1984,13 @@ impl ITileUpdateManagerForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileUpdateManagerForUser>, ::windows::core::GetTrustLevel, CreateTileUpdaterForApplication::<Impl, IMPL_OFFSET>, CreateTileUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>, CreateTileUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITileUpdateManagerForUser, BASE_OFFSET>(),
+            CreateTileUpdaterForApplication: CreateTileUpdaterForApplication::<Impl, IMPL_OFFSET>,
+            CreateTileUpdaterForApplicationWithId: CreateTileUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>,
+            CreateTileUpdaterForSecondaryTile: CreateTileUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITileUpdateManagerForUser as ::windows::core::Interface>::IID
@@ -1953,18 +2054,13 @@ impl ITileUpdateManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITileUpdateManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            CreateTileUpdaterForApplication::<Impl, IMPL_OFFSET>,
-            CreateTileUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>,
-            CreateTileUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>,
-            GetTemplateContent::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITileUpdateManagerStatics, BASE_OFFSET>(),
+            CreateTileUpdaterForApplication: CreateTileUpdaterForApplication::<Impl, IMPL_OFFSET>,
+            CreateTileUpdaterForApplicationWithId: CreateTileUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>,
+            CreateTileUpdaterForSecondaryTile: CreateTileUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>,
+            GetTemplateContent: GetTemplateContent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITileUpdateManagerStatics as ::windows::core::Interface>::IID
@@ -1992,7 +2088,7 @@ impl ITileUpdateManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileUpdateManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITileUpdateManagerStatics2, BASE_OFFSET>(), GetForUser: GetForUser::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITileUpdateManagerStatics2 as ::windows::core::Interface>::IID
@@ -2084,26 +2180,21 @@ impl ITileUpdaterVtbl {
                 .StartPeriodicUpdateBatchAtTime(&*(&tilecontents as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType), &*(&starttime as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType), requestedinterval)
                 .into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITileUpdater>,
-            ::windows::core::GetTrustLevel,
-            Update::<Impl, IMPL_OFFSET>,
-            Clear::<Impl, IMPL_OFFSET>,
-            EnableNotificationQueue::<Impl, IMPL_OFFSET>,
-            Setting::<Impl, IMPL_OFFSET>,
-            AddToSchedule::<Impl, IMPL_OFFSET>,
-            RemoveFromSchedule::<Impl, IMPL_OFFSET>,
-            GetScheduledTileNotifications::<Impl, IMPL_OFFSET>,
-            StartPeriodicUpdate::<Impl, IMPL_OFFSET>,
-            StartPeriodicUpdateAtTime::<Impl, IMPL_OFFSET>,
-            StopPeriodicUpdate::<Impl, IMPL_OFFSET>,
-            StartPeriodicUpdateBatch::<Impl, IMPL_OFFSET>,
-            StartPeriodicUpdateBatchAtTime::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITileUpdater, BASE_OFFSET>(),
+            Update: Update::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+            EnableNotificationQueue: EnableNotificationQueue::<Impl, IMPL_OFFSET>,
+            Setting: Setting::<Impl, IMPL_OFFSET>,
+            AddToSchedule: AddToSchedule::<Impl, IMPL_OFFSET>,
+            RemoveFromSchedule: RemoveFromSchedule::<Impl, IMPL_OFFSET>,
+            GetScheduledTileNotifications: GetScheduledTileNotifications::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdate: StartPeriodicUpdate::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdateAtTime: StartPeriodicUpdateAtTime::<Impl, IMPL_OFFSET>,
+            StopPeriodicUpdate: StopPeriodicUpdate::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdateBatch: StartPeriodicUpdateBatch::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdateBatchAtTime: StartPeriodicUpdateBatchAtTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITileUpdater as ::windows::core::Interface>::IID
@@ -2134,7 +2225,12 @@ impl ITileUpdater2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableNotificationQueueForSquare310x310(enable).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileUpdater2>, ::windows::core::GetTrustLevel, EnableNotificationQueueForSquare150x150::<Impl, IMPL_OFFSET>, EnableNotificationQueueForWide310x150::<Impl, IMPL_OFFSET>, EnableNotificationQueueForSquare310x310::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITileUpdater2, BASE_OFFSET>(),
+            EnableNotificationQueueForSquare150x150: EnableNotificationQueueForSquare150x150::<Impl, IMPL_OFFSET>,
+            EnableNotificationQueueForWide310x150: EnableNotificationQueueForWide310x150::<Impl, IMPL_OFFSET>,
+            EnableNotificationQueueForSquare310x310: EnableNotificationQueueForSquare310x310::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITileUpdater2 as ::windows::core::Interface>::IID
@@ -2162,7 +2258,7 @@ impl IToastActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastActivatedEventArgs>, ::windows::core::GetTrustLevel, Arguments::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IToastActivatedEventArgs, BASE_OFFSET>(), Arguments: Arguments::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastActivatedEventArgs as ::windows::core::Interface>::IID
@@ -2190,7 +2286,7 @@ impl IToastActivatedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastActivatedEventArgs2>, ::windows::core::GetTrustLevel, UserInput::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IToastActivatedEventArgs2, BASE_OFFSET>(), UserInput: UserInput::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastActivatedEventArgs2 as ::windows::core::Interface>::IID
@@ -2269,21 +2365,16 @@ impl IToastCollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIcon(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IToastCollection>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            SetDisplayName::<Impl, IMPL_OFFSET>,
-            LaunchArgs::<Impl, IMPL_OFFSET>,
-            SetLaunchArgs::<Impl, IMPL_OFFSET>,
-            Icon::<Impl, IMPL_OFFSET>,
-            SetIcon::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastCollection, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            LaunchArgs: LaunchArgs::<Impl, IMPL_OFFSET>,
+            SetLaunchArgs: SetLaunchArgs::<Impl, IMPL_OFFSET>,
+            Icon: Icon::<Impl, IMPL_OFFSET>,
+            SetIcon: SetIcon::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastCollection as ::windows::core::Interface>::IID
@@ -2316,7 +2407,10 @@ impl IToastCollectionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastCollectionFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastCollectionFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastCollectionFactory as ::windows::core::Interface>::IID
@@ -2416,21 +2510,16 @@ impl IToastCollectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IToastCollectionManager>,
-            ::windows::core::GetTrustLevel,
-            SaveToastCollectionAsync::<Impl, IMPL_OFFSET>,
-            FindAllToastCollectionsAsync::<Impl, IMPL_OFFSET>,
-            GetToastCollectionAsync::<Impl, IMPL_OFFSET>,
-            RemoveToastCollectionAsync::<Impl, IMPL_OFFSET>,
-            RemoveAllToastCollectionsAsync::<Impl, IMPL_OFFSET>,
-            User::<Impl, IMPL_OFFSET>,
-            AppId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastCollectionManager, BASE_OFFSET>(),
+            SaveToastCollectionAsync: SaveToastCollectionAsync::<Impl, IMPL_OFFSET>,
+            FindAllToastCollectionsAsync: FindAllToastCollectionsAsync::<Impl, IMPL_OFFSET>,
+            GetToastCollectionAsync: GetToastCollectionAsync::<Impl, IMPL_OFFSET>,
+            RemoveToastCollectionAsync: RemoveToastCollectionAsync::<Impl, IMPL_OFFSET>,
+            RemoveAllToastCollectionsAsync: RemoveAllToastCollectionsAsync::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+            AppId: AppId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastCollectionManager as ::windows::core::Interface>::IID
@@ -2458,7 +2547,7 @@ impl IToastDismissedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastDismissedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IToastDismissedEventArgs, BASE_OFFSET>(), Reason: Reason::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastDismissedEventArgs as ::windows::core::Interface>::IID
@@ -2486,7 +2575,7 @@ impl IToastFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastFailedEventArgs>, ::windows::core::GetTrustLevel, ErrorCode::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IToastFailedEventArgs, BASE_OFFSET>(), ErrorCode: ErrorCode::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastFailedEventArgs as ::windows::core::Interface>::IID
@@ -2582,23 +2671,18 @@ impl IToastNotificationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFailed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IToastNotification>,
-            ::windows::core::GetTrustLevel,
-            Content::<Impl, IMPL_OFFSET>,
-            SetExpirationTime::<Impl, IMPL_OFFSET>,
-            ExpirationTime::<Impl, IMPL_OFFSET>,
-            Dismissed::<Impl, IMPL_OFFSET>,
-            RemoveDismissed::<Impl, IMPL_OFFSET>,
-            Activated::<Impl, IMPL_OFFSET>,
-            RemoveActivated::<Impl, IMPL_OFFSET>,
-            Failed::<Impl, IMPL_OFFSET>,
-            RemoveFailed::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotification, BASE_OFFSET>(),
+            Content: Content::<Impl, IMPL_OFFSET>,
+            SetExpirationTime: SetExpirationTime::<Impl, IMPL_OFFSET>,
+            ExpirationTime: ExpirationTime::<Impl, IMPL_OFFSET>,
+            Dismissed: Dismissed::<Impl, IMPL_OFFSET>,
+            RemoveDismissed: RemoveDismissed::<Impl, IMPL_OFFSET>,
+            Activated: Activated::<Impl, IMPL_OFFSET>,
+            RemoveActivated: RemoveActivated::<Impl, IMPL_OFFSET>,
+            Failed: Failed::<Impl, IMPL_OFFSET>,
+            RemoveFailed: RemoveFailed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotification as ::windows::core::Interface>::IID
@@ -2665,7 +2749,15 @@ impl IToastNotification2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotification2>, ::windows::core::GetTrustLevel, SetTag::<Impl, IMPL_OFFSET>, Tag::<Impl, IMPL_OFFSET>, SetGroup::<Impl, IMPL_OFFSET>, Group::<Impl, IMPL_OFFSET>, SetSuppressPopup::<Impl, IMPL_OFFSET>, SuppressPopup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotification2, BASE_OFFSET>(),
+            SetTag: SetTag::<Impl, IMPL_OFFSET>,
+            Tag: Tag::<Impl, IMPL_OFFSET>,
+            SetGroup: SetGroup::<Impl, IMPL_OFFSET>,
+            Group: Group::<Impl, IMPL_OFFSET>,
+            SetSuppressPopup: SetSuppressPopup::<Impl, IMPL_OFFSET>,
+            SuppressPopup: SuppressPopup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotification2 as ::windows::core::Interface>::IID
@@ -2715,7 +2807,13 @@ impl IToastNotification3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRemoteId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotification3>, ::windows::core::GetTrustLevel, NotificationMirroring::<Impl, IMPL_OFFSET>, SetNotificationMirroring::<Impl, IMPL_OFFSET>, RemoteId::<Impl, IMPL_OFFSET>, SetRemoteId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotification3, BASE_OFFSET>(),
+            NotificationMirroring: NotificationMirroring::<Impl, IMPL_OFFSET>,
+            SetNotificationMirroring: SetNotificationMirroring::<Impl, IMPL_OFFSET>,
+            RemoteId: RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId: SetRemoteId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotification3 as ::windows::core::Interface>::IID
@@ -2765,7 +2863,13 @@ impl IToastNotification4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPriority(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotification4>, ::windows::core::GetTrustLevel, Data::<Impl, IMPL_OFFSET>, SetData::<Impl, IMPL_OFFSET>, Priority::<Impl, IMPL_OFFSET>, SetPriority::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotification4, BASE_OFFSET>(),
+            Data: Data::<Impl, IMPL_OFFSET>,
+            SetData: SetData::<Impl, IMPL_OFFSET>,
+            Priority: Priority::<Impl, IMPL_OFFSET>,
+            SetPriority: SetPriority::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotification4 as ::windows::core::Interface>::IID
@@ -2798,7 +2902,11 @@ impl IToastNotification6Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExpiresOnReboot(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotification6>, ::windows::core::GetTrustLevel, ExpiresOnReboot::<Impl, IMPL_OFFSET>, SetExpiresOnReboot::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotification6, BASE_OFFSET>(),
+            ExpiresOnReboot: ExpiresOnReboot::<Impl, IMPL_OFFSET>,
+            SetExpiresOnReboot: SetExpiresOnReboot::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotification6 as ::windows::core::Interface>::IID
@@ -2838,7 +2946,11 @@ impl IToastNotificationActionTriggerDetailVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationActionTriggerDetail>, ::windows::core::GetTrustLevel, Argument::<Impl, IMPL_OFFSET>, UserInput::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationActionTriggerDetail, BASE_OFFSET>(),
+            Argument: Argument::<Impl, IMPL_OFFSET>,
+            UserInput: UserInput::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationActionTriggerDetail as ::windows::core::Interface>::IID
@@ -2866,7 +2978,10 @@ impl IToastNotificationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationFactory>, ::windows::core::GetTrustLevel, CreateToastNotification::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationFactory, BASE_OFFSET>(),
+            CreateToastNotification: CreateToastNotification::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationFactory as ::windows::core::Interface>::IID
@@ -2923,21 +3038,16 @@ impl IToastNotificationHistoryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearWithId(&*(&applicationid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IToastNotificationHistory>,
-            ::windows::core::GetTrustLevel,
-            RemoveGroup::<Impl, IMPL_OFFSET>,
-            RemoveGroupWithId::<Impl, IMPL_OFFSET>,
-            RemoveGroupedTagWithId::<Impl, IMPL_OFFSET>,
-            RemoveGroupedTag::<Impl, IMPL_OFFSET>,
-            Remove::<Impl, IMPL_OFFSET>,
-            Clear::<Impl, IMPL_OFFSET>,
-            ClearWithId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationHistory, BASE_OFFSET>(),
+            RemoveGroup: RemoveGroup::<Impl, IMPL_OFFSET>,
+            RemoveGroupWithId: RemoveGroupWithId::<Impl, IMPL_OFFSET>,
+            RemoveGroupedTagWithId: RemoveGroupedTagWithId::<Impl, IMPL_OFFSET>,
+            RemoveGroupedTag: RemoveGroupedTag::<Impl, IMPL_OFFSET>,
+            Remove: Remove::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+            ClearWithId: ClearWithId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationHistory as ::windows::core::Interface>::IID
@@ -2977,7 +3087,11 @@ impl IToastNotificationHistory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationHistory2>, ::windows::core::GetTrustLevel, GetHistory::<Impl, IMPL_OFFSET>, GetHistoryWithId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationHistory2, BASE_OFFSET>(),
+            GetHistory: GetHistory::<Impl, IMPL_OFFSET>,
+            GetHistoryWithId: GetHistoryWithId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationHistory2 as ::windows::core::Interface>::IID
@@ -3005,7 +3119,10 @@ impl IToastNotificationHistoryChangedTriggerDetailVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationHistoryChangedTriggerDetail>, ::windows::core::GetTrustLevel, ChangeType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationHistoryChangedTriggerDetail, BASE_OFFSET>(),
+            ChangeType: ChangeType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationHistoryChangedTriggerDetail as ::windows::core::Interface>::IID
@@ -3033,7 +3150,10 @@ impl IToastNotificationHistoryChangedTriggerDetail2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationHistoryChangedTriggerDetail2>, ::windows::core::GetTrustLevel, CollectionId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationHistoryChangedTriggerDetail2, BASE_OFFSET>(),
+            CollectionId: CollectionId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationHistoryChangedTriggerDetail2 as ::windows::core::Interface>::IID
@@ -3097,7 +3217,13 @@ impl IToastNotificationManagerForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerForUser>, ::windows::core::GetTrustLevel, CreateToastNotifier::<Impl, IMPL_OFFSET>, CreateToastNotifierWithId::<Impl, IMPL_OFFSET>, History::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationManagerForUser, BASE_OFFSET>(),
+            CreateToastNotifier: CreateToastNotifier::<Impl, IMPL_OFFSET>,
+            CreateToastNotifierWithId: CreateToastNotifierWithId::<Impl, IMPL_OFFSET>,
+            History: History::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationManagerForUser as ::windows::core::Interface>::IID
@@ -3161,18 +3287,13 @@ impl IToastNotificationManagerForUser2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IToastNotificationManagerForUser2>,
-            ::windows::core::GetTrustLevel,
-            GetToastNotifierForToastCollectionIdAsync::<Impl, IMPL_OFFSET>,
-            GetHistoryForToastCollectionIdAsync::<Impl, IMPL_OFFSET>,
-            GetToastCollectionManager::<Impl, IMPL_OFFSET>,
-            GetToastCollectionManagerWithAppId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationManagerForUser2, BASE_OFFSET>(),
+            GetToastNotifierForToastCollectionIdAsync: GetToastNotifierForToastCollectionIdAsync::<Impl, IMPL_OFFSET>,
+            GetHistoryForToastCollectionIdAsync: GetHistoryForToastCollectionIdAsync::<Impl, IMPL_OFFSET>,
+            GetToastCollectionManager: GetToastCollectionManager::<Impl, IMPL_OFFSET>,
+            GetToastCollectionManagerWithAppId: GetToastCollectionManagerWithAppId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationManagerForUser2 as ::windows::core::Interface>::IID
@@ -3224,7 +3345,12 @@ impl IToastNotificationManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics>, ::windows::core::GetTrustLevel, CreateToastNotifier::<Impl, IMPL_OFFSET>, CreateToastNotifierWithId::<Impl, IMPL_OFFSET>, GetTemplateContent::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationManagerStatics, BASE_OFFSET>(),
+            CreateToastNotifier: CreateToastNotifier::<Impl, IMPL_OFFSET>,
+            CreateToastNotifierWithId: CreateToastNotifierWithId::<Impl, IMPL_OFFSET>,
+            GetTemplateContent: GetTemplateContent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationManagerStatics as ::windows::core::Interface>::IID
@@ -3252,7 +3378,10 @@ impl IToastNotificationManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics2>, ::windows::core::GetTrustLevel, History::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationManagerStatics2, BASE_OFFSET>(),
+            History: History::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationManagerStatics2 as ::windows::core::Interface>::IID
@@ -3285,7 +3414,11 @@ impl IToastNotificationManagerStatics4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureNotificationMirroring(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics4>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>, ConfigureNotificationMirroring::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationManagerStatics4, BASE_OFFSET>(),
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+            ConfigureNotificationMirroring: ConfigureNotificationMirroring::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationManagerStatics4 as ::windows::core::Interface>::IID
@@ -3313,7 +3446,10 @@ impl IToastNotificationManagerStatics5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics5>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationManagerStatics5, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationManagerStatics5 as ::windows::core::Interface>::IID
@@ -3373,20 +3509,15 @@ impl IToastNotifierVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IToastNotifier>,
-            ::windows::core::GetTrustLevel,
-            Show::<Impl, IMPL_OFFSET>,
-            Hide::<Impl, IMPL_OFFSET>,
-            Setting::<Impl, IMPL_OFFSET>,
-            AddToSchedule::<Impl, IMPL_OFFSET>,
-            RemoveFromSchedule::<Impl, IMPL_OFFSET>,
-            GetScheduledToastNotifications::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotifier, BASE_OFFSET>(),
+            Show: Show::<Impl, IMPL_OFFSET>,
+            Hide: Hide::<Impl, IMPL_OFFSET>,
+            Setting: Setting::<Impl, IMPL_OFFSET>,
+            AddToSchedule: AddToSchedule::<Impl, IMPL_OFFSET>,
+            RemoveFromSchedule: RemoveFromSchedule::<Impl, IMPL_OFFSET>,
+            GetScheduledToastNotifications: GetScheduledToastNotifications::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotifier as ::windows::core::Interface>::IID
@@ -3426,7 +3557,11 @@ impl IToastNotifier2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotifier2>, ::windows::core::GetTrustLevel, UpdateWithTagAndGroup::<Impl, IMPL_OFFSET>, UpdateWithTag::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotifier2, BASE_OFFSET>(),
+            UpdateWithTagAndGroup: UpdateWithTagAndGroup::<Impl, IMPL_OFFSET>,
+            UpdateWithTag: UpdateWithTag::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotifier2 as ::windows::core::Interface>::IID
@@ -3459,7 +3594,11 @@ impl IToastNotifier3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveScheduledToastNotificationShowing(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotifier3>, ::windows::core::GetTrustLevel, ScheduledToastNotificationShowing::<Impl, IMPL_OFFSET>, RemoveScheduledToastNotificationShowing::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotifier3, BASE_OFFSET>(),
+            ScheduledToastNotificationShowing: ScheduledToastNotificationShowing::<Impl, IMPL_OFFSET>,
+            RemoveScheduledToastNotificationShowing: RemoveScheduledToastNotificationShowing::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotifier3 as ::windows::core::Interface>::IID
@@ -3523,7 +3662,13 @@ impl IUserNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserNotification>, ::windows::core::GetTrustLevel, Notification::<Impl, IMPL_OFFSET>, AppInfo::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, CreationTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserNotification, BASE_OFFSET>(),
+            Notification: Notification::<Impl, IMPL_OFFSET>,
+            AppInfo: AppInfo::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            CreationTime: CreationTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserNotification as ::windows::core::Interface>::IID
@@ -3563,7 +3708,11 @@ impl IUserNotificationChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserNotificationChangedEventArgs>, ::windows::core::GetTrustLevel, ChangeKind::<Impl, IMPL_OFFSET>, UserNotificationId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserNotificationChangedEventArgs, BASE_OFFSET>(),
+            ChangeKind: ChangeKind::<Impl, IMPL_OFFSET>,
+            UserNotificationId: UserNotificationId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserNotificationChangedEventArgs as ::windows::core::Interface>::IID

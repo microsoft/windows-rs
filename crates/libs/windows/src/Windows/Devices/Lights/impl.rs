@@ -100,24 +100,19 @@ impl ILampVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAvailabilityChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILamp>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            SetIsEnabled::<Impl, IMPL_OFFSET>,
-            BrightnessLevel::<Impl, IMPL_OFFSET>,
-            SetBrightnessLevel::<Impl, IMPL_OFFSET>,
-            IsColorSettable::<Impl, IMPL_OFFSET>,
-            Color::<Impl, IMPL_OFFSET>,
-            SetColor::<Impl, IMPL_OFFSET>,
-            AvailabilityChanged::<Impl, IMPL_OFFSET>,
-            RemoveAvailabilityChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILamp, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled: SetIsEnabled::<Impl, IMPL_OFFSET>,
+            BrightnessLevel: BrightnessLevel::<Impl, IMPL_OFFSET>,
+            SetBrightnessLevel: SetBrightnessLevel::<Impl, IMPL_OFFSET>,
+            IsColorSettable: IsColorSettable::<Impl, IMPL_OFFSET>,
+            Color: Color::<Impl, IMPL_OFFSET>,
+            SetColor: SetColor::<Impl, IMPL_OFFSET>,
+            AvailabilityChanged: AvailabilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailabilityChanged: RemoveAvailabilityChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILamp as ::windows::core::Interface>::IID
@@ -384,40 +379,35 @@ impl ILampArrayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILampArray>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            HardwareVendorId::<Impl, IMPL_OFFSET>,
-            HardwareProductId::<Impl, IMPL_OFFSET>,
-            HardwareVersion::<Impl, IMPL_OFFSET>,
-            LampArrayKind::<Impl, IMPL_OFFSET>,
-            LampCount::<Impl, IMPL_OFFSET>,
-            MinUpdateInterval::<Impl, IMPL_OFFSET>,
-            BoundingBox::<Impl, IMPL_OFFSET>,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            SetIsEnabled::<Impl, IMPL_OFFSET>,
-            BrightnessLevel::<Impl, IMPL_OFFSET>,
-            SetBrightnessLevel::<Impl, IMPL_OFFSET>,
-            IsConnected::<Impl, IMPL_OFFSET>,
-            SupportsVirtualKeys::<Impl, IMPL_OFFSET>,
-            GetLampInfo::<Impl, IMPL_OFFSET>,
-            GetIndicesForKey::<Impl, IMPL_OFFSET>,
-            GetIndicesForPurposes::<Impl, IMPL_OFFSET>,
-            SetColor::<Impl, IMPL_OFFSET>,
-            SetColorForIndex::<Impl, IMPL_OFFSET>,
-            SetSingleColorForIndices::<Impl, IMPL_OFFSET>,
-            SetColorsForIndices::<Impl, IMPL_OFFSET>,
-            SetColorsForKey::<Impl, IMPL_OFFSET>,
-            SetColorsForKeys::<Impl, IMPL_OFFSET>,
-            SetColorsForPurposes::<Impl, IMPL_OFFSET>,
-            SendMessageAsync::<Impl, IMPL_OFFSET>,
-            RequestMessageAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArray, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            HardwareVendorId: HardwareVendorId::<Impl, IMPL_OFFSET>,
+            HardwareProductId: HardwareProductId::<Impl, IMPL_OFFSET>,
+            HardwareVersion: HardwareVersion::<Impl, IMPL_OFFSET>,
+            LampArrayKind: LampArrayKind::<Impl, IMPL_OFFSET>,
+            LampCount: LampCount::<Impl, IMPL_OFFSET>,
+            MinUpdateInterval: MinUpdateInterval::<Impl, IMPL_OFFSET>,
+            BoundingBox: BoundingBox::<Impl, IMPL_OFFSET>,
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled: SetIsEnabled::<Impl, IMPL_OFFSET>,
+            BrightnessLevel: BrightnessLevel::<Impl, IMPL_OFFSET>,
+            SetBrightnessLevel: SetBrightnessLevel::<Impl, IMPL_OFFSET>,
+            IsConnected: IsConnected::<Impl, IMPL_OFFSET>,
+            SupportsVirtualKeys: SupportsVirtualKeys::<Impl, IMPL_OFFSET>,
+            GetLampInfo: GetLampInfo::<Impl, IMPL_OFFSET>,
+            GetIndicesForKey: GetIndicesForKey::<Impl, IMPL_OFFSET>,
+            GetIndicesForPurposes: GetIndicesForPurposes::<Impl, IMPL_OFFSET>,
+            SetColor: SetColor::<Impl, IMPL_OFFSET>,
+            SetColorForIndex: SetColorForIndex::<Impl, IMPL_OFFSET>,
+            SetSingleColorForIndices: SetSingleColorForIndices::<Impl, IMPL_OFFSET>,
+            SetColorsForIndices: SetColorsForIndices::<Impl, IMPL_OFFSET>,
+            SetColorsForKey: SetColorsForKey::<Impl, IMPL_OFFSET>,
+            SetColorsForKeys: SetColorsForKeys::<Impl, IMPL_OFFSET>,
+            SetColorsForPurposes: SetColorsForPurposes::<Impl, IMPL_OFFSET>,
+            SendMessageAsync: SendMessageAsync::<Impl, IMPL_OFFSET>,
+            RequestMessageAsync: RequestMessageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArray as ::windows::core::Interface>::IID
@@ -457,7 +447,11 @@ impl ILampArrayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayStatics as ::windows::core::Interface>::IID
@@ -485,7 +479,10 @@ impl ILampAvailabilityChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampAvailabilityChangedEventArgs>, ::windows::core::GetTrustLevel, IsAvailable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampAvailabilityChangedEventArgs, BASE_OFFSET>(),
+            IsAvailable: IsAvailable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampAvailabilityChangedEventArgs as ::windows::core::Interface>::IID
@@ -621,24 +618,19 @@ impl ILampInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILampInfo>,
-            ::windows::core::GetTrustLevel,
-            Index::<Impl, IMPL_OFFSET>,
-            Purposes::<Impl, IMPL_OFFSET>,
-            Position::<Impl, IMPL_OFFSET>,
-            RedLevelCount::<Impl, IMPL_OFFSET>,
-            GreenLevelCount::<Impl, IMPL_OFFSET>,
-            BlueLevelCount::<Impl, IMPL_OFFSET>,
-            GainLevelCount::<Impl, IMPL_OFFSET>,
-            FixedColor::<Impl, IMPL_OFFSET>,
-            GetNearestSupportedColor::<Impl, IMPL_OFFSET>,
-            UpdateLatency::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampInfo, BASE_OFFSET>(),
+            Index: Index::<Impl, IMPL_OFFSET>,
+            Purposes: Purposes::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            RedLevelCount: RedLevelCount::<Impl, IMPL_OFFSET>,
+            GreenLevelCount: GreenLevelCount::<Impl, IMPL_OFFSET>,
+            BlueLevelCount: BlueLevelCount::<Impl, IMPL_OFFSET>,
+            GainLevelCount: GainLevelCount::<Impl, IMPL_OFFSET>,
+            FixedColor: FixedColor::<Impl, IMPL_OFFSET>,
+            GetNearestSupportedColor: GetNearestSupportedColor::<Impl, IMPL_OFFSET>,
+            UpdateLatency: UpdateLatency::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampInfo as ::windows::core::Interface>::IID
@@ -690,7 +682,12 @@ impl ILampStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampStatics as ::windows::core::Interface>::IID

@@ -1346,7 +1346,7 @@ impl ICcgDomainAuthCredentials {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPasswordCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, plugininput: Param0, domainname: *mut super::super::super::Foundation::PWSTR, username: *mut super::super::super::Foundation::PWSTR, password: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), plugininput.into_param().abi(), ::core::mem::transmute(domainname), ::core::mem::transmute(username), ::core::mem::transmute(password)).ok()
+        (::windows::core::Interface::vtable(self).GetPasswordCredentials)(::core::mem::transmute_copy(self), plugininput.into_param().abi(), ::core::mem::transmute(domainname), ::core::mem::transmute(username), ::core::mem::transmute(password)).ok()
     }
 }
 impl ::core::convert::From<ICcgDomainAuthCredentials> for ::windows::core::IUnknown {
@@ -1391,13 +1391,13 @@ unsafe impl ::windows::core::Interface for ICcgDomainAuthCredentials {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICcgDomainAuthCredentialsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugininput: super::super::super::Foundation::PWSTR, domainname: *mut super::super::super::Foundation::PWSTR, username: *mut super::super::super::Foundation::PWSTR, password: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct ICcgDomainAuthCredentialsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetPasswordCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugininput: super::super::super::Foundation::PWSTR, domainname: *mut super::super::super::Foundation::PWSTR, username: *mut super::super::super::Foundation::PWSTR, password: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetPasswordCredentials: usize,
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Security_Credentials'*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type IMPERSONATE_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32>;

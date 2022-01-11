@@ -250,40 +250,35 @@ impl IAdaptiveMediaSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDownloadFailed(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSource>,
-            ::windows::core::GetTrustLevel,
-            IsLive::<Impl, IMPL_OFFSET>,
-            DesiredLiveOffset::<Impl, IMPL_OFFSET>,
-            SetDesiredLiveOffset::<Impl, IMPL_OFFSET>,
-            InitialBitrate::<Impl, IMPL_OFFSET>,
-            SetInitialBitrate::<Impl, IMPL_OFFSET>,
-            CurrentDownloadBitrate::<Impl, IMPL_OFFSET>,
-            CurrentPlaybackBitrate::<Impl, IMPL_OFFSET>,
-            AvailableBitrates::<Impl, IMPL_OFFSET>,
-            DesiredMinBitrate::<Impl, IMPL_OFFSET>,
-            SetDesiredMinBitrate::<Impl, IMPL_OFFSET>,
-            DesiredMaxBitrate::<Impl, IMPL_OFFSET>,
-            SetDesiredMaxBitrate::<Impl, IMPL_OFFSET>,
-            AudioOnlyPlayback::<Impl, IMPL_OFFSET>,
-            InboundBitsPerSecond::<Impl, IMPL_OFFSET>,
-            InboundBitsPerSecondWindow::<Impl, IMPL_OFFSET>,
-            SetInboundBitsPerSecondWindow::<Impl, IMPL_OFFSET>,
-            DownloadBitrateChanged::<Impl, IMPL_OFFSET>,
-            RemoveDownloadBitrateChanged::<Impl, IMPL_OFFSET>,
-            PlaybackBitrateChanged::<Impl, IMPL_OFFSET>,
-            RemovePlaybackBitrateChanged::<Impl, IMPL_OFFSET>,
-            DownloadRequested::<Impl, IMPL_OFFSET>,
-            RemoveDownloadRequested::<Impl, IMPL_OFFSET>,
-            DownloadCompleted::<Impl, IMPL_OFFSET>,
-            RemoveDownloadCompleted::<Impl, IMPL_OFFSET>,
-            DownloadFailed::<Impl, IMPL_OFFSET>,
-            RemoveDownloadFailed::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSource, BASE_OFFSET>(),
+            IsLive: IsLive::<Impl, IMPL_OFFSET>,
+            DesiredLiveOffset: DesiredLiveOffset::<Impl, IMPL_OFFSET>,
+            SetDesiredLiveOffset: SetDesiredLiveOffset::<Impl, IMPL_OFFSET>,
+            InitialBitrate: InitialBitrate::<Impl, IMPL_OFFSET>,
+            SetInitialBitrate: SetInitialBitrate::<Impl, IMPL_OFFSET>,
+            CurrentDownloadBitrate: CurrentDownloadBitrate::<Impl, IMPL_OFFSET>,
+            CurrentPlaybackBitrate: CurrentPlaybackBitrate::<Impl, IMPL_OFFSET>,
+            AvailableBitrates: AvailableBitrates::<Impl, IMPL_OFFSET>,
+            DesiredMinBitrate: DesiredMinBitrate::<Impl, IMPL_OFFSET>,
+            SetDesiredMinBitrate: SetDesiredMinBitrate::<Impl, IMPL_OFFSET>,
+            DesiredMaxBitrate: DesiredMaxBitrate::<Impl, IMPL_OFFSET>,
+            SetDesiredMaxBitrate: SetDesiredMaxBitrate::<Impl, IMPL_OFFSET>,
+            AudioOnlyPlayback: AudioOnlyPlayback::<Impl, IMPL_OFFSET>,
+            InboundBitsPerSecond: InboundBitsPerSecond::<Impl, IMPL_OFFSET>,
+            InboundBitsPerSecondWindow: InboundBitsPerSecondWindow::<Impl, IMPL_OFFSET>,
+            SetInboundBitsPerSecondWindow: SetInboundBitsPerSecondWindow::<Impl, IMPL_OFFSET>,
+            DownloadBitrateChanged: DownloadBitrateChanged::<Impl, IMPL_OFFSET>,
+            RemoveDownloadBitrateChanged: RemoveDownloadBitrateChanged::<Impl, IMPL_OFFSET>,
+            PlaybackBitrateChanged: PlaybackBitrateChanged::<Impl, IMPL_OFFSET>,
+            RemovePlaybackBitrateChanged: RemovePlaybackBitrateChanged::<Impl, IMPL_OFFSET>,
+            DownloadRequested: DownloadRequested::<Impl, IMPL_OFFSET>,
+            RemoveDownloadRequested: RemoveDownloadRequested::<Impl, IMPL_OFFSET>,
+            DownloadCompleted: DownloadCompleted::<Impl, IMPL_OFFSET>,
+            RemoveDownloadCompleted: RemoveDownloadCompleted::<Impl, IMPL_OFFSET>,
+            DownloadFailed: DownloadFailed::<Impl, IMPL_OFFSET>,
+            RemoveDownloadFailed: RemoveDownloadFailed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSource as ::windows::core::Interface>::IID
@@ -311,7 +306,10 @@ impl IAdaptiveMediaSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSource2>, ::windows::core::GetTrustLevel, AdvancedSettings::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSource2, BASE_OFFSET>(),
+            AdvancedSettings: AdvancedSettings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSource2 as ::windows::core::Interface>::IID
@@ -392,20 +390,15 @@ impl IAdaptiveMediaSource3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSource3>,
-            ::windows::core::GetTrustLevel,
-            MinLiveOffset::<Impl, IMPL_OFFSET>,
-            MaxSeekableWindowSize::<Impl, IMPL_OFFSET>,
-            DesiredSeekableWindowSize::<Impl, IMPL_OFFSET>,
-            SetDesiredSeekableWindowSize::<Impl, IMPL_OFFSET>,
-            Diagnostics::<Impl, IMPL_OFFSET>,
-            GetCorrelatedTimes::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSource3, BASE_OFFSET>(),
+            MinLiveOffset: MinLiveOffset::<Impl, IMPL_OFFSET>,
+            MaxSeekableWindowSize: MaxSeekableWindowSize::<Impl, IMPL_OFFSET>,
+            DesiredSeekableWindowSize: DesiredSeekableWindowSize::<Impl, IMPL_OFFSET>,
+            SetDesiredSeekableWindowSize: SetDesiredSeekableWindowSize::<Impl, IMPL_OFFSET>,
+            Diagnostics: Diagnostics::<Impl, IMPL_OFFSET>,
+            GetCorrelatedTimes: GetCorrelatedTimes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSource3 as ::windows::core::Interface>::IID
@@ -472,20 +465,15 @@ impl IAdaptiveMediaSourceAdvancedSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBitrateDowngradeTriggerRatio(&*(&value as *const <super::super::super::Foundation::IReference<f64> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<f64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceAdvancedSettings>,
-            ::windows::core::GetTrustLevel,
-            AllSegmentsIndependent::<Impl, IMPL_OFFSET>,
-            SetAllSegmentsIndependent::<Impl, IMPL_OFFSET>,
-            DesiredBitrateHeadroomRatio::<Impl, IMPL_OFFSET>,
-            SetDesiredBitrateHeadroomRatio::<Impl, IMPL_OFFSET>,
-            BitrateDowngradeTriggerRatio::<Impl, IMPL_OFFSET>,
-            SetBitrateDowngradeTriggerRatio::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceAdvancedSettings, BASE_OFFSET>(),
+            AllSegmentsIndependent: AllSegmentsIndependent::<Impl, IMPL_OFFSET>,
+            SetAllSegmentsIndependent: SetAllSegmentsIndependent::<Impl, IMPL_OFFSET>,
+            DesiredBitrateHeadroomRatio: DesiredBitrateHeadroomRatio::<Impl, IMPL_OFFSET>,
+            SetDesiredBitrateHeadroomRatio: SetDesiredBitrateHeadroomRatio::<Impl, IMPL_OFFSET>,
+            BitrateDowngradeTriggerRatio: BitrateDowngradeTriggerRatio::<Impl, IMPL_OFFSET>,
+            SetBitrateDowngradeTriggerRatio: SetBitrateDowngradeTriggerRatio::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceAdvancedSettings as ::windows::core::Interface>::IID
@@ -537,7 +525,12 @@ impl IAdaptiveMediaSourceCorrelatedTimesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceCorrelatedTimes>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, PresentationTimeStamp::<Impl, IMPL_OFFSET>, ProgramDateTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceCorrelatedTimes, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            PresentationTimeStamp: PresentationTimeStamp::<Impl, IMPL_OFFSET>,
+            ProgramDateTime: ProgramDateTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceCorrelatedTimes as ::windows::core::Interface>::IID
@@ -589,7 +582,12 @@ impl IAdaptiveMediaSourceCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceCreationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, MediaSource::<Impl, IMPL_OFFSET>, HttpResponseMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceCreationResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            MediaSource: MediaSource::<Impl, IMPL_OFFSET>,
+            HttpResponseMessage: HttpResponseMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceCreationResult as ::windows::core::Interface>::IID
@@ -617,7 +615,10 @@ impl IAdaptiveMediaSourceCreationResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceCreationResult2>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceCreationResult2, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceCreationResult2 as ::windows::core::Interface>::IID
@@ -741,23 +742,18 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDiagnosticAvailableEventArgs>,
-            ::windows::core::GetTrustLevel,
-            DiagnosticType::<Impl, IMPL_OFFSET>,
-            RequestId::<Impl, IMPL_OFFSET>,
-            Position::<Impl, IMPL_OFFSET>,
-            SegmentId::<Impl, IMPL_OFFSET>,
-            ResourceType::<Impl, IMPL_OFFSET>,
-            ResourceUri::<Impl, IMPL_OFFSET>,
-            ResourceByteRangeOffset::<Impl, IMPL_OFFSET>,
-            ResourceByteRangeLength::<Impl, IMPL_OFFSET>,
-            Bitrate::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDiagnosticAvailableEventArgs, BASE_OFFSET>(),
+            DiagnosticType: DiagnosticType::<Impl, IMPL_OFFSET>,
+            RequestId: RequestId::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            SegmentId: SegmentId::<Impl, IMPL_OFFSET>,
+            ResourceType: ResourceType::<Impl, IMPL_OFFSET>,
+            ResourceUri: ResourceUri::<Impl, IMPL_OFFSET>,
+            ResourceByteRangeOffset: ResourceByteRangeOffset::<Impl, IMPL_OFFSET>,
+            ResourceByteRangeLength: ResourceByteRangeLength::<Impl, IMPL_OFFSET>,
+            Bitrate: Bitrate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDiagnosticAvailableEventArgs as ::windows::core::Interface>::IID
@@ -785,7 +781,10 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDiagnosticAvailableEventArgs2>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDiagnosticAvailableEventArgs2, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDiagnosticAvailableEventArgs2 as ::windows::core::Interface>::IID
@@ -825,7 +824,11 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgs3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDiagnosticAvailableEventArgs3>, ::windows::core::GetTrustLevel, ResourceDuration::<Impl, IMPL_OFFSET>, ResourceContentType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDiagnosticAvailableEventArgs3, BASE_OFFSET>(),
+            ResourceDuration: ResourceDuration::<Impl, IMPL_OFFSET>,
+            ResourceContentType: ResourceContentType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 as ::windows::core::Interface>::IID
@@ -858,7 +861,11 @@ impl IAdaptiveMediaSourceDiagnosticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDiagnosticAvailable(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDiagnostics>, ::windows::core::GetTrustLevel, DiagnosticAvailable::<Impl, IMPL_OFFSET>, RemoveDiagnosticAvailable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDiagnostics, BASE_OFFSET>(),
+            DiagnosticAvailable: DiagnosticAvailable::<Impl, IMPL_OFFSET>,
+            RemoveDiagnosticAvailable: RemoveDiagnosticAvailable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDiagnostics as ::windows::core::Interface>::IID
@@ -898,7 +905,11 @@ impl IAdaptiveMediaSourceDownloadBitrateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadBitrateChangedEventArgs>, ::windows::core::GetTrustLevel, OldValue::<Impl, IMPL_OFFSET>, NewValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadBitrateChangedEventArgs, BASE_OFFSET>(),
+            OldValue: OldValue::<Impl, IMPL_OFFSET>,
+            NewValue: NewValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadBitrateChangedEventArgs as ::windows::core::Interface>::IID
@@ -926,7 +937,10 @@ impl IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2, BASE_OFFSET>(),
+            Reason: Reason::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2 as ::windows::core::Interface>::IID
@@ -1002,19 +1016,14 @@ impl IAdaptiveMediaSourceDownloadCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadCompletedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            ResourceType::<Impl, IMPL_OFFSET>,
-            ResourceUri::<Impl, IMPL_OFFSET>,
-            ResourceByteRangeOffset::<Impl, IMPL_OFFSET>,
-            ResourceByteRangeLength::<Impl, IMPL_OFFSET>,
-            HttpResponseMessage::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadCompletedEventArgs, BASE_OFFSET>(),
+            ResourceType: ResourceType::<Impl, IMPL_OFFSET>,
+            ResourceUri: ResourceUri::<Impl, IMPL_OFFSET>,
+            ResourceByteRangeOffset: ResourceByteRangeOffset::<Impl, IMPL_OFFSET>,
+            ResourceByteRangeLength: ResourceByteRangeLength::<Impl, IMPL_OFFSET>,
+            HttpResponseMessage: HttpResponseMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadCompletedEventArgs as ::windows::core::Interface>::IID
@@ -1066,7 +1075,12 @@ impl IAdaptiveMediaSourceDownloadCompletedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadCompletedEventArgs2>, ::windows::core::GetTrustLevel, RequestId::<Impl, IMPL_OFFSET>, Statistics::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadCompletedEventArgs2, BASE_OFFSET>(),
+            RequestId: RequestId::<Impl, IMPL_OFFSET>,
+            Statistics: Statistics::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadCompletedEventArgs2 as ::windows::core::Interface>::IID
@@ -1106,7 +1120,11 @@ impl IAdaptiveMediaSourceDownloadCompletedEventArgs3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadCompletedEventArgs3>, ::windows::core::GetTrustLevel, ResourceDuration::<Impl, IMPL_OFFSET>, ResourceContentType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadCompletedEventArgs3, BASE_OFFSET>(),
+            ResourceDuration: ResourceDuration::<Impl, IMPL_OFFSET>,
+            ResourceContentType: ResourceContentType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadCompletedEventArgs3 as ::windows::core::Interface>::IID
@@ -1182,19 +1200,14 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadFailedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            ResourceType::<Impl, IMPL_OFFSET>,
-            ResourceUri::<Impl, IMPL_OFFSET>,
-            ResourceByteRangeOffset::<Impl, IMPL_OFFSET>,
-            ResourceByteRangeLength::<Impl, IMPL_OFFSET>,
-            HttpResponseMessage::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadFailedEventArgs, BASE_OFFSET>(),
+            ResourceType: ResourceType::<Impl, IMPL_OFFSET>,
+            ResourceUri: ResourceUri::<Impl, IMPL_OFFSET>,
+            ResourceByteRangeOffset: ResourceByteRangeOffset::<Impl, IMPL_OFFSET>,
+            ResourceByteRangeLength: ResourceByteRangeLength::<Impl, IMPL_OFFSET>,
+            HttpResponseMessage: HttpResponseMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadFailedEventArgs as ::windows::core::Interface>::IID
@@ -1258,7 +1271,13 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadFailedEventArgs2>, ::windows::core::GetTrustLevel, RequestId::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, Statistics::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadFailedEventArgs2, BASE_OFFSET>(),
+            RequestId: RequestId::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            Statistics: Statistics::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadFailedEventArgs2 as ::windows::core::Interface>::IID
@@ -1298,7 +1317,11 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgs3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadFailedEventArgs3>, ::windows::core::GetTrustLevel, ResourceDuration::<Impl, IMPL_OFFSET>, ResourceContentType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadFailedEventArgs3, BASE_OFFSET>(),
+            ResourceDuration: ResourceDuration::<Impl, IMPL_OFFSET>,
+            ResourceContentType: ResourceContentType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadFailedEventArgs3 as ::windows::core::Interface>::IID
@@ -1319,7 +1342,10 @@ impl IAdaptiveMediaSourceDownloadRequestedDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadRequestedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadRequestedDeferral, BASE_OFFSET>(),
+            Complete: Complete::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadRequestedDeferral as ::windows::core::Interface>::IID
@@ -1407,20 +1433,15 @@ impl IAdaptiveMediaSourceDownloadRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadRequestedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            ResourceType::<Impl, IMPL_OFFSET>,
-            ResourceUri::<Impl, IMPL_OFFSET>,
-            ResourceByteRangeOffset::<Impl, IMPL_OFFSET>,
-            ResourceByteRangeLength::<Impl, IMPL_OFFSET>,
-            Result::<Impl, IMPL_OFFSET>,
-            GetDeferral::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadRequestedEventArgs, BASE_OFFSET>(),
+            ResourceType: ResourceType::<Impl, IMPL_OFFSET>,
+            ResourceUri: ResourceUri::<Impl, IMPL_OFFSET>,
+            ResourceByteRangeOffset: ResourceByteRangeOffset::<Impl, IMPL_OFFSET>,
+            ResourceByteRangeLength: ResourceByteRangeLength::<Impl, IMPL_OFFSET>,
+            Result: Result::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadRequestedEventArgs as ::windows::core::Interface>::IID
@@ -1460,7 +1481,11 @@ impl IAdaptiveMediaSourceDownloadRequestedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadRequestedEventArgs2>, ::windows::core::GetTrustLevel, RequestId::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadRequestedEventArgs2, BASE_OFFSET>(),
+            RequestId: RequestId::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadRequestedEventArgs2 as ::windows::core::Interface>::IID
@@ -1500,7 +1525,11 @@ impl IAdaptiveMediaSourceDownloadRequestedEventArgs3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadRequestedEventArgs3>, ::windows::core::GetTrustLevel, ResourceDuration::<Impl, IMPL_OFFSET>, ResourceContentType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadRequestedEventArgs3, BASE_OFFSET>(),
+            ResourceDuration: ResourceDuration::<Impl, IMPL_OFFSET>,
+            ResourceContentType: ResourceContentType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadRequestedEventArgs3 as ::windows::core::Interface>::IID
@@ -1601,24 +1630,19 @@ impl IAdaptiveMediaSourceDownloadResultVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExtendedStatus(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadResult>,
-            ::windows::core::GetTrustLevel,
-            ResourceUri::<Impl, IMPL_OFFSET>,
-            SetResourceUri::<Impl, IMPL_OFFSET>,
-            InputStream::<Impl, IMPL_OFFSET>,
-            SetInputStream::<Impl, IMPL_OFFSET>,
-            Buffer::<Impl, IMPL_OFFSET>,
-            SetBuffer::<Impl, IMPL_OFFSET>,
-            ContentType::<Impl, IMPL_OFFSET>,
-            SetContentType::<Impl, IMPL_OFFSET>,
-            ExtendedStatus::<Impl, IMPL_OFFSET>,
-            SetExtendedStatus::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadResult, BASE_OFFSET>(),
+            ResourceUri: ResourceUri::<Impl, IMPL_OFFSET>,
+            SetResourceUri: SetResourceUri::<Impl, IMPL_OFFSET>,
+            InputStream: InputStream::<Impl, IMPL_OFFSET>,
+            SetInputStream: SetInputStream::<Impl, IMPL_OFFSET>,
+            Buffer: Buffer::<Impl, IMPL_OFFSET>,
+            SetBuffer: SetBuffer::<Impl, IMPL_OFFSET>,
+            ContentType: ContentType::<Impl, IMPL_OFFSET>,
+            SetContentType: SetContentType::<Impl, IMPL_OFFSET>,
+            ExtendedStatus: ExtendedStatus::<Impl, IMPL_OFFSET>,
+            SetExtendedStatus: SetExtendedStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadResult as ::windows::core::Interface>::IID
@@ -1668,18 +1692,13 @@ impl IAdaptiveMediaSourceDownloadResult2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResourceByteRangeLength(&*(&value as *const <super::super::super::Foundation::IReference<u64> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadResult2>,
-            ::windows::core::GetTrustLevel,
-            ResourceByteRangeOffset::<Impl, IMPL_OFFSET>,
-            SetResourceByteRangeOffset::<Impl, IMPL_OFFSET>,
-            ResourceByteRangeLength::<Impl, IMPL_OFFSET>,
-            SetResourceByteRangeLength::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadResult2, BASE_OFFSET>(),
+            ResourceByteRangeOffset: ResourceByteRangeOffset::<Impl, IMPL_OFFSET>,
+            SetResourceByteRangeOffset: SetResourceByteRangeOffset::<Impl, IMPL_OFFSET>,
+            ResourceByteRangeLength: ResourceByteRangeLength::<Impl, IMPL_OFFSET>,
+            SetResourceByteRangeLength: SetResourceByteRangeLength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadResult2 as ::windows::core::Interface>::IID
@@ -1743,7 +1762,13 @@ impl IAdaptiveMediaSourceDownloadStatisticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceDownloadStatistics>, ::windows::core::GetTrustLevel, ContentBytesReceivedCount::<Impl, IMPL_OFFSET>, TimeToHeadersReceived::<Impl, IMPL_OFFSET>, TimeToFirstByteReceived::<Impl, IMPL_OFFSET>, TimeToLastByteReceived::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceDownloadStatistics, BASE_OFFSET>(),
+            ContentBytesReceivedCount: ContentBytesReceivedCount::<Impl, IMPL_OFFSET>,
+            TimeToHeadersReceived: TimeToHeadersReceived::<Impl, IMPL_OFFSET>,
+            TimeToFirstByteReceived: TimeToFirstByteReceived::<Impl, IMPL_OFFSET>,
+            TimeToLastByteReceived: TimeToLastByteReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceDownloadStatistics as ::windows::core::Interface>::IID
@@ -1795,7 +1820,12 @@ impl IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs>, ::windows::core::GetTrustLevel, OldValue::<Impl, IMPL_OFFSET>, NewValue::<Impl, IMPL_OFFSET>, AudioOnly::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs, BASE_OFFSET>(),
+            OldValue: OldValue::<Impl, IMPL_OFFSET>,
+            NewValue: NewValue::<Impl, IMPL_OFFSET>,
+            AudioOnly: AudioOnly::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs as ::windows::core::Interface>::IID
@@ -1880,19 +1910,14 @@ impl IAdaptiveMediaSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAdaptiveMediaSourceStatics>,
-            ::windows::core::GetTrustLevel,
-            IsContentTypeSupported::<Impl, IMPL_OFFSET>,
-            CreateFromUriAsync::<Impl, IMPL_OFFSET>,
-            CreateFromUriWithDownloaderAsync::<Impl, IMPL_OFFSET>,
-            CreateFromStreamAsync::<Impl, IMPL_OFFSET>,
-            CreateFromStreamWithDownloaderAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveMediaSourceStatics, BASE_OFFSET>(),
+            IsContentTypeSupported: IsContentTypeSupported::<Impl, IMPL_OFFSET>,
+            CreateFromUriAsync: CreateFromUriAsync::<Impl, IMPL_OFFSET>,
+            CreateFromUriWithDownloaderAsync: CreateFromUriWithDownloaderAsync::<Impl, IMPL_OFFSET>,
+            CreateFromStreamAsync: CreateFromStreamAsync::<Impl, IMPL_OFFSET>,
+            CreateFromStreamWithDownloaderAsync: CreateFromStreamWithDownloaderAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveMediaSourceStatics as ::windows::core::Interface>::IID

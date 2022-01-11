@@ -19,7 +19,12 @@ impl IContactVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetContactID::<Impl, IMPL_OFFSET>, GetPath::<Impl, IMPL_OFFSET>, CommitChanges::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetContactID: GetContactID::<Impl, IMPL_OFFSET>,
+            GetPath: GetPath::<Impl, IMPL_OFFSET>,
+            CommitChanges: CommitChanges::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContact as ::windows::core::Interface>::IID
@@ -76,7 +81,18 @@ impl IContactAggregationAggregateVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Save::<Impl, IMPL_OFFSET>, GetComponentItems::<Impl, IMPL_OFFSET>, Link::<Impl, IMPL_OFFSET>, Groups::<Impl, IMPL_OFFSET>, AntiLink::<Impl, IMPL_OFFSET>, SetAntiLink::<Impl, IMPL_OFFSET>, FavoriteOrder::<Impl, IMPL_OFFSET>, SetFavoriteOrder::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Save: Save::<Impl, IMPL_OFFSET>,
+            GetComponentItems: GetComponentItems::<Impl, IMPL_OFFSET>,
+            Link: Link::<Impl, IMPL_OFFSET>,
+            Groups: Groups::<Impl, IMPL_OFFSET>,
+            AntiLink: AntiLink::<Impl, IMPL_OFFSET>,
+            SetAntiLink: SetAntiLink::<Impl, IMPL_OFFSET>,
+            FavoriteOrder: FavoriteOrder::<Impl, IMPL_OFFSET>,
+            SetFavoriteOrder: SetFavoriteOrder::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactAggregationAggregate as ::windows::core::Interface>::IID
@@ -108,7 +124,13 @@ impl IContactAggregationAggregateCollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, FindFirst::<Impl, IMPL_OFFSET>, FindFirstByAntiLinkId::<Impl, IMPL_OFFSET>, FindNext::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            FindFirst: FindFirst::<Impl, IMPL_OFFSET>,
+            FindFirstByAntiLinkId: FindFirstByAntiLinkId::<Impl, IMPL_OFFSET>,
+            FindNext: FindNext::<Impl, IMPL_OFFSET>,
+            Count: Count::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactAggregationAggregateCollection as ::windows::core::Interface>::IID
@@ -210,29 +232,27 @@ impl IContactAggregationContactVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Delete::<Impl, IMPL_OFFSET>,
-            Save::<Impl, IMPL_OFFSET>,
-            MoveToAggregate::<Impl, IMPL_OFFSET>,
-            Unlink::<Impl, IMPL_OFFSET>,
-            AccountId::<Impl, IMPL_OFFSET>,
-            SetAccountId::<Impl, IMPL_OFFSET>,
-            AggregateId::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            IsMe::<Impl, IMPL_OFFSET>,
-            IsExternal::<Impl, IMPL_OFFSET>,
-            NetworkSourceId::<Impl, IMPL_OFFSET>,
-            SetNetworkSourceId::<Impl, IMPL_OFFSET>,
-            NetworkSourceIdString::<Impl, IMPL_OFFSET>,
-            SetNetworkSourceIdString::<Impl, IMPL_OFFSET>,
-            RemoteObjectId::<Impl, IMPL_OFFSET>,
-            SetRemoteObjectId::<Impl, IMPL_OFFSET>,
-            SyncIdentityHash::<Impl, IMPL_OFFSET>,
-            SetSyncIdentityHash::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Delete: Delete::<Impl, IMPL_OFFSET>,
+            Save: Save::<Impl, IMPL_OFFSET>,
+            MoveToAggregate: MoveToAggregate::<Impl, IMPL_OFFSET>,
+            Unlink: Unlink::<Impl, IMPL_OFFSET>,
+            AccountId: AccountId::<Impl, IMPL_OFFSET>,
+            SetAccountId: SetAccountId::<Impl, IMPL_OFFSET>,
+            AggregateId: AggregateId::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            IsMe: IsMe::<Impl, IMPL_OFFSET>,
+            IsExternal: IsExternal::<Impl, IMPL_OFFSET>,
+            NetworkSourceId: NetworkSourceId::<Impl, IMPL_OFFSET>,
+            SetNetworkSourceId: SetNetworkSourceId::<Impl, IMPL_OFFSET>,
+            NetworkSourceIdString: NetworkSourceIdString::<Impl, IMPL_OFFSET>,
+            SetNetworkSourceIdString: SetNetworkSourceIdString::<Impl, IMPL_OFFSET>,
+            RemoteObjectId: RemoteObjectId::<Impl, IMPL_OFFSET>,
+            SetRemoteObjectId: SetRemoteObjectId::<Impl, IMPL_OFFSET>,
+            SyncIdentityHash: SyncIdentityHash::<Impl, IMPL_OFFSET>,
+            SetSyncIdentityHash: SetSyncIdentityHash::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactAggregationContact as ::windows::core::Interface>::IID
@@ -269,7 +289,14 @@ impl IContactAggregationContactCollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, FindFirst::<Impl, IMPL_OFFSET>, FindNext::<Impl, IMPL_OFFSET>, FindFirstByIdentityHash::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>, FindFirstByRemoteId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            FindFirst: FindFirst::<Impl, IMPL_OFFSET>,
+            FindNext: FindNext::<Impl, IMPL_OFFSET>,
+            FindFirstByIdentityHash: FindFirstByIdentityHash::<Impl, IMPL_OFFSET>,
+            Count: Count::<Impl, IMPL_OFFSET>,
+            FindFirstByRemoteId: FindFirstByRemoteId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactAggregationContactCollection as ::windows::core::Interface>::IID
@@ -331,7 +358,19 @@ impl IContactAggregationGroupVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Delete::<Impl, IMPL_OFFSET>, Save::<Impl, IMPL_OFFSET>, Add::<Impl, IMPL_OFFSET>, Remove::<Impl, IMPL_OFFSET>, Members::<Impl, IMPL_OFFSET>, GlobalObjectId::<Impl, IMPL_OFFSET>, SetGlobalObjectId::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Delete: Delete::<Impl, IMPL_OFFSET>,
+            Save: Save::<Impl, IMPL_OFFSET>,
+            Add: Add::<Impl, IMPL_OFFSET>,
+            Remove: Remove::<Impl, IMPL_OFFSET>,
+            Members: Members::<Impl, IMPL_OFFSET>,
+            GlobalObjectId: GlobalObjectId::<Impl, IMPL_OFFSET>,
+            SetGlobalObjectId: SetGlobalObjectId::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactAggregationGroup as ::windows::core::Interface>::IID
@@ -361,7 +400,13 @@ impl IContactAggregationGroupCollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, FindFirst::<Impl, IMPL_OFFSET>, FindFirstByGlobalObjectId::<Impl, IMPL_OFFSET>, FindNext::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            FindFirst: FindFirst::<Impl, IMPL_OFFSET>,
+            FindFirstByGlobalObjectId: FindFirstByGlobalObjectId::<Impl, IMPL_OFFSET>,
+            FindNext: FindNext::<Impl, IMPL_OFFSET>,
+            Count: Count::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactAggregationGroupCollection as ::windows::core::Interface>::IID
@@ -458,28 +503,26 @@ impl IContactAggregationLinkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Delete::<Impl, IMPL_OFFSET>,
-            Save::<Impl, IMPL_OFFSET>,
-            AccountId::<Impl, IMPL_OFFSET>,
-            SetAccountId::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            IsLinkResolved::<Impl, IMPL_OFFSET>,
-            SetIsLinkResolved::<Impl, IMPL_OFFSET>,
-            NetworkSourceIdString::<Impl, IMPL_OFFSET>,
-            SetNetworkSourceIdString::<Impl, IMPL_OFFSET>,
-            RemoteObjectId::<Impl, IMPL_OFFSET>,
-            SetRemoteObjectId::<Impl, IMPL_OFFSET>,
-            ServerPerson::<Impl, IMPL_OFFSET>,
-            SetServerPerson::<Impl, IMPL_OFFSET>,
-            ServerPersonBaseline::<Impl, IMPL_OFFSET>,
-            SetServerPersonBaseline::<Impl, IMPL_OFFSET>,
-            SyncIdentityHash::<Impl, IMPL_OFFSET>,
-            SetSyncIdentityHash::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Delete: Delete::<Impl, IMPL_OFFSET>,
+            Save: Save::<Impl, IMPL_OFFSET>,
+            AccountId: AccountId::<Impl, IMPL_OFFSET>,
+            SetAccountId: SetAccountId::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            IsLinkResolved: IsLinkResolved::<Impl, IMPL_OFFSET>,
+            SetIsLinkResolved: SetIsLinkResolved::<Impl, IMPL_OFFSET>,
+            NetworkSourceIdString: NetworkSourceIdString::<Impl, IMPL_OFFSET>,
+            SetNetworkSourceIdString: SetNetworkSourceIdString::<Impl, IMPL_OFFSET>,
+            RemoteObjectId: RemoteObjectId::<Impl, IMPL_OFFSET>,
+            SetRemoteObjectId: SetRemoteObjectId::<Impl, IMPL_OFFSET>,
+            ServerPerson: ServerPerson::<Impl, IMPL_OFFSET>,
+            SetServerPerson: SetServerPerson::<Impl, IMPL_OFFSET>,
+            ServerPersonBaseline: ServerPersonBaseline::<Impl, IMPL_OFFSET>,
+            SetServerPersonBaseline: SetServerPersonBaseline::<Impl, IMPL_OFFSET>,
+            SyncIdentityHash: SyncIdentityHash::<Impl, IMPL_OFFSET>,
+            SetSyncIdentityHash: SetSyncIdentityHash::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactAggregationLink as ::windows::core::Interface>::IID
@@ -511,7 +554,13 @@ impl IContactAggregationLinkCollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, FindFirst::<Impl, IMPL_OFFSET>, FindFirstByRemoteId::<Impl, IMPL_OFFSET>, FindNext::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            FindFirst: FindFirst::<Impl, IMPL_OFFSET>,
+            FindFirstByRemoteId: FindFirstByRemoteId::<Impl, IMPL_OFFSET>,
+            FindNext: FindNext::<Impl, IMPL_OFFSET>,
+            Count: Count::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactAggregationLinkCollection as ::windows::core::Interface>::IID
@@ -598,26 +647,24 @@ impl IContactAggregationManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetVersionInfo::<Impl, IMPL_OFFSET>,
-            CreateOrOpenGroup::<Impl, IMPL_OFFSET>,
-            CreateExternalContact::<Impl, IMPL_OFFSET>,
-            CreateServerPerson::<Impl, IMPL_OFFSET>,
-            CreateServerContactLink::<Impl, IMPL_OFFSET>,
-            Flush::<Impl, IMPL_OFFSET>,
-            OpenAggregateContact::<Impl, IMPL_OFFSET>,
-            OpenContact::<Impl, IMPL_OFFSET>,
-            OpenServerContactLink::<Impl, IMPL_OFFSET>,
-            OpenServerPerson::<Impl, IMPL_OFFSET>,
-            Contacts::<Impl, IMPL_OFFSET>,
-            AggregateContacts::<Impl, IMPL_OFFSET>,
-            Groups::<Impl, IMPL_OFFSET>,
-            ServerPersons::<Impl, IMPL_OFFSET>,
-            ServerContactLinks::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetVersionInfo: GetVersionInfo::<Impl, IMPL_OFFSET>,
+            CreateOrOpenGroup: CreateOrOpenGroup::<Impl, IMPL_OFFSET>,
+            CreateExternalContact: CreateExternalContact::<Impl, IMPL_OFFSET>,
+            CreateServerPerson: CreateServerPerson::<Impl, IMPL_OFFSET>,
+            CreateServerContactLink: CreateServerContactLink::<Impl, IMPL_OFFSET>,
+            Flush: Flush::<Impl, IMPL_OFFSET>,
+            OpenAggregateContact: OpenAggregateContact::<Impl, IMPL_OFFSET>,
+            OpenContact: OpenContact::<Impl, IMPL_OFFSET>,
+            OpenServerContactLink: OpenServerContactLink::<Impl, IMPL_OFFSET>,
+            OpenServerPerson: OpenServerPerson::<Impl, IMPL_OFFSET>,
+            Contacts: Contacts::<Impl, IMPL_OFFSET>,
+            AggregateContacts: AggregateContacts::<Impl, IMPL_OFFSET>,
+            Groups: Groups::<Impl, IMPL_OFFSET>,
+            ServerPersons: ServerPersons::<Impl, IMPL_OFFSET>,
+            ServerContactLinks: ServerContactLinks::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactAggregationManager as ::windows::core::Interface>::IID
@@ -744,34 +791,32 @@ impl IContactAggregationServerPersonVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Delete::<Impl, IMPL_OFFSET>,
-            Save::<Impl, IMPL_OFFSET>,
-            AggregateId::<Impl, IMPL_OFFSET>,
-            SetAggregateId::<Impl, IMPL_OFFSET>,
-            AntiLink::<Impl, IMPL_OFFSET>,
-            SetAntiLink::<Impl, IMPL_OFFSET>,
-            AntiLinkBaseline::<Impl, IMPL_OFFSET>,
-            SetAntiLinkBaseline::<Impl, IMPL_OFFSET>,
-            FavoriteOrder::<Impl, IMPL_OFFSET>,
-            SetFavoriteOrder::<Impl, IMPL_OFFSET>,
-            FavoriteOrderBaseline::<Impl, IMPL_OFFSET>,
-            SetFavoriteOrderBaseline::<Impl, IMPL_OFFSET>,
-            Groups::<Impl, IMPL_OFFSET>,
-            SetGroups::<Impl, IMPL_OFFSET>,
-            GroupsBaseline::<Impl, IMPL_OFFSET>,
-            SetGroupsBaseline::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            IsTombstone::<Impl, IMPL_OFFSET>,
-            SetIsTombstone::<Impl, IMPL_OFFSET>,
-            LinkedAggregateId::<Impl, IMPL_OFFSET>,
-            SetLinkedAggregateId::<Impl, IMPL_OFFSET>,
-            ObjectId::<Impl, IMPL_OFFSET>,
-            SetObjectId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Delete: Delete::<Impl, IMPL_OFFSET>,
+            Save: Save::<Impl, IMPL_OFFSET>,
+            AggregateId: AggregateId::<Impl, IMPL_OFFSET>,
+            SetAggregateId: SetAggregateId::<Impl, IMPL_OFFSET>,
+            AntiLink: AntiLink::<Impl, IMPL_OFFSET>,
+            SetAntiLink: SetAntiLink::<Impl, IMPL_OFFSET>,
+            AntiLinkBaseline: AntiLinkBaseline::<Impl, IMPL_OFFSET>,
+            SetAntiLinkBaseline: SetAntiLinkBaseline::<Impl, IMPL_OFFSET>,
+            FavoriteOrder: FavoriteOrder::<Impl, IMPL_OFFSET>,
+            SetFavoriteOrder: SetFavoriteOrder::<Impl, IMPL_OFFSET>,
+            FavoriteOrderBaseline: FavoriteOrderBaseline::<Impl, IMPL_OFFSET>,
+            SetFavoriteOrderBaseline: SetFavoriteOrderBaseline::<Impl, IMPL_OFFSET>,
+            Groups: Groups::<Impl, IMPL_OFFSET>,
+            SetGroups: SetGroups::<Impl, IMPL_OFFSET>,
+            GroupsBaseline: GroupsBaseline::<Impl, IMPL_OFFSET>,
+            SetGroupsBaseline: SetGroupsBaseline::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            IsTombstone: IsTombstone::<Impl, IMPL_OFFSET>,
+            SetIsTombstone: SetIsTombstone::<Impl, IMPL_OFFSET>,
+            LinkedAggregateId: LinkedAggregateId::<Impl, IMPL_OFFSET>,
+            SetLinkedAggregateId: SetLinkedAggregateId::<Impl, IMPL_OFFSET>,
+            ObjectId: ObjectId::<Impl, IMPL_OFFSET>,
+            SetObjectId: SetObjectId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactAggregationServerPerson as ::windows::core::Interface>::IID
@@ -813,7 +858,15 @@ impl IContactAggregationServerPersonCollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, FindFirst::<Impl, IMPL_OFFSET>, FindFirstByServerId::<Impl, IMPL_OFFSET>, FindFirstByAggregateId::<Impl, IMPL_OFFSET>, FindFirstByLinkedAggregateId::<Impl, IMPL_OFFSET>, FindNext::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            FindFirst: FindFirst::<Impl, IMPL_OFFSET>,
+            FindFirstByServerId: FindFirstByServerId::<Impl, IMPL_OFFSET>,
+            FindFirstByAggregateId: FindFirstByAggregateId::<Impl, IMPL_OFFSET>,
+            FindFirstByLinkedAggregateId: FindFirstByLinkedAggregateId::<Impl, IMPL_OFFSET>,
+            FindNext: FindNext::<Impl, IMPL_OFFSET>,
+            Count: Count::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactAggregationServerPersonCollection as ::windows::core::Interface>::IID
@@ -838,7 +891,12 @@ impl IContactCollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Reset::<Impl, IMPL_OFFSET>, Next::<Impl, IMPL_OFFSET>, GetCurrent::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Next: Next::<Impl, IMPL_OFFSET>,
+            GetCurrent: GetCurrent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactCollection as ::windows::core::Interface>::IID
@@ -880,7 +938,15 @@ impl IContactManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Initialize::<Impl, IMPL_OFFSET>, Load::<Impl, IMPL_OFFSET>, MergeContactIDs::<Impl, IMPL_OFFSET>, GetMeContact::<Impl, IMPL_OFFSET>, SetMeContact::<Impl, IMPL_OFFSET>, GetContactCollection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            Load: Load::<Impl, IMPL_OFFSET>,
+            MergeContactIDs: MergeContactIDs::<Impl, IMPL_OFFSET>,
+            GetMeContact: GetMeContact::<Impl, IMPL_OFFSET>,
+            SetMeContact: SetMeContact::<Impl, IMPL_OFFSET>,
+            GetContactCollection: GetContactCollection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactManager as ::windows::core::Interface>::IID
@@ -957,24 +1023,22 @@ impl IContactPropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetString::<Impl, IMPL_OFFSET>,
-            GetDate::<Impl, IMPL_OFFSET>,
-            GetBinary::<Impl, IMPL_OFFSET>,
-            GetLabels::<Impl, IMPL_OFFSET>,
-            SetString::<Impl, IMPL_OFFSET>,
-            SetDate::<Impl, IMPL_OFFSET>,
-            SetBinary::<Impl, IMPL_OFFSET>,
-            SetLabels::<Impl, IMPL_OFFSET>,
-            CreateArrayNode::<Impl, IMPL_OFFSET>,
-            DeleteProperty::<Impl, IMPL_OFFSET>,
-            DeleteArrayNode::<Impl, IMPL_OFFSET>,
-            DeleteLabels::<Impl, IMPL_OFFSET>,
-            GetPropertyCollection::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetString: GetString::<Impl, IMPL_OFFSET>,
+            GetDate: GetDate::<Impl, IMPL_OFFSET>,
+            GetBinary: GetBinary::<Impl, IMPL_OFFSET>,
+            GetLabels: GetLabels::<Impl, IMPL_OFFSET>,
+            SetString: SetString::<Impl, IMPL_OFFSET>,
+            SetDate: SetDate::<Impl, IMPL_OFFSET>,
+            SetBinary: SetBinary::<Impl, IMPL_OFFSET>,
+            SetLabels: SetLabels::<Impl, IMPL_OFFSET>,
+            CreateArrayNode: CreateArrayNode::<Impl, IMPL_OFFSET>,
+            DeleteProperty: DeleteProperty::<Impl, IMPL_OFFSET>,
+            DeleteArrayNode: DeleteArrayNode::<Impl, IMPL_OFFSET>,
+            DeleteLabels: DeleteLabels::<Impl, IMPL_OFFSET>,
+            GetPropertyCollection: GetPropertyCollection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactProperties as ::windows::core::Interface>::IID
@@ -1021,7 +1085,16 @@ impl IContactPropertyCollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Reset::<Impl, IMPL_OFFSET>, Next::<Impl, IMPL_OFFSET>, GetPropertyName::<Impl, IMPL_OFFSET>, GetPropertyType::<Impl, IMPL_OFFSET>, GetPropertyVersion::<Impl, IMPL_OFFSET>, GetPropertyModificationDate::<Impl, IMPL_OFFSET>, GetPropertyArrayElementID::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Next: Next::<Impl, IMPL_OFFSET>,
+            GetPropertyName: GetPropertyName::<Impl, IMPL_OFFSET>,
+            GetPropertyType: GetPropertyType::<Impl, IMPL_OFFSET>,
+            GetPropertyVersion: GetPropertyVersion::<Impl, IMPL_OFFSET>,
+            GetPropertyModificationDate: GetPropertyModificationDate::<Impl, IMPL_OFFSET>,
+            GetPropertyArrayElementID: GetPropertyArrayElementID::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactPropertyCollection as ::windows::core::Interface>::IID

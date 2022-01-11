@@ -59,20 +59,15 @@ impl IPrintWorkflowBackgroundSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintWorkflowBackgroundSession>,
-            ::windows::core::GetTrustLevel,
-            SetupRequested::<Impl, IMPL_OFFSET>,
-            RemoveSetupRequested::<Impl, IMPL_OFFSET>,
-            Submitted::<Impl, IMPL_OFFSET>,
-            RemoveSubmitted::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowBackgroundSession, BASE_OFFSET>(),
+            SetupRequested: SetupRequested::<Impl, IMPL_OFFSET>,
+            RemoveSetupRequested: RemoveSetupRequested::<Impl, IMPL_OFFSET>,
+            Submitted: Submitted::<Impl, IMPL_OFFSET>,
+            RemoveSubmitted: RemoveSubmitted::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowBackgroundSession as ::windows::core::Interface>::IID
@@ -129,7 +124,13 @@ impl IPrintWorkflowBackgroundSetupRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowBackgroundSetupRequestedEventArgs>, ::windows::core::GetTrustLevel, GetUserPrintTicketAsync::<Impl, IMPL_OFFSET>, Configuration::<Impl, IMPL_OFFSET>, SetRequiresUI::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowBackgroundSetupRequestedEventArgs, BASE_OFFSET>(),
+            GetUserPrintTicketAsync: GetUserPrintTicketAsync::<Impl, IMPL_OFFSET>,
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+            SetRequiresUI: SetRequiresUI::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowBackgroundSetupRequestedEventArgs as ::windows::core::Interface>::IID
@@ -181,7 +182,12 @@ impl IPrintWorkflowConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowConfiguration>, ::windows::core::GetTrustLevel, SourceAppDisplayName::<Impl, IMPL_OFFSET>, JobTitle::<Impl, IMPL_OFFSET>, SessionId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowConfiguration, BASE_OFFSET>(),
+            SourceAppDisplayName: SourceAppDisplayName::<Impl, IMPL_OFFSET>,
+            JobTitle: JobTitle::<Impl, IMPL_OFFSET>,
+            SessionId: SessionId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowConfiguration as ::windows::core::Interface>::IID
@@ -202,7 +208,10 @@ impl IPrintWorkflowConfiguration2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AbortPrintFlow(reason).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowConfiguration2>, ::windows::core::GetTrustLevel, AbortPrintFlow::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowConfiguration2, BASE_OFFSET>(),
+            AbortPrintFlow: AbortPrintFlow::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowConfiguration2 as ::windows::core::Interface>::IID
@@ -269,20 +278,15 @@ impl IPrintWorkflowForegroundSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintWorkflowForegroundSession>,
-            ::windows::core::GetTrustLevel,
-            SetupRequested::<Impl, IMPL_OFFSET>,
-            RemoveSetupRequested::<Impl, IMPL_OFFSET>,
-            XpsDataAvailable::<Impl, IMPL_OFFSET>,
-            RemoveXpsDataAvailable::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowForegroundSession, BASE_OFFSET>(),
+            SetupRequested: SetupRequested::<Impl, IMPL_OFFSET>,
+            RemoveSetupRequested: RemoveSetupRequested::<Impl, IMPL_OFFSET>,
+            XpsDataAvailable: XpsDataAvailable::<Impl, IMPL_OFFSET>,
+            RemoveXpsDataAvailable: RemoveXpsDataAvailable::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowForegroundSession as ::windows::core::Interface>::IID
@@ -334,7 +338,12 @@ impl IPrintWorkflowForegroundSetupRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowForegroundSetupRequestedEventArgs>, ::windows::core::GetTrustLevel, GetUserPrintTicketAsync::<Impl, IMPL_OFFSET>, Configuration::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowForegroundSetupRequestedEventArgs, BASE_OFFSET>(),
+            GetUserPrintTicketAsync: GetUserPrintTicketAsync::<Impl, IMPL_OFFSET>,
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowForegroundSetupRequestedEventArgs as ::windows::core::Interface>::IID
@@ -362,7 +371,10 @@ impl IPrintWorkflowJobActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobActivatedEventArgs>, ::windows::core::GetTrustLevel, Session::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowJobActivatedEventArgs, BASE_OFFSET>(),
+            Session: Session::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowJobActivatedEventArgs as ::windows::core::Interface>::IID
@@ -429,20 +441,15 @@ impl IPrintWorkflowJobBackgroundSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobBackgroundSession>,
-            ::windows::core::GetTrustLevel,
-            Status::<Impl, IMPL_OFFSET>,
-            JobStarting::<Impl, IMPL_OFFSET>,
-            RemoveJobStarting::<Impl, IMPL_OFFSET>,
-            PdlModificationRequested::<Impl, IMPL_OFFSET>,
-            RemovePdlModificationRequested::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowJobBackgroundSession, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            JobStarting: JobStarting::<Impl, IMPL_OFFSET>,
+            RemoveJobStarting: RemoveJobStarting::<Impl, IMPL_OFFSET>,
+            PdlModificationRequested: PdlModificationRequested::<Impl, IMPL_OFFSET>,
+            RemovePdlModificationRequested: RemovePdlModificationRequested::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowJobBackgroundSession as ::windows::core::Interface>::IID
@@ -494,7 +501,12 @@ impl IPrintWorkflowJobNotificationEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobNotificationEventArgs>, ::windows::core::GetTrustLevel, Configuration::<Impl, IMPL_OFFSET>, PrinterJob::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowJobNotificationEventArgs, BASE_OFFSET>(),
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+            PrinterJob: PrinterJob::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowJobNotificationEventArgs as ::windows::core::Interface>::IID
@@ -551,7 +563,13 @@ impl IPrintWorkflowJobStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobStartingEventArgs>, ::windows::core::GetTrustLevel, Configuration::<Impl, IMPL_OFFSET>, Printer::<Impl, IMPL_OFFSET>, SetSkipSystemRendering::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowJobStartingEventArgs, BASE_OFFSET>(),
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+            Printer: Printer::<Impl, IMPL_OFFSET>,
+            SetSkipSystemRendering: SetSkipSystemRendering::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowJobStartingEventArgs as ::windows::core::Interface>::IID
@@ -579,7 +597,10 @@ impl IPrintWorkflowJobTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobTriggerDetails>, ::windows::core::GetTrustLevel, PrintWorkflowJobSession::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowJobTriggerDetails, BASE_OFFSET>(),
+            PrintWorkflowJobSession: PrintWorkflowJobSession::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowJobTriggerDetails as ::windows::core::Interface>::IID
@@ -646,20 +667,15 @@ impl IPrintWorkflowJobUISessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobUISession>,
-            ::windows::core::GetTrustLevel,
-            Status::<Impl, IMPL_OFFSET>,
-            PdlDataAvailable::<Impl, IMPL_OFFSET>,
-            RemovePdlDataAvailable::<Impl, IMPL_OFFSET>,
-            JobNotification::<Impl, IMPL_OFFSET>,
-            RemoveJobNotification::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowJobUISession, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            PdlDataAvailable: PdlDataAvailable::<Impl, IMPL_OFFSET>,
+            RemovePdlDataAvailable: RemovePdlDataAvailable::<Impl, IMPL_OFFSET>,
+            JobNotification: JobNotification::<Impl, IMPL_OFFSET>,
+            RemoveJobNotification: RemoveJobNotification::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowJobUISession as ::windows::core::Interface>::IID
@@ -674,7 +690,7 @@ impl ::windows::core::RuntimeName for IPrintWorkflowObjectModelSourceFileContent
 #[cfg(feature = "implement_exclusive")]
 impl IPrintWorkflowObjectModelSourceFileContentVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowObjectModelSourceFileContentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowObjectModelSourceFileContentVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowObjectModelSourceFileContent>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowObjectModelSourceFileContent, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowObjectModelSourceFileContent as ::windows::core::Interface>::IID
@@ -702,7 +718,10 @@ impl IPrintWorkflowObjectModelSourceFileContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowObjectModelSourceFileContentFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowObjectModelSourceFileContentFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowObjectModelSourceFileContentFactory as ::windows::core::Interface>::IID
@@ -717,7 +736,7 @@ impl ::windows::core::RuntimeName for IPrintWorkflowObjectModelTargetPackage {
 #[cfg(feature = "implement_exclusive")]
 impl IPrintWorkflowObjectModelTargetPackageVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowObjectModelTargetPackageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowObjectModelTargetPackageVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowObjectModelTargetPackage>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowObjectModelTargetPackage, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowObjectModelTargetPackage as ::windows::core::Interface>::IID
@@ -749,7 +768,10 @@ impl IPrintWorkflowPdlConverterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlConverter>, ::windows::core::GetTrustLevel, ConvertPdlAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowPdlConverter, BASE_OFFSET>(),
+            ConvertPdlAsync: ConvertPdlAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowPdlConverter as ::windows::core::Interface>::IID
@@ -813,7 +835,13 @@ impl IPrintWorkflowPdlDataAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlDataAvailableEventArgs>, ::windows::core::GetTrustLevel, Configuration::<Impl, IMPL_OFFSET>, PrinterJob::<Impl, IMPL_OFFSET>, SourceContent::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowPdlDataAvailableEventArgs, BASE_OFFSET>(),
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+            PrinterJob: PrinterJob::<Impl, IMPL_OFFSET>,
+            SourceContent: SourceContent::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowPdlDataAvailableEventArgs as ::windows::core::Interface>::IID
@@ -940,23 +968,18 @@ impl IPrintWorkflowPdlModificationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlModificationRequestedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            Configuration::<Impl, IMPL_OFFSET>,
-            PrinterJob::<Impl, IMPL_OFFSET>,
-            SourceContent::<Impl, IMPL_OFFSET>,
-            UILauncher::<Impl, IMPL_OFFSET>,
-            CreateJobOnPrinter::<Impl, IMPL_OFFSET>,
-            CreateJobOnPrinterWithAttributes::<Impl, IMPL_OFFSET>,
-            CreateJobOnPrinterWithAttributesBuffer::<Impl, IMPL_OFFSET>,
-            GetPdlConverter::<Impl, IMPL_OFFSET>,
-            GetDeferral::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowPdlModificationRequestedEventArgs, BASE_OFFSET>(),
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+            PrinterJob: PrinterJob::<Impl, IMPL_OFFSET>,
+            SourceContent: SourceContent::<Impl, IMPL_OFFSET>,
+            UILauncher: UILauncher::<Impl, IMPL_OFFSET>,
+            CreateJobOnPrinter: CreateJobOnPrinter::<Impl, IMPL_OFFSET>,
+            CreateJobOnPrinterWithAttributes: CreateJobOnPrinterWithAttributes::<Impl, IMPL_OFFSET>,
+            CreateJobOnPrinterWithAttributesBuffer: CreateJobOnPrinterWithAttributesBuffer::<Impl, IMPL_OFFSET>,
+            GetPdlConverter: GetPdlConverter::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowPdlModificationRequestedEventArgs as ::windows::core::Interface>::IID
@@ -1008,7 +1031,12 @@ impl IPrintWorkflowPdlSourceContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlSourceContent>, ::windows::core::GetTrustLevel, ContentType::<Impl, IMPL_OFFSET>, GetInputStream::<Impl, IMPL_OFFSET>, GetContentFileAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowPdlSourceContent, BASE_OFFSET>(),
+            ContentType: ContentType::<Impl, IMPL_OFFSET>,
+            GetInputStream: GetInputStream::<Impl, IMPL_OFFSET>,
+            GetContentFileAsync: GetContentFileAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowPdlSourceContent as ::windows::core::Interface>::IID
@@ -1041,7 +1069,11 @@ impl IPrintWorkflowPdlTargetStreamVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CompleteStreamSubmission(status).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlTargetStream>, ::windows::core::GetTrustLevel, GetOutputStream::<Impl, IMPL_OFFSET>, CompleteStreamSubmission::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowPdlTargetStream, BASE_OFFSET>(),
+            GetOutputStream: GetOutputStream::<Impl, IMPL_OFFSET>,
+            CompleteStreamSubmission: CompleteStreamSubmission::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowPdlTargetStream as ::windows::core::Interface>::IID
@@ -1153,22 +1185,17 @@ impl IPrintWorkflowPrinterJobVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintWorkflowPrinterJob>,
-            ::windows::core::GetTrustLevel,
-            JobId::<Impl, IMPL_OFFSET>,
-            Printer::<Impl, IMPL_OFFSET>,
-            GetJobStatus::<Impl, IMPL_OFFSET>,
-            GetJobPrintTicket::<Impl, IMPL_OFFSET>,
-            GetJobAttributesAsBuffer::<Impl, IMPL_OFFSET>,
-            GetJobAttributes::<Impl, IMPL_OFFSET>,
-            SetJobAttributesFromBuffer::<Impl, IMPL_OFFSET>,
-            SetJobAttributes::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowPrinterJob, BASE_OFFSET>(),
+            JobId: JobId::<Impl, IMPL_OFFSET>,
+            Printer: Printer::<Impl, IMPL_OFFSET>,
+            GetJobStatus: GetJobStatus::<Impl, IMPL_OFFSET>,
+            GetJobPrintTicket: GetJobPrintTicket::<Impl, IMPL_OFFSET>,
+            GetJobAttributesAsBuffer: GetJobAttributesAsBuffer::<Impl, IMPL_OFFSET>,
+            GetJobAttributes: GetJobAttributes::<Impl, IMPL_OFFSET>,
+            SetJobAttributesFromBuffer: SetJobAttributesFromBuffer::<Impl, IMPL_OFFSET>,
+            SetJobAttributes: SetJobAttributes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowPrinterJob as ::windows::core::Interface>::IID
@@ -1220,7 +1247,12 @@ impl IPrintWorkflowSourceContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowSourceContent>, ::windows::core::GetTrustLevel, GetJobPrintTicketAsync::<Impl, IMPL_OFFSET>, GetSourceSpoolDataAsStreamContent::<Impl, IMPL_OFFSET>, GetSourceSpoolDataAsXpsObjectModel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowSourceContent, BASE_OFFSET>(),
+            GetJobPrintTicketAsync: GetJobPrintTicketAsync::<Impl, IMPL_OFFSET>,
+            GetSourceSpoolDataAsStreamContent: GetSourceSpoolDataAsStreamContent::<Impl, IMPL_OFFSET>,
+            GetSourceSpoolDataAsXpsObjectModel: GetSourceSpoolDataAsXpsObjectModel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowSourceContent as ::windows::core::Interface>::IID
@@ -1248,7 +1280,10 @@ impl IPrintWorkflowSpoolStreamContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowSpoolStreamContent>, ::windows::core::GetTrustLevel, GetInputStream::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowSpoolStreamContent, BASE_OFFSET>(),
+            GetInputStream: GetInputStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowSpoolStreamContent as ::windows::core::Interface>::IID
@@ -1276,7 +1311,10 @@ impl IPrintWorkflowStreamTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowStreamTarget>, ::windows::core::GetTrustLevel, GetOutputStream::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowStreamTarget, BASE_OFFSET>(),
+            GetOutputStream: GetOutputStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowStreamTarget as ::windows::core::Interface>::IID
@@ -1328,7 +1366,12 @@ impl IPrintWorkflowSubmittedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowSubmittedEventArgs>, ::windows::core::GetTrustLevel, Operation::<Impl, IMPL_OFFSET>, GetTarget::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowSubmittedEventArgs, BASE_OFFSET>(),
+            Operation: Operation::<Impl, IMPL_OFFSET>,
+            GetTarget: GetTarget::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowSubmittedEventArgs as ::windows::core::Interface>::IID
@@ -1373,7 +1416,12 @@ impl IPrintWorkflowSubmittedOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowSubmittedOperation>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>, Configuration::<Impl, IMPL_OFFSET>, XpsContent::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowSubmittedOperation, BASE_OFFSET>(),
+            Complete: Complete::<Impl, IMPL_OFFSET>,
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+            XpsContent: XpsContent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowSubmittedOperation as ::windows::core::Interface>::IID
@@ -1413,7 +1461,11 @@ impl IPrintWorkflowTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowTarget>, ::windows::core::GetTrustLevel, TargetAsStream::<Impl, IMPL_OFFSET>, TargetAsXpsObjectModelPackage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowTarget, BASE_OFFSET>(),
+            TargetAsStream: TargetAsStream::<Impl, IMPL_OFFSET>,
+            TargetAsXpsObjectModelPackage: TargetAsXpsObjectModelPackage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowTarget as ::windows::core::Interface>::IID
@@ -1441,7 +1493,10 @@ impl IPrintWorkflowTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowTriggerDetails>, ::windows::core::GetTrustLevel, PrintWorkflowSession::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowTriggerDetails, BASE_OFFSET>(),
+            PrintWorkflowSession: PrintWorkflowSession::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowTriggerDetails as ::windows::core::Interface>::IID
@@ -1469,7 +1524,10 @@ impl IPrintWorkflowUIActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowUIActivatedEventArgs>, ::windows::core::GetTrustLevel, PrintWorkflowSession::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowUIActivatedEventArgs, BASE_OFFSET>(),
+            PrintWorkflowSession: PrintWorkflowSession::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowUIActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1509,7 +1567,11 @@ impl IPrintWorkflowUILauncherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowUILauncher>, ::windows::core::GetTrustLevel, IsUILaunchEnabled::<Impl, IMPL_OFFSET>, LaunchAndCompleteUIAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowUILauncher, BASE_OFFSET>(),
+            IsUILaunchEnabled: IsUILaunchEnabled::<Impl, IMPL_OFFSET>,
+            LaunchAndCompleteUIAsync: LaunchAndCompleteUIAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowUILauncher as ::windows::core::Interface>::IID
@@ -1549,7 +1611,11 @@ impl IPrintWorkflowXpsDataAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowXpsDataAvailableEventArgs>, ::windows::core::GetTrustLevel, Operation::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintWorkflowXpsDataAvailableEventArgs, BASE_OFFSET>(),
+            Operation: Operation::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowXpsDataAvailableEventArgs as ::windows::core::Interface>::IID

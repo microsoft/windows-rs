@@ -93,24 +93,19 @@ impl IProviderSpiConnectionSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSharingMode(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProviderSpiConnectionSettings>,
-            ::windows::core::GetTrustLevel,
-            ChipSelectLine::<Impl, IMPL_OFFSET>,
-            SetChipSelectLine::<Impl, IMPL_OFFSET>,
-            Mode::<Impl, IMPL_OFFSET>,
-            SetMode::<Impl, IMPL_OFFSET>,
-            DataBitLength::<Impl, IMPL_OFFSET>,
-            SetDataBitLength::<Impl, IMPL_OFFSET>,
-            ClockFrequency::<Impl, IMPL_OFFSET>,
-            SetClockFrequency::<Impl, IMPL_OFFSET>,
-            SharingMode::<Impl, IMPL_OFFSET>,
-            SetSharingMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProviderSpiConnectionSettings, BASE_OFFSET>(),
+            ChipSelectLine: ChipSelectLine::<Impl, IMPL_OFFSET>,
+            SetChipSelectLine: SetChipSelectLine::<Impl, IMPL_OFFSET>,
+            Mode: Mode::<Impl, IMPL_OFFSET>,
+            SetMode: SetMode::<Impl, IMPL_OFFSET>,
+            DataBitLength: DataBitLength::<Impl, IMPL_OFFSET>,
+            SetDataBitLength: SetDataBitLength::<Impl, IMPL_OFFSET>,
+            ClockFrequency: ClockFrequency::<Impl, IMPL_OFFSET>,
+            SetClockFrequency: SetClockFrequency::<Impl, IMPL_OFFSET>,
+            SharingMode: SharingMode::<Impl, IMPL_OFFSET>,
+            SetSharingMode: SetSharingMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProviderSpiConnectionSettings as ::windows::core::Interface>::IID
@@ -138,7 +133,10 @@ impl IProviderSpiConnectionSettingsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProviderSpiConnectionSettingsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProviderSpiConnectionSettingsFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProviderSpiConnectionSettingsFactory as ::windows::core::Interface>::IID
@@ -163,7 +161,10 @@ impl ISpiControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiControllerProvider>, ::windows::core::GetTrustLevel, GetDeviceProvider::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpiControllerProvider, BASE_OFFSET>(),
+            GetDeviceProvider: GetDeviceProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpiControllerProvider as ::windows::core::Interface>::IID
@@ -223,20 +224,15 @@ impl ISpiDeviceProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TransferFullDuplex(::core::slice::from_raw_parts(::core::mem::transmute_copy(&writebuffer), writeBuffer_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&readbuffer), readBuffer_array_size as _)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpiDeviceProvider>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            ConnectionSettings::<Impl, IMPL_OFFSET>,
-            Write::<Impl, IMPL_OFFSET>,
-            Read::<Impl, IMPL_OFFSET>,
-            TransferSequential::<Impl, IMPL_OFFSET>,
-            TransferFullDuplex::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpiDeviceProvider, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            ConnectionSettings: ConnectionSettings::<Impl, IMPL_OFFSET>,
+            Write: Write::<Impl, IMPL_OFFSET>,
+            Read: Read::<Impl, IMPL_OFFSET>,
+            TransferSequential: TransferSequential::<Impl, IMPL_OFFSET>,
+            TransferFullDuplex: TransferFullDuplex::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpiDeviceProvider as ::windows::core::Interface>::IID
@@ -264,7 +260,10 @@ impl ISpiProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiProvider>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpiProvider, BASE_OFFSET>(),
+            GetControllersAsync: GetControllersAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpiProvider as ::windows::core::Interface>::IID

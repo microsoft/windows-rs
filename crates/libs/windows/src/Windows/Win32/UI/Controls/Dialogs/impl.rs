@@ -19,7 +19,12 @@ impl IPrintDialogCallbackVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, InitDone::<Impl, IMPL_OFFSET>, SelectionChange::<Impl, IMPL_OFFSET>, HandleMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            InitDone: InitDone::<Impl, IMPL_OFFSET>,
+            SelectionChange: SelectionChange::<Impl, IMPL_OFFSET>,
+            HandleMessage: HandleMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintDialogCallback as ::windows::core::Interface>::IID
@@ -46,7 +51,12 @@ impl IPrintDialogServicesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetCurrentDevMode::<Impl, IMPL_OFFSET>, GetCurrentPrinterName::<Impl, IMPL_OFFSET>, GetCurrentPortName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetCurrentDevMode: GetCurrentDevMode::<Impl, IMPL_OFFSET>,
+            GetCurrentPrinterName: GetCurrentPrinterName::<Impl, IMPL_OFFSET>,
+            GetCurrentPortName: GetCurrentPortName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintDialogServices as ::windows::core::Interface>::IID

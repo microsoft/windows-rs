@@ -44,7 +44,12 @@ impl IUserDataAccountPartnerAccountInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountPartnerAccountInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, Priority::<Impl, IMPL_OFFSET>, AccountKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountPartnerAccountInfo, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            Priority: Priority::<Impl, IMPL_OFFSET>,
+            AccountKind: AccountKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccountPartnerAccountInfo as ::windows::core::Interface>::IID
@@ -89,7 +94,12 @@ impl IUserDataAccountProviderAddAccountOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted(&*(&userdataaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountProviderAddAccountOperation>, ::windows::core::GetTrustLevel, ContentKinds::<Impl, IMPL_OFFSET>, PartnerAccountInfos::<Impl, IMPL_OFFSET>, ReportCompleted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountProviderAddAccountOperation, BASE_OFFSET>(),
+            ContentKinds: ContentKinds::<Impl, IMPL_OFFSET>,
+            PartnerAccountInfos: PartnerAccountInfos::<Impl, IMPL_OFFSET>,
+            ReportCompleted: ReportCompleted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccountProviderAddAccountOperation as ::windows::core::Interface>::IID
@@ -114,7 +124,7 @@ impl IUserDataAccountProviderOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountProviderOperation>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountProviderOperation, BASE_OFFSET>(), Kind: Kind::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccountProviderOperation as ::windows::core::Interface>::IID
@@ -147,7 +157,11 @@ impl IUserDataAccountProviderResolveErrorsOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountProviderResolveErrorsOperation>, ::windows::core::GetTrustLevel, UserDataAccountId::<Impl, IMPL_OFFSET>, ReportCompleted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountProviderResolveErrorsOperation, BASE_OFFSET>(),
+            UserDataAccountId: UserDataAccountId::<Impl, IMPL_OFFSET>,
+            ReportCompleted: ReportCompleted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccountProviderResolveErrorsOperation as ::windows::core::Interface>::IID
@@ -180,7 +194,11 @@ impl IUserDataAccountProviderSettingsOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountProviderSettingsOperation>, ::windows::core::GetTrustLevel, UserDataAccountId::<Impl, IMPL_OFFSET>, ReportCompleted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountProviderSettingsOperation, BASE_OFFSET>(),
+            UserDataAccountId: UserDataAccountId::<Impl, IMPL_OFFSET>,
+            ReportCompleted: ReportCompleted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccountProviderSettingsOperation as ::windows::core::Interface>::IID

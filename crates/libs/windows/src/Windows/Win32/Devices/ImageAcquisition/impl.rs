@@ -29,7 +29,14 @@ impl IEnumWIA_DEV_CAPSVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Next::<Impl, IMPL_OFFSET>, Skip::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>, Clone::<Impl, IMPL_OFFSET>, GetCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            GetCount: GetCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnumWIA_DEV_CAPS as ::windows::core::Interface>::IID
@@ -64,7 +71,14 @@ impl IEnumWIA_DEV_INFOVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Next::<Impl, IMPL_OFFSET>, Skip::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>, Clone::<Impl, IMPL_OFFSET>, GetCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            GetCount: GetCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnumWIA_DEV_INFO as ::windows::core::Interface>::IID
@@ -99,7 +113,14 @@ impl IEnumWIA_FORMAT_INFOVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Next::<Impl, IMPL_OFFSET>, Skip::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>, Clone::<Impl, IMPL_OFFSET>, GetCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            GetCount: GetCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnumWIA_FORMAT_INFO as ::windows::core::Interface>::IID
@@ -134,7 +155,14 @@ impl IEnumWiaItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Next::<Impl, IMPL_OFFSET>, Skip::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>, Clone::<Impl, IMPL_OFFSET>, GetCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            GetCount: GetCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnumWiaItem as ::windows::core::Interface>::IID
@@ -169,7 +197,14 @@ impl IEnumWiaItem2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Next::<Impl, IMPL_OFFSET>, Skip::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>, Clone::<Impl, IMPL_OFFSET>, GetCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            GetCount: GetCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnumWiaItem2 as ::windows::core::Interface>::IID
@@ -191,7 +226,11 @@ impl IWiaAppErrorHandlerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetWindow::<Impl, IMPL_OFFSET>, ReportStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetWindow: GetWindow::<Impl, IMPL_OFFSET>,
+            ReportStatus: ReportStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaAppErrorHandler as ::windows::core::Interface>::IID
@@ -206,7 +245,7 @@ impl IWiaDataCallbackVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, BandedDataCallback::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), BandedDataCallback: BandedDataCallback::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaDataCallback as ::windows::core::Interface>::IID
@@ -243,7 +282,14 @@ impl IWiaDataTransferVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, idtGetData::<Impl, IMPL_OFFSET>, idtGetBandedData::<Impl, IMPL_OFFSET>, idtQueryGetData::<Impl, IMPL_OFFSET>, idtEnumWIA_FORMAT_INFO::<Impl, IMPL_OFFSET>, idtGetExtendedTransferInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            idtGetData: idtGetData::<Impl, IMPL_OFFSET>,
+            idtGetBandedData: idtGetBandedData::<Impl, IMPL_OFFSET>,
+            idtQueryGetData: idtQueryGetData::<Impl, IMPL_OFFSET>,
+            idtEnumWIA_FORMAT_INFO: idtEnumWIA_FORMAT_INFO::<Impl, IMPL_OFFSET>,
+            idtGetExtendedTransferInfo: idtGetExtendedTransferInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaDataTransfer as ::windows::core::Interface>::IID
@@ -300,20 +346,18 @@ impl IWiaDevMgrVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            EnumDeviceInfo::<Impl, IMPL_OFFSET>,
-            CreateDevice::<Impl, IMPL_OFFSET>,
-            SelectDeviceDlg::<Impl, IMPL_OFFSET>,
-            SelectDeviceDlgID::<Impl, IMPL_OFFSET>,
-            GetImageDlg::<Impl, IMPL_OFFSET>,
-            RegisterEventCallbackProgram::<Impl, IMPL_OFFSET>,
-            RegisterEventCallbackInterface::<Impl, IMPL_OFFSET>,
-            RegisterEventCallbackCLSID::<Impl, IMPL_OFFSET>,
-            AddDeviceDlg::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            EnumDeviceInfo: EnumDeviceInfo::<Impl, IMPL_OFFSET>,
+            CreateDevice: CreateDevice::<Impl, IMPL_OFFSET>,
+            SelectDeviceDlg: SelectDeviceDlg::<Impl, IMPL_OFFSET>,
+            SelectDeviceDlgID: SelectDeviceDlgID::<Impl, IMPL_OFFSET>,
+            GetImageDlg: GetImageDlg::<Impl, IMPL_OFFSET>,
+            RegisterEventCallbackProgram: RegisterEventCallbackProgram::<Impl, IMPL_OFFSET>,
+            RegisterEventCallbackInterface: RegisterEventCallbackInterface::<Impl, IMPL_OFFSET>,
+            RegisterEventCallbackCLSID: RegisterEventCallbackCLSID::<Impl, IMPL_OFFSET>,
+            AddDeviceDlg: AddDeviceDlg::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaDevMgr as ::windows::core::Interface>::IID
@@ -365,19 +409,17 @@ impl IWiaDevMgr2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            EnumDeviceInfo::<Impl, IMPL_OFFSET>,
-            CreateDevice::<Impl, IMPL_OFFSET>,
-            SelectDeviceDlg::<Impl, IMPL_OFFSET>,
-            SelectDeviceDlgID::<Impl, IMPL_OFFSET>,
-            RegisterEventCallbackInterface::<Impl, IMPL_OFFSET>,
-            RegisterEventCallbackProgram::<Impl, IMPL_OFFSET>,
-            RegisterEventCallbackCLSID::<Impl, IMPL_OFFSET>,
-            GetImageDlg::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            EnumDeviceInfo: EnumDeviceInfo::<Impl, IMPL_OFFSET>,
+            CreateDevice: CreateDevice::<Impl, IMPL_OFFSET>,
+            SelectDeviceDlg: SelectDeviceDlg::<Impl, IMPL_OFFSET>,
+            SelectDeviceDlgID: SelectDeviceDlgID::<Impl, IMPL_OFFSET>,
+            RegisterEventCallbackInterface: RegisterEventCallbackInterface::<Impl, IMPL_OFFSET>,
+            RegisterEventCallbackProgram: RegisterEventCallbackProgram::<Impl, IMPL_OFFSET>,
+            RegisterEventCallbackCLSID: RegisterEventCallbackCLSID::<Impl, IMPL_OFFSET>,
+            GetImageDlg: GetImageDlg::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaDevMgr2 as ::windows::core::Interface>::IID
@@ -454,24 +496,22 @@ impl IWiaDrvItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetItemFlags::<Impl, IMPL_OFFSET>,
-            GetDeviceSpecContext::<Impl, IMPL_OFFSET>,
-            GetFullItemName::<Impl, IMPL_OFFSET>,
-            GetItemName::<Impl, IMPL_OFFSET>,
-            AddItemToFolder::<Impl, IMPL_OFFSET>,
-            UnlinkItemTree::<Impl, IMPL_OFFSET>,
-            RemoveItemFromFolder::<Impl, IMPL_OFFSET>,
-            FindItemByName::<Impl, IMPL_OFFSET>,
-            FindChildItemByName::<Impl, IMPL_OFFSET>,
-            GetParentItem::<Impl, IMPL_OFFSET>,
-            GetFirstChildItem::<Impl, IMPL_OFFSET>,
-            GetNextSiblingItem::<Impl, IMPL_OFFSET>,
-            DumpItemData::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetItemFlags: GetItemFlags::<Impl, IMPL_OFFSET>,
+            GetDeviceSpecContext: GetDeviceSpecContext::<Impl, IMPL_OFFSET>,
+            GetFullItemName: GetFullItemName::<Impl, IMPL_OFFSET>,
+            GetItemName: GetItemName::<Impl, IMPL_OFFSET>,
+            AddItemToFolder: AddItemToFolder::<Impl, IMPL_OFFSET>,
+            UnlinkItemTree: UnlinkItemTree::<Impl, IMPL_OFFSET>,
+            RemoveItemFromFolder: RemoveItemFromFolder::<Impl, IMPL_OFFSET>,
+            FindItemByName: FindItemByName::<Impl, IMPL_OFFSET>,
+            FindChildItemByName: FindChildItemByName::<Impl, IMPL_OFFSET>,
+            GetParentItem: GetParentItem::<Impl, IMPL_OFFSET>,
+            GetFirstChildItem: GetFirstChildItem::<Impl, IMPL_OFFSET>,
+            GetNextSiblingItem: GetNextSiblingItem::<Impl, IMPL_OFFSET>,
+            DumpItemData: DumpItemData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaDrvItem as ::windows::core::Interface>::IID
@@ -493,7 +533,11 @@ impl IWiaErrorHandlerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ReportStatus::<Impl, IMPL_OFFSET>, GetStatusDescription::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ReportStatus: ReportStatus::<Impl, IMPL_OFFSET>,
+            GetStatusDescription: GetStatusDescription::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaErrorHandler as ::windows::core::Interface>::IID
@@ -510,7 +554,7 @@ impl IWiaEventCallbackVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ImageEventCallback::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), ImageEventCallback: ImageEventCallback::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaEventCallback as ::windows::core::Interface>::IID
@@ -542,7 +586,13 @@ impl IWiaImageFilterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, InitializeFilter::<Impl, IMPL_OFFSET>, SetNewCallback::<Impl, IMPL_OFFSET>, FilterPreviewImage::<Impl, IMPL_OFFSET>, ApplyProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            InitializeFilter: InitializeFilter::<Impl, IMPL_OFFSET>,
+            SetNewCallback: SetNewCallback::<Impl, IMPL_OFFSET>,
+            FilterPreviewImage: FilterPreviewImage::<Impl, IMPL_OFFSET>,
+            ApplyProperties: ApplyProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaImageFilter as ::windows::core::Interface>::IID
@@ -629,26 +679,24 @@ impl IWiaItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetItemType::<Impl, IMPL_OFFSET>,
-            AnalyzeItem::<Impl, IMPL_OFFSET>,
-            EnumChildItems::<Impl, IMPL_OFFSET>,
-            DeleteItem::<Impl, IMPL_OFFSET>,
-            CreateChildItem::<Impl, IMPL_OFFSET>,
-            EnumRegisterEventInfo::<Impl, IMPL_OFFSET>,
-            FindItemByName::<Impl, IMPL_OFFSET>,
-            DeviceDlg::<Impl, IMPL_OFFSET>,
-            DeviceCommand::<Impl, IMPL_OFFSET>,
-            GetRootItem::<Impl, IMPL_OFFSET>,
-            EnumDeviceCapabilities::<Impl, IMPL_OFFSET>,
-            DumpItemData::<Impl, IMPL_OFFSET>,
-            DumpDrvItemData::<Impl, IMPL_OFFSET>,
-            DumpTreeItemData::<Impl, IMPL_OFFSET>,
-            Diagnostic::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetItemType: GetItemType::<Impl, IMPL_OFFSET>,
+            AnalyzeItem: AnalyzeItem::<Impl, IMPL_OFFSET>,
+            EnumChildItems: EnumChildItems::<Impl, IMPL_OFFSET>,
+            DeleteItem: DeleteItem::<Impl, IMPL_OFFSET>,
+            CreateChildItem: CreateChildItem::<Impl, IMPL_OFFSET>,
+            EnumRegisterEventInfo: EnumRegisterEventInfo::<Impl, IMPL_OFFSET>,
+            FindItemByName: FindItemByName::<Impl, IMPL_OFFSET>,
+            DeviceDlg: DeviceDlg::<Impl, IMPL_OFFSET>,
+            DeviceCommand: DeviceCommand::<Impl, IMPL_OFFSET>,
+            GetRootItem: GetRootItem::<Impl, IMPL_OFFSET>,
+            EnumDeviceCapabilities: EnumDeviceCapabilities::<Impl, IMPL_OFFSET>,
+            DumpItemData: DumpItemData::<Impl, IMPL_OFFSET>,
+            DumpDrvItemData: DumpDrvItemData::<Impl, IMPL_OFFSET>,
+            DumpTreeItemData: DumpTreeItemData::<Impl, IMPL_OFFSET>,
+            Diagnostic: Diagnostic::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaItem as ::windows::core::Interface>::IID
@@ -740,27 +788,25 @@ impl IWiaItem2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            CreateChildItem::<Impl, IMPL_OFFSET>,
-            DeleteItem::<Impl, IMPL_OFFSET>,
-            EnumChildItems::<Impl, IMPL_OFFSET>,
-            FindItemByName::<Impl, IMPL_OFFSET>,
-            GetItemCategory::<Impl, IMPL_OFFSET>,
-            GetItemType::<Impl, IMPL_OFFSET>,
-            DeviceDlg::<Impl, IMPL_OFFSET>,
-            DeviceCommand::<Impl, IMPL_OFFSET>,
-            EnumDeviceCapabilities::<Impl, IMPL_OFFSET>,
-            CheckExtension::<Impl, IMPL_OFFSET>,
-            GetExtension::<Impl, IMPL_OFFSET>,
-            GetParentItem::<Impl, IMPL_OFFSET>,
-            GetRootItem::<Impl, IMPL_OFFSET>,
-            GetPreviewComponent::<Impl, IMPL_OFFSET>,
-            EnumRegisterEventInfo::<Impl, IMPL_OFFSET>,
-            Diagnostic::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateChildItem: CreateChildItem::<Impl, IMPL_OFFSET>,
+            DeleteItem: DeleteItem::<Impl, IMPL_OFFSET>,
+            EnumChildItems: EnumChildItems::<Impl, IMPL_OFFSET>,
+            FindItemByName: FindItemByName::<Impl, IMPL_OFFSET>,
+            GetItemCategory: GetItemCategory::<Impl, IMPL_OFFSET>,
+            GetItemType: GetItemType::<Impl, IMPL_OFFSET>,
+            DeviceDlg: DeviceDlg::<Impl, IMPL_OFFSET>,
+            DeviceCommand: DeviceCommand::<Impl, IMPL_OFFSET>,
+            EnumDeviceCapabilities: EnumDeviceCapabilities::<Impl, IMPL_OFFSET>,
+            CheckExtension: CheckExtension::<Impl, IMPL_OFFSET>,
+            GetExtension: GetExtension::<Impl, IMPL_OFFSET>,
+            GetParentItem: GetParentItem::<Impl, IMPL_OFFSET>,
+            GetRootItem: GetRootItem::<Impl, IMPL_OFFSET>,
+            GetPreviewComponent: GetPreviewComponent::<Impl, IMPL_OFFSET>,
+            EnumRegisterEventInfo: EnumRegisterEventInfo::<Impl, IMPL_OFFSET>,
+            Diagnostic: Diagnostic::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaItem2 as ::windows::core::Interface>::IID
@@ -787,7 +833,12 @@ impl IWiaItemExtrasVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetExtendedErrorInfo::<Impl, IMPL_OFFSET>, Escape::<Impl, IMPL_OFFSET>, CancelPendingIO::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetExtendedErrorInfo: GetExtendedErrorInfo::<Impl, IMPL_OFFSET>,
+            Escape: Escape::<Impl, IMPL_OFFSET>,
+            CancelPendingIO: CancelPendingIO::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaItemExtras as ::windows::core::Interface>::IID
@@ -814,7 +865,12 @@ impl IWiaLogVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, InitializeLog::<Impl, IMPL_OFFSET>, hResult::<Impl, IMPL_OFFSET>, Log::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            InitializeLog: InitializeLog::<Impl, IMPL_OFFSET>,
+            hResult: hResult::<Impl, IMPL_OFFSET>,
+            Log: Log::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaLog as ::windows::core::Interface>::IID
@@ -851,7 +907,14 @@ impl IWiaLogExVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, InitializeLogEx::<Impl, IMPL_OFFSET>, hResult::<Impl, IMPL_OFFSET>, Log::<Impl, IMPL_OFFSET>, hResultEx::<Impl, IMPL_OFFSET>, LogEx::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            InitializeLogEx: InitializeLogEx::<Impl, IMPL_OFFSET>,
+            hResult: hResult::<Impl, IMPL_OFFSET>,
+            Log: Log::<Impl, IMPL_OFFSET>,
+            hResultEx: hResultEx::<Impl, IMPL_OFFSET>,
+            LogEx: LogEx::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaLogEx as ::windows::core::Interface>::IID
@@ -948,28 +1011,26 @@ impl IWiaMiniDrvVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            drvInitializeWia::<Impl, IMPL_OFFSET>,
-            drvAcquireItemData::<Impl, IMPL_OFFSET>,
-            drvInitItemProperties::<Impl, IMPL_OFFSET>,
-            drvValidateItemProperties::<Impl, IMPL_OFFSET>,
-            drvWriteItemProperties::<Impl, IMPL_OFFSET>,
-            drvReadItemProperties::<Impl, IMPL_OFFSET>,
-            drvLockWiaDevice::<Impl, IMPL_OFFSET>,
-            drvUnLockWiaDevice::<Impl, IMPL_OFFSET>,
-            drvAnalyzeItem::<Impl, IMPL_OFFSET>,
-            drvGetDeviceErrorStr::<Impl, IMPL_OFFSET>,
-            drvDeviceCommand::<Impl, IMPL_OFFSET>,
-            drvGetCapabilities::<Impl, IMPL_OFFSET>,
-            drvDeleteItem::<Impl, IMPL_OFFSET>,
-            drvFreeDrvItemContext::<Impl, IMPL_OFFSET>,
-            drvGetWiaFormatInfo::<Impl, IMPL_OFFSET>,
-            drvNotifyPnpEvent::<Impl, IMPL_OFFSET>,
-            drvUnInitializeWia::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            drvInitializeWia: drvInitializeWia::<Impl, IMPL_OFFSET>,
+            drvAcquireItemData: drvAcquireItemData::<Impl, IMPL_OFFSET>,
+            drvInitItemProperties: drvInitItemProperties::<Impl, IMPL_OFFSET>,
+            drvValidateItemProperties: drvValidateItemProperties::<Impl, IMPL_OFFSET>,
+            drvWriteItemProperties: drvWriteItemProperties::<Impl, IMPL_OFFSET>,
+            drvReadItemProperties: drvReadItemProperties::<Impl, IMPL_OFFSET>,
+            drvLockWiaDevice: drvLockWiaDevice::<Impl, IMPL_OFFSET>,
+            drvUnLockWiaDevice: drvUnLockWiaDevice::<Impl, IMPL_OFFSET>,
+            drvAnalyzeItem: drvAnalyzeItem::<Impl, IMPL_OFFSET>,
+            drvGetDeviceErrorStr: drvGetDeviceErrorStr::<Impl, IMPL_OFFSET>,
+            drvDeviceCommand: drvDeviceCommand::<Impl, IMPL_OFFSET>,
+            drvGetCapabilities: drvGetCapabilities::<Impl, IMPL_OFFSET>,
+            drvDeleteItem: drvDeleteItem::<Impl, IMPL_OFFSET>,
+            drvFreeDrvItemContext: drvFreeDrvItemContext::<Impl, IMPL_OFFSET>,
+            drvGetWiaFormatInfo: drvGetWiaFormatInfo::<Impl, IMPL_OFFSET>,
+            drvNotifyPnpEvent: drvNotifyPnpEvent::<Impl, IMPL_OFFSET>,
+            drvUnInitializeWia: drvUnInitializeWia::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaMiniDrv as ::windows::core::Interface>::IID
@@ -986,7 +1047,7 @@ impl IWiaMiniDrvCallBackVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, MiniDrvCallback::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), MiniDrvCallback: MiniDrvCallback::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaMiniDrvCallBack as ::windows::core::Interface>::IID
@@ -1008,7 +1069,11 @@ impl IWiaMiniDrvTransferCallbackVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetNextStream::<Impl, IMPL_OFFSET>, SendMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetNextStream: GetNextStream::<Impl, IMPL_OFFSET>,
+            SendMessage: SendMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaMiniDrvTransferCallback as ::windows::core::Interface>::IID
@@ -1023,7 +1088,7 @@ impl IWiaNotifyDevMgrVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, NewDeviceArrival::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), NewDeviceArrival: NewDeviceArrival::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaNotifyDevMgr as ::windows::core::Interface>::IID
@@ -1053,7 +1118,13 @@ impl IWiaPreviewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetNewPreview::<Impl, IMPL_OFFSET>, UpdatePreview::<Impl, IMPL_OFFSET>, DetectRegions::<Impl, IMPL_OFFSET>, Clear::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetNewPreview: GetNewPreview::<Impl, IMPL_OFFSET>,
+            UpdatePreview: UpdatePreview::<Impl, IMPL_OFFSET>,
+            DetectRegions: DetectRegions::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaPreview as ::windows::core::Interface>::IID
@@ -1145,27 +1216,25 @@ impl IWiaPropertyStorageVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ReadMultiple::<Impl, IMPL_OFFSET>,
-            WriteMultiple::<Impl, IMPL_OFFSET>,
-            DeleteMultiple::<Impl, IMPL_OFFSET>,
-            ReadPropertyNames::<Impl, IMPL_OFFSET>,
-            WritePropertyNames::<Impl, IMPL_OFFSET>,
-            DeletePropertyNames::<Impl, IMPL_OFFSET>,
-            Commit::<Impl, IMPL_OFFSET>,
-            Revert::<Impl, IMPL_OFFSET>,
-            Enum::<Impl, IMPL_OFFSET>,
-            SetTimes::<Impl, IMPL_OFFSET>,
-            SetClass::<Impl, IMPL_OFFSET>,
-            Stat::<Impl, IMPL_OFFSET>,
-            GetPropertyAttributes::<Impl, IMPL_OFFSET>,
-            GetCount::<Impl, IMPL_OFFSET>,
-            GetPropertyStream::<Impl, IMPL_OFFSET>,
-            SetPropertyStream::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ReadMultiple: ReadMultiple::<Impl, IMPL_OFFSET>,
+            WriteMultiple: WriteMultiple::<Impl, IMPL_OFFSET>,
+            DeleteMultiple: DeleteMultiple::<Impl, IMPL_OFFSET>,
+            ReadPropertyNames: ReadPropertyNames::<Impl, IMPL_OFFSET>,
+            WritePropertyNames: WritePropertyNames::<Impl, IMPL_OFFSET>,
+            DeletePropertyNames: DeletePropertyNames::<Impl, IMPL_OFFSET>,
+            Commit: Commit::<Impl, IMPL_OFFSET>,
+            Revert: Revert::<Impl, IMPL_OFFSET>,
+            Enum: Enum::<Impl, IMPL_OFFSET>,
+            SetTimes: SetTimes::<Impl, IMPL_OFFSET>,
+            SetClass: SetClass::<Impl, IMPL_OFFSET>,
+            Stat: Stat::<Impl, IMPL_OFFSET>,
+            GetPropertyAttributes: GetPropertyAttributes::<Impl, IMPL_OFFSET>,
+            GetCount: GetCount::<Impl, IMPL_OFFSET>,
+            GetPropertyStream: GetPropertyStream::<Impl, IMPL_OFFSET>,
+            SetPropertyStream: SetPropertyStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaPropertyStorage as ::windows::core::Interface>::IID
@@ -1182,7 +1251,7 @@ impl IWiaSegmentationFilterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, DetectRegions::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), DetectRegions: DetectRegions::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaSegmentationFilter as ::windows::core::Interface>::IID
@@ -1214,7 +1283,13 @@ impl IWiaTransferVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Download::<Impl, IMPL_OFFSET>, Upload::<Impl, IMPL_OFFSET>, Cancel::<Impl, IMPL_OFFSET>, EnumWIA_FORMAT_INFO::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Download: Download::<Impl, IMPL_OFFSET>,
+            Upload: Upload::<Impl, IMPL_OFFSET>,
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+            EnumWIA_FORMAT_INFO: EnumWIA_FORMAT_INFO::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaTransfer as ::windows::core::Interface>::IID
@@ -1236,7 +1311,11 @@ impl IWiaTransferCallbackVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, TransferCallback::<Impl, IMPL_OFFSET>, GetNextStream::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            TransferCallback: TransferCallback::<Impl, IMPL_OFFSET>,
+            GetNextStream: GetNextStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaTransferCallback as ::windows::core::Interface>::IID
@@ -1263,7 +1342,12 @@ impl IWiaUIExtensionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, DeviceDialog::<Impl, IMPL_OFFSET>, GetDeviceIcon::<Impl, IMPL_OFFSET>, GetDeviceBitmapLogo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            DeviceDialog: DeviceDialog::<Impl, IMPL_OFFSET>,
+            GetDeviceIcon: GetDeviceIcon::<Impl, IMPL_OFFSET>,
+            GetDeviceBitmapLogo: GetDeviceBitmapLogo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaUIExtension as ::windows::core::Interface>::IID
@@ -1285,7 +1369,11 @@ impl IWiaUIExtension2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, DeviceDialog::<Impl, IMPL_OFFSET>, GetDeviceIcon::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            DeviceDialog: DeviceDialog::<Impl, IMPL_OFFSET>,
+            GetDeviceIcon: GetDeviceIcon::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaUIExtension2 as ::windows::core::Interface>::IID
@@ -1362,24 +1450,22 @@ impl IWiaVideoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            PreviewVisible::<Impl, IMPL_OFFSET>,
-            SetPreviewVisible::<Impl, IMPL_OFFSET>,
-            ImagesDirectory::<Impl, IMPL_OFFSET>,
-            SetImagesDirectory::<Impl, IMPL_OFFSET>,
-            CreateVideoByWiaDevID::<Impl, IMPL_OFFSET>,
-            CreateVideoByDevNum::<Impl, IMPL_OFFSET>,
-            CreateVideoByName::<Impl, IMPL_OFFSET>,
-            DestroyVideo::<Impl, IMPL_OFFSET>,
-            Play::<Impl, IMPL_OFFSET>,
-            Pause::<Impl, IMPL_OFFSET>,
-            TakePicture::<Impl, IMPL_OFFSET>,
-            ResizeVideo::<Impl, IMPL_OFFSET>,
-            GetCurrentState::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            PreviewVisible: PreviewVisible::<Impl, IMPL_OFFSET>,
+            SetPreviewVisible: SetPreviewVisible::<Impl, IMPL_OFFSET>,
+            ImagesDirectory: ImagesDirectory::<Impl, IMPL_OFFSET>,
+            SetImagesDirectory: SetImagesDirectory::<Impl, IMPL_OFFSET>,
+            CreateVideoByWiaDevID: CreateVideoByWiaDevID::<Impl, IMPL_OFFSET>,
+            CreateVideoByDevNum: CreateVideoByDevNum::<Impl, IMPL_OFFSET>,
+            CreateVideoByName: CreateVideoByName::<Impl, IMPL_OFFSET>,
+            DestroyVideo: DestroyVideo::<Impl, IMPL_OFFSET>,
+            Play: Play::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            TakePicture: TakePicture::<Impl, IMPL_OFFSET>,
+            ResizeVideo: ResizeVideo::<Impl, IMPL_OFFSET>,
+            GetCurrentState: GetCurrentState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaVideo as ::windows::core::Interface>::IID

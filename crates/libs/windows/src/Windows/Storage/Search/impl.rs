@@ -92,21 +92,16 @@ impl IContentIndexerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IContentIndexer>,
-            ::windows::core::GetTrustLevel,
-            AddAsync::<Impl, IMPL_OFFSET>,
-            UpdateAsync::<Impl, IMPL_OFFSET>,
-            DeleteAsync::<Impl, IMPL_OFFSET>,
-            DeleteMultipleAsync::<Impl, IMPL_OFFSET>,
-            DeleteAllAsync::<Impl, IMPL_OFFSET>,
-            RetrievePropertiesAsync::<Impl, IMPL_OFFSET>,
-            Revision::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContentIndexer, BASE_OFFSET>(),
+            AddAsync: AddAsync::<Impl, IMPL_OFFSET>,
+            UpdateAsync: UpdateAsync::<Impl, IMPL_OFFSET>,
+            DeleteAsync: DeleteAsync::<Impl, IMPL_OFFSET>,
+            DeleteMultipleAsync: DeleteMultipleAsync::<Impl, IMPL_OFFSET>,
+            DeleteAllAsync: DeleteAllAsync::<Impl, IMPL_OFFSET>,
+            RetrievePropertiesAsync: RetrievePropertiesAsync::<Impl, IMPL_OFFSET>,
+            Revision: Revision::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContentIndexer as ::windows::core::Interface>::IID
@@ -194,20 +189,15 @@ impl IContentIndexerQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IContentIndexerQuery>,
-            ::windows::core::GetTrustLevel,
-            GetCountAsync::<Impl, IMPL_OFFSET>,
-            GetPropertiesAsync::<Impl, IMPL_OFFSET>,
-            GetPropertiesRangeAsync::<Impl, IMPL_OFFSET>,
-            GetAsync::<Impl, IMPL_OFFSET>,
-            GetRangeAsync::<Impl, IMPL_OFFSET>,
-            QueryFolder::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContentIndexerQuery, BASE_OFFSET>(),
+            GetCountAsync: GetCountAsync::<Impl, IMPL_OFFSET>,
+            GetPropertiesAsync: GetPropertiesAsync::<Impl, IMPL_OFFSET>,
+            GetPropertiesRangeAsync: GetPropertiesRangeAsync::<Impl, IMPL_OFFSET>,
+            GetAsync: GetAsync::<Impl, IMPL_OFFSET>,
+            GetRangeAsync: GetRangeAsync::<Impl, IMPL_OFFSET>,
+            QueryFolder: QueryFolder::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContentIndexerQuery as ::windows::core::Interface>::IID
@@ -268,7 +258,12 @@ impl IContentIndexerQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentIndexerQueryOperations>, ::windows::core::GetTrustLevel, CreateQueryWithSortOrderAndLanguage::<Impl, IMPL_OFFSET>, CreateQueryWithSortOrder::<Impl, IMPL_OFFSET>, CreateQuery::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContentIndexerQueryOperations, BASE_OFFSET>(),
+            CreateQueryWithSortOrderAndLanguage: CreateQueryWithSortOrderAndLanguage::<Impl, IMPL_OFFSET>,
+            CreateQueryWithSortOrder: CreateQueryWithSortOrder::<Impl, IMPL_OFFSET>,
+            CreateQuery: CreateQuery::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContentIndexerQueryOperations as ::windows::core::Interface>::IID
@@ -308,7 +303,11 @@ impl IContentIndexerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentIndexerStatics>, ::windows::core::GetTrustLevel, GetIndexerWithName::<Impl, IMPL_OFFSET>, GetIndexer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContentIndexerStatics, BASE_OFFSET>(),
+            GetIndexerWithName: GetIndexerWithName::<Impl, IMPL_OFFSET>,
+            GetIndexer: GetIndexer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContentIndexerStatics as ::windows::core::Interface>::IID
@@ -387,21 +386,16 @@ impl IIndexableContentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStreamContentType(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IIndexableContent>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            SetId::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            Stream::<Impl, IMPL_OFFSET>,
-            SetStream::<Impl, IMPL_OFFSET>,
-            StreamContentType::<Impl, IMPL_OFFSET>,
-            SetStreamContentType::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIndexableContent, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            Stream: Stream::<Impl, IMPL_OFFSET>,
+            SetStream: SetStream::<Impl, IMPL_OFFSET>,
+            StreamContentType: StreamContentType::<Impl, IMPL_OFFSET>,
+            SetStreamContentType: SetStreamContentType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIndexableContent as ::windows::core::Interface>::IID
@@ -577,32 +571,27 @@ impl IQueryOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPropertyPrefetch(options, &*(&propertiestoretrieve as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IQueryOptions>,
-            ::windows::core::GetTrustLevel,
-            FileTypeFilter::<Impl, IMPL_OFFSET>,
-            FolderDepth::<Impl, IMPL_OFFSET>,
-            SetFolderDepth::<Impl, IMPL_OFFSET>,
-            ApplicationSearchFilter::<Impl, IMPL_OFFSET>,
-            SetApplicationSearchFilter::<Impl, IMPL_OFFSET>,
-            UserSearchFilter::<Impl, IMPL_OFFSET>,
-            SetUserSearchFilter::<Impl, IMPL_OFFSET>,
-            Language::<Impl, IMPL_OFFSET>,
-            SetLanguage::<Impl, IMPL_OFFSET>,
-            IndexerOption::<Impl, IMPL_OFFSET>,
-            SetIndexerOption::<Impl, IMPL_OFFSET>,
-            SortOrder::<Impl, IMPL_OFFSET>,
-            GroupPropertyName::<Impl, IMPL_OFFSET>,
-            DateStackOption::<Impl, IMPL_OFFSET>,
-            SaveToString::<Impl, IMPL_OFFSET>,
-            LoadFromString::<Impl, IMPL_OFFSET>,
-            SetThumbnailPrefetch::<Impl, IMPL_OFFSET>,
-            SetPropertyPrefetch::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IQueryOptions, BASE_OFFSET>(),
+            FileTypeFilter: FileTypeFilter::<Impl, IMPL_OFFSET>,
+            FolderDepth: FolderDepth::<Impl, IMPL_OFFSET>,
+            SetFolderDepth: SetFolderDepth::<Impl, IMPL_OFFSET>,
+            ApplicationSearchFilter: ApplicationSearchFilter::<Impl, IMPL_OFFSET>,
+            SetApplicationSearchFilter: SetApplicationSearchFilter::<Impl, IMPL_OFFSET>,
+            UserSearchFilter: UserSearchFilter::<Impl, IMPL_OFFSET>,
+            SetUserSearchFilter: SetUserSearchFilter::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+            SetLanguage: SetLanguage::<Impl, IMPL_OFFSET>,
+            IndexerOption: IndexerOption::<Impl, IMPL_OFFSET>,
+            SetIndexerOption: SetIndexerOption::<Impl, IMPL_OFFSET>,
+            SortOrder: SortOrder::<Impl, IMPL_OFFSET>,
+            GroupPropertyName: GroupPropertyName::<Impl, IMPL_OFFSET>,
+            DateStackOption: DateStackOption::<Impl, IMPL_OFFSET>,
+            SaveToString: SaveToString::<Impl, IMPL_OFFSET>,
+            LoadFromString: LoadFromString::<Impl, IMPL_OFFSET>,
+            SetThumbnailPrefetch: SetThumbnailPrefetch::<Impl, IMPL_OFFSET>,
+            SetPropertyPrefetch: SetPropertyPrefetch::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IQueryOptions as ::windows::core::Interface>::IID
@@ -642,7 +631,11 @@ impl IQueryOptionsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IQueryOptionsFactory>, ::windows::core::GetTrustLevel, CreateCommonFileQuery::<Impl, IMPL_OFFSET>, CreateCommonFolderQuery::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IQueryOptionsFactory, BASE_OFFSET>(),
+            CreateCommonFileQuery: CreateCommonFileQuery::<Impl, IMPL_OFFSET>,
+            CreateCommonFolderQuery: CreateCommonFolderQuery::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IQueryOptionsFactory as ::windows::core::Interface>::IID
@@ -670,7 +663,10 @@ impl IQueryOptionsWithProviderFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IQueryOptionsWithProviderFilter>, ::windows::core::GetTrustLevel, StorageProviderIdFilter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IQueryOptionsWithProviderFilter, BASE_OFFSET>(),
+            StorageProviderIdFilter: StorageProviderIdFilter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IQueryOptionsWithProviderFilter as ::windows::core::Interface>::IID
@@ -710,7 +706,11 @@ impl IStorageFileQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageFileQueryResult>, ::windows::core::GetTrustLevel, GetFilesAsync::<Impl, IMPL_OFFSET>, GetFilesAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFileQueryResult, BASE_OFFSET>(),
+            GetFilesAsync: GetFilesAsync::<Impl, IMPL_OFFSET>,
+            GetFilesAsyncDefaultStartAndCount: GetFilesAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageFileQueryResult as ::windows::core::Interface>::IID
@@ -738,7 +738,10 @@ impl IStorageFileQueryResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageFileQueryResult2>, ::windows::core::GetTrustLevel, GetMatchingPropertiesWithRanges::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFileQueryResult2, BASE_OFFSET>(),
+            GetMatchingPropertiesWithRanges: GetMatchingPropertiesWithRanges::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageFileQueryResult2 as ::windows::core::Interface>::IID
@@ -958,31 +961,26 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStorageFolderQueryOperations>,
-            ::windows::core::GetTrustLevel,
-            GetIndexedStateAsync::<Impl, IMPL_OFFSET>,
-            CreateFileQueryOverloadDefault::<Impl, IMPL_OFFSET>,
-            CreateFileQuery::<Impl, IMPL_OFFSET>,
-            CreateFileQueryWithOptions::<Impl, IMPL_OFFSET>,
-            CreateFolderQueryOverloadDefault::<Impl, IMPL_OFFSET>,
-            CreateFolderQuery::<Impl, IMPL_OFFSET>,
-            CreateFolderQueryWithOptions::<Impl, IMPL_OFFSET>,
-            CreateItemQuery::<Impl, IMPL_OFFSET>,
-            CreateItemQueryWithOptions::<Impl, IMPL_OFFSET>,
-            GetFilesAsync::<Impl, IMPL_OFFSET>,
-            GetFilesAsyncOverloadDefaultStartAndCount::<Impl, IMPL_OFFSET>,
-            GetFoldersAsync::<Impl, IMPL_OFFSET>,
-            GetFoldersAsyncOverloadDefaultStartAndCount::<Impl, IMPL_OFFSET>,
-            GetItemsAsync::<Impl, IMPL_OFFSET>,
-            AreQueryOptionsSupported::<Impl, IMPL_OFFSET>,
-            IsCommonFolderQuerySupported::<Impl, IMPL_OFFSET>,
-            IsCommonFileQuerySupported::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFolderQueryOperations, BASE_OFFSET>(),
+            GetIndexedStateAsync: GetIndexedStateAsync::<Impl, IMPL_OFFSET>,
+            CreateFileQueryOverloadDefault: CreateFileQueryOverloadDefault::<Impl, IMPL_OFFSET>,
+            CreateFileQuery: CreateFileQuery::<Impl, IMPL_OFFSET>,
+            CreateFileQueryWithOptions: CreateFileQueryWithOptions::<Impl, IMPL_OFFSET>,
+            CreateFolderQueryOverloadDefault: CreateFolderQueryOverloadDefault::<Impl, IMPL_OFFSET>,
+            CreateFolderQuery: CreateFolderQuery::<Impl, IMPL_OFFSET>,
+            CreateFolderQueryWithOptions: CreateFolderQueryWithOptions::<Impl, IMPL_OFFSET>,
+            CreateItemQuery: CreateItemQuery::<Impl, IMPL_OFFSET>,
+            CreateItemQueryWithOptions: CreateItemQueryWithOptions::<Impl, IMPL_OFFSET>,
+            GetFilesAsync: GetFilesAsync::<Impl, IMPL_OFFSET>,
+            GetFilesAsyncOverloadDefaultStartAndCount: GetFilesAsyncOverloadDefaultStartAndCount::<Impl, IMPL_OFFSET>,
+            GetFoldersAsync: GetFoldersAsync::<Impl, IMPL_OFFSET>,
+            GetFoldersAsyncOverloadDefaultStartAndCount: GetFoldersAsyncOverloadDefaultStartAndCount::<Impl, IMPL_OFFSET>,
+            GetItemsAsync: GetItemsAsync::<Impl, IMPL_OFFSET>,
+            AreQueryOptionsSupported: AreQueryOptionsSupported::<Impl, IMPL_OFFSET>,
+            IsCommonFolderQuerySupported: IsCommonFolderQuerySupported::<Impl, IMPL_OFFSET>,
+            IsCommonFileQuerySupported: IsCommonFileQuerySupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageFolderQueryOperations as ::windows::core::Interface>::IID
@@ -1022,7 +1020,11 @@ impl IStorageFolderQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageFolderQueryResult>, ::windows::core::GetTrustLevel, GetFoldersAsync::<Impl, IMPL_OFFSET>, GetFoldersAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFolderQueryResult, BASE_OFFSET>(),
+            GetFoldersAsync: GetFoldersAsync::<Impl, IMPL_OFFSET>,
+            GetFoldersAsyncDefaultStartAndCount: GetFoldersAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageFolderQueryResult as ::windows::core::Interface>::IID
@@ -1062,7 +1064,11 @@ impl IStorageItemQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemQueryResult>, ::windows::core::GetTrustLevel, GetItemsAsync::<Impl, IMPL_OFFSET>, GetItemsAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemQueryResult, BASE_OFFSET>(),
+            GetItemsAsync: GetItemsAsync::<Impl, IMPL_OFFSET>,
+            GetItemsAsyncDefaultStartAndCount: GetItemsAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageItemQueryResult as ::windows::core::Interface>::IID
@@ -1102,7 +1108,11 @@ impl IStorageLibraryChangeTrackerTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryChangeTrackerTriggerDetails>, ::windows::core::GetTrustLevel, Folder::<Impl, IMPL_OFFSET>, ChangeTracker::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageLibraryChangeTrackerTriggerDetails, BASE_OFFSET>(),
+            Folder: Folder::<Impl, IMPL_OFFSET>,
+            ChangeTracker: ChangeTracker::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageLibraryChangeTrackerTriggerDetails as ::windows::core::Interface>::IID
@@ -1142,7 +1152,11 @@ impl IStorageLibraryContentChangedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryContentChangedTriggerDetails>, ::windows::core::GetTrustLevel, Folder::<Impl, IMPL_OFFSET>, CreateModifiedSinceQuery::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageLibraryContentChangedTriggerDetails, BASE_OFFSET>(),
+            Folder: Folder::<Impl, IMPL_OFFSET>,
+            CreateModifiedSinceQuery: CreateModifiedSinceQuery::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageLibraryContentChangedTriggerDetails as ::windows::core::Interface>::IID
@@ -1245,23 +1259,18 @@ impl IStorageQueryResultBaseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ApplyNewQueryOptions(&*(&newqueryoptions as *const <QueryOptions as ::windows::core::Abi>::Abi as *const <QueryOptions as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStorageQueryResultBase>,
-            ::windows::core::GetTrustLevel,
-            GetItemCountAsync::<Impl, IMPL_OFFSET>,
-            Folder::<Impl, IMPL_OFFSET>,
-            ContentsChanged::<Impl, IMPL_OFFSET>,
-            RemoveContentsChanged::<Impl, IMPL_OFFSET>,
-            OptionsChanged::<Impl, IMPL_OFFSET>,
-            RemoveOptionsChanged::<Impl, IMPL_OFFSET>,
-            FindStartIndexAsync::<Impl, IMPL_OFFSET>,
-            GetCurrentQueryOptions::<Impl, IMPL_OFFSET>,
-            ApplyNewQueryOptions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageQueryResultBase, BASE_OFFSET>(),
+            GetItemCountAsync: GetItemCountAsync::<Impl, IMPL_OFFSET>,
+            Folder: Folder::<Impl, IMPL_OFFSET>,
+            ContentsChanged: ContentsChanged::<Impl, IMPL_OFFSET>,
+            RemoveContentsChanged: RemoveContentsChanged::<Impl, IMPL_OFFSET>,
+            OptionsChanged: OptionsChanged::<Impl, IMPL_OFFSET>,
+            RemoveOptionsChanged: RemoveOptionsChanged::<Impl, IMPL_OFFSET>,
+            FindStartIndexAsync: FindStartIndexAsync::<Impl, IMPL_OFFSET>,
+            GetCurrentQueryOptions: GetCurrentQueryOptions::<Impl, IMPL_OFFSET>,
+            ApplyNewQueryOptions: ApplyNewQueryOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageQueryResultBase as ::windows::core::Interface>::IID
@@ -1311,7 +1320,13 @@ impl IValueAndLanguageVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IValueAndLanguage>, ::windows::core::GetTrustLevel, Language::<Impl, IMPL_OFFSET>, SetLanguage::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IValueAndLanguage, BASE_OFFSET>(),
+            Language: Language::<Impl, IMPL_OFFSET>,
+            SetLanguage: SetLanguage::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IValueAndLanguage as ::windows::core::Interface>::IID

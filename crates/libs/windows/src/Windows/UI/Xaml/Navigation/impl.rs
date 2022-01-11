@@ -42,7 +42,13 @@ impl IFrameNavigationOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransitionInfoOverride(&*(&value as *const <super::Media::Animation::NavigationTransitionInfo as ::windows::core::Abi>::Abi as *const <super::Media::Animation::NavigationTransitionInfo as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameNavigationOptions>, ::windows::core::GetTrustLevel, IsNavigationStackEnabled::<Impl, IMPL_OFFSET>, SetIsNavigationStackEnabled::<Impl, IMPL_OFFSET>, TransitionInfoOverride::<Impl, IMPL_OFFSET>, SetTransitionInfoOverride::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameNavigationOptions, BASE_OFFSET>(),
+            IsNavigationStackEnabled: IsNavigationStackEnabled::<Impl, IMPL_OFFSET>,
+            SetIsNavigationStackEnabled: SetIsNavigationStackEnabled::<Impl, IMPL_OFFSET>,
+            TransitionInfoOverride: TransitionInfoOverride::<Impl, IMPL_OFFSET>,
+            SetTransitionInfoOverride: SetTransitionInfoOverride::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameNavigationOptions as ::windows::core::Interface>::IID
@@ -70,7 +76,10 @@ impl IFrameNavigationOptionsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameNavigationOptionsFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameNavigationOptionsFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameNavigationOptionsFactory as ::windows::core::Interface>::IID
@@ -127,7 +136,13 @@ impl INavigatingCancelEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigatingCancelEventArgs>, ::windows::core::GetTrustLevel, Cancel::<Impl, IMPL_OFFSET>, SetCancel::<Impl, IMPL_OFFSET>, NavigationMode::<Impl, IMPL_OFFSET>, SourcePageType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INavigatingCancelEventArgs, BASE_OFFSET>(),
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+            SetCancel: SetCancel::<Impl, IMPL_OFFSET>,
+            NavigationMode: NavigationMode::<Impl, IMPL_OFFSET>,
+            SourcePageType: SourcePageType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INavigatingCancelEventArgs as ::windows::core::Interface>::IID
@@ -167,7 +182,11 @@ impl INavigatingCancelEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigatingCancelEventArgs2>, ::windows::core::GetTrustLevel, Parameter::<Impl, IMPL_OFFSET>, NavigationTransitionInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INavigatingCancelEventArgs2, BASE_OFFSET>(),
+            Parameter: Parameter::<Impl, IMPL_OFFSET>,
+            NavigationTransitionInfo: NavigationTransitionInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INavigatingCancelEventArgs2 as ::windows::core::Interface>::IID
@@ -248,7 +267,15 @@ impl INavigationEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUri(&*(&value as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationEventArgs>, ::windows::core::GetTrustLevel, Content::<Impl, IMPL_OFFSET>, Parameter::<Impl, IMPL_OFFSET>, SourcePageType::<Impl, IMPL_OFFSET>, NavigationMode::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>, SetUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INavigationEventArgs, BASE_OFFSET>(),
+            Content: Content::<Impl, IMPL_OFFSET>,
+            Parameter: Parameter::<Impl, IMPL_OFFSET>,
+            SourcePageType: SourcePageType::<Impl, IMPL_OFFSET>,
+            NavigationMode: NavigationMode::<Impl, IMPL_OFFSET>,
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            SetUri: SetUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INavigationEventArgs as ::windows::core::Interface>::IID
@@ -276,7 +303,10 @@ impl INavigationEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationEventArgs2>, ::windows::core::GetTrustLevel, NavigationTransitionInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INavigationEventArgs2, BASE_OFFSET>(),
+            NavigationTransitionInfo: NavigationTransitionInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INavigationEventArgs2 as ::windows::core::Interface>::IID
@@ -333,7 +363,13 @@ impl INavigationFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationFailedEventArgs>, ::windows::core::GetTrustLevel, Exception::<Impl, IMPL_OFFSET>, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, SourcePageType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INavigationFailedEventArgs, BASE_OFFSET>(),
+            Exception: Exception::<Impl, IMPL_OFFSET>,
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            SourcePageType: SourcePageType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INavigationFailedEventArgs as ::windows::core::Interface>::IID
@@ -385,7 +421,12 @@ impl IPageStackEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPageStackEntry>, ::windows::core::GetTrustLevel, SourcePageType::<Impl, IMPL_OFFSET>, Parameter::<Impl, IMPL_OFFSET>, NavigationTransitionInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPageStackEntry, BASE_OFFSET>(),
+            SourcePageType: SourcePageType::<Impl, IMPL_OFFSET>,
+            Parameter: Parameter::<Impl, IMPL_OFFSET>,
+            NavigationTransitionInfo: NavigationTransitionInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPageStackEntry as ::windows::core::Interface>::IID
@@ -417,7 +458,10 @@ impl IPageStackEntryFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPageStackEntryFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPageStackEntryFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPageStackEntryFactory as ::windows::core::Interface>::IID
@@ -445,7 +489,10 @@ impl IPageStackEntryStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPageStackEntryStatics>, ::windows::core::GetTrustLevel, SourcePageTypeProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPageStackEntryStatics, BASE_OFFSET>(),
+            SourcePageTypeProperty: SourcePageTypeProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPageStackEntryStatics as ::windows::core::Interface>::IID

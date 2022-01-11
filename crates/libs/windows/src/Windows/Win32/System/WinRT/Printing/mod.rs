@@ -7,13 +7,13 @@ impl IPrintManagerInterop {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetForWindow)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowPrintUIForWindowAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).ShowPrintUIForWindowAsync)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IPrintManagerInterop> for ::windows::core::IInspectable {
@@ -78,18 +78,17 @@ unsafe impl ::windows::core::Interface for IPrintManagerInterop {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintManagerInteropVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IPrintManagerInteropVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetForWindow: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ShowPrintUIForWindowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ShowPrintUIForWindowAsync: usize,
+}
 #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintWorkflowConfigurationNative(::windows::core::IUnknown);
@@ -98,19 +97,19 @@ impl IPrintWorkflowConfigurationNative {
     #[cfg(feature = "Win32_Graphics_Printing")]
     pub unsafe fn PrinterQueue(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterQueue> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Printing::IPrinterQueue>(result__)
+        (::windows::core::Interface::vtable(self).PrinterQueue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Printing::IPrinterQueue>(result__)
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Graphics_Printing'*"]
     #[cfg(feature = "Win32_Graphics_Printing")]
     pub unsafe fn DriverProperties(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Printing::IPrinterPropertyBag>(result__)
+        (::windows::core::Interface::vtable(self).DriverProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Printing::IPrinterPropertyBag>(result__)
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Graphics_Printing'*"]
     #[cfg(feature = "Win32_Graphics_Printing")]
     pub unsafe fn UserProperties(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Printing::IPrinterPropertyBag>(result__)
+        (::windows::core::Interface::vtable(self).UserProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Printing::IPrinterPropertyBag>(result__)
     }
 }
 impl ::core::convert::From<IPrintWorkflowConfigurationNative> for ::windows::core::IUnknown {
@@ -155,30 +154,34 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowConfigurationNative {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowConfigurationNativeVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Printing")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Printing"))] usize,
-    #[cfg(feature = "Win32_Graphics_Printing")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Printing"))] usize,
-    #[cfg(feature = "Win32_Graphics_Printing")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Printing"))] usize,
-);
+pub struct IPrintWorkflowConfigurationNativeVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Graphics_Printing")]
+    pub PrinterQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Printing"))]
+    PrinterQueue: usize,
+    #[cfg(feature = "Win32_Graphics_Printing")]
+    pub DriverProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Printing"))]
+    DriverProperties: usize,
+    #[cfg(feature = "Win32_Graphics_Printing")]
+    pub UserProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Printing"))]
+    UserProperties: usize,
+}
 #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintWorkflowObjectModelSourceFileContentNative(::windows::core::IUnknown);
 impl IPrintWorkflowObjectModelSourceFileContentNative {
     #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
     pub unsafe fn StartXpsOMGeneration<'a, Param0: ::windows::core::IntoParam<'a, IPrintWorkflowXpsReceiver>>(&self, receiver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), receiver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).StartXpsOMGeneration)(::core::mem::transmute_copy(self), receiver.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Storage_Xps'*"]
     #[cfg(feature = "Win32_Storage_Xps")]
     pub unsafe fn ObjectFactory(&self) -> ::windows::core::Result<super::super::super::Storage::Xps::IXpsOMObjectFactory1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Storage::Xps::IXpsOMObjectFactory1>(result__)
+        (::windows::core::Interface::vtable(self).ObjectFactory)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Storage::Xps::IXpsOMObjectFactory1>(result__)
     }
 }
 impl ::core::convert::From<IPrintWorkflowObjectModelSourceFileContentNative> for ::windows::core::IUnknown {
@@ -223,14 +226,14 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowObjectModelSourceFileCo
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowObjectModelSourceFileContentNativeVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiver: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Storage_Xps")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_Xps"))] usize,
-);
+pub struct IPrintWorkflowObjectModelSourceFileContentNativeVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub StartXpsOMGeneration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiver: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Storage_Xps")]
+    pub ObjectFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Storage_Xps"))]
+    ObjectFactory: usize,
+}
 #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintWorkflowXpsObjectModelTargetPackageNative(::windows::core::IUnknown);
@@ -239,7 +242,7 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative {
     #[cfg(feature = "Win32_Storage_Xps")]
     pub unsafe fn DocumentPackageTarget(&self) -> ::windows::core::Result<super::super::super::Storage::Xps::IXpsDocumentPackageTarget> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Storage::Xps::IXpsDocumentPackageTarget>(result__)
+        (::windows::core::Interface::vtable(self).DocumentPackageTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Storage::Xps::IXpsDocumentPackageTarget>(result__)
     }
 }
 impl ::core::convert::From<IPrintWorkflowXpsObjectModelTargetPackageNative> for ::windows::core::IUnknown {
@@ -284,13 +287,13 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowXpsObjectModelTargetPac
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowXpsObjectModelTargetPackageNativeVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Storage_Xps")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_Xps"))] usize,
-);
+pub struct IPrintWorkflowXpsObjectModelTargetPackageNativeVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Storage_Xps")]
+    pub DocumentPackageTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Storage_Xps"))]
+    DocumentPackageTarget: usize,
+}
 #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintWorkflowXpsReceiver(::windows::core::IUnknown);
@@ -298,26 +301,26 @@ impl IPrintWorkflowXpsReceiver {
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDocumentSequencePrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::super::Com::IStream>>(&self, documentsequenceprintticket: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), documentsequenceprintticket.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDocumentSequencePrintTicket)(::core::mem::transmute_copy(self), documentsequenceprintticket.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDocumentSequenceUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, documentsequenceuri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), documentsequenceuri.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDocumentSequenceUri)(::core::mem::transmute_copy(self), documentsequenceuri.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddDocumentData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, documentid: u32, documentprintticket: Param1, documenturi: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(documentid), documentprintticket.into_param().abi(), documenturi.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddDocumentData)(::core::mem::transmute_copy(self), ::core::mem::transmute(documentid), documentprintticket.into_param().abi(), documenturi.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Foundation', 'Win32_Storage_Xps'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
     pub unsafe fn AddPage<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::IXpsOMPageReference>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, documentid: u32, pageid: u32, pagereference: Param2, pageuri: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(documentid), ::core::mem::transmute(pageid), pagereference.into_param().abi(), pageuri.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(documentid), ::core::mem::transmute(pageid), pagereference.into_param().abi(), pageuri.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IPrintWorkflowXpsReceiver> for ::windows::core::IUnknown {
@@ -362,20 +365,26 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowXpsReceiver {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowXpsReceiverVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequenceprintticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequenceuri: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentid: u32, documentprintticket: ::windows::core::RawPtr, documenturi: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentid: u32, pageid: u32, pagereference: ::windows::core::RawPtr, pageuri: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IPrintWorkflowXpsReceiverVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub SetDocumentSequencePrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequenceprintticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetDocumentSequencePrintTicket: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetDocumentSequenceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequenceuri: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetDocumentSequenceUri: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub AddDocumentData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentid: u32, documentprintticket: ::windows::core::RawPtr, documenturi: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    AddDocumentData: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
+    pub AddPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentid: u32, pageid: u32, pagereference: ::windows::core::RawPtr, pageuri: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps")))]
+    AddPage: usize,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintWorkflowXpsReceiver2(::windows::core::IUnknown);
@@ -383,30 +392,30 @@ impl IPrintWorkflowXpsReceiver2 {
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDocumentSequencePrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::super::Com::IStream>>(&self, documentsequenceprintticket: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), documentsequenceprintticket.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDocumentSequencePrintTicket)(::core::mem::transmute_copy(self), documentsequenceprintticket.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDocumentSequenceUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, documentsequenceuri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), documentsequenceuri.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDocumentSequenceUri)(::core::mem::transmute_copy(self), documentsequenceuri.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddDocumentData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, documentid: u32, documentprintticket: Param1, documenturi: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(documentid), documentprintticket.into_param().abi(), documenturi.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddDocumentData)(::core::mem::transmute_copy(self), ::core::mem::transmute(documentid), documentprintticket.into_param().abi(), documenturi.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Foundation', 'Win32_Storage_Xps'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
     pub unsafe fn AddPage<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::IXpsOMPageReference>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, documentid: u32, pageid: u32, pagereference: Param2, pageuri: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(documentid), ::core::mem::transmute(pageid), pagereference.into_param().abi(), pageuri.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(documentid), ::core::mem::transmute(pageid), pagereference.into_param().abi(), pageuri.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
     pub unsafe fn Failed(&self, xpserror: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(xpserror)).ok()
+        (::windows::core::Interface::vtable(self).Failed)(::core::mem::transmute_copy(self), ::core::mem::transmute(xpserror)).ok()
     }
 }
 impl ::core::convert::From<IPrintWorkflowXpsReceiver2> for IPrintWorkflowXpsReceiver {
@@ -471,21 +480,10 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowXpsReceiver2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowXpsReceiver2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequenceprintticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequenceuri: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentid: u32, documentprintticket: ::windows::core::RawPtr, documenturi: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentid: u32, pageid: u32, pagereference: ::windows::core::RawPtr, pageuri: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpserror: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-);
+pub struct IPrintWorkflowXpsReceiver2Vtbl {
+    pub base: IPrintWorkflowXpsReceiverVtbl,
+    pub Failed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpserror: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
 #[repr(transparent)]
 pub struct IPrinting3DManagerInterop(::windows::core::IUnknown);
@@ -494,13 +492,13 @@ impl IPrinting3DManagerInterop {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetForWindow)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowPrintUIForWindowAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).ShowPrintUIForWindowAsync)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IPrinting3DManagerInterop> for ::windows::core::IInspectable {
@@ -565,17 +563,16 @@ unsafe impl ::windows::core::Interface for IPrinting3DManagerInterop {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrinting3DManagerInteropVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IPrinting3DManagerInteropVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetForWindow: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ShowPrintUIForWindowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ShowPrintUIForWindowAsync: usize,
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

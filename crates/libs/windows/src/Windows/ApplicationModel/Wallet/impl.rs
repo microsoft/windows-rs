@@ -44,7 +44,12 @@ impl IWalletBarcodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletBarcode>, ::windows::core::GetTrustLevel, Symbology::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, GetImageAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletBarcode, BASE_OFFSET>(),
+            Symbology: Symbology::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            GetImageAsync: GetImageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletBarcode as ::windows::core::Interface>::IID
@@ -84,7 +89,11 @@ impl IWalletBarcodeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletBarcodeFactory>, ::windows::core::GetTrustLevel, CreateWalletBarcode::<Impl, IMPL_OFFSET>, CreateCustomWalletBarcode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletBarcodeFactory, BASE_OFFSET>(),
+            CreateWalletBarcode: CreateWalletBarcode::<Impl, IMPL_OFFSET>,
+            CreateCustomWalletBarcode: CreateCustomWalletBarcode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletBarcodeFactory as ::windows::core::Interface>::IID
@@ -563,66 +572,61 @@ impl IWalletItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWalletItem>,
-            ::windows::core::GetTrustLevel,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            SetDisplayName::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            IsAcknowledged::<Impl, IMPL_OFFSET>,
-            SetIsAcknowledged::<Impl, IMPL_OFFSET>,
-            IssuerDisplayName::<Impl, IMPL_OFFSET>,
-            SetIssuerDisplayName::<Impl, IMPL_OFFSET>,
-            LastUpdated::<Impl, IMPL_OFFSET>,
-            SetLastUpdated::<Impl, IMPL_OFFSET>,
-            Kind::<Impl, IMPL_OFFSET>,
-            Barcode::<Impl, IMPL_OFFSET>,
-            SetBarcode::<Impl, IMPL_OFFSET>,
-            ExpirationDate::<Impl, IMPL_OFFSET>,
-            SetExpirationDate::<Impl, IMPL_OFFSET>,
-            Logo159x159::<Impl, IMPL_OFFSET>,
-            SetLogo159x159::<Impl, IMPL_OFFSET>,
-            Logo336x336::<Impl, IMPL_OFFSET>,
-            SetLogo336x336::<Impl, IMPL_OFFSET>,
-            Logo99x99::<Impl, IMPL_OFFSET>,
-            SetLogo99x99::<Impl, IMPL_OFFSET>,
-            DisplayMessage::<Impl, IMPL_OFFSET>,
-            SetDisplayMessage::<Impl, IMPL_OFFSET>,
-            IsDisplayMessageLaunchable::<Impl, IMPL_OFFSET>,
-            SetIsDisplayMessageLaunchable::<Impl, IMPL_OFFSET>,
-            LogoText::<Impl, IMPL_OFFSET>,
-            SetLogoText::<Impl, IMPL_OFFSET>,
-            HeaderColor::<Impl, IMPL_OFFSET>,
-            SetHeaderColor::<Impl, IMPL_OFFSET>,
-            BodyColor::<Impl, IMPL_OFFSET>,
-            SetBodyColor::<Impl, IMPL_OFFSET>,
-            HeaderFontColor::<Impl, IMPL_OFFSET>,
-            SetHeaderFontColor::<Impl, IMPL_OFFSET>,
-            BodyFontColor::<Impl, IMPL_OFFSET>,
-            SetBodyFontColor::<Impl, IMPL_OFFSET>,
-            HeaderBackgroundImage::<Impl, IMPL_OFFSET>,
-            SetHeaderBackgroundImage::<Impl, IMPL_OFFSET>,
-            BodyBackgroundImage::<Impl, IMPL_OFFSET>,
-            SetBodyBackgroundImage::<Impl, IMPL_OFFSET>,
-            LogoImage::<Impl, IMPL_OFFSET>,
-            SetLogoImage::<Impl, IMPL_OFFSET>,
-            PromotionalImage::<Impl, IMPL_OFFSET>,
-            SetPromotionalImage::<Impl, IMPL_OFFSET>,
-            RelevantDate::<Impl, IMPL_OFFSET>,
-            SetRelevantDate::<Impl, IMPL_OFFSET>,
-            RelevantDateDisplayMessage::<Impl, IMPL_OFFSET>,
-            SetRelevantDateDisplayMessage::<Impl, IMPL_OFFSET>,
-            TransactionHistory::<Impl, IMPL_OFFSET>,
-            RelevantLocations::<Impl, IMPL_OFFSET>,
-            IsMoreTransactionHistoryLaunchable::<Impl, IMPL_OFFSET>,
-            SetIsMoreTransactionHistoryLaunchable::<Impl, IMPL_OFFSET>,
-            DisplayProperties::<Impl, IMPL_OFFSET>,
-            Verbs::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletItem, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            IsAcknowledged: IsAcknowledged::<Impl, IMPL_OFFSET>,
+            SetIsAcknowledged: SetIsAcknowledged::<Impl, IMPL_OFFSET>,
+            IssuerDisplayName: IssuerDisplayName::<Impl, IMPL_OFFSET>,
+            SetIssuerDisplayName: SetIssuerDisplayName::<Impl, IMPL_OFFSET>,
+            LastUpdated: LastUpdated::<Impl, IMPL_OFFSET>,
+            SetLastUpdated: SetLastUpdated::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            Barcode: Barcode::<Impl, IMPL_OFFSET>,
+            SetBarcode: SetBarcode::<Impl, IMPL_OFFSET>,
+            ExpirationDate: ExpirationDate::<Impl, IMPL_OFFSET>,
+            SetExpirationDate: SetExpirationDate::<Impl, IMPL_OFFSET>,
+            Logo159x159: Logo159x159::<Impl, IMPL_OFFSET>,
+            SetLogo159x159: SetLogo159x159::<Impl, IMPL_OFFSET>,
+            Logo336x336: Logo336x336::<Impl, IMPL_OFFSET>,
+            SetLogo336x336: SetLogo336x336::<Impl, IMPL_OFFSET>,
+            Logo99x99: Logo99x99::<Impl, IMPL_OFFSET>,
+            SetLogo99x99: SetLogo99x99::<Impl, IMPL_OFFSET>,
+            DisplayMessage: DisplayMessage::<Impl, IMPL_OFFSET>,
+            SetDisplayMessage: SetDisplayMessage::<Impl, IMPL_OFFSET>,
+            IsDisplayMessageLaunchable: IsDisplayMessageLaunchable::<Impl, IMPL_OFFSET>,
+            SetIsDisplayMessageLaunchable: SetIsDisplayMessageLaunchable::<Impl, IMPL_OFFSET>,
+            LogoText: LogoText::<Impl, IMPL_OFFSET>,
+            SetLogoText: SetLogoText::<Impl, IMPL_OFFSET>,
+            HeaderColor: HeaderColor::<Impl, IMPL_OFFSET>,
+            SetHeaderColor: SetHeaderColor::<Impl, IMPL_OFFSET>,
+            BodyColor: BodyColor::<Impl, IMPL_OFFSET>,
+            SetBodyColor: SetBodyColor::<Impl, IMPL_OFFSET>,
+            HeaderFontColor: HeaderFontColor::<Impl, IMPL_OFFSET>,
+            SetHeaderFontColor: SetHeaderFontColor::<Impl, IMPL_OFFSET>,
+            BodyFontColor: BodyFontColor::<Impl, IMPL_OFFSET>,
+            SetBodyFontColor: SetBodyFontColor::<Impl, IMPL_OFFSET>,
+            HeaderBackgroundImage: HeaderBackgroundImage::<Impl, IMPL_OFFSET>,
+            SetHeaderBackgroundImage: SetHeaderBackgroundImage::<Impl, IMPL_OFFSET>,
+            BodyBackgroundImage: BodyBackgroundImage::<Impl, IMPL_OFFSET>,
+            SetBodyBackgroundImage: SetBodyBackgroundImage::<Impl, IMPL_OFFSET>,
+            LogoImage: LogoImage::<Impl, IMPL_OFFSET>,
+            SetLogoImage: SetLogoImage::<Impl, IMPL_OFFSET>,
+            PromotionalImage: PromotionalImage::<Impl, IMPL_OFFSET>,
+            SetPromotionalImage: SetPromotionalImage::<Impl, IMPL_OFFSET>,
+            RelevantDate: RelevantDate::<Impl, IMPL_OFFSET>,
+            SetRelevantDate: SetRelevantDate::<Impl, IMPL_OFFSET>,
+            RelevantDateDisplayMessage: RelevantDateDisplayMessage::<Impl, IMPL_OFFSET>,
+            SetRelevantDateDisplayMessage: SetRelevantDateDisplayMessage::<Impl, IMPL_OFFSET>,
+            TransactionHistory: TransactionHistory::<Impl, IMPL_OFFSET>,
+            RelevantLocations: RelevantLocations::<Impl, IMPL_OFFSET>,
+            IsMoreTransactionHistoryLaunchable: IsMoreTransactionHistoryLaunchable::<Impl, IMPL_OFFSET>,
+            SetIsMoreTransactionHistoryLaunchable: SetIsMoreTransactionHistoryLaunchable::<Impl, IMPL_OFFSET>,
+            DisplayProperties: DisplayProperties::<Impl, IMPL_OFFSET>,
+            Verbs: Verbs::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletItem as ::windows::core::Interface>::IID
@@ -723,24 +727,19 @@ impl IWalletItemCustomPropertyVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSummaryViewPosition(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWalletItemCustomProperty>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            SetName::<Impl, IMPL_OFFSET>,
-            Value::<Impl, IMPL_OFFSET>,
-            SetValue::<Impl, IMPL_OFFSET>,
-            AutoDetectLinks::<Impl, IMPL_OFFSET>,
-            SetAutoDetectLinks::<Impl, IMPL_OFFSET>,
-            DetailViewPosition::<Impl, IMPL_OFFSET>,
-            SetDetailViewPosition::<Impl, IMPL_OFFSET>,
-            SummaryViewPosition::<Impl, IMPL_OFFSET>,
-            SetSummaryViewPosition::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletItemCustomProperty, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+            AutoDetectLinks: AutoDetectLinks::<Impl, IMPL_OFFSET>,
+            SetAutoDetectLinks: SetAutoDetectLinks::<Impl, IMPL_OFFSET>,
+            DetailViewPosition: DetailViewPosition::<Impl, IMPL_OFFSET>,
+            SetDetailViewPosition: SetDetailViewPosition::<Impl, IMPL_OFFSET>,
+            SummaryViewPosition: SummaryViewPosition::<Impl, IMPL_OFFSET>,
+            SetSummaryViewPosition: SetSummaryViewPosition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletItemCustomProperty as ::windows::core::Interface>::IID
@@ -768,7 +767,10 @@ impl IWalletItemCustomPropertyFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemCustomPropertyFactory>, ::windows::core::GetTrustLevel, CreateWalletItemCustomProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletItemCustomPropertyFactory, BASE_OFFSET>(),
+            CreateWalletItemCustomProperty: CreateWalletItemCustomProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletItemCustomPropertyFactory as ::windows::core::Interface>::IID
@@ -796,7 +798,10 @@ impl IWalletItemFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemFactory>, ::windows::core::GetTrustLevel, CreateWalletItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletItemFactory, BASE_OFFSET>(),
+            CreateWalletItem: CreateWalletItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletItemFactory as ::windows::core::Interface>::IID
@@ -932,24 +937,19 @@ impl IWalletItemStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWalletItemStore>,
-            ::windows::core::GetTrustLevel,
-            AddAsync::<Impl, IMPL_OFFSET>,
-            ClearAsync::<Impl, IMPL_OFFSET>,
-            GetWalletItemAsync::<Impl, IMPL_OFFSET>,
-            GetItemsAsync::<Impl, IMPL_OFFSET>,
-            GetItemsWithKindAsync::<Impl, IMPL_OFFSET>,
-            ImportItemAsync::<Impl, IMPL_OFFSET>,
-            DeleteAsync::<Impl, IMPL_OFFSET>,
-            ShowAsync::<Impl, IMPL_OFFSET>,
-            ShowItemAsync::<Impl, IMPL_OFFSET>,
-            UpdateAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletItemStore, BASE_OFFSET>(),
+            AddAsync: AddAsync::<Impl, IMPL_OFFSET>,
+            ClearAsync: ClearAsync::<Impl, IMPL_OFFSET>,
+            GetWalletItemAsync: GetWalletItemAsync::<Impl, IMPL_OFFSET>,
+            GetItemsAsync: GetItemsAsync::<Impl, IMPL_OFFSET>,
+            GetItemsWithKindAsync: GetItemsWithKindAsync::<Impl, IMPL_OFFSET>,
+            ImportItemAsync: ImportItemAsync::<Impl, IMPL_OFFSET>,
+            DeleteAsync: DeleteAsync::<Impl, IMPL_OFFSET>,
+            ShowAsync: ShowAsync::<Impl, IMPL_OFFSET>,
+            ShowItemAsync: ShowItemAsync::<Impl, IMPL_OFFSET>,
+            UpdateAsync: UpdateAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletItemStore as ::windows::core::Interface>::IID
@@ -982,7 +982,11 @@ impl IWalletItemStore2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemsChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemStore2>, ::windows::core::GetTrustLevel, ItemsChanged::<Impl, IMPL_OFFSET>, RemoveItemsChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletItemStore2, BASE_OFFSET>(),
+            ItemsChanged: ItemsChanged::<Impl, IMPL_OFFSET>,
+            RemoveItemsChanged: RemoveItemsChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletItemStore2 as ::windows::core::Interface>::IID
@@ -1010,7 +1014,10 @@ impl IWalletManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletManagerStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletManagerStatics, BASE_OFFSET>(),
+            RequestStoreAsync: RequestStoreAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletManagerStatics as ::windows::core::Interface>::IID
@@ -1060,7 +1067,13 @@ impl IWalletRelevantLocationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayMessage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletRelevantLocation>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, SetPosition::<Impl, IMPL_OFFSET>, DisplayMessage::<Impl, IMPL_OFFSET>, SetDisplayMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletRelevantLocation, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            SetPosition: SetPosition::<Impl, IMPL_OFFSET>,
+            DisplayMessage: DisplayMessage::<Impl, IMPL_OFFSET>,
+            SetDisplayMessage: SetDisplayMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletRelevantLocation as ::windows::core::Interface>::IID
@@ -1178,26 +1191,21 @@ impl IWalletTransactionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsLaunchable(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWalletTransaction>,
-            ::windows::core::GetTrustLevel,
-            Description::<Impl, IMPL_OFFSET>,
-            SetDescription::<Impl, IMPL_OFFSET>,
-            DisplayAmount::<Impl, IMPL_OFFSET>,
-            SetDisplayAmount::<Impl, IMPL_OFFSET>,
-            IgnoreTimeOfDay::<Impl, IMPL_OFFSET>,
-            SetIgnoreTimeOfDay::<Impl, IMPL_OFFSET>,
-            DisplayLocation::<Impl, IMPL_OFFSET>,
-            SetDisplayLocation::<Impl, IMPL_OFFSET>,
-            TransactionDate::<Impl, IMPL_OFFSET>,
-            SetTransactionDate::<Impl, IMPL_OFFSET>,
-            IsLaunchable::<Impl, IMPL_OFFSET>,
-            SetIsLaunchable::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletTransaction, BASE_OFFSET>(),
+            Description: Description::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            DisplayAmount: DisplayAmount::<Impl, IMPL_OFFSET>,
+            SetDisplayAmount: SetDisplayAmount::<Impl, IMPL_OFFSET>,
+            IgnoreTimeOfDay: IgnoreTimeOfDay::<Impl, IMPL_OFFSET>,
+            SetIgnoreTimeOfDay: SetIgnoreTimeOfDay::<Impl, IMPL_OFFSET>,
+            DisplayLocation: DisplayLocation::<Impl, IMPL_OFFSET>,
+            SetDisplayLocation: SetDisplayLocation::<Impl, IMPL_OFFSET>,
+            TransactionDate: TransactionDate::<Impl, IMPL_OFFSET>,
+            SetTransactionDate: SetTransactionDate::<Impl, IMPL_OFFSET>,
+            IsLaunchable: IsLaunchable::<Impl, IMPL_OFFSET>,
+            SetIsLaunchable: SetIsLaunchable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletTransaction as ::windows::core::Interface>::IID
@@ -1230,7 +1238,11 @@ impl IWalletVerbVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletVerb>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletVerb, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletVerb as ::windows::core::Interface>::IID
@@ -1258,7 +1270,10 @@ impl IWalletVerbFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletVerbFactory>, ::windows::core::GetTrustLevel, CreateWalletVerb::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletVerbFactory, BASE_OFFSET>(),
+            CreateWalletVerb: CreateWalletVerb::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletVerbFactory as ::windows::core::Interface>::IID

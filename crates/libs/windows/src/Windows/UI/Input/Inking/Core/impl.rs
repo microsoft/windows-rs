@@ -68,7 +68,14 @@ impl ICoreIncrementalInkStrokeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreIncrementalInkStroke>, ::windows::core::GetTrustLevel, AppendInkPoints::<Impl, IMPL_OFFSET>, CreateInkStroke::<Impl, IMPL_OFFSET>, DrawingAttributes::<Impl, IMPL_OFFSET>, PointTransform::<Impl, IMPL_OFFSET>, BoundingRect::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreIncrementalInkStroke, BASE_OFFSET>(),
+            AppendInkPoints: AppendInkPoints::<Impl, IMPL_OFFSET>,
+            CreateInkStroke: CreateInkStroke::<Impl, IMPL_OFFSET>,
+            DrawingAttributes: DrawingAttributes::<Impl, IMPL_OFFSET>,
+            PointTransform: PointTransform::<Impl, IMPL_OFFSET>,
+            BoundingRect: BoundingRect::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreIncrementalInkStroke as ::windows::core::Interface>::IID
@@ -96,7 +103,7 @@ impl ICoreIncrementalInkStrokeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreIncrementalInkStrokeFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreIncrementalInkStrokeFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreIncrementalInkStrokeFactory as ::windows::core::Interface>::IID
@@ -243,29 +250,24 @@ impl ICoreInkIndependentInputSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreInkIndependentInputSource>,
-            ::windows::core::GetTrustLevel,
-            PointerEntering::<Impl, IMPL_OFFSET>,
-            RemovePointerEntering::<Impl, IMPL_OFFSET>,
-            PointerHovering::<Impl, IMPL_OFFSET>,
-            RemovePointerHovering::<Impl, IMPL_OFFSET>,
-            PointerExiting::<Impl, IMPL_OFFSET>,
-            RemovePointerExiting::<Impl, IMPL_OFFSET>,
-            PointerPressing::<Impl, IMPL_OFFSET>,
-            RemovePointerPressing::<Impl, IMPL_OFFSET>,
-            PointerMoving::<Impl, IMPL_OFFSET>,
-            RemovePointerMoving::<Impl, IMPL_OFFSET>,
-            PointerReleasing::<Impl, IMPL_OFFSET>,
-            RemovePointerReleasing::<Impl, IMPL_OFFSET>,
-            PointerLost::<Impl, IMPL_OFFSET>,
-            RemovePointerLost::<Impl, IMPL_OFFSET>,
-            InkPresenter::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInkIndependentInputSource, BASE_OFFSET>(),
+            PointerEntering: PointerEntering::<Impl, IMPL_OFFSET>,
+            RemovePointerEntering: RemovePointerEntering::<Impl, IMPL_OFFSET>,
+            PointerHovering: PointerHovering::<Impl, IMPL_OFFSET>,
+            RemovePointerHovering: RemovePointerHovering::<Impl, IMPL_OFFSET>,
+            PointerExiting: PointerExiting::<Impl, IMPL_OFFSET>,
+            RemovePointerExiting: RemovePointerExiting::<Impl, IMPL_OFFSET>,
+            PointerPressing: PointerPressing::<Impl, IMPL_OFFSET>,
+            RemovePointerPressing: RemovePointerPressing::<Impl, IMPL_OFFSET>,
+            PointerMoving: PointerMoving::<Impl, IMPL_OFFSET>,
+            RemovePointerMoving: RemovePointerMoving::<Impl, IMPL_OFFSET>,
+            PointerReleasing: PointerReleasing::<Impl, IMPL_OFFSET>,
+            RemovePointerReleasing: RemovePointerReleasing::<Impl, IMPL_OFFSET>,
+            PointerLost: PointerLost::<Impl, IMPL_OFFSET>,
+            RemovePointerLost: RemovePointerLost::<Impl, IMPL_OFFSET>,
+            InkPresenter: InkPresenter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInkIndependentInputSource as ::windows::core::Interface>::IID
@@ -298,7 +300,11 @@ impl ICoreInkIndependentInputSource2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPointerCursor(&*(&value as *const <super::super::super::Core::CoreCursor as ::windows::core::Abi>::Abi as *const <super::super::super::Core::CoreCursor as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInkIndependentInputSource2>, ::windows::core::GetTrustLevel, PointerCursor::<Impl, IMPL_OFFSET>, SetPointerCursor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInkIndependentInputSource2, BASE_OFFSET>(),
+            PointerCursor: PointerCursor::<Impl, IMPL_OFFSET>,
+            SetPointerCursor: SetPointerCursor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInkIndependentInputSource2 as ::windows::core::Interface>::IID
@@ -326,7 +332,10 @@ impl ICoreInkIndependentInputSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInkIndependentInputSourceStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInkIndependentInputSourceStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInkIndependentInputSourceStatics as ::windows::core::Interface>::IID
@@ -371,7 +380,12 @@ impl ICoreInkPresenterHostVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRootVisual(&*(&value as *const <super::super::super::Composition::ContainerVisual as ::windows::core::Abi>::Abi as *const <super::super::super::Composition::ContainerVisual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInkPresenterHost>, ::windows::core::GetTrustLevel, InkPresenter::<Impl, IMPL_OFFSET>, RootVisual::<Impl, IMPL_OFFSET>, SetRootVisual::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInkPresenterHost, BASE_OFFSET>(),
+            InkPresenter: InkPresenter::<Impl, IMPL_OFFSET>,
+            RootVisual: RootVisual::<Impl, IMPL_OFFSET>,
+            SetRootVisual: SetRootVisual::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInkPresenterHost as ::windows::core::Interface>::IID
@@ -428,7 +442,13 @@ impl ICoreWetStrokeUpdateEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisposition(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreWetStrokeUpdateEventArgs>, ::windows::core::GetTrustLevel, NewInkPoints::<Impl, IMPL_OFFSET>, PointerId::<Impl, IMPL_OFFSET>, Disposition::<Impl, IMPL_OFFSET>, SetDisposition::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreWetStrokeUpdateEventArgs, BASE_OFFSET>(),
+            NewInkPoints: NewInkPoints::<Impl, IMPL_OFFSET>,
+            PointerId: PointerId::<Impl, IMPL_OFFSET>,
+            Disposition: Disposition::<Impl, IMPL_OFFSET>,
+            SetDisposition: SetDisposition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreWetStrokeUpdateEventArgs as ::windows::core::Interface>::IID
@@ -541,25 +561,20 @@ impl ICoreWetStrokeUpdateSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreWetStrokeUpdateSource>,
-            ::windows::core::GetTrustLevel,
-            WetStrokeStarting::<Impl, IMPL_OFFSET>,
-            RemoveWetStrokeStarting::<Impl, IMPL_OFFSET>,
-            WetStrokeContinuing::<Impl, IMPL_OFFSET>,
-            RemoveWetStrokeContinuing::<Impl, IMPL_OFFSET>,
-            WetStrokeStopping::<Impl, IMPL_OFFSET>,
-            RemoveWetStrokeStopping::<Impl, IMPL_OFFSET>,
-            WetStrokeCompleted::<Impl, IMPL_OFFSET>,
-            RemoveWetStrokeCompleted::<Impl, IMPL_OFFSET>,
-            WetStrokeCanceled::<Impl, IMPL_OFFSET>,
-            RemoveWetStrokeCanceled::<Impl, IMPL_OFFSET>,
-            InkPresenter::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreWetStrokeUpdateSource, BASE_OFFSET>(),
+            WetStrokeStarting: WetStrokeStarting::<Impl, IMPL_OFFSET>,
+            RemoveWetStrokeStarting: RemoveWetStrokeStarting::<Impl, IMPL_OFFSET>,
+            WetStrokeContinuing: WetStrokeContinuing::<Impl, IMPL_OFFSET>,
+            RemoveWetStrokeContinuing: RemoveWetStrokeContinuing::<Impl, IMPL_OFFSET>,
+            WetStrokeStopping: WetStrokeStopping::<Impl, IMPL_OFFSET>,
+            RemoveWetStrokeStopping: RemoveWetStrokeStopping::<Impl, IMPL_OFFSET>,
+            WetStrokeCompleted: WetStrokeCompleted::<Impl, IMPL_OFFSET>,
+            RemoveWetStrokeCompleted: RemoveWetStrokeCompleted::<Impl, IMPL_OFFSET>,
+            WetStrokeCanceled: WetStrokeCanceled::<Impl, IMPL_OFFSET>,
+            RemoveWetStrokeCanceled: RemoveWetStrokeCanceled::<Impl, IMPL_OFFSET>,
+            InkPresenter: InkPresenter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreWetStrokeUpdateSource as ::windows::core::Interface>::IID
@@ -587,7 +602,7 @@ impl ICoreWetStrokeUpdateSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreWetStrokeUpdateSourceStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreWetStrokeUpdateSourceStatics, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreWetStrokeUpdateSourceStatics as ::windows::core::Interface>::IID

@@ -162,28 +162,23 @@ impl IUserDataAccountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserDataAccount>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            UserDisplayName::<Impl, IMPL_OFFSET>,
-            SetUserDisplayName::<Impl, IMPL_OFFSET>,
-            OtherAppReadAccess::<Impl, IMPL_OFFSET>,
-            SetOtherAppReadAccess::<Impl, IMPL_OFFSET>,
-            Icon::<Impl, IMPL_OFFSET>,
-            DeviceAccountTypeId::<Impl, IMPL_OFFSET>,
-            PackageFamilyName::<Impl, IMPL_OFFSET>,
-            SaveAsync::<Impl, IMPL_OFFSET>,
-            DeleteAsync::<Impl, IMPL_OFFSET>,
-            FindAppointmentCalendarsAsync::<Impl, IMPL_OFFSET>,
-            FindEmailMailboxesAsync::<Impl, IMPL_OFFSET>,
-            FindContactListsAsync::<Impl, IMPL_OFFSET>,
-            FindContactAnnotationListsAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccount, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            UserDisplayName: UserDisplayName::<Impl, IMPL_OFFSET>,
+            SetUserDisplayName: SetUserDisplayName::<Impl, IMPL_OFFSET>,
+            OtherAppReadAccess: OtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            SetOtherAppReadAccess: SetOtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            Icon: Icon::<Impl, IMPL_OFFSET>,
+            DeviceAccountTypeId: DeviceAccountTypeId::<Impl, IMPL_OFFSET>,
+            PackageFamilyName: PackageFamilyName::<Impl, IMPL_OFFSET>,
+            SaveAsync: SaveAsync::<Impl, IMPL_OFFSET>,
+            DeleteAsync: DeleteAsync::<Impl, IMPL_OFFSET>,
+            FindAppointmentCalendarsAsync: FindAppointmentCalendarsAsync::<Impl, IMPL_OFFSET>,
+            FindEmailMailboxesAsync: FindEmailMailboxesAsync::<Impl, IMPL_OFFSET>,
+            FindContactListsAsync: FindContactListsAsync::<Impl, IMPL_OFFSET>,
+            FindContactAnnotationListsAsync: FindContactAnnotationListsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccount as ::windows::core::Interface>::IID
@@ -223,7 +218,11 @@ impl IUserDataAccount2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccount2>, ::windows::core::GetTrustLevel, EnterpriseId::<Impl, IMPL_OFFSET>, IsProtectedUnderLock::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccount2, BASE_OFFSET>(),
+            EnterpriseId: EnterpriseId::<Impl, IMPL_OFFSET>,
+            IsProtectedUnderLock: IsProtectedUnderLock::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccount2 as ::windows::core::Interface>::IID
@@ -268,7 +267,12 @@ impl IUserDataAccount3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccount3>, ::windows::core::GetTrustLevel, ExplictReadAccessPackageFamilyNames::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, SetDisplayName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccount3, BASE_OFFSET>(),
+            ExplictReadAccessPackageFamilyNames: ExplictReadAccessPackageFamilyNames::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccount3 as ::windows::core::Interface>::IID
@@ -359,22 +363,17 @@ impl IUserDataAccount4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIcon(&*(&value as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserDataAccount4>,
-            ::windows::core::GetTrustLevel,
-            CanShowCreateContactGroup::<Impl, IMPL_OFFSET>,
-            SetCanShowCreateContactGroup::<Impl, IMPL_OFFSET>,
-            ProviderProperties::<Impl, IMPL_OFFSET>,
-            FindUserDataTaskListsAsync::<Impl, IMPL_OFFSET>,
-            FindContactGroupsAsync::<Impl, IMPL_OFFSET>,
-            TryShowCreateContactGroupAsync::<Impl, IMPL_OFFSET>,
-            SetIsProtectedUnderLock::<Impl, IMPL_OFFSET>,
-            SetIcon::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccount4, BASE_OFFSET>(),
+            CanShowCreateContactGroup: CanShowCreateContactGroup::<Impl, IMPL_OFFSET>,
+            SetCanShowCreateContactGroup: SetCanShowCreateContactGroup::<Impl, IMPL_OFFSET>,
+            ProviderProperties: ProviderProperties::<Impl, IMPL_OFFSET>,
+            FindUserDataTaskListsAsync: FindUserDataTaskListsAsync::<Impl, IMPL_OFFSET>,
+            FindContactGroupsAsync: FindContactGroupsAsync::<Impl, IMPL_OFFSET>,
+            TryShowCreateContactGroupAsync: TryShowCreateContactGroupAsync::<Impl, IMPL_OFFSET>,
+            SetIsProtectedUnderLock: SetIsProtectedUnderLock::<Impl, IMPL_OFFSET>,
+            SetIcon: SetIcon::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccount4 as ::windows::core::Interface>::IID
@@ -414,7 +413,11 @@ impl IUserDataAccountManagerForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountManagerForUser>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountManagerForUser, BASE_OFFSET>(),
+            RequestStoreAsync: RequestStoreAsync::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccountManagerForUser as ::windows::core::Interface>::IID
@@ -478,7 +481,13 @@ impl IUserDataAccountManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountManagerStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>, ShowAddAccountAsync::<Impl, IMPL_OFFSET>, ShowAccountSettingsAsync::<Impl, IMPL_OFFSET>, ShowAccountErrorResolverAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountManagerStatics, BASE_OFFSET>(),
+            RequestStoreAsync: RequestStoreAsync::<Impl, IMPL_OFFSET>,
+            ShowAddAccountAsync: ShowAddAccountAsync::<Impl, IMPL_OFFSET>,
+            ShowAccountSettingsAsync: ShowAccountSettingsAsync::<Impl, IMPL_OFFSET>,
+            ShowAccountErrorResolverAsync: ShowAccountErrorResolverAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccountManagerStatics as ::windows::core::Interface>::IID
@@ -506,7 +515,10 @@ impl IUserDataAccountManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountManagerStatics2, BASE_OFFSET>(),
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccountManagerStatics2 as ::windows::core::Interface>::IID
@@ -558,7 +570,12 @@ impl IUserDataAccountStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountStore>, ::windows::core::GetTrustLevel, FindAccountsAsync::<Impl, IMPL_OFFSET>, GetAccountAsync::<Impl, IMPL_OFFSET>, CreateAccountAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountStore, BASE_OFFSET>(),
+            FindAccountsAsync: FindAccountsAsync::<Impl, IMPL_OFFSET>,
+            GetAccountAsync: GetAccountAsync::<Impl, IMPL_OFFSET>,
+            CreateAccountAsync: CreateAccountAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccountStore as ::windows::core::Interface>::IID
@@ -603,7 +620,12 @@ impl IUserDataAccountStore2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStoreChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountStore2>, ::windows::core::GetTrustLevel, CreateAccountWithPackageRelativeAppIdAsync::<Impl, IMPL_OFFSET>, StoreChanged::<Impl, IMPL_OFFSET>, RemoveStoreChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountStore2, BASE_OFFSET>(),
+            CreateAccountWithPackageRelativeAppIdAsync: CreateAccountWithPackageRelativeAppIdAsync::<Impl, IMPL_OFFSET>,
+            StoreChanged: StoreChanged::<Impl, IMPL_OFFSET>,
+            RemoveStoreChanged: RemoveStoreChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccountStore2 as ::windows::core::Interface>::IID
@@ -635,7 +657,10 @@ impl IUserDataAccountStore3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountStore3>, ::windows::core::GetTrustLevel, CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountStore3, BASE_OFFSET>(),
+            CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync: CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccountStore3 as ::windows::core::Interface>::IID
@@ -663,7 +688,10 @@ impl IUserDataAccountStoreChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountStoreChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountStoreChangedEventArgs, BASE_OFFSET>(),
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccountStoreChangedEventArgs as ::windows::core::Interface>::IID

@@ -122,27 +122,22 @@ impl IMdmAlertVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetType(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMdmAlert>,
-            ::windows::core::GetTrustLevel,
-            Data::<Impl, IMPL_OFFSET>,
-            SetData::<Impl, IMPL_OFFSET>,
-            Format::<Impl, IMPL_OFFSET>,
-            SetFormat::<Impl, IMPL_OFFSET>,
-            Mark::<Impl, IMPL_OFFSET>,
-            SetMark::<Impl, IMPL_OFFSET>,
-            Source::<Impl, IMPL_OFFSET>,
-            SetSource::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Target::<Impl, IMPL_OFFSET>,
-            SetTarget::<Impl, IMPL_OFFSET>,
-            Type::<Impl, IMPL_OFFSET>,
-            SetType::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMdmAlert, BASE_OFFSET>(),
+            Data: Data::<Impl, IMPL_OFFSET>,
+            SetData: SetData::<Impl, IMPL_OFFSET>,
+            Format: Format::<Impl, IMPL_OFFSET>,
+            SetFormat: SetFormat::<Impl, IMPL_OFFSET>,
+            Mark: Mark::<Impl, IMPL_OFFSET>,
+            SetMark: SetMark::<Impl, IMPL_OFFSET>,
+            Source: Source::<Impl, IMPL_OFFSET>,
+            SetSource: SetSource::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Target: Target::<Impl, IMPL_OFFSET>,
+            SetTarget: SetTarget::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+            SetType: SetType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMdmAlert as ::windows::core::Interface>::IID
@@ -247,22 +242,17 @@ impl IMdmSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMdmSession>,
-            ::windows::core::GetTrustLevel,
-            Alerts::<Impl, IMPL_OFFSET>,
-            ExtendedError::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            AttachAsync::<Impl, IMPL_OFFSET>,
-            Delete::<Impl, IMPL_OFFSET>,
-            StartAsync::<Impl, IMPL_OFFSET>,
-            StartWithAlertsAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMdmSession, BASE_OFFSET>(),
+            Alerts: Alerts::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            AttachAsync: AttachAsync::<Impl, IMPL_OFFSET>,
+            Delete: Delete::<Impl, IMPL_OFFSET>,
+            StartAsync: StartAsync::<Impl, IMPL_OFFSET>,
+            StartWithAlertsAsync: StartWithAlertsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMdmSession as ::windows::core::Interface>::IID
@@ -319,7 +309,13 @@ impl IMdmSessionManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMdmSessionManagerStatics>, ::windows::core::GetTrustLevel, SessionIds::<Impl, IMPL_OFFSET>, TryCreateSession::<Impl, IMPL_OFFSET>, DeleteSessionById::<Impl, IMPL_OFFSET>, GetSessionById::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMdmSessionManagerStatics, BASE_OFFSET>(),
+            SessionIds: SessionIds::<Impl, IMPL_OFFSET>,
+            TryCreateSession: TryCreateSession::<Impl, IMPL_OFFSET>,
+            DeleteSessionById: DeleteSessionById::<Impl, IMPL_OFFSET>,
+            GetSessionById: GetSessionById::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMdmSessionManagerStatics as ::windows::core::Interface>::IID

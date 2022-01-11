@@ -107,23 +107,18 @@ impl IWiFiAdapterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Disconnect().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWiFiAdapter>,
-            ::windows::core::GetTrustLevel,
-            NetworkAdapter::<Impl, IMPL_OFFSET>,
-            ScanAsync::<Impl, IMPL_OFFSET>,
-            NetworkReport::<Impl, IMPL_OFFSET>,
-            AvailableNetworksChanged::<Impl, IMPL_OFFSET>,
-            RemoveAvailableNetworksChanged::<Impl, IMPL_OFFSET>,
-            ConnectAsync::<Impl, IMPL_OFFSET>,
-            ConnectWithPasswordCredentialAsync::<Impl, IMPL_OFFSET>,
-            ConnectWithPasswordCredentialAndSsidAsync::<Impl, IMPL_OFFSET>,
-            Disconnect::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiAdapter, BASE_OFFSET>(),
+            NetworkAdapter: NetworkAdapter::<Impl, IMPL_OFFSET>,
+            ScanAsync: ScanAsync::<Impl, IMPL_OFFSET>,
+            NetworkReport: NetworkReport::<Impl, IMPL_OFFSET>,
+            AvailableNetworksChanged: AvailableNetworksChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailableNetworksChanged: RemoveAvailableNetworksChanged::<Impl, IMPL_OFFSET>,
+            ConnectAsync: ConnectAsync::<Impl, IMPL_OFFSET>,
+            ConnectWithPasswordCredentialAsync: ConnectWithPasswordCredentialAsync::<Impl, IMPL_OFFSET>,
+            ConnectWithPasswordCredentialAndSsidAsync: ConnectWithPasswordCredentialAndSsidAsync::<Impl, IMPL_OFFSET>,
+            Disconnect: Disconnect::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiAdapter as ::windows::core::Interface>::IID
@@ -169,7 +164,11 @@ impl IWiFiAdapter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiAdapter2>, ::windows::core::GetTrustLevel, GetWpsConfigurationAsync::<Impl, IMPL_OFFSET>, ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiAdapter2, BASE_OFFSET>(),
+            GetWpsConfigurationAsync: GetWpsConfigurationAsync::<Impl, IMPL_OFFSET>,
+            ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync: ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiAdapter2 as ::windows::core::Interface>::IID
@@ -233,7 +232,13 @@ impl IWiFiAdapterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiAdapterStatics>, ::windows::core::GetTrustLevel, FindAllAdaptersAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiAdapterStatics, BASE_OFFSET>(),
+            FindAllAdaptersAsync: FindAllAdaptersAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiAdapterStatics as ::windows::core::Interface>::IID
@@ -381,25 +386,20 @@ impl IWiFiAvailableNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWiFiAvailableNetwork>,
-            ::windows::core::GetTrustLevel,
-            Uptime::<Impl, IMPL_OFFSET>,
-            Ssid::<Impl, IMPL_OFFSET>,
-            Bssid::<Impl, IMPL_OFFSET>,
-            ChannelCenterFrequencyInKilohertz::<Impl, IMPL_OFFSET>,
-            NetworkRssiInDecibelMilliwatts::<Impl, IMPL_OFFSET>,
-            SignalBars::<Impl, IMPL_OFFSET>,
-            NetworkKind::<Impl, IMPL_OFFSET>,
-            PhyKind::<Impl, IMPL_OFFSET>,
-            SecuritySettings::<Impl, IMPL_OFFSET>,
-            BeaconInterval::<Impl, IMPL_OFFSET>,
-            IsWiFiDirect::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiAvailableNetwork, BASE_OFFSET>(),
+            Uptime: Uptime::<Impl, IMPL_OFFSET>,
+            Ssid: Ssid::<Impl, IMPL_OFFSET>,
+            Bssid: Bssid::<Impl, IMPL_OFFSET>,
+            ChannelCenterFrequencyInKilohertz: ChannelCenterFrequencyInKilohertz::<Impl, IMPL_OFFSET>,
+            NetworkRssiInDecibelMilliwatts: NetworkRssiInDecibelMilliwatts::<Impl, IMPL_OFFSET>,
+            SignalBars: SignalBars::<Impl, IMPL_OFFSET>,
+            NetworkKind: NetworkKind::<Impl, IMPL_OFFSET>,
+            PhyKind: PhyKind::<Impl, IMPL_OFFSET>,
+            SecuritySettings: SecuritySettings::<Impl, IMPL_OFFSET>,
+            BeaconInterval: BeaconInterval::<Impl, IMPL_OFFSET>,
+            IsWiFiDirect: IsWiFiDirect::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiAvailableNetwork as ::windows::core::Interface>::IID
@@ -427,7 +427,10 @@ impl IWiFiConnectionResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiConnectionResult>, ::windows::core::GetTrustLevel, ConnectionStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiConnectionResult, BASE_OFFSET>(),
+            ConnectionStatus: ConnectionStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiConnectionResult as ::windows::core::Interface>::IID
@@ -467,7 +470,11 @@ impl IWiFiNetworkReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiNetworkReport>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, AvailableNetworks::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiNetworkReport, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            AvailableNetworks: AvailableNetworks::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiNetworkReport as ::windows::core::Interface>::IID
@@ -507,7 +514,11 @@ impl IWiFiWpsConfigurationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiWpsConfigurationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, SupportedWpsKinds::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWiFiWpsConfigurationResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            SupportedWpsKinds: SupportedWpsKinds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiFiWpsConfigurationResult as ::windows::core::Interface>::IID

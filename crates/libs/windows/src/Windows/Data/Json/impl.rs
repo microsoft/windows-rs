@@ -68,7 +68,14 @@ impl IJsonArrayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonArray>, ::windows::core::GetTrustLevel, GetObjectAt::<Impl, IMPL_OFFSET>, GetArrayAt::<Impl, IMPL_OFFSET>, GetStringAt::<Impl, IMPL_OFFSET>, GetNumberAt::<Impl, IMPL_OFFSET>, GetBooleanAt::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJsonArray, BASE_OFFSET>(),
+            GetObjectAt: GetObjectAt::<Impl, IMPL_OFFSET>,
+            GetArrayAt: GetArrayAt::<Impl, IMPL_OFFSET>,
+            GetStringAt: GetStringAt::<Impl, IMPL_OFFSET>,
+            GetNumberAt: GetNumberAt::<Impl, IMPL_OFFSET>,
+            GetBooleanAt: GetBooleanAt::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJsonArray as ::windows::core::Interface>::IID
@@ -108,7 +115,11 @@ impl IJsonArrayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonArrayStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJsonArrayStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJsonArrayStatics as ::windows::core::Interface>::IID
@@ -136,7 +147,7 @@ impl IJsonErrorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonErrorStatics2>, ::windows::core::GetTrustLevel, GetJsonStatus::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IJsonErrorStatics2, BASE_OFFSET>(), GetJsonStatus: GetJsonStatus::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJsonErrorStatics2 as ::windows::core::Interface>::IID
@@ -229,21 +240,16 @@ impl IJsonObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IJsonObject>,
-            ::windows::core::GetTrustLevel,
-            GetNamedValue::<Impl, IMPL_OFFSET>,
-            SetNamedValue::<Impl, IMPL_OFFSET>,
-            GetNamedObject::<Impl, IMPL_OFFSET>,
-            GetNamedArray::<Impl, IMPL_OFFSET>,
-            GetNamedString::<Impl, IMPL_OFFSET>,
-            GetNamedNumber::<Impl, IMPL_OFFSET>,
-            GetNamedBoolean::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJsonObject, BASE_OFFSET>(),
+            GetNamedValue: GetNamedValue::<Impl, IMPL_OFFSET>,
+            SetNamedValue: SetNamedValue::<Impl, IMPL_OFFSET>,
+            GetNamedObject: GetNamedObject::<Impl, IMPL_OFFSET>,
+            GetNamedArray: GetNamedArray::<Impl, IMPL_OFFSET>,
+            GetNamedString: GetNamedString::<Impl, IMPL_OFFSET>,
+            GetNamedNumber: GetNamedNumber::<Impl, IMPL_OFFSET>,
+            GetNamedBoolean: GetNamedBoolean::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJsonObject as ::windows::core::Interface>::IID
@@ -283,7 +289,11 @@ impl IJsonObjectStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonObjectStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJsonObjectStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJsonObjectStatics as ::windows::core::Interface>::IID
@@ -371,20 +381,15 @@ impl IJsonObjectWithDefaultValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IJsonObjectWithDefaultValues>,
-            ::windows::core::GetTrustLevel,
-            GetNamedValueOrDefault::<Impl, IMPL_OFFSET>,
-            GetNamedObjectOrDefault::<Impl, IMPL_OFFSET>,
-            GetNamedStringOrDefault::<Impl, IMPL_OFFSET>,
-            GetNamedArrayOrDefault::<Impl, IMPL_OFFSET>,
-            GetNamedNumberOrDefault::<Impl, IMPL_OFFSET>,
-            GetNamedBooleanOrDefault::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJsonObjectWithDefaultValues, BASE_OFFSET>(),
+            GetNamedValueOrDefault: GetNamedValueOrDefault::<Impl, IMPL_OFFSET>,
+            GetNamedObjectOrDefault: GetNamedObjectOrDefault::<Impl, IMPL_OFFSET>,
+            GetNamedStringOrDefault: GetNamedStringOrDefault::<Impl, IMPL_OFFSET>,
+            GetNamedArrayOrDefault: GetNamedArrayOrDefault::<Impl, IMPL_OFFSET>,
+            GetNamedNumberOrDefault: GetNamedNumberOrDefault::<Impl, IMPL_OFFSET>,
+            GetNamedBooleanOrDefault: GetNamedBooleanOrDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJsonObjectWithDefaultValues as ::windows::core::Interface>::IID
@@ -481,21 +486,16 @@ impl IJsonValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IJsonValue>,
-            ::windows::core::GetTrustLevel,
-            ValueType::<Impl, IMPL_OFFSET>,
-            Stringify::<Impl, IMPL_OFFSET>,
-            GetString::<Impl, IMPL_OFFSET>,
-            GetNumber::<Impl, IMPL_OFFSET>,
-            GetBoolean::<Impl, IMPL_OFFSET>,
-            GetArray::<Impl, IMPL_OFFSET>,
-            GetObject::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJsonValue, BASE_OFFSET>(),
+            ValueType: ValueType::<Impl, IMPL_OFFSET>,
+            Stringify: Stringify::<Impl, IMPL_OFFSET>,
+            GetString: GetString::<Impl, IMPL_OFFSET>,
+            GetNumber: GetNumber::<Impl, IMPL_OFFSET>,
+            GetBoolean: GetBoolean::<Impl, IMPL_OFFSET>,
+            GetArray: GetArray::<Impl, IMPL_OFFSET>,
+            GetObject: GetObject::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJsonValue as ::windows::core::Interface>::IID
@@ -571,7 +571,14 @@ impl IJsonValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>, CreateBooleanValue::<Impl, IMPL_OFFSET>, CreateNumberValue::<Impl, IMPL_OFFSET>, CreateStringValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJsonValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+            CreateBooleanValue: CreateBooleanValue::<Impl, IMPL_OFFSET>,
+            CreateNumberValue: CreateNumberValue::<Impl, IMPL_OFFSET>,
+            CreateStringValue: CreateStringValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJsonValueStatics as ::windows::core::Interface>::IID
@@ -599,7 +606,10 @@ impl IJsonValueStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonValueStatics2>, ::windows::core::GetTrustLevel, CreateNullValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJsonValueStatics2, BASE_OFFSET>(),
+            CreateNullValue: CreateNullValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJsonValueStatics2 as ::windows::core::Interface>::IID

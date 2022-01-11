@@ -44,7 +44,12 @@ impl IPhoneCallBlockedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallBlockedTriggerDetails>, ::windows::core::GetTrustLevel, PhoneNumber::<Impl, IMPL_OFFSET>, LineId::<Impl, IMPL_OFFSET>, CallBlockedReason::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallBlockedTriggerDetails, BASE_OFFSET>(),
+            PhoneNumber: PhoneNumber::<Impl, IMPL_OFFSET>,
+            LineId: LineId::<Impl, IMPL_OFFSET>,
+            CallBlockedReason: CallBlockedReason::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallBlockedTriggerDetails as ::windows::core::Interface>::IID
@@ -84,7 +89,11 @@ impl IPhoneCallOriginDataRequestTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallOriginDataRequestTriggerDetails>, ::windows::core::GetTrustLevel, RequestId::<Impl, IMPL_OFFSET>, PhoneNumber::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallOriginDataRequestTriggerDetails, BASE_OFFSET>(),
+            RequestId: RequestId::<Impl, IMPL_OFFSET>,
+            PhoneNumber: PhoneNumber::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallOriginDataRequestTriggerDetails as ::windows::core::Interface>::IID
@@ -172,20 +181,15 @@ impl IPhoneIncomingCallDismissedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneIncomingCallDismissedTriggerDetails>,
-            ::windows::core::GetTrustLevel,
-            LineId::<Impl, IMPL_OFFSET>,
-            PhoneNumber::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            DismissalTime::<Impl, IMPL_OFFSET>,
-            TextReplyMessage::<Impl, IMPL_OFFSET>,
-            Reason::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneIncomingCallDismissedTriggerDetails, BASE_OFFSET>(),
+            LineId: LineId::<Impl, IMPL_OFFSET>,
+            PhoneNumber: PhoneNumber::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            DismissalTime: DismissalTime::<Impl, IMPL_OFFSET>,
+            TextReplyMessage: TextReplyMessage::<Impl, IMPL_OFFSET>,
+            Reason: Reason::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneIncomingCallDismissedTriggerDetails as ::windows::core::Interface>::IID
@@ -225,7 +229,11 @@ impl IPhoneIncomingCallNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneIncomingCallNotificationTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, IMPL_OFFSET>, CallId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneIncomingCallNotificationTriggerDetails, BASE_OFFSET>(),
+            LineId: LineId::<Impl, IMPL_OFFSET>,
+            CallId: CallId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneIncomingCallNotificationTriggerDetails as ::windows::core::Interface>::IID
@@ -277,7 +285,12 @@ impl IPhoneLineChangedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineChangedTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, IMPL_OFFSET>, ChangeType::<Impl, IMPL_OFFSET>, HasLinePropertyChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLineChangedTriggerDetails, BASE_OFFSET>(),
+            LineId: LineId::<Impl, IMPL_OFFSET>,
+            ChangeType: ChangeType::<Impl, IMPL_OFFSET>,
+            HasLinePropertyChanged: HasLinePropertyChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLineChangedTriggerDetails as ::windows::core::Interface>::IID
@@ -329,7 +342,12 @@ impl IPhoneNewVoicemailMessageTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNewVoicemailMessageTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, IMPL_OFFSET>, VoicemailCount::<Impl, IMPL_OFFSET>, OperatorMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneNewVoicemailMessageTriggerDetails, BASE_OFFSET>(),
+            LineId: LineId::<Impl, IMPL_OFFSET>,
+            VoicemailCount: VoicemailCount::<Impl, IMPL_OFFSET>,
+            OperatorMessage: OperatorMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneNewVoicemailMessageTriggerDetails as ::windows::core::Interface>::IID

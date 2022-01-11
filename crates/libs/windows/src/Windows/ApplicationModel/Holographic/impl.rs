@@ -36,7 +36,12 @@ impl IHolographicKeyboardVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetPlacementOverride().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicKeyboard>, ::windows::core::GetTrustLevel, SetPlacementOverride::<Impl, IMPL_OFFSET>, SetPlacementOverrideWithMaxSize::<Impl, IMPL_OFFSET>, ResetPlacementOverride::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicKeyboard, BASE_OFFSET>(),
+            SetPlacementOverride: SetPlacementOverride::<Impl, IMPL_OFFSET>,
+            SetPlacementOverrideWithMaxSize: SetPlacementOverrideWithMaxSize::<Impl, IMPL_OFFSET>,
+            ResetPlacementOverride: ResetPlacementOverride::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicKeyboard as ::windows::core::Interface>::IID
@@ -64,7 +69,10 @@ impl IHolographicKeyboardStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicKeyboardStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicKeyboardStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicKeyboardStatics as ::windows::core::Interface>::IID

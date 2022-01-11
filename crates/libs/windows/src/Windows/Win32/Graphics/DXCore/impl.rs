@@ -52,21 +52,19 @@ impl IDXCoreAdapterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            IsValid::<Impl, IMPL_OFFSET>,
-            IsAttributeSupported::<Impl, IMPL_OFFSET>,
-            IsPropertySupported::<Impl, IMPL_OFFSET>,
-            GetProperty::<Impl, IMPL_OFFSET>,
-            GetPropertySize::<Impl, IMPL_OFFSET>,
-            IsQueryStateSupported::<Impl, IMPL_OFFSET>,
-            QueryState::<Impl, IMPL_OFFSET>,
-            IsSetStateSupported::<Impl, IMPL_OFFSET>,
-            SetState::<Impl, IMPL_OFFSET>,
-            GetFactory::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            IsValid: IsValid::<Impl, IMPL_OFFSET>,
+            IsAttributeSupported: IsAttributeSupported::<Impl, IMPL_OFFSET>,
+            IsPropertySupported: IsPropertySupported::<Impl, IMPL_OFFSET>,
+            GetProperty: GetProperty::<Impl, IMPL_OFFSET>,
+            GetPropertySize: GetPropertySize::<Impl, IMPL_OFFSET>,
+            IsQueryStateSupported: IsQueryStateSupported::<Impl, IMPL_OFFSET>,
+            QueryState: QueryState::<Impl, IMPL_OFFSET>,
+            IsSetStateSupported: IsSetStateSupported::<Impl, IMPL_OFFSET>,
+            SetState: SetState::<Impl, IMPL_OFFSET>,
+            GetFactory: GetFactory::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXCoreAdapter as ::windows::core::Interface>::IID
@@ -103,7 +101,14 @@ impl IDXCoreAdapterFactoryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CreateAdapterList::<Impl, IMPL_OFFSET>, GetAdapterByLuid::<Impl, IMPL_OFFSET>, IsNotificationTypeSupported::<Impl, IMPL_OFFSET>, RegisterEventNotification::<Impl, IMPL_OFFSET>, UnregisterEventNotification::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateAdapterList: CreateAdapterList::<Impl, IMPL_OFFSET>,
+            GetAdapterByLuid: GetAdapterByLuid::<Impl, IMPL_OFFSET>,
+            IsNotificationTypeSupported: IsNotificationTypeSupported::<Impl, IMPL_OFFSET>,
+            RegisterEventNotification: RegisterEventNotification::<Impl, IMPL_OFFSET>,
+            UnregisterEventNotification: UnregisterEventNotification::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXCoreAdapterFactory as ::windows::core::Interface>::IID
@@ -143,7 +148,15 @@ impl IDXCoreAdapterListVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetAdapter::<Impl, IMPL_OFFSET>, GetAdapterCount::<Impl, IMPL_OFFSET>, IsStale::<Impl, IMPL_OFFSET>, GetFactory::<Impl, IMPL_OFFSET>, Sort::<Impl, IMPL_OFFSET>, IsAdapterPreferenceSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetAdapter: GetAdapter::<Impl, IMPL_OFFSET>,
+            GetAdapterCount: GetAdapterCount::<Impl, IMPL_OFFSET>,
+            IsStale: IsStale::<Impl, IMPL_OFFSET>,
+            GetFactory: GetFactory::<Impl, IMPL_OFFSET>,
+            Sort: Sort::<Impl, IMPL_OFFSET>,
+            IsAdapterPreferenceSupported: IsAdapterPreferenceSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXCoreAdapterList as ::windows::core::Interface>::IID

@@ -54,19 +54,14 @@ impl IAudioRoutingManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAudioRoutingManager>,
-            ::windows::core::GetTrustLevel,
-            GetAudioEndpoint::<Impl, IMPL_OFFSET>,
-            SetAudioEndpoint::<Impl, IMPL_OFFSET>,
-            AudioEndpointChanged::<Impl, IMPL_OFFSET>,
-            RemoveAudioEndpointChanged::<Impl, IMPL_OFFSET>,
-            AvailableAudioEndpoints::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioRoutingManager, BASE_OFFSET>(),
+            GetAudioEndpoint: GetAudioEndpoint::<Impl, IMPL_OFFSET>,
+            SetAudioEndpoint: SetAudioEndpoint::<Impl, IMPL_OFFSET>,
+            AudioEndpointChanged: AudioEndpointChanged::<Impl, IMPL_OFFSET>,
+            RemoveAudioEndpointChanged: RemoveAudioEndpointChanged::<Impl, IMPL_OFFSET>,
+            AvailableAudioEndpoints: AvailableAudioEndpoints::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioRoutingManager as ::windows::core::Interface>::IID
@@ -94,7 +89,10 @@ impl IAudioRoutingManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioRoutingManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioRoutingManagerStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioRoutingManagerStatics as ::windows::core::Interface>::IID

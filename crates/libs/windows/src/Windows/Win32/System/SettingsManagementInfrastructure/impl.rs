@@ -19,7 +19,12 @@ impl IItemEnumeratorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Current::<Impl, IMPL_OFFSET>, MoveNext::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Current: Current::<Impl, IMPL_OFFSET>,
+            MoveNext: MoveNext::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IItemEnumerator as ::windows::core::Interface>::IID
@@ -66,7 +71,16 @@ impl ISettingsContextVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Serialize::<Impl, IMPL_OFFSET>, Deserialize::<Impl, IMPL_OFFSET>, SetUserData::<Impl, IMPL_OFFSET>, GetUserData::<Impl, IMPL_OFFSET>, GetNamespaces::<Impl, IMPL_OFFSET>, GetStoredSettings::<Impl, IMPL_OFFSET>, RevertSetting::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Serialize: Serialize::<Impl, IMPL_OFFSET>,
+            Deserialize: Deserialize::<Impl, IMPL_OFFSET>,
+            SetUserData: SetUserData::<Impl, IMPL_OFFSET>,
+            GetUserData: GetUserData::<Impl, IMPL_OFFSET>,
+            GetNamespaces: GetNamespaces::<Impl, IMPL_OFFSET>,
+            GetStoredSettings: GetStoredSettings::<Impl, IMPL_OFFSET>,
+            RevertSetting: RevertSetting::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsContext as ::windows::core::Interface>::IID
@@ -158,27 +172,25 @@ impl ISettingsEngineVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetNamespaces::<Impl, IMPL_OFFSET>,
-            GetNamespace::<Impl, IMPL_OFFSET>,
-            GetErrorDescription::<Impl, IMPL_OFFSET>,
-            CreateSettingsIdentity::<Impl, IMPL_OFFSET>,
-            GetStoreStatus::<Impl, IMPL_OFFSET>,
-            LoadStore::<Impl, IMPL_OFFSET>,
-            UnloadStore::<Impl, IMPL_OFFSET>,
-            RegisterNamespace::<Impl, IMPL_OFFSET>,
-            UnregisterNamespace::<Impl, IMPL_OFFSET>,
-            CreateTargetInfo::<Impl, IMPL_OFFSET>,
-            GetTargetInfo::<Impl, IMPL_OFFSET>,
-            SetTargetInfo::<Impl, IMPL_OFFSET>,
-            CreateSettingsContext::<Impl, IMPL_OFFSET>,
-            SetSettingsContext::<Impl, IMPL_OFFSET>,
-            ApplySettingsContext::<Impl, IMPL_OFFSET>,
-            GetSettingsContext::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetNamespaces: GetNamespaces::<Impl, IMPL_OFFSET>,
+            GetNamespace: GetNamespace::<Impl, IMPL_OFFSET>,
+            GetErrorDescription: GetErrorDescription::<Impl, IMPL_OFFSET>,
+            CreateSettingsIdentity: CreateSettingsIdentity::<Impl, IMPL_OFFSET>,
+            GetStoreStatus: GetStoreStatus::<Impl, IMPL_OFFSET>,
+            LoadStore: LoadStore::<Impl, IMPL_OFFSET>,
+            UnloadStore: UnloadStore::<Impl, IMPL_OFFSET>,
+            RegisterNamespace: RegisterNamespace::<Impl, IMPL_OFFSET>,
+            UnregisterNamespace: UnregisterNamespace::<Impl, IMPL_OFFSET>,
+            CreateTargetInfo: CreateTargetInfo::<Impl, IMPL_OFFSET>,
+            GetTargetInfo: GetTargetInfo::<Impl, IMPL_OFFSET>,
+            SetTargetInfo: SetTargetInfo::<Impl, IMPL_OFFSET>,
+            CreateSettingsContext: CreateSettingsContext::<Impl, IMPL_OFFSET>,
+            SetSettingsContext: SetSettingsContext::<Impl, IMPL_OFFSET>,
+            ApplySettingsContext: ApplySettingsContext::<Impl, IMPL_OFFSET>,
+            GetSettingsContext: GetSettingsContext::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsEngine as ::windows::core::Interface>::IID
@@ -210,7 +222,13 @@ impl ISettingsIdentityVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetAttribute::<Impl, IMPL_OFFSET>, SetAttribute::<Impl, IMPL_OFFSET>, GetFlags::<Impl, IMPL_OFFSET>, SetFlags::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetAttribute: GetAttribute::<Impl, IMPL_OFFSET>,
+            SetAttribute: SetAttribute::<Impl, IMPL_OFFSET>,
+            GetFlags: GetFlags::<Impl, IMPL_OFFSET>,
+            SetFlags: SetFlags::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsIdentity as ::windows::core::Interface>::IID
@@ -332,33 +350,31 @@ impl ISettingsItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetName::<Impl, IMPL_OFFSET>,
-            GetValue::<Impl, IMPL_OFFSET>,
-            SetValue::<Impl, IMPL_OFFSET>,
-            GetSettingType::<Impl, IMPL_OFFSET>,
-            GetDataType::<Impl, IMPL_OFFSET>,
-            GetValueRaw::<Impl, IMPL_OFFSET>,
-            SetValueRaw::<Impl, IMPL_OFFSET>,
-            HasChild::<Impl, IMPL_OFFSET>,
-            Children::<Impl, IMPL_OFFSET>,
-            GetChild::<Impl, IMPL_OFFSET>,
-            GetSettingByPath::<Impl, IMPL_OFFSET>,
-            CreateSettingByPath::<Impl, IMPL_OFFSET>,
-            RemoveSettingByPath::<Impl, IMPL_OFFSET>,
-            GetListKeyInformation::<Impl, IMPL_OFFSET>,
-            CreateListElement::<Impl, IMPL_OFFSET>,
-            RemoveListElement::<Impl, IMPL_OFFSET>,
-            Attributes::<Impl, IMPL_OFFSET>,
-            GetAttribute::<Impl, IMPL_OFFSET>,
-            GetPath::<Impl, IMPL_OFFSET>,
-            GetRestrictionFacets::<Impl, IMPL_OFFSET>,
-            GetRestriction::<Impl, IMPL_OFFSET>,
-            GetKeyValue::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetName: GetName::<Impl, IMPL_OFFSET>,
+            GetValue: GetValue::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+            GetSettingType: GetSettingType::<Impl, IMPL_OFFSET>,
+            GetDataType: GetDataType::<Impl, IMPL_OFFSET>,
+            GetValueRaw: GetValueRaw::<Impl, IMPL_OFFSET>,
+            SetValueRaw: SetValueRaw::<Impl, IMPL_OFFSET>,
+            HasChild: HasChild::<Impl, IMPL_OFFSET>,
+            Children: Children::<Impl, IMPL_OFFSET>,
+            GetChild: GetChild::<Impl, IMPL_OFFSET>,
+            GetSettingByPath: GetSettingByPath::<Impl, IMPL_OFFSET>,
+            CreateSettingByPath: CreateSettingByPath::<Impl, IMPL_OFFSET>,
+            RemoveSettingByPath: RemoveSettingByPath::<Impl, IMPL_OFFSET>,
+            GetListKeyInformation: GetListKeyInformation::<Impl, IMPL_OFFSET>,
+            CreateListElement: CreateListElement::<Impl, IMPL_OFFSET>,
+            RemoveListElement: RemoveListElement::<Impl, IMPL_OFFSET>,
+            Attributes: Attributes::<Impl, IMPL_OFFSET>,
+            GetAttribute: GetAttribute::<Impl, IMPL_OFFSET>,
+            GetPath: GetPath::<Impl, IMPL_OFFSET>,
+            GetRestrictionFacets: GetRestrictionFacets::<Impl, IMPL_OFFSET>,
+            GetRestriction: GetRestriction::<Impl, IMPL_OFFSET>,
+            GetKeyValue: GetKeyValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsItem as ::windows::core::Interface>::IID
@@ -405,7 +421,16 @@ impl ISettingsNamespaceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetIdentity::<Impl, IMPL_OFFSET>, Settings::<Impl, IMPL_OFFSET>, Save::<Impl, IMPL_OFFSET>, GetSettingByPath::<Impl, IMPL_OFFSET>, CreateSettingByPath::<Impl, IMPL_OFFSET>, RemoveSettingByPath::<Impl, IMPL_OFFSET>, GetAttribute::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetIdentity: GetIdentity::<Impl, IMPL_OFFSET>,
+            Settings: Settings::<Impl, IMPL_OFFSET>,
+            Save: Save::<Impl, IMPL_OFFSET>,
+            GetSettingByPath: GetSettingByPath::<Impl, IMPL_OFFSET>,
+            CreateSettingByPath: CreateSettingByPath::<Impl, IMPL_OFFSET>,
+            RemoveSettingByPath: RemoveSettingByPath::<Impl, IMPL_OFFSET>,
+            GetAttribute: GetAttribute::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsNamespace as ::windows::core::Interface>::IID
@@ -447,7 +472,15 @@ impl ISettingsResultVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetDescription::<Impl, IMPL_OFFSET>, GetErrorCode::<Impl, IMPL_OFFSET>, GetContextDescription::<Impl, IMPL_OFFSET>, GetLine::<Impl, IMPL_OFFSET>, GetColumn::<Impl, IMPL_OFFSET>, GetSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetDescription: GetDescription::<Impl, IMPL_OFFSET>,
+            GetErrorCode: GetErrorCode::<Impl, IMPL_OFFSET>,
+            GetContextDescription: GetContextDescription::<Impl, IMPL_OFFSET>,
+            GetLine: GetLine::<Impl, IMPL_OFFSET>,
+            GetColumn: GetColumn::<Impl, IMPL_OFFSET>,
+            GetSource: GetSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsResult as ::windows::core::Interface>::IID
@@ -564,32 +597,30 @@ impl ITargetInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetTargetMode::<Impl, IMPL_OFFSET>,
-            SetTargetMode::<Impl, IMPL_OFFSET>,
-            GetTemporaryStoreLocation::<Impl, IMPL_OFFSET>,
-            SetTemporaryStoreLocation::<Impl, IMPL_OFFSET>,
-            GetTargetID::<Impl, IMPL_OFFSET>,
-            SetTargetID::<Impl, IMPL_OFFSET>,
-            GetTargetProcessorArchitecture::<Impl, IMPL_OFFSET>,
-            SetTargetProcessorArchitecture::<Impl, IMPL_OFFSET>,
-            GetProperty::<Impl, IMPL_OFFSET>,
-            SetProperty::<Impl, IMPL_OFFSET>,
-            GetEnumerator::<Impl, IMPL_OFFSET>,
-            ExpandTarget::<Impl, IMPL_OFFSET>,
-            ExpandTargetPath::<Impl, IMPL_OFFSET>,
-            SetModulePath::<Impl, IMPL_OFFSET>,
-            LoadModule::<Impl, IMPL_OFFSET>,
-            SetWow64Context::<Impl, IMPL_OFFSET>,
-            TranslateWow64::<Impl, IMPL_OFFSET>,
-            SetSchemaHiveLocation::<Impl, IMPL_OFFSET>,
-            GetSchemaHiveLocation::<Impl, IMPL_OFFSET>,
-            SetSchemaHiveMountName::<Impl, IMPL_OFFSET>,
-            GetSchemaHiveMountName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetTargetMode: GetTargetMode::<Impl, IMPL_OFFSET>,
+            SetTargetMode: SetTargetMode::<Impl, IMPL_OFFSET>,
+            GetTemporaryStoreLocation: GetTemporaryStoreLocation::<Impl, IMPL_OFFSET>,
+            SetTemporaryStoreLocation: SetTemporaryStoreLocation::<Impl, IMPL_OFFSET>,
+            GetTargetID: GetTargetID::<Impl, IMPL_OFFSET>,
+            SetTargetID: SetTargetID::<Impl, IMPL_OFFSET>,
+            GetTargetProcessorArchitecture: GetTargetProcessorArchitecture::<Impl, IMPL_OFFSET>,
+            SetTargetProcessorArchitecture: SetTargetProcessorArchitecture::<Impl, IMPL_OFFSET>,
+            GetProperty: GetProperty::<Impl, IMPL_OFFSET>,
+            SetProperty: SetProperty::<Impl, IMPL_OFFSET>,
+            GetEnumerator: GetEnumerator::<Impl, IMPL_OFFSET>,
+            ExpandTarget: ExpandTarget::<Impl, IMPL_OFFSET>,
+            ExpandTargetPath: ExpandTargetPath::<Impl, IMPL_OFFSET>,
+            SetModulePath: SetModulePath::<Impl, IMPL_OFFSET>,
+            LoadModule: LoadModule::<Impl, IMPL_OFFSET>,
+            SetWow64Context: SetWow64Context::<Impl, IMPL_OFFSET>,
+            TranslateWow64: TranslateWow64::<Impl, IMPL_OFFSET>,
+            SetSchemaHiveLocation: SetSchemaHiveLocation::<Impl, IMPL_OFFSET>,
+            GetSchemaHiveLocation: GetSchemaHiveLocation::<Impl, IMPL_OFFSET>,
+            SetSchemaHiveMountName: SetSchemaHiveMountName::<Impl, IMPL_OFFSET>,
+            GetSchemaHiveMountName: GetSchemaHiveMountName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetInfo as ::windows::core::Interface>::IID

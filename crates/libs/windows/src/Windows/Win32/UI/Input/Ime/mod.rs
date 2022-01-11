@@ -600,86 +600,86 @@ impl IActiveIME {
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: super::super::super::Foundation::PWSTR, pdwprivate: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsysteminfoflags), ::core::mem::transmute(pimeinfo), ::core::mem::transmute(szwndclass), ::core::mem::transmute(pdwprivate)).ok()
+        (::windows::core::Interface::vtable(self).Inquire)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsysteminfoflags), ::core::mem::transmute(pimeinfo), ::core::mem::transmute(szwndclass), ::core::mem::transmute(pdwprivate)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn ConversionList<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, himc: Param0, szsource: Param1, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), himc.into_param().abi(), szsource.into_param().abi(), ::core::mem::transmute(uflag), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pdest), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).ConversionList)(::core::mem::transmute_copy(self), himc.into_param().abi(), szsource.into_param().abi(), ::core::mem::transmute(uflag), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pdest), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn Configure<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hkl: Param0, hwnd: Param1, dwmode: u32, pregisterword: *const REGISTERWORDW) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pregisterword)).ok()
+        (::windows::core::Interface::vtable(self).Configure)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pregisterword)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Destroy(&self, ureserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ureserved)).ok()
+        (::windows::core::Interface::vtable(self).Destroy)(::core::mem::transmute_copy(self), ::core::mem::transmute(ureserved)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn Escape<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
+        (::windows::core::Interface::vtable(self).Escape)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn SetActiveContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, himc: Param0, fflag: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), himc.into_param().abi(), fflag.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetActiveContext)(::core::mem::transmute_copy(self), himc.into_param().abi(), fflag.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn ProcessKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, uvirkey: u32, lparam: u32, pbkeystate: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(uvirkey), ::core::mem::transmute(lparam), ::core::mem::transmute(pbkeystate)).ok()
+        (::windows::core::Interface::vtable(self).ProcessKey)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(uvirkey), ::core::mem::transmute(lparam), ::core::mem::transmute(pbkeystate)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn Notify<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwvalue)).ok()
+        (::windows::core::Interface::vtable(self).Notify)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn Select<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, himc: Param0, fselect: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), himc.into_param().abi(), fselect.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Select)(::core::mem::transmute_copy(self), himc.into_param().abi(), fselect.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn SetCompositionString<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
+        (::windows::core::Interface::vtable(self).SetCompositionString)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn ToAsciiEx<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: Param4, pdwtransbuf: *mut u32, pusize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(uvirkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(pbkeystate), ::core::mem::transmute(fustate), himc.into_param().abi(), ::core::mem::transmute(pdwtransbuf), ::core::mem::transmute(pusize)).ok()
+        (::windows::core::Interface::vtable(self).ToAsciiEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(uvirkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(pbkeystate), ::core::mem::transmute(fustate), himc.into_param().abi(), ::core::mem::transmute(pdwtransbuf), ::core::mem::transmute(pusize)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szreading: Param0, dwstyle: u32, szstring: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RegisterWord)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnregisterWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szreading: Param0, dwstyle: u32, szstring: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UnregisterWord)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn GetRegisterWordStyle(&self, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pubufsize)).ok()
+        (::windows::core::Interface::vtable(self).GetRegisterWordStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pubufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumRegisterWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szreading: Param0, dwstyle: u32, szregister: Param2, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordW>(result__)
+        (::windows::core::Interface::vtable(self).EnumRegisterWord)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordW>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn GetCodePageA(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetCodePageA)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn GetLangId(&self) -> ::windows::core::Result<u16> {
         let mut result__: u16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
+        (::windows::core::Interface::vtable(self).GetLangId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
     }
 }
 impl ::core::convert::From<IActiveIME> for ::windows::core::IUnknown {
@@ -724,41 +724,65 @@ unsafe impl ::windows::core::Interface for IActiveIME {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveIMEVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: super::super::super::Foundation::PWSTR, pdwprivate: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, szsource: super::super::super::Foundation::PWSTR, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pregisterword: *const REGISTERWORDW) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ureserved: u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fflag: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, uvirkey: u32, lparam: u32, pbkeystate: *const u8) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fselect: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: super::super::super::Globalization::HIMC, pdwtransbuf: *mut u32, pusize: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ucodepage: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plid: *mut u16) -> ::windows::core::HRESULT,
-);
+pub struct IActiveIMEVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Inquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: super::super::super::Foundation::PWSTR, pdwprivate: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Inquire: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub ConversionList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, szsource: super::super::super::Foundation::PWSTR, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    ConversionList: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pregisterword: *const REGISTERWORDW) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    Configure: usize,
+    pub Destroy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ureserved: u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub Escape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    Escape: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub SetActiveContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fflag: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    SetActiveContext: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub ProcessKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, uvirkey: u32, lparam: u32, pbkeystate: *const u8) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    ProcessKey: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    Notify: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub Select: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fselect: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    Select: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub SetCompositionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    SetCompositionString: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub ToAsciiEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: super::super::super::Globalization::HIMC, pdwtransbuf: *mut u32, pusize: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    ToAsciiEx: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub RegisterWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    RegisterWord: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub UnregisterWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    UnregisterWord: usize,
+    pub GetRegisterWordStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub EnumRegisterWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    EnumRegisterWord: usize,
+    pub GetCodePageA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ucodepage: *mut u32) -> ::windows::core::HRESULT,
+    pub GetLangId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plid: *mut u16) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IActiveIME2(::windows::core::IUnknown);
@@ -766,95 +790,95 @@ impl IActiveIME2 {
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: super::super::super::Foundation::PWSTR, pdwprivate: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsysteminfoflags), ::core::mem::transmute(pimeinfo), ::core::mem::transmute(szwndclass), ::core::mem::transmute(pdwprivate)).ok()
+        (::windows::core::Interface::vtable(self).Inquire)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsysteminfoflags), ::core::mem::transmute(pimeinfo), ::core::mem::transmute(szwndclass), ::core::mem::transmute(pdwprivate)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn ConversionList<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, himc: Param0, szsource: Param1, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), himc.into_param().abi(), szsource.into_param().abi(), ::core::mem::transmute(uflag), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pdest), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).ConversionList)(::core::mem::transmute_copy(self), himc.into_param().abi(), szsource.into_param().abi(), ::core::mem::transmute(uflag), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pdest), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn Configure<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hkl: Param0, hwnd: Param1, dwmode: u32, pregisterword: *const REGISTERWORDW) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pregisterword)).ok()
+        (::windows::core::Interface::vtable(self).Configure)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pregisterword)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Destroy(&self, ureserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ureserved)).ok()
+        (::windows::core::Interface::vtable(self).Destroy)(::core::mem::transmute_copy(self), ::core::mem::transmute(ureserved)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn Escape<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
+        (::windows::core::Interface::vtable(self).Escape)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn SetActiveContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, himc: Param0, fflag: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), himc.into_param().abi(), fflag.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetActiveContext)(::core::mem::transmute_copy(self), himc.into_param().abi(), fflag.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn ProcessKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, uvirkey: u32, lparam: u32, pbkeystate: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(uvirkey), ::core::mem::transmute(lparam), ::core::mem::transmute(pbkeystate)).ok()
+        (::windows::core::Interface::vtable(self).ProcessKey)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(uvirkey), ::core::mem::transmute(lparam), ::core::mem::transmute(pbkeystate)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn Notify<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwvalue)).ok()
+        (::windows::core::Interface::vtable(self).Notify)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn Select<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, himc: Param0, fselect: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), himc.into_param().abi(), fselect.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Select)(::core::mem::transmute_copy(self), himc.into_param().abi(), fselect.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn SetCompositionString<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
+        (::windows::core::Interface::vtable(self).SetCompositionString)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn ToAsciiEx<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: Param4, pdwtransbuf: *mut u32, pusize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(uvirkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(pbkeystate), ::core::mem::transmute(fustate), himc.into_param().abi(), ::core::mem::transmute(pdwtransbuf), ::core::mem::transmute(pusize)).ok()
+        (::windows::core::Interface::vtable(self).ToAsciiEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(uvirkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(pbkeystate), ::core::mem::transmute(fustate), himc.into_param().abi(), ::core::mem::transmute(pdwtransbuf), ::core::mem::transmute(pusize)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szreading: Param0, dwstyle: u32, szstring: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RegisterWord)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnregisterWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szreading: Param0, dwstyle: u32, szstring: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UnregisterWord)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn GetRegisterWordStyle(&self, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pubufsize)).ok()
+        (::windows::core::Interface::vtable(self).GetRegisterWordStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pubufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumRegisterWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szreading: Param0, dwstyle: u32, szregister: Param2, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordW>(result__)
+        (::windows::core::Interface::vtable(self).EnumRegisterWord)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordW>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn GetCodePageA(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetCodePageA)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn GetLangId(&self) -> ::windows::core::Result<u16> {
         let mut result__: u16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
+        (::windows::core::Interface::vtable(self).GetLangId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Sleep(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Sleep)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unsleep<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fdead: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), fdead.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Unsleep)(::core::mem::transmute_copy(self), fdead.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IActiveIME2> for IActiveIME {
@@ -919,44 +943,14 @@ unsafe impl ::windows::core::Interface for IActiveIME2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveIME2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: super::super::super::Foundation::PWSTR, pdwprivate: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, szsource: super::super::super::Foundation::PWSTR, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pregisterword: *const REGISTERWORDW) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ureserved: u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fflag: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, uvirkey: u32, lparam: u32, pbkeystate: *const u8) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fselect: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: super::super::super::Globalization::HIMC, pdwtransbuf: *mut u32, pusize: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ucodepage: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plid: *mut u16) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdead: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IActiveIME2Vtbl {
+    pub base: IActiveIMEVtbl,
+    pub Sleep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Unsleep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdead: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Unsleep: usize,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IActiveIMMApp(::windows::core::IUnknown);
@@ -965,356 +959,356 @@ impl IActiveIMMApp {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn AssociateContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, hwnd: Param0, hime: Param1) -> ::windows::core::Result<super::super::super::Globalization::HIMC> {
         let mut result__: super::super::super::Globalization::HIMC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), hime.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMC>(result__)
+        (::windows::core::Interface::vtable(self).AssociateContext)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), hime.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMC>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn ConfigureIMEA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hkl: Param0, hwnd: Param1, dwmode: u32, pdata: *const REGISTERWORDA) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).ConfigureIMEA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn ConfigureIMEW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hkl: Param0, hwnd: Param1, dwmode: u32, pdata: *const REGISTERWORDW) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).ConfigureIMEW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn CreateContext(&self) -> ::windows::core::Result<super::super::super::Globalization::HIMC> {
         let mut result__: super::super::super::Globalization::HIMC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMC>(result__)
+        (::windows::core::Interface::vtable(self).CreateContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMC>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn DestroyContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, hime: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), hime.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DestroyContext)(::core::mem::transmute_copy(self), hime.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn EnumRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, hkl: Param0, szreading: Param1, dwstyle: u32, szregister: Param3, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordA> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordA>(result__)
+        (::windows::core::Interface::vtable(self).EnumRegisterWordA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordA>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn EnumRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, hkl: Param0, szreading: Param1, dwstyle: u32, szregister: Param3, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordW>(result__)
+        (::windows::core::Interface::vtable(self).EnumRegisterWordW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordW>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
     pub unsafe fn EscapeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, hkl: Param0, himc: Param1, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
+        (::windows::core::Interface::vtable(self).EscapeA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
     pub unsafe fn EscapeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, hkl: Param0, himc: Param1, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
+        (::windows::core::Interface::vtable(self).EscapeW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetCandidateListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pcandlist), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetCandidateListA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pcandlist), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetCandidateListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pcandlist), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetCandidateListW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pcandlist), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetCandidateListCountA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pdwlistsize), ::core::mem::transmute(pdwbuflen)).ok()
+        (::windows::core::Interface::vtable(self).GetCandidateListCountA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pdwlistsize), ::core::mem::transmute(pdwbuflen)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetCandidateListCountW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pdwlistsize), ::core::mem::transmute(pdwbuflen)).ok()
+        (::windows::core::Interface::vtable(self).GetCandidateListCountW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pdwlistsize), ::core::mem::transmute(pdwbuflen)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn GetCandidateWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32) -> ::windows::core::Result<CANDIDATEFORM> {
         let mut result__: CANDIDATEFORM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<CANDIDATEFORM>(result__)
+        (::windows::core::Interface::vtable(self).GetCandidateWindow)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<CANDIDATEFORM>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetCompositionFontA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTA> {
         let mut result__: super::super::super::Graphics::Gdi::LOGFONTA = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Gdi::LOGFONTA>(result__)
+        (::windows::core::Interface::vtable(self).GetCompositionFontA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Gdi::LOGFONTA>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetCompositionFontW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTW> {
         let mut result__: super::super::super::Graphics::Gdi::LOGFONTW = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Gdi::LOGFONTW>(result__)
+        (::windows::core::Interface::vtable(self).GetCompositionFontW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Gdi::LOGFONTW>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetCompositionStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(plcopied), ::core::mem::transmute(pbuf)).ok()
+        (::windows::core::Interface::vtable(self).GetCompositionStringA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(plcopied), ::core::mem::transmute(pbuf)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetCompositionStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(plcopied), ::core::mem::transmute(pbuf)).ok()
+        (::windows::core::Interface::vtable(self).GetCompositionStringW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(plcopied), ::core::mem::transmute(pbuf)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn GetCompositionWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<COMPOSITIONFORM> {
         let mut result__: COMPOSITIONFORM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<COMPOSITIONFORM>(result__)
+        (::windows::core::Interface::vtable(self).GetCompositionWindow)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<COMPOSITIONFORM>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn GetContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<super::super::super::Globalization::HIMC> {
         let mut result__: super::super::super::Globalization::HIMC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMC>(result__)
+        (::windows::core::Interface::vtable(self).GetContext)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMC>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetConversionListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, hkl: Param0, himc: Param1, psrc: Param2, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), psrc.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(uflag), ::core::mem::transmute(pdst), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetConversionListA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), psrc.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(uflag), ::core::mem::transmute(pdst), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetConversionListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, hkl: Param0, himc: Param1, psrc: Param2, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), psrc.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(uflag), ::core::mem::transmute(pdst), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetConversionListW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), psrc.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(uflag), ::core::mem::transmute(pdst), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetConversionStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pfdwconversion), ::core::mem::transmute(pfdwsentence)).ok()
+        (::windows::core::Interface::vtable(self).GetConversionStatus)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pfdwconversion), ::core::mem::transmute(pfdwsentence)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDefaultIMEWnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__: super::super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultIMEWnd)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetDescriptionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szdescription), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetDescriptionA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szdescription), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetDescriptionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szdescription), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetDescriptionW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szdescription), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn GetGuideLineA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(pbuf), ::core::mem::transmute(pdwresult)).ok()
+        (::windows::core::Interface::vtable(self).GetGuideLineA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(pbuf), ::core::mem::transmute(pdwresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn GetGuideLineW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(pbuf), ::core::mem::transmute(pdwresult)).ok()
+        (::windows::core::Interface::vtable(self).GetGuideLineW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(pbuf), ::core::mem::transmute(pdwresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetIMEFileNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szfilename), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetIMEFileNameA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szfilename), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetIMEFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szfilename), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetIMEFileNameW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szfilename), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetOpenStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), himc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetOpenStatus)(::core::mem::transmute_copy(self), himc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, fdwindex: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(fdwindex), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(fdwindex), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetRegisterWordStyleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetRegisterWordStyleA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn GetRegisterWordStyleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetRegisterWordStyleW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn GetStatusWindowPos<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<super::super::super::Foundation::POINT> {
         let mut result__: super::super::super::Foundation::POINT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::POINT>(result__)
+        (::windows::core::Interface::vtable(self).GetStatusWindowPos)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::POINT>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVirtualKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetVirtualKey)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn InstallIMEA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, szimefilename: Param0, szlayouttext: Param1) -> ::windows::core::Result<super::super::TextServices::HKL> {
         let mut result__: super::super::TextServices::HKL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), szimefilename.into_param().abi(), szlayouttext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::TextServices::HKL>(result__)
+        (::windows::core::Interface::vtable(self).InstallIMEA)(::core::mem::transmute_copy(self), szimefilename.into_param().abi(), szlayouttext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::TextServices::HKL>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn InstallIMEW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szimefilename: Param0, szlayouttext: Param1) -> ::windows::core::Result<super::super::TextServices::HKL> {
         let mut result__: super::super::TextServices::HKL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), szimefilename.into_param().abi(), szlayouttext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::TextServices::HKL>(result__)
+        (::windows::core::Interface::vtable(self).InstallIMEW)(::core::mem::transmute_copy(self), szimefilename.into_param().abi(), szlayouttext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::TextServices::HKL>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn IsIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), hkl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).IsIME)(::core::mem::transmute_copy(self), hkl.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUIMessageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, hwndime: Param0, msg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), hwndime.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).IsUIMessageA)(::core::mem::transmute_copy(self), hwndime.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUIMessageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, hwndime: Param0, msg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), hwndime.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).IsUIMessageW)(::core::mem::transmute_copy(self), hwndime.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn NotifyIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwvalue)).ok()
+        (::windows::core::Interface::vtable(self).NotifyIME)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn RegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, hkl: Param0, szreading: Param1, dwstyle: u32, szregister: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RegisterWordA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn RegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, hkl: Param0, szreading: Param1, dwstyle: u32, szregister: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RegisterWordW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn ReleaseContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, hwnd: Param0, himc: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), himc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ReleaseContext)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), himc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn SetCandidateWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, pcandidate: *const CANDIDATEFORM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pcandidate)).ok()
+        (::windows::core::Interface::vtable(self).SetCandidateWindow)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pcandidate)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn SetCompositionFontA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(plf)).ok()
+        (::windows::core::Interface::vtable(self).SetCompositionFontA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(plf)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn SetCompositionFontW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, plf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(plf)).ok()
+        (::windows::core::Interface::vtable(self).SetCompositionFontW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(plf)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn SetCompositionStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
+        (::windows::core::Interface::vtable(self).SetCompositionStringA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn SetCompositionStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
+        (::windows::core::Interface::vtable(self).SetCompositionStringW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn SetCompositionWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, pcompform: *const COMPOSITIONFORM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pcompform)).ok()
+        (::windows::core::Interface::vtable(self).SetCompositionWindow)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pcompform)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn SetConversionStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, fdwconversion: u32, fdwsentence: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(fdwconversion), ::core::mem::transmute(fdwsentence)).ok()
+        (::windows::core::Interface::vtable(self).SetConversionStatus)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(fdwconversion), ::core::mem::transmute(fdwsentence)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn SetOpenStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, himc: Param0, fopen: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), himc.into_param().abi(), fopen.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOpenStatus)(::core::mem::transmute_copy(self), himc.into_param().abi(), fopen.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn SetStatusWindowPos<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, pptpos: *const super::super::super::Foundation::POINT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pptpos)).ok()
+        (::windows::core::Interface::vtable(self).SetStatusWindowPos)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pptpos)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SimulateHotKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, dwhotkeyid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(dwhotkeyid)).ok()
+        (::windows::core::Interface::vtable(self).SimulateHotKey)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(dwhotkeyid)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn UnregisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, hkl: Param0, szreading: Param1, dwstyle: u32, szunregister: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szunregister.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UnregisterWordA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szunregister.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn UnregisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, hkl: Param0, szreading: Param1, dwstyle: u32, szunregister: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szunregister.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UnregisterWordW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szunregister.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, frestorelayout: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), frestorelayout.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Activate)(::core::mem::transmute_copy(self), frestorelayout.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Deactivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnDefWindowProc<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<super::super::super::Foundation::LRESULT> {
         let mut result__: super::super::super::Foundation::LRESULT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::LRESULT>(result__)
+        (::windows::core::Interface::vtable(self).OnDefWindowProc)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::LRESULT>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn FilterClientWindows(&self, aaclasslist: *const u16, usize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(aaclasslist), ::core::mem::transmute(usize)).ok()
+        (::windows::core::Interface::vtable(self).FilterClientWindows)(::core::mem::transmute_copy(self), ::core::mem::transmute(aaclasslist), ::core::mem::transmute(usize)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn GetCodePageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetCodePageA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn GetLangId<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0) -> ::windows::core::Result<u16> {
         let mut result__: u16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
+        (::windows::core::Interface::vtable(self).GetLangId)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn AssociateContextEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, hwnd: Param0, himc: Param1, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), himc.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).AssociateContextEx)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), himc.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn DisableIME(&self, idthread: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), ::core::mem::transmute(idthread)).ok()
+        (::windows::core::Interface::vtable(self).DisableIME)(::core::mem::transmute_copy(self), ::core::mem::transmute(idthread)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetImeMenuItemsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOA, pimemenu: *mut IMEMENUITEMINFOA, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwtype), ::core::mem::transmute(pimeparentmenu), ::core::mem::transmute(pimemenu), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwresult)).ok()
+        (::windows::core::Interface::vtable(self).GetImeMenuItemsA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwtype), ::core::mem::transmute(pimeparentmenu), ::core::mem::transmute(pimemenu), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetImeMenuItemsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOW, pimemenu: *mut IMEMENUITEMINFOW, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwtype), ::core::mem::transmute(pimeparentmenu), ::core::mem::transmute(pimemenu), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwresult)).ok()
+        (::windows::core::Interface::vtable(self).GetImeMenuItemsW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwtype), ::core::mem::transmute(pimeparentmenu), ::core::mem::transmute(pimemenu), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn EnumInputContext(&self, idthread: u32) -> ::windows::core::Result<IEnumInputContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), ::core::mem::transmute(idthread), ::core::mem::transmute(&mut result__)).from_abi::<IEnumInputContext>(result__)
+        (::windows::core::Interface::vtable(self).EnumInputContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(idthread), ::core::mem::transmute(&mut result__)).from_abi::<IEnumInputContext>(result__)
     }
 }
 impl ::core::convert::From<IActiveIMMApp> for ::windows::core::IUnknown {
@@ -1359,143 +1353,269 @@ unsafe impl ::windows::core::Interface for IActiveIMMApp {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveIMMAppVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC, phprev: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDA) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phimc: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hime: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcandidate: *mut CANDIDATEFORM) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcompform: *mut COMPOSITIONFORM) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, phimc: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, phdefwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_UI_TextServices")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, fdwindex: u32, pdwproperty: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_TextServices"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_UI_TextServices")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_TextServices"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pptpos: *mut super::super::super::Foundation::POINT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, puvirtualkey: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szimefilename: super::super::super::Foundation::PSTR, szlayouttext: super::super::super::Foundation::PSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szimefilename: super::super::super::Foundation::PWSTR, szlayouttext: super::super::super::Foundation::PWSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_UI_TextServices")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_TextServices"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcandidate: *const CANDIDATEFORM) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcompform: *const COMPOSITIONFORM) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fdwconversion: u32, fdwsentence: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fopen: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pptpos: *const super::super::super::Foundation::POINT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, dwhotkeyid: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frestorelayout: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aaclasslist: *const u16, usize: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_UI_TextServices")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ucodepage: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_TextServices"))] usize,
-    #[cfg(feature = "Win32_UI_TextServices")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, plid: *mut u16) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_TextServices"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC, dwflags: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idthread: u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOA, pimemenu: *mut IMEMENUITEMINFOA, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOW, pimemenu: *mut IMEMENUITEMINFOW, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idthread: u32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IActiveIMMAppVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub AssociateContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC, phprev: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    AssociateContext: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub ConfigureIMEA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDA) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    ConfigureIMEA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub ConfigureIMEW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    ConfigureIMEW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub CreateContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phimc: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    CreateContext: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub DestroyContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hime: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    DestroyContext: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub EnumRegisterWordA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    EnumRegisterWordA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub EnumRegisterWordW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    EnumRegisterWordW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+    pub EscapeA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))]
+    EscapeA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+    pub EscapeW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))]
+    EscapeW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetCandidateListA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetCandidateListA: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetCandidateListW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetCandidateListW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetCandidateListCountA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetCandidateListCountA: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetCandidateListCountW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetCandidateListCountW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub GetCandidateWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcandidate: *mut CANDIDATEFORM) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    GetCandidateWindow: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub GetCompositionFontA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))]
+    GetCompositionFontA: usize,
+    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub GetCompositionFontW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))]
+    GetCompositionFontW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetCompositionStringA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetCompositionStringA: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetCompositionStringW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetCompositionStringW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub GetCompositionWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcompform: *mut COMPOSITIONFORM) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    GetCompositionWindow: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, phimc: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    GetContext: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+    pub GetConversionListA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))]
+    GetConversionListA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+    pub GetConversionListW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))]
+    GetConversionListW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetConversionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetConversionStatus: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetDefaultIMEWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, phdefwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetDefaultIMEWnd: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub GetDescriptionA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    GetDescriptionA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub GetDescriptionW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    GetDescriptionW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub GetGuideLineA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    GetGuideLineA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub GetGuideLineW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    GetGuideLineW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub GetIMEFileNameA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    GetIMEFileNameA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub GetIMEFileNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    GetIMEFileNameW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetOpenStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetOpenStatus: usize,
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, fdwindex: u32, pdwproperty: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_TextServices"))]
+    GetProperty: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub GetRegisterWordStyleA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    GetRegisterWordStyleA: usize,
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub GetRegisterWordStyleW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_TextServices"))]
+    GetRegisterWordStyleW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub GetStatusWindowPos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pptpos: *mut super::super::super::Foundation::POINT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    GetStatusWindowPos: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetVirtualKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, puvirtualkey: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetVirtualKey: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub InstallIMEA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szimefilename: super::super::super::Foundation::PSTR, szlayouttext: super::super::super::Foundation::PSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    InstallIMEA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub InstallIMEW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szimefilename: super::super::super::Foundation::PWSTR, szlayouttext: super::super::super::Foundation::PWSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    InstallIMEW: usize,
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub IsIME: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_TextServices"))]
+    IsIME: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsUIMessageA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsUIMessageA: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsUIMessageW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsUIMessageW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub NotifyIME: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    NotifyIME: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub RegisterWordA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    RegisterWordA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub RegisterWordW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    RegisterWordW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub ReleaseContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    ReleaseContext: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub SetCandidateWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcandidate: *const CANDIDATEFORM) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    SetCandidateWindow: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub SetCompositionFontA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))]
+    SetCompositionFontA: usize,
+    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub SetCompositionFontW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))]
+    SetCompositionFontW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub SetCompositionStringA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    SetCompositionStringA: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub SetCompositionStringW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    SetCompositionStringW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub SetCompositionWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcompform: *const COMPOSITIONFORM) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    SetCompositionWindow: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub SetConversionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fdwconversion: u32, fdwsentence: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    SetConversionStatus: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub SetOpenStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fopen: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    SetOpenStatus: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub SetStatusWindowPos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pptpos: *const super::super::super::Foundation::POINT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    SetStatusWindowPos: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SimulateHotKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, dwhotkeyid: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SimulateHotKey: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub UnregisterWordA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    UnregisterWordA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub UnregisterWordW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    UnregisterWordW: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frestorelayout: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Activate: usize,
+    pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnDefWindowProc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnDefWindowProc: usize,
+    pub FilterClientWindows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aaclasslist: *const u16, usize: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub GetCodePageA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ucodepage: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_TextServices"))]
+    GetCodePageA: usize,
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub GetLangId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, plid: *mut u16) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_TextServices"))]
+    GetLangId: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub AssociateContextEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC, dwflags: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    AssociateContextEx: usize,
+    pub DisableIME: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idthread: u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub GetImeMenuItemsA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOA, pimemenu: *mut IMEMENUITEMINFOA, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))]
+    GetImeMenuItemsA: usize,
+    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub GetImeMenuItemsW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOW, pimemenu: *mut IMEMENUITEMINFOW, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))]
+    GetImeMenuItemsW: usize,
+    pub EnumInputContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idthread: u32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IActiveIMMIME(::windows::core::IUnknown);
@@ -1504,464 +1624,464 @@ impl IActiveIMMIME {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn AssociateContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, hwnd: Param0, hime: Param1) -> ::windows::core::Result<super::super::super::Globalization::HIMC> {
         let mut result__: super::super::super::Globalization::HIMC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), hime.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMC>(result__)
+        (::windows::core::Interface::vtable(self).AssociateContext)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), hime.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMC>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn ConfigureIMEA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hkl: Param0, hwnd: Param1, dwmode: u32, pdata: *const REGISTERWORDA) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).ConfigureIMEA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn ConfigureIMEW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hkl: Param0, hwnd: Param1, dwmode: u32, pdata: *const REGISTERWORDW) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).ConfigureIMEW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn CreateContext(&self) -> ::windows::core::Result<super::super::super::Globalization::HIMC> {
         let mut result__: super::super::super::Globalization::HIMC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMC>(result__)
+        (::windows::core::Interface::vtable(self).CreateContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMC>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn DestroyContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, hime: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), hime.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DestroyContext)(::core::mem::transmute_copy(self), hime.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn EnumRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, hkl: Param0, szreading: Param1, dwstyle: u32, szregister: Param3, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordA> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordA>(result__)
+        (::windows::core::Interface::vtable(self).EnumRegisterWordA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordA>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn EnumRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, hkl: Param0, szreading: Param1, dwstyle: u32, szregister: Param3, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordW>(result__)
+        (::windows::core::Interface::vtable(self).EnumRegisterWordW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordW>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
     pub unsafe fn EscapeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, hkl: Param0, himc: Param1, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
+        (::windows::core::Interface::vtable(self).EscapeA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
     pub unsafe fn EscapeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, hkl: Param0, himc: Param1, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
+        (::windows::core::Interface::vtable(self).EscapeW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetCandidateListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pcandlist), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetCandidateListA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pcandlist), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetCandidateListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pcandlist), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetCandidateListW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pcandlist), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetCandidateListCountA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pdwlistsize), ::core::mem::transmute(pdwbuflen)).ok()
+        (::windows::core::Interface::vtable(self).GetCandidateListCountA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pdwlistsize), ::core::mem::transmute(pdwbuflen)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetCandidateListCountW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pdwlistsize), ::core::mem::transmute(pdwbuflen)).ok()
+        (::windows::core::Interface::vtable(self).GetCandidateListCountW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pdwlistsize), ::core::mem::transmute(pdwbuflen)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn GetCandidateWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32) -> ::windows::core::Result<CANDIDATEFORM> {
         let mut result__: CANDIDATEFORM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<CANDIDATEFORM>(result__)
+        (::windows::core::Interface::vtable(self).GetCandidateWindow)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<CANDIDATEFORM>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetCompositionFontA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTA> {
         let mut result__: super::super::super::Graphics::Gdi::LOGFONTA = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Gdi::LOGFONTA>(result__)
+        (::windows::core::Interface::vtable(self).GetCompositionFontA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Gdi::LOGFONTA>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetCompositionFontW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTW> {
         let mut result__: super::super::super::Graphics::Gdi::LOGFONTW = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Gdi::LOGFONTW>(result__)
+        (::windows::core::Interface::vtable(self).GetCompositionFontW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Gdi::LOGFONTW>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetCompositionStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(plcopied), ::core::mem::transmute(pbuf)).ok()
+        (::windows::core::Interface::vtable(self).GetCompositionStringA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(plcopied), ::core::mem::transmute(pbuf)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetCompositionStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(plcopied), ::core::mem::transmute(pbuf)).ok()
+        (::windows::core::Interface::vtable(self).GetCompositionStringW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(plcopied), ::core::mem::transmute(pbuf)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn GetCompositionWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<COMPOSITIONFORM> {
         let mut result__: COMPOSITIONFORM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<COMPOSITIONFORM>(result__)
+        (::windows::core::Interface::vtable(self).GetCompositionWindow)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<COMPOSITIONFORM>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn GetContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<super::super::super::Globalization::HIMC> {
         let mut result__: super::super::super::Globalization::HIMC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMC>(result__)
+        (::windows::core::Interface::vtable(self).GetContext)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMC>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetConversionListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, hkl: Param0, himc: Param1, psrc: Param2, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), psrc.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(uflag), ::core::mem::transmute(pdst), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetConversionListA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), psrc.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(uflag), ::core::mem::transmute(pdst), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetConversionListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, hkl: Param0, himc: Param1, psrc: Param2, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), psrc.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(uflag), ::core::mem::transmute(pdst), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetConversionListW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), himc.into_param().abi(), psrc.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(uflag), ::core::mem::transmute(pdst), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetConversionStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pfdwconversion), ::core::mem::transmute(pfdwsentence)).ok()
+        (::windows::core::Interface::vtable(self).GetConversionStatus)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pfdwconversion), ::core::mem::transmute(pfdwsentence)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDefaultIMEWnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__: super::super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultIMEWnd)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetDescriptionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szdescription), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetDescriptionA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szdescription), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetDescriptionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szdescription), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetDescriptionW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szdescription), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn GetGuideLineA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(pbuf), ::core::mem::transmute(pdwresult)).ok()
+        (::windows::core::Interface::vtable(self).GetGuideLineA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(pbuf), ::core::mem::transmute(pdwresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn GetGuideLineW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(pbuf), ::core::mem::transmute(pdwresult)).ok()
+        (::windows::core::Interface::vtable(self).GetGuideLineW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwbuflen), ::core::mem::transmute(pbuf), ::core::mem::transmute(pdwresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetIMEFileNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szfilename), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetIMEFileNameA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szfilename), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetIMEFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szfilename), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetIMEFileNameW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(ubuflen), ::core::mem::transmute(szfilename), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetOpenStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), himc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetOpenStatus)(::core::mem::transmute_copy(self), himc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, fdwindex: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(fdwindex), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(fdwindex), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn GetRegisterWordStyleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetRegisterWordStyleA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn GetRegisterWordStyleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pucopied)).ok()
+        (::windows::core::Interface::vtable(self).GetRegisterWordStyleW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pucopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn GetStatusWindowPos<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<super::super::super::Foundation::POINT> {
         let mut result__: super::super::super::Foundation::POINT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::POINT>(result__)
+        (::windows::core::Interface::vtable(self).GetStatusWindowPos)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::POINT>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVirtualKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetVirtualKey)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn InstallIMEA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, szimefilename: Param0, szlayouttext: Param1) -> ::windows::core::Result<super::super::TextServices::HKL> {
         let mut result__: super::super::TextServices::HKL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), szimefilename.into_param().abi(), szlayouttext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::TextServices::HKL>(result__)
+        (::windows::core::Interface::vtable(self).InstallIMEA)(::core::mem::transmute_copy(self), szimefilename.into_param().abi(), szlayouttext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::TextServices::HKL>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn InstallIMEW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szimefilename: Param0, szlayouttext: Param1) -> ::windows::core::Result<super::super::TextServices::HKL> {
         let mut result__: super::super::TextServices::HKL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), szimefilename.into_param().abi(), szlayouttext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::TextServices::HKL>(result__)
+        (::windows::core::Interface::vtable(self).InstallIMEW)(::core::mem::transmute_copy(self), szimefilename.into_param().abi(), szlayouttext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::TextServices::HKL>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn IsIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), hkl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).IsIME)(::core::mem::transmute_copy(self), hkl.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUIMessageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, hwndime: Param0, msg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), hwndime.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).IsUIMessageA)(::core::mem::transmute_copy(self), hwndime.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUIMessageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, hwndime: Param0, msg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), hwndime.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).IsUIMessageW)(::core::mem::transmute_copy(self), hwndime.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn NotifyIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwvalue)).ok()
+        (::windows::core::Interface::vtable(self).NotifyIME)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn RegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, hkl: Param0, szreading: Param1, dwstyle: u32, szregister: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RegisterWordA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn RegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, hkl: Param0, szreading: Param1, dwstyle: u32, szregister: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RegisterWordW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn ReleaseContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, hwnd: Param0, himc: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), himc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ReleaseContext)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), himc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn SetCandidateWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, pcandidate: *const CANDIDATEFORM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pcandidate)).ok()
+        (::windows::core::Interface::vtable(self).SetCandidateWindow)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pcandidate)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn SetCompositionFontA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(plf)).ok()
+        (::windows::core::Interface::vtable(self).SetCompositionFontA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(plf)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn SetCompositionFontW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, plf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(plf)).ok()
+        (::windows::core::Interface::vtable(self).SetCompositionFontW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(plf)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn SetCompositionStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
+        (::windows::core::Interface::vtable(self).SetCompositionStringA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn SetCompositionStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
+        (::windows::core::Interface::vtable(self).SetCompositionStringW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn SetCompositionWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, pcompform: *const COMPOSITIONFORM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pcompform)).ok()
+        (::windows::core::Interface::vtable(self).SetCompositionWindow)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pcompform)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn SetConversionStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, fdwconversion: u32, fdwsentence: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(fdwconversion), ::core::mem::transmute(fdwsentence)).ok()
+        (::windows::core::Interface::vtable(self).SetConversionStatus)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(fdwconversion), ::core::mem::transmute(fdwsentence)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn SetOpenStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, himc: Param0, fopen: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), himc.into_param().abi(), fopen.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOpenStatus)(::core::mem::transmute_copy(self), himc.into_param().abi(), fopen.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn SetStatusWindowPos<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, pptpos: *const super::super::super::Foundation::POINT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pptpos)).ok()
+        (::windows::core::Interface::vtable(self).SetStatusWindowPos)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(pptpos)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SimulateHotKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, dwhotkeyid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(dwhotkeyid)).ok()
+        (::windows::core::Interface::vtable(self).SimulateHotKey)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(dwhotkeyid)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn UnregisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, hkl: Param0, szreading: Param1, dwstyle: u32, szunregister: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szunregister.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UnregisterWordA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szunregister.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub unsafe fn UnregisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, hkl: Param0, szreading: Param1, dwstyle: u32, szunregister: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szunregister.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UnregisterWordW)(::core::mem::transmute_copy(self), hkl.into_param().abi(), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szunregister.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GenerateMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), himc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GenerateMessage)(::core::mem::transmute_copy(self), himc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn LockIMC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<*mut INPUTCONTEXT> {
         let mut result__: *mut INPUTCONTEXT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<*mut INPUTCONTEXT>(result__)
+        (::windows::core::Interface::vtable(self).LockIMC)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<*mut INPUTCONTEXT>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn UnlockIMC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), himc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UnlockIMC)(::core::mem::transmute_copy(self), himc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetIMCLockCount<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetIMCLockCount)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn CreateIMCC(&self, dwsize: u32) -> ::windows::core::Result<super::super::super::Globalization::HIMCC> {
         let mut result__: super::super::super::Globalization::HIMCC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsize), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMCC>(result__)
+        (::windows::core::Interface::vtable(self).CreateIMCC)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsize), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMCC>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn DestroyIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(&self, himcc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), himcc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DestroyIMCC)(::core::mem::transmute_copy(self), himcc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn LockIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(&self, himcc: Param0, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), himcc.into_param().abi(), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Interface::vtable(self).LockIMCC)(::core::mem::transmute_copy(self), himcc.into_param().abi(), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn UnlockIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(&self, himcc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), himcc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UnlockIMCC)(::core::mem::transmute_copy(self), himcc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn ReSizeIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(&self, himcc: Param0, dwsize: u32) -> ::windows::core::Result<super::super::super::Globalization::HIMCC> {
         let mut result__: super::super::super::Globalization::HIMCC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), himcc.into_param().abi(), ::core::mem::transmute(dwsize), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMCC>(result__)
+        (::windows::core::Interface::vtable(self).ReSizeIMCC)(::core::mem::transmute_copy(self), himcc.into_param().abi(), ::core::mem::transmute(dwsize), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Globalization::HIMCC>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetIMCCSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(&self, himcc: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self), himcc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetIMCCSize)(::core::mem::transmute_copy(self), himcc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn GetIMCCLockCount<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(&self, himcc: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), himcc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetIMCCLockCount)(::core::mem::transmute_copy(self), himcc.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn GetHotKey(&self, dwhotkeyid: u32, pumodifiers: *mut u32, puvkey: *mut u32, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhotkeyid), ::core::mem::transmute(pumodifiers), ::core::mem::transmute(puvkey), ::core::mem::transmute(phkl)).ok()
+        (::windows::core::Interface::vtable(self).GetHotKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhotkeyid), ::core::mem::transmute(pumodifiers), ::core::mem::transmute(puvkey), ::core::mem::transmute(phkl)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn SetHotKey<'a, Param3: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, dwhotkeyid: u32, umodifiers: u32, uvkey: u32, hkl: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhotkeyid), ::core::mem::transmute(umodifiers), ::core::mem::transmute(uvkey), hkl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHotKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhotkeyid), ::core::mem::transmute(umodifiers), ::core::mem::transmute(uvkey), hkl.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSoftKeyboard<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, utype: u32, howner: Param1, x: i32, y: i32) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__: super::super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), ::core::mem::transmute(utype), howner.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).CreateSoftKeyboard)(::core::mem::transmute_copy(self), ::core::mem::transmute(utype), howner.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DestroySoftKeyboard<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hsoftkbdwnd: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).74)(::core::mem::transmute_copy(self), hsoftkbdwnd.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DestroySoftKeyboard)(::core::mem::transmute_copy(self), hsoftkbdwnd.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowSoftKeyboard<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hsoftkbdwnd: Param0, ncmdshow: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).75)(::core::mem::transmute_copy(self), hsoftkbdwnd.into_param().abi(), ::core::mem::transmute(ncmdshow)).ok()
+        (::windows::core::Interface::vtable(self).ShowSoftKeyboard)(::core::mem::transmute_copy(self), hsoftkbdwnd.into_param().abi(), ::core::mem::transmute(ncmdshow)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn GetCodePageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).76)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetCodePageA)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn GetLangId<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(&self, hkl: Param0) -> ::windows::core::Result<u16> {
         let mut result__: u16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
+        (::windows::core::Interface::vtable(self).GetLangId)(::core::mem::transmute_copy(self), hkl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn KeybdEvent(&self, lgidime: u16, bvk: u8, bscan: u8, dwflags: u32, dwextrainfo: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(lgidime), ::core::mem::transmute(bvk), ::core::mem::transmute(bscan), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwextrainfo)).ok()
+        (::windows::core::Interface::vtable(self).KeybdEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(lgidime), ::core::mem::transmute(bvk), ::core::mem::transmute(bscan), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwextrainfo)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn LockModal(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).79)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).LockModal)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn UnlockModal(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).80)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).UnlockModal)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn AssociateContextEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, hwnd: Param0, himc: Param1, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).81)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), himc.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).AssociateContextEx)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), himc.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn DisableIME(&self, idthread: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).82)(::core::mem::transmute_copy(self), ::core::mem::transmute(idthread)).ok()
+        (::windows::core::Interface::vtable(self).DisableIME)(::core::mem::transmute_copy(self), ::core::mem::transmute(idthread)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetImeMenuItemsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOA, pimemenu: *mut IMEMENUITEMINFOA, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).83)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwtype), ::core::mem::transmute(pimeparentmenu), ::core::mem::transmute(pimemenu), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwresult)).ok()
+        (::windows::core::Interface::vtable(self).GetImeMenuItemsA)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwtype), ::core::mem::transmute(pimeparentmenu), ::core::mem::transmute(pimemenu), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetImeMenuItemsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOW, pimemenu: *mut IMEMENUITEMINFOW, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).84)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwtype), ::core::mem::transmute(pimeparentmenu), ::core::mem::transmute(pimemenu), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwresult)).ok()
+        (::windows::core::Interface::vtable(self).GetImeMenuItemsW)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwtype), ::core::mem::transmute(pimeparentmenu), ::core::mem::transmute(pimemenu), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn EnumInputContext(&self, idthread: u32) -> ::windows::core::Result<IEnumInputContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).85)(::core::mem::transmute_copy(self), ::core::mem::transmute(idthread), ::core::mem::transmute(&mut result__)).from_abi::<IEnumInputContext>(result__)
+        (::windows::core::Interface::vtable(self).EnumInputContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(idthread), ::core::mem::transmute(&mut result__)).from_abi::<IEnumInputContext>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn RequestMessageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, himc: Param0, wparam: Param1, lparam: Param2) -> ::windows::core::Result<super::super::super::Foundation::LRESULT> {
         let mut result__: super::super::super::Foundation::LRESULT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).86)(::core::mem::transmute_copy(self), himc.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::LRESULT>(result__)
+        (::windows::core::Interface::vtable(self).RequestMessageA)(::core::mem::transmute_copy(self), himc.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::LRESULT>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub unsafe fn RequestMessageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, himc: Param0, wparam: Param1, lparam: Param2) -> ::windows::core::Result<super::super::super::Foundation::LRESULT> {
         let mut result__: super::super::super::Foundation::LRESULT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).87)(::core::mem::transmute_copy(self), himc.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::LRESULT>(result__)
+        (::windows::core::Interface::vtable(self).RequestMessageW)(::core::mem::transmute_copy(self), himc.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::LRESULT>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SendIMCA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, hwnd: Param0, umsg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<super::super::super::Foundation::LRESULT> {
         let mut result__: super::super::super::Foundation::LRESULT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).88)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::LRESULT>(result__)
+        (::windows::core::Interface::vtable(self).SendIMCA)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::LRESULT>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SendIMCW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, hwnd: Param0, umsg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<super::super::super::Foundation::LRESULT> {
         let mut result__: super::super::super::Foundation::LRESULT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).89)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::LRESULT>(result__)
+        (::windows::core::Interface::vtable(self).SendIMCW)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::LRESULT>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn IsSleeping(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).90)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).IsSleeping)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IActiveIMMIME> for ::windows::core::IUnknown {
@@ -2006,206 +2126,368 @@ unsafe impl ::windows::core::Interface for IActiveIMMIME {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveIMMIMEVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC, phprev: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDA) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phimc: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hime: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcandidate: *mut CANDIDATEFORM) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcompform: *mut COMPOSITIONFORM) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, phimc: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, phdefwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_UI_TextServices")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, fdwindex: u32, pdwproperty: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_TextServices"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_UI_TextServices")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_TextServices"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pptpos: *mut super::super::super::Foundation::POINT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, puvirtualkey: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szimefilename: super::super::super::Foundation::PSTR, szlayouttext: super::super::super::Foundation::PSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szimefilename: super::super::super::Foundation::PWSTR, szlayouttext: super::super::super::Foundation::PWSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_UI_TextServices")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_TextServices"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcandidate: *const CANDIDATEFORM) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcompform: *const COMPOSITIONFORM) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fdwconversion: u32, fdwsentence: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fopen: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pptpos: *const super::super::super::Foundation::POINT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, dwhotkeyid: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, ppimc: *mut *mut INPUTCONTEXT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pdwlockcount: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsize: u32, phimcc: *mut super::super::super::Globalization::HIMCC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himcc: super::super::super::Globalization::HIMCC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himcc: super::super::super::Globalization::HIMCC, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himcc: super::super::super::Globalization::HIMCC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himcc: super::super::super::Globalization::HIMCC, dwsize: u32, phimcc: *mut super::super::super::Globalization::HIMCC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himcc: super::super::super::Globalization::HIMCC, pdwsize: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himcc: super::super::super::Globalization::HIMCC, pdwlockcount: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(feature = "Win32_UI_TextServices")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhotkeyid: u32, pumodifiers: *mut u32, puvkey: *mut u32, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_TextServices"))] usize,
-    #[cfg(feature = "Win32_UI_TextServices")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhotkeyid: u32, umodifiers: u32, uvkey: u32, hkl: super::super::TextServices::HKL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_TextServices"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, utype: u32, howner: super::super::super::Foundation::HWND, x: i32, y: i32, phsoftkbdwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsoftkbdwnd: super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsoftkbdwnd: super::super::super::Foundation::HWND, ncmdshow: i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_UI_TextServices")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ucodepage: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_TextServices"))] usize,
-    #[cfg(feature = "Win32_UI_TextServices")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, plid: *mut u16) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_TextServices"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lgidime: u16, bvk: u8, bscan: u8, dwflags: u32, dwextrainfo: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC, dwflags: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idthread: u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOA, pimemenu: *mut IMEMENUITEMINFOA, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOW, pimemenu: *mut IMEMENUITEMINFOW, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idthread: u32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IActiveIMMIMEVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub AssociateContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC, phprev: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    AssociateContext: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub ConfigureIMEA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDA) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    ConfigureIMEA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub ConfigureIMEW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    ConfigureIMEW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub CreateContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phimc: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    CreateContext: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub DestroyContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hime: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    DestroyContext: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub EnumRegisterWordA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    EnumRegisterWordA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub EnumRegisterWordW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    EnumRegisterWordW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+    pub EscapeA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))]
+    EscapeA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+    pub EscapeW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))]
+    EscapeW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetCandidateListA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetCandidateListA: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetCandidateListW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetCandidateListW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetCandidateListCountA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetCandidateListCountA: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetCandidateListCountW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetCandidateListCountW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub GetCandidateWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcandidate: *mut CANDIDATEFORM) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    GetCandidateWindow: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub GetCompositionFontA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))]
+    GetCompositionFontA: usize,
+    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub GetCompositionFontW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))]
+    GetCompositionFontW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetCompositionStringA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetCompositionStringA: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetCompositionStringW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetCompositionStringW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub GetCompositionWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcompform: *mut COMPOSITIONFORM) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    GetCompositionWindow: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, phimc: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    GetContext: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+    pub GetConversionListA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))]
+    GetConversionListA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+    pub GetConversionListW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices")))]
+    GetConversionListW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetConversionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetConversionStatus: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetDefaultIMEWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, phdefwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetDefaultIMEWnd: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub GetDescriptionA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    GetDescriptionA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub GetDescriptionW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    GetDescriptionW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub GetGuideLineA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    GetGuideLineA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub GetGuideLineW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    GetGuideLineW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub GetIMEFileNameA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    GetIMEFileNameA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub GetIMEFileNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    GetIMEFileNameW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetOpenStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetOpenStatus: usize,
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, fdwindex: u32, pdwproperty: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_TextServices"))]
+    GetProperty: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub GetRegisterWordStyleA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    GetRegisterWordStyleA: usize,
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub GetRegisterWordStyleW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_TextServices"))]
+    GetRegisterWordStyleW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub GetStatusWindowPos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pptpos: *mut super::super::super::Foundation::POINT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    GetStatusWindowPos: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetVirtualKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, puvirtualkey: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetVirtualKey: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub InstallIMEA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szimefilename: super::super::super::Foundation::PSTR, szlayouttext: super::super::super::Foundation::PSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    InstallIMEA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub InstallIMEW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szimefilename: super::super::super::Foundation::PWSTR, szlayouttext: super::super::super::Foundation::PWSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    InstallIMEW: usize,
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub IsIME: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_TextServices"))]
+    IsIME: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsUIMessageA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsUIMessageA: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsUIMessageW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsUIMessageW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub NotifyIME: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    NotifyIME: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub RegisterWordA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    RegisterWordA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub RegisterWordW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    RegisterWordW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub ReleaseContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    ReleaseContext: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub SetCandidateWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcandidate: *const CANDIDATEFORM) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    SetCandidateWindow: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub SetCompositionFontA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))]
+    SetCompositionFontA: usize,
+    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub SetCompositionFontW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))]
+    SetCompositionFontW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub SetCompositionStringA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    SetCompositionStringA: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub SetCompositionStringW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    SetCompositionStringW: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub SetCompositionWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcompform: *const COMPOSITIONFORM) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    SetCompositionWindow: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub SetConversionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fdwconversion: u32, fdwsentence: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    SetConversionStatus: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub SetOpenStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, fopen: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    SetOpenStatus: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub SetStatusWindowPos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pptpos: *const super::super::super::Foundation::POINT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    SetStatusWindowPos: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SimulateHotKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, dwhotkeyid: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SimulateHotKey: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub UnregisterWordA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    UnregisterWordA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub UnregisterWordW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices")))]
+    UnregisterWordW: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GenerateMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GenerateMessage: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub LockIMC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, ppimc: *mut *mut INPUTCONTEXT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))]
+    LockIMC: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub UnlockIMC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    UnlockIMC: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetIMCLockCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pdwlockcount: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetIMCLockCount: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub CreateIMCC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsize: u32, phimcc: *mut super::super::super::Globalization::HIMCC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    CreateIMCC: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub DestroyIMCC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himcc: super::super::super::Globalization::HIMCC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    DestroyIMCC: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub LockIMCC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himcc: super::super::super::Globalization::HIMCC, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    LockIMCC: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub UnlockIMCC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himcc: super::super::super::Globalization::HIMCC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    UnlockIMCC: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub ReSizeIMCC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himcc: super::super::super::Globalization::HIMCC, dwsize: u32, phimcc: *mut super::super::super::Globalization::HIMCC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    ReSizeIMCC: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetIMCCSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himcc: super::super::super::Globalization::HIMCC, pdwsize: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetIMCCSize: usize,
+    #[cfg(feature = "Win32_Globalization")]
+    pub GetIMCCLockCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himcc: super::super::super::Globalization::HIMCC, pdwlockcount: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    GetIMCCLockCount: usize,
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub GetHotKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhotkeyid: u32, pumodifiers: *mut u32, puvkey: *mut u32, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_TextServices"))]
+    GetHotKey: usize,
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub SetHotKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhotkeyid: u32, umodifiers: u32, uvkey: u32, hkl: super::super::TextServices::HKL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_TextServices"))]
+    SetHotKey: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub CreateSoftKeyboard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, utype: u32, howner: super::super::super::Foundation::HWND, x: i32, y: i32, phsoftkbdwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    CreateSoftKeyboard: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub DestroySoftKeyboard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsoftkbdwnd: super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    DestroySoftKeyboard: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ShowSoftKeyboard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsoftkbdwnd: super::super::super::Foundation::HWND, ncmdshow: i32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ShowSoftKeyboard: usize,
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub GetCodePageA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ucodepage: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_TextServices"))]
+    GetCodePageA: usize,
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub GetLangId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, plid: *mut u16) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_TextServices"))]
+    GetLangId: usize,
+    pub KeybdEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lgidime: u16, bvk: u8, bscan: u8, dwflags: u32, dwextrainfo: u32) -> ::windows::core::HRESULT,
+    pub LockModal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UnlockModal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub AssociateContextEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC, dwflags: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    AssociateContextEx: usize,
+    pub DisableIME: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idthread: u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub GetImeMenuItemsA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOA, pimemenu: *mut IMEMENUITEMINFOA, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))]
+    GetImeMenuItemsA: usize,
+    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub GetImeMenuItemsW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOW, pimemenu: *mut IMEMENUITEMINFOW, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))]
+    GetImeMenuItemsW: usize,
+    pub EnumInputContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idthread: u32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub RequestMessageA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    RequestMessageA: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub RequestMessageW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Globalization")))]
+    RequestMessageW: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SendIMCA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SendIMCA: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SendIMCW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SendIMCW: usize,
+    pub IsSleeping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IActiveIMMMessagePumpOwner(::windows::core::IUnknown);
 impl IActiveIMMMessagePumpOwner {
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Start(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Start)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn End(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).End)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn OnTranslateMessage(&self, pmsg: *const super::super::WindowsAndMessaging::MSG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmsg)).ok()
+        (::windows::core::Interface::vtable(self).OnTranslateMessage)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmsg)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Pause)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Resume(&self, dwcookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie)).ok()
+        (::windows::core::Interface::vtable(self).Resume)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie)).ok()
     }
 }
 impl ::core::convert::From<IActiveIMMMessagePumpOwner> for ::windows::core::IUnknown {
@@ -2250,17 +2532,17 @@ unsafe impl ::windows::core::Interface for IActiveIMMMessagePumpOwner {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveIMMMessagePumpOwnerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsg: *const super::super::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows::core::HRESULT,
-);
+pub struct IActiveIMMMessagePumpOwnerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub OnTranslateMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsg: *const super::super::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    OnTranslateMessage: usize,
+    pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
+    pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IActiveIMMRegistrar(::windows::core::IUnknown);
@@ -2268,11 +2550,11 @@ impl IActiveIMMRegistrar {
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterIME<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: Param2, pszdesc: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(lgid), psziconfile.into_param().abi(), pszdesc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RegisterIME)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(lgid), psziconfile.into_param().abi(), pszdesc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn UnregisterIME(&self, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid)).ok()
+        (::windows::core::Interface::vtable(self).UnregisterIME)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid)).ok()
     }
 }
 impl ::core::convert::From<IActiveIMMRegistrar> for ::windows::core::IUnknown {
@@ -2317,14 +2599,14 @@ unsafe impl ::windows::core::Interface for IActiveIMMRegistrar {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveIMMRegistrarVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: super::super::super::Foundation::PWSTR, pszdesc: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-);
+pub struct IActiveIMMRegistrarVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub RegisterIME: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: super::super::super::Foundation::PWSTR, pszdesc: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    RegisterIME: usize,
+    pub UnregisterIME: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IEnumInputContext(::windows::core::IUnknown);
@@ -2332,20 +2614,20 @@ impl IEnumInputContext {
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumInputContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumInputContext>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumInputContext>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn Next(&self, ulcount: u32, rginputcontext: *mut super::super::super::Globalization::HIMC, pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount), ::core::mem::transmute(rginputcontext), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount), ::core::mem::transmute(rginputcontext), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount)).ok()
     }
 }
 impl ::core::convert::From<IEnumInputContext> for ::windows::core::IUnknown {
@@ -2390,16 +2672,16 @@ unsafe impl ::windows::core::Interface for IEnumInputContext {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumInputContextVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Globalization")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32, rginputcontext: *mut super::super::super::Globalization::HIMC, pcfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Globalization"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
-);
+pub struct IEnumInputContextVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Globalization")]
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32, rginputcontext: *mut super::super::super::Globalization::HIMC, pcfetched: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Globalization"))]
+    Next: usize,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IEnumRegisterWordA(::windows::core::IUnknown);
@@ -2407,20 +2689,20 @@ impl IEnumRegisterWordA {
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumRegisterWordA> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordA>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordA>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount), ::core::mem::transmute(rgregisterword), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount), ::core::mem::transmute(rgregisterword), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount)).ok()
     }
 }
 impl ::core::convert::From<IEnumRegisterWordA> for ::windows::core::IUnknown {
@@ -2465,16 +2747,16 @@ unsafe impl ::windows::core::Interface for IEnumRegisterWordA {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumRegisterWordAVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
-);
+pub struct IEnumRegisterWordAVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Next: usize,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IEnumRegisterWordW(::windows::core::IUnknown);
@@ -2482,20 +2764,20 @@ impl IEnumRegisterWordW {
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumRegisterWordW> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordW>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordW>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount), ::core::mem::transmute(rgregisterword), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount), ::core::mem::transmute(rgregisterword), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount)).ok()
     }
 }
 impl ::core::convert::From<IEnumRegisterWordW> for ::windows::core::IUnknown {
@@ -2540,16 +2822,16 @@ unsafe impl ::windows::core::Interface for IEnumRegisterWordW {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumRegisterWordWVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
-);
+pub struct IEnumRegisterWordWVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Next: usize,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFEC_S_ALREADY_DEFAULT: ::windows::core::HRESULT = ::windows::core::HRESULT(291840i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
@@ -2560,12 +2842,12 @@ impl IFEClassFactory {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, T: ::windows::core::Interface>(&self, punkouter: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateInstance)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn LockServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, flock: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), flock.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).LockServer)(::core::mem::transmute_copy(self), flock.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2634,15 +2916,9 @@ unsafe impl ::windows::core::Interface for IFEClassFactory {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFEClassFactoryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flock: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct IFEClassFactoryVtbl {
+    pub base: IClassFactoryVtbl,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IFECommon(::windows::core::IUnknown);
@@ -2650,21 +2926,21 @@ impl IFECommon {
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDefaultIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, szname: Param0, cszname: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szname.into_param().abi(), ::core::mem::transmute(cszname)).ok()
+        (::windows::core::Interface::vtable(self).IsDefaultIME)(::core::mem::transmute_copy(self), szname.into_param().abi(), ::core::mem::transmute(cszname)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn SetDefaultIME(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultIME)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InvokeWordRegDialog(&self, pimedlg: *mut IMEDLG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimedlg)).ok()
+        (::windows::core::Interface::vtable(self).InvokeWordRegDialog)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimedlg)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InvokeDictToolDialog(&self, pimedlg: *mut IMEDLG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimedlg)).ok()
+        (::windows::core::Interface::vtable(self).InvokeDictToolDialog)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimedlg)).ok()
     }
 }
 impl ::core::convert::From<IFECommon> for ::windows::core::IUnknown {
@@ -2709,18 +2985,22 @@ unsafe impl ::windows::core::Interface for IFECommon {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFECommonVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::super::Foundation::PSTR, cszname: i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimedlg: *mut IMEDLG) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimedlg: *mut IMEDLG) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IFECommonVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsDefaultIME: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::super::Foundation::PSTR, cszname: i32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsDefaultIME: usize,
+    pub SetDefaultIME: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub InvokeWordRegDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimedlg: *mut IMEDLG) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    InvokeWordRegDialog: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub InvokeDictToolDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimedlg: *mut IMEDLG) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    InvokeDictToolDialog: usize,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_E_INVALID_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192063i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
@@ -2840,82 +3120,82 @@ impl IFEDictionary {
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Open<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, pchdictpath: Param0, pshf: *mut IMESHF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pchdictpath.into_param().abi(), ::core::mem::transmute(pshf)).ok()
+        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), pchdictpath.into_param().abi(), ::core::mem::transmute(pshf)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHeader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, pchdictpath: Param0, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pchdictpath.into_param().abi(), ::core::mem::transmute(pshf), ::core::mem::transmute(pjfmt), ::core::mem::transmute(pultype)).ok()
+        (::windows::core::Interface::vtable(self).GetHeader)(::core::mem::transmute_copy(self), pchdictpath.into_param().abi(), ::core::mem::transmute(pshf), ::core::mem::transmute(pjfmt), ::core::mem::transmute(pultype)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), hwnd.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DisplayProperty)(::core::mem::transmute_copy(self), hwnd.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn GetPosTable(&self, prgpostbl: *mut *mut POSTBL, pcpostbl: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(prgpostbl), ::core::mem::transmute(pcpostbl)).ok()
+        (::windows::core::Interface::vtable(self).GetPosTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(prgpostbl), ::core::mem::transmute(pcpostbl)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWords<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchfirst: Param0, pwchlast: Param1, pwchdisplay: Param2, ulpos: u32, ulselect: u32, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pwchfirst.into_param().abi(), pwchlast.into_param().abi(), pwchdisplay.into_param().abi(), ::core::mem::transmute(ulpos), ::core::mem::transmute(ulselect), ::core::mem::transmute(ulwordsrc), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcwrd)).ok()
+        (::windows::core::Interface::vtable(self).GetWords)(::core::mem::transmute_copy(self), pwchfirst.into_param().abi(), pwchlast.into_param().abi(), pwchdisplay.into_param().abi(), ::core::mem::transmute(ulpos), ::core::mem::transmute(ulselect), ::core::mem::transmute(ulwordsrc), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcwrd)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn NextWords(&self, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcwrd)).ok()
+        (::windows::core::Interface::vtable(self).NextWords)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcwrd)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, pchdictpath: Param0, pshf: *mut IMESHF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pchdictpath.into_param().abi(), ::core::mem::transmute(pshf)).ok()
+        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), pchdictpath.into_param().abi(), ::core::mem::transmute(pshf)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHeader(&self, pshf: *mut IMESHF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pshf)).ok()
+        (::windows::core::Interface::vtable(self).SetHeader)(::core::mem::transmute_copy(self), ::core::mem::transmute(pshf)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExistWord(&self, pwrd: *mut IMEWRD) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwrd)).ok()
+        (::windows::core::Interface::vtable(self).ExistWord)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwrd)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExistDependency(&self, pdp: *mut IMEDP) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdp)).ok()
+        (::windows::core::Interface::vtable(self).ExistDependency)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdp)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterWord(&self, reg: IMEREG, pwrd: *mut IMEWRD) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(reg), ::core::mem::transmute(pwrd)).ok()
+        (::windows::core::Interface::vtable(self).RegisterWord)(::core::mem::transmute_copy(self), ::core::mem::transmute(reg), ::core::mem::transmute(pwrd)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterDependency(&self, reg: IMEREG, pdp: *mut IMEDP) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(reg), ::core::mem::transmute(pdp)).ok()
+        (::windows::core::Interface::vtable(self).RegisterDependency)(::core::mem::transmute_copy(self), ::core::mem::transmute(reg), ::core::mem::transmute(pdp)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDependencies<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchkakarireading: Param0, pwchkakaridisplay: Param1, ulkakaripos: u32, pwchukereading: Param3, pwchukedisplay: Param4, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pwchkakarireading.into_param().abi(), pwchkakaridisplay.into_param().abi(), ::core::mem::transmute(ulkakaripos), pwchukereading.into_param().abi(), pwchukedisplay.into_param().abi(), ::core::mem::transmute(ulukepos), ::core::mem::transmute(jrel), ::core::mem::transmute(ulwordsrc), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcdp)).ok()
+        (::windows::core::Interface::vtable(self).GetDependencies)(::core::mem::transmute_copy(self), pwchkakarireading.into_param().abi(), pwchkakaridisplay.into_param().abi(), ::core::mem::transmute(ulkakaripos), pwchukereading.into_param().abi(), pwchukedisplay.into_param().abi(), ::core::mem::transmute(ulukepos), ::core::mem::transmute(jrel), ::core::mem::transmute(ulwordsrc), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcdp)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn NextDependencies(&self, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcdp)).ok()
+        (::windows::core::Interface::vtable(self).NextDependencies)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcdp)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConvertFromOldMSIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, pchdic: Param0, pfnlog: PFNLOG, reg: IMEREG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), pchdic.into_param().abi(), ::core::mem::transmute(pfnlog), ::core::mem::transmute(reg)).ok()
+        (::windows::core::Interface::vtable(self).ConvertFromOldMSIME)(::core::mem::transmute_copy(self), pchdic.into_param().abi(), ::core::mem::transmute(pfnlog), ::core::mem::transmute(reg)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn ConvertFromUserToSys(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ConvertFromUserToSys)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IFEDictionary> for ::windows::core::IUnknown {
@@ -2960,70 +3240,92 @@ unsafe impl ::windows::core::Interface for IFEDictionary {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFEDictionaryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prgpostbl: *mut *mut POSTBL, pcpostbl: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchfirst: super::super::super::Foundation::PWSTR, pwchlast: super::super::super::Foundation::PWSTR, pwchdisplay: super::super::super::Foundation::PWSTR, ulpos: u32, ulselect: u32, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshf: *mut IMESHF) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwrd: *mut IMEWRD) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdp: *mut IMEDP) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reg: IMEREG, pwrd: *mut IMEWRD) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reg: IMEREG, pdp: *mut IMEDP) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchkakarireading: super::super::super::Foundation::PWSTR, pwchkakaridisplay: super::super::super::Foundation::PWSTR, ulkakaripos: u32, pwchukereading: super::super::super::Foundation::PWSTR, pwchukedisplay: super::super::super::Foundation::PWSTR, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchdic: super::super::super::Foundation::PSTR, pfnlog: ::windows::core::RawPtr, reg: IMEREG) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IFEDictionaryVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Open: usize,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetHeader: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub DisplayProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    DisplayProperty: usize,
+    pub GetPosTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prgpostbl: *mut *mut POSTBL, pcpostbl: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetWords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchfirst: super::super::super::Foundation::PWSTR, pwchlast: super::super::super::Foundation::PWSTR, pwchdisplay: super::super::super::Foundation::PWSTR, ulpos: u32, ulselect: u32, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetWords: usize,
+    pub NextWords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Create: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshf: *mut IMESHF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetHeader: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ExistWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwrd: *mut IMEWRD) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ExistWord: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ExistDependency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdp: *mut IMEDP) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ExistDependency: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub RegisterWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reg: IMEREG, pwrd: *mut IMEWRD) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    RegisterWord: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub RegisterDependency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reg: IMEREG, pdp: *mut IMEDP) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    RegisterDependency: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetDependencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchkakarireading: super::super::super::Foundation::PWSTR, pwchkakaridisplay: super::super::super::Foundation::PWSTR, ulkakaripos: u32, pwchukereading: super::super::super::Foundation::PWSTR, pwchukedisplay: super::super::super::Foundation::PWSTR, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetDependencies: usize,
+    pub NextDependencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ConvertFromOldMSIME: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchdic: super::super::super::Foundation::PSTR, pfnlog: ::windows::core::RawPtr, reg: IMEREG) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ConvertFromOldMSIME: usize,
+    pub ConvertFromUserToSys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IFELanguage(::windows::core::IUnknown);
 impl IFELanguage {
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Open(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetJMorphResult<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: Param3, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwrequest), ::core::mem::transmute(dwcmode), ::core::mem::transmute(cwchinput), pwchinput.into_param().abi(), ::core::mem::transmute(pfcinfo), ::core::mem::transmute(ppresult)).ok()
+        (::windows::core::Interface::vtable(self).GetJMorphResult)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwrequest), ::core::mem::transmute(dwcmode), ::core::mem::transmute(cwchinput), pwchinput.into_param().abi(), ::core::mem::transmute(pfcinfo), ::core::mem::transmute(ppresult)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn GetConversionModeCaps(&self, pdwcaps: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwcaps)).ok()
+        (::windows::core::Interface::vtable(self).GetConversionModeCaps)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwcaps)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPhonetic<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, string: Param0, start: i32, length: i32, phonetic: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(start), ::core::mem::transmute(length), ::core::mem::transmute(phonetic)).ok()
+        (::windows::core::Interface::vtable(self).GetPhonetic)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(start), ::core::mem::transmute(length), ::core::mem::transmute(phonetic)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetConversion<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, string: Param0, start: i32, length: i32, result: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(start), ::core::mem::transmute(length), ::core::mem::transmute(result)).ok()
+        (::windows::core::Interface::vtable(self).GetConversion)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(start), ::core::mem::transmute(length), ::core::mem::transmute(result)).ok()
     }
 }
 impl ::core::convert::From<IFELanguage> for ::windows::core::IUnknown {
@@ -3068,20 +3370,24 @@ unsafe impl ::windows::core::Interface for IFELanguage {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFELanguageVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: super::super::super::Foundation::PWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcaps: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, start: i32, length: i32, phonetic: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, start: i32, length: i32, result: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IFELanguageVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetJMorphResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: super::super::super::Foundation::PWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetJMorphResult: usize,
+    pub GetConversionModeCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcaps: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetPhonetic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, start: i32, length: i32, phonetic: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetPhonetic: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetConversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, start: i32, length: i32, result: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetConversion: usize,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IGIMIF_RIGHTMENU: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
@@ -3105,7 +3411,7 @@ impl IImePad {
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Request<'a, Param0: ::windows::core::IntoParam<'a, IImePadApplet>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, piimepadapplet: Param0, reqid: IME_PAD_REQUEST_FLAGS, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), piimepadapplet.into_param().abi(), ::core::mem::transmute(reqid), wparam.into_param().abi(), lparam.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Request)(::core::mem::transmute_copy(self), piimepadapplet.into_param().abi(), ::core::mem::transmute(reqid), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IImePad> for ::windows::core::IUnknown {
@@ -3150,39 +3456,39 @@ unsafe impl ::windows::core::Interface for IImePad {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImePadVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piimepadapplet: ::windows::core::RawPtr, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IImePadVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piimepadapplet: ::windows::core::RawPtr, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Request: usize,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IImePadApplet(::windows::core::IUnknown);
 impl IImePadApplet {
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, lpiimepad: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), lpiimepad.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), lpiimepad.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Terminate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Terminate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetAppletConfig(&self, lpappletcfg: *mut IMEAPPLETCFG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpappletcfg)).ok()
+        (::windows::core::Interface::vtable(self).GetAppletConfig)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpappletcfg)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwndparent: Param0, lpimeappletui: *mut IMEAPPLETUI) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(lpimeappletui)).ok()
+        (::windows::core::Interface::vtable(self).CreateUI)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(lpimeappletui)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Notify<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, lpimepad: Param0, notify: i32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), lpimepad.into_param().abi(), ::core::mem::transmute(notify), wparam.into_param().abi(), lparam.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Notify)(::core::mem::transmute_copy(self), lpimepad.into_param().abi(), ::core::mem::transmute(notify), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IImePadApplet> for ::windows::core::IUnknown {
@@ -3227,19 +3533,23 @@ unsafe impl ::windows::core::Interface for IImePadApplet {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImePadAppletVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpiimepad: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpappletcfg: *mut IMEAPPLETCFG) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::super::Foundation::HWND, lpimeappletui: *mut IMEAPPLETUI) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpimepad: *mut ::core::ffi::c_void, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IImePadAppletVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpiimepad: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub GetAppletConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpappletcfg: *mut IMEAPPLETCFG) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    GetAppletConfig: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub CreateUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::super::Foundation::HWND, lpimeappletui: *mut IMEAPPLETUI) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    CreateUI: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpimepad: *mut ::core::ffi::c_void, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Notify: usize,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IImePlugInDictDictionaryList(::windows::core::IUnknown);
@@ -3247,12 +3557,12 @@ impl IImePlugInDictDictionaryList {
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDictionariesInUse(&self, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(prgdictionaryguid), ::core::mem::transmute(prgdatecreated), ::core::mem::transmute(prgfencrypted)).ok()
+        (::windows::core::Interface::vtable(self).GetDictionariesInUse)(::core::mem::transmute_copy(self), ::core::mem::transmute(prgdictionaryguid), ::core::mem::transmute(prgdatecreated), ::core::mem::transmute(prgfencrypted)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteDictionary<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrdictionaryguid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), bstrdictionaryguid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeleteDictionary)(::core::mem::transmute_copy(self), bstrdictionaryguid.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IImePlugInDictDictionaryList> for ::windows::core::IUnknown {
@@ -3297,22 +3607,24 @@ unsafe impl ::windows::core::Interface for IImePlugInDictDictionaryList {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImePlugInDictDictionaryListVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdictionaryguid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IImePlugInDictDictionaryListVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetDictionariesInUse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetDictionariesInUse: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub DeleteDictionary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdictionaryguid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    DeleteDictionary: usize,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IImeSpecifyApplets(::windows::core::IUnknown);
 impl IImeSpecifyApplets {
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn GetAppletIIDList(&self, refiid: *const ::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(refiid), ::core::mem::transmute(lpiidlist)).ok()
+        (::windows::core::Interface::vtable(self).GetAppletIIDList)(::core::mem::transmute_copy(self), ::core::mem::transmute(refiid), ::core::mem::transmute(lpiidlist)).ok()
     }
 }
 impl ::core::convert::From<IImeSpecifyApplets> for ::windows::core::IUnknown {
@@ -3357,7 +3669,10 @@ unsafe impl ::windows::core::Interface for IImeSpecifyApplets {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImeSpecifyAppletsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refiid: *const ::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::HRESULT);
+pub struct IImeSpecifyAppletsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetAppletIIDList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refiid: *const ::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 pub type IMCENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL>;

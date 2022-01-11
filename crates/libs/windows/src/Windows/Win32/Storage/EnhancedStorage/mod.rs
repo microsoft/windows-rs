@@ -450,32 +450,32 @@ pub struct IEnhancedStorageACT(::windows::core::IUnknown);
 impl IEnhancedStorageACT {
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwndparent), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Authorize)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwndparent), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn Unauthorize(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Unauthorize)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn GetAuthorizationState(&self) -> ::windows::core::Result<ACT_AUTHORIZATION_STATE> {
         let mut result__: ACT_AUTHORIZATION_STATE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ACT_AUTHORIZATION_STATE>(result__)
+        (::windows::core::Interface::vtable(self).GetAuthorizationState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ACT_AUTHORIZATION_STATE>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMatchingVolume(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetMatchingVolume)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUniqueIdentity(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetUniqueIdentity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut ::core::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppienhancedstoragesilos), ::core::mem::transmute(pcenhancedstoragesilos)).ok()
+        (::windows::core::Interface::vtable(self).GetSilos)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppienhancedstoragesilos), ::core::mem::transmute(pcenhancedstoragesilos)).ok()
     }
 }
 impl ::core::convert::From<IEnhancedStorageACT> for ::windows::core::IUnknown {
@@ -520,63 +520,65 @@ unsafe impl ::windows::core::Interface for IEnhancedStorageACT {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnhancedStorageACTVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: u32, dwflags: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACT_AUTHORIZATION_STATE) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszvolume: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszidentity: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesilos: *mut *mut ::windows::core::RawPtr, pcenhancedstoragesilos: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IEnhancedStorageACTVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Authorize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: u32, dwflags: u32) -> ::windows::core::HRESULT,
+    pub Unauthorize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetAuthorizationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACT_AUTHORIZATION_STATE) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetMatchingVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszvolume: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetMatchingVolume: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetUniqueIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszidentity: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetUniqueIdentity: usize,
+    pub GetSilos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesilos: *mut *mut ::windows::core::RawPtr, pcenhancedstoragesilos: *mut u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
 #[repr(transparent)]
 pub struct IEnhancedStorageACT2(::windows::core::IUnknown);
 impl IEnhancedStorageACT2 {
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwndparent), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Authorize)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwndparent), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn Unauthorize(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Unauthorize)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn GetAuthorizationState(&self) -> ::windows::core::Result<ACT_AUTHORIZATION_STATE> {
         let mut result__: ACT_AUTHORIZATION_STATE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ACT_AUTHORIZATION_STATE>(result__)
+        (::windows::core::Interface::vtable(self).GetAuthorizationState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ACT_AUTHORIZATION_STATE>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMatchingVolume(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetMatchingVolume)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUniqueIdentity(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetUniqueIdentity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut ::core::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppienhancedstoragesilos), ::core::mem::transmute(pcenhancedstoragesilos)).ok()
+        (::windows::core::Interface::vtable(self).GetSilos)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppienhancedstoragesilos), ::core::mem::transmute(pcenhancedstoragesilos)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDeviceName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDeviceRemovable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsDeviceRemovable)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IEnhancedStorageACT2> for IEnhancedStorageACT {
@@ -641,83 +643,77 @@ unsafe impl ::windows::core::Interface for IEnhancedStorageACT2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnhancedStorageACT2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: u32, dwflags: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACT_AUTHORIZATION_STATE) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszvolume: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszidentity: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesilos: *mut *mut ::windows::core::RawPtr, pcenhancedstoragesilos: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszdevicename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisdeviceremovable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IEnhancedStorageACT2Vtbl {
+    pub base: IEnhancedStorageACTVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetDeviceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszdevicename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetDeviceName: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsDeviceRemovable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisdeviceremovable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsDeviceRemovable: usize,
+}
 #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
 #[repr(transparent)]
 pub struct IEnhancedStorageACT3(::windows::core::IUnknown);
 impl IEnhancedStorageACT3 {
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwndparent), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Authorize)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwndparent), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn Unauthorize(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Unauthorize)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn GetAuthorizationState(&self) -> ::windows::core::Result<ACT_AUTHORIZATION_STATE> {
         let mut result__: ACT_AUTHORIZATION_STATE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ACT_AUTHORIZATION_STATE>(result__)
+        (::windows::core::Interface::vtable(self).GetAuthorizationState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ACT_AUTHORIZATION_STATE>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMatchingVolume(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetMatchingVolume)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUniqueIdentity(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetUniqueIdentity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut ::core::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppienhancedstoragesilos), ::core::mem::transmute(pcenhancedstoragesilos)).ok()
+        (::windows::core::Interface::vtable(self).GetSilos)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppienhancedstoragesilos), ::core::mem::transmute(pcenhancedstoragesilos)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDeviceName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDeviceRemovable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsDeviceRemovable)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn UnauthorizeEx(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).UnauthorizeEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsQueueFrozen(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsQueueFrozen)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetShellExtSupport(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).GetShellExtSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IEnhancedStorageACT3> for IEnhancedStorageACT2 {
@@ -802,28 +798,18 @@ unsafe impl ::windows::core::Interface for IEnhancedStorageACT3 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnhancedStorageACT3Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: u32, dwflags: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACT_AUTHORIZATION_STATE) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszvolume: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszidentity: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesilos: *mut *mut ::windows::core::RawPtr, pcenhancedstoragesilos: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszdevicename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisdeviceremovable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisqueuefrozen: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshellextsupport: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IEnhancedStorageACT3Vtbl {
+    pub base: IEnhancedStorageACT2Vtbl,
+    pub UnauthorizeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsQueueFrozen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisqueuefrozen: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsQueueFrozen: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetShellExtSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshellextsupport: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetShellExtSupport: usize,
+}
 #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
 #[repr(transparent)]
 pub struct IEnhancedStorageSilo(::windows::core::IUnknown);
@@ -831,27 +817,27 @@ impl IEnhancedStorageSilo {
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<SILO_INFO> {
         let mut result__: SILO_INFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SILO_INFO>(result__)
+        (::windows::core::Interface::vtable(self).GetInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SILO_INFO>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn GetActions(&self, pppienhancedstoragesiloactions: *mut *mut ::core::option::Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppienhancedstoragesiloactions), ::core::mem::transmute(pcenhancedstoragesiloactions)).ok()
+        (::windows::core::Interface::vtable(self).GetActions)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppienhancedstoragesiloactions), ::core::mem::transmute(pcenhancedstoragesiloactions)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn SendCommand(&self, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(command), ::core::mem::transmute(pbcommandbuffer), ::core::mem::transmute(cbcommandbuffer), ::core::mem::transmute(pbresponsebuffer), ::core::mem::transmute(pcbresponsebuffer)).ok()
+        (::windows::core::Interface::vtable(self).SendCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(command), ::core::mem::transmute(pbcommandbuffer), ::core::mem::transmute(cbcommandbuffer), ::core::mem::transmute(pbresponsebuffer), ::core::mem::transmute(pcbresponsebuffer)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Devices_PortableDevices'*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub unsafe fn GetPortableDevice(&self) -> ::windows::core::Result<super::super::Devices::PortableDevices::IPortableDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Devices::PortableDevices::IPortableDevice>(result__)
+        (::windows::core::Interface::vtable(self).GetPortableDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Devices::PortableDevices::IPortableDevice>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDevicePath(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDevicePath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
 }
 impl ::core::convert::From<IEnhancedStorageSilo> for ::windows::core::IUnknown {
@@ -896,18 +882,20 @@ unsafe impl ::windows::core::Interface for IEnhancedStorageSilo {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnhancedStorageSiloVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psiloinfo: *mut SILO_INFO) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesiloactions: *mut *mut ::windows::core::RawPtr, pcenhancedstoragesiloactions: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Devices_PortableDevices")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiportabledevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Devices_PortableDevices"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszsilodevicepath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IEnhancedStorageSiloVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psiloinfo: *mut SILO_INFO) -> ::windows::core::HRESULT,
+    pub GetActions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesiloactions: *mut *mut ::windows::core::RawPtr, pcenhancedstoragesiloactions: *mut u32) -> ::windows::core::HRESULT,
+    pub SendCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Devices_PortableDevices")]
+    pub GetPortableDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiportabledevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Devices_PortableDevices"))]
+    GetPortableDevice: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetDevicePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszsilodevicepath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetDevicePath: usize,
+}
 #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
 #[repr(transparent)]
 pub struct IEnhancedStorageSiloAction(::windows::core::IUnknown);
@@ -916,17 +904,17 @@ impl IEnhancedStorageSiloAction {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn Invoke(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IEnhancedStorageSiloAction> for ::windows::core::IUnknown {
@@ -971,29 +959,31 @@ unsafe impl ::windows::core::Interface for IEnhancedStorageSiloAction {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnhancedStorageSiloActionVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszactionname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszactiondescription: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IEnhancedStorageSiloActionVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszactionname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetName: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszactiondescription: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetDescription: usize,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
 #[repr(transparent)]
 pub struct IEnumEnhancedStorageACT(::windows::core::IUnknown);
 impl IEnumEnhancedStorageACT {
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn GetACTs(&self, pppienhancedstorageacts: *mut *mut ::core::option::Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppienhancedstorageacts), ::core::mem::transmute(pcenhancedstorageacts)).ok()
+        (::windows::core::Interface::vtable(self).GetACTs)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppienhancedstorageacts), ::core::mem::transmute(pcenhancedstorageacts)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMatchingACT<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szvolume: Param0) -> ::windows::core::Result<IEnhancedStorageACT> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), szvolume.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IEnhancedStorageACT>(result__)
+        (::windows::core::Interface::vtable(self).GetMatchingACT)(::core::mem::transmute_copy(self), szvolume.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IEnhancedStorageACT>(result__)
     }
 }
 impl ::core::convert::From<IEnumEnhancedStorageACT> for ::windows::core::IUnknown {
@@ -1038,14 +1028,14 @@ unsafe impl ::windows::core::Interface for IEnumEnhancedStorageACT {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumEnhancedStorageACTVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstorageacts: *mut *mut ::windows::core::RawPtr, pcenhancedstorageacts: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvolume: super::super::Foundation::PWSTR, ppienhancedstorageact: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IEnumEnhancedStorageACTVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetACTs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstorageacts: *mut *mut ::windows::core::RawPtr, pcenhancedstorageacts: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetMatchingACT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvolume: super::super::Foundation::PWSTR, ppienhancedstorageact: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetMatchingACT: usize,
+}
 #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
 pub const IMPORTANCE_HIGH_MAX: i32 = 5i32;
 #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]

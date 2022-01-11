@@ -68,19 +68,14 @@ impl IPhoneNumberFormatterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneNumberFormatter>,
-            ::windows::core::GetTrustLevel,
-            Format::<Impl, IMPL_OFFSET>,
-            FormatWithOutputFormat::<Impl, IMPL_OFFSET>,
-            FormatPartialString::<Impl, IMPL_OFFSET>,
-            FormatString::<Impl, IMPL_OFFSET>,
-            FormatStringWithLeftToRightMarkers::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneNumberFormatter, BASE_OFFSET>(),
+            Format: Format::<Impl, IMPL_OFFSET>,
+            FormatWithOutputFormat: FormatWithOutputFormat::<Impl, IMPL_OFFSET>,
+            FormatPartialString: FormatPartialString::<Impl, IMPL_OFFSET>,
+            FormatString: FormatString::<Impl, IMPL_OFFSET>,
+            FormatStringWithLeftToRightMarkers: FormatStringWithLeftToRightMarkers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneNumberFormatter as ::windows::core::Interface>::IID
@@ -137,7 +132,13 @@ impl IPhoneNumberFormatterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNumberFormatterStatics>, ::windows::core::GetTrustLevel, TryCreate::<Impl, IMPL_OFFSET>, GetCountryCodeForRegion::<Impl, IMPL_OFFSET>, GetNationalDirectDialingPrefixForRegion::<Impl, IMPL_OFFSET>, WrapWithLeftToRightMarkers::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneNumberFormatterStatics, BASE_OFFSET>(),
+            TryCreate: TryCreate::<Impl, IMPL_OFFSET>,
+            GetCountryCodeForRegion: GetCountryCodeForRegion::<Impl, IMPL_OFFSET>,
+            GetNationalDirectDialingPrefixForRegion: GetNationalDirectDialingPrefixForRegion::<Impl, IMPL_OFFSET>,
+            WrapWithLeftToRightMarkers: WrapWithLeftToRightMarkers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneNumberFormatterStatics as ::windows::core::Interface>::IID
@@ -249,22 +250,17 @@ impl IPhoneNumberInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneNumberInfo>,
-            ::windows::core::GetTrustLevel,
-            CountryCode::<Impl, IMPL_OFFSET>,
-            PhoneNumber::<Impl, IMPL_OFFSET>,
-            GetLengthOfGeographicalAreaCode::<Impl, IMPL_OFFSET>,
-            GetNationalSignificantNumber::<Impl, IMPL_OFFSET>,
-            GetLengthOfNationalDestinationCode::<Impl, IMPL_OFFSET>,
-            PredictNumberKind::<Impl, IMPL_OFFSET>,
-            GetGeographicRegionCode::<Impl, IMPL_OFFSET>,
-            CheckNumberMatch::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneNumberInfo, BASE_OFFSET>(),
+            CountryCode: CountryCode::<Impl, IMPL_OFFSET>,
+            PhoneNumber: PhoneNumber::<Impl, IMPL_OFFSET>,
+            GetLengthOfGeographicalAreaCode: GetLengthOfGeographicalAreaCode::<Impl, IMPL_OFFSET>,
+            GetNationalSignificantNumber: GetNationalSignificantNumber::<Impl, IMPL_OFFSET>,
+            GetLengthOfNationalDestinationCode: GetLengthOfNationalDestinationCode::<Impl, IMPL_OFFSET>,
+            PredictNumberKind: PredictNumberKind::<Impl, IMPL_OFFSET>,
+            GetGeographicRegionCode: GetGeographicRegionCode::<Impl, IMPL_OFFSET>,
+            CheckNumberMatch: CheckNumberMatch::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneNumberInfo as ::windows::core::Interface>::IID
@@ -292,7 +288,7 @@ impl IPhoneNumberInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNumberInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneNumberInfoFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneNumberInfoFactory as ::windows::core::Interface>::IID
@@ -332,7 +328,11 @@ impl IPhoneNumberInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNumberInfoStatics>, ::windows::core::GetTrustLevel, TryParse::<Impl, IMPL_OFFSET>, TryParseWithRegion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneNumberInfoStatics, BASE_OFFSET>(),
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+            TryParseWithRegion: TryParseWithRegion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneNumberInfoStatics as ::windows::core::Interface>::IID

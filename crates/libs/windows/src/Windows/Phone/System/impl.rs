@@ -20,7 +20,10 @@ impl ISystemProtectionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemProtectionStatics>, ::windows::core::GetTrustLevel, ScreenLocked::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemProtectionStatics, BASE_OFFSET>(),
+            ScreenLocked: ScreenLocked::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemProtectionStatics as ::windows::core::Interface>::IID
@@ -41,7 +44,10 @@ impl ISystemProtectionUnlockStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestScreenUnlock().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemProtectionUnlockStatics>, ::windows::core::GetTrustLevel, RequestScreenUnlock::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemProtectionUnlockStatics, BASE_OFFSET>(),
+            RequestScreenUnlock: RequestScreenUnlock::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemProtectionUnlockStatics as ::windows::core::Interface>::IID

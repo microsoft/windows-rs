@@ -117,26 +117,21 @@ impl IAppInstallItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusChanged(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppInstallItem>,
-            ::windows::core::GetTrustLevel,
-            ProductId::<Impl, IMPL_OFFSET>,
-            PackageFamilyName::<Impl, IMPL_OFFSET>,
-            InstallType::<Impl, IMPL_OFFSET>,
-            IsUserInitiated::<Impl, IMPL_OFFSET>,
-            GetCurrentStatus::<Impl, IMPL_OFFSET>,
-            Cancel::<Impl, IMPL_OFFSET>,
-            Pause::<Impl, IMPL_OFFSET>,
-            Restart::<Impl, IMPL_OFFSET>,
-            Completed::<Impl, IMPL_OFFSET>,
-            RemoveCompleted::<Impl, IMPL_OFFSET>,
-            StatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallItem, BASE_OFFSET>(),
+            ProductId: ProductId::<Impl, IMPL_OFFSET>,
+            PackageFamilyName: PackageFamilyName::<Impl, IMPL_OFFSET>,
+            InstallType: InstallType::<Impl, IMPL_OFFSET>,
+            IsUserInitiated: IsUserInitiated::<Impl, IMPL_OFFSET>,
+            GetCurrentStatus: GetCurrentStatus::<Impl, IMPL_OFFSET>,
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            Restart: Restart::<Impl, IMPL_OFFSET>,
+            Completed: Completed::<Impl, IMPL_OFFSET>,
+            RemoveCompleted: RemoveCompleted::<Impl, IMPL_OFFSET>,
+            StatusChanged: StatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged: RemoveStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallItem as ::windows::core::Interface>::IID
@@ -167,7 +162,12 @@ impl IAppInstallItem2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RestartWithTelemetry(&*(&correlationvector as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallItem2>, ::windows::core::GetTrustLevel, CancelWithTelemetry::<Impl, IMPL_OFFSET>, PauseWithTelemetry::<Impl, IMPL_OFFSET>, RestartWithTelemetry::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallItem2, BASE_OFFSET>(),
+            CancelWithTelemetry: CancelWithTelemetry::<Impl, IMPL_OFFSET>,
+            PauseWithTelemetry: PauseWithTelemetry::<Impl, IMPL_OFFSET>,
+            RestartWithTelemetry: RestartWithTelemetry::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallItem2 as ::windows::core::Interface>::IID
@@ -207,7 +207,11 @@ impl IAppInstallItem3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallItem3>, ::windows::core::GetTrustLevel, Children::<Impl, IMPL_OFFSET>, ItemOperationsMightAffectOtherItems::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallItem3, BASE_OFFSET>(),
+            Children: Children::<Impl, IMPL_OFFSET>,
+            ItemOperationsMightAffectOtherItems: ItemOperationsMightAffectOtherItems::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallItem3 as ::windows::core::Interface>::IID
@@ -240,7 +244,11 @@ impl IAppInstallItem4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLaunchAfterInstall(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallItem4>, ::windows::core::GetTrustLevel, LaunchAfterInstall::<Impl, IMPL_OFFSET>, SetLaunchAfterInstall::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallItem4, BASE_OFFSET>(),
+            LaunchAfterInstall: LaunchAfterInstall::<Impl, IMPL_OFFSET>,
+            SetLaunchAfterInstall: SetLaunchAfterInstall::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallItem4 as ::windows::core::Interface>::IID
@@ -341,24 +349,19 @@ impl IAppInstallItem5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInstallInProgressToastNotificationMode(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppInstallItem5>,
-            ::windows::core::GetTrustLevel,
-            PinToDesktopAfterInstall::<Impl, IMPL_OFFSET>,
-            SetPinToDesktopAfterInstall::<Impl, IMPL_OFFSET>,
-            PinToStartAfterInstall::<Impl, IMPL_OFFSET>,
-            SetPinToStartAfterInstall::<Impl, IMPL_OFFSET>,
-            PinToTaskbarAfterInstall::<Impl, IMPL_OFFSET>,
-            SetPinToTaskbarAfterInstall::<Impl, IMPL_OFFSET>,
-            CompletedInstallToastNotificationMode::<Impl, IMPL_OFFSET>,
-            SetCompletedInstallToastNotificationMode::<Impl, IMPL_OFFSET>,
-            InstallInProgressToastNotificationMode::<Impl, IMPL_OFFSET>,
-            SetInstallInProgressToastNotificationMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallItem5, BASE_OFFSET>(),
+            PinToDesktopAfterInstall: PinToDesktopAfterInstall::<Impl, IMPL_OFFSET>,
+            SetPinToDesktopAfterInstall: SetPinToDesktopAfterInstall::<Impl, IMPL_OFFSET>,
+            PinToStartAfterInstall: PinToStartAfterInstall::<Impl, IMPL_OFFSET>,
+            SetPinToStartAfterInstall: SetPinToStartAfterInstall::<Impl, IMPL_OFFSET>,
+            PinToTaskbarAfterInstall: PinToTaskbarAfterInstall::<Impl, IMPL_OFFSET>,
+            SetPinToTaskbarAfterInstall: SetPinToTaskbarAfterInstall::<Impl, IMPL_OFFSET>,
+            CompletedInstallToastNotificationMode: CompletedInstallToastNotificationMode::<Impl, IMPL_OFFSET>,
+            SetCompletedInstallToastNotificationMode: SetCompletedInstallToastNotificationMode::<Impl, IMPL_OFFSET>,
+            InstallInProgressToastNotificationMode: InstallInProgressToastNotificationMode::<Impl, IMPL_OFFSET>,
+            SetInstallInProgressToastNotificationMode: SetInstallInProgressToastNotificationMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallItem5 as ::windows::core::Interface>::IID
@@ -553,33 +556,28 @@ impl IAppInstallManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppInstallManager>,
-            ::windows::core::GetTrustLevel,
-            AppInstallItems::<Impl, IMPL_OFFSET>,
-            Cancel::<Impl, IMPL_OFFSET>,
-            Pause::<Impl, IMPL_OFFSET>,
-            Restart::<Impl, IMPL_OFFSET>,
-            ItemCompleted::<Impl, IMPL_OFFSET>,
-            RemoveItemCompleted::<Impl, IMPL_OFFSET>,
-            ItemStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveItemStatusChanged::<Impl, IMPL_OFFSET>,
-            AutoUpdateSetting::<Impl, IMPL_OFFSET>,
-            SetAutoUpdateSetting::<Impl, IMPL_OFFSET>,
-            AcquisitionIdentity::<Impl, IMPL_OFFSET>,
-            SetAcquisitionIdentity::<Impl, IMPL_OFFSET>,
-            GetIsApplicableAsync::<Impl, IMPL_OFFSET>,
-            StartAppInstallAsync::<Impl, IMPL_OFFSET>,
-            UpdateAppByPackageFamilyNameAsync::<Impl, IMPL_OFFSET>,
-            SearchForUpdatesAsync::<Impl, IMPL_OFFSET>,
-            SearchForAllUpdatesAsync::<Impl, IMPL_OFFSET>,
-            IsStoreBlockedByPolicyAsync::<Impl, IMPL_OFFSET>,
-            GetIsAppAllowedToInstallAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallManager, BASE_OFFSET>(),
+            AppInstallItems: AppInstallItems::<Impl, IMPL_OFFSET>,
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            Restart: Restart::<Impl, IMPL_OFFSET>,
+            ItemCompleted: ItemCompleted::<Impl, IMPL_OFFSET>,
+            RemoveItemCompleted: RemoveItemCompleted::<Impl, IMPL_OFFSET>,
+            ItemStatusChanged: ItemStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveItemStatusChanged: RemoveItemStatusChanged::<Impl, IMPL_OFFSET>,
+            AutoUpdateSetting: AutoUpdateSetting::<Impl, IMPL_OFFSET>,
+            SetAutoUpdateSetting: SetAutoUpdateSetting::<Impl, IMPL_OFFSET>,
+            AcquisitionIdentity: AcquisitionIdentity::<Impl, IMPL_OFFSET>,
+            SetAcquisitionIdentity: SetAcquisitionIdentity::<Impl, IMPL_OFFSET>,
+            GetIsApplicableAsync: GetIsApplicableAsync::<Impl, IMPL_OFFSET>,
+            StartAppInstallAsync: StartAppInstallAsync::<Impl, IMPL_OFFSET>,
+            UpdateAppByPackageFamilyNameAsync: UpdateAppByPackageFamilyNameAsync::<Impl, IMPL_OFFSET>,
+            SearchForUpdatesAsync: SearchForUpdatesAsync::<Impl, IMPL_OFFSET>,
+            SearchForAllUpdatesAsync: SearchForAllUpdatesAsync::<Impl, IMPL_OFFSET>,
+            IsStoreBlockedByPolicyAsync: IsStoreBlockedByPolicyAsync::<Impl, IMPL_OFFSET>,
+            GetIsAppAllowedToInstallAsync: GetIsAppAllowedToInstallAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallManager as ::windows::core::Interface>::IID
@@ -688,22 +686,17 @@ impl IAppInstallManager2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RestartWithTelemetry(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&correlationvector as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppInstallManager2>,
-            ::windows::core::GetTrustLevel,
-            StartAppInstallWithTelemetryAsync::<Impl, IMPL_OFFSET>,
-            UpdateAppByPackageFamilyNameWithTelemetryAsync::<Impl, IMPL_OFFSET>,
-            SearchForUpdatesWithTelemetryAsync::<Impl, IMPL_OFFSET>,
-            SearchForAllUpdatesWithTelemetryAsync::<Impl, IMPL_OFFSET>,
-            GetIsAppAllowedToInstallWithTelemetryAsync::<Impl, IMPL_OFFSET>,
-            CancelWithTelemetry::<Impl, IMPL_OFFSET>,
-            PauseWithTelemetry::<Impl, IMPL_OFFSET>,
-            RestartWithTelemetry::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallManager2, BASE_OFFSET>(),
+            StartAppInstallWithTelemetryAsync: StartAppInstallWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            UpdateAppByPackageFamilyNameWithTelemetryAsync: UpdateAppByPackageFamilyNameWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            SearchForUpdatesWithTelemetryAsync: SearchForUpdatesWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            SearchForAllUpdatesWithTelemetryAsync: SearchForAllUpdatesWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            GetIsAppAllowedToInstallWithTelemetryAsync: GetIsAppAllowedToInstallWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            CancelWithTelemetry: CancelWithTelemetry::<Impl, IMPL_OFFSET>,
+            PauseWithTelemetry: PauseWithTelemetry::<Impl, IMPL_OFFSET>,
+            RestartWithTelemetry: RestartWithTelemetry::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallManager2 as ::windows::core::Interface>::IID
@@ -847,22 +840,17 @@ impl IAppInstallManager3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MoveToFrontOfDownloadQueue(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&correlationvector as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppInstallManager3>,
-            ::windows::core::GetTrustLevel,
-            StartProductInstallAsync::<Impl, IMPL_OFFSET>,
-            StartProductInstallForUserAsync::<Impl, IMPL_OFFSET>,
-            UpdateAppByPackageFamilyNameForUserAsync::<Impl, IMPL_OFFSET>,
-            SearchForUpdatesForUserAsync::<Impl, IMPL_OFFSET>,
-            SearchForAllUpdatesForUserAsync::<Impl, IMPL_OFFSET>,
-            GetIsAppAllowedToInstallForUserAsync::<Impl, IMPL_OFFSET>,
-            GetIsApplicableForUserAsync::<Impl, IMPL_OFFSET>,
-            MoveToFrontOfDownloadQueue::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallManager3, BASE_OFFSET>(),
+            StartProductInstallAsync: StartProductInstallAsync::<Impl, IMPL_OFFSET>,
+            StartProductInstallForUserAsync: StartProductInstallForUserAsync::<Impl, IMPL_OFFSET>,
+            UpdateAppByPackageFamilyNameForUserAsync: UpdateAppByPackageFamilyNameForUserAsync::<Impl, IMPL_OFFSET>,
+            SearchForUpdatesForUserAsync: SearchForUpdatesForUserAsync::<Impl, IMPL_OFFSET>,
+            SearchForAllUpdatesForUserAsync: SearchForAllUpdatesForUserAsync::<Impl, IMPL_OFFSET>,
+            GetIsAppAllowedToInstallForUserAsync: GetIsAppAllowedToInstallForUserAsync::<Impl, IMPL_OFFSET>,
+            GetIsApplicableForUserAsync: GetIsApplicableForUserAsync::<Impl, IMPL_OFFSET>,
+            MoveToFrontOfDownloadQueue: MoveToFrontOfDownloadQueue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallManager3 as ::windows::core::Interface>::IID
@@ -927,7 +915,12 @@ impl IAppInstallManager4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallManager4>, ::windows::core::GetTrustLevel, GetFreeUserEntitlementAsync::<Impl, IMPL_OFFSET>, GetFreeUserEntitlementForUserAsync::<Impl, IMPL_OFFSET>, GetFreeDeviceEntitlementAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallManager4, BASE_OFFSET>(),
+            GetFreeUserEntitlementAsync: GetFreeUserEntitlementAsync::<Impl, IMPL_OFFSET>,
+            GetFreeUserEntitlementForUserAsync: GetFreeUserEntitlementForUserAsync::<Impl, IMPL_OFFSET>,
+            GetFreeDeviceEntitlementAsync: GetFreeDeviceEntitlementAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallManager4 as ::windows::core::Interface>::IID
@@ -955,7 +948,10 @@ impl IAppInstallManager5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallManager5>, ::windows::core::GetTrustLevel, AppInstallItemsWithGroupSupport::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallManager5, BASE_OFFSET>(),
+            AppInstallItemsWithGroupSupport: AppInstallItemsWithGroupSupport::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallManager5 as ::windows::core::Interface>::IID
@@ -1111,22 +1107,17 @@ impl IAppInstallManager6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppInstallManager6>,
-            ::windows::core::GetTrustLevel,
-            SearchForAllUpdatesWithUpdateOptionsAsync::<Impl, IMPL_OFFSET>,
-            SearchForAllUpdatesWithUpdateOptionsForUserAsync::<Impl, IMPL_OFFSET>,
-            SearchForUpdatesWithUpdateOptionsAsync::<Impl, IMPL_OFFSET>,
-            SearchForUpdatesWithUpdateOptionsForUserAsync::<Impl, IMPL_OFFSET>,
-            StartProductInstallWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            StartProductInstallWithOptionsForUserAsync::<Impl, IMPL_OFFSET>,
-            GetIsPackageIdentityAllowedToInstallAsync::<Impl, IMPL_OFFSET>,
-            GetIsPackageIdentityAllowedToInstallForUserAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallManager6, BASE_OFFSET>(),
+            SearchForAllUpdatesWithUpdateOptionsAsync: SearchForAllUpdatesWithUpdateOptionsAsync::<Impl, IMPL_OFFSET>,
+            SearchForAllUpdatesWithUpdateOptionsForUserAsync: SearchForAllUpdatesWithUpdateOptionsForUserAsync::<Impl, IMPL_OFFSET>,
+            SearchForUpdatesWithUpdateOptionsAsync: SearchForUpdatesWithUpdateOptionsAsync::<Impl, IMPL_OFFSET>,
+            SearchForUpdatesWithUpdateOptionsForUserAsync: SearchForUpdatesWithUpdateOptionsForUserAsync::<Impl, IMPL_OFFSET>,
+            StartProductInstallWithOptionsAsync: StartProductInstallWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            StartProductInstallWithOptionsForUserAsync: StartProductInstallWithOptionsForUserAsync::<Impl, IMPL_OFFSET>,
+            GetIsPackageIdentityAllowedToInstallAsync: GetIsPackageIdentityAllowedToInstallAsync::<Impl, IMPL_OFFSET>,
+            GetIsPackageIdentityAllowedToInstallForUserAsync: GetIsPackageIdentityAllowedToInstallForUserAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallManager6 as ::windows::core::Interface>::IID
@@ -1154,7 +1145,10 @@ impl IAppInstallManager7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallManager7>, ::windows::core::GetTrustLevel, CanInstallForAllUsers::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallManager7, BASE_OFFSET>(),
+            CanInstallForAllUsers: CanInstallForAllUsers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallManager7 as ::windows::core::Interface>::IID
@@ -1182,7 +1176,7 @@ impl IAppInstallManagerItemEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallManagerItemEventArgs>, ::windows::core::GetTrustLevel, Item::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallManagerItemEventArgs, BASE_OFFSET>(), Item: Item::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallManagerItemEventArgs as ::windows::core::Interface>::IID
@@ -1300,26 +1294,21 @@ impl IAppInstallOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLaunchAfterInstall(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppInstallOptions>,
-            ::windows::core::GetTrustLevel,
-            CatalogId::<Impl, IMPL_OFFSET>,
-            SetCatalogId::<Impl, IMPL_OFFSET>,
-            ForceUseOfNonRemovableStorage::<Impl, IMPL_OFFSET>,
-            SetForceUseOfNonRemovableStorage::<Impl, IMPL_OFFSET>,
-            AllowForcedAppRestart::<Impl, IMPL_OFFSET>,
-            SetAllowForcedAppRestart::<Impl, IMPL_OFFSET>,
-            Repair::<Impl, IMPL_OFFSET>,
-            SetRepair::<Impl, IMPL_OFFSET>,
-            TargetVolume::<Impl, IMPL_OFFSET>,
-            SetTargetVolume::<Impl, IMPL_OFFSET>,
-            LaunchAfterInstall::<Impl, IMPL_OFFSET>,
-            SetLaunchAfterInstall::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallOptions, BASE_OFFSET>(),
+            CatalogId: CatalogId::<Impl, IMPL_OFFSET>,
+            SetCatalogId: SetCatalogId::<Impl, IMPL_OFFSET>,
+            ForceUseOfNonRemovableStorage: ForceUseOfNonRemovableStorage::<Impl, IMPL_OFFSET>,
+            SetForceUseOfNonRemovableStorage: SetForceUseOfNonRemovableStorage::<Impl, IMPL_OFFSET>,
+            AllowForcedAppRestart: AllowForcedAppRestart::<Impl, IMPL_OFFSET>,
+            SetAllowForcedAppRestart: SetAllowForcedAppRestart::<Impl, IMPL_OFFSET>,
+            Repair: Repair::<Impl, IMPL_OFFSET>,
+            SetRepair: SetRepair::<Impl, IMPL_OFFSET>,
+            TargetVolume: TargetVolume::<Impl, IMPL_OFFSET>,
+            SetTargetVolume: SetTargetVolume::<Impl, IMPL_OFFSET>,
+            LaunchAfterInstall: LaunchAfterInstall::<Impl, IMPL_OFFSET>,
+            SetLaunchAfterInstall: SetLaunchAfterInstall::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallOptions as ::windows::core::Interface>::IID
@@ -1488,32 +1477,27 @@ impl IAppInstallOptions2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExtendedCampaignId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppInstallOptions2>,
-            ::windows::core::GetTrustLevel,
-            PinToDesktopAfterInstall::<Impl, IMPL_OFFSET>,
-            SetPinToDesktopAfterInstall::<Impl, IMPL_OFFSET>,
-            PinToStartAfterInstall::<Impl, IMPL_OFFSET>,
-            SetPinToStartAfterInstall::<Impl, IMPL_OFFSET>,
-            PinToTaskbarAfterInstall::<Impl, IMPL_OFFSET>,
-            SetPinToTaskbarAfterInstall::<Impl, IMPL_OFFSET>,
-            CompletedInstallToastNotificationMode::<Impl, IMPL_OFFSET>,
-            SetCompletedInstallToastNotificationMode::<Impl, IMPL_OFFSET>,
-            InstallInProgressToastNotificationMode::<Impl, IMPL_OFFSET>,
-            SetInstallInProgressToastNotificationMode::<Impl, IMPL_OFFSET>,
-            InstallForAllUsers::<Impl, IMPL_OFFSET>,
-            SetInstallForAllUsers::<Impl, IMPL_OFFSET>,
-            StageButDoNotInstall::<Impl, IMPL_OFFSET>,
-            SetStageButDoNotInstall::<Impl, IMPL_OFFSET>,
-            CampaignId::<Impl, IMPL_OFFSET>,
-            SetCampaignId::<Impl, IMPL_OFFSET>,
-            ExtendedCampaignId::<Impl, IMPL_OFFSET>,
-            SetExtendedCampaignId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallOptions2, BASE_OFFSET>(),
+            PinToDesktopAfterInstall: PinToDesktopAfterInstall::<Impl, IMPL_OFFSET>,
+            SetPinToDesktopAfterInstall: SetPinToDesktopAfterInstall::<Impl, IMPL_OFFSET>,
+            PinToStartAfterInstall: PinToStartAfterInstall::<Impl, IMPL_OFFSET>,
+            SetPinToStartAfterInstall: SetPinToStartAfterInstall::<Impl, IMPL_OFFSET>,
+            PinToTaskbarAfterInstall: PinToTaskbarAfterInstall::<Impl, IMPL_OFFSET>,
+            SetPinToTaskbarAfterInstall: SetPinToTaskbarAfterInstall::<Impl, IMPL_OFFSET>,
+            CompletedInstallToastNotificationMode: CompletedInstallToastNotificationMode::<Impl, IMPL_OFFSET>,
+            SetCompletedInstallToastNotificationMode: SetCompletedInstallToastNotificationMode::<Impl, IMPL_OFFSET>,
+            InstallInProgressToastNotificationMode: InstallInProgressToastNotificationMode::<Impl, IMPL_OFFSET>,
+            SetInstallInProgressToastNotificationMode: SetInstallInProgressToastNotificationMode::<Impl, IMPL_OFFSET>,
+            InstallForAllUsers: InstallForAllUsers::<Impl, IMPL_OFFSET>,
+            SetInstallForAllUsers: SetInstallForAllUsers::<Impl, IMPL_OFFSET>,
+            StageButDoNotInstall: StageButDoNotInstall::<Impl, IMPL_OFFSET>,
+            SetStageButDoNotInstall: SetStageButDoNotInstall::<Impl, IMPL_OFFSET>,
+            CampaignId: CampaignId::<Impl, IMPL_OFFSET>,
+            SetCampaignId: SetCampaignId::<Impl, IMPL_OFFSET>,
+            ExtendedCampaignId: ExtendedCampaignId::<Impl, IMPL_OFFSET>,
+            SetExtendedCampaignId: SetExtendedCampaignId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallOptions2 as ::windows::core::Interface>::IID
@@ -1589,7 +1573,14 @@ impl IAppInstallStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallStatus>, ::windows::core::GetTrustLevel, InstallState::<Impl, IMPL_OFFSET>, DownloadSizeInBytes::<Impl, IMPL_OFFSET>, BytesDownloaded::<Impl, IMPL_OFFSET>, PercentComplete::<Impl, IMPL_OFFSET>, ErrorCode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallStatus, BASE_OFFSET>(),
+            InstallState: InstallState::<Impl, IMPL_OFFSET>,
+            DownloadSizeInBytes: DownloadSizeInBytes::<Impl, IMPL_OFFSET>,
+            BytesDownloaded: BytesDownloaded::<Impl, IMPL_OFFSET>,
+            PercentComplete: PercentComplete::<Impl, IMPL_OFFSET>,
+            ErrorCode: ErrorCode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallStatus as ::windows::core::Interface>::IID
@@ -1629,7 +1620,11 @@ impl IAppInstallStatus2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallStatus2>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>, ReadyForLaunch::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallStatus2, BASE_OFFSET>(),
+            User: User::<Impl, IMPL_OFFSET>,
+            ReadyForLaunch: ReadyForLaunch::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallStatus2 as ::windows::core::Interface>::IID
@@ -1657,7 +1652,7 @@ impl IAppInstallStatus3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallStatus3>, ::windows::core::GetTrustLevel, IsStaged::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallStatus3, BASE_OFFSET>(), IsStaged: IsStaged::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallStatus3 as ::windows::core::Interface>::IID
@@ -1707,7 +1702,13 @@ impl IAppUpdateOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowForcedAppRestart(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppUpdateOptions>, ::windows::core::GetTrustLevel, CatalogId::<Impl, IMPL_OFFSET>, SetCatalogId::<Impl, IMPL_OFFSET>, AllowForcedAppRestart::<Impl, IMPL_OFFSET>, SetAllowForcedAppRestart::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppUpdateOptions, BASE_OFFSET>(),
+            CatalogId: CatalogId::<Impl, IMPL_OFFSET>,
+            SetCatalogId: SetCatalogId::<Impl, IMPL_OFFSET>,
+            AllowForcedAppRestart: AllowForcedAppRestart::<Impl, IMPL_OFFSET>,
+            SetAllowForcedAppRestart: SetAllowForcedAppRestart::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppUpdateOptions as ::windows::core::Interface>::IID
@@ -1740,7 +1741,11 @@ impl IAppUpdateOptions2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutomaticallyDownloadAndInstallUpdateIfFound(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppUpdateOptions2>, ::windows::core::GetTrustLevel, AutomaticallyDownloadAndInstallUpdateIfFound::<Impl, IMPL_OFFSET>, SetAutomaticallyDownloadAndInstallUpdateIfFound::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppUpdateOptions2, BASE_OFFSET>(),
+            AutomaticallyDownloadAndInstallUpdateIfFound: AutomaticallyDownloadAndInstallUpdateIfFound::<Impl, IMPL_OFFSET>,
+            SetAutomaticallyDownloadAndInstallUpdateIfFound: SetAutomaticallyDownloadAndInstallUpdateIfFound::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppUpdateOptions2 as ::windows::core::Interface>::IID
@@ -1768,7 +1773,7 @@ impl IGetEntitlementResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGetEntitlementResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGetEntitlementResult, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetEntitlementResult as ::windows::core::Interface>::IID

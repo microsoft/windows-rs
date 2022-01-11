@@ -30,7 +30,12 @@ impl ILockApplicationHostVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUnlocking(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockApplicationHost>, ::windows::core::GetTrustLevel, RequestUnlock::<Impl, IMPL_OFFSET>, Unlocking::<Impl, IMPL_OFFSET>, RemoveUnlocking::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILockApplicationHost, BASE_OFFSET>(),
+            RequestUnlock: RequestUnlock::<Impl, IMPL_OFFSET>,
+            Unlocking: Unlocking::<Impl, IMPL_OFFSET>,
+            RemoveUnlocking: RemoveUnlocking::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockApplicationHost as ::windows::core::Interface>::IID
@@ -58,7 +63,10 @@ impl ILockApplicationHostStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockApplicationHostStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILockApplicationHostStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockApplicationHostStatics as ::windows::core::Interface>::IID
@@ -127,7 +135,14 @@ impl ILockScreenBadgeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LaunchApp().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenBadge>, ::windows::core::GetTrustLevel, Logo::<Impl, IMPL_OFFSET>, Glyph::<Impl, IMPL_OFFSET>, Number::<Impl, IMPL_OFFSET>, AutomationName::<Impl, IMPL_OFFSET>, LaunchApp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenBadge, BASE_OFFSET>(),
+            Logo: Logo::<Impl, IMPL_OFFSET>,
+            Glyph: Glyph::<Impl, IMPL_OFFSET>,
+            Number: Number::<Impl, IMPL_OFFSET>,
+            AutomationName: AutomationName::<Impl, IMPL_OFFSET>,
+            LaunchApp: LaunchApp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockScreenBadge as ::windows::core::Interface>::IID
@@ -259,26 +274,21 @@ impl ILockScreenInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILockScreenInfo>,
-            ::windows::core::GetTrustLevel,
-            LockScreenImageChanged::<Impl, IMPL_OFFSET>,
-            RemoveLockScreenImageChanged::<Impl, IMPL_OFFSET>,
-            LockScreenImage::<Impl, IMPL_OFFSET>,
-            BadgesChanged::<Impl, IMPL_OFFSET>,
-            RemoveBadgesChanged::<Impl, IMPL_OFFSET>,
-            Badges::<Impl, IMPL_OFFSET>,
-            DetailTextChanged::<Impl, IMPL_OFFSET>,
-            RemoveDetailTextChanged::<Impl, IMPL_OFFSET>,
-            DetailText::<Impl, IMPL_OFFSET>,
-            AlarmIconChanged::<Impl, IMPL_OFFSET>,
-            RemoveAlarmIconChanged::<Impl, IMPL_OFFSET>,
-            AlarmIcon::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenInfo, BASE_OFFSET>(),
+            LockScreenImageChanged: LockScreenImageChanged::<Impl, IMPL_OFFSET>,
+            RemoveLockScreenImageChanged: RemoveLockScreenImageChanged::<Impl, IMPL_OFFSET>,
+            LockScreenImage: LockScreenImage::<Impl, IMPL_OFFSET>,
+            BadgesChanged: BadgesChanged::<Impl, IMPL_OFFSET>,
+            RemoveBadgesChanged: RemoveBadgesChanged::<Impl, IMPL_OFFSET>,
+            Badges: Badges::<Impl, IMPL_OFFSET>,
+            DetailTextChanged: DetailTextChanged::<Impl, IMPL_OFFSET>,
+            RemoveDetailTextChanged: RemoveDetailTextChanged::<Impl, IMPL_OFFSET>,
+            DetailText: DetailText::<Impl, IMPL_OFFSET>,
+            AlarmIconChanged: AlarmIconChanged::<Impl, IMPL_OFFSET>,
+            RemoveAlarmIconChanged: RemoveAlarmIconChanged::<Impl, IMPL_OFFSET>,
+            AlarmIcon: AlarmIcon::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockScreenInfo as ::windows::core::Interface>::IID
@@ -299,7 +309,7 @@ impl ILockScreenUnlockingDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenUnlockingDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenUnlockingDeferral, BASE_OFFSET>(), Complete: Complete::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockScreenUnlockingDeferral as ::windows::core::Interface>::IID
@@ -339,7 +349,11 @@ impl ILockScreenUnlockingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenUnlockingEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>, Deadline::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenUnlockingEventArgs, BASE_OFFSET>(),
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            Deadline: Deadline::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockScreenUnlockingEventArgs as ::windows::core::Interface>::IID

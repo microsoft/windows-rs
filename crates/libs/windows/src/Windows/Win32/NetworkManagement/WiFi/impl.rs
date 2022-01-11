@@ -49,20 +49,18 @@ impl IDot11AdHocInterfaceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetDeviceSignature::<Impl, IMPL_OFFSET>,
-            GetFriendlyName::<Impl, IMPL_OFFSET>,
-            IsDot11d::<Impl, IMPL_OFFSET>,
-            IsAdHocCapable::<Impl, IMPL_OFFSET>,
-            IsRadioOn::<Impl, IMPL_OFFSET>,
-            GetActiveNetwork::<Impl, IMPL_OFFSET>,
-            GetIEnumSecuritySettings::<Impl, IMPL_OFFSET>,
-            GetIEnumDot11AdHocNetworks::<Impl, IMPL_OFFSET>,
-            GetStatus::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetDeviceSignature: GetDeviceSignature::<Impl, IMPL_OFFSET>,
+            GetFriendlyName: GetFriendlyName::<Impl, IMPL_OFFSET>,
+            IsDot11d: IsDot11d::<Impl, IMPL_OFFSET>,
+            IsAdHocCapable: IsAdHocCapable::<Impl, IMPL_OFFSET>,
+            IsRadioOn: IsRadioOn::<Impl, IMPL_OFFSET>,
+            GetActiveNetwork: GetActiveNetwork::<Impl, IMPL_OFFSET>,
+            GetIEnumSecuritySettings: GetIEnumSecuritySettings::<Impl, IMPL_OFFSET>,
+            GetIEnumDot11AdHocNetworks: GetIEnumDot11AdHocNetworks::<Impl, IMPL_OFFSET>,
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDot11AdHocInterface as ::windows::core::Interface>::IID
@@ -77,7 +75,7 @@ impl IDot11AdHocInterfaceNotificationSinkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnConnectionStatusChange::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnConnectionStatusChange: OnConnectionStatusChange::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDot11AdHocInterfaceNotificationSink as ::windows::core::Interface>::IID
@@ -114,7 +112,14 @@ impl IDot11AdHocManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CreateNetwork::<Impl, IMPL_OFFSET>, CommitCreatedNetwork::<Impl, IMPL_OFFSET>, GetIEnumDot11AdHocNetworks::<Impl, IMPL_OFFSET>, GetIEnumDot11AdHocInterfaces::<Impl, IMPL_OFFSET>, GetNetwork::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateNetwork: CreateNetwork::<Impl, IMPL_OFFSET>,
+            CommitCreatedNetwork: CommitCreatedNetwork::<Impl, IMPL_OFFSET>,
+            GetIEnumDot11AdHocNetworks: GetIEnumDot11AdHocNetworks::<Impl, IMPL_OFFSET>,
+            GetIEnumDot11AdHocInterfaces: GetIEnumDot11AdHocInterfaces::<Impl, IMPL_OFFSET>,
+            GetNetwork: GetNetwork::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDot11AdHocManager as ::windows::core::Interface>::IID
@@ -144,7 +149,13 @@ impl IDot11AdHocManagerNotificationSinkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnNetworkAdd::<Impl, IMPL_OFFSET>, OnNetworkRemove::<Impl, IMPL_OFFSET>, OnInterfaceAdd::<Impl, IMPL_OFFSET>, OnInterfaceRemove::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnNetworkAdd: OnNetworkAdd::<Impl, IMPL_OFFSET>,
+            OnNetworkRemove: OnNetworkRemove::<Impl, IMPL_OFFSET>,
+            OnInterfaceAdd: OnInterfaceAdd::<Impl, IMPL_OFFSET>,
+            OnInterfaceRemove: OnInterfaceRemove::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDot11AdHocManagerNotificationSink as ::windows::core::Interface>::IID
@@ -216,23 +227,21 @@ impl IDot11AdHocNetworkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetStatus::<Impl, IMPL_OFFSET>,
-            GetSSID::<Impl, IMPL_OFFSET>,
-            HasProfile::<Impl, IMPL_OFFSET>,
-            GetProfileName::<Impl, IMPL_OFFSET>,
-            DeleteProfile::<Impl, IMPL_OFFSET>,
-            GetSignalQuality::<Impl, IMPL_OFFSET>,
-            GetSecuritySetting::<Impl, IMPL_OFFSET>,
-            GetContextGuid::<Impl, IMPL_OFFSET>,
-            GetSignature::<Impl, IMPL_OFFSET>,
-            GetInterface::<Impl, IMPL_OFFSET>,
-            Connect::<Impl, IMPL_OFFSET>,
-            Disconnect::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            GetSSID: GetSSID::<Impl, IMPL_OFFSET>,
+            HasProfile: HasProfile::<Impl, IMPL_OFFSET>,
+            GetProfileName: GetProfileName::<Impl, IMPL_OFFSET>,
+            DeleteProfile: DeleteProfile::<Impl, IMPL_OFFSET>,
+            GetSignalQuality: GetSignalQuality::<Impl, IMPL_OFFSET>,
+            GetSecuritySetting: GetSecuritySetting::<Impl, IMPL_OFFSET>,
+            GetContextGuid: GetContextGuid::<Impl, IMPL_OFFSET>,
+            GetSignature: GetSignature::<Impl, IMPL_OFFSET>,
+            GetInterface: GetInterface::<Impl, IMPL_OFFSET>,
+            Connect: Connect::<Impl, IMPL_OFFSET>,
+            Disconnect: Disconnect::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDot11AdHocNetwork as ::windows::core::Interface>::IID
@@ -252,7 +261,11 @@ impl IDot11AdHocNetworkNotificationSinkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnStatusChange::<Impl, IMPL_OFFSET>, OnConnectFail::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnStatusChange: OnStatusChange::<Impl, IMPL_OFFSET>,
+            OnConnectFail: OnConnectFail::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDot11AdHocNetworkNotificationSink as ::windows::core::Interface>::IID
@@ -272,7 +285,11 @@ impl IDot11AdHocSecuritySettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetDot11AuthAlgorithm::<Impl, IMPL_OFFSET>, GetDot11CipherAlgorithm::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetDot11AuthAlgorithm: GetDot11AuthAlgorithm::<Impl, IMPL_OFFSET>,
+            GetDot11CipherAlgorithm: GetDot11CipherAlgorithm::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDot11AdHocSecuritySettings as ::windows::core::Interface>::IID
@@ -302,7 +319,13 @@ impl IEnumDot11AdHocInterfacesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Next::<Impl, IMPL_OFFSET>, Skip::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>, Clone::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnumDot11AdHocInterfaces as ::windows::core::Interface>::IID
@@ -332,7 +355,13 @@ impl IEnumDot11AdHocNetworksVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Next::<Impl, IMPL_OFFSET>, Skip::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>, Clone::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnumDot11AdHocNetworks as ::windows::core::Interface>::IID
@@ -362,7 +391,13 @@ impl IEnumDot11AdHocSecuritySettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Next::<Impl, IMPL_OFFSET>, Skip::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>, Clone::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnumDot11AdHocSecuritySettings as ::windows::core::Interface>::IID

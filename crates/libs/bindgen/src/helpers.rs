@@ -191,7 +191,7 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
                 #cfg_all
                 #signature
                 #cfg_not
-                usize,
+                #name: usize,
             });
         }
     }

@@ -78,21 +78,16 @@ impl IContactPickerUIVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveContactRemoved(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IContactPickerUI>,
-            ::windows::core::GetTrustLevel,
-            AddContact::<Impl, IMPL_OFFSET>,
-            RemoveContact::<Impl, IMPL_OFFSET>,
-            ContainsContact::<Impl, IMPL_OFFSET>,
-            DesiredFields::<Impl, IMPL_OFFSET>,
-            SelectionMode::<Impl, IMPL_OFFSET>,
-            ContactRemoved::<Impl, IMPL_OFFSET>,
-            RemoveContactRemoved::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactPickerUI, BASE_OFFSET>(),
+            AddContact: AddContact::<Impl, IMPL_OFFSET>,
+            RemoveContact: RemoveContact::<Impl, IMPL_OFFSET>,
+            ContainsContact: ContainsContact::<Impl, IMPL_OFFSET>,
+            DesiredFields: DesiredFields::<Impl, IMPL_OFFSET>,
+            SelectionMode: SelectionMode::<Impl, IMPL_OFFSET>,
+            ContactRemoved: ContactRemoved::<Impl, IMPL_OFFSET>,
+            RemoveContactRemoved: RemoveContactRemoved::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactPickerUI as ::windows::core::Interface>::IID
@@ -132,7 +127,11 @@ impl IContactPickerUI2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPickerUI2>, ::windows::core::GetTrustLevel, AddContact::<Impl, IMPL_OFFSET>, DesiredFieldsWithContactFieldType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactPickerUI2, BASE_OFFSET>(),
+            AddContact: AddContact::<Impl, IMPL_OFFSET>,
+            DesiredFieldsWithContactFieldType: DesiredFieldsWithContactFieldType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactPickerUI2 as ::windows::core::Interface>::IID
@@ -160,7 +159,7 @@ impl IContactRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactRemovedEventArgs>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContactRemovedEventArgs, BASE_OFFSET>(), Id: Id::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactRemovedEventArgs as ::windows::core::Interface>::IID

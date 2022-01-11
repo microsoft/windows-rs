@@ -32,7 +32,11 @@ impl IAdvertisingManagerForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdvertisingManagerForUser>, ::windows::core::GetTrustLevel, AdvertisingId::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdvertisingManagerForUser, BASE_OFFSET>(),
+            AdvertisingId: AdvertisingId::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdvertisingManagerForUser as ::windows::core::Interface>::IID
@@ -60,7 +64,10 @@ impl IAdvertisingManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdvertisingManagerStatics>, ::windows::core::GetTrustLevel, AdvertisingId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdvertisingManagerStatics, BASE_OFFSET>(),
+            AdvertisingId: AdvertisingId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdvertisingManagerStatics as ::windows::core::Interface>::IID
@@ -88,7 +95,10 @@ impl IAdvertisingManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdvertisingManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdvertisingManagerStatics2, BASE_OFFSET>(),
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdvertisingManagerStatics2 as ::windows::core::Interface>::IID
@@ -140,7 +150,12 @@ impl IAssignedAccessSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAssignedAccessSettings>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, IMPL_OFFSET>, IsSingleAppKioskMode::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAssignedAccessSettings, BASE_OFFSET>(),
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            IsSingleAppKioskMode: IsSingleAppKioskMode::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAssignedAccessSettings as ::windows::core::Interface>::IID
@@ -180,7 +195,11 @@ impl IAssignedAccessSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAssignedAccessSettingsStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAssignedAccessSettingsStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAssignedAccessSettingsStatics as ::windows::core::Interface>::IID
@@ -220,7 +239,11 @@ impl IDiagnosticsSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticsSettings>, ::windows::core::GetTrustLevel, CanUseDiagnosticsToTailorExperiences::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDiagnosticsSettings, BASE_OFFSET>(),
+            CanUseDiagnosticsToTailorExperiences: CanUseDiagnosticsToTailorExperiences::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDiagnosticsSettings as ::windows::core::Interface>::IID
@@ -260,7 +283,11 @@ impl IDiagnosticsSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticsSettingsStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDiagnosticsSettingsStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDiagnosticsSettingsStatics as ::windows::core::Interface>::IID
@@ -275,7 +302,7 @@ impl ::windows::core::RuntimeName for IFirstSignInSettings {
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IFirstSignInSettingsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFirstSignInSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFirstSignInSettingsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFirstSignInSettings>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFirstSignInSettings, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFirstSignInSettings as ::windows::core::Interface>::IID
@@ -303,7 +330,10 @@ impl IFirstSignInSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFirstSignInSettingsStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFirstSignInSettingsStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFirstSignInSettingsStatics as ::windows::core::Interface>::IID
@@ -403,21 +433,16 @@ impl IGlobalizationPreferencesForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGlobalizationPreferencesForUser>,
-            ::windows::core::GetTrustLevel,
-            User::<Impl, IMPL_OFFSET>,
-            Calendars::<Impl, IMPL_OFFSET>,
-            Clocks::<Impl, IMPL_OFFSET>,
-            Currencies::<Impl, IMPL_OFFSET>,
-            Languages::<Impl, IMPL_OFFSET>,
-            HomeGeographicRegion::<Impl, IMPL_OFFSET>,
-            WeekStartsOn::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGlobalizationPreferencesForUser, BASE_OFFSET>(),
+            User: User::<Impl, IMPL_OFFSET>,
+            Calendars: Calendars::<Impl, IMPL_OFFSET>,
+            Clocks: Clocks::<Impl, IMPL_OFFSET>,
+            Currencies: Currencies::<Impl, IMPL_OFFSET>,
+            Languages: Languages::<Impl, IMPL_OFFSET>,
+            HomeGeographicRegion: HomeGeographicRegion::<Impl, IMPL_OFFSET>,
+            WeekStartsOn: WeekStartsOn::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGlobalizationPreferencesForUser as ::windows::core::Interface>::IID
@@ -505,20 +530,15 @@ impl IGlobalizationPreferencesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGlobalizationPreferencesStatics>,
-            ::windows::core::GetTrustLevel,
-            Calendars::<Impl, IMPL_OFFSET>,
-            Clocks::<Impl, IMPL_OFFSET>,
-            Currencies::<Impl, IMPL_OFFSET>,
-            Languages::<Impl, IMPL_OFFSET>,
-            HomeGeographicRegion::<Impl, IMPL_OFFSET>,
-            WeekStartsOn::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGlobalizationPreferencesStatics, BASE_OFFSET>(),
+            Calendars: Calendars::<Impl, IMPL_OFFSET>,
+            Clocks: Clocks::<Impl, IMPL_OFFSET>,
+            Currencies: Currencies::<Impl, IMPL_OFFSET>,
+            Languages: Languages::<Impl, IMPL_OFFSET>,
+            HomeGeographicRegion: HomeGeographicRegion::<Impl, IMPL_OFFSET>,
+            WeekStartsOn: WeekStartsOn::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGlobalizationPreferencesStatics as ::windows::core::Interface>::IID
@@ -558,7 +578,11 @@ impl IGlobalizationPreferencesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGlobalizationPreferencesStatics2>, ::windows::core::GetTrustLevel, TrySetHomeGeographicRegion::<Impl, IMPL_OFFSET>, TrySetLanguages::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGlobalizationPreferencesStatics2, BASE_OFFSET>(),
+            TrySetHomeGeographicRegion: TrySetHomeGeographicRegion::<Impl, IMPL_OFFSET>,
+            TrySetLanguages: TrySetLanguages::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGlobalizationPreferencesStatics2 as ::windows::core::Interface>::IID
@@ -586,7 +610,10 @@ impl IGlobalizationPreferencesStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGlobalizationPreferencesStatics3>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGlobalizationPreferencesStatics3, BASE_OFFSET>(),
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGlobalizationPreferencesStatics3 as ::windows::core::Interface>::IID
@@ -626,7 +653,11 @@ impl ILockScreenImageFeedStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenImageFeedStatics>, ::windows::core::GetTrustLevel, RequestSetImageFeedAsync::<Impl, IMPL_OFFSET>, TryRemoveImageFeed::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenImageFeedStatics, BASE_OFFSET>(),
+            RequestSetImageFeedAsync: RequestSetImageFeedAsync::<Impl, IMPL_OFFSET>,
+            TryRemoveImageFeed: TryRemoveImageFeed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockScreenImageFeedStatics as ::windows::core::Interface>::IID
@@ -690,7 +721,13 @@ impl ILockScreenStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenStatics>, ::windows::core::GetTrustLevel, OriginalImageFile::<Impl, IMPL_OFFSET>, GetImageStream::<Impl, IMPL_OFFSET>, SetImageFileAsync::<Impl, IMPL_OFFSET>, SetImageStreamAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenStatics, BASE_OFFSET>(),
+            OriginalImageFile: OriginalImageFile::<Impl, IMPL_OFFSET>,
+            GetImageStream: GetImageStream::<Impl, IMPL_OFFSET>,
+            SetImageFileAsync: SetImageFileAsync::<Impl, IMPL_OFFSET>,
+            SetImageStreamAsync: SetImageStreamAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockScreenStatics as ::windows::core::Interface>::IID
@@ -887,29 +924,24 @@ impl IUserInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserInformationStatics>,
-            ::windows::core::GetTrustLevel,
-            AccountPictureChangeEnabled::<Impl, IMPL_OFFSET>,
-            NameAccessAllowed::<Impl, IMPL_OFFSET>,
-            GetAccountPicture::<Impl, IMPL_OFFSET>,
-            SetAccountPictureAsync::<Impl, IMPL_OFFSET>,
-            SetAccountPicturesAsync::<Impl, IMPL_OFFSET>,
-            SetAccountPictureFromStreamAsync::<Impl, IMPL_OFFSET>,
-            SetAccountPicturesFromStreamsAsync::<Impl, IMPL_OFFSET>,
-            AccountPictureChanged::<Impl, IMPL_OFFSET>,
-            RemoveAccountPictureChanged::<Impl, IMPL_OFFSET>,
-            GetDisplayNameAsync::<Impl, IMPL_OFFSET>,
-            GetFirstNameAsync::<Impl, IMPL_OFFSET>,
-            GetLastNameAsync::<Impl, IMPL_OFFSET>,
-            GetPrincipalNameAsync::<Impl, IMPL_OFFSET>,
-            GetSessionInitiationProtocolUriAsync::<Impl, IMPL_OFFSET>,
-            GetDomainNameAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserInformationStatics, BASE_OFFSET>(),
+            AccountPictureChangeEnabled: AccountPictureChangeEnabled::<Impl, IMPL_OFFSET>,
+            NameAccessAllowed: NameAccessAllowed::<Impl, IMPL_OFFSET>,
+            GetAccountPicture: GetAccountPicture::<Impl, IMPL_OFFSET>,
+            SetAccountPictureAsync: SetAccountPictureAsync::<Impl, IMPL_OFFSET>,
+            SetAccountPicturesAsync: SetAccountPicturesAsync::<Impl, IMPL_OFFSET>,
+            SetAccountPictureFromStreamAsync: SetAccountPictureFromStreamAsync::<Impl, IMPL_OFFSET>,
+            SetAccountPicturesFromStreamsAsync: SetAccountPicturesFromStreamsAsync::<Impl, IMPL_OFFSET>,
+            AccountPictureChanged: AccountPictureChanged::<Impl, IMPL_OFFSET>,
+            RemoveAccountPictureChanged: RemoveAccountPictureChanged::<Impl, IMPL_OFFSET>,
+            GetDisplayNameAsync: GetDisplayNameAsync::<Impl, IMPL_OFFSET>,
+            GetFirstNameAsync: GetFirstNameAsync::<Impl, IMPL_OFFSET>,
+            GetLastNameAsync: GetLastNameAsync::<Impl, IMPL_OFFSET>,
+            GetPrincipalNameAsync: GetPrincipalNameAsync::<Impl, IMPL_OFFSET>,
+            GetSessionInitiationProtocolUriAsync: GetSessionInitiationProtocolUriAsync::<Impl, IMPL_OFFSET>,
+            GetDomainNameAsync: GetDomainNameAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserInformationStatics as ::windows::core::Interface>::IID
@@ -949,7 +981,11 @@ impl IUserProfilePersonalizationSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserProfilePersonalizationSettings>, ::windows::core::GetTrustLevel, TrySetLockScreenImageAsync::<Impl, IMPL_OFFSET>, TrySetWallpaperImageAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserProfilePersonalizationSettings, BASE_OFFSET>(),
+            TrySetLockScreenImageAsync: TrySetLockScreenImageAsync::<Impl, IMPL_OFFSET>,
+            TrySetWallpaperImageAsync: TrySetWallpaperImageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserProfilePersonalizationSettings as ::windows::core::Interface>::IID
@@ -989,7 +1025,11 @@ impl IUserProfilePersonalizationSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserProfilePersonalizationSettingsStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>, IsSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserProfilePersonalizationSettingsStatics, BASE_OFFSET>(),
+            Current: Current::<Impl, IMPL_OFFSET>,
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserProfilePersonalizationSettingsStatics as ::windows::core::Interface>::IID

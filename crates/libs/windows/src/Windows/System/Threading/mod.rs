@@ -10,20 +10,21 @@ unsafe impl ::windows::core::Interface for IThreadPoolStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IThreadPoolStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, priority: WorkItemPriority, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, priority: WorkItemPriority, options: WorkItemOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct IThreadPoolStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub RunAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RunAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub RunWithPriorityAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, priority: WorkItemPriority, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RunWithPriorityAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub RunWithPriorityAndOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, priority: WorkItemPriority, options: WorkItemOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RunWithPriorityAndOptionsAsync: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IThreadPoolTimer(::windows::core::IUnknown);
@@ -33,19 +34,18 @@ unsafe impl ::windows::core::Interface for IThreadPoolTimer {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IThreadPoolTimerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IThreadPoolTimerVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub Period: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Period: usize,
+    #[cfg(feature = "Foundation")]
+    pub Delay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Delay: usize,
+    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IThreadPoolTimerStatics(::windows::core::IUnknown);
@@ -55,22 +55,25 @@ unsafe impl ::windows::core::Interface for IThreadPoolTimerStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IThreadPoolTimerStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, period: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, delay: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, period: super::super::Foundation::TimeSpan, destroyed: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, delay: super::super::Foundation::TimeSpan, destroyed: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct IThreadPoolTimerStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub CreatePeriodicTimer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, period: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreatePeriodicTimer: usize,
+    #[cfg(feature = "Foundation")]
+    pub CreateTimer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, delay: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreateTimer: usize,
+    #[cfg(feature = "Foundation")]
+    pub CreatePeriodicTimerWithCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, period: super::super::Foundation::TimeSpan, destroyed: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreatePeriodicTimerWithCompletion: usize,
+    #[cfg(feature = "Foundation")]
+    pub CreateTimerWithCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, delay: super::super::Foundation::TimeSpan, destroyed: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreateTimerWithCompletion: usize,
+}
 #[doc = "*Required features: 'System_Threading'*"]
 pub struct ThreadPool {}
 impl ThreadPool {
@@ -79,7 +82,7 @@ impl ThreadPool {
     pub fn RunAsync<'a, Param0: ::windows::core::IntoParam<'a, WorkItemHandler>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RunAsync)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: 'System_Threading', 'Foundation'*"]
@@ -87,7 +90,7 @@ impl ThreadPool {
     pub fn RunWithPriorityAsync<'a, Param0: ::windows::core::IntoParam<'a, WorkItemHandler>>(handler: Param0, priority: WorkItemPriority) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), priority, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RunWithPriorityAsync)(::core::mem::transmute_copy(this), handler.into_param().abi(), priority, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: 'System_Threading', 'Foundation'*"]
@@ -95,7 +98,7 @@ impl ThreadPool {
     pub fn RunWithPriorityAndOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, WorkItemHandler>>(handler: Param0, priority: WorkItemPriority, options: WorkItemOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), priority, options, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RunWithPriorityAndOptionsAsync)(::core::mem::transmute_copy(this), handler.into_param().abi(), priority, options, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]
@@ -117,7 +120,7 @@ impl ThreadPoolTimer {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Period)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: 'System_Threading', 'Foundation'*"]
@@ -126,20 +129,20 @@ impl ThreadPoolTimer {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Delay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: 'System_Threading'*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Cancel)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'System_Threading', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreatePeriodicTimer<'a, Param0: ::windows::core::IntoParam<'a, TimerElapsedHandler>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(handler: Param0, period: Param1) -> ::windows::core::Result<ThreadPoolTimer> {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), period.into_param().abi(), &mut result__).from_abi::<ThreadPoolTimer>(result__)
+            (::windows::core::Interface::vtable(this).CreatePeriodicTimer)(::core::mem::transmute_copy(this), handler.into_param().abi(), period.into_param().abi(), &mut result__).from_abi::<ThreadPoolTimer>(result__)
         })
     }
     #[doc = "*Required features: 'System_Threading', 'Foundation'*"]
@@ -147,7 +150,7 @@ impl ThreadPoolTimer {
     pub fn CreateTimer<'a, Param0: ::windows::core::IntoParam<'a, TimerElapsedHandler>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(handler: Param0, delay: Param1) -> ::windows::core::Result<ThreadPoolTimer> {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), delay.into_param().abi(), &mut result__).from_abi::<ThreadPoolTimer>(result__)
+            (::windows::core::Interface::vtable(this).CreateTimer)(::core::mem::transmute_copy(this), handler.into_param().abi(), delay.into_param().abi(), &mut result__).from_abi::<ThreadPoolTimer>(result__)
         })
     }
     #[doc = "*Required features: 'System_Threading', 'Foundation'*"]
@@ -155,7 +158,7 @@ impl ThreadPoolTimer {
     pub fn CreatePeriodicTimerWithCompletion<'a, Param0: ::windows::core::IntoParam<'a, TimerElapsedHandler>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>, Param2: ::windows::core::IntoParam<'a, TimerDestroyedHandler>>(handler: Param0, period: Param1, destroyed: Param2) -> ::windows::core::Result<ThreadPoolTimer> {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), period.into_param().abi(), destroyed.into_param().abi(), &mut result__).from_abi::<ThreadPoolTimer>(result__)
+            (::windows::core::Interface::vtable(this).CreatePeriodicTimerWithCompletion)(::core::mem::transmute_copy(this), handler.into_param().abi(), period.into_param().abi(), destroyed.into_param().abi(), &mut result__).from_abi::<ThreadPoolTimer>(result__)
         })
     }
     #[doc = "*Required features: 'System_Threading', 'Foundation'*"]
@@ -163,7 +166,7 @@ impl ThreadPoolTimer {
     pub fn CreateTimerWithCompletion<'a, Param0: ::windows::core::IntoParam<'a, TimerElapsedHandler>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>, Param2: ::windows::core::IntoParam<'a, TimerDestroyedHandler>>(handler: Param0, delay: Param1, destroyed: Param2) -> ::windows::core::Result<ThreadPoolTimer> {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), delay.into_param().abi(), destroyed.into_param().abi(), &mut result__).from_abi::<ThreadPoolTimer>(result__)
+            (::windows::core::Interface::vtable(this).CreateTimerWithCompletion)(::core::mem::transmute_copy(this), handler.into_param().abi(), delay.into_param().abi(), destroyed.into_param().abi(), &mut result__).from_abi::<ThreadPoolTimer>(result__)
         })
     }
     #[doc(hidden)]
@@ -251,7 +254,7 @@ impl TimerDestroyedHandler {
     #[doc = "*Required features: 'System_Threading'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ThreadPoolTimer>>(&self, timer: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), timer.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), timer.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -261,7 +264,7 @@ struct TimerDestroyedHandlerBox<F: FnMut(&::core::option::Option<ThreadPoolTimer
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + 'static> TimerDestroyedHandlerBox<F> {
-    const VTABLE: TimerDestroyedHandlerVtbl = TimerDestroyedHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: TimerDestroyedHandlerVtbl = TimerDestroyedHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<TimerDestroyedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -314,7 +317,10 @@ unsafe impl ::windows::core::RuntimeType for TimerDestroyedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct TimerDestroyedHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timer: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+pub struct TimerDestroyedHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'System_Threading'*"]
 #[repr(transparent)]
 pub struct TimerElapsedHandler(pub ::windows::core::IUnknown);
@@ -326,7 +332,7 @@ impl TimerElapsedHandler {
     #[doc = "*Required features: 'System_Threading'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ThreadPoolTimer>>(&self, timer: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), timer.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), timer.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -336,7 +342,7 @@ struct TimerElapsedHandlerBox<F: FnMut(&::core::option::Option<ThreadPoolTimer>)
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + 'static> TimerElapsedHandlerBox<F> {
-    const VTABLE: TimerElapsedHandlerVtbl = TimerElapsedHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: TimerElapsedHandlerVtbl = TimerElapsedHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<TimerElapsedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -389,7 +395,10 @@ unsafe impl ::windows::core::RuntimeType for TimerElapsedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct TimerElapsedHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timer: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+pub struct TimerElapsedHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'System_Threading', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
@@ -404,7 +413,7 @@ impl WorkItemHandler {
     #[cfg(feature = "Foundation")]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncAction>>(&self, operation: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), operation.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), operation.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -416,7 +425,7 @@ struct WorkItemHandlerBox<F: FnMut(&::core::option::Option<super::super::Foundat
 }
 #[cfg(feature = "Foundation")]
 impl<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + 'static> WorkItemHandlerBox<F> {
-    const VTABLE: WorkItemHandlerVtbl = WorkItemHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+    const VTABLE: WorkItemHandlerVtbl = WorkItemHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<WorkItemHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -476,13 +485,13 @@ unsafe impl ::windows::core::RuntimeType for WorkItemHandler {
 #[cfg(feature = "Foundation")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct WorkItemHandlerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct WorkItemHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Foundation")]
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Invoke: usize,
+}
 #[doc = "*Required features: 'System_Threading'*"]
 #[repr(transparent)]
 pub struct WorkItemOptions(pub u32);

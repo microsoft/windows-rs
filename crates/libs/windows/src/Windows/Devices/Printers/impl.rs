@@ -44,7 +44,12 @@ impl IIppAttributeErrorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppAttributeError>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, GetUnsupportedValues::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIppAttributeError, BASE_OFFSET>(),
+            Reason: Reason::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            GetUnsupportedValues: GetUnsupportedValues::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIppAttributeError as ::windows::core::Interface>::IID
@@ -288,33 +293,28 @@ impl IIppAttributeValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IIppAttributeValue>,
-            ::windows::core::GetTrustLevel,
-            Kind::<Impl, IMPL_OFFSET>,
-            GetIntegerArray::<Impl, IMPL_OFFSET>,
-            GetBooleanArray::<Impl, IMPL_OFFSET>,
-            GetEnumArray::<Impl, IMPL_OFFSET>,
-            GetOctetStringArray::<Impl, IMPL_OFFSET>,
-            GetDateTimeArray::<Impl, IMPL_OFFSET>,
-            GetResolutionArray::<Impl, IMPL_OFFSET>,
-            GetRangeOfIntegerArray::<Impl, IMPL_OFFSET>,
-            GetCollectionArray::<Impl, IMPL_OFFSET>,
-            GetTextWithLanguageArray::<Impl, IMPL_OFFSET>,
-            GetNameWithLanguageArray::<Impl, IMPL_OFFSET>,
-            GetTextWithoutLanguageArray::<Impl, IMPL_OFFSET>,
-            GetNameWithoutLanguageArray::<Impl, IMPL_OFFSET>,
-            GetKeywordArray::<Impl, IMPL_OFFSET>,
-            GetUriArray::<Impl, IMPL_OFFSET>,
-            GetUriSchemaArray::<Impl, IMPL_OFFSET>,
-            GetCharsetArray::<Impl, IMPL_OFFSET>,
-            GetNaturalLanguageArray::<Impl, IMPL_OFFSET>,
-            GetMimeMediaTypeArray::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIppAttributeValue, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            GetIntegerArray: GetIntegerArray::<Impl, IMPL_OFFSET>,
+            GetBooleanArray: GetBooleanArray::<Impl, IMPL_OFFSET>,
+            GetEnumArray: GetEnumArray::<Impl, IMPL_OFFSET>,
+            GetOctetStringArray: GetOctetStringArray::<Impl, IMPL_OFFSET>,
+            GetDateTimeArray: GetDateTimeArray::<Impl, IMPL_OFFSET>,
+            GetResolutionArray: GetResolutionArray::<Impl, IMPL_OFFSET>,
+            GetRangeOfIntegerArray: GetRangeOfIntegerArray::<Impl, IMPL_OFFSET>,
+            GetCollectionArray: GetCollectionArray::<Impl, IMPL_OFFSET>,
+            GetTextWithLanguageArray: GetTextWithLanguageArray::<Impl, IMPL_OFFSET>,
+            GetNameWithLanguageArray: GetNameWithLanguageArray::<Impl, IMPL_OFFSET>,
+            GetTextWithoutLanguageArray: GetTextWithoutLanguageArray::<Impl, IMPL_OFFSET>,
+            GetNameWithoutLanguageArray: GetNameWithoutLanguageArray::<Impl, IMPL_OFFSET>,
+            GetKeywordArray: GetKeywordArray::<Impl, IMPL_OFFSET>,
+            GetUriArray: GetUriArray::<Impl, IMPL_OFFSET>,
+            GetUriSchemaArray: GetUriSchemaArray::<Impl, IMPL_OFFSET>,
+            GetCharsetArray: GetCharsetArray::<Impl, IMPL_OFFSET>,
+            GetNaturalLanguageArray: GetNaturalLanguageArray::<Impl, IMPL_OFFSET>,
+            GetMimeMediaTypeArray: GetMimeMediaTypeArray::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIppAttributeValue as ::windows::core::Interface>::IID
@@ -798,53 +798,48 @@ impl IIppAttributeValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IIppAttributeValueStatics>,
-            ::windows::core::GetTrustLevel,
-            CreateUnsupported::<Impl, IMPL_OFFSET>,
-            CreateUnknown::<Impl, IMPL_OFFSET>,
-            CreateNoValue::<Impl, IMPL_OFFSET>,
-            CreateInteger::<Impl, IMPL_OFFSET>,
-            CreateIntegerArray::<Impl, IMPL_OFFSET>,
-            CreateBoolean::<Impl, IMPL_OFFSET>,
-            CreateBooleanArray::<Impl, IMPL_OFFSET>,
-            CreateEnum::<Impl, IMPL_OFFSET>,
-            CreateEnumArray::<Impl, IMPL_OFFSET>,
-            CreateOctetString::<Impl, IMPL_OFFSET>,
-            CreateOctetStringArray::<Impl, IMPL_OFFSET>,
-            CreateDateTime::<Impl, IMPL_OFFSET>,
-            CreateDateTimeArray::<Impl, IMPL_OFFSET>,
-            CreateResolution::<Impl, IMPL_OFFSET>,
-            CreateResolutionArray::<Impl, IMPL_OFFSET>,
-            CreateRangeOfInteger::<Impl, IMPL_OFFSET>,
-            CreateRangeOfIntegerArray::<Impl, IMPL_OFFSET>,
-            CreateCollection::<Impl, IMPL_OFFSET>,
-            CreateCollectionArray::<Impl, IMPL_OFFSET>,
-            CreateTextWithLanguage::<Impl, IMPL_OFFSET>,
-            CreateTextWithLanguageArray::<Impl, IMPL_OFFSET>,
-            CreateNameWithLanguage::<Impl, IMPL_OFFSET>,
-            CreateNameWithLanguageArray::<Impl, IMPL_OFFSET>,
-            CreateTextWithoutLanguage::<Impl, IMPL_OFFSET>,
-            CreateTextWithoutLanguageArray::<Impl, IMPL_OFFSET>,
-            CreateNameWithoutLanguage::<Impl, IMPL_OFFSET>,
-            CreateNameWithoutLanguageArray::<Impl, IMPL_OFFSET>,
-            CreateKeyword::<Impl, IMPL_OFFSET>,
-            CreateKeywordArray::<Impl, IMPL_OFFSET>,
-            CreateUri::<Impl, IMPL_OFFSET>,
-            CreateUriArray::<Impl, IMPL_OFFSET>,
-            CreateUriSchema::<Impl, IMPL_OFFSET>,
-            CreateUriSchemaArray::<Impl, IMPL_OFFSET>,
-            CreateCharset::<Impl, IMPL_OFFSET>,
-            CreateCharsetArray::<Impl, IMPL_OFFSET>,
-            CreateNaturalLanguage::<Impl, IMPL_OFFSET>,
-            CreateNaturalLanguageArray::<Impl, IMPL_OFFSET>,
-            CreateMimeMedia::<Impl, IMPL_OFFSET>,
-            CreateMimeMediaArray::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIppAttributeValueStatics, BASE_OFFSET>(),
+            CreateUnsupported: CreateUnsupported::<Impl, IMPL_OFFSET>,
+            CreateUnknown: CreateUnknown::<Impl, IMPL_OFFSET>,
+            CreateNoValue: CreateNoValue::<Impl, IMPL_OFFSET>,
+            CreateInteger: CreateInteger::<Impl, IMPL_OFFSET>,
+            CreateIntegerArray: CreateIntegerArray::<Impl, IMPL_OFFSET>,
+            CreateBoolean: CreateBoolean::<Impl, IMPL_OFFSET>,
+            CreateBooleanArray: CreateBooleanArray::<Impl, IMPL_OFFSET>,
+            CreateEnum: CreateEnum::<Impl, IMPL_OFFSET>,
+            CreateEnumArray: CreateEnumArray::<Impl, IMPL_OFFSET>,
+            CreateOctetString: CreateOctetString::<Impl, IMPL_OFFSET>,
+            CreateOctetStringArray: CreateOctetStringArray::<Impl, IMPL_OFFSET>,
+            CreateDateTime: CreateDateTime::<Impl, IMPL_OFFSET>,
+            CreateDateTimeArray: CreateDateTimeArray::<Impl, IMPL_OFFSET>,
+            CreateResolution: CreateResolution::<Impl, IMPL_OFFSET>,
+            CreateResolutionArray: CreateResolutionArray::<Impl, IMPL_OFFSET>,
+            CreateRangeOfInteger: CreateRangeOfInteger::<Impl, IMPL_OFFSET>,
+            CreateRangeOfIntegerArray: CreateRangeOfIntegerArray::<Impl, IMPL_OFFSET>,
+            CreateCollection: CreateCollection::<Impl, IMPL_OFFSET>,
+            CreateCollectionArray: CreateCollectionArray::<Impl, IMPL_OFFSET>,
+            CreateTextWithLanguage: CreateTextWithLanguage::<Impl, IMPL_OFFSET>,
+            CreateTextWithLanguageArray: CreateTextWithLanguageArray::<Impl, IMPL_OFFSET>,
+            CreateNameWithLanguage: CreateNameWithLanguage::<Impl, IMPL_OFFSET>,
+            CreateNameWithLanguageArray: CreateNameWithLanguageArray::<Impl, IMPL_OFFSET>,
+            CreateTextWithoutLanguage: CreateTextWithoutLanguage::<Impl, IMPL_OFFSET>,
+            CreateTextWithoutLanguageArray: CreateTextWithoutLanguageArray::<Impl, IMPL_OFFSET>,
+            CreateNameWithoutLanguage: CreateNameWithoutLanguage::<Impl, IMPL_OFFSET>,
+            CreateNameWithoutLanguageArray: CreateNameWithoutLanguageArray::<Impl, IMPL_OFFSET>,
+            CreateKeyword: CreateKeyword::<Impl, IMPL_OFFSET>,
+            CreateKeywordArray: CreateKeywordArray::<Impl, IMPL_OFFSET>,
+            CreateUri: CreateUri::<Impl, IMPL_OFFSET>,
+            CreateUriArray: CreateUriArray::<Impl, IMPL_OFFSET>,
+            CreateUriSchema: CreateUriSchema::<Impl, IMPL_OFFSET>,
+            CreateUriSchemaArray: CreateUriSchemaArray::<Impl, IMPL_OFFSET>,
+            CreateCharset: CreateCharset::<Impl, IMPL_OFFSET>,
+            CreateCharsetArray: CreateCharsetArray::<Impl, IMPL_OFFSET>,
+            CreateNaturalLanguage: CreateNaturalLanguage::<Impl, IMPL_OFFSET>,
+            CreateNaturalLanguageArray: CreateNaturalLanguageArray::<Impl, IMPL_OFFSET>,
+            CreateMimeMedia: CreateMimeMedia::<Impl, IMPL_OFFSET>,
+            CreateMimeMediaArray: CreateMimeMediaArray::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIppAttributeValueStatics as ::windows::core::Interface>::IID
@@ -884,7 +879,11 @@ impl IIppIntegerRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppIntegerRange>, ::windows::core::GetTrustLevel, Start::<Impl, IMPL_OFFSET>, End::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIppIntegerRange, BASE_OFFSET>(),
+            Start: Start::<Impl, IMPL_OFFSET>,
+            End: End::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIppIntegerRange as ::windows::core::Interface>::IID
@@ -912,7 +911,10 @@ impl IIppIntegerRangeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppIntegerRangeFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIppIntegerRangeFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIppIntegerRangeFactory as ::windows::core::Interface>::IID
@@ -1000,20 +1002,15 @@ impl IIppPrintDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IIppPrintDevice>,
-            ::windows::core::GetTrustLevel,
-            PrinterName::<Impl, IMPL_OFFSET>,
-            PrinterUri::<Impl, IMPL_OFFSET>,
-            GetPrinterAttributesAsBuffer::<Impl, IMPL_OFFSET>,
-            GetPrinterAttributes::<Impl, IMPL_OFFSET>,
-            SetPrinterAttributesFromBuffer::<Impl, IMPL_OFFSET>,
-            SetPrinterAttributes::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIppPrintDevice, BASE_OFFSET>(),
+            PrinterName: PrinterName::<Impl, IMPL_OFFSET>,
+            PrinterUri: PrinterUri::<Impl, IMPL_OFFSET>,
+            GetPrinterAttributesAsBuffer: GetPrinterAttributesAsBuffer::<Impl, IMPL_OFFSET>,
+            GetPrinterAttributes: GetPrinterAttributes::<Impl, IMPL_OFFSET>,
+            SetPrinterAttributesFromBuffer: SetPrinterAttributesFromBuffer::<Impl, IMPL_OFFSET>,
+            SetPrinterAttributes: SetPrinterAttributes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIppPrintDevice as ::windows::core::Interface>::IID
@@ -1065,7 +1062,12 @@ impl IIppResolutionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppResolution>, ::windows::core::GetTrustLevel, Width::<Impl, IMPL_OFFSET>, Height::<Impl, IMPL_OFFSET>, Unit::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIppResolution, BASE_OFFSET>(),
+            Width: Width::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+            Unit: Unit::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIppResolution as ::windows::core::Interface>::IID
@@ -1093,7 +1095,10 @@ impl IIppResolutionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppResolutionFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIppResolutionFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIppResolutionFactory as ::windows::core::Interface>::IID
@@ -1133,7 +1138,11 @@ impl IIppSetAttributesResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppSetAttributesResult>, ::windows::core::GetTrustLevel, Succeeded::<Impl, IMPL_OFFSET>, AttributeErrors::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIppSetAttributesResult, BASE_OFFSET>(),
+            Succeeded: Succeeded::<Impl, IMPL_OFFSET>,
+            AttributeErrors: AttributeErrors::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIppSetAttributesResult as ::windows::core::Interface>::IID
@@ -1173,7 +1182,11 @@ impl IIppTextWithLanguageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppTextWithLanguage>, ::windows::core::GetTrustLevel, Language::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIppTextWithLanguage, BASE_OFFSET>(),
+            Language: Language::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIppTextWithLanguage as ::windows::core::Interface>::IID
@@ -1201,7 +1214,10 @@ impl IIppTextWithLanguageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppTextWithLanguageFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIppTextWithLanguageFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIppTextWithLanguageFactory as ::windows::core::Interface>::IID
@@ -1229,7 +1245,7 @@ impl IPrint3DDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DDevice>, ::windows::core::GetTrustLevel, PrintSchema::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPrint3DDevice, BASE_OFFSET>(), PrintSchema: PrintSchema::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrint3DDevice as ::windows::core::Interface>::IID
@@ -1269,7 +1285,11 @@ impl IPrint3DDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DDeviceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrint3DDeviceStatics, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrint3DDeviceStatics as ::windows::core::Interface>::IID
@@ -1321,7 +1341,12 @@ impl IPrintSchemaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSchema>, ::windows::core::GetTrustLevel, GetDefaultPrintTicketAsync::<Impl, IMPL_OFFSET>, GetCapabilitiesAsync::<Impl, IMPL_OFFSET>, MergeAndValidateWithDefaultPrintTicketAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintSchema, BASE_OFFSET>(),
+            GetDefaultPrintTicketAsync: GetDefaultPrintTicketAsync::<Impl, IMPL_OFFSET>,
+            GetCapabilitiesAsync: GetCapabilitiesAsync::<Impl, IMPL_OFFSET>,
+            MergeAndValidateWithDefaultPrintTicketAsync: MergeAndValidateWithDefaultPrintTicketAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintSchema as ::windows::core::Interface>::IID

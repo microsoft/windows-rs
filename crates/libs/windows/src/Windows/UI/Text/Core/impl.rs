@@ -44,7 +44,12 @@ impl ICoreTextCompositionCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextCompositionCompletedEventArgs>, ::windows::core::GetTrustLevel, IsCanceled::<Impl, IMPL_OFFSET>, CompositionSegments::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextCompositionCompletedEventArgs, BASE_OFFSET>(),
+            IsCanceled: IsCanceled::<Impl, IMPL_OFFSET>,
+            CompositionSegments: CompositionSegments::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextCompositionCompletedEventArgs as ::windows::core::Interface>::IID
@@ -84,7 +89,11 @@ impl ICoreTextCompositionSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextCompositionSegment>, ::windows::core::GetTrustLevel, PreconversionString::<Impl, IMPL_OFFSET>, Range::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextCompositionSegment, BASE_OFFSET>(),
+            PreconversionString: PreconversionString::<Impl, IMPL_OFFSET>,
+            Range: Range::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextCompositionSegment as ::windows::core::Interface>::IID
@@ -124,7 +133,11 @@ impl ICoreTextCompositionStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextCompositionStartedEventArgs>, ::windows::core::GetTrustLevel, IsCanceled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextCompositionStartedEventArgs, BASE_OFFSET>(),
+            IsCanceled: IsCanceled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextCompositionStartedEventArgs as ::windows::core::Interface>::IID
@@ -386,45 +399,40 @@ impl ICoreTextEditContextVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).NotifyLayoutChanged().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreTextEditContext>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            SetName::<Impl, IMPL_OFFSET>,
-            InputScope::<Impl, IMPL_OFFSET>,
-            SetInputScope::<Impl, IMPL_OFFSET>,
-            IsReadOnly::<Impl, IMPL_OFFSET>,
-            SetIsReadOnly::<Impl, IMPL_OFFSET>,
-            InputPaneDisplayPolicy::<Impl, IMPL_OFFSET>,
-            SetInputPaneDisplayPolicy::<Impl, IMPL_OFFSET>,
-            TextRequested::<Impl, IMPL_OFFSET>,
-            RemoveTextRequested::<Impl, IMPL_OFFSET>,
-            SelectionRequested::<Impl, IMPL_OFFSET>,
-            RemoveSelectionRequested::<Impl, IMPL_OFFSET>,
-            LayoutRequested::<Impl, IMPL_OFFSET>,
-            RemoveLayoutRequested::<Impl, IMPL_OFFSET>,
-            TextUpdating::<Impl, IMPL_OFFSET>,
-            RemoveTextUpdating::<Impl, IMPL_OFFSET>,
-            SelectionUpdating::<Impl, IMPL_OFFSET>,
-            RemoveSelectionUpdating::<Impl, IMPL_OFFSET>,
-            FormatUpdating::<Impl, IMPL_OFFSET>,
-            RemoveFormatUpdating::<Impl, IMPL_OFFSET>,
-            CompositionStarted::<Impl, IMPL_OFFSET>,
-            RemoveCompositionStarted::<Impl, IMPL_OFFSET>,
-            CompositionCompleted::<Impl, IMPL_OFFSET>,
-            RemoveCompositionCompleted::<Impl, IMPL_OFFSET>,
-            FocusRemoved::<Impl, IMPL_OFFSET>,
-            RemoveFocusRemoved::<Impl, IMPL_OFFSET>,
-            NotifyFocusEnter::<Impl, IMPL_OFFSET>,
-            NotifyFocusLeave::<Impl, IMPL_OFFSET>,
-            NotifyTextChanged::<Impl, IMPL_OFFSET>,
-            NotifySelectionChanged::<Impl, IMPL_OFFSET>,
-            NotifyLayoutChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextEditContext, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            InputScope: InputScope::<Impl, IMPL_OFFSET>,
+            SetInputScope: SetInputScope::<Impl, IMPL_OFFSET>,
+            IsReadOnly: IsReadOnly::<Impl, IMPL_OFFSET>,
+            SetIsReadOnly: SetIsReadOnly::<Impl, IMPL_OFFSET>,
+            InputPaneDisplayPolicy: InputPaneDisplayPolicy::<Impl, IMPL_OFFSET>,
+            SetInputPaneDisplayPolicy: SetInputPaneDisplayPolicy::<Impl, IMPL_OFFSET>,
+            TextRequested: TextRequested::<Impl, IMPL_OFFSET>,
+            RemoveTextRequested: RemoveTextRequested::<Impl, IMPL_OFFSET>,
+            SelectionRequested: SelectionRequested::<Impl, IMPL_OFFSET>,
+            RemoveSelectionRequested: RemoveSelectionRequested::<Impl, IMPL_OFFSET>,
+            LayoutRequested: LayoutRequested::<Impl, IMPL_OFFSET>,
+            RemoveLayoutRequested: RemoveLayoutRequested::<Impl, IMPL_OFFSET>,
+            TextUpdating: TextUpdating::<Impl, IMPL_OFFSET>,
+            RemoveTextUpdating: RemoveTextUpdating::<Impl, IMPL_OFFSET>,
+            SelectionUpdating: SelectionUpdating::<Impl, IMPL_OFFSET>,
+            RemoveSelectionUpdating: RemoveSelectionUpdating::<Impl, IMPL_OFFSET>,
+            FormatUpdating: FormatUpdating::<Impl, IMPL_OFFSET>,
+            RemoveFormatUpdating: RemoveFormatUpdating::<Impl, IMPL_OFFSET>,
+            CompositionStarted: CompositionStarted::<Impl, IMPL_OFFSET>,
+            RemoveCompositionStarted: RemoveCompositionStarted::<Impl, IMPL_OFFSET>,
+            CompositionCompleted: CompositionCompleted::<Impl, IMPL_OFFSET>,
+            RemoveCompositionCompleted: RemoveCompositionCompleted::<Impl, IMPL_OFFSET>,
+            FocusRemoved: FocusRemoved::<Impl, IMPL_OFFSET>,
+            RemoveFocusRemoved: RemoveFocusRemoved::<Impl, IMPL_OFFSET>,
+            NotifyFocusEnter: NotifyFocusEnter::<Impl, IMPL_OFFSET>,
+            NotifyFocusLeave: NotifyFocusLeave::<Impl, IMPL_OFFSET>,
+            NotifyTextChanged: NotifyTextChanged::<Impl, IMPL_OFFSET>,
+            NotifySelectionChanged: NotifySelectionChanged::<Impl, IMPL_OFFSET>,
+            NotifyLayoutChanged: NotifyLayoutChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextEditContext as ::windows::core::Interface>::IID
@@ -457,7 +465,11 @@ impl ICoreTextEditContext2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveNotifyFocusLeaveCompleted(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextEditContext2>, ::windows::core::GetTrustLevel, NotifyFocusLeaveCompleted::<Impl, IMPL_OFFSET>, RemoveNotifyFocusLeaveCompleted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextEditContext2, BASE_OFFSET>(),
+            NotifyFocusLeaveCompleted: NotifyFocusLeaveCompleted::<Impl, IMPL_OFFSET>,
+            RemoveNotifyFocusLeaveCompleted: RemoveNotifyFocusLeaveCompleted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextEditContext2 as ::windows::core::Interface>::IID
@@ -586,24 +598,19 @@ impl ICoreTextFormatUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreTextFormatUpdatingEventArgs>,
-            ::windows::core::GetTrustLevel,
-            Range::<Impl, IMPL_OFFSET>,
-            TextColor::<Impl, IMPL_OFFSET>,
-            BackgroundColor::<Impl, IMPL_OFFSET>,
-            UnderlineColor::<Impl, IMPL_OFFSET>,
-            UnderlineType::<Impl, IMPL_OFFSET>,
-            Reason::<Impl, IMPL_OFFSET>,
-            Result::<Impl, IMPL_OFFSET>,
-            SetResult::<Impl, IMPL_OFFSET>,
-            IsCanceled::<Impl, IMPL_OFFSET>,
-            GetDeferral::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextFormatUpdatingEventArgs, BASE_OFFSET>(),
+            Range: Range::<Impl, IMPL_OFFSET>,
+            TextColor: TextColor::<Impl, IMPL_OFFSET>,
+            BackgroundColor: BackgroundColor::<Impl, IMPL_OFFSET>,
+            UnderlineColor: UnderlineColor::<Impl, IMPL_OFFSET>,
+            UnderlineType: UnderlineType::<Impl, IMPL_OFFSET>,
+            Reason: Reason::<Impl, IMPL_OFFSET>,
+            Result: Result::<Impl, IMPL_OFFSET>,
+            SetResult: SetResult::<Impl, IMPL_OFFSET>,
+            IsCanceled: IsCanceled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextFormatUpdatingEventArgs as ::windows::core::Interface>::IID
@@ -653,7 +660,13 @@ impl ICoreTextLayoutBoundsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetControlBounds(&*(&value as *const <super::super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextLayoutBounds>, ::windows::core::GetTrustLevel, TextBounds::<Impl, IMPL_OFFSET>, SetTextBounds::<Impl, IMPL_OFFSET>, ControlBounds::<Impl, IMPL_OFFSET>, SetControlBounds::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextLayoutBounds, BASE_OFFSET>(),
+            TextBounds: TextBounds::<Impl, IMPL_OFFSET>,
+            SetTextBounds: SetTextBounds::<Impl, IMPL_OFFSET>,
+            ControlBounds: ControlBounds::<Impl, IMPL_OFFSET>,
+            SetControlBounds: SetControlBounds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextLayoutBounds as ::windows::core::Interface>::IID
@@ -717,7 +730,13 @@ impl ICoreTextLayoutRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextLayoutRequest>, ::windows::core::GetTrustLevel, Range::<Impl, IMPL_OFFSET>, LayoutBounds::<Impl, IMPL_OFFSET>, IsCanceled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextLayoutRequest, BASE_OFFSET>(),
+            Range: Range::<Impl, IMPL_OFFSET>,
+            LayoutBounds: LayoutBounds::<Impl, IMPL_OFFSET>,
+            IsCanceled: IsCanceled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextLayoutRequest as ::windows::core::Interface>::IID
@@ -745,7 +764,10 @@ impl ICoreTextLayoutRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextLayoutRequest2>, ::windows::core::GetTrustLevel, LayoutBoundsVisualPixels::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextLayoutRequest2, BASE_OFFSET>(),
+            LayoutBoundsVisualPixels: LayoutBoundsVisualPixels::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextLayoutRequest2 as ::windows::core::Interface>::IID
@@ -773,7 +795,10 @@ impl ICoreTextLayoutRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextLayoutRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextLayoutRequestedEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextLayoutRequestedEventArgs as ::windows::core::Interface>::IID
@@ -830,7 +855,13 @@ impl ICoreTextSelectionRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextSelectionRequest>, ::windows::core::GetTrustLevel, Selection::<Impl, IMPL_OFFSET>, SetSelection::<Impl, IMPL_OFFSET>, IsCanceled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextSelectionRequest, BASE_OFFSET>(),
+            Selection: Selection::<Impl, IMPL_OFFSET>,
+            SetSelection: SetSelection::<Impl, IMPL_OFFSET>,
+            IsCanceled: IsCanceled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextSelectionRequest as ::windows::core::Interface>::IID
@@ -858,7 +889,10 @@ impl ICoreTextSelectionRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextSelectionRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextSelectionRequestedEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextSelectionRequestedEventArgs as ::windows::core::Interface>::IID
@@ -927,7 +961,14 @@ impl ICoreTextSelectionUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextSelectionUpdatingEventArgs>, ::windows::core::GetTrustLevel, Selection::<Impl, IMPL_OFFSET>, Result::<Impl, IMPL_OFFSET>, SetResult::<Impl, IMPL_OFFSET>, IsCanceled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextSelectionUpdatingEventArgs, BASE_OFFSET>(),
+            Selection: Selection::<Impl, IMPL_OFFSET>,
+            Result: Result::<Impl, IMPL_OFFSET>,
+            SetResult: SetResult::<Impl, IMPL_OFFSET>,
+            IsCanceled: IsCanceled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextSelectionUpdatingEventArgs as ::windows::core::Interface>::IID
@@ -984,7 +1025,13 @@ impl ICoreTextServicesManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextServicesManager>, ::windows::core::GetTrustLevel, InputLanguage::<Impl, IMPL_OFFSET>, InputLanguageChanged::<Impl, IMPL_OFFSET>, RemoveInputLanguageChanged::<Impl, IMPL_OFFSET>, CreateEditContext::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextServicesManager, BASE_OFFSET>(),
+            InputLanguage: InputLanguage::<Impl, IMPL_OFFSET>,
+            InputLanguageChanged: InputLanguageChanged::<Impl, IMPL_OFFSET>,
+            RemoveInputLanguageChanged: RemoveInputLanguageChanged::<Impl, IMPL_OFFSET>,
+            CreateEditContext: CreateEditContext::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextServicesManager as ::windows::core::Interface>::IID
@@ -1012,7 +1059,10 @@ impl ICoreTextServicesManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextServicesManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextServicesManagerStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextServicesManagerStatics as ::windows::core::Interface>::IID
@@ -1040,7 +1090,10 @@ impl ICoreTextServicesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextServicesStatics>, ::windows::core::GetTrustLevel, HiddenCharacter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextServicesStatics, BASE_OFFSET>(),
+            HiddenCharacter: HiddenCharacter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextServicesStatics as ::windows::core::Interface>::IID
@@ -1109,7 +1162,14 @@ impl ICoreTextTextRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextTextRequest>, ::windows::core::GetTrustLevel, Range::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>, IsCanceled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextTextRequest, BASE_OFFSET>(),
+            Range: Range::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+            SetText: SetText::<Impl, IMPL_OFFSET>,
+            IsCanceled: IsCanceled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextTextRequest as ::windows::core::Interface>::IID
@@ -1137,7 +1197,7 @@ impl ICoreTextTextRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextTextRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextTextRequestedEventArgs, BASE_OFFSET>(), Request: Request::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextTextRequestedEventArgs as ::windows::core::Interface>::IID
@@ -1242,22 +1302,17 @@ impl ICoreTextTextUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreTextTextUpdatingEventArgs>,
-            ::windows::core::GetTrustLevel,
-            Range::<Impl, IMPL_OFFSET>,
-            Text::<Impl, IMPL_OFFSET>,
-            NewSelection::<Impl, IMPL_OFFSET>,
-            InputLanguage::<Impl, IMPL_OFFSET>,
-            Result::<Impl, IMPL_OFFSET>,
-            SetResult::<Impl, IMPL_OFFSET>,
-            IsCanceled::<Impl, IMPL_OFFSET>,
-            GetDeferral::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreTextTextUpdatingEventArgs, BASE_OFFSET>(),
+            Range: Range::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+            NewSelection: NewSelection::<Impl, IMPL_OFFSET>,
+            InputLanguage: InputLanguage::<Impl, IMPL_OFFSET>,
+            Result: Result::<Impl, IMPL_OFFSET>,
+            SetResult: SetResult::<Impl, IMPL_OFFSET>,
+            IsCanceled: IsCanceled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreTextTextUpdatingEventArgs as ::windows::core::Interface>::IID

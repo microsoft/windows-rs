@@ -302,224 +302,224 @@ impl IInertiaProcessor {
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn InitialOriginX(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).InitialOriginX)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetInitialOriginX(&self, x: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(x)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialOriginX)(::core::mem::transmute_copy(self), ::core::mem::transmute(x)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn InitialOriginY(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).InitialOriginY)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetInitialOriginY(&self, y: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialOriginY)(::core::mem::transmute_copy(self), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn InitialVelocityX(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).InitialVelocityX)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetInitialVelocityX(&self, x: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(x)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialVelocityX)(::core::mem::transmute_copy(self), ::core::mem::transmute(x)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn InitialVelocityY(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).InitialVelocityY)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetInitialVelocityY(&self, y: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialVelocityY)(::core::mem::transmute_copy(self), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn InitialAngularVelocity(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).InitialAngularVelocity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetInitialAngularVelocity(&self, velocity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(velocity)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialAngularVelocity)(::core::mem::transmute_copy(self), ::core::mem::transmute(velocity)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn InitialExpansionVelocity(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).InitialExpansionVelocity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetInitialExpansionVelocity(&self, velocity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(velocity)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialExpansionVelocity)(::core::mem::transmute_copy(self), ::core::mem::transmute(velocity)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn InitialRadius(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).InitialRadius)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetInitialRadius(&self, radius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(radius)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialRadius)(::core::mem::transmute_copy(self), ::core::mem::transmute(radius)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn BoundaryLeft(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).BoundaryLeft)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetBoundaryLeft(&self, left: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(left)).ok()
+        (::windows::core::Interface::vtable(self).SetBoundaryLeft)(::core::mem::transmute_copy(self), ::core::mem::transmute(left)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn BoundaryTop(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).BoundaryTop)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetBoundaryTop(&self, top: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(top)).ok()
+        (::windows::core::Interface::vtable(self).SetBoundaryTop)(::core::mem::transmute_copy(self), ::core::mem::transmute(top)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn BoundaryRight(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).BoundaryRight)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetBoundaryRight(&self, right: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(right)).ok()
+        (::windows::core::Interface::vtable(self).SetBoundaryRight)(::core::mem::transmute_copy(self), ::core::mem::transmute(right)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn BoundaryBottom(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).BoundaryBottom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetBoundaryBottom(&self, bottom: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(bottom)).ok()
+        (::windows::core::Interface::vtable(self).SetBoundaryBottom)(::core::mem::transmute_copy(self), ::core::mem::transmute(bottom)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn ElasticMarginLeft(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).ElasticMarginLeft)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetElasticMarginLeft(&self, left: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(left)).ok()
+        (::windows::core::Interface::vtable(self).SetElasticMarginLeft)(::core::mem::transmute_copy(self), ::core::mem::transmute(left)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn ElasticMarginTop(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).ElasticMarginTop)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetElasticMarginTop(&self, top: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(top)).ok()
+        (::windows::core::Interface::vtable(self).SetElasticMarginTop)(::core::mem::transmute_copy(self), ::core::mem::transmute(top)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn ElasticMarginRight(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).ElasticMarginRight)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetElasticMarginRight(&self, right: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(right)).ok()
+        (::windows::core::Interface::vtable(self).SetElasticMarginRight)(::core::mem::transmute_copy(self), ::core::mem::transmute(right)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn ElasticMarginBottom(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).ElasticMarginBottom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetElasticMarginBottom(&self, bottom: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(bottom)).ok()
+        (::windows::core::Interface::vtable(self).SetElasticMarginBottom)(::core::mem::transmute_copy(self), ::core::mem::transmute(bottom)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn DesiredDisplacement(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).DesiredDisplacement)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetDesiredDisplacement(&self, displacement: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(displacement)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredDisplacement)(::core::mem::transmute_copy(self), ::core::mem::transmute(displacement)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn DesiredRotation(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).DesiredRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetDesiredRotation(&self, rotation: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rotation)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(rotation)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn DesiredExpansion(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).DesiredExpansion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetDesiredExpansion(&self, expansion: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(expansion)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredExpansion)(::core::mem::transmute_copy(self), ::core::mem::transmute(expansion)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn DesiredDeceleration(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).DesiredDeceleration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetDesiredDeceleration(&self, deceleration: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(deceleration)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredDeceleration)(::core::mem::transmute_copy(self), ::core::mem::transmute(deceleration)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn DesiredAngularDeceleration(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).DesiredAngularDeceleration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetDesiredAngularDeceleration(&self, deceleration: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(deceleration)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredAngularDeceleration)(::core::mem::transmute_copy(self), ::core::mem::transmute(deceleration)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn DesiredExpansionDeceleration(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).DesiredExpansionDeceleration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetDesiredExpansionDeceleration(&self, deceleration: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(deceleration)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredExpansionDeceleration)(::core::mem::transmute_copy(self), ::core::mem::transmute(deceleration)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn InitialTimestamp(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).InitialTimestamp)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetInitialTimestamp(&self, timestamp: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(timestamp)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialTimestamp)(::core::mem::transmute_copy(self), ::core::mem::transmute(timestamp)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Process(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).Process)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProcessTime(&self, timestamp: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), ::core::mem::transmute(timestamp), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).ProcessTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(timestamp), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn Complete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Complete)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn CompleteTime(&self, timestamp: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), ::core::mem::transmute(timestamp)).ok()
+        (::windows::core::Interface::vtable(self).CompleteTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(timestamp)).ok()
     }
 }
 impl ::core::convert::From<IInertiaProcessor> for ::windows::core::IUnknown {
@@ -564,62 +564,64 @@ unsafe impl ::windows::core::Interface for IInertiaProcessor {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInertiaProcessorVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, y: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, y: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, y: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, y: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocity: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocity: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocity: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocity: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bottom: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bottom: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bottom: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bottom: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displacement: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displacement: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rotation: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rotation: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expansion: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expansion: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deceleration: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deceleration: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deceleration: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deceleration: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deceleration: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deceleration: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timestamp: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timestamp: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, completed: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timestamp: u32, completed: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timestamp: u32) -> ::windows::core::HRESULT,
-);
+pub struct IInertiaProcessorVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub InitialOriginX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: *mut f32) -> ::windows::core::HRESULT,
+    pub SetInitialOriginX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32) -> ::windows::core::HRESULT,
+    pub InitialOriginY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, y: *mut f32) -> ::windows::core::HRESULT,
+    pub SetInitialOriginY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, y: f32) -> ::windows::core::HRESULT,
+    pub InitialVelocityX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: *mut f32) -> ::windows::core::HRESULT,
+    pub SetInitialVelocityX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32) -> ::windows::core::HRESULT,
+    pub InitialVelocityY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, y: *mut f32) -> ::windows::core::HRESULT,
+    pub SetInitialVelocityY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, y: f32) -> ::windows::core::HRESULT,
+    pub InitialAngularVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocity: *mut f32) -> ::windows::core::HRESULT,
+    pub SetInitialAngularVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocity: f32) -> ::windows::core::HRESULT,
+    pub InitialExpansionVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocity: *mut f32) -> ::windows::core::HRESULT,
+    pub SetInitialExpansionVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocity: f32) -> ::windows::core::HRESULT,
+    pub InitialRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: *mut f32) -> ::windows::core::HRESULT,
+    pub SetInitialRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
+    pub BoundaryLeft: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: *mut f32) -> ::windows::core::HRESULT,
+    pub SetBoundaryLeft: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32) -> ::windows::core::HRESULT,
+    pub BoundaryTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: *mut f32) -> ::windows::core::HRESULT,
+    pub SetBoundaryTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: f32) -> ::windows::core::HRESULT,
+    pub BoundaryRight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: *mut f32) -> ::windows::core::HRESULT,
+    pub SetBoundaryRight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: f32) -> ::windows::core::HRESULT,
+    pub BoundaryBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bottom: *mut f32) -> ::windows::core::HRESULT,
+    pub SetBoundaryBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bottom: f32) -> ::windows::core::HRESULT,
+    pub ElasticMarginLeft: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: *mut f32) -> ::windows::core::HRESULT,
+    pub SetElasticMarginLeft: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32) -> ::windows::core::HRESULT,
+    pub ElasticMarginTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: *mut f32) -> ::windows::core::HRESULT,
+    pub SetElasticMarginTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: f32) -> ::windows::core::HRESULT,
+    pub ElasticMarginRight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: *mut f32) -> ::windows::core::HRESULT,
+    pub SetElasticMarginRight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: f32) -> ::windows::core::HRESULT,
+    pub ElasticMarginBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bottom: *mut f32) -> ::windows::core::HRESULT,
+    pub SetElasticMarginBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bottom: f32) -> ::windows::core::HRESULT,
+    pub DesiredDisplacement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displacement: *mut f32) -> ::windows::core::HRESULT,
+    pub SetDesiredDisplacement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displacement: f32) -> ::windows::core::HRESULT,
+    pub DesiredRotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rotation: *mut f32) -> ::windows::core::HRESULT,
+    pub SetDesiredRotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rotation: f32) -> ::windows::core::HRESULT,
+    pub DesiredExpansion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expansion: *mut f32) -> ::windows::core::HRESULT,
+    pub SetDesiredExpansion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expansion: f32) -> ::windows::core::HRESULT,
+    pub DesiredDeceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deceleration: *mut f32) -> ::windows::core::HRESULT,
+    pub SetDesiredDeceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deceleration: f32) -> ::windows::core::HRESULT,
+    pub DesiredAngularDeceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deceleration: *mut f32) -> ::windows::core::HRESULT,
+    pub SetDesiredAngularDeceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deceleration: f32) -> ::windows::core::HRESULT,
+    pub DesiredExpansionDeceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deceleration: *mut f32) -> ::windows::core::HRESULT,
+    pub SetDesiredExpansionDeceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deceleration: f32) -> ::windows::core::HRESULT,
+    pub InitialTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timestamp: *mut u32) -> ::windows::core::HRESULT,
+    pub SetInitialTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timestamp: u32) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Process: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, completed: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Process: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ProcessTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timestamp: u32, completed: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ProcessTime: usize,
+    pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CompleteTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timestamp: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
 #[repr(transparent)]
 pub struct IManipulationProcessor(::windows::core::IUnknown);
@@ -627,95 +629,95 @@ impl IManipulationProcessor {
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SupportedManipulations(&self) -> ::windows::core::Result<MANIPULATION_PROCESSOR_MANIPULATIONS> {
         let mut result__: MANIPULATION_PROCESSOR_MANIPULATIONS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<MANIPULATION_PROCESSOR_MANIPULATIONS>(result__)
+        (::windows::core::Interface::vtable(self).SupportedManipulations)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<MANIPULATION_PROCESSOR_MANIPULATIONS>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetSupportedManipulations(&self, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulations)).ok()
+        (::windows::core::Interface::vtable(self).SetSupportedManipulations)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulations)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn PivotPointX(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).PivotPointX)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetPivotPointX(&self, pivotpointx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pivotpointx)).ok()
+        (::windows::core::Interface::vtable(self).SetPivotPointX)(::core::mem::transmute_copy(self), ::core::mem::transmute(pivotpointx)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn PivotPointY(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).PivotPointY)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetPivotPointY(&self, pivotpointy: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pivotpointy)).ok()
+        (::windows::core::Interface::vtable(self).SetPivotPointY)(::core::mem::transmute_copy(self), ::core::mem::transmute(pivotpointy)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn PivotRadius(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).PivotRadius)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetPivotRadius(&self, pivotradius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pivotradius)).ok()
+        (::windows::core::Interface::vtable(self).SetPivotRadius)(::core::mem::transmute_copy(self), ::core::mem::transmute(pivotradius)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn CompleteManipulation(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CompleteManipulation)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn ProcessDown(&self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).ProcessDown)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn ProcessMove(&self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).ProcessMove)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn ProcessUp(&self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).ProcessUp)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn ProcessDownWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(timestamp)).ok()
+        (::windows::core::Interface::vtable(self).ProcessDownWithTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(timestamp)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn ProcessMoveWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(timestamp)).ok()
+        (::windows::core::Interface::vtable(self).ProcessMoveWithTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(timestamp)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn ProcessUpWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(timestamp)).ok()
+        (::windows::core::Interface::vtable(self).ProcessUpWithTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(timestamp)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn GetVelocityX(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).GetVelocityX)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn GetVelocityY(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).GetVelocityY)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn GetExpansionVelocity(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).GetExpansionVelocity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn GetAngularVelocity(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).GetAngularVelocity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn MinimumScaleRotateRadius(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).MinimumScaleRotateRadius)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn SetMinimumScaleRotateRadius(&self, minradius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(minradius)).ok()
+        (::windows::core::Interface::vtable(self).SetMinimumScaleRotateRadius)(::core::mem::transmute_copy(self), ::core::mem::transmute(minradius)).ok()
     }
 }
 impl ::core::convert::From<IManipulationProcessor> for ::windows::core::IUnknown {
@@ -760,32 +762,30 @@ unsafe impl ::windows::core::Interface for IManipulationProcessor {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IManipulationProcessorVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulations: *mut MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pivotpointx: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pivotpointx: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pivotpointy: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pivotpointy: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pivotradius: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pivotradius: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocityx: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocityy: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expansionvelocity: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, angularvelocity: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minradius: *mut f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minradius: f32) -> ::windows::core::HRESULT,
-);
+pub struct IManipulationProcessorVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub SupportedManipulations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulations: *mut MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::HRESULT,
+    pub SetSupportedManipulations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::HRESULT,
+    pub PivotPointX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pivotpointx: *mut f32) -> ::windows::core::HRESULT,
+    pub SetPivotPointX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pivotpointx: f32) -> ::windows::core::HRESULT,
+    pub PivotPointY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pivotpointy: *mut f32) -> ::windows::core::HRESULT,
+    pub SetPivotPointY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pivotpointy: f32) -> ::windows::core::HRESULT,
+    pub PivotRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pivotradius: *mut f32) -> ::windows::core::HRESULT,
+    pub SetPivotRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pivotradius: f32) -> ::windows::core::HRESULT,
+    pub CompleteManipulation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ProcessDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::HRESULT,
+    pub ProcessMove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::HRESULT,
+    pub ProcessUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::HRESULT,
+    pub ProcessDownWithTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::HRESULT,
+    pub ProcessMoveWithTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::HRESULT,
+    pub ProcessUpWithTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::HRESULT,
+    pub GetVelocityX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocityx: *mut f32) -> ::windows::core::HRESULT,
+    pub GetVelocityY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocityy: *mut f32) -> ::windows::core::HRESULT,
+    pub GetExpansionVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expansionvelocity: *mut f32) -> ::windows::core::HRESULT,
+    pub GetAngularVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, angularvelocity: *mut f32) -> ::windows::core::HRESULT,
+    pub MinimumScaleRotateRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minradius: *mut f32) -> ::windows::core::HRESULT,
+    pub SetMinimumScaleRotateRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minradius: f32) -> ::windows::core::HRESULT,
+}
 pub const InertiaProcessor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
 #[doc = "*Required features: 'Win32_UI_Input_Touch', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -947,11 +947,11 @@ pub struct _IManipulationEvents(::windows::core::IUnknown);
 impl _IManipulationEvents {
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn ManipulationStarted(&self, x: f32, y: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).ManipulationStarted)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn ManipulationDelta(&self, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(
+        (::windows::core::Interface::vtable(self).ManipulationDelta)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(x),
             ::core::mem::transmute(y),
@@ -970,7 +970,7 @@ impl _IManipulationEvents {
     }
     #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
     pub unsafe fn ManipulationCompleted(&self, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cumulativetranslationx), ::core::mem::transmute(cumulativetranslationy), ::core::mem::transmute(cumulativescale), ::core::mem::transmute(cumulativeexpansion), ::core::mem::transmute(cumulativerotation)).ok()
+        (::windows::core::Interface::vtable(self).ManipulationCompleted)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cumulativetranslationx), ::core::mem::transmute(cumulativetranslationy), ::core::mem::transmute(cumulativescale), ::core::mem::transmute(cumulativeexpansion), ::core::mem::transmute(cumulativerotation)).ok()
     }
 }
 impl ::core::convert::From<_IManipulationEvents> for ::windows::core::IUnknown {
@@ -1015,13 +1015,11 @@ unsafe impl ::windows::core::Interface for _IManipulationEvents {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct _IManipulationEventsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::HRESULT,
-);
+pub struct _IManipulationEventsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub ManipulationStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32) -> ::windows::core::HRESULT,
+    pub ManipulationDelta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::HRESULT,
+    pub ManipulationCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::HRESULT,
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -32,7 +32,11 @@ impl IHolographicApplicationPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicApplicationPreviewStatics>, ::windows::core::GetTrustLevel, IsCurrentViewPresentedOnHolographicDisplay::<Impl, IMPL_OFFSET>, IsHolographicActivation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicApplicationPreviewStatics, BASE_OFFSET>(),
+            IsCurrentViewPresentedOnHolographicDisplay: IsCurrentViewPresentedOnHolographicDisplay::<Impl, IMPL_OFFSET>,
+            IsHolographicActivation: IsHolographicActivation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicApplicationPreviewStatics as ::windows::core::Interface>::IID
@@ -76,7 +80,12 @@ impl IHolographicKeyboardPlacementOverridePreviewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetPlacementOverride().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicKeyboardPlacementOverridePreview>, ::windows::core::GetTrustLevel, SetPlacementOverride::<Impl, IMPL_OFFSET>, SetPlacementOverrideWithMaxSize::<Impl, IMPL_OFFSET>, ResetPlacementOverride::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicKeyboardPlacementOverridePreview, BASE_OFFSET>(),
+            SetPlacementOverride: SetPlacementOverride::<Impl, IMPL_OFFSET>,
+            SetPlacementOverrideWithMaxSize: SetPlacementOverrideWithMaxSize::<Impl, IMPL_OFFSET>,
+            ResetPlacementOverride: ResetPlacementOverride::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicKeyboardPlacementOverridePreview as ::windows::core::Interface>::IID
@@ -104,7 +113,10 @@ impl IHolographicKeyboardPlacementOverridePreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicKeyboardPlacementOverridePreviewStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicKeyboardPlacementOverridePreviewStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHolographicKeyboardPlacementOverridePreviewStatics as ::windows::core::Interface>::IID

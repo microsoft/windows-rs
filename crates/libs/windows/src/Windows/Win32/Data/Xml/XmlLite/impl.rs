@@ -119,34 +119,32 @@ impl IXmlReaderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            SetInput::<Impl, IMPL_OFFSET>,
-            GetProperty::<Impl, IMPL_OFFSET>,
-            SetProperty::<Impl, IMPL_OFFSET>,
-            Read::<Impl, IMPL_OFFSET>,
-            GetNodeType::<Impl, IMPL_OFFSET>,
-            MoveToFirstAttribute::<Impl, IMPL_OFFSET>,
-            MoveToNextAttribute::<Impl, IMPL_OFFSET>,
-            MoveToAttributeByName::<Impl, IMPL_OFFSET>,
-            MoveToElement::<Impl, IMPL_OFFSET>,
-            GetQualifiedName::<Impl, IMPL_OFFSET>,
-            GetNamespaceUri::<Impl, IMPL_OFFSET>,
-            GetLocalName::<Impl, IMPL_OFFSET>,
-            GetPrefix::<Impl, IMPL_OFFSET>,
-            GetValue::<Impl, IMPL_OFFSET>,
-            ReadValueChunk::<Impl, IMPL_OFFSET>,
-            GetBaseUri::<Impl, IMPL_OFFSET>,
-            IsDefault::<Impl, IMPL_OFFSET>,
-            IsEmptyElement::<Impl, IMPL_OFFSET>,
-            GetLineNumber::<Impl, IMPL_OFFSET>,
-            GetLinePosition::<Impl, IMPL_OFFSET>,
-            GetAttributeCount::<Impl, IMPL_OFFSET>,
-            GetDepth::<Impl, IMPL_OFFSET>,
-            IsEOF::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetInput: SetInput::<Impl, IMPL_OFFSET>,
+            GetProperty: GetProperty::<Impl, IMPL_OFFSET>,
+            SetProperty: SetProperty::<Impl, IMPL_OFFSET>,
+            Read: Read::<Impl, IMPL_OFFSET>,
+            GetNodeType: GetNodeType::<Impl, IMPL_OFFSET>,
+            MoveToFirstAttribute: MoveToFirstAttribute::<Impl, IMPL_OFFSET>,
+            MoveToNextAttribute: MoveToNextAttribute::<Impl, IMPL_OFFSET>,
+            MoveToAttributeByName: MoveToAttributeByName::<Impl, IMPL_OFFSET>,
+            MoveToElement: MoveToElement::<Impl, IMPL_OFFSET>,
+            GetQualifiedName: GetQualifiedName::<Impl, IMPL_OFFSET>,
+            GetNamespaceUri: GetNamespaceUri::<Impl, IMPL_OFFSET>,
+            GetLocalName: GetLocalName::<Impl, IMPL_OFFSET>,
+            GetPrefix: GetPrefix::<Impl, IMPL_OFFSET>,
+            GetValue: GetValue::<Impl, IMPL_OFFSET>,
+            ReadValueChunk: ReadValueChunk::<Impl, IMPL_OFFSET>,
+            GetBaseUri: GetBaseUri::<Impl, IMPL_OFFSET>,
+            IsDefault: IsDefault::<Impl, IMPL_OFFSET>,
+            IsEmptyElement: IsEmptyElement::<Impl, IMPL_OFFSET>,
+            GetLineNumber: GetLineNumber::<Impl, IMPL_OFFSET>,
+            GetLinePosition: GetLinePosition::<Impl, IMPL_OFFSET>,
+            GetAttributeCount: GetAttributeCount::<Impl, IMPL_OFFSET>,
+            GetDepth: GetDepth::<Impl, IMPL_OFFSET>,
+            IsEOF: IsEOF::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlReader as ::windows::core::Interface>::IID
@@ -163,7 +161,7 @@ impl IXmlResolverVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ResolveUri::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), ResolveUri: ResolveUri::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlResolver as ::windows::core::Interface>::IID
@@ -320,40 +318,38 @@ impl IXmlWriterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            SetOutput::<Impl, IMPL_OFFSET>,
-            GetProperty::<Impl, IMPL_OFFSET>,
-            SetProperty::<Impl, IMPL_OFFSET>,
-            WriteAttributes::<Impl, IMPL_OFFSET>,
-            WriteAttributeString::<Impl, IMPL_OFFSET>,
-            WriteCData::<Impl, IMPL_OFFSET>,
-            WriteCharEntity::<Impl, IMPL_OFFSET>,
-            WriteChars::<Impl, IMPL_OFFSET>,
-            WriteComment::<Impl, IMPL_OFFSET>,
-            WriteDocType::<Impl, IMPL_OFFSET>,
-            WriteElementString::<Impl, IMPL_OFFSET>,
-            WriteEndDocument::<Impl, IMPL_OFFSET>,
-            WriteEndElement::<Impl, IMPL_OFFSET>,
-            WriteEntityRef::<Impl, IMPL_OFFSET>,
-            WriteFullEndElement::<Impl, IMPL_OFFSET>,
-            WriteName::<Impl, IMPL_OFFSET>,
-            WriteNmToken::<Impl, IMPL_OFFSET>,
-            WriteNode::<Impl, IMPL_OFFSET>,
-            WriteNodeShallow::<Impl, IMPL_OFFSET>,
-            WriteProcessingInstruction::<Impl, IMPL_OFFSET>,
-            WriteQualifiedName::<Impl, IMPL_OFFSET>,
-            WriteRaw::<Impl, IMPL_OFFSET>,
-            WriteRawChars::<Impl, IMPL_OFFSET>,
-            WriteStartDocument::<Impl, IMPL_OFFSET>,
-            WriteStartElement::<Impl, IMPL_OFFSET>,
-            WriteString::<Impl, IMPL_OFFSET>,
-            WriteSurrogateCharEntity::<Impl, IMPL_OFFSET>,
-            WriteWhitespace::<Impl, IMPL_OFFSET>,
-            Flush::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetOutput: SetOutput::<Impl, IMPL_OFFSET>,
+            GetProperty: GetProperty::<Impl, IMPL_OFFSET>,
+            SetProperty: SetProperty::<Impl, IMPL_OFFSET>,
+            WriteAttributes: WriteAttributes::<Impl, IMPL_OFFSET>,
+            WriteAttributeString: WriteAttributeString::<Impl, IMPL_OFFSET>,
+            WriteCData: WriteCData::<Impl, IMPL_OFFSET>,
+            WriteCharEntity: WriteCharEntity::<Impl, IMPL_OFFSET>,
+            WriteChars: WriteChars::<Impl, IMPL_OFFSET>,
+            WriteComment: WriteComment::<Impl, IMPL_OFFSET>,
+            WriteDocType: WriteDocType::<Impl, IMPL_OFFSET>,
+            WriteElementString: WriteElementString::<Impl, IMPL_OFFSET>,
+            WriteEndDocument: WriteEndDocument::<Impl, IMPL_OFFSET>,
+            WriteEndElement: WriteEndElement::<Impl, IMPL_OFFSET>,
+            WriteEntityRef: WriteEntityRef::<Impl, IMPL_OFFSET>,
+            WriteFullEndElement: WriteFullEndElement::<Impl, IMPL_OFFSET>,
+            WriteName: WriteName::<Impl, IMPL_OFFSET>,
+            WriteNmToken: WriteNmToken::<Impl, IMPL_OFFSET>,
+            WriteNode: WriteNode::<Impl, IMPL_OFFSET>,
+            WriteNodeShallow: WriteNodeShallow::<Impl, IMPL_OFFSET>,
+            WriteProcessingInstruction: WriteProcessingInstruction::<Impl, IMPL_OFFSET>,
+            WriteQualifiedName: WriteQualifiedName::<Impl, IMPL_OFFSET>,
+            WriteRaw: WriteRaw::<Impl, IMPL_OFFSET>,
+            WriteRawChars: WriteRawChars::<Impl, IMPL_OFFSET>,
+            WriteStartDocument: WriteStartDocument::<Impl, IMPL_OFFSET>,
+            WriteStartElement: WriteStartElement::<Impl, IMPL_OFFSET>,
+            WriteString: WriteString::<Impl, IMPL_OFFSET>,
+            WriteSurrogateCharEntity: WriteSurrogateCharEntity::<Impl, IMPL_OFFSET>,
+            WriteWhitespace: WriteWhitespace::<Impl, IMPL_OFFSET>,
+            Flush: Flush::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlWriter as ::windows::core::Interface>::IID
@@ -505,39 +501,37 @@ impl IXmlWriterLiteVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            SetOutput::<Impl, IMPL_OFFSET>,
-            GetProperty::<Impl, IMPL_OFFSET>,
-            SetProperty::<Impl, IMPL_OFFSET>,
-            WriteAttributes::<Impl, IMPL_OFFSET>,
-            WriteAttributeString::<Impl, IMPL_OFFSET>,
-            WriteCData::<Impl, IMPL_OFFSET>,
-            WriteCharEntity::<Impl, IMPL_OFFSET>,
-            WriteChars::<Impl, IMPL_OFFSET>,
-            WriteComment::<Impl, IMPL_OFFSET>,
-            WriteDocType::<Impl, IMPL_OFFSET>,
-            WriteElementString::<Impl, IMPL_OFFSET>,
-            WriteEndDocument::<Impl, IMPL_OFFSET>,
-            WriteEndElement::<Impl, IMPL_OFFSET>,
-            WriteEntityRef::<Impl, IMPL_OFFSET>,
-            WriteFullEndElement::<Impl, IMPL_OFFSET>,
-            WriteName::<Impl, IMPL_OFFSET>,
-            WriteNmToken::<Impl, IMPL_OFFSET>,
-            WriteNode::<Impl, IMPL_OFFSET>,
-            WriteNodeShallow::<Impl, IMPL_OFFSET>,
-            WriteProcessingInstruction::<Impl, IMPL_OFFSET>,
-            WriteRaw::<Impl, IMPL_OFFSET>,
-            WriteRawChars::<Impl, IMPL_OFFSET>,
-            WriteStartDocument::<Impl, IMPL_OFFSET>,
-            WriteStartElement::<Impl, IMPL_OFFSET>,
-            WriteString::<Impl, IMPL_OFFSET>,
-            WriteSurrogateCharEntity::<Impl, IMPL_OFFSET>,
-            WriteWhitespace::<Impl, IMPL_OFFSET>,
-            Flush::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetOutput: SetOutput::<Impl, IMPL_OFFSET>,
+            GetProperty: GetProperty::<Impl, IMPL_OFFSET>,
+            SetProperty: SetProperty::<Impl, IMPL_OFFSET>,
+            WriteAttributes: WriteAttributes::<Impl, IMPL_OFFSET>,
+            WriteAttributeString: WriteAttributeString::<Impl, IMPL_OFFSET>,
+            WriteCData: WriteCData::<Impl, IMPL_OFFSET>,
+            WriteCharEntity: WriteCharEntity::<Impl, IMPL_OFFSET>,
+            WriteChars: WriteChars::<Impl, IMPL_OFFSET>,
+            WriteComment: WriteComment::<Impl, IMPL_OFFSET>,
+            WriteDocType: WriteDocType::<Impl, IMPL_OFFSET>,
+            WriteElementString: WriteElementString::<Impl, IMPL_OFFSET>,
+            WriteEndDocument: WriteEndDocument::<Impl, IMPL_OFFSET>,
+            WriteEndElement: WriteEndElement::<Impl, IMPL_OFFSET>,
+            WriteEntityRef: WriteEntityRef::<Impl, IMPL_OFFSET>,
+            WriteFullEndElement: WriteFullEndElement::<Impl, IMPL_OFFSET>,
+            WriteName: WriteName::<Impl, IMPL_OFFSET>,
+            WriteNmToken: WriteNmToken::<Impl, IMPL_OFFSET>,
+            WriteNode: WriteNode::<Impl, IMPL_OFFSET>,
+            WriteNodeShallow: WriteNodeShallow::<Impl, IMPL_OFFSET>,
+            WriteProcessingInstruction: WriteProcessingInstruction::<Impl, IMPL_OFFSET>,
+            WriteRaw: WriteRaw::<Impl, IMPL_OFFSET>,
+            WriteRawChars: WriteRawChars::<Impl, IMPL_OFFSET>,
+            WriteStartDocument: WriteStartDocument::<Impl, IMPL_OFFSET>,
+            WriteStartElement: WriteStartElement::<Impl, IMPL_OFFSET>,
+            WriteString: WriteString::<Impl, IMPL_OFFSET>,
+            WriteSurrogateCharEntity: WriteSurrogateCharEntity::<Impl, IMPL_OFFSET>,
+            WriteWhitespace: WriteWhitespace::<Impl, IMPL_OFFSET>,
+            Flush: Flush::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlWriterLite as ::windows::core::Interface>::IID

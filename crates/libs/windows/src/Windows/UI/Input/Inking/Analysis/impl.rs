@@ -20,7 +20,10 @@ impl IInkAnalysisInkBulletVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkAnalysisInkBullet>, ::windows::core::GetTrustLevel, RecognizedText::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisInkBullet, BASE_OFFSET>(),
+            RecognizedText: RecognizedText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkAnalysisInkBullet as ::windows::core::Interface>::IID
@@ -72,7 +75,12 @@ impl IInkAnalysisInkDrawingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkAnalysisInkDrawing>, ::windows::core::GetTrustLevel, DrawingKind::<Impl, IMPL_OFFSET>, Center::<Impl, IMPL_OFFSET>, Points::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisInkDrawing, BASE_OFFSET>(),
+            DrawingKind: DrawingKind::<Impl, IMPL_OFFSET>,
+            Center: Center::<Impl, IMPL_OFFSET>,
+            Points: Points::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkAnalysisInkDrawing as ::windows::core::Interface>::IID
@@ -112,7 +120,11 @@ impl IInkAnalysisInkWordVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkAnalysisInkWord>, ::windows::core::GetTrustLevel, RecognizedText::<Impl, IMPL_OFFSET>, TextAlternates::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisInkWord, BASE_OFFSET>(),
+            RecognizedText: RecognizedText::<Impl, IMPL_OFFSET>,
+            TextAlternates: TextAlternates::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkAnalysisInkWord as ::windows::core::Interface>::IID
@@ -152,7 +164,11 @@ impl IInkAnalysisLineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkAnalysisLine>, ::windows::core::GetTrustLevel, RecognizedText::<Impl, IMPL_OFFSET>, IndentLevel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisLine, BASE_OFFSET>(),
+            RecognizedText: RecognizedText::<Impl, IMPL_OFFSET>,
+            IndentLevel: IndentLevel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkAnalysisLine as ::windows::core::Interface>::IID
@@ -180,7 +196,10 @@ impl IInkAnalysisListItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkAnalysisListItem>, ::windows::core::GetTrustLevel, RecognizedText::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisListItem, BASE_OFFSET>(),
+            RecognizedText: RecognizedText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkAnalysisListItem as ::windows::core::Interface>::IID
@@ -280,21 +299,16 @@ impl IInkAnalysisNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInkAnalysisNode>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            Kind::<Impl, IMPL_OFFSET>,
-            BoundingRect::<Impl, IMPL_OFFSET>,
-            RotatedBoundingRect::<Impl, IMPL_OFFSET>,
-            Children::<Impl, IMPL_OFFSET>,
-            Parent::<Impl, IMPL_OFFSET>,
-            GetStrokeIds::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisNode, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            BoundingRect: BoundingRect::<Impl, IMPL_OFFSET>,
+            RotatedBoundingRect: RotatedBoundingRect::<Impl, IMPL_OFFSET>,
+            Children: Children::<Impl, IMPL_OFFSET>,
+            Parent: Parent::<Impl, IMPL_OFFSET>,
+            GetStrokeIds: GetStrokeIds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkAnalysisNode as ::windows::core::Interface>::IID
@@ -322,7 +336,10 @@ impl IInkAnalysisParagraphVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkAnalysisParagraph>, ::windows::core::GetTrustLevel, RecognizedText::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisParagraph, BASE_OFFSET>(),
+            RecognizedText: RecognizedText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkAnalysisParagraph as ::windows::core::Interface>::IID
@@ -350,7 +367,7 @@ impl IInkAnalysisResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkAnalysisResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisResult, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkAnalysisResult as ::windows::core::Interface>::IID
@@ -390,7 +407,11 @@ impl IInkAnalysisRootVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkAnalysisRoot>, ::windows::core::GetTrustLevel, RecognizedText::<Impl, IMPL_OFFSET>, FindNodes::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisRoot, BASE_OFFSET>(),
+            RecognizedText: RecognizedText::<Impl, IMPL_OFFSET>,
+            FindNodes: FindNodes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkAnalysisRoot as ::windows::core::Interface>::IID
@@ -418,7 +439,10 @@ impl IInkAnalysisWritingRegionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkAnalysisWritingRegion>, ::windows::core::GetTrustLevel, RecognizedText::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisWritingRegion, BASE_OFFSET>(),
+            RecognizedText: RecognizedText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkAnalysisWritingRegion as ::windows::core::Interface>::IID
@@ -505,24 +529,19 @@ impl IInkAnalyzerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInkAnalyzer>,
-            ::windows::core::GetTrustLevel,
-            AnalysisRoot::<Impl, IMPL_OFFSET>,
-            IsAnalyzing::<Impl, IMPL_OFFSET>,
-            AddDataForStroke::<Impl, IMPL_OFFSET>,
-            AddDataForStrokes::<Impl, IMPL_OFFSET>,
-            ClearDataForAllStrokes::<Impl, IMPL_OFFSET>,
-            RemoveDataForStroke::<Impl, IMPL_OFFSET>,
-            RemoveDataForStrokes::<Impl, IMPL_OFFSET>,
-            ReplaceDataForStroke::<Impl, IMPL_OFFSET>,
-            SetStrokeDataKind::<Impl, IMPL_OFFSET>,
-            AnalyzeAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalyzer, BASE_OFFSET>(),
+            AnalysisRoot: AnalysisRoot::<Impl, IMPL_OFFSET>,
+            IsAnalyzing: IsAnalyzing::<Impl, IMPL_OFFSET>,
+            AddDataForStroke: AddDataForStroke::<Impl, IMPL_OFFSET>,
+            AddDataForStrokes: AddDataForStrokes::<Impl, IMPL_OFFSET>,
+            ClearDataForAllStrokes: ClearDataForAllStrokes::<Impl, IMPL_OFFSET>,
+            RemoveDataForStroke: RemoveDataForStroke::<Impl, IMPL_OFFSET>,
+            RemoveDataForStrokes: RemoveDataForStrokes::<Impl, IMPL_OFFSET>,
+            ReplaceDataForStroke: ReplaceDataForStroke::<Impl, IMPL_OFFSET>,
+            SetStrokeDataKind: SetStrokeDataKind::<Impl, IMPL_OFFSET>,
+            AnalyzeAsync: AnalyzeAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkAnalyzer as ::windows::core::Interface>::IID
@@ -547,7 +566,10 @@ impl IInkAnalyzerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkAnalyzerFactory>, ::windows::core::GetTrustLevel, CreateAnalyzer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalyzerFactory, BASE_OFFSET>(),
+            CreateAnalyzer: CreateAnalyzer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkAnalyzerFactory as ::windows::core::Interface>::IID

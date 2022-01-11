@@ -132,24 +132,19 @@ impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorAuthenticationManager>,
-            ::windows::core::GetTrustLevel,
-            GetOneTimePassCodeAsync::<Impl, IMPL_OFFSET>,
-            AddDeviceAsync::<Impl, IMPL_OFFSET>,
-            RemoveDeviceAsync::<Impl, IMPL_OFFSET>,
-            UpdateWnsChannelAsync::<Impl, IMPL_OFFSET>,
-            GetSessionsAsync::<Impl, IMPL_OFFSET>,
-            GetSessionsAndUnregisteredAccountsAsync::<Impl, IMPL_OFFSET>,
-            ApproveSessionUsingAuthSessionInfoAsync::<Impl, IMPL_OFFSET>,
-            ApproveSessionAsync::<Impl, IMPL_OFFSET>,
-            DenySessionUsingAuthSessionInfoAsync::<Impl, IMPL_OFFSET>,
-            DenySessionAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMicrosoftAccountMultiFactorAuthenticationManager, BASE_OFFSET>(),
+            GetOneTimePassCodeAsync: GetOneTimePassCodeAsync::<Impl, IMPL_OFFSET>,
+            AddDeviceAsync: AddDeviceAsync::<Impl, IMPL_OFFSET>,
+            RemoveDeviceAsync: RemoveDeviceAsync::<Impl, IMPL_OFFSET>,
+            UpdateWnsChannelAsync: UpdateWnsChannelAsync::<Impl, IMPL_OFFSET>,
+            GetSessionsAsync: GetSessionsAsync::<Impl, IMPL_OFFSET>,
+            GetSessionsAndUnregisteredAccountsAsync: GetSessionsAndUnregisteredAccountsAsync::<Impl, IMPL_OFFSET>,
+            ApproveSessionUsingAuthSessionInfoAsync: ApproveSessionUsingAuthSessionInfoAsync::<Impl, IMPL_OFFSET>,
+            ApproveSessionAsync: ApproveSessionAsync::<Impl, IMPL_OFFSET>,
+            DenySessionUsingAuthSessionInfoAsync: DenySessionUsingAuthSessionInfoAsync::<Impl, IMPL_OFFSET>,
+            DenySessionAsync: DenySessionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMicrosoftAccountMultiFactorAuthenticationManager as ::windows::core::Interface>::IID
@@ -177,7 +172,10 @@ impl IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorAuthenticatorStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMicrosoftAccountMultiFactorAuthenticatorStatics, BASE_OFFSET>(),
+            Current: Current::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMicrosoftAccountMultiFactorAuthenticatorStatics as ::windows::core::Interface>::IID
@@ -217,7 +215,11 @@ impl IMicrosoftAccountMultiFactorGetSessionsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorGetSessionsResult>, ::windows::core::GetTrustLevel, Sessions::<Impl, IMPL_OFFSET>, ServiceResponse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMicrosoftAccountMultiFactorGetSessionsResult, BASE_OFFSET>(),
+            Sessions: Sessions::<Impl, IMPL_OFFSET>,
+            ServiceResponse: ServiceResponse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMicrosoftAccountMultiFactorGetSessionsResult as ::windows::core::Interface>::IID
@@ -281,7 +283,13 @@ impl IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorOneTimeCodedInfo>, ::windows::core::GetTrustLevel, Code::<Impl, IMPL_OFFSET>, TimeInterval::<Impl, IMPL_OFFSET>, TimeToLive::<Impl, IMPL_OFFSET>, ServiceResponse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMicrosoftAccountMultiFactorOneTimeCodedInfo, BASE_OFFSET>(),
+            Code: Code::<Impl, IMPL_OFFSET>,
+            TimeInterval: TimeInterval::<Impl, IMPL_OFFSET>,
+            TimeToLive: TimeToLive::<Impl, IMPL_OFFSET>,
+            ServiceResponse: ServiceResponse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMicrosoftAccountMultiFactorOneTimeCodedInfo as ::windows::core::Interface>::IID
@@ -381,21 +389,16 @@ impl IMicrosoftAccountMultiFactorSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorSessionInfo>,
-            ::windows::core::GetTrustLevel,
-            UserAccountId::<Impl, IMPL_OFFSET>,
-            SessionId::<Impl, IMPL_OFFSET>,
-            DisplaySessionId::<Impl, IMPL_OFFSET>,
-            ApprovalStatus::<Impl, IMPL_OFFSET>,
-            AuthenticationType::<Impl, IMPL_OFFSET>,
-            RequestTime::<Impl, IMPL_OFFSET>,
-            ExpirationTime::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMicrosoftAccountMultiFactorSessionInfo, BASE_OFFSET>(),
+            UserAccountId: UserAccountId::<Impl, IMPL_OFFSET>,
+            SessionId: SessionId::<Impl, IMPL_OFFSET>,
+            DisplaySessionId: DisplaySessionId::<Impl, IMPL_OFFSET>,
+            ApprovalStatus: ApprovalStatus::<Impl, IMPL_OFFSET>,
+            AuthenticationType: AuthenticationType::<Impl, IMPL_OFFSET>,
+            RequestTime: RequestTime::<Impl, IMPL_OFFSET>,
+            ExpirationTime: ExpirationTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMicrosoftAccountMultiFactorSessionInfo as ::windows::core::Interface>::IID
@@ -447,7 +450,12 @@ impl IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>, ::windows::core::GetTrustLevel, Sessions::<Impl, IMPL_OFFSET>, UnregisteredAccounts::<Impl, IMPL_OFFSET>, ServiceResponse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo, BASE_OFFSET>(),
+            Sessions: Sessions::<Impl, IMPL_OFFSET>,
+            UnregisteredAccounts: UnregisteredAccounts::<Impl, IMPL_OFFSET>,
+            ServiceResponse: ServiceResponse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo as ::windows::core::Interface>::IID

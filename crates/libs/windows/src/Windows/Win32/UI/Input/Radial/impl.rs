@@ -13,7 +13,10 @@ impl IRadialControllerConfigurationInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerConfigurationInterop>, ::windows::core::GetTrustLevel, GetForWindow::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerConfigurationInterop, BASE_OFFSET>(),
+            GetForWindow: GetForWindow::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRadialControllerConfigurationInterop as ::windows::core::Interface>::IID
@@ -34,7 +37,10 @@ impl IRadialControllerIndependentInputSourceInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerIndependentInputSourceInterop>, ::windows::core::GetTrustLevel, CreateForWindow::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerIndependentInputSourceInterop, BASE_OFFSET>(),
+            CreateForWindow: CreateForWindow::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRadialControllerIndependentInputSourceInterop as ::windows::core::Interface>::IID
@@ -55,7 +61,10 @@ impl IRadialControllerInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerInterop>, ::windows::core::GetTrustLevel, CreateForWindow::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerInterop, BASE_OFFSET>(),
+            CreateForWindow: CreateForWindow::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRadialControllerInterop as ::windows::core::Interface>::IID

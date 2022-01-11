@@ -20,7 +20,10 @@ impl IAppBarButtonTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBarButtonTemplateSettings>, ::windows::core::GetTrustLevel, KeyboardAcceleratorTextMinWidth::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBarButtonTemplateSettings, BASE_OFFSET>(),
+            KeyboardAcceleratorTextMinWidth: KeyboardAcceleratorTextMinWidth::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBarButtonTemplateSettings as ::windows::core::Interface>::IID
@@ -120,21 +123,16 @@ impl IAppBarTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppBarTemplateSettings>,
-            ::windows::core::GetTrustLevel,
-            ClipRect::<Impl, IMPL_OFFSET>,
-            CompactVerticalDelta::<Impl, IMPL_OFFSET>,
-            CompactRootMargin::<Impl, IMPL_OFFSET>,
-            MinimalVerticalDelta::<Impl, IMPL_OFFSET>,
-            MinimalRootMargin::<Impl, IMPL_OFFSET>,
-            HiddenVerticalDelta::<Impl, IMPL_OFFSET>,
-            HiddenRootMargin::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBarTemplateSettings, BASE_OFFSET>(),
+            ClipRect: ClipRect::<Impl, IMPL_OFFSET>,
+            CompactVerticalDelta: CompactVerticalDelta::<Impl, IMPL_OFFSET>,
+            CompactRootMargin: CompactRootMargin::<Impl, IMPL_OFFSET>,
+            MinimalVerticalDelta: MinimalVerticalDelta::<Impl, IMPL_OFFSET>,
+            MinimalRootMargin: MinimalRootMargin::<Impl, IMPL_OFFSET>,
+            HiddenVerticalDelta: HiddenVerticalDelta::<Impl, IMPL_OFFSET>,
+            HiddenRootMargin: HiddenRootMargin::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBarTemplateSettings as ::windows::core::Interface>::IID
@@ -186,7 +184,12 @@ impl IAppBarTemplateSettings2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBarTemplateSettings2>, ::windows::core::GetTrustLevel, NegativeCompactVerticalDelta::<Impl, IMPL_OFFSET>, NegativeMinimalVerticalDelta::<Impl, IMPL_OFFSET>, NegativeHiddenVerticalDelta::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBarTemplateSettings2, BASE_OFFSET>(),
+            NegativeCompactVerticalDelta: NegativeCompactVerticalDelta::<Impl, IMPL_OFFSET>,
+            NegativeMinimalVerticalDelta: NegativeMinimalVerticalDelta::<Impl, IMPL_OFFSET>,
+            NegativeHiddenVerticalDelta: NegativeHiddenVerticalDelta::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBarTemplateSettings2 as ::windows::core::Interface>::IID
@@ -214,7 +217,10 @@ impl IAppBarToggleButtonTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBarToggleButtonTemplateSettings>, ::windows::core::GetTrustLevel, KeyboardAcceleratorTextMinWidth::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBarToggleButtonTemplateSettings, BASE_OFFSET>(),
+            KeyboardAcceleratorTextMinWidth: KeyboardAcceleratorTextMinWidth::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBarToggleButtonTemplateSettings as ::windows::core::Interface>::IID
@@ -322,24 +328,19 @@ impl IButtonBaseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClick(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IButtonBase>,
-            ::windows::core::GetTrustLevel,
-            ClickMode::<Impl, IMPL_OFFSET>,
-            SetClickMode::<Impl, IMPL_OFFSET>,
-            IsPointerOver::<Impl, IMPL_OFFSET>,
-            IsPressed::<Impl, IMPL_OFFSET>,
-            Command::<Impl, IMPL_OFFSET>,
-            SetCommand::<Impl, IMPL_OFFSET>,
-            CommandParameter::<Impl, IMPL_OFFSET>,
-            SetCommandParameter::<Impl, IMPL_OFFSET>,
-            Click::<Impl, IMPL_OFFSET>,
-            RemoveClick::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IButtonBase, BASE_OFFSET>(),
+            ClickMode: ClickMode::<Impl, IMPL_OFFSET>,
+            SetClickMode: SetClickMode::<Impl, IMPL_OFFSET>,
+            IsPointerOver: IsPointerOver::<Impl, IMPL_OFFSET>,
+            IsPressed: IsPressed::<Impl, IMPL_OFFSET>,
+            Command: Command::<Impl, IMPL_OFFSET>,
+            SetCommand: SetCommand::<Impl, IMPL_OFFSET>,
+            CommandParameter: CommandParameter::<Impl, IMPL_OFFSET>,
+            SetCommandParameter: SetCommandParameter::<Impl, IMPL_OFFSET>,
+            Click: Click::<Impl, IMPL_OFFSET>,
+            RemoveClick: RemoveClick::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IButtonBase as ::windows::core::Interface>::IID
@@ -367,7 +368,7 @@ impl IButtonBaseFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IButtonBaseFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IButtonBaseFactory, BASE_OFFSET>(), CreateInstance: CreateInstance::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IButtonBaseFactory as ::windows::core::Interface>::IID
@@ -443,19 +444,14 @@ impl IButtonBaseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IButtonBaseStatics>,
-            ::windows::core::GetTrustLevel,
-            ClickModeProperty::<Impl, IMPL_OFFSET>,
-            IsPointerOverProperty::<Impl, IMPL_OFFSET>,
-            IsPressedProperty::<Impl, IMPL_OFFSET>,
-            CommandProperty::<Impl, IMPL_OFFSET>,
-            CommandParameterProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IButtonBaseStatics, BASE_OFFSET>(),
+            ClickModeProperty: ClickModeProperty::<Impl, IMPL_OFFSET>,
+            IsPointerOverProperty: IsPointerOverProperty::<Impl, IMPL_OFFSET>,
+            IsPressedProperty: IsPressedProperty::<Impl, IMPL_OFFSET>,
+            CommandProperty: CommandProperty::<Impl, IMPL_OFFSET>,
+            CommandParameterProperty: CommandParameterProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IButtonBaseStatics as ::windows::core::Interface>::IID
@@ -470,7 +466,7 @@ impl ::windows::core::RuntimeName for ICalendarPanel {
 #[cfg(feature = "implement_exclusive")]
 impl ICalendarPanelVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarPanelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICalendarPanelVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarPanel>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICalendarPanel, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICalendarPanel as ::windows::core::Interface>::IID
@@ -666,29 +662,24 @@ impl ICalendarViewTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICalendarViewTemplateSettings>,
-            ::windows::core::GetTrustLevel,
-            MinViewWidth::<Impl, IMPL_OFFSET>,
-            HeaderText::<Impl, IMPL_OFFSET>,
-            WeekDay1::<Impl, IMPL_OFFSET>,
-            WeekDay2::<Impl, IMPL_OFFSET>,
-            WeekDay3::<Impl, IMPL_OFFSET>,
-            WeekDay4::<Impl, IMPL_OFFSET>,
-            WeekDay5::<Impl, IMPL_OFFSET>,
-            WeekDay6::<Impl, IMPL_OFFSET>,
-            WeekDay7::<Impl, IMPL_OFFSET>,
-            HasMoreContentAfter::<Impl, IMPL_OFFSET>,
-            HasMoreContentBefore::<Impl, IMPL_OFFSET>,
-            HasMoreViews::<Impl, IMPL_OFFSET>,
-            ClipRect::<Impl, IMPL_OFFSET>,
-            CenterX::<Impl, IMPL_OFFSET>,
-            CenterY::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICalendarViewTemplateSettings, BASE_OFFSET>(),
+            MinViewWidth: MinViewWidth::<Impl, IMPL_OFFSET>,
+            HeaderText: HeaderText::<Impl, IMPL_OFFSET>,
+            WeekDay1: WeekDay1::<Impl, IMPL_OFFSET>,
+            WeekDay2: WeekDay2::<Impl, IMPL_OFFSET>,
+            WeekDay3: WeekDay3::<Impl, IMPL_OFFSET>,
+            WeekDay4: WeekDay4::<Impl, IMPL_OFFSET>,
+            WeekDay5: WeekDay5::<Impl, IMPL_OFFSET>,
+            WeekDay6: WeekDay6::<Impl, IMPL_OFFSET>,
+            WeekDay7: WeekDay7::<Impl, IMPL_OFFSET>,
+            HasMoreContentAfter: HasMoreContentAfter::<Impl, IMPL_OFFSET>,
+            HasMoreContentBefore: HasMoreContentBefore::<Impl, IMPL_OFFSET>,
+            HasMoreViews: HasMoreViews::<Impl, IMPL_OFFSET>,
+            ClipRect: ClipRect::<Impl, IMPL_OFFSET>,
+            CenterX: CenterX::<Impl, IMPL_OFFSET>,
+            CenterY: CenterY::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICalendarViewTemplateSettings as ::windows::core::Interface>::IID
@@ -909,41 +900,36 @@ impl ICarouselPanelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICarouselPanel>,
-            ::windows::core::GetTrustLevel,
-            CanVerticallyScroll::<Impl, IMPL_OFFSET>,
-            SetCanVerticallyScroll::<Impl, IMPL_OFFSET>,
-            CanHorizontallyScroll::<Impl, IMPL_OFFSET>,
-            SetCanHorizontallyScroll::<Impl, IMPL_OFFSET>,
-            ExtentWidth::<Impl, IMPL_OFFSET>,
-            ExtentHeight::<Impl, IMPL_OFFSET>,
-            ViewportWidth::<Impl, IMPL_OFFSET>,
-            ViewportHeight::<Impl, IMPL_OFFSET>,
-            HorizontalOffset::<Impl, IMPL_OFFSET>,
-            VerticalOffset::<Impl, IMPL_OFFSET>,
-            ScrollOwner::<Impl, IMPL_OFFSET>,
-            SetScrollOwner::<Impl, IMPL_OFFSET>,
-            LineUp::<Impl, IMPL_OFFSET>,
-            LineDown::<Impl, IMPL_OFFSET>,
-            LineLeft::<Impl, IMPL_OFFSET>,
-            LineRight::<Impl, IMPL_OFFSET>,
-            PageUp::<Impl, IMPL_OFFSET>,
-            PageDown::<Impl, IMPL_OFFSET>,
-            PageLeft::<Impl, IMPL_OFFSET>,
-            PageRight::<Impl, IMPL_OFFSET>,
-            MouseWheelUp::<Impl, IMPL_OFFSET>,
-            MouseWheelDown::<Impl, IMPL_OFFSET>,
-            MouseWheelLeft::<Impl, IMPL_OFFSET>,
-            MouseWheelRight::<Impl, IMPL_OFFSET>,
-            SetHorizontalOffset::<Impl, IMPL_OFFSET>,
-            SetVerticalOffset::<Impl, IMPL_OFFSET>,
-            MakeVisible::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICarouselPanel, BASE_OFFSET>(),
+            CanVerticallyScroll: CanVerticallyScroll::<Impl, IMPL_OFFSET>,
+            SetCanVerticallyScroll: SetCanVerticallyScroll::<Impl, IMPL_OFFSET>,
+            CanHorizontallyScroll: CanHorizontallyScroll::<Impl, IMPL_OFFSET>,
+            SetCanHorizontallyScroll: SetCanHorizontallyScroll::<Impl, IMPL_OFFSET>,
+            ExtentWidth: ExtentWidth::<Impl, IMPL_OFFSET>,
+            ExtentHeight: ExtentHeight::<Impl, IMPL_OFFSET>,
+            ViewportWidth: ViewportWidth::<Impl, IMPL_OFFSET>,
+            ViewportHeight: ViewportHeight::<Impl, IMPL_OFFSET>,
+            HorizontalOffset: HorizontalOffset::<Impl, IMPL_OFFSET>,
+            VerticalOffset: VerticalOffset::<Impl, IMPL_OFFSET>,
+            ScrollOwner: ScrollOwner::<Impl, IMPL_OFFSET>,
+            SetScrollOwner: SetScrollOwner::<Impl, IMPL_OFFSET>,
+            LineUp: LineUp::<Impl, IMPL_OFFSET>,
+            LineDown: LineDown::<Impl, IMPL_OFFSET>,
+            LineLeft: LineLeft::<Impl, IMPL_OFFSET>,
+            LineRight: LineRight::<Impl, IMPL_OFFSET>,
+            PageUp: PageUp::<Impl, IMPL_OFFSET>,
+            PageDown: PageDown::<Impl, IMPL_OFFSET>,
+            PageLeft: PageLeft::<Impl, IMPL_OFFSET>,
+            PageRight: PageRight::<Impl, IMPL_OFFSET>,
+            MouseWheelUp: MouseWheelUp::<Impl, IMPL_OFFSET>,
+            MouseWheelDown: MouseWheelDown::<Impl, IMPL_OFFSET>,
+            MouseWheelLeft: MouseWheelLeft::<Impl, IMPL_OFFSET>,
+            MouseWheelRight: MouseWheelRight::<Impl, IMPL_OFFSET>,
+            SetHorizontalOffset: SetHorizontalOffset::<Impl, IMPL_OFFSET>,
+            SetVerticalOffset: SetVerticalOffset::<Impl, IMPL_OFFSET>,
+            MakeVisible: MakeVisible::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICarouselPanel as ::windows::core::Interface>::IID
@@ -971,7 +957,10 @@ impl ICarouselPanelFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICarouselPanelFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICarouselPanelFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICarouselPanelFactory as ::windows::core::Interface>::IID
@@ -1004,7 +993,11 @@ impl IColorPickerSliderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColorChannel(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorPickerSlider>, ::windows::core::GetTrustLevel, ColorChannel::<Impl, IMPL_OFFSET>, SetColorChannel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IColorPickerSlider, BASE_OFFSET>(),
+            ColorChannel: ColorChannel::<Impl, IMPL_OFFSET>,
+            SetColorChannel: SetColorChannel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IColorPickerSlider as ::windows::core::Interface>::IID
@@ -1032,7 +1025,10 @@ impl IColorPickerSliderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorPickerSliderFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IColorPickerSliderFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IColorPickerSliderFactory as ::windows::core::Interface>::IID
@@ -1060,7 +1056,10 @@ impl IColorPickerSliderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorPickerSliderStatics>, ::windows::core::GetTrustLevel, ColorChannelProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IColorPickerSliderStatics, BASE_OFFSET>(),
+            ColorChannelProperty: ColorChannelProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IColorPickerSliderStatics as ::windows::core::Interface>::IID
@@ -1263,36 +1262,31 @@ impl IColorSpectrumVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveColorChanged(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IColorSpectrum>,
-            ::windows::core::GetTrustLevel,
-            Color::<Impl, IMPL_OFFSET>,
-            SetColor::<Impl, IMPL_OFFSET>,
-            HsvColor::<Impl, IMPL_OFFSET>,
-            SetHsvColor::<Impl, IMPL_OFFSET>,
-            MinHue::<Impl, IMPL_OFFSET>,
-            SetMinHue::<Impl, IMPL_OFFSET>,
-            MaxHue::<Impl, IMPL_OFFSET>,
-            SetMaxHue::<Impl, IMPL_OFFSET>,
-            MinSaturation::<Impl, IMPL_OFFSET>,
-            SetMinSaturation::<Impl, IMPL_OFFSET>,
-            MaxSaturation::<Impl, IMPL_OFFSET>,
-            SetMaxSaturation::<Impl, IMPL_OFFSET>,
-            MinValue::<Impl, IMPL_OFFSET>,
-            SetMinValue::<Impl, IMPL_OFFSET>,
-            MaxValue::<Impl, IMPL_OFFSET>,
-            SetMaxValue::<Impl, IMPL_OFFSET>,
-            Shape::<Impl, IMPL_OFFSET>,
-            SetShape::<Impl, IMPL_OFFSET>,
-            Components::<Impl, IMPL_OFFSET>,
-            SetComponents::<Impl, IMPL_OFFSET>,
-            ColorChanged::<Impl, IMPL_OFFSET>,
-            RemoveColorChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IColorSpectrum, BASE_OFFSET>(),
+            Color: Color::<Impl, IMPL_OFFSET>,
+            SetColor: SetColor::<Impl, IMPL_OFFSET>,
+            HsvColor: HsvColor::<Impl, IMPL_OFFSET>,
+            SetHsvColor: SetHsvColor::<Impl, IMPL_OFFSET>,
+            MinHue: MinHue::<Impl, IMPL_OFFSET>,
+            SetMinHue: SetMinHue::<Impl, IMPL_OFFSET>,
+            MaxHue: MaxHue::<Impl, IMPL_OFFSET>,
+            SetMaxHue: SetMaxHue::<Impl, IMPL_OFFSET>,
+            MinSaturation: MinSaturation::<Impl, IMPL_OFFSET>,
+            SetMinSaturation: SetMinSaturation::<Impl, IMPL_OFFSET>,
+            MaxSaturation: MaxSaturation::<Impl, IMPL_OFFSET>,
+            SetMaxSaturation: SetMaxSaturation::<Impl, IMPL_OFFSET>,
+            MinValue: MinValue::<Impl, IMPL_OFFSET>,
+            SetMinValue: SetMinValue::<Impl, IMPL_OFFSET>,
+            MaxValue: MaxValue::<Impl, IMPL_OFFSET>,
+            SetMaxValue: SetMaxValue::<Impl, IMPL_OFFSET>,
+            Shape: Shape::<Impl, IMPL_OFFSET>,
+            SetShape: SetShape::<Impl, IMPL_OFFSET>,
+            Components: Components::<Impl, IMPL_OFFSET>,
+            SetComponents: SetComponents::<Impl, IMPL_OFFSET>,
+            ColorChanged: ColorChanged::<Impl, IMPL_OFFSET>,
+            RemoveColorChanged: RemoveColorChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IColorSpectrum as ::windows::core::Interface>::IID
@@ -1320,7 +1314,10 @@ impl IColorSpectrumFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorSpectrumFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IColorSpectrumFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IColorSpectrumFactory as ::windows::core::Interface>::IID
@@ -1456,24 +1453,19 @@ impl IColorSpectrumStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IColorSpectrumStatics>,
-            ::windows::core::GetTrustLevel,
-            ColorProperty::<Impl, IMPL_OFFSET>,
-            HsvColorProperty::<Impl, IMPL_OFFSET>,
-            MinHueProperty::<Impl, IMPL_OFFSET>,
-            MaxHueProperty::<Impl, IMPL_OFFSET>,
-            MinSaturationProperty::<Impl, IMPL_OFFSET>,
-            MaxSaturationProperty::<Impl, IMPL_OFFSET>,
-            MinValueProperty::<Impl, IMPL_OFFSET>,
-            MaxValueProperty::<Impl, IMPL_OFFSET>,
-            ShapeProperty::<Impl, IMPL_OFFSET>,
-            ComponentsProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IColorSpectrumStatics, BASE_OFFSET>(),
+            ColorProperty: ColorProperty::<Impl, IMPL_OFFSET>,
+            HsvColorProperty: HsvColorProperty::<Impl, IMPL_OFFSET>,
+            MinHueProperty: MinHueProperty::<Impl, IMPL_OFFSET>,
+            MaxHueProperty: MaxHueProperty::<Impl, IMPL_OFFSET>,
+            MinSaturationProperty: MinSaturationProperty::<Impl, IMPL_OFFSET>,
+            MaxSaturationProperty: MaxSaturationProperty::<Impl, IMPL_OFFSET>,
+            MinValueProperty: MinValueProperty::<Impl, IMPL_OFFSET>,
+            MaxValueProperty: MaxValueProperty::<Impl, IMPL_OFFSET>,
+            ShapeProperty: ShapeProperty::<Impl, IMPL_OFFSET>,
+            ComponentsProperty: ComponentsProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IColorSpectrumStatics as ::windows::core::Interface>::IID
@@ -1537,7 +1529,13 @@ impl IComboBoxTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComboBoxTemplateSettings>, ::windows::core::GetTrustLevel, DropDownOpenedHeight::<Impl, IMPL_OFFSET>, DropDownClosedHeight::<Impl, IMPL_OFFSET>, DropDownOffset::<Impl, IMPL_OFFSET>, SelectedItemDirection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IComboBoxTemplateSettings, BASE_OFFSET>(),
+            DropDownOpenedHeight: DropDownOpenedHeight::<Impl, IMPL_OFFSET>,
+            DropDownClosedHeight: DropDownClosedHeight::<Impl, IMPL_OFFSET>,
+            DropDownOffset: DropDownOffset::<Impl, IMPL_OFFSET>,
+            SelectedItemDirection: SelectedItemDirection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IComboBoxTemplateSettings as ::windows::core::Interface>::IID
@@ -1565,7 +1563,10 @@ impl IComboBoxTemplateSettings2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComboBoxTemplateSettings2>, ::windows::core::GetTrustLevel, DropDownContentMinWidth::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IComboBoxTemplateSettings2, BASE_OFFSET>(),
+            DropDownContentMinWidth: DropDownContentMinWidth::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IComboBoxTemplateSettings2 as ::windows::core::Interface>::IID
@@ -1593,7 +1594,10 @@ impl ICommandBarFlyoutCommandBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommandBarFlyoutCommandBar>, ::windows::core::GetTrustLevel, FlyoutTemplateSettings::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommandBarFlyoutCommandBar, BASE_OFFSET>(),
+            FlyoutTemplateSettings: FlyoutTemplateSettings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommandBarFlyoutCommandBar as ::windows::core::Interface>::IID
@@ -1621,7 +1625,10 @@ impl ICommandBarFlyoutCommandBarFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommandBarFlyoutCommandBarFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommandBarFlyoutCommandBarFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommandBarFlyoutCommandBarFactory as ::windows::core::Interface>::IID
@@ -1877,34 +1884,29 @@ impl ICommandBarFlyoutCommandBarTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICommandBarFlyoutCommandBarTemplateSettings>,
-            ::windows::core::GetTrustLevel,
-            OpenAnimationStartPosition::<Impl, IMPL_OFFSET>,
-            OpenAnimationEndPosition::<Impl, IMPL_OFFSET>,
-            CloseAnimationEndPosition::<Impl, IMPL_OFFSET>,
-            CurrentWidth::<Impl, IMPL_OFFSET>,
-            ExpandedWidth::<Impl, IMPL_OFFSET>,
-            WidthExpansionDelta::<Impl, IMPL_OFFSET>,
-            WidthExpansionAnimationStartPosition::<Impl, IMPL_OFFSET>,
-            WidthExpansionAnimationEndPosition::<Impl, IMPL_OFFSET>,
-            WidthExpansionMoreButtonAnimationStartPosition::<Impl, IMPL_OFFSET>,
-            WidthExpansionMoreButtonAnimationEndPosition::<Impl, IMPL_OFFSET>,
-            ExpandUpOverflowVerticalPosition::<Impl, IMPL_OFFSET>,
-            ExpandDownOverflowVerticalPosition::<Impl, IMPL_OFFSET>,
-            ExpandUpAnimationStartPosition::<Impl, IMPL_OFFSET>,
-            ExpandUpAnimationEndPosition::<Impl, IMPL_OFFSET>,
-            ExpandUpAnimationHoldPosition::<Impl, IMPL_OFFSET>,
-            ExpandDownAnimationStartPosition::<Impl, IMPL_OFFSET>,
-            ExpandDownAnimationEndPosition::<Impl, IMPL_OFFSET>,
-            ExpandDownAnimationHoldPosition::<Impl, IMPL_OFFSET>,
-            ContentClipRect::<Impl, IMPL_OFFSET>,
-            OverflowContentClipRect::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommandBarFlyoutCommandBarTemplateSettings, BASE_OFFSET>(),
+            OpenAnimationStartPosition: OpenAnimationStartPosition::<Impl, IMPL_OFFSET>,
+            OpenAnimationEndPosition: OpenAnimationEndPosition::<Impl, IMPL_OFFSET>,
+            CloseAnimationEndPosition: CloseAnimationEndPosition::<Impl, IMPL_OFFSET>,
+            CurrentWidth: CurrentWidth::<Impl, IMPL_OFFSET>,
+            ExpandedWidth: ExpandedWidth::<Impl, IMPL_OFFSET>,
+            WidthExpansionDelta: WidthExpansionDelta::<Impl, IMPL_OFFSET>,
+            WidthExpansionAnimationStartPosition: WidthExpansionAnimationStartPosition::<Impl, IMPL_OFFSET>,
+            WidthExpansionAnimationEndPosition: WidthExpansionAnimationEndPosition::<Impl, IMPL_OFFSET>,
+            WidthExpansionMoreButtonAnimationStartPosition: WidthExpansionMoreButtonAnimationStartPosition::<Impl, IMPL_OFFSET>,
+            WidthExpansionMoreButtonAnimationEndPosition: WidthExpansionMoreButtonAnimationEndPosition::<Impl, IMPL_OFFSET>,
+            ExpandUpOverflowVerticalPosition: ExpandUpOverflowVerticalPosition::<Impl, IMPL_OFFSET>,
+            ExpandDownOverflowVerticalPosition: ExpandDownOverflowVerticalPosition::<Impl, IMPL_OFFSET>,
+            ExpandUpAnimationStartPosition: ExpandUpAnimationStartPosition::<Impl, IMPL_OFFSET>,
+            ExpandUpAnimationEndPosition: ExpandUpAnimationEndPosition::<Impl, IMPL_OFFSET>,
+            ExpandUpAnimationHoldPosition: ExpandUpAnimationHoldPosition::<Impl, IMPL_OFFSET>,
+            ExpandDownAnimationStartPosition: ExpandDownAnimationStartPosition::<Impl, IMPL_OFFSET>,
+            ExpandDownAnimationEndPosition: ExpandDownAnimationEndPosition::<Impl, IMPL_OFFSET>,
+            ExpandDownAnimationHoldPosition: ExpandDownAnimationHoldPosition::<Impl, IMPL_OFFSET>,
+            ContentClipRect: ContentClipRect::<Impl, IMPL_OFFSET>,
+            OverflowContentClipRect: OverflowContentClipRect::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommandBarFlyoutCommandBarTemplateSettings as ::windows::core::Interface>::IID
@@ -2004,21 +2006,16 @@ impl ICommandBarTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICommandBarTemplateSettings>,
-            ::windows::core::GetTrustLevel,
-            ContentHeight::<Impl, IMPL_OFFSET>,
-            OverflowContentClipRect::<Impl, IMPL_OFFSET>,
-            OverflowContentMinWidth::<Impl, IMPL_OFFSET>,
-            OverflowContentMaxHeight::<Impl, IMPL_OFFSET>,
-            OverflowContentHorizontalOffset::<Impl, IMPL_OFFSET>,
-            OverflowContentHeight::<Impl, IMPL_OFFSET>,
-            NegativeOverflowContentHeight::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommandBarTemplateSettings, BASE_OFFSET>(),
+            ContentHeight: ContentHeight::<Impl, IMPL_OFFSET>,
+            OverflowContentClipRect: OverflowContentClipRect::<Impl, IMPL_OFFSET>,
+            OverflowContentMinWidth: OverflowContentMinWidth::<Impl, IMPL_OFFSET>,
+            OverflowContentMaxHeight: OverflowContentMaxHeight::<Impl, IMPL_OFFSET>,
+            OverflowContentHorizontalOffset: OverflowContentHorizontalOffset::<Impl, IMPL_OFFSET>,
+            OverflowContentHeight: OverflowContentHeight::<Impl, IMPL_OFFSET>,
+            NegativeOverflowContentHeight: NegativeOverflowContentHeight::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommandBarTemplateSettings as ::windows::core::Interface>::IID
@@ -2046,7 +2043,10 @@ impl ICommandBarTemplateSettings2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommandBarTemplateSettings2>, ::windows::core::GetTrustLevel, OverflowContentMaxWidth::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommandBarTemplateSettings2, BASE_OFFSET>(),
+            OverflowContentMaxWidth: OverflowContentMaxWidth::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommandBarTemplateSettings2 as ::windows::core::Interface>::IID
@@ -2074,7 +2074,10 @@ impl ICommandBarTemplateSettings3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommandBarTemplateSettings3>, ::windows::core::GetTrustLevel, EffectiveOverflowButtonVisibility::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommandBarTemplateSettings3, BASE_OFFSET>(),
+            EffectiveOverflowButtonVisibility: EffectiveOverflowButtonVisibility::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommandBarTemplateSettings3 as ::windows::core::Interface>::IID
@@ -2126,7 +2129,12 @@ impl ICommandBarTemplateSettings4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommandBarTemplateSettings4>, ::windows::core::GetTrustLevel, OverflowContentCompactYTranslation::<Impl, IMPL_OFFSET>, OverflowContentMinimalYTranslation::<Impl, IMPL_OFFSET>, OverflowContentHiddenYTranslation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommandBarTemplateSettings4, BASE_OFFSET>(),
+            OverflowContentCompactYTranslation: OverflowContentCompactYTranslation::<Impl, IMPL_OFFSET>,
+            OverflowContentMinimalYTranslation: OverflowContentMinimalYTranslation::<Impl, IMPL_OFFSET>,
+            OverflowContentHiddenYTranslation: OverflowContentHiddenYTranslation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommandBarTemplateSettings4 as ::windows::core::Interface>::IID
@@ -2178,7 +2186,12 @@ impl IDragCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragCompletedEventArgs>, ::windows::core::GetTrustLevel, HorizontalChange::<Impl, IMPL_OFFSET>, VerticalChange::<Impl, IMPL_OFFSET>, Canceled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDragCompletedEventArgs, BASE_OFFSET>(),
+            HorizontalChange: HorizontalChange::<Impl, IMPL_OFFSET>,
+            VerticalChange: VerticalChange::<Impl, IMPL_OFFSET>,
+            Canceled: Canceled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDragCompletedEventArgs as ::windows::core::Interface>::IID
@@ -2206,7 +2219,10 @@ impl IDragCompletedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragCompletedEventArgsFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDragCompletedEventArgsFactory, BASE_OFFSET>(),
+            CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled: CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDragCompletedEventArgsFactory as ::windows::core::Interface>::IID
@@ -2246,7 +2262,11 @@ impl IDragDeltaEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragDeltaEventArgs>, ::windows::core::GetTrustLevel, HorizontalChange::<Impl, IMPL_OFFSET>, VerticalChange::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDragDeltaEventArgs, BASE_OFFSET>(),
+            HorizontalChange: HorizontalChange::<Impl, IMPL_OFFSET>,
+            VerticalChange: VerticalChange::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDragDeltaEventArgs as ::windows::core::Interface>::IID
@@ -2274,7 +2294,10 @@ impl IDragDeltaEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragDeltaEventArgsFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithHorizontalChangeAndVerticalChange::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDragDeltaEventArgsFactory, BASE_OFFSET>(),
+            CreateInstanceWithHorizontalChangeAndVerticalChange: CreateInstanceWithHorizontalChangeAndVerticalChange::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDragDeltaEventArgsFactory as ::windows::core::Interface>::IID
@@ -2314,7 +2337,11 @@ impl IDragStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragStartedEventArgs>, ::windows::core::GetTrustLevel, HorizontalOffset::<Impl, IMPL_OFFSET>, VerticalOffset::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDragStartedEventArgs, BASE_OFFSET>(),
+            HorizontalOffset: HorizontalOffset::<Impl, IMPL_OFFSET>,
+            VerticalOffset: VerticalOffset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDragStartedEventArgs as ::windows::core::Interface>::IID
@@ -2342,7 +2369,10 @@ impl IDragStartedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragStartedEventArgsFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithHorizontalOffsetAndVerticalOffset::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDragStartedEventArgsFactory, BASE_OFFSET>(),
+            CreateInstanceWithHorizontalOffsetAndVerticalOffset: CreateInstanceWithHorizontalOffsetAndVerticalOffset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDragStartedEventArgsFactory as ::windows::core::Interface>::IID
@@ -2436,24 +2466,19 @@ impl IFlyoutBaseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Hide().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFlyoutBase>,
-            ::windows::core::GetTrustLevel,
-            Placement::<Impl, IMPL_OFFSET>,
-            SetPlacement::<Impl, IMPL_OFFSET>,
-            Opened::<Impl, IMPL_OFFSET>,
-            RemoveOpened::<Impl, IMPL_OFFSET>,
-            Closed::<Impl, IMPL_OFFSET>,
-            RemoveClosed::<Impl, IMPL_OFFSET>,
-            Opening::<Impl, IMPL_OFFSET>,
-            RemoveOpening::<Impl, IMPL_OFFSET>,
-            ShowAt::<Impl, IMPL_OFFSET>,
-            Hide::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBase, BASE_OFFSET>(),
+            Placement: Placement::<Impl, IMPL_OFFSET>,
+            SetPlacement: SetPlacement::<Impl, IMPL_OFFSET>,
+            Opened: Opened::<Impl, IMPL_OFFSET>,
+            RemoveOpened: RemoveOpened::<Impl, IMPL_OFFSET>,
+            Closed: Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed: RemoveClosed::<Impl, IMPL_OFFSET>,
+            Opening: Opening::<Impl, IMPL_OFFSET>,
+            RemoveOpening: RemoveOpening::<Impl, IMPL_OFFSET>,
+            ShowAt: ShowAt::<Impl, IMPL_OFFSET>,
+            Hide: Hide::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBase as ::windows::core::Interface>::IID
@@ -2566,25 +2591,20 @@ impl IFlyoutBase2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosing(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFlyoutBase2>,
-            ::windows::core::GetTrustLevel,
-            Target::<Impl, IMPL_OFFSET>,
-            AllowFocusOnInteraction::<Impl, IMPL_OFFSET>,
-            SetAllowFocusOnInteraction::<Impl, IMPL_OFFSET>,
-            LightDismissOverlayMode::<Impl, IMPL_OFFSET>,
-            SetLightDismissOverlayMode::<Impl, IMPL_OFFSET>,
-            AllowFocusWhenDisabled::<Impl, IMPL_OFFSET>,
-            SetAllowFocusWhenDisabled::<Impl, IMPL_OFFSET>,
-            ElementSoundMode::<Impl, IMPL_OFFSET>,
-            SetElementSoundMode::<Impl, IMPL_OFFSET>,
-            Closing::<Impl, IMPL_OFFSET>,
-            RemoveClosing::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBase2, BASE_OFFSET>(),
+            Target: Target::<Impl, IMPL_OFFSET>,
+            AllowFocusOnInteraction: AllowFocusOnInteraction::<Impl, IMPL_OFFSET>,
+            SetAllowFocusOnInteraction: SetAllowFocusOnInteraction::<Impl, IMPL_OFFSET>,
+            LightDismissOverlayMode: LightDismissOverlayMode::<Impl, IMPL_OFFSET>,
+            SetLightDismissOverlayMode: SetLightDismissOverlayMode::<Impl, IMPL_OFFSET>,
+            AllowFocusWhenDisabled: AllowFocusWhenDisabled::<Impl, IMPL_OFFSET>,
+            SetAllowFocusWhenDisabled: SetAllowFocusWhenDisabled::<Impl, IMPL_OFFSET>,
+            ElementSoundMode: ElementSoundMode::<Impl, IMPL_OFFSET>,
+            SetElementSoundMode: SetElementSoundMode::<Impl, IMPL_OFFSET>,
+            Closing: Closing::<Impl, IMPL_OFFSET>,
+            RemoveClosing: RemoveClosing::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBase2 as ::windows::core::Interface>::IID
@@ -2617,7 +2637,11 @@ impl IFlyoutBase3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOverlayInputPassThroughElement(&*(&value as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlyoutBase3>, ::windows::core::GetTrustLevel, OverlayInputPassThroughElement::<Impl, IMPL_OFFSET>, SetOverlayInputPassThroughElement::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBase3, BASE_OFFSET>(),
+            OverlayInputPassThroughElement: OverlayInputPassThroughElement::<Impl, IMPL_OFFSET>,
+            SetOverlayInputPassThroughElement: SetOverlayInputPassThroughElement::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBase3 as ::windows::core::Interface>::IID
@@ -2638,7 +2662,10 @@ impl IFlyoutBase4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TryInvokeKeyboardAccelerator(&*(&args as *const <super::super::Input::ProcessKeyboardAcceleratorEventArgs as ::windows::core::Abi>::Abi as *const <super::super::Input::ProcessKeyboardAcceleratorEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlyoutBase4>, ::windows::core::GetTrustLevel, TryInvokeKeyboardAccelerator::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBase4, BASE_OFFSET>(),
+            TryInvokeKeyboardAccelerator: TryInvokeKeyboardAccelerator::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBase4 as ::windows::core::Interface>::IID
@@ -2717,21 +2744,16 @@ impl IFlyoutBase5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowAt(&*(&placementtarget as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&showoptions as *const <FlyoutShowOptions as ::windows::core::Abi>::Abi as *const <FlyoutShowOptions as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFlyoutBase5>,
-            ::windows::core::GetTrustLevel,
-            ShowMode::<Impl, IMPL_OFFSET>,
-            SetShowMode::<Impl, IMPL_OFFSET>,
-            InputDevicePrefersPrimaryCommands::<Impl, IMPL_OFFSET>,
-            AreOpenCloseAnimationsEnabled::<Impl, IMPL_OFFSET>,
-            SetAreOpenCloseAnimationsEnabled::<Impl, IMPL_OFFSET>,
-            IsOpen::<Impl, IMPL_OFFSET>,
-            ShowAt::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBase5, BASE_OFFSET>(),
+            ShowMode: ShowMode::<Impl, IMPL_OFFSET>,
+            SetShowMode: SetShowMode::<Impl, IMPL_OFFSET>,
+            InputDevicePrefersPrimaryCommands: InputDevicePrefersPrimaryCommands::<Impl, IMPL_OFFSET>,
+            AreOpenCloseAnimationsEnabled: AreOpenCloseAnimationsEnabled::<Impl, IMPL_OFFSET>,
+            SetAreOpenCloseAnimationsEnabled: SetAreOpenCloseAnimationsEnabled::<Impl, IMPL_OFFSET>,
+            IsOpen: IsOpen::<Impl, IMPL_OFFSET>,
+            ShowAt: ShowAt::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBase5 as ::windows::core::Interface>::IID
@@ -2793,19 +2815,14 @@ impl IFlyoutBase6Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetXamlRoot(&*(&value as *const <super::super::XamlRoot as ::windows::core::Abi>::Abi as *const <super::super::XamlRoot as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFlyoutBase6>,
-            ::windows::core::GetTrustLevel,
-            ShouldConstrainToRootBounds::<Impl, IMPL_OFFSET>,
-            SetShouldConstrainToRootBounds::<Impl, IMPL_OFFSET>,
-            IsConstrainedToRootBounds::<Impl, IMPL_OFFSET>,
-            XamlRoot::<Impl, IMPL_OFFSET>,
-            SetXamlRoot::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBase6, BASE_OFFSET>(),
+            ShouldConstrainToRootBounds: ShouldConstrainToRootBounds::<Impl, IMPL_OFFSET>,
+            SetShouldConstrainToRootBounds: SetShouldConstrainToRootBounds::<Impl, IMPL_OFFSET>,
+            IsConstrainedToRootBounds: IsConstrainedToRootBounds::<Impl, IMPL_OFFSET>,
+            XamlRoot: XamlRoot::<Impl, IMPL_OFFSET>,
+            SetXamlRoot: SetXamlRoot::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBase6 as ::windows::core::Interface>::IID
@@ -2838,7 +2855,11 @@ impl IFlyoutBaseClosingEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCancel(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlyoutBaseClosingEventArgs>, ::windows::core::GetTrustLevel, Cancel::<Impl, IMPL_OFFSET>, SetCancel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBaseClosingEventArgs, BASE_OFFSET>(),
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+            SetCancel: SetCancel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBaseClosingEventArgs as ::windows::core::Interface>::IID
@@ -2866,7 +2887,7 @@ impl IFlyoutBaseFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlyoutBaseFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBaseFactory, BASE_OFFSET>(), CreateInstance: CreateInstance::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBaseFactory as ::windows::core::Interface>::IID
@@ -2894,7 +2915,10 @@ impl IFlyoutBaseOverridesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlyoutBaseOverrides>, ::windows::core::GetTrustLevel, CreatePresenter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBaseOverrides, BASE_OFFSET>(),
+            CreatePresenter: CreatePresenter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBaseOverrides as ::windows::core::Interface>::IID
@@ -2915,7 +2939,10 @@ impl IFlyoutBaseOverrides4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnProcessKeyboardAccelerators(&*(&args as *const <super::super::Input::ProcessKeyboardAcceleratorEventArgs as ::windows::core::Abi>::Abi as *const <super::super::Input::ProcessKeyboardAcceleratorEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlyoutBaseOverrides4>, ::windows::core::GetTrustLevel, OnProcessKeyboardAccelerators::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBaseOverrides4, BASE_OFFSET>(),
+            OnProcessKeyboardAccelerators: OnProcessKeyboardAccelerators::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBaseOverrides4 as ::windows::core::Interface>::IID
@@ -2977,19 +3004,14 @@ impl IFlyoutBaseStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowAttachedFlyout(&*(&flyoutowner as *const <super::super::FrameworkElement as ::windows::core::Abi>::Abi as *const <super::super::FrameworkElement as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFlyoutBaseStatics>,
-            ::windows::core::GetTrustLevel,
-            PlacementProperty::<Impl, IMPL_OFFSET>,
-            AttachedFlyoutProperty::<Impl, IMPL_OFFSET>,
-            GetAttachedFlyout::<Impl, IMPL_OFFSET>,
-            SetAttachedFlyout::<Impl, IMPL_OFFSET>,
-            ShowAttachedFlyout::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBaseStatics, BASE_OFFSET>(),
+            PlacementProperty: PlacementProperty::<Impl, IMPL_OFFSET>,
+            AttachedFlyoutProperty: AttachedFlyoutProperty::<Impl, IMPL_OFFSET>,
+            GetAttachedFlyout: GetAttachedFlyout::<Impl, IMPL_OFFSET>,
+            SetAttachedFlyout: SetAttachedFlyout::<Impl, IMPL_OFFSET>,
+            ShowAttachedFlyout: ShowAttachedFlyout::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBaseStatics as ::windows::core::Interface>::IID
@@ -3053,18 +3075,13 @@ impl IFlyoutBaseStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFlyoutBaseStatics2>,
-            ::windows::core::GetTrustLevel,
-            AllowFocusOnInteractionProperty::<Impl, IMPL_OFFSET>,
-            LightDismissOverlayModeProperty::<Impl, IMPL_OFFSET>,
-            AllowFocusWhenDisabledProperty::<Impl, IMPL_OFFSET>,
-            ElementSoundModeProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBaseStatics2, BASE_OFFSET>(),
+            AllowFocusOnInteractionProperty: AllowFocusOnInteractionProperty::<Impl, IMPL_OFFSET>,
+            LightDismissOverlayModeProperty: LightDismissOverlayModeProperty::<Impl, IMPL_OFFSET>,
+            AllowFocusWhenDisabledProperty: AllowFocusWhenDisabledProperty::<Impl, IMPL_OFFSET>,
+            ElementSoundModeProperty: ElementSoundModeProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBaseStatics2 as ::windows::core::Interface>::IID
@@ -3092,7 +3109,10 @@ impl IFlyoutBaseStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlyoutBaseStatics3>, ::windows::core::GetTrustLevel, OverlayInputPassThroughElementProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBaseStatics3, BASE_OFFSET>(),
+            OverlayInputPassThroughElementProperty: OverlayInputPassThroughElementProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBaseStatics3 as ::windows::core::Interface>::IID
@@ -3168,19 +3188,14 @@ impl IFlyoutBaseStatics5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFlyoutBaseStatics5>,
-            ::windows::core::GetTrustLevel,
-            TargetProperty::<Impl, IMPL_OFFSET>,
-            ShowModeProperty::<Impl, IMPL_OFFSET>,
-            InputDevicePrefersPrimaryCommandsProperty::<Impl, IMPL_OFFSET>,
-            AreOpenCloseAnimationsEnabledProperty::<Impl, IMPL_OFFSET>,
-            IsOpenProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBaseStatics5, BASE_OFFSET>(),
+            TargetProperty: TargetProperty::<Impl, IMPL_OFFSET>,
+            ShowModeProperty: ShowModeProperty::<Impl, IMPL_OFFSET>,
+            InputDevicePrefersPrimaryCommandsProperty: InputDevicePrefersPrimaryCommandsProperty::<Impl, IMPL_OFFSET>,
+            AreOpenCloseAnimationsEnabledProperty: AreOpenCloseAnimationsEnabledProperty::<Impl, IMPL_OFFSET>,
+            IsOpenProperty: IsOpenProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBaseStatics5 as ::windows::core::Interface>::IID
@@ -3208,7 +3223,10 @@ impl IFlyoutBaseStatics6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlyoutBaseStatics6>, ::windows::core::GetTrustLevel, ShouldConstrainToRootBoundsProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBaseStatics6, BASE_OFFSET>(),
+            ShouldConstrainToRootBoundsProperty: ShouldConstrainToRootBoundsProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutBaseStatics6 as ::windows::core::Interface>::IID
@@ -3292,22 +3310,17 @@ impl IFlyoutShowOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlacement(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFlyoutShowOptions>,
-            ::windows::core::GetTrustLevel,
-            Position::<Impl, IMPL_OFFSET>,
-            SetPosition::<Impl, IMPL_OFFSET>,
-            ExclusionRect::<Impl, IMPL_OFFSET>,
-            SetExclusionRect::<Impl, IMPL_OFFSET>,
-            ShowMode::<Impl, IMPL_OFFSET>,
-            SetShowMode::<Impl, IMPL_OFFSET>,
-            Placement::<Impl, IMPL_OFFSET>,
-            SetPlacement::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutShowOptions, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            SetPosition: SetPosition::<Impl, IMPL_OFFSET>,
+            ExclusionRect: ExclusionRect::<Impl, IMPL_OFFSET>,
+            SetExclusionRect: SetExclusionRect::<Impl, IMPL_OFFSET>,
+            ShowMode: ShowMode::<Impl, IMPL_OFFSET>,
+            SetShowMode: SetShowMode::<Impl, IMPL_OFFSET>,
+            Placement: Placement::<Impl, IMPL_OFFSET>,
+            SetPlacement: SetPlacement::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutShowOptions as ::windows::core::Interface>::IID
@@ -3335,7 +3348,10 @@ impl IFlyoutShowOptionsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlyoutShowOptionsFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutShowOptionsFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutShowOptionsFactory as ::windows::core::Interface>::IID
@@ -3350,7 +3366,7 @@ impl ::windows::core::RuntimeName for IGeneratorPositionHelper {
 #[cfg(feature = "implement_exclusive")]
 impl IGeneratorPositionHelperVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeneratorPositionHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeneratorPositionHelperVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeneratorPositionHelper>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGeneratorPositionHelper, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeneratorPositionHelper as ::windows::core::Interface>::IID
@@ -3378,7 +3394,10 @@ impl IGeneratorPositionHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeneratorPositionHelperStatics>, ::windows::core::GetTrustLevel, FromIndexAndOffset::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeneratorPositionHelperStatics, BASE_OFFSET>(),
+            FromIndexAndOffset: FromIndexAndOffset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeneratorPositionHelperStatics as ::windows::core::Interface>::IID
@@ -3768,58 +3787,53 @@ impl IGridViewItemPresenterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentMargin(&*(&value as *const <super::super::Thickness as ::windows::core::Abi>::Abi as *const <super::super::Thickness as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGridViewItemPresenter>,
-            ::windows::core::GetTrustLevel,
-            SelectionCheckMarkVisualEnabled::<Impl, IMPL_OFFSET>,
-            SetSelectionCheckMarkVisualEnabled::<Impl, IMPL_OFFSET>,
-            CheckHintBrush::<Impl, IMPL_OFFSET>,
-            SetCheckHintBrush::<Impl, IMPL_OFFSET>,
-            CheckSelectingBrush::<Impl, IMPL_OFFSET>,
-            SetCheckSelectingBrush::<Impl, IMPL_OFFSET>,
-            CheckBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBrush::<Impl, IMPL_OFFSET>,
-            DragBackground::<Impl, IMPL_OFFSET>,
-            SetDragBackground::<Impl, IMPL_OFFSET>,
-            DragForeground::<Impl, IMPL_OFFSET>,
-            SetDragForeground::<Impl, IMPL_OFFSET>,
-            FocusBorderBrush::<Impl, IMPL_OFFSET>,
-            SetFocusBorderBrush::<Impl, IMPL_OFFSET>,
-            PlaceholderBackground::<Impl, IMPL_OFFSET>,
-            SetPlaceholderBackground::<Impl, IMPL_OFFSET>,
-            PointerOverBackground::<Impl, IMPL_OFFSET>,
-            SetPointerOverBackground::<Impl, IMPL_OFFSET>,
-            SelectedBackground::<Impl, IMPL_OFFSET>,
-            SetSelectedBackground::<Impl, IMPL_OFFSET>,
-            SelectedForeground::<Impl, IMPL_OFFSET>,
-            SetSelectedForeground::<Impl, IMPL_OFFSET>,
-            SelectedPointerOverBackground::<Impl, IMPL_OFFSET>,
-            SetSelectedPointerOverBackground::<Impl, IMPL_OFFSET>,
-            SelectedPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
-            SetSelectedPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
-            SelectedBorderThickness::<Impl, IMPL_OFFSET>,
-            SetSelectedBorderThickness::<Impl, IMPL_OFFSET>,
-            DisabledOpacity::<Impl, IMPL_OFFSET>,
-            SetDisabledOpacity::<Impl, IMPL_OFFSET>,
-            DragOpacity::<Impl, IMPL_OFFSET>,
-            SetDragOpacity::<Impl, IMPL_OFFSET>,
-            ReorderHintOffset::<Impl, IMPL_OFFSET>,
-            SetReorderHintOffset::<Impl, IMPL_OFFSET>,
-            GridViewItemPresenterHorizontalContentAlignment::<Impl, IMPL_OFFSET>,
-            SetGridViewItemPresenterHorizontalContentAlignment::<Impl, IMPL_OFFSET>,
-            GridViewItemPresenterVerticalContentAlignment::<Impl, IMPL_OFFSET>,
-            SetGridViewItemPresenterVerticalContentAlignment::<Impl, IMPL_OFFSET>,
-            GridViewItemPresenterPadding::<Impl, IMPL_OFFSET>,
-            SetGridViewItemPresenterPadding::<Impl, IMPL_OFFSET>,
-            PointerOverBackgroundMargin::<Impl, IMPL_OFFSET>,
-            SetPointerOverBackgroundMargin::<Impl, IMPL_OFFSET>,
-            ContentMargin::<Impl, IMPL_OFFSET>,
-            SetContentMargin::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGridViewItemPresenter, BASE_OFFSET>(),
+            SelectionCheckMarkVisualEnabled: SelectionCheckMarkVisualEnabled::<Impl, IMPL_OFFSET>,
+            SetSelectionCheckMarkVisualEnabled: SetSelectionCheckMarkVisualEnabled::<Impl, IMPL_OFFSET>,
+            CheckHintBrush: CheckHintBrush::<Impl, IMPL_OFFSET>,
+            SetCheckHintBrush: SetCheckHintBrush::<Impl, IMPL_OFFSET>,
+            CheckSelectingBrush: CheckSelectingBrush::<Impl, IMPL_OFFSET>,
+            SetCheckSelectingBrush: SetCheckSelectingBrush::<Impl, IMPL_OFFSET>,
+            CheckBrush: CheckBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBrush: SetCheckBrush::<Impl, IMPL_OFFSET>,
+            DragBackground: DragBackground::<Impl, IMPL_OFFSET>,
+            SetDragBackground: SetDragBackground::<Impl, IMPL_OFFSET>,
+            DragForeground: DragForeground::<Impl, IMPL_OFFSET>,
+            SetDragForeground: SetDragForeground::<Impl, IMPL_OFFSET>,
+            FocusBorderBrush: FocusBorderBrush::<Impl, IMPL_OFFSET>,
+            SetFocusBorderBrush: SetFocusBorderBrush::<Impl, IMPL_OFFSET>,
+            PlaceholderBackground: PlaceholderBackground::<Impl, IMPL_OFFSET>,
+            SetPlaceholderBackground: SetPlaceholderBackground::<Impl, IMPL_OFFSET>,
+            PointerOverBackground: PointerOverBackground::<Impl, IMPL_OFFSET>,
+            SetPointerOverBackground: SetPointerOverBackground::<Impl, IMPL_OFFSET>,
+            SelectedBackground: SelectedBackground::<Impl, IMPL_OFFSET>,
+            SetSelectedBackground: SetSelectedBackground::<Impl, IMPL_OFFSET>,
+            SelectedForeground: SelectedForeground::<Impl, IMPL_OFFSET>,
+            SetSelectedForeground: SetSelectedForeground::<Impl, IMPL_OFFSET>,
+            SelectedPointerOverBackground: SelectedPointerOverBackground::<Impl, IMPL_OFFSET>,
+            SetSelectedPointerOverBackground: SetSelectedPointerOverBackground::<Impl, IMPL_OFFSET>,
+            SelectedPointerOverBorderBrush: SelectedPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
+            SetSelectedPointerOverBorderBrush: SetSelectedPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
+            SelectedBorderThickness: SelectedBorderThickness::<Impl, IMPL_OFFSET>,
+            SetSelectedBorderThickness: SetSelectedBorderThickness::<Impl, IMPL_OFFSET>,
+            DisabledOpacity: DisabledOpacity::<Impl, IMPL_OFFSET>,
+            SetDisabledOpacity: SetDisabledOpacity::<Impl, IMPL_OFFSET>,
+            DragOpacity: DragOpacity::<Impl, IMPL_OFFSET>,
+            SetDragOpacity: SetDragOpacity::<Impl, IMPL_OFFSET>,
+            ReorderHintOffset: ReorderHintOffset::<Impl, IMPL_OFFSET>,
+            SetReorderHintOffset: SetReorderHintOffset::<Impl, IMPL_OFFSET>,
+            GridViewItemPresenterHorizontalContentAlignment: GridViewItemPresenterHorizontalContentAlignment::<Impl, IMPL_OFFSET>,
+            SetGridViewItemPresenterHorizontalContentAlignment: SetGridViewItemPresenterHorizontalContentAlignment::<Impl, IMPL_OFFSET>,
+            GridViewItemPresenterVerticalContentAlignment: GridViewItemPresenterVerticalContentAlignment::<Impl, IMPL_OFFSET>,
+            SetGridViewItemPresenterVerticalContentAlignment: SetGridViewItemPresenterVerticalContentAlignment::<Impl, IMPL_OFFSET>,
+            GridViewItemPresenterPadding: GridViewItemPresenterPadding::<Impl, IMPL_OFFSET>,
+            SetGridViewItemPresenterPadding: SetGridViewItemPresenterPadding::<Impl, IMPL_OFFSET>,
+            PointerOverBackgroundMargin: PointerOverBackgroundMargin::<Impl, IMPL_OFFSET>,
+            SetPointerOverBackgroundMargin: SetPointerOverBackgroundMargin::<Impl, IMPL_OFFSET>,
+            ContentMargin: ContentMargin::<Impl, IMPL_OFFSET>,
+            SetContentMargin: SetContentMargin::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridViewItemPresenter as ::windows::core::Interface>::IID
@@ -3847,7 +3861,10 @@ impl IGridViewItemPresenterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridViewItemPresenterFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGridViewItemPresenterFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridViewItemPresenterFactory as ::windows::core::Interface>::IID
@@ -4127,36 +4144,31 @@ impl IGridViewItemPresenterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGridViewItemPresenterStatics>,
-            ::windows::core::GetTrustLevel,
-            SelectionCheckMarkVisualEnabledProperty::<Impl, IMPL_OFFSET>,
-            CheckHintBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckSelectingBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBrushProperty::<Impl, IMPL_OFFSET>,
-            DragBackgroundProperty::<Impl, IMPL_OFFSET>,
-            DragForegroundProperty::<Impl, IMPL_OFFSET>,
-            FocusBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            PlaceholderBackgroundProperty::<Impl, IMPL_OFFSET>,
-            PointerOverBackgroundProperty::<Impl, IMPL_OFFSET>,
-            SelectedBackgroundProperty::<Impl, IMPL_OFFSET>,
-            SelectedForegroundProperty::<Impl, IMPL_OFFSET>,
-            SelectedPointerOverBackgroundProperty::<Impl, IMPL_OFFSET>,
-            SelectedPointerOverBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            SelectedBorderThicknessProperty::<Impl, IMPL_OFFSET>,
-            DisabledOpacityProperty::<Impl, IMPL_OFFSET>,
-            DragOpacityProperty::<Impl, IMPL_OFFSET>,
-            ReorderHintOffsetProperty::<Impl, IMPL_OFFSET>,
-            GridViewItemPresenterHorizontalContentAlignmentProperty::<Impl, IMPL_OFFSET>,
-            GridViewItemPresenterVerticalContentAlignmentProperty::<Impl, IMPL_OFFSET>,
-            GridViewItemPresenterPaddingProperty::<Impl, IMPL_OFFSET>,
-            PointerOverBackgroundMarginProperty::<Impl, IMPL_OFFSET>,
-            ContentMarginProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGridViewItemPresenterStatics, BASE_OFFSET>(),
+            SelectionCheckMarkVisualEnabledProperty: SelectionCheckMarkVisualEnabledProperty::<Impl, IMPL_OFFSET>,
+            CheckHintBrushProperty: CheckHintBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckSelectingBrushProperty: CheckSelectingBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBrushProperty: CheckBrushProperty::<Impl, IMPL_OFFSET>,
+            DragBackgroundProperty: DragBackgroundProperty::<Impl, IMPL_OFFSET>,
+            DragForegroundProperty: DragForegroundProperty::<Impl, IMPL_OFFSET>,
+            FocusBorderBrushProperty: FocusBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            PlaceholderBackgroundProperty: PlaceholderBackgroundProperty::<Impl, IMPL_OFFSET>,
+            PointerOverBackgroundProperty: PointerOverBackgroundProperty::<Impl, IMPL_OFFSET>,
+            SelectedBackgroundProperty: SelectedBackgroundProperty::<Impl, IMPL_OFFSET>,
+            SelectedForegroundProperty: SelectedForegroundProperty::<Impl, IMPL_OFFSET>,
+            SelectedPointerOverBackgroundProperty: SelectedPointerOverBackgroundProperty::<Impl, IMPL_OFFSET>,
+            SelectedPointerOverBorderBrushProperty: SelectedPointerOverBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            SelectedBorderThicknessProperty: SelectedBorderThicknessProperty::<Impl, IMPL_OFFSET>,
+            DisabledOpacityProperty: DisabledOpacityProperty::<Impl, IMPL_OFFSET>,
+            DragOpacityProperty: DragOpacityProperty::<Impl, IMPL_OFFSET>,
+            ReorderHintOffsetProperty: ReorderHintOffsetProperty::<Impl, IMPL_OFFSET>,
+            GridViewItemPresenterHorizontalContentAlignmentProperty: GridViewItemPresenterHorizontalContentAlignmentProperty::<Impl, IMPL_OFFSET>,
+            GridViewItemPresenterVerticalContentAlignmentProperty: GridViewItemPresenterVerticalContentAlignmentProperty::<Impl, IMPL_OFFSET>,
+            GridViewItemPresenterPaddingProperty: GridViewItemPresenterPaddingProperty::<Impl, IMPL_OFFSET>,
+            PointerOverBackgroundMarginProperty: PointerOverBackgroundMarginProperty::<Impl, IMPL_OFFSET>,
+            ContentMarginProperty: ContentMarginProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridViewItemPresenterStatics as ::windows::core::Interface>::IID
@@ -4184,7 +4196,10 @@ impl IGridViewItemTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridViewItemTemplateSettings>, ::windows::core::GetTrustLevel, DragItemsCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGridViewItemTemplateSettings, BASE_OFFSET>(),
+            DragItemsCount: DragItemsCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridViewItemTemplateSettings as ::windows::core::Interface>::IID
@@ -4260,7 +4275,14 @@ impl IItemsChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IItemsChangedEventArgs>, ::windows::core::GetTrustLevel, Action::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>, OldPosition::<Impl, IMPL_OFFSET>, ItemCount::<Impl, IMPL_OFFSET>, ItemUICount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IItemsChangedEventArgs, BASE_OFFSET>(),
+            Action: Action::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            OldPosition: OldPosition::<Impl, IMPL_OFFSET>,
+            ItemCount: ItemCount::<Impl, IMPL_OFFSET>,
+            ItemUICount: ItemUICount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IItemsChangedEventArgs as ::windows::core::Interface>::IID
@@ -4310,7 +4332,13 @@ impl IJumpListItemBackgroundConverterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisabled(&*(&value as *const <super::super::Media::Brush as ::windows::core::Abi>::Abi as *const <super::super::Media::Brush as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJumpListItemBackgroundConverter>, ::windows::core::GetTrustLevel, Enabled::<Impl, IMPL_OFFSET>, SetEnabled::<Impl, IMPL_OFFSET>, Disabled::<Impl, IMPL_OFFSET>, SetDisabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJumpListItemBackgroundConverter, BASE_OFFSET>(),
+            Enabled: Enabled::<Impl, IMPL_OFFSET>,
+            SetEnabled: SetEnabled::<Impl, IMPL_OFFSET>,
+            Disabled: Disabled::<Impl, IMPL_OFFSET>,
+            SetDisabled: SetDisabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJumpListItemBackgroundConverter as ::windows::core::Interface>::IID
@@ -4350,7 +4378,11 @@ impl IJumpListItemBackgroundConverterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJumpListItemBackgroundConverterStatics>, ::windows::core::GetTrustLevel, EnabledProperty::<Impl, IMPL_OFFSET>, DisabledProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJumpListItemBackgroundConverterStatics, BASE_OFFSET>(),
+            EnabledProperty: EnabledProperty::<Impl, IMPL_OFFSET>,
+            DisabledProperty: DisabledProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJumpListItemBackgroundConverterStatics as ::windows::core::Interface>::IID
@@ -4400,7 +4432,13 @@ impl IJumpListItemForegroundConverterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisabled(&*(&value as *const <super::super::Media::Brush as ::windows::core::Abi>::Abi as *const <super::super::Media::Brush as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJumpListItemForegroundConverter>, ::windows::core::GetTrustLevel, Enabled::<Impl, IMPL_OFFSET>, SetEnabled::<Impl, IMPL_OFFSET>, Disabled::<Impl, IMPL_OFFSET>, SetDisabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJumpListItemForegroundConverter, BASE_OFFSET>(),
+            Enabled: Enabled::<Impl, IMPL_OFFSET>,
+            SetEnabled: SetEnabled::<Impl, IMPL_OFFSET>,
+            Disabled: Disabled::<Impl, IMPL_OFFSET>,
+            SetDisabled: SetDisabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJumpListItemForegroundConverter as ::windows::core::Interface>::IID
@@ -4440,7 +4478,11 @@ impl IJumpListItemForegroundConverterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJumpListItemForegroundConverterStatics>, ::windows::core::GetTrustLevel, EnabledProperty::<Impl, IMPL_OFFSET>, DisabledProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJumpListItemForegroundConverterStatics, BASE_OFFSET>(),
+            EnabledProperty: EnabledProperty::<Impl, IMPL_OFFSET>,
+            DisabledProperty: DisabledProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJumpListItemForegroundConverterStatics as ::windows::core::Interface>::IID
@@ -4455,7 +4497,7 @@ impl ::windows::core::RuntimeName for ILayoutInformation {
 #[cfg(feature = "implement_exclusive")]
 impl ILayoutInformationVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILayoutInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILayoutInformationVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILayoutInformation>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILayoutInformation, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILayoutInformation as ::windows::core::Interface>::IID
@@ -4495,7 +4537,11 @@ impl ILayoutInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILayoutInformationStatics>, ::windows::core::GetTrustLevel, GetLayoutExceptionElement::<Impl, IMPL_OFFSET>, GetLayoutSlot::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILayoutInformationStatics, BASE_OFFSET>(),
+            GetLayoutExceptionElement: GetLayoutExceptionElement::<Impl, IMPL_OFFSET>,
+            GetLayoutSlot: GetLayoutSlot::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILayoutInformationStatics as ::windows::core::Interface>::IID
@@ -4523,7 +4569,10 @@ impl ILayoutInformationStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILayoutInformationStatics2>, ::windows::core::GetTrustLevel, GetAvailableSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILayoutInformationStatics2, BASE_OFFSET>(),
+            GetAvailableSize: GetAvailableSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILayoutInformationStatics2 as ::windows::core::Interface>::IID
@@ -4913,58 +4962,53 @@ impl IListViewItemPresenterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentMargin(&*(&value as *const <super::super::Thickness as ::windows::core::Abi>::Abi as *const <super::super::Thickness as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IListViewItemPresenter>,
-            ::windows::core::GetTrustLevel,
-            SelectionCheckMarkVisualEnabled::<Impl, IMPL_OFFSET>,
-            SetSelectionCheckMarkVisualEnabled::<Impl, IMPL_OFFSET>,
-            CheckHintBrush::<Impl, IMPL_OFFSET>,
-            SetCheckHintBrush::<Impl, IMPL_OFFSET>,
-            CheckSelectingBrush::<Impl, IMPL_OFFSET>,
-            SetCheckSelectingBrush::<Impl, IMPL_OFFSET>,
-            CheckBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBrush::<Impl, IMPL_OFFSET>,
-            DragBackground::<Impl, IMPL_OFFSET>,
-            SetDragBackground::<Impl, IMPL_OFFSET>,
-            DragForeground::<Impl, IMPL_OFFSET>,
-            SetDragForeground::<Impl, IMPL_OFFSET>,
-            FocusBorderBrush::<Impl, IMPL_OFFSET>,
-            SetFocusBorderBrush::<Impl, IMPL_OFFSET>,
-            PlaceholderBackground::<Impl, IMPL_OFFSET>,
-            SetPlaceholderBackground::<Impl, IMPL_OFFSET>,
-            PointerOverBackground::<Impl, IMPL_OFFSET>,
-            SetPointerOverBackground::<Impl, IMPL_OFFSET>,
-            SelectedBackground::<Impl, IMPL_OFFSET>,
-            SetSelectedBackground::<Impl, IMPL_OFFSET>,
-            SelectedForeground::<Impl, IMPL_OFFSET>,
-            SetSelectedForeground::<Impl, IMPL_OFFSET>,
-            SelectedPointerOverBackground::<Impl, IMPL_OFFSET>,
-            SetSelectedPointerOverBackground::<Impl, IMPL_OFFSET>,
-            SelectedPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
-            SetSelectedPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
-            SelectedBorderThickness::<Impl, IMPL_OFFSET>,
-            SetSelectedBorderThickness::<Impl, IMPL_OFFSET>,
-            DisabledOpacity::<Impl, IMPL_OFFSET>,
-            SetDisabledOpacity::<Impl, IMPL_OFFSET>,
-            DragOpacity::<Impl, IMPL_OFFSET>,
-            SetDragOpacity::<Impl, IMPL_OFFSET>,
-            ReorderHintOffset::<Impl, IMPL_OFFSET>,
-            SetReorderHintOffset::<Impl, IMPL_OFFSET>,
-            ListViewItemPresenterHorizontalContentAlignment::<Impl, IMPL_OFFSET>,
-            SetListViewItemPresenterHorizontalContentAlignment::<Impl, IMPL_OFFSET>,
-            ListViewItemPresenterVerticalContentAlignment::<Impl, IMPL_OFFSET>,
-            SetListViewItemPresenterVerticalContentAlignment::<Impl, IMPL_OFFSET>,
-            ListViewItemPresenterPadding::<Impl, IMPL_OFFSET>,
-            SetListViewItemPresenterPadding::<Impl, IMPL_OFFSET>,
-            PointerOverBackgroundMargin::<Impl, IMPL_OFFSET>,
-            SetPointerOverBackgroundMargin::<Impl, IMPL_OFFSET>,
-            ContentMargin::<Impl, IMPL_OFFSET>,
-            SetContentMargin::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemPresenter, BASE_OFFSET>(),
+            SelectionCheckMarkVisualEnabled: SelectionCheckMarkVisualEnabled::<Impl, IMPL_OFFSET>,
+            SetSelectionCheckMarkVisualEnabled: SetSelectionCheckMarkVisualEnabled::<Impl, IMPL_OFFSET>,
+            CheckHintBrush: CheckHintBrush::<Impl, IMPL_OFFSET>,
+            SetCheckHintBrush: SetCheckHintBrush::<Impl, IMPL_OFFSET>,
+            CheckSelectingBrush: CheckSelectingBrush::<Impl, IMPL_OFFSET>,
+            SetCheckSelectingBrush: SetCheckSelectingBrush::<Impl, IMPL_OFFSET>,
+            CheckBrush: CheckBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBrush: SetCheckBrush::<Impl, IMPL_OFFSET>,
+            DragBackground: DragBackground::<Impl, IMPL_OFFSET>,
+            SetDragBackground: SetDragBackground::<Impl, IMPL_OFFSET>,
+            DragForeground: DragForeground::<Impl, IMPL_OFFSET>,
+            SetDragForeground: SetDragForeground::<Impl, IMPL_OFFSET>,
+            FocusBorderBrush: FocusBorderBrush::<Impl, IMPL_OFFSET>,
+            SetFocusBorderBrush: SetFocusBorderBrush::<Impl, IMPL_OFFSET>,
+            PlaceholderBackground: PlaceholderBackground::<Impl, IMPL_OFFSET>,
+            SetPlaceholderBackground: SetPlaceholderBackground::<Impl, IMPL_OFFSET>,
+            PointerOverBackground: PointerOverBackground::<Impl, IMPL_OFFSET>,
+            SetPointerOverBackground: SetPointerOverBackground::<Impl, IMPL_OFFSET>,
+            SelectedBackground: SelectedBackground::<Impl, IMPL_OFFSET>,
+            SetSelectedBackground: SetSelectedBackground::<Impl, IMPL_OFFSET>,
+            SelectedForeground: SelectedForeground::<Impl, IMPL_OFFSET>,
+            SetSelectedForeground: SetSelectedForeground::<Impl, IMPL_OFFSET>,
+            SelectedPointerOverBackground: SelectedPointerOverBackground::<Impl, IMPL_OFFSET>,
+            SetSelectedPointerOverBackground: SetSelectedPointerOverBackground::<Impl, IMPL_OFFSET>,
+            SelectedPointerOverBorderBrush: SelectedPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
+            SetSelectedPointerOverBorderBrush: SetSelectedPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
+            SelectedBorderThickness: SelectedBorderThickness::<Impl, IMPL_OFFSET>,
+            SetSelectedBorderThickness: SetSelectedBorderThickness::<Impl, IMPL_OFFSET>,
+            DisabledOpacity: DisabledOpacity::<Impl, IMPL_OFFSET>,
+            SetDisabledOpacity: SetDisabledOpacity::<Impl, IMPL_OFFSET>,
+            DragOpacity: DragOpacity::<Impl, IMPL_OFFSET>,
+            SetDragOpacity: SetDragOpacity::<Impl, IMPL_OFFSET>,
+            ReorderHintOffset: ReorderHintOffset::<Impl, IMPL_OFFSET>,
+            SetReorderHintOffset: SetReorderHintOffset::<Impl, IMPL_OFFSET>,
+            ListViewItemPresenterHorizontalContentAlignment: ListViewItemPresenterHorizontalContentAlignment::<Impl, IMPL_OFFSET>,
+            SetListViewItemPresenterHorizontalContentAlignment: SetListViewItemPresenterHorizontalContentAlignment::<Impl, IMPL_OFFSET>,
+            ListViewItemPresenterVerticalContentAlignment: ListViewItemPresenterVerticalContentAlignment::<Impl, IMPL_OFFSET>,
+            SetListViewItemPresenterVerticalContentAlignment: SetListViewItemPresenterVerticalContentAlignment::<Impl, IMPL_OFFSET>,
+            ListViewItemPresenterPadding: ListViewItemPresenterPadding::<Impl, IMPL_OFFSET>,
+            SetListViewItemPresenterPadding: SetListViewItemPresenterPadding::<Impl, IMPL_OFFSET>,
+            PointerOverBackgroundMargin: PointerOverBackgroundMargin::<Impl, IMPL_OFFSET>,
+            SetPointerOverBackgroundMargin: SetPointerOverBackgroundMargin::<Impl, IMPL_OFFSET>,
+            ContentMargin: ContentMargin::<Impl, IMPL_OFFSET>,
+            SetContentMargin: SetContentMargin::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemPresenter as ::windows::core::Interface>::IID
@@ -5082,26 +5126,21 @@ impl IListViewItemPresenter2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPointerOverForeground(&*(&value as *const <super::super::Media::Brush as ::windows::core::Abi>::Abi as *const <super::super::Media::Brush as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IListViewItemPresenter2>,
-            ::windows::core::GetTrustLevel,
-            SelectedPressedBackground::<Impl, IMPL_OFFSET>,
-            SetSelectedPressedBackground::<Impl, IMPL_OFFSET>,
-            PressedBackground::<Impl, IMPL_OFFSET>,
-            SetPressedBackground::<Impl, IMPL_OFFSET>,
-            CheckBoxBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBoxBrush::<Impl, IMPL_OFFSET>,
-            FocusSecondaryBorderBrush::<Impl, IMPL_OFFSET>,
-            SetFocusSecondaryBorderBrush::<Impl, IMPL_OFFSET>,
-            CheckMode::<Impl, IMPL_OFFSET>,
-            SetCheckMode::<Impl, IMPL_OFFSET>,
-            PointerOverForeground::<Impl, IMPL_OFFSET>,
-            SetPointerOverForeground::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemPresenter2, BASE_OFFSET>(),
+            SelectedPressedBackground: SelectedPressedBackground::<Impl, IMPL_OFFSET>,
+            SetSelectedPressedBackground: SetSelectedPressedBackground::<Impl, IMPL_OFFSET>,
+            PressedBackground: PressedBackground::<Impl, IMPL_OFFSET>,
+            SetPressedBackground: SetPressedBackground::<Impl, IMPL_OFFSET>,
+            CheckBoxBrush: CheckBoxBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBoxBrush: SetCheckBoxBrush::<Impl, IMPL_OFFSET>,
+            FocusSecondaryBorderBrush: FocusSecondaryBorderBrush::<Impl, IMPL_OFFSET>,
+            SetFocusSecondaryBorderBrush: SetFocusSecondaryBorderBrush::<Impl, IMPL_OFFSET>,
+            CheckMode: CheckMode::<Impl, IMPL_OFFSET>,
+            SetCheckMode: SetCheckMode::<Impl, IMPL_OFFSET>,
+            PointerOverForeground: PointerOverForeground::<Impl, IMPL_OFFSET>,
+            SetPointerOverForeground: SetPointerOverForeground::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemPresenter2 as ::windows::core::Interface>::IID
@@ -5185,22 +5224,17 @@ impl IListViewItemPresenter3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRevealBackgroundShowsAboveContent(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IListViewItemPresenter3>,
-            ::windows::core::GetTrustLevel,
-            RevealBackground::<Impl, IMPL_OFFSET>,
-            SetRevealBackground::<Impl, IMPL_OFFSET>,
-            RevealBorderBrush::<Impl, IMPL_OFFSET>,
-            SetRevealBorderBrush::<Impl, IMPL_OFFSET>,
-            RevealBorderThickness::<Impl, IMPL_OFFSET>,
-            SetRevealBorderThickness::<Impl, IMPL_OFFSET>,
-            RevealBackgroundShowsAboveContent::<Impl, IMPL_OFFSET>,
-            SetRevealBackgroundShowsAboveContent::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemPresenter3, BASE_OFFSET>(),
+            RevealBackground: RevealBackground::<Impl, IMPL_OFFSET>,
+            SetRevealBackground: SetRevealBackground::<Impl, IMPL_OFFSET>,
+            RevealBorderBrush: RevealBorderBrush::<Impl, IMPL_OFFSET>,
+            SetRevealBorderBrush: SetRevealBorderBrush::<Impl, IMPL_OFFSET>,
+            RevealBorderThickness: RevealBorderThickness::<Impl, IMPL_OFFSET>,
+            SetRevealBorderThickness: SetRevealBorderThickness::<Impl, IMPL_OFFSET>,
+            RevealBackgroundShowsAboveContent: RevealBackgroundShowsAboveContent::<Impl, IMPL_OFFSET>,
+            SetRevealBackgroundShowsAboveContent: SetRevealBackgroundShowsAboveContent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemPresenter3 as ::windows::core::Interface>::IID
@@ -5675,68 +5709,63 @@ impl IListViewItemPresenter4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPointerOverBorderBrush(&*(&value as *const <super::super::Media::Brush as ::windows::core::Abi>::Abi as *const <super::super::Media::Brush as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IListViewItemPresenter4>,
-            ::windows::core::GetTrustLevel,
-            SelectedDisabledBackground::<Impl, IMPL_OFFSET>,
-            SetSelectedDisabledBackground::<Impl, IMPL_OFFSET>,
-            CheckPressedBrush::<Impl, IMPL_OFFSET>,
-            SetCheckPressedBrush::<Impl, IMPL_OFFSET>,
-            CheckDisabledBrush::<Impl, IMPL_OFFSET>,
-            SetCheckDisabledBrush::<Impl, IMPL_OFFSET>,
-            CheckBoxPointerOverBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBoxPointerOverBrush::<Impl, IMPL_OFFSET>,
-            CheckBoxPressedBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBoxPressedBrush::<Impl, IMPL_OFFSET>,
-            CheckBoxDisabledBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBoxDisabledBrush::<Impl, IMPL_OFFSET>,
-            CheckBoxSelectedBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBoxSelectedBrush::<Impl, IMPL_OFFSET>,
-            CheckBoxSelectedPointerOverBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBoxSelectedPointerOverBrush::<Impl, IMPL_OFFSET>,
-            CheckBoxSelectedPressedBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBoxSelectedPressedBrush::<Impl, IMPL_OFFSET>,
-            CheckBoxSelectedDisabledBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBoxSelectedDisabledBrush::<Impl, IMPL_OFFSET>,
-            CheckBoxBorderBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBoxBorderBrush::<Impl, IMPL_OFFSET>,
-            CheckBoxPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBoxPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
-            CheckBoxPressedBorderBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBoxPressedBorderBrush::<Impl, IMPL_OFFSET>,
-            CheckBoxDisabledBorderBrush::<Impl, IMPL_OFFSET>,
-            SetCheckBoxDisabledBorderBrush::<Impl, IMPL_OFFSET>,
-            CheckBoxCornerRadius::<Impl, IMPL_OFFSET>,
-            SetCheckBoxCornerRadius::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorCornerRadius::<Impl, IMPL_OFFSET>,
-            SetSelectionIndicatorCornerRadius::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorVisualEnabled::<Impl, IMPL_OFFSET>,
-            SetSelectionIndicatorVisualEnabled::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorMode::<Impl, IMPL_OFFSET>,
-            SetSelectionIndicatorMode::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorBrush::<Impl, IMPL_OFFSET>,
-            SetSelectionIndicatorBrush::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorPointerOverBrush::<Impl, IMPL_OFFSET>,
-            SetSelectionIndicatorPointerOverBrush::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorPressedBrush::<Impl, IMPL_OFFSET>,
-            SetSelectionIndicatorPressedBrush::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorDisabledBrush::<Impl, IMPL_OFFSET>,
-            SetSelectionIndicatorDisabledBrush::<Impl, IMPL_OFFSET>,
-            SelectedBorderBrush::<Impl, IMPL_OFFSET>,
-            SetSelectedBorderBrush::<Impl, IMPL_OFFSET>,
-            SelectedPressedBorderBrush::<Impl, IMPL_OFFSET>,
-            SetSelectedPressedBorderBrush::<Impl, IMPL_OFFSET>,
-            SelectedDisabledBorderBrush::<Impl, IMPL_OFFSET>,
-            SetSelectedDisabledBorderBrush::<Impl, IMPL_OFFSET>,
-            SelectedInnerBorderBrush::<Impl, IMPL_OFFSET>,
-            SetSelectedInnerBorderBrush::<Impl, IMPL_OFFSET>,
-            PointerOverBorderBrush::<Impl, IMPL_OFFSET>,
-            SetPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemPresenter4, BASE_OFFSET>(),
+            SelectedDisabledBackground: SelectedDisabledBackground::<Impl, IMPL_OFFSET>,
+            SetSelectedDisabledBackground: SetSelectedDisabledBackground::<Impl, IMPL_OFFSET>,
+            CheckPressedBrush: CheckPressedBrush::<Impl, IMPL_OFFSET>,
+            SetCheckPressedBrush: SetCheckPressedBrush::<Impl, IMPL_OFFSET>,
+            CheckDisabledBrush: CheckDisabledBrush::<Impl, IMPL_OFFSET>,
+            SetCheckDisabledBrush: SetCheckDisabledBrush::<Impl, IMPL_OFFSET>,
+            CheckBoxPointerOverBrush: CheckBoxPointerOverBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBoxPointerOverBrush: SetCheckBoxPointerOverBrush::<Impl, IMPL_OFFSET>,
+            CheckBoxPressedBrush: CheckBoxPressedBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBoxPressedBrush: SetCheckBoxPressedBrush::<Impl, IMPL_OFFSET>,
+            CheckBoxDisabledBrush: CheckBoxDisabledBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBoxDisabledBrush: SetCheckBoxDisabledBrush::<Impl, IMPL_OFFSET>,
+            CheckBoxSelectedBrush: CheckBoxSelectedBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBoxSelectedBrush: SetCheckBoxSelectedBrush::<Impl, IMPL_OFFSET>,
+            CheckBoxSelectedPointerOverBrush: CheckBoxSelectedPointerOverBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBoxSelectedPointerOverBrush: SetCheckBoxSelectedPointerOverBrush::<Impl, IMPL_OFFSET>,
+            CheckBoxSelectedPressedBrush: CheckBoxSelectedPressedBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBoxSelectedPressedBrush: SetCheckBoxSelectedPressedBrush::<Impl, IMPL_OFFSET>,
+            CheckBoxSelectedDisabledBrush: CheckBoxSelectedDisabledBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBoxSelectedDisabledBrush: SetCheckBoxSelectedDisabledBrush::<Impl, IMPL_OFFSET>,
+            CheckBoxBorderBrush: CheckBoxBorderBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBoxBorderBrush: SetCheckBoxBorderBrush::<Impl, IMPL_OFFSET>,
+            CheckBoxPointerOverBorderBrush: CheckBoxPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBoxPointerOverBorderBrush: SetCheckBoxPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
+            CheckBoxPressedBorderBrush: CheckBoxPressedBorderBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBoxPressedBorderBrush: SetCheckBoxPressedBorderBrush::<Impl, IMPL_OFFSET>,
+            CheckBoxDisabledBorderBrush: CheckBoxDisabledBorderBrush::<Impl, IMPL_OFFSET>,
+            SetCheckBoxDisabledBorderBrush: SetCheckBoxDisabledBorderBrush::<Impl, IMPL_OFFSET>,
+            CheckBoxCornerRadius: CheckBoxCornerRadius::<Impl, IMPL_OFFSET>,
+            SetCheckBoxCornerRadius: SetCheckBoxCornerRadius::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorCornerRadius: SelectionIndicatorCornerRadius::<Impl, IMPL_OFFSET>,
+            SetSelectionIndicatorCornerRadius: SetSelectionIndicatorCornerRadius::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorVisualEnabled: SelectionIndicatorVisualEnabled::<Impl, IMPL_OFFSET>,
+            SetSelectionIndicatorVisualEnabled: SetSelectionIndicatorVisualEnabled::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorMode: SelectionIndicatorMode::<Impl, IMPL_OFFSET>,
+            SetSelectionIndicatorMode: SetSelectionIndicatorMode::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorBrush: SelectionIndicatorBrush::<Impl, IMPL_OFFSET>,
+            SetSelectionIndicatorBrush: SetSelectionIndicatorBrush::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorPointerOverBrush: SelectionIndicatorPointerOverBrush::<Impl, IMPL_OFFSET>,
+            SetSelectionIndicatorPointerOverBrush: SetSelectionIndicatorPointerOverBrush::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorPressedBrush: SelectionIndicatorPressedBrush::<Impl, IMPL_OFFSET>,
+            SetSelectionIndicatorPressedBrush: SetSelectionIndicatorPressedBrush::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorDisabledBrush: SelectionIndicatorDisabledBrush::<Impl, IMPL_OFFSET>,
+            SetSelectionIndicatorDisabledBrush: SetSelectionIndicatorDisabledBrush::<Impl, IMPL_OFFSET>,
+            SelectedBorderBrush: SelectedBorderBrush::<Impl, IMPL_OFFSET>,
+            SetSelectedBorderBrush: SetSelectedBorderBrush::<Impl, IMPL_OFFSET>,
+            SelectedPressedBorderBrush: SelectedPressedBorderBrush::<Impl, IMPL_OFFSET>,
+            SetSelectedPressedBorderBrush: SetSelectedPressedBorderBrush::<Impl, IMPL_OFFSET>,
+            SelectedDisabledBorderBrush: SelectedDisabledBorderBrush::<Impl, IMPL_OFFSET>,
+            SetSelectedDisabledBorderBrush: SetSelectedDisabledBorderBrush::<Impl, IMPL_OFFSET>,
+            SelectedInnerBorderBrush: SelectedInnerBorderBrush::<Impl, IMPL_OFFSET>,
+            SetSelectedInnerBorderBrush: SetSelectedInnerBorderBrush::<Impl, IMPL_OFFSET>,
+            PointerOverBorderBrush: PointerOverBorderBrush::<Impl, IMPL_OFFSET>,
+            SetPointerOverBorderBrush: SetPointerOverBorderBrush::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemPresenter4 as ::windows::core::Interface>::IID
@@ -5764,7 +5793,10 @@ impl IListViewItemPresenterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewItemPresenterFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemPresenterFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemPresenterFactory as ::windows::core::Interface>::IID
@@ -6044,36 +6076,31 @@ impl IListViewItemPresenterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IListViewItemPresenterStatics>,
-            ::windows::core::GetTrustLevel,
-            SelectionCheckMarkVisualEnabledProperty::<Impl, IMPL_OFFSET>,
-            CheckHintBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckSelectingBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBrushProperty::<Impl, IMPL_OFFSET>,
-            DragBackgroundProperty::<Impl, IMPL_OFFSET>,
-            DragForegroundProperty::<Impl, IMPL_OFFSET>,
-            FocusBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            PlaceholderBackgroundProperty::<Impl, IMPL_OFFSET>,
-            PointerOverBackgroundProperty::<Impl, IMPL_OFFSET>,
-            SelectedBackgroundProperty::<Impl, IMPL_OFFSET>,
-            SelectedForegroundProperty::<Impl, IMPL_OFFSET>,
-            SelectedPointerOverBackgroundProperty::<Impl, IMPL_OFFSET>,
-            SelectedPointerOverBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            SelectedBorderThicknessProperty::<Impl, IMPL_OFFSET>,
-            DisabledOpacityProperty::<Impl, IMPL_OFFSET>,
-            DragOpacityProperty::<Impl, IMPL_OFFSET>,
-            ReorderHintOffsetProperty::<Impl, IMPL_OFFSET>,
-            ListViewItemPresenterHorizontalContentAlignmentProperty::<Impl, IMPL_OFFSET>,
-            ListViewItemPresenterVerticalContentAlignmentProperty::<Impl, IMPL_OFFSET>,
-            ListViewItemPresenterPaddingProperty::<Impl, IMPL_OFFSET>,
-            PointerOverBackgroundMarginProperty::<Impl, IMPL_OFFSET>,
-            ContentMarginProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemPresenterStatics, BASE_OFFSET>(),
+            SelectionCheckMarkVisualEnabledProperty: SelectionCheckMarkVisualEnabledProperty::<Impl, IMPL_OFFSET>,
+            CheckHintBrushProperty: CheckHintBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckSelectingBrushProperty: CheckSelectingBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBrushProperty: CheckBrushProperty::<Impl, IMPL_OFFSET>,
+            DragBackgroundProperty: DragBackgroundProperty::<Impl, IMPL_OFFSET>,
+            DragForegroundProperty: DragForegroundProperty::<Impl, IMPL_OFFSET>,
+            FocusBorderBrushProperty: FocusBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            PlaceholderBackgroundProperty: PlaceholderBackgroundProperty::<Impl, IMPL_OFFSET>,
+            PointerOverBackgroundProperty: PointerOverBackgroundProperty::<Impl, IMPL_OFFSET>,
+            SelectedBackgroundProperty: SelectedBackgroundProperty::<Impl, IMPL_OFFSET>,
+            SelectedForegroundProperty: SelectedForegroundProperty::<Impl, IMPL_OFFSET>,
+            SelectedPointerOverBackgroundProperty: SelectedPointerOverBackgroundProperty::<Impl, IMPL_OFFSET>,
+            SelectedPointerOverBorderBrushProperty: SelectedPointerOverBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            SelectedBorderThicknessProperty: SelectedBorderThicknessProperty::<Impl, IMPL_OFFSET>,
+            DisabledOpacityProperty: DisabledOpacityProperty::<Impl, IMPL_OFFSET>,
+            DragOpacityProperty: DragOpacityProperty::<Impl, IMPL_OFFSET>,
+            ReorderHintOffsetProperty: ReorderHintOffsetProperty::<Impl, IMPL_OFFSET>,
+            ListViewItemPresenterHorizontalContentAlignmentProperty: ListViewItemPresenterHorizontalContentAlignmentProperty::<Impl, IMPL_OFFSET>,
+            ListViewItemPresenterVerticalContentAlignmentProperty: ListViewItemPresenterVerticalContentAlignmentProperty::<Impl, IMPL_OFFSET>,
+            ListViewItemPresenterPaddingProperty: ListViewItemPresenterPaddingProperty::<Impl, IMPL_OFFSET>,
+            PointerOverBackgroundMarginProperty: PointerOverBackgroundMarginProperty::<Impl, IMPL_OFFSET>,
+            ContentMarginProperty: ContentMarginProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemPresenterStatics as ::windows::core::Interface>::IID
@@ -6161,20 +6188,15 @@ impl IListViewItemPresenterStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IListViewItemPresenterStatics2>,
-            ::windows::core::GetTrustLevel,
-            SelectedPressedBackgroundProperty::<Impl, IMPL_OFFSET>,
-            PressedBackgroundProperty::<Impl, IMPL_OFFSET>,
-            CheckBoxBrushProperty::<Impl, IMPL_OFFSET>,
-            FocusSecondaryBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckModeProperty::<Impl, IMPL_OFFSET>,
-            PointerOverForegroundProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemPresenterStatics2, BASE_OFFSET>(),
+            SelectedPressedBackgroundProperty: SelectedPressedBackgroundProperty::<Impl, IMPL_OFFSET>,
+            PressedBackgroundProperty: PressedBackgroundProperty::<Impl, IMPL_OFFSET>,
+            CheckBoxBrushProperty: CheckBoxBrushProperty::<Impl, IMPL_OFFSET>,
+            FocusSecondaryBorderBrushProperty: FocusSecondaryBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckModeProperty: CheckModeProperty::<Impl, IMPL_OFFSET>,
+            PointerOverForegroundProperty: PointerOverForegroundProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemPresenterStatics2 as ::windows::core::Interface>::IID
@@ -6238,18 +6260,13 @@ impl IListViewItemPresenterStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IListViewItemPresenterStatics3>,
-            ::windows::core::GetTrustLevel,
-            RevealBackgroundProperty::<Impl, IMPL_OFFSET>,
-            RevealBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            RevealBorderThicknessProperty::<Impl, IMPL_OFFSET>,
-            RevealBackgroundShowsAboveContentProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemPresenterStatics3, BASE_OFFSET>(),
+            RevealBackgroundProperty: RevealBackgroundProperty::<Impl, IMPL_OFFSET>,
+            RevealBorderBrushProperty: RevealBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            RevealBorderThicknessProperty: RevealBorderThicknessProperty::<Impl, IMPL_OFFSET>,
+            RevealBackgroundShowsAboveContentProperty: RevealBackgroundShowsAboveContentProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemPresenterStatics3 as ::windows::core::Interface>::IID
@@ -6589,41 +6606,36 @@ impl IListViewItemPresenterStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IListViewItemPresenterStatics4>,
-            ::windows::core::GetTrustLevel,
-            SelectedDisabledBackgroundProperty::<Impl, IMPL_OFFSET>,
-            CheckPressedBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckDisabledBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBoxPointerOverBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBoxPressedBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBoxDisabledBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBoxSelectedBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBoxSelectedPointerOverBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBoxSelectedPressedBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBoxSelectedDisabledBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBoxBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBoxPointerOverBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBoxPressedBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBoxDisabledBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            CheckBoxCornerRadiusProperty::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorCornerRadiusProperty::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorVisualEnabledProperty::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorModeProperty::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorBrushProperty::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorPointerOverBrushProperty::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorPressedBrushProperty::<Impl, IMPL_OFFSET>,
-            SelectionIndicatorDisabledBrushProperty::<Impl, IMPL_OFFSET>,
-            SelectedBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            SelectedPressedBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            SelectedDisabledBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            SelectedInnerBorderBrushProperty::<Impl, IMPL_OFFSET>,
-            PointerOverBorderBrushProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemPresenterStatics4, BASE_OFFSET>(),
+            SelectedDisabledBackgroundProperty: SelectedDisabledBackgroundProperty::<Impl, IMPL_OFFSET>,
+            CheckPressedBrushProperty: CheckPressedBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckDisabledBrushProperty: CheckDisabledBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBoxPointerOverBrushProperty: CheckBoxPointerOverBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBoxPressedBrushProperty: CheckBoxPressedBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBoxDisabledBrushProperty: CheckBoxDisabledBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBoxSelectedBrushProperty: CheckBoxSelectedBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBoxSelectedPointerOverBrushProperty: CheckBoxSelectedPointerOverBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBoxSelectedPressedBrushProperty: CheckBoxSelectedPressedBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBoxSelectedDisabledBrushProperty: CheckBoxSelectedDisabledBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBoxBorderBrushProperty: CheckBoxBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBoxPointerOverBorderBrushProperty: CheckBoxPointerOverBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBoxPressedBorderBrushProperty: CheckBoxPressedBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBoxDisabledBorderBrushProperty: CheckBoxDisabledBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            CheckBoxCornerRadiusProperty: CheckBoxCornerRadiusProperty::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorCornerRadiusProperty: SelectionIndicatorCornerRadiusProperty::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorVisualEnabledProperty: SelectionIndicatorVisualEnabledProperty::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorModeProperty: SelectionIndicatorModeProperty::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorBrushProperty: SelectionIndicatorBrushProperty::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorPointerOverBrushProperty: SelectionIndicatorPointerOverBrushProperty::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorPressedBrushProperty: SelectionIndicatorPressedBrushProperty::<Impl, IMPL_OFFSET>,
+            SelectionIndicatorDisabledBrushProperty: SelectionIndicatorDisabledBrushProperty::<Impl, IMPL_OFFSET>,
+            SelectedBorderBrushProperty: SelectedBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            SelectedPressedBorderBrushProperty: SelectedPressedBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            SelectedDisabledBorderBrushProperty: SelectedDisabledBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            SelectedInnerBorderBrushProperty: SelectedInnerBorderBrushProperty::<Impl, IMPL_OFFSET>,
+            PointerOverBorderBrushProperty: PointerOverBorderBrushProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemPresenterStatics4 as ::windows::core::Interface>::IID
@@ -6651,7 +6663,10 @@ impl IListViewItemTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewItemTemplateSettings>, ::windows::core::GetTrustLevel, DragItemsCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemTemplateSettings, BASE_OFFSET>(),
+            DragItemsCount: DragItemsCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemTemplateSettings as ::windows::core::Interface>::IID
@@ -6803,30 +6818,25 @@ impl ILoopingSelectorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSelectionChanged(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILoopingSelector>,
-            ::windows::core::GetTrustLevel,
-            ShouldLoop::<Impl, IMPL_OFFSET>,
-            SetShouldLoop::<Impl, IMPL_OFFSET>,
-            Items::<Impl, IMPL_OFFSET>,
-            SetItems::<Impl, IMPL_OFFSET>,
-            SelectedIndex::<Impl, IMPL_OFFSET>,
-            SetSelectedIndex::<Impl, IMPL_OFFSET>,
-            SelectedItem::<Impl, IMPL_OFFSET>,
-            SetSelectedItem::<Impl, IMPL_OFFSET>,
-            ItemWidth::<Impl, IMPL_OFFSET>,
-            SetItemWidth::<Impl, IMPL_OFFSET>,
-            ItemHeight::<Impl, IMPL_OFFSET>,
-            SetItemHeight::<Impl, IMPL_OFFSET>,
-            ItemTemplate::<Impl, IMPL_OFFSET>,
-            SetItemTemplate::<Impl, IMPL_OFFSET>,
-            SelectionChanged::<Impl, IMPL_OFFSET>,
-            RemoveSelectionChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoopingSelector, BASE_OFFSET>(),
+            ShouldLoop: ShouldLoop::<Impl, IMPL_OFFSET>,
+            SetShouldLoop: SetShouldLoop::<Impl, IMPL_OFFSET>,
+            Items: Items::<Impl, IMPL_OFFSET>,
+            SetItems: SetItems::<Impl, IMPL_OFFSET>,
+            SelectedIndex: SelectedIndex::<Impl, IMPL_OFFSET>,
+            SetSelectedIndex: SetSelectedIndex::<Impl, IMPL_OFFSET>,
+            SelectedItem: SelectedItem::<Impl, IMPL_OFFSET>,
+            SetSelectedItem: SetSelectedItem::<Impl, IMPL_OFFSET>,
+            ItemWidth: ItemWidth::<Impl, IMPL_OFFSET>,
+            SetItemWidth: SetItemWidth::<Impl, IMPL_OFFSET>,
+            ItemHeight: ItemHeight::<Impl, IMPL_OFFSET>,
+            SetItemHeight: SetItemHeight::<Impl, IMPL_OFFSET>,
+            ItemTemplate: ItemTemplate::<Impl, IMPL_OFFSET>,
+            SetItemTemplate: SetItemTemplate::<Impl, IMPL_OFFSET>,
+            SelectionChanged: SelectionChanged::<Impl, IMPL_OFFSET>,
+            RemoveSelectionChanged: RemoveSelectionChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoopingSelector as ::windows::core::Interface>::IID
@@ -6841,7 +6851,7 @@ impl ::windows::core::RuntimeName for ILoopingSelectorItem {
 #[cfg(feature = "implement_exclusive")]
 impl ILoopingSelectorItemVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoopingSelectorItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoopingSelectorItemVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoopingSelectorItem>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILoopingSelectorItem, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoopingSelectorItem as ::windows::core::Interface>::IID
@@ -6856,7 +6866,7 @@ impl ::windows::core::RuntimeName for ILoopingSelectorPanel {
 #[cfg(feature = "implement_exclusive")]
 impl ILoopingSelectorPanelVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoopingSelectorPanelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoopingSelectorPanelVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoopingSelectorPanel>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILoopingSelectorPanel, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoopingSelectorPanel as ::windows::core::Interface>::IID
@@ -6956,21 +6966,16 @@ impl ILoopingSelectorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILoopingSelectorStatics>,
-            ::windows::core::GetTrustLevel,
-            ShouldLoopProperty::<Impl, IMPL_OFFSET>,
-            ItemsProperty::<Impl, IMPL_OFFSET>,
-            SelectedIndexProperty::<Impl, IMPL_OFFSET>,
-            SelectedItemProperty::<Impl, IMPL_OFFSET>,
-            ItemWidthProperty::<Impl, IMPL_OFFSET>,
-            ItemHeightProperty::<Impl, IMPL_OFFSET>,
-            ItemTemplateProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoopingSelectorStatics, BASE_OFFSET>(),
+            ShouldLoopProperty: ShouldLoopProperty::<Impl, IMPL_OFFSET>,
+            ItemsProperty: ItemsProperty::<Impl, IMPL_OFFSET>,
+            SelectedIndexProperty: SelectedIndexProperty::<Impl, IMPL_OFFSET>,
+            SelectedItemProperty: SelectedItemProperty::<Impl, IMPL_OFFSET>,
+            ItemWidthProperty: ItemWidthProperty::<Impl, IMPL_OFFSET>,
+            ItemHeightProperty: ItemHeightProperty::<Impl, IMPL_OFFSET>,
+            ItemTemplateProperty: ItemTemplateProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoopingSelectorStatics as ::windows::core::Interface>::IID
@@ -6998,7 +7003,10 @@ impl IMenuFlyoutItemTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMenuFlyoutItemTemplateSettings>, ::windows::core::GetTrustLevel, KeyboardAcceleratorTextMinWidth::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMenuFlyoutItemTemplateSettings, BASE_OFFSET>(),
+            KeyboardAcceleratorTextMinWidth: KeyboardAcceleratorTextMinWidth::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMenuFlyoutItemTemplateSettings as ::windows::core::Interface>::IID
@@ -7026,7 +7034,10 @@ impl IMenuFlyoutPresenterTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMenuFlyoutPresenterTemplateSettings>, ::windows::core::GetTrustLevel, FlyoutContentMinWidth::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMenuFlyoutPresenterTemplateSettings, BASE_OFFSET>(),
+            FlyoutContentMinWidth: FlyoutContentMinWidth::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMenuFlyoutPresenterTemplateSettings as ::windows::core::Interface>::IID
@@ -7059,7 +7070,11 @@ impl INavigationViewItemPresenterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIcon(&*(&value as *const <super::IconElement as ::windows::core::Abi>::Abi as *const <super::IconElement as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationViewItemPresenter>, ::windows::core::GetTrustLevel, Icon::<Impl, IMPL_OFFSET>, SetIcon::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INavigationViewItemPresenter, BASE_OFFSET>(),
+            Icon: Icon::<Impl, IMPL_OFFSET>,
+            SetIcon: SetIcon::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INavigationViewItemPresenter as ::windows::core::Interface>::IID
@@ -7087,7 +7102,10 @@ impl INavigationViewItemPresenterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationViewItemPresenterFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INavigationViewItemPresenterFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INavigationViewItemPresenterFactory as ::windows::core::Interface>::IID
@@ -7115,7 +7133,10 @@ impl INavigationViewItemPresenterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationViewItemPresenterStatics>, ::windows::core::GetTrustLevel, IconProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INavigationViewItemPresenterStatics, BASE_OFFSET>(),
+            IconProperty: IconProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INavigationViewItemPresenterStatics as ::windows::core::Interface>::IID
@@ -7336,41 +7357,36 @@ impl IOrientedVirtualizingPanelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IOrientedVirtualizingPanel>,
-            ::windows::core::GetTrustLevel,
-            CanVerticallyScroll::<Impl, IMPL_OFFSET>,
-            SetCanVerticallyScroll::<Impl, IMPL_OFFSET>,
-            CanHorizontallyScroll::<Impl, IMPL_OFFSET>,
-            SetCanHorizontallyScroll::<Impl, IMPL_OFFSET>,
-            ExtentWidth::<Impl, IMPL_OFFSET>,
-            ExtentHeight::<Impl, IMPL_OFFSET>,
-            ViewportWidth::<Impl, IMPL_OFFSET>,
-            ViewportHeight::<Impl, IMPL_OFFSET>,
-            HorizontalOffset::<Impl, IMPL_OFFSET>,
-            VerticalOffset::<Impl, IMPL_OFFSET>,
-            ScrollOwner::<Impl, IMPL_OFFSET>,
-            SetScrollOwner::<Impl, IMPL_OFFSET>,
-            LineUp::<Impl, IMPL_OFFSET>,
-            LineDown::<Impl, IMPL_OFFSET>,
-            LineLeft::<Impl, IMPL_OFFSET>,
-            LineRight::<Impl, IMPL_OFFSET>,
-            PageUp::<Impl, IMPL_OFFSET>,
-            PageDown::<Impl, IMPL_OFFSET>,
-            PageLeft::<Impl, IMPL_OFFSET>,
-            PageRight::<Impl, IMPL_OFFSET>,
-            MouseWheelUp::<Impl, IMPL_OFFSET>,
-            MouseWheelDown::<Impl, IMPL_OFFSET>,
-            MouseWheelLeft::<Impl, IMPL_OFFSET>,
-            MouseWheelRight::<Impl, IMPL_OFFSET>,
-            SetHorizontalOffset::<Impl, IMPL_OFFSET>,
-            SetVerticalOffset::<Impl, IMPL_OFFSET>,
-            MakeVisible::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientedVirtualizingPanel, BASE_OFFSET>(),
+            CanVerticallyScroll: CanVerticallyScroll::<Impl, IMPL_OFFSET>,
+            SetCanVerticallyScroll: SetCanVerticallyScroll::<Impl, IMPL_OFFSET>,
+            CanHorizontallyScroll: CanHorizontallyScroll::<Impl, IMPL_OFFSET>,
+            SetCanHorizontallyScroll: SetCanHorizontallyScroll::<Impl, IMPL_OFFSET>,
+            ExtentWidth: ExtentWidth::<Impl, IMPL_OFFSET>,
+            ExtentHeight: ExtentHeight::<Impl, IMPL_OFFSET>,
+            ViewportWidth: ViewportWidth::<Impl, IMPL_OFFSET>,
+            ViewportHeight: ViewportHeight::<Impl, IMPL_OFFSET>,
+            HorizontalOffset: HorizontalOffset::<Impl, IMPL_OFFSET>,
+            VerticalOffset: VerticalOffset::<Impl, IMPL_OFFSET>,
+            ScrollOwner: ScrollOwner::<Impl, IMPL_OFFSET>,
+            SetScrollOwner: SetScrollOwner::<Impl, IMPL_OFFSET>,
+            LineUp: LineUp::<Impl, IMPL_OFFSET>,
+            LineDown: LineDown::<Impl, IMPL_OFFSET>,
+            LineLeft: LineLeft::<Impl, IMPL_OFFSET>,
+            LineRight: LineRight::<Impl, IMPL_OFFSET>,
+            PageUp: PageUp::<Impl, IMPL_OFFSET>,
+            PageDown: PageDown::<Impl, IMPL_OFFSET>,
+            PageLeft: PageLeft::<Impl, IMPL_OFFSET>,
+            PageRight: PageRight::<Impl, IMPL_OFFSET>,
+            MouseWheelUp: MouseWheelUp::<Impl, IMPL_OFFSET>,
+            MouseWheelDown: MouseWheelDown::<Impl, IMPL_OFFSET>,
+            MouseWheelLeft: MouseWheelLeft::<Impl, IMPL_OFFSET>,
+            MouseWheelRight: MouseWheelRight::<Impl, IMPL_OFFSET>,
+            SetHorizontalOffset: SetHorizontalOffset::<Impl, IMPL_OFFSET>,
+            SetVerticalOffset: SetVerticalOffset::<Impl, IMPL_OFFSET>,
+            MakeVisible: MakeVisible::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientedVirtualizingPanel as ::windows::core::Interface>::IID
@@ -7385,7 +7401,7 @@ impl ::windows::core::RuntimeName for IOrientedVirtualizingPanelFactory {
 #[cfg(feature = "implement_exclusive")]
 impl IOrientedVirtualizingPanelFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOrientedVirtualizingPanelFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOrientedVirtualizingPanelFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOrientedVirtualizingPanelFactory>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientedVirtualizingPanelFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientedVirtualizingPanelFactory as ::windows::core::Interface>::IID
@@ -7400,7 +7416,7 @@ impl ::windows::core::RuntimeName for IPickerFlyoutBase {
 #[cfg(feature = "implement_exclusive")]
 impl IPickerFlyoutBaseVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerFlyoutBaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPickerFlyoutBaseVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPickerFlyoutBase>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPickerFlyoutBase, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPickerFlyoutBase as ::windows::core::Interface>::IID
@@ -7428,7 +7444,10 @@ impl IPickerFlyoutBaseFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPickerFlyoutBaseFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPickerFlyoutBaseFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPickerFlyoutBaseFactory as ::windows::core::Interface>::IID
@@ -7461,7 +7480,11 @@ impl IPickerFlyoutBaseOverridesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPickerFlyoutBaseOverrides>, ::windows::core::GetTrustLevel, OnConfirmed::<Impl, IMPL_OFFSET>, ShouldShowConfirmationButtons::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPickerFlyoutBaseOverrides, BASE_OFFSET>(),
+            OnConfirmed: OnConfirmed::<Impl, IMPL_OFFSET>,
+            ShouldShowConfirmationButtons: ShouldShowConfirmationButtons::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPickerFlyoutBaseOverrides as ::windows::core::Interface>::IID
@@ -7506,7 +7529,12 @@ impl IPickerFlyoutBaseStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTitle(&*(&element as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPickerFlyoutBaseStatics>, ::windows::core::GetTrustLevel, TitleProperty::<Impl, IMPL_OFFSET>, GetTitle::<Impl, IMPL_OFFSET>, SetTitle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPickerFlyoutBaseStatics, BASE_OFFSET>(),
+            TitleProperty: TitleProperty::<Impl, IMPL_OFFSET>,
+            GetTitle: GetTitle::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPickerFlyoutBaseStatics as ::windows::core::Interface>::IID
@@ -7521,7 +7549,7 @@ impl ::windows::core::RuntimeName for IPivotHeaderItem {
 #[cfg(feature = "implement_exclusive")]
 impl IPivotHeaderItemVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPivotHeaderItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPivotHeaderItemVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPivotHeaderItem>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPivotHeaderItem, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPivotHeaderItem as ::windows::core::Interface>::IID
@@ -7549,7 +7577,10 @@ impl IPivotHeaderItemFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPivotHeaderItemFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPivotHeaderItemFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPivotHeaderItemFactory as ::windows::core::Interface>::IID
@@ -7564,7 +7595,7 @@ impl ::windows::core::RuntimeName for IPivotHeaderPanel {
 #[cfg(feature = "implement_exclusive")]
 impl IPivotHeaderPanelVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPivotHeaderPanelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPivotHeaderPanelVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPivotHeaderPanel>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPivotHeaderPanel, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPivotHeaderPanel as ::windows::core::Interface>::IID
@@ -7579,7 +7610,7 @@ impl ::windows::core::RuntimeName for IPivotPanel {
 #[cfg(feature = "implement_exclusive")]
 impl IPivotPanelVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPivotPanelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPivotPanelVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPivotPanel>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPivotPanel, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPivotPanel as ::windows::core::Interface>::IID
@@ -7731,30 +7762,25 @@ impl IPopupVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPopup>,
-            ::windows::core::GetTrustLevel,
-            Child::<Impl, IMPL_OFFSET>,
-            SetChild::<Impl, IMPL_OFFSET>,
-            IsOpen::<Impl, IMPL_OFFSET>,
-            SetIsOpen::<Impl, IMPL_OFFSET>,
-            HorizontalOffset::<Impl, IMPL_OFFSET>,
-            SetHorizontalOffset::<Impl, IMPL_OFFSET>,
-            VerticalOffset::<Impl, IMPL_OFFSET>,
-            SetVerticalOffset::<Impl, IMPL_OFFSET>,
-            ChildTransitions::<Impl, IMPL_OFFSET>,
-            SetChildTransitions::<Impl, IMPL_OFFSET>,
-            IsLightDismissEnabled::<Impl, IMPL_OFFSET>,
-            SetIsLightDismissEnabled::<Impl, IMPL_OFFSET>,
-            Opened::<Impl, IMPL_OFFSET>,
-            RemoveOpened::<Impl, IMPL_OFFSET>,
-            Closed::<Impl, IMPL_OFFSET>,
-            RemoveClosed::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPopup, BASE_OFFSET>(),
+            Child: Child::<Impl, IMPL_OFFSET>,
+            SetChild: SetChild::<Impl, IMPL_OFFSET>,
+            IsOpen: IsOpen::<Impl, IMPL_OFFSET>,
+            SetIsOpen: SetIsOpen::<Impl, IMPL_OFFSET>,
+            HorizontalOffset: HorizontalOffset::<Impl, IMPL_OFFSET>,
+            SetHorizontalOffset: SetHorizontalOffset::<Impl, IMPL_OFFSET>,
+            VerticalOffset: VerticalOffset::<Impl, IMPL_OFFSET>,
+            SetVerticalOffset: SetVerticalOffset::<Impl, IMPL_OFFSET>,
+            ChildTransitions: ChildTransitions::<Impl, IMPL_OFFSET>,
+            SetChildTransitions: SetChildTransitions::<Impl, IMPL_OFFSET>,
+            IsLightDismissEnabled: IsLightDismissEnabled::<Impl, IMPL_OFFSET>,
+            SetIsLightDismissEnabled: SetIsLightDismissEnabled::<Impl, IMPL_OFFSET>,
+            Opened: Opened::<Impl, IMPL_OFFSET>,
+            RemoveOpened: RemoveOpened::<Impl, IMPL_OFFSET>,
+            Closed: Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed: RemoveClosed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPopup as ::windows::core::Interface>::IID
@@ -7787,7 +7813,11 @@ impl IPopup2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLightDismissOverlayMode(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopup2>, ::windows::core::GetTrustLevel, LightDismissOverlayMode::<Impl, IMPL_OFFSET>, SetLightDismissOverlayMode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPopup2, BASE_OFFSET>(),
+            LightDismissOverlayMode: LightDismissOverlayMode::<Impl, IMPL_OFFSET>,
+            SetLightDismissOverlayMode: SetLightDismissOverlayMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPopup2 as ::windows::core::Interface>::IID
@@ -7832,7 +7862,12 @@ impl IPopup3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopup3>, ::windows::core::GetTrustLevel, ShouldConstrainToRootBounds::<Impl, IMPL_OFFSET>, SetShouldConstrainToRootBounds::<Impl, IMPL_OFFSET>, IsConstrainedToRootBounds::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPopup3, BASE_OFFSET>(),
+            ShouldConstrainToRootBounds: ShouldConstrainToRootBounds::<Impl, IMPL_OFFSET>,
+            SetShouldConstrainToRootBounds: SetShouldConstrainToRootBounds::<Impl, IMPL_OFFSET>,
+            IsConstrainedToRootBounds: IsConstrainedToRootBounds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPopup3 as ::windows::core::Interface>::IID
@@ -7911,21 +7946,16 @@ impl IPopup4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveActualPlacementChanged(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPopup4>,
-            ::windows::core::GetTrustLevel,
-            PlacementTarget::<Impl, IMPL_OFFSET>,
-            SetPlacementTarget::<Impl, IMPL_OFFSET>,
-            DesiredPlacement::<Impl, IMPL_OFFSET>,
-            SetDesiredPlacement::<Impl, IMPL_OFFSET>,
-            ActualPlacement::<Impl, IMPL_OFFSET>,
-            ActualPlacementChanged::<Impl, IMPL_OFFSET>,
-            RemoveActualPlacementChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPopup4, BASE_OFFSET>(),
+            PlacementTarget: PlacementTarget::<Impl, IMPL_OFFSET>,
+            SetPlacementTarget: SetPlacementTarget::<Impl, IMPL_OFFSET>,
+            DesiredPlacement: DesiredPlacement::<Impl, IMPL_OFFSET>,
+            SetDesiredPlacement: SetDesiredPlacement::<Impl, IMPL_OFFSET>,
+            ActualPlacement: ActualPlacement::<Impl, IMPL_OFFSET>,
+            ActualPlacementChanged: ActualPlacementChanged::<Impl, IMPL_OFFSET>,
+            RemoveActualPlacementChanged: RemoveActualPlacementChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPopup4 as ::windows::core::Interface>::IID
@@ -8013,20 +8043,15 @@ impl IPopupStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPopupStatics>,
-            ::windows::core::GetTrustLevel,
-            ChildProperty::<Impl, IMPL_OFFSET>,
-            IsOpenProperty::<Impl, IMPL_OFFSET>,
-            HorizontalOffsetProperty::<Impl, IMPL_OFFSET>,
-            VerticalOffsetProperty::<Impl, IMPL_OFFSET>,
-            ChildTransitionsProperty::<Impl, IMPL_OFFSET>,
-            IsLightDismissEnabledProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPopupStatics, BASE_OFFSET>(),
+            ChildProperty: ChildProperty::<Impl, IMPL_OFFSET>,
+            IsOpenProperty: IsOpenProperty::<Impl, IMPL_OFFSET>,
+            HorizontalOffsetProperty: HorizontalOffsetProperty::<Impl, IMPL_OFFSET>,
+            VerticalOffsetProperty: VerticalOffsetProperty::<Impl, IMPL_OFFSET>,
+            ChildTransitionsProperty: ChildTransitionsProperty::<Impl, IMPL_OFFSET>,
+            IsLightDismissEnabledProperty: IsLightDismissEnabledProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPopupStatics as ::windows::core::Interface>::IID
@@ -8054,7 +8079,10 @@ impl IPopupStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopupStatics2>, ::windows::core::GetTrustLevel, LightDismissOverlayModeProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPopupStatics2, BASE_OFFSET>(),
+            LightDismissOverlayModeProperty: LightDismissOverlayModeProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPopupStatics2 as ::windows::core::Interface>::IID
@@ -8082,7 +8110,10 @@ impl IPopupStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopupStatics3>, ::windows::core::GetTrustLevel, ShouldConstrainToRootBoundsProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPopupStatics3, BASE_OFFSET>(),
+            ShouldConstrainToRootBoundsProperty: ShouldConstrainToRootBoundsProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPopupStatics3 as ::windows::core::Interface>::IID
@@ -8122,7 +8153,11 @@ impl IPopupStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopupStatics4>, ::windows::core::GetTrustLevel, PlacementTargetProperty::<Impl, IMPL_OFFSET>, DesiredPlacementProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPopupStatics4, BASE_OFFSET>(),
+            PlacementTargetProperty: PlacementTargetProperty::<Impl, IMPL_OFFSET>,
+            DesiredPlacementProperty: DesiredPlacementProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPopupStatics4 as ::windows::core::Interface>::IID
@@ -8222,21 +8257,16 @@ impl IProgressBarTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProgressBarTemplateSettings>,
-            ::windows::core::GetTrustLevel,
-            EllipseDiameter::<Impl, IMPL_OFFSET>,
-            EllipseOffset::<Impl, IMPL_OFFSET>,
-            EllipseAnimationWellPosition::<Impl, IMPL_OFFSET>,
-            EllipseAnimationEndPosition::<Impl, IMPL_OFFSET>,
-            ContainerAnimationStartPosition::<Impl, IMPL_OFFSET>,
-            ContainerAnimationEndPosition::<Impl, IMPL_OFFSET>,
-            IndicatorLengthDelta::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProgressBarTemplateSettings, BASE_OFFSET>(),
+            EllipseDiameter: EllipseDiameter::<Impl, IMPL_OFFSET>,
+            EllipseOffset: EllipseOffset::<Impl, IMPL_OFFSET>,
+            EllipseAnimationWellPosition: EllipseAnimationWellPosition::<Impl, IMPL_OFFSET>,
+            EllipseAnimationEndPosition: EllipseAnimationEndPosition::<Impl, IMPL_OFFSET>,
+            ContainerAnimationStartPosition: ContainerAnimationStartPosition::<Impl, IMPL_OFFSET>,
+            ContainerAnimationEndPosition: ContainerAnimationEndPosition::<Impl, IMPL_OFFSET>,
+            IndicatorLengthDelta: IndicatorLengthDelta::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProgressBarTemplateSettings as ::windows::core::Interface>::IID
@@ -8288,7 +8318,12 @@ impl IProgressRingTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProgressRingTemplateSettings>, ::windows::core::GetTrustLevel, EllipseDiameter::<Impl, IMPL_OFFSET>, EllipseOffset::<Impl, IMPL_OFFSET>, MaxSideLength::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProgressRingTemplateSettings, BASE_OFFSET>(),
+            EllipseDiameter: EllipseDiameter::<Impl, IMPL_OFFSET>,
+            EllipseOffset: EllipseOffset::<Impl, IMPL_OFFSET>,
+            MaxSideLength: MaxSideLength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProgressRingTemplateSettings as ::windows::core::Interface>::IID
@@ -8406,26 +8441,21 @@ impl IRangeBaseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveValueChanged(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRangeBase>,
-            ::windows::core::GetTrustLevel,
-            Minimum::<Impl, IMPL_OFFSET>,
-            SetMinimum::<Impl, IMPL_OFFSET>,
-            Maximum::<Impl, IMPL_OFFSET>,
-            SetMaximum::<Impl, IMPL_OFFSET>,
-            SmallChange::<Impl, IMPL_OFFSET>,
-            SetSmallChange::<Impl, IMPL_OFFSET>,
-            LargeChange::<Impl, IMPL_OFFSET>,
-            SetLargeChange::<Impl, IMPL_OFFSET>,
-            Value::<Impl, IMPL_OFFSET>,
-            SetValue::<Impl, IMPL_OFFSET>,
-            ValueChanged::<Impl, IMPL_OFFSET>,
-            RemoveValueChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRangeBase, BASE_OFFSET>(),
+            Minimum: Minimum::<Impl, IMPL_OFFSET>,
+            SetMinimum: SetMinimum::<Impl, IMPL_OFFSET>,
+            Maximum: Maximum::<Impl, IMPL_OFFSET>,
+            SetMaximum: SetMaximum::<Impl, IMPL_OFFSET>,
+            SmallChange: SmallChange::<Impl, IMPL_OFFSET>,
+            SetSmallChange: SetSmallChange::<Impl, IMPL_OFFSET>,
+            LargeChange: LargeChange::<Impl, IMPL_OFFSET>,
+            SetLargeChange: SetLargeChange::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+            ValueChanged: ValueChanged::<Impl, IMPL_OFFSET>,
+            RemoveValueChanged: RemoveValueChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRangeBase as ::windows::core::Interface>::IID
@@ -8453,7 +8483,7 @@ impl IRangeBaseFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRangeBaseFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRangeBaseFactory, BASE_OFFSET>(), CreateInstance: CreateInstance::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRangeBaseFactory as ::windows::core::Interface>::IID
@@ -8484,7 +8514,12 @@ impl IRangeBaseOverridesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnValueChanged(oldvalue, newvalue).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRangeBaseOverrides>, ::windows::core::GetTrustLevel, OnMinimumChanged::<Impl, IMPL_OFFSET>, OnMaximumChanged::<Impl, IMPL_OFFSET>, OnValueChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRangeBaseOverrides, BASE_OFFSET>(),
+            OnMinimumChanged: OnMinimumChanged::<Impl, IMPL_OFFSET>,
+            OnMaximumChanged: OnMaximumChanged::<Impl, IMPL_OFFSET>,
+            OnValueChanged: OnValueChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRangeBaseOverrides as ::windows::core::Interface>::IID
@@ -8560,7 +8595,14 @@ impl IRangeBaseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRangeBaseStatics>, ::windows::core::GetTrustLevel, MinimumProperty::<Impl, IMPL_OFFSET>, MaximumProperty::<Impl, IMPL_OFFSET>, SmallChangeProperty::<Impl, IMPL_OFFSET>, LargeChangeProperty::<Impl, IMPL_OFFSET>, ValueProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRangeBaseStatics, BASE_OFFSET>(),
+            MinimumProperty: MinimumProperty::<Impl, IMPL_OFFSET>,
+            MaximumProperty: MaximumProperty::<Impl, IMPL_OFFSET>,
+            SmallChangeProperty: SmallChangeProperty::<Impl, IMPL_OFFSET>,
+            LargeChangeProperty: LargeChangeProperty::<Impl, IMPL_OFFSET>,
+            ValueProperty: ValueProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRangeBaseStatics as ::windows::core::Interface>::IID
@@ -8600,7 +8642,11 @@ impl IRangeBaseValueChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRangeBaseValueChangedEventArgs>, ::windows::core::GetTrustLevel, OldValue::<Impl, IMPL_OFFSET>, NewValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRangeBaseValueChangedEventArgs, BASE_OFFSET>(),
+            OldValue: OldValue::<Impl, IMPL_OFFSET>,
+            NewValue: NewValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRangeBaseValueChangedEventArgs as ::windows::core::Interface>::IID
@@ -8650,7 +8696,13 @@ impl IRepeatButtonVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInterval(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepeatButton>, ::windows::core::GetTrustLevel, Delay::<Impl, IMPL_OFFSET>, SetDelay::<Impl, IMPL_OFFSET>, Interval::<Impl, IMPL_OFFSET>, SetInterval::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRepeatButton, BASE_OFFSET>(),
+            Delay: Delay::<Impl, IMPL_OFFSET>,
+            SetDelay: SetDelay::<Impl, IMPL_OFFSET>,
+            Interval: Interval::<Impl, IMPL_OFFSET>,
+            SetInterval: SetInterval::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRepeatButton as ::windows::core::Interface>::IID
@@ -8690,7 +8742,11 @@ impl IRepeatButtonStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepeatButtonStatics>, ::windows::core::GetTrustLevel, DelayProperty::<Impl, IMPL_OFFSET>, IntervalProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRepeatButtonStatics, BASE_OFFSET>(),
+            DelayProperty: DelayProperty::<Impl, IMPL_OFFSET>,
+            IntervalProperty: IntervalProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRepeatButtonStatics as ::windows::core::Interface>::IID
@@ -8774,22 +8830,17 @@ impl IScrollBarVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveScroll(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IScrollBar>,
-            ::windows::core::GetTrustLevel,
-            Orientation::<Impl, IMPL_OFFSET>,
-            SetOrientation::<Impl, IMPL_OFFSET>,
-            ViewportSize::<Impl, IMPL_OFFSET>,
-            SetViewportSize::<Impl, IMPL_OFFSET>,
-            IndicatorMode::<Impl, IMPL_OFFSET>,
-            SetIndicatorMode::<Impl, IMPL_OFFSET>,
-            Scroll::<Impl, IMPL_OFFSET>,
-            RemoveScroll::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollBar, BASE_OFFSET>(),
+            Orientation: Orientation::<Impl, IMPL_OFFSET>,
+            SetOrientation: SetOrientation::<Impl, IMPL_OFFSET>,
+            ViewportSize: ViewportSize::<Impl, IMPL_OFFSET>,
+            SetViewportSize: SetViewportSize::<Impl, IMPL_OFFSET>,
+            IndicatorMode: IndicatorMode::<Impl, IMPL_OFFSET>,
+            SetIndicatorMode: SetIndicatorMode::<Impl, IMPL_OFFSET>,
+            Scroll: Scroll::<Impl, IMPL_OFFSET>,
+            RemoveScroll: RemoveScroll::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScrollBar as ::windows::core::Interface>::IID
@@ -8841,7 +8892,12 @@ impl IScrollBarStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScrollBarStatics>, ::windows::core::GetTrustLevel, OrientationProperty::<Impl, IMPL_OFFSET>, ViewportSizeProperty::<Impl, IMPL_OFFSET>, IndicatorModeProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollBarStatics, BASE_OFFSET>(),
+            OrientationProperty: OrientationProperty::<Impl, IMPL_OFFSET>,
+            ViewportSizeProperty: ViewportSizeProperty::<Impl, IMPL_OFFSET>,
+            IndicatorModeProperty: IndicatorModeProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScrollBarStatics as ::windows::core::Interface>::IID
@@ -8881,7 +8937,11 @@ impl IScrollEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScrollEventArgs>, ::windows::core::GetTrustLevel, NewValue::<Impl, IMPL_OFFSET>, ScrollEventType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollEventArgs, BASE_OFFSET>(),
+            NewValue: NewValue::<Impl, IMPL_OFFSET>,
+            ScrollEventType: ScrollEventType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScrollEventArgs as ::windows::core::Interface>::IID
@@ -8979,22 +9039,17 @@ impl IScrollSnapPointsInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IScrollSnapPointsInfo>,
-            ::windows::core::GetTrustLevel,
-            AreHorizontalSnapPointsRegular::<Impl, IMPL_OFFSET>,
-            AreVerticalSnapPointsRegular::<Impl, IMPL_OFFSET>,
-            HorizontalSnapPointsChanged::<Impl, IMPL_OFFSET>,
-            RemoveHorizontalSnapPointsChanged::<Impl, IMPL_OFFSET>,
-            VerticalSnapPointsChanged::<Impl, IMPL_OFFSET>,
-            RemoveVerticalSnapPointsChanged::<Impl, IMPL_OFFSET>,
-            GetIrregularSnapPoints::<Impl, IMPL_OFFSET>,
-            GetRegularSnapPoints::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollSnapPointsInfo, BASE_OFFSET>(),
+            AreHorizontalSnapPointsRegular: AreHorizontalSnapPointsRegular::<Impl, IMPL_OFFSET>,
+            AreVerticalSnapPointsRegular: AreVerticalSnapPointsRegular::<Impl, IMPL_OFFSET>,
+            HorizontalSnapPointsChanged: HorizontalSnapPointsChanged::<Impl, IMPL_OFFSET>,
+            RemoveHorizontalSnapPointsChanged: RemoveHorizontalSnapPointsChanged::<Impl, IMPL_OFFSET>,
+            VerticalSnapPointsChanged: VerticalSnapPointsChanged::<Impl, IMPL_OFFSET>,
+            RemoveVerticalSnapPointsChanged: RemoveVerticalSnapPointsChanged::<Impl, IMPL_OFFSET>,
+            GetIrregularSnapPoints: GetIrregularSnapPoints::<Impl, IMPL_OFFSET>,
+            GetRegularSnapPoints: GetRegularSnapPoints::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScrollSnapPointsInfo as ::windows::core::Interface>::IID
@@ -9112,26 +9167,21 @@ impl ISelectorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSelectionChanged(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISelector>,
-            ::windows::core::GetTrustLevel,
-            SelectedIndex::<Impl, IMPL_OFFSET>,
-            SetSelectedIndex::<Impl, IMPL_OFFSET>,
-            SelectedItem::<Impl, IMPL_OFFSET>,
-            SetSelectedItem::<Impl, IMPL_OFFSET>,
-            SelectedValue::<Impl, IMPL_OFFSET>,
-            SetSelectedValue::<Impl, IMPL_OFFSET>,
-            SelectedValuePath::<Impl, IMPL_OFFSET>,
-            SetSelectedValuePath::<Impl, IMPL_OFFSET>,
-            IsSynchronizedWithCurrentItem::<Impl, IMPL_OFFSET>,
-            SetIsSynchronizedWithCurrentItem::<Impl, IMPL_OFFSET>,
-            SelectionChanged::<Impl, IMPL_OFFSET>,
-            RemoveSelectionChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelector, BASE_OFFSET>(),
+            SelectedIndex: SelectedIndex::<Impl, IMPL_OFFSET>,
+            SetSelectedIndex: SetSelectedIndex::<Impl, IMPL_OFFSET>,
+            SelectedItem: SelectedItem::<Impl, IMPL_OFFSET>,
+            SetSelectedItem: SetSelectedItem::<Impl, IMPL_OFFSET>,
+            SelectedValue: SelectedValue::<Impl, IMPL_OFFSET>,
+            SetSelectedValue: SetSelectedValue::<Impl, IMPL_OFFSET>,
+            SelectedValuePath: SelectedValuePath::<Impl, IMPL_OFFSET>,
+            SetSelectedValuePath: SetSelectedValuePath::<Impl, IMPL_OFFSET>,
+            IsSynchronizedWithCurrentItem: IsSynchronizedWithCurrentItem::<Impl, IMPL_OFFSET>,
+            SetIsSynchronizedWithCurrentItem: SetIsSynchronizedWithCurrentItem::<Impl, IMPL_OFFSET>,
+            SelectionChanged: SelectionChanged::<Impl, IMPL_OFFSET>,
+            RemoveSelectionChanged: RemoveSelectionChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelector as ::windows::core::Interface>::IID
@@ -9146,7 +9196,7 @@ impl ::windows::core::RuntimeName for ISelectorFactory {
 #[cfg(feature = "implement_exclusive")]
 impl ISelectorFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectorFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectorFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectorFactory>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectorFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectorFactory as ::windows::core::Interface>::IID
@@ -9179,7 +9229,11 @@ impl ISelectorItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsSelected(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectorItem>, ::windows::core::GetTrustLevel, IsSelected::<Impl, IMPL_OFFSET>, SetIsSelected::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectorItem, BASE_OFFSET>(),
+            IsSelected: IsSelected::<Impl, IMPL_OFFSET>,
+            SetIsSelected: SetIsSelected::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectorItem as ::windows::core::Interface>::IID
@@ -9207,7 +9261,10 @@ impl ISelectorItemFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectorItemFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectorItemFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectorItemFactory as ::windows::core::Interface>::IID
@@ -9235,7 +9292,10 @@ impl ISelectorItemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectorItemStatics>, ::windows::core::GetTrustLevel, IsSelectedProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectorItemStatics, BASE_OFFSET>(),
+            IsSelectedProperty: IsSelectedProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectorItemStatics as ::windows::core::Interface>::IID
@@ -9323,20 +9383,15 @@ impl ISelectorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISelectorStatics>,
-            ::windows::core::GetTrustLevel,
-            SelectedIndexProperty::<Impl, IMPL_OFFSET>,
-            SelectedItemProperty::<Impl, IMPL_OFFSET>,
-            SelectedValueProperty::<Impl, IMPL_OFFSET>,
-            SelectedValuePathProperty::<Impl, IMPL_OFFSET>,
-            IsSynchronizedWithCurrentItemProperty::<Impl, IMPL_OFFSET>,
-            GetIsSelectionActive::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectorStatics, BASE_OFFSET>(),
+            SelectedIndexProperty: SelectedIndexProperty::<Impl, IMPL_OFFSET>,
+            SelectedItemProperty: SelectedItemProperty::<Impl, IMPL_OFFSET>,
+            SelectedValueProperty: SelectedValueProperty::<Impl, IMPL_OFFSET>,
+            SelectedValuePathProperty: SelectedValuePathProperty::<Impl, IMPL_OFFSET>,
+            IsSynchronizedWithCurrentItemProperty: IsSynchronizedWithCurrentItemProperty::<Impl, IMPL_OFFSET>,
+            GetIsSelectionActive: GetIsSelectionActive::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectorStatics as ::windows::core::Interface>::IID
@@ -9424,20 +9479,15 @@ impl ISettingsFlyoutTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISettingsFlyoutTemplateSettings>,
-            ::windows::core::GetTrustLevel,
-            HeaderBackground::<Impl, IMPL_OFFSET>,
-            HeaderForeground::<Impl, IMPL_OFFSET>,
-            BorderBrush::<Impl, IMPL_OFFSET>,
-            BorderThickness::<Impl, IMPL_OFFSET>,
-            IconSource::<Impl, IMPL_OFFSET>,
-            ContentTransitions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISettingsFlyoutTemplateSettings, BASE_OFFSET>(),
+            HeaderBackground: HeaderBackground::<Impl, IMPL_OFFSET>,
+            HeaderForeground: HeaderForeground::<Impl, IMPL_OFFSET>,
+            BorderBrush: BorderBrush::<Impl, IMPL_OFFSET>,
+            BorderThickness: BorderThickness::<Impl, IMPL_OFFSET>,
+            IconSource: IconSource::<Impl, IMPL_OFFSET>,
+            ContentTransitions: ContentTransitions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsFlyoutTemplateSettings as ::windows::core::Interface>::IID
@@ -9525,20 +9575,15 @@ impl ISplitViewTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISplitViewTemplateSettings>,
-            ::windows::core::GetTrustLevel,
-            OpenPaneLength::<Impl, IMPL_OFFSET>,
-            NegativeOpenPaneLength::<Impl, IMPL_OFFSET>,
-            OpenPaneLengthMinusCompactLength::<Impl, IMPL_OFFSET>,
-            NegativeOpenPaneLengthMinusCompactLength::<Impl, IMPL_OFFSET>,
-            OpenPaneGridLength::<Impl, IMPL_OFFSET>,
-            CompactPaneGridLength::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISplitViewTemplateSettings, BASE_OFFSET>(),
+            OpenPaneLength: OpenPaneLength::<Impl, IMPL_OFFSET>,
+            NegativeOpenPaneLength: NegativeOpenPaneLength::<Impl, IMPL_OFFSET>,
+            OpenPaneLengthMinusCompactLength: OpenPaneLengthMinusCompactLength::<Impl, IMPL_OFFSET>,
+            NegativeOpenPaneLengthMinusCompactLength: NegativeOpenPaneLengthMinusCompactLength::<Impl, IMPL_OFFSET>,
+            OpenPaneGridLength: OpenPaneGridLength::<Impl, IMPL_OFFSET>,
+            CompactPaneGridLength: CompactPaneGridLength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISplitViewTemplateSettings as ::windows::core::Interface>::IID
@@ -9622,22 +9667,17 @@ impl IThumbVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CancelDrag().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IThumb>,
-            ::windows::core::GetTrustLevel,
-            IsDragging::<Impl, IMPL_OFFSET>,
-            DragStarted::<Impl, IMPL_OFFSET>,
-            RemoveDragStarted::<Impl, IMPL_OFFSET>,
-            DragDelta::<Impl, IMPL_OFFSET>,
-            RemoveDragDelta::<Impl, IMPL_OFFSET>,
-            DragCompleted::<Impl, IMPL_OFFSET>,
-            RemoveDragCompleted::<Impl, IMPL_OFFSET>,
-            CancelDrag::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IThumb, BASE_OFFSET>(),
+            IsDragging: IsDragging::<Impl, IMPL_OFFSET>,
+            DragStarted: DragStarted::<Impl, IMPL_OFFSET>,
+            RemoveDragStarted: RemoveDragStarted::<Impl, IMPL_OFFSET>,
+            DragDelta: DragDelta::<Impl, IMPL_OFFSET>,
+            RemoveDragDelta: RemoveDragDelta::<Impl, IMPL_OFFSET>,
+            DragCompleted: DragCompleted::<Impl, IMPL_OFFSET>,
+            RemoveDragCompleted: RemoveDragCompleted::<Impl, IMPL_OFFSET>,
+            CancelDrag: CancelDrag::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IThumb as ::windows::core::Interface>::IID
@@ -9665,7 +9705,10 @@ impl IThumbStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThumbStatics>, ::windows::core::GetTrustLevel, IsDraggingProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IThumbStatics, BASE_OFFSET>(),
+            IsDraggingProperty: IsDraggingProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IThumbStatics as ::windows::core::Interface>::IID
@@ -9698,7 +9741,11 @@ impl ITickBarVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFill(&*(&value as *const <super::super::Media::Brush as ::windows::core::Abi>::Abi as *const <super::super::Media::Brush as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITickBar>, ::windows::core::GetTrustLevel, Fill::<Impl, IMPL_OFFSET>, SetFill::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITickBar, BASE_OFFSET>(),
+            Fill: Fill::<Impl, IMPL_OFFSET>,
+            SetFill: SetFill::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITickBar as ::windows::core::Interface>::IID
@@ -9726,7 +9773,7 @@ impl ITickBarStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITickBarStatics>, ::windows::core::GetTrustLevel, FillProperty::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITickBarStatics, BASE_OFFSET>(), FillProperty: FillProperty::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITickBarStatics as ::windows::core::Interface>::IID
@@ -9827,24 +9874,19 @@ impl IToggleButtonVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIndeterminate(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IToggleButton>,
-            ::windows::core::GetTrustLevel,
-            IsChecked::<Impl, IMPL_OFFSET>,
-            SetIsChecked::<Impl, IMPL_OFFSET>,
-            IsThreeState::<Impl, IMPL_OFFSET>,
-            SetIsThreeState::<Impl, IMPL_OFFSET>,
-            Checked::<Impl, IMPL_OFFSET>,
-            RemoveChecked::<Impl, IMPL_OFFSET>,
-            Unchecked::<Impl, IMPL_OFFSET>,
-            RemoveUnchecked::<Impl, IMPL_OFFSET>,
-            Indeterminate::<Impl, IMPL_OFFSET>,
-            RemoveIndeterminate::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleButton, BASE_OFFSET>(),
+            IsChecked: IsChecked::<Impl, IMPL_OFFSET>,
+            SetIsChecked: SetIsChecked::<Impl, IMPL_OFFSET>,
+            IsThreeState: IsThreeState::<Impl, IMPL_OFFSET>,
+            SetIsThreeState: SetIsThreeState::<Impl, IMPL_OFFSET>,
+            Checked: Checked::<Impl, IMPL_OFFSET>,
+            RemoveChecked: RemoveChecked::<Impl, IMPL_OFFSET>,
+            Unchecked: Unchecked::<Impl, IMPL_OFFSET>,
+            RemoveUnchecked: RemoveUnchecked::<Impl, IMPL_OFFSET>,
+            Indeterminate: Indeterminate::<Impl, IMPL_OFFSET>,
+            RemoveIndeterminate: RemoveIndeterminate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToggleButton as ::windows::core::Interface>::IID
@@ -9872,7 +9914,10 @@ impl IToggleButtonFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToggleButtonFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleButtonFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToggleButtonFactory as ::windows::core::Interface>::IID
@@ -9893,7 +9938,7 @@ impl IToggleButtonOverridesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnToggle().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToggleButtonOverrides>, ::windows::core::GetTrustLevel, OnToggle::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleButtonOverrides, BASE_OFFSET>(), OnToggle: OnToggle::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToggleButtonOverrides as ::windows::core::Interface>::IID
@@ -9933,7 +9978,11 @@ impl IToggleButtonStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToggleButtonStatics>, ::windows::core::GetTrustLevel, IsCheckedProperty::<Impl, IMPL_OFFSET>, IsThreeStateProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleButtonStatics, BASE_OFFSET>(),
+            IsCheckedProperty: IsCheckedProperty::<Impl, IMPL_OFFSET>,
+            IsThreeStateProperty: IsThreeStateProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToggleButtonStatics as ::windows::core::Interface>::IID
@@ -10045,22 +10094,17 @@ impl IToggleSwitchTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IToggleSwitchTemplateSettings>,
-            ::windows::core::GetTrustLevel,
-            KnobCurrentToOnOffset::<Impl, IMPL_OFFSET>,
-            KnobCurrentToOffOffset::<Impl, IMPL_OFFSET>,
-            KnobOnToOffOffset::<Impl, IMPL_OFFSET>,
-            KnobOffToOnOffset::<Impl, IMPL_OFFSET>,
-            CurtainCurrentToOnOffset::<Impl, IMPL_OFFSET>,
-            CurtainCurrentToOffOffset::<Impl, IMPL_OFFSET>,
-            CurtainOnToOffOffset::<Impl, IMPL_OFFSET>,
-            CurtainOffToOnOffset::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleSwitchTemplateSettings, BASE_OFFSET>(),
+            KnobCurrentToOnOffset: KnobCurrentToOnOffset::<Impl, IMPL_OFFSET>,
+            KnobCurrentToOffOffset: KnobCurrentToOffOffset::<Impl, IMPL_OFFSET>,
+            KnobOnToOffOffset: KnobOnToOffOffset::<Impl, IMPL_OFFSET>,
+            KnobOffToOnOffset: KnobOffToOnOffset::<Impl, IMPL_OFFSET>,
+            CurtainCurrentToOnOffset: CurtainCurrentToOnOffset::<Impl, IMPL_OFFSET>,
+            CurtainCurrentToOffOffset: CurtainCurrentToOffOffset::<Impl, IMPL_OFFSET>,
+            CurtainOnToOffOffset: CurtainOnToOffOffset::<Impl, IMPL_OFFSET>,
+            CurtainOffToOnOffset: CurtainOffToOnOffset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToggleSwitchTemplateSettings as ::windows::core::Interface>::IID
@@ -10100,7 +10144,11 @@ impl IToolTipTemplateSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToolTipTemplateSettings>, ::windows::core::GetTrustLevel, FromHorizontalOffset::<Impl, IMPL_OFFSET>, FromVerticalOffset::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToolTipTemplateSettings, BASE_OFFSET>(),
+            FromHorizontalOffset: FromHorizontalOffset::<Impl, IMPL_OFFSET>,
+            FromVerticalOffset: FromVerticalOffset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToolTipTemplateSettings as ::windows::core::Interface>::IID

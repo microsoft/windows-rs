@@ -25,7 +25,7 @@ impl IDDEInitializer {
         arguments: Param7,
         verb: Param8,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), fileextensionorprotocol.into_param().abi(), ::core::mem::transmute(method), currentdirectory.into_param().abi(), exectarget.into_param().abi(), site.into_param().abi(), application.into_param().abi(), targetfile.into_param().abi(), arguments.into_param().abi(), verb.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), fileextensionorprotocol.into_param().abi(), ::core::mem::transmute(method), currentdirectory.into_param().abi(), exectarget.into_param().abi(), site.into_param().abi(), application.into_param().abi(), targetfile.into_param().abi(), arguments.into_param().abi(), verb.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IDDEInitializer> for ::windows::core::IUnknown {
@@ -70,12 +70,12 @@ unsafe impl ::windows::core::Interface for IDDEInitializer {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDDEInitializerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileextensionorprotocol: super::super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::super::Foundation::PWSTR, exectarget: ::windows::core::RawPtr, site: *mut ::core::ffi::c_void, application: super::super::super::Foundation::PWSTR, targetfile: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, verb: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell")))] usize,
-);
+pub struct IDDEInitializerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileextensionorprotocol: super::super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::super::Foundation::PWSTR, exectarget: ::windows::core::RawPtr, site: *mut ::core::ffi::c_void, application: super::super::super::Foundation::PWSTR, targetfile: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, verb: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell")))]
+    Initialize: usize,
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -57,7 +57,7 @@ pub struct IOplockBreakingHandler(::windows::core::IUnknown);
 impl IOplockBreakingHandler {
     #[doc = "*Required features: 'Win32_System_WinRT_Storage'*"]
     pub unsafe fn OplockBreaking(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OplockBreaking)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IOplockBreakingHandler> for ::windows::core::IUnknown {
@@ -102,7 +102,10 @@ unsafe impl ::windows::core::Interface for IOplockBreakingHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOplockBreakingHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub struct IOplockBreakingHandlerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub OplockBreaking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_WinRT_Storage'*"]
 #[repr(transparent)]
 pub struct IRandomAccessStreamFileAccessMode(::windows::core::IUnknown);
@@ -110,7 +113,7 @@ impl IRandomAccessStreamFileAccessMode {
     #[doc = "*Required features: 'Win32_System_WinRT_Storage'*"]
     pub unsafe fn GetMode(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IRandomAccessStreamFileAccessMode> for ::windows::core::IUnknown {
@@ -155,7 +158,10 @@ unsafe impl ::windows::core::Interface for IRandomAccessStreamFileAccessMode {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRandomAccessStreamFileAccessModeVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileaccessmode: *mut u32) -> ::windows::core::HRESULT);
+pub struct IRandomAccessStreamFileAccessModeVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileaccessmode: *mut u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_WinRT_Storage'*"]
 #[repr(transparent)]
 pub struct IStorageFolderHandleAccess(::windows::core::IUnknown);
@@ -164,7 +170,7 @@ impl IStorageFolderHandleAccess {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, IOplockBreakingHandler>>(&self, filename: Param0, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: Param5) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__: super::super::super::Foundation::HANDLE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(creationoptions), ::core::mem::transmute(accessoptions), ::core::mem::transmute(sharingoptions), ::core::mem::transmute(options), oplockbreakinghandler.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(creationoptions), ::core::mem::transmute(accessoptions), ::core::mem::transmute(sharingoptions), ::core::mem::transmute(options), oplockbreakinghandler.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
 impl ::core::convert::From<IStorageFolderHandleAccess> for ::windows::core::IUnknown {
@@ -209,13 +215,13 @@ unsafe impl ::windows::core::Interface for IStorageFolderHandleAccess {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageFolderHandleAccessVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::windows::core::RawPtr, interophandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IStorageFolderHandleAccessVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::windows::core::RawPtr, interophandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Create: usize,
+}
 #[doc = "*Required features: 'Win32_System_WinRT_Storage'*"]
 #[repr(transparent)]
 pub struct IStorageItemHandleAccess(::windows::core::IUnknown);
@@ -224,7 +230,7 @@ impl IStorageItemHandleAccess {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<'a, Param3: ::windows::core::IntoParam<'a, IOplockBreakingHandler>>(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: Param3) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__: super::super::super::Foundation::HANDLE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(accessoptions), ::core::mem::transmute(sharingoptions), ::core::mem::transmute(options), oplockbreakinghandler.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), ::core::mem::transmute(accessoptions), ::core::mem::transmute(sharingoptions), ::core::mem::transmute(options), oplockbreakinghandler.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
 impl ::core::convert::From<IStorageItemHandleAccess> for ::windows::core::IUnknown {
@@ -269,20 +275,20 @@ unsafe impl ::windows::core::Interface for IStorageItemHandleAccess {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageItemHandleAccessVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::windows::core::RawPtr, interophandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IStorageItemHandleAccessVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::windows::core::RawPtr, interophandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Create: usize,
+}
 #[doc = "*Required features: 'Win32_System_WinRT_Storage'*"]
 #[repr(transparent)]
 pub struct IUnbufferedFileHandleOplockCallback(::windows::core::IUnknown);
 impl IUnbufferedFileHandleOplockCallback {
     #[doc = "*Required features: 'Win32_System_WinRT_Storage'*"]
     pub unsafe fn OnBrokenCallback(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnBrokenCallback)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IUnbufferedFileHandleOplockCallback> for ::windows::core::IUnknown {
@@ -327,7 +333,10 @@ unsafe impl ::windows::core::Interface for IUnbufferedFileHandleOplockCallback {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUnbufferedFileHandleOplockCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub struct IUnbufferedFileHandleOplockCallbackVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub OnBrokenCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_WinRT_Storage'*"]
 #[repr(transparent)]
 pub struct IUnbufferedFileHandleProvider(::windows::core::IUnknown);
@@ -335,11 +344,11 @@ impl IUnbufferedFileHandleProvider {
     #[doc = "*Required features: 'Win32_System_WinRT_Storage'*"]
     pub unsafe fn OpenUnbufferedFileHandle<'a, Param0: ::windows::core::IntoParam<'a, IUnbufferedFileHandleOplockCallback>>(&self, oplockbreakcallback: Param0) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), oplockbreakcallback.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).OpenUnbufferedFileHandle)(::core::mem::transmute_copy(self), oplockbreakcallback.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Storage'*"]
     pub unsafe fn CloseUnbufferedFileHandle(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CloseUnbufferedFileHandle)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IUnbufferedFileHandleProvider> for ::windows::core::IUnknown {
@@ -384,12 +393,10 @@ unsafe impl ::windows::core::Interface for IUnbufferedFileHandleProvider {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUnbufferedFileHandleProviderVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oplockbreakcallback: ::windows::core::RawPtr, filehandle: *mut usize) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IUnbufferedFileHandleProviderVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub OpenUnbufferedFileHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oplockbreakcallback: ::windows::core::RawPtr, filehandle: *mut usize) -> ::windows::core::HRESULT,
+    pub CloseUnbufferedFileHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

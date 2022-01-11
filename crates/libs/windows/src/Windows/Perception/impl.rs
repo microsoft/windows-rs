@@ -32,7 +32,11 @@ impl IPerceptionTimestampVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionTimestamp>, ::windows::core::GetTrustLevel, TargetTime::<Impl, IMPL_OFFSET>, PredictionAmount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionTimestamp, BASE_OFFSET>(),
+            TargetTime: TargetTime::<Impl, IMPL_OFFSET>,
+            PredictionAmount: PredictionAmount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionTimestamp as ::windows::core::Interface>::IID
@@ -60,7 +64,10 @@ impl IPerceptionTimestamp2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionTimestamp2>, ::windows::core::GetTrustLevel, SystemRelativeTargetTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionTimestamp2, BASE_OFFSET>(),
+            SystemRelativeTargetTime: SystemRelativeTargetTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionTimestamp2 as ::windows::core::Interface>::IID
@@ -88,7 +95,10 @@ impl IPerceptionTimestampHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionTimestampHelperStatics>, ::windows::core::GetTrustLevel, FromHistoricalTargetTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionTimestampHelperStatics, BASE_OFFSET>(),
+            FromHistoricalTargetTime: FromHistoricalTargetTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionTimestampHelperStatics as ::windows::core::Interface>::IID
@@ -116,7 +126,10 @@ impl IPerceptionTimestampHelperStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionTimestampHelperStatics2>, ::windows::core::GetTrustLevel, FromSystemRelativeTargetTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionTimestampHelperStatics2, BASE_OFFSET>(),
+            FromSystemRelativeTargetTime: FromSystemRelativeTargetTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionTimestampHelperStatics2 as ::windows::core::Interface>::IID

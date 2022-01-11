@@ -80,20 +80,15 @@ impl IEasClientDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEasClientDeviceInformation>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            OperatingSystem::<Impl, IMPL_OFFSET>,
-            FriendlyName::<Impl, IMPL_OFFSET>,
-            SystemManufacturer::<Impl, IMPL_OFFSET>,
-            SystemProductName::<Impl, IMPL_OFFSET>,
-            SystemSku::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEasClientDeviceInformation, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            OperatingSystem: OperatingSystem::<Impl, IMPL_OFFSET>,
+            FriendlyName: FriendlyName::<Impl, IMPL_OFFSET>,
+            SystemManufacturer: SystemManufacturer::<Impl, IMPL_OFFSET>,
+            SystemProductName: SystemProductName::<Impl, IMPL_OFFSET>,
+            SystemSku: SystemSku::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEasClientDeviceInformation as ::windows::core::Interface>::IID
@@ -133,7 +128,11 @@ impl IEasClientDeviceInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasClientDeviceInformation2>, ::windows::core::GetTrustLevel, SystemHardwareVersion::<Impl, IMPL_OFFSET>, SystemFirmwareVersion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEasClientDeviceInformation2, BASE_OFFSET>(),
+            SystemHardwareVersion: SystemHardwareVersion::<Impl, IMPL_OFFSET>,
+            SystemFirmwareVersion: SystemFirmwareVersion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEasClientDeviceInformation2 as ::windows::core::Interface>::IID
@@ -309,32 +308,27 @@ impl IEasClientSecurityPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEasClientSecurityPolicy>,
-            ::windows::core::GetTrustLevel,
-            RequireEncryption::<Impl, IMPL_OFFSET>,
-            SetRequireEncryption::<Impl, IMPL_OFFSET>,
-            MinPasswordLength::<Impl, IMPL_OFFSET>,
-            SetMinPasswordLength::<Impl, IMPL_OFFSET>,
-            DisallowConvenienceLogon::<Impl, IMPL_OFFSET>,
-            SetDisallowConvenienceLogon::<Impl, IMPL_OFFSET>,
-            MinPasswordComplexCharacters::<Impl, IMPL_OFFSET>,
-            SetMinPasswordComplexCharacters::<Impl, IMPL_OFFSET>,
-            PasswordExpiration::<Impl, IMPL_OFFSET>,
-            SetPasswordExpiration::<Impl, IMPL_OFFSET>,
-            PasswordHistory::<Impl, IMPL_OFFSET>,
-            SetPasswordHistory::<Impl, IMPL_OFFSET>,
-            MaxPasswordFailedAttempts::<Impl, IMPL_OFFSET>,
-            SetMaxPasswordFailedAttempts::<Impl, IMPL_OFFSET>,
-            MaxInactivityTimeLock::<Impl, IMPL_OFFSET>,
-            SetMaxInactivityTimeLock::<Impl, IMPL_OFFSET>,
-            CheckCompliance::<Impl, IMPL_OFFSET>,
-            ApplyAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEasClientSecurityPolicy, BASE_OFFSET>(),
+            RequireEncryption: RequireEncryption::<Impl, IMPL_OFFSET>,
+            SetRequireEncryption: SetRequireEncryption::<Impl, IMPL_OFFSET>,
+            MinPasswordLength: MinPasswordLength::<Impl, IMPL_OFFSET>,
+            SetMinPasswordLength: SetMinPasswordLength::<Impl, IMPL_OFFSET>,
+            DisallowConvenienceLogon: DisallowConvenienceLogon::<Impl, IMPL_OFFSET>,
+            SetDisallowConvenienceLogon: SetDisallowConvenienceLogon::<Impl, IMPL_OFFSET>,
+            MinPasswordComplexCharacters: MinPasswordComplexCharacters::<Impl, IMPL_OFFSET>,
+            SetMinPasswordComplexCharacters: SetMinPasswordComplexCharacters::<Impl, IMPL_OFFSET>,
+            PasswordExpiration: PasswordExpiration::<Impl, IMPL_OFFSET>,
+            SetPasswordExpiration: SetPasswordExpiration::<Impl, IMPL_OFFSET>,
+            PasswordHistory: PasswordHistory::<Impl, IMPL_OFFSET>,
+            SetPasswordHistory: SetPasswordHistory::<Impl, IMPL_OFFSET>,
+            MaxPasswordFailedAttempts: MaxPasswordFailedAttempts::<Impl, IMPL_OFFSET>,
+            SetMaxPasswordFailedAttempts: SetMaxPasswordFailedAttempts::<Impl, IMPL_OFFSET>,
+            MaxInactivityTimeLock: MaxInactivityTimeLock::<Impl, IMPL_OFFSET>,
+            SetMaxInactivityTimeLock: SetMaxInactivityTimeLock::<Impl, IMPL_OFFSET>,
+            CheckCompliance: CheckCompliance::<Impl, IMPL_OFFSET>,
+            ApplyAsync: ApplyAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEasClientSecurityPolicy as ::windows::core::Interface>::IID
@@ -458,23 +452,18 @@ impl IEasComplianceResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEasComplianceResults>,
-            ::windows::core::GetTrustLevel,
-            Compliant::<Impl, IMPL_OFFSET>,
-            RequireEncryptionResult::<Impl, IMPL_OFFSET>,
-            MinPasswordLengthResult::<Impl, IMPL_OFFSET>,
-            DisallowConvenienceLogonResult::<Impl, IMPL_OFFSET>,
-            MinPasswordComplexCharactersResult::<Impl, IMPL_OFFSET>,
-            PasswordExpirationResult::<Impl, IMPL_OFFSET>,
-            PasswordHistoryResult::<Impl, IMPL_OFFSET>,
-            MaxPasswordFailedAttemptsResult::<Impl, IMPL_OFFSET>,
-            MaxInactivityTimeLockResult::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEasComplianceResults, BASE_OFFSET>(),
+            Compliant: Compliant::<Impl, IMPL_OFFSET>,
+            RequireEncryptionResult: RequireEncryptionResult::<Impl, IMPL_OFFSET>,
+            MinPasswordLengthResult: MinPasswordLengthResult::<Impl, IMPL_OFFSET>,
+            DisallowConvenienceLogonResult: DisallowConvenienceLogonResult::<Impl, IMPL_OFFSET>,
+            MinPasswordComplexCharactersResult: MinPasswordComplexCharactersResult::<Impl, IMPL_OFFSET>,
+            PasswordExpirationResult: PasswordExpirationResult::<Impl, IMPL_OFFSET>,
+            PasswordHistoryResult: PasswordHistoryResult::<Impl, IMPL_OFFSET>,
+            MaxPasswordFailedAttemptsResult: MaxPasswordFailedAttemptsResult::<Impl, IMPL_OFFSET>,
+            MaxInactivityTimeLockResult: MaxInactivityTimeLockResult::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEasComplianceResults as ::windows::core::Interface>::IID
@@ -502,7 +491,10 @@ impl IEasComplianceResults2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasComplianceResults2>, ::windows::core::GetTrustLevel, EncryptionProviderType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEasComplianceResults2, BASE_OFFSET>(),
+            EncryptionProviderType: EncryptionProviderType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEasComplianceResults2 as ::windows::core::Interface>::IID

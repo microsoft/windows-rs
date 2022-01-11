@@ -17,7 +17,12 @@ impl IUIApplicationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnViewChanged::<Impl, IMPL_OFFSET>, OnCreateUICommand::<Impl, IMPL_OFFSET>, OnDestroyUICommand::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnViewChanged: OnViewChanged::<Impl, IMPL_OFFSET>,
+            OnCreateUICommand: OnCreateUICommand::<Impl, IMPL_OFFSET>,
+            OnDestroyUICommand: OnDestroyUICommand::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIApplication as ::windows::core::Interface>::IID
@@ -62,7 +67,16 @@ impl IUICollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetCount::<Impl, IMPL_OFFSET>, GetItem::<Impl, IMPL_OFFSET>, Add::<Impl, IMPL_OFFSET>, Insert::<Impl, IMPL_OFFSET>, RemoveAt::<Impl, IMPL_OFFSET>, Replace::<Impl, IMPL_OFFSET>, Clear::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetCount: GetCount::<Impl, IMPL_OFFSET>,
+            GetItem: GetItem::<Impl, IMPL_OFFSET>,
+            Add: Add::<Impl, IMPL_OFFSET>,
+            Insert: Insert::<Impl, IMPL_OFFSET>,
+            RemoveAt: RemoveAt::<Impl, IMPL_OFFSET>,
+            Replace: Replace::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUICollection as ::windows::core::Interface>::IID
@@ -77,7 +91,7 @@ impl IUICollectionChangedEventVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnChanged::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnChanged: OnChanged::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUICollectionChangedEvent as ::windows::core::Interface>::IID
@@ -99,7 +113,11 @@ impl IUICommandHandlerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Execute::<Impl, IMPL_OFFSET>, UpdateProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Execute: Execute::<Impl, IMPL_OFFSET>,
+            UpdateProperty: UpdateProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUICommandHandler as ::windows::core::Interface>::IID
@@ -114,7 +132,7 @@ impl IUIContextualUIVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ShowAtLocation::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), ShowAtLocation: ShowAtLocation::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIContextualUI as ::windows::core::Interface>::IID
@@ -131,7 +149,7 @@ impl IUIEventLoggerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnUIEvent::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnUIEvent: OnUIEvent::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIEventLogger as ::windows::core::Interface>::IID
@@ -146,7 +164,7 @@ impl IUIEventingManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetEventLogger::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), SetEventLogger: SetEventLogger::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIEventingManager as ::windows::core::Interface>::IID
@@ -203,20 +221,18 @@ impl IUIFrameworkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Initialize::<Impl, IMPL_OFFSET>,
-            Destroy::<Impl, IMPL_OFFSET>,
-            LoadUI::<Impl, IMPL_OFFSET>,
-            GetView::<Impl, IMPL_OFFSET>,
-            GetUICommandProperty::<Impl, IMPL_OFFSET>,
-            SetUICommandProperty::<Impl, IMPL_OFFSET>,
-            InvalidateUICommand::<Impl, IMPL_OFFSET>,
-            FlushPendingInvalidations::<Impl, IMPL_OFFSET>,
-            SetModes::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            Destroy: Destroy::<Impl, IMPL_OFFSET>,
+            LoadUI: LoadUI::<Impl, IMPL_OFFSET>,
+            GetView: GetView::<Impl, IMPL_OFFSET>,
+            GetUICommandProperty: GetUICommandProperty::<Impl, IMPL_OFFSET>,
+            SetUICommandProperty: SetUICommandProperty::<Impl, IMPL_OFFSET>,
+            InvalidateUICommand: InvalidateUICommand::<Impl, IMPL_OFFSET>,
+            FlushPendingInvalidations: FlushPendingInvalidations::<Impl, IMPL_OFFSET>,
+            SetModes: SetModes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIFramework as ::windows::core::Interface>::IID
@@ -233,7 +249,7 @@ impl IUIImageVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetBitmap::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetBitmap: GetBitmap::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIImage as ::windows::core::Interface>::IID
@@ -250,7 +266,7 @@ impl IUIImageFromBitmapVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CreateImage::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateImage: CreateImage::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIImageFromBitmap as ::windows::core::Interface>::IID
@@ -277,7 +293,12 @@ impl IUIRibbonVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetHeight::<Impl, IMPL_OFFSET>, LoadSettingsFromStream::<Impl, IMPL_OFFSET>, SaveSettingsToStream::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetHeight: GetHeight::<Impl, IMPL_OFFSET>,
+            LoadSettingsFromStream: LoadSettingsFromStream::<Impl, IMPL_OFFSET>,
+            SaveSettingsToStream: SaveSettingsToStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIRibbon as ::windows::core::Interface>::IID
@@ -294,7 +315,7 @@ impl IUISimplePropertySetVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetValue::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetValue: GetValue::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUISimplePropertySet as ::windows::core::Interface>::IID

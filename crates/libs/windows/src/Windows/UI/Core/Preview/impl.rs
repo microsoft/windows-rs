@@ -7,7 +7,7 @@ impl ::windows::core::RuntimeName for ICoreAppWindowPreview {
 #[cfg(feature = "implement_exclusive")]
 impl ICoreAppWindowPreviewVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAppWindowPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreAppWindowPreviewVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreAppWindowPreview>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAppWindowPreview, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreAppWindowPreview as ::windows::core::Interface>::IID
@@ -35,7 +35,10 @@ impl ICoreAppWindowPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreAppWindowPreviewStatics>, ::windows::core::GetTrustLevel, GetIdFromWindow::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAppWindowPreviewStatics, BASE_OFFSET>(),
+            GetIdFromWindow: GetIdFromWindow::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreAppWindowPreviewStatics as ::windows::core::Interface>::IID
@@ -80,7 +83,12 @@ impl ISystemNavigationCloseRequestedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemNavigationCloseRequestedPreviewEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemNavigationCloseRequestedPreviewEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemNavigationCloseRequestedPreviewEventArgs as ::windows::core::Interface>::IID
@@ -113,7 +121,11 @@ impl ISystemNavigationManagerPreviewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCloseRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemNavigationManagerPreview>, ::windows::core::GetTrustLevel, CloseRequested::<Impl, IMPL_OFFSET>, RemoveCloseRequested::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemNavigationManagerPreview, BASE_OFFSET>(),
+            CloseRequested: CloseRequested::<Impl, IMPL_OFFSET>,
+            RemoveCloseRequested: RemoveCloseRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemNavigationManagerPreview as ::windows::core::Interface>::IID
@@ -141,7 +153,10 @@ impl ISystemNavigationManagerPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemNavigationManagerPreviewStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemNavigationManagerPreviewStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemNavigationManagerPreviewStatics as ::windows::core::Interface>::IID

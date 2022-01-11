@@ -65,7 +65,14 @@ impl IAnnotationProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAnnotationProvider>, ::windows::core::GetTrustLevel, AnnotationTypeId::<Impl, IMPL_OFFSET>, AnnotationTypeName::<Impl, IMPL_OFFSET>, Author::<Impl, IMPL_OFFSET>, DateTime::<Impl, IMPL_OFFSET>, Target::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAnnotationProvider, BASE_OFFSET>(),
+            AnnotationTypeId: AnnotationTypeId::<Impl, IMPL_OFFSET>,
+            AnnotationTypeName: AnnotationTypeName::<Impl, IMPL_OFFSET>,
+            Author: Author::<Impl, IMPL_OFFSET>,
+            DateTime: DateTime::<Impl, IMPL_OFFSET>,
+            Target: Target::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAnnotationProvider as ::windows::core::Interface>::IID
@@ -93,7 +100,10 @@ impl ICustomNavigationProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomNavigationProvider>, ::windows::core::GetTrustLevel, NavigateCustom::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomNavigationProvider, BASE_OFFSET>(),
+            NavigateCustom: NavigateCustom::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICustomNavigationProvider as ::windows::core::Interface>::IID
@@ -123,7 +133,11 @@ impl IDockProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDockPosition(dockposition).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDockProvider>, ::windows::core::GetTrustLevel, DockPosition::<Impl, IMPL_OFFSET>, SetDockPosition::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDockProvider, BASE_OFFSET>(),
+            DockPosition: DockPosition::<Impl, IMPL_OFFSET>,
+            SetDockPosition: SetDockPosition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDockProvider as ::windows::core::Interface>::IID
@@ -186,7 +200,13 @@ impl IDragProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragProvider>, ::windows::core::GetTrustLevel, IsGrabbed::<Impl, IMPL_OFFSET>, DropEffect::<Impl, IMPL_OFFSET>, DropEffects::<Impl, IMPL_OFFSET>, GetGrabbedItems::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDragProvider, BASE_OFFSET>(),
+            IsGrabbed: IsGrabbed::<Impl, IMPL_OFFSET>,
+            DropEffect: DropEffect::<Impl, IMPL_OFFSET>,
+            DropEffects: DropEffects::<Impl, IMPL_OFFSET>,
+            GetGrabbedItems: GetGrabbedItems::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDragProvider as ::windows::core::Interface>::IID
@@ -224,7 +244,11 @@ impl IDropTargetProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDropTargetProvider>, ::windows::core::GetTrustLevel, DropEffect::<Impl, IMPL_OFFSET>, DropEffects::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDropTargetProvider, BASE_OFFSET>(),
+            DropEffect: DropEffect::<Impl, IMPL_OFFSET>,
+            DropEffects: DropEffects::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDropTargetProvider as ::windows::core::Interface>::IID
@@ -259,7 +283,12 @@ impl IExpandCollapseProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Expand().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExpandCollapseProvider>, ::windows::core::GetTrustLevel, ExpandCollapseState::<Impl, IMPL_OFFSET>, Collapse::<Impl, IMPL_OFFSET>, Expand::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IExpandCollapseProvider, BASE_OFFSET>(),
+            ExpandCollapseState: ExpandCollapseState::<Impl, IMPL_OFFSET>,
+            Collapse: Collapse::<Impl, IMPL_OFFSET>,
+            Expand: Expand::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IExpandCollapseProvider as ::windows::core::Interface>::IID
@@ -332,7 +361,14 @@ impl IGridItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridItemProvider>, ::windows::core::GetTrustLevel, Column::<Impl, IMPL_OFFSET>, ColumnSpan::<Impl, IMPL_OFFSET>, ContainingGrid::<Impl, IMPL_OFFSET>, Row::<Impl, IMPL_OFFSET>, RowSpan::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGridItemProvider, BASE_OFFSET>(),
+            Column: Column::<Impl, IMPL_OFFSET>,
+            ColumnSpan: ColumnSpan::<Impl, IMPL_OFFSET>,
+            ContainingGrid: ContainingGrid::<Impl, IMPL_OFFSET>,
+            Row: Row::<Impl, IMPL_OFFSET>,
+            RowSpan: RowSpan::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridItemProvider as ::windows::core::Interface>::IID
@@ -381,7 +417,12 @@ impl IGridProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridProvider>, ::windows::core::GetTrustLevel, ColumnCount::<Impl, IMPL_OFFSET>, RowCount::<Impl, IMPL_OFFSET>, GetItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGridProvider, BASE_OFFSET>(),
+            ColumnCount: ColumnCount::<Impl, IMPL_OFFSET>,
+            RowCount: RowCount::<Impl, IMPL_OFFSET>,
+            GetItem: GetItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridProvider as ::windows::core::Interface>::IID
@@ -396,7 +437,7 @@ impl ::windows::core::RuntimeName for IIRawElementProviderSimple {
 #[cfg(feature = "implement_exclusive")]
 impl IIRawElementProviderSimpleVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIRawElementProviderSimpleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIRawElementProviderSimpleVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIRawElementProviderSimple>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IIRawElementProviderSimple, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIRawElementProviderSimple as ::windows::core::Interface>::IID
@@ -414,7 +455,7 @@ impl IInvokeProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Invoke().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInvokeProvider>, ::windows::core::GetTrustLevel, Invoke::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInvokeProvider, BASE_OFFSET>(), Invoke: Invoke::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInvokeProvider as ::windows::core::Interface>::IID
@@ -443,7 +484,10 @@ impl IItemContainerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IItemContainerProvider>, ::windows::core::GetTrustLevel, FindItemByProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IItemContainerProvider, BASE_OFFSET>(),
+            FindItemByProperty: FindItemByProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IItemContainerProvider as ::windows::core::Interface>::IID
@@ -498,7 +542,13 @@ impl IMultipleViewProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCurrentView(viewid).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMultipleViewProvider>, ::windows::core::GetTrustLevel, CurrentView::<Impl, IMPL_OFFSET>, GetSupportedViews::<Impl, IMPL_OFFSET>, GetViewName::<Impl, IMPL_OFFSET>, SetCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMultipleViewProvider, BASE_OFFSET>(),
+            CurrentView: CurrentView::<Impl, IMPL_OFFSET>,
+            GetSupportedViews: GetSupportedViews::<Impl, IMPL_OFFSET>,
+            GetViewName: GetViewName::<Impl, IMPL_OFFSET>,
+            SetCurrentView: SetCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMultipleViewProvider as ::windows::core::Interface>::IID
@@ -523,7 +573,10 @@ impl IObjectModelProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObjectModelProvider>, ::windows::core::GetTrustLevel, GetUnderlyingObjectModel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IObjectModelProvider, BASE_OFFSET>(),
+            GetUnderlyingObjectModel: GetUnderlyingObjectModel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IObjectModelProvider as ::windows::core::Interface>::IID
@@ -613,21 +666,16 @@ impl IRangeValueProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRangeValueProvider>,
-            ::windows::core::GetTrustLevel,
-            IsReadOnly::<Impl, IMPL_OFFSET>,
-            LargeChange::<Impl, IMPL_OFFSET>,
-            Maximum::<Impl, IMPL_OFFSET>,
-            Minimum::<Impl, IMPL_OFFSET>,
-            SmallChange::<Impl, IMPL_OFFSET>,
-            Value::<Impl, IMPL_OFFSET>,
-            SetValue::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRangeValueProvider, BASE_OFFSET>(),
+            IsReadOnly: IsReadOnly::<Impl, IMPL_OFFSET>,
+            LargeChange: LargeChange::<Impl, IMPL_OFFSET>,
+            Maximum: Maximum::<Impl, IMPL_OFFSET>,
+            Minimum: Minimum::<Impl, IMPL_OFFSET>,
+            SmallChange: SmallChange::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRangeValueProvider as ::windows::core::Interface>::IID
@@ -645,7 +693,10 @@ impl IScrollItemProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ScrollIntoView().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScrollItemProvider>, ::windows::core::GetTrustLevel, ScrollIntoView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollItemProvider, BASE_OFFSET>(),
+            ScrollIntoView: ScrollIntoView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScrollItemProvider as ::windows::core::Interface>::IID
@@ -740,22 +791,17 @@ impl IScrollProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScrollPercent(horizontalpercent, verticalpercent).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IScrollProvider>,
-            ::windows::core::GetTrustLevel,
-            HorizontallyScrollable::<Impl, IMPL_OFFSET>,
-            HorizontalScrollPercent::<Impl, IMPL_OFFSET>,
-            HorizontalViewSize::<Impl, IMPL_OFFSET>,
-            VerticallyScrollable::<Impl, IMPL_OFFSET>,
-            VerticalScrollPercent::<Impl, IMPL_OFFSET>,
-            VerticalViewSize::<Impl, IMPL_OFFSET>,
-            Scroll::<Impl, IMPL_OFFSET>,
-            SetScrollPercent::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollProvider, BASE_OFFSET>(),
+            HorizontallyScrollable: HorizontallyScrollable::<Impl, IMPL_OFFSET>,
+            HorizontalScrollPercent: HorizontalScrollPercent::<Impl, IMPL_OFFSET>,
+            HorizontalViewSize: HorizontalViewSize::<Impl, IMPL_OFFSET>,
+            VerticallyScrollable: VerticallyScrollable::<Impl, IMPL_OFFSET>,
+            VerticalScrollPercent: VerticalScrollPercent::<Impl, IMPL_OFFSET>,
+            VerticalViewSize: VerticalViewSize::<Impl, IMPL_OFFSET>,
+            Scroll: Scroll::<Impl, IMPL_OFFSET>,
+            SetScrollPercent: SetScrollPercent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScrollProvider as ::windows::core::Interface>::IID
@@ -807,7 +853,14 @@ impl ISelectionItemProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Select().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionItemProvider>, ::windows::core::GetTrustLevel, IsSelected::<Impl, IMPL_OFFSET>, SelectionContainer::<Impl, IMPL_OFFSET>, AddToSelection::<Impl, IMPL_OFFSET>, RemoveFromSelection::<Impl, IMPL_OFFSET>, Select::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectionItemProvider, BASE_OFFSET>(),
+            IsSelected: IsSelected::<Impl, IMPL_OFFSET>,
+            SelectionContainer: SelectionContainer::<Impl, IMPL_OFFSET>,
+            AddToSelection: AddToSelection::<Impl, IMPL_OFFSET>,
+            RemoveFromSelection: RemoveFromSelection::<Impl, IMPL_OFFSET>,
+            Select: Select::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectionItemProvider as ::windows::core::Interface>::IID
@@ -857,7 +910,12 @@ impl ISelectionProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionProvider>, ::windows::core::GetTrustLevel, CanSelectMultiple::<Impl, IMPL_OFFSET>, IsSelectionRequired::<Impl, IMPL_OFFSET>, GetSelection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectionProvider, BASE_OFFSET>(),
+            CanSelectMultiple: CanSelectMultiple::<Impl, IMPL_OFFSET>,
+            IsSelectionRequired: IsSelectionRequired::<Impl, IMPL_OFFSET>,
+            GetSelection: GetSelection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectionProvider as ::windows::core::Interface>::IID
@@ -908,7 +966,12 @@ impl ISpreadsheetItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpreadsheetItemProvider>, ::windows::core::GetTrustLevel, Formula::<Impl, IMPL_OFFSET>, GetAnnotationObjects::<Impl, IMPL_OFFSET>, GetAnnotationTypes::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpreadsheetItemProvider, BASE_OFFSET>(),
+            Formula: Formula::<Impl, IMPL_OFFSET>,
+            GetAnnotationObjects: GetAnnotationObjects::<Impl, IMPL_OFFSET>,
+            GetAnnotationTypes: GetAnnotationTypes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpreadsheetItemProvider as ::windows::core::Interface>::IID
@@ -933,7 +996,7 @@ impl ISpreadsheetProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpreadsheetProvider>, ::windows::core::GetTrustLevel, GetItemByName::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpreadsheetProvider, BASE_OFFSET>(), GetItemByName: GetItemByName::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpreadsheetProvider as ::windows::core::Interface>::IID
@@ -1030,21 +1093,16 @@ impl IStylesProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStylesProvider>,
-            ::windows::core::GetTrustLevel,
-            ExtendedProperties::<Impl, IMPL_OFFSET>,
-            FillColor::<Impl, IMPL_OFFSET>,
-            FillPatternColor::<Impl, IMPL_OFFSET>,
-            FillPatternStyle::<Impl, IMPL_OFFSET>,
-            Shape::<Impl, IMPL_OFFSET>,
-            StyleId::<Impl, IMPL_OFFSET>,
-            StyleName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStylesProvider, BASE_OFFSET>(),
+            ExtendedProperties: ExtendedProperties::<Impl, IMPL_OFFSET>,
+            FillColor: FillColor::<Impl, IMPL_OFFSET>,
+            FillPatternColor: FillPatternColor::<Impl, IMPL_OFFSET>,
+            FillPatternStyle: FillPatternStyle::<Impl, IMPL_OFFSET>,
+            Shape: Shape::<Impl, IMPL_OFFSET>,
+            StyleId: StyleId::<Impl, IMPL_OFFSET>,
+            StyleName: StyleName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStylesProvider as ::windows::core::Interface>::IID
@@ -1067,7 +1125,11 @@ impl ISynchronizedInputProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartListening(inputtype).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISynchronizedInputProvider>, ::windows::core::GetTrustLevel, Cancel::<Impl, IMPL_OFFSET>, StartListening::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISynchronizedInputProvider, BASE_OFFSET>(),
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+            StartListening: StartListening::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISynchronizedInputProvider as ::windows::core::Interface>::IID
@@ -1106,7 +1168,11 @@ impl ITableItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITableItemProvider>, ::windows::core::GetTrustLevel, GetColumnHeaderItems::<Impl, IMPL_OFFSET>, GetRowHeaderItems::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITableItemProvider, BASE_OFFSET>(),
+            GetColumnHeaderItems: GetColumnHeaderItems::<Impl, IMPL_OFFSET>,
+            GetRowHeaderItems: GetRowHeaderItems::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITableItemProvider as ::windows::core::Interface>::IID
@@ -1157,7 +1223,12 @@ impl ITableProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITableProvider>, ::windows::core::GetTrustLevel, RowOrColumnMajor::<Impl, IMPL_OFFSET>, GetColumnHeaders::<Impl, IMPL_OFFSET>, GetRowHeaders::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITableProvider, BASE_OFFSET>(),
+            RowOrColumnMajor: RowOrColumnMajor::<Impl, IMPL_OFFSET>,
+            GetColumnHeaders: GetColumnHeaders::<Impl, IMPL_OFFSET>,
+            GetRowHeaders: GetRowHeaders::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITableProvider as ::windows::core::Interface>::IID
@@ -1194,7 +1265,11 @@ impl ITextChildProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextChildProvider>, ::windows::core::GetTrustLevel, TextContainer::<Impl, IMPL_OFFSET>, TextRange::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextChildProvider, BASE_OFFSET>(),
+            TextContainer: TextContainer::<Impl, IMPL_OFFSET>,
+            TextRange: TextRange::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextChildProvider as ::windows::core::Interface>::IID
@@ -1234,7 +1309,11 @@ impl ITextEditProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextEditProvider>, ::windows::core::GetTrustLevel, GetActiveComposition::<Impl, IMPL_OFFSET>, GetConversionTarget::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextEditProvider, BASE_OFFSET>(),
+            GetActiveComposition: GetActiveComposition::<Impl, IMPL_OFFSET>,
+            GetConversionTarget: GetConversionTarget::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextEditProvider as ::windows::core::Interface>::IID
@@ -1324,20 +1403,15 @@ impl ITextProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITextProvider>,
-            ::windows::core::GetTrustLevel,
-            DocumentRange::<Impl, IMPL_OFFSET>,
-            SupportedTextSelection::<Impl, IMPL_OFFSET>,
-            GetSelection::<Impl, IMPL_OFFSET>,
-            GetVisibleRanges::<Impl, IMPL_OFFSET>,
-            RangeFromChild::<Impl, IMPL_OFFSET>,
-            RangeFromPoint::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextProvider, BASE_OFFSET>(),
+            DocumentRange: DocumentRange::<Impl, IMPL_OFFSET>,
+            SupportedTextSelection: SupportedTextSelection::<Impl, IMPL_OFFSET>,
+            GetSelection: GetSelection::<Impl, IMPL_OFFSET>,
+            GetVisibleRanges: GetVisibleRanges::<Impl, IMPL_OFFSET>,
+            RangeFromChild: RangeFromChild::<Impl, IMPL_OFFSET>,
+            RangeFromPoint: RangeFromPoint::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextProvider as ::windows::core::Interface>::IID
@@ -1377,7 +1451,11 @@ impl ITextProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextProvider2>, ::windows::core::GetTrustLevel, RangeFromAnnotation::<Impl, IMPL_OFFSET>, GetCaretRange::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextProvider2, BASE_OFFSET>(),
+            RangeFromAnnotation: RangeFromAnnotation::<Impl, IMPL_OFFSET>,
+            GetCaretRange: GetCaretRange::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextProvider2 as ::windows::core::Interface>::IID
@@ -1561,32 +1639,27 @@ impl ITextRangeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITextRangeProvider>,
-            ::windows::core::GetTrustLevel,
-            Clone::<Impl, IMPL_OFFSET>,
-            Compare::<Impl, IMPL_OFFSET>,
-            CompareEndpoints::<Impl, IMPL_OFFSET>,
-            ExpandToEnclosingUnit::<Impl, IMPL_OFFSET>,
-            FindAttribute::<Impl, IMPL_OFFSET>,
-            FindText::<Impl, IMPL_OFFSET>,
-            GetAttributeValue::<Impl, IMPL_OFFSET>,
-            GetBoundingRectangles::<Impl, IMPL_OFFSET>,
-            GetEnclosingElement::<Impl, IMPL_OFFSET>,
-            GetText::<Impl, IMPL_OFFSET>,
-            Move::<Impl, IMPL_OFFSET>,
-            MoveEndpointByUnit::<Impl, IMPL_OFFSET>,
-            MoveEndpointByRange::<Impl, IMPL_OFFSET>,
-            Select::<Impl, IMPL_OFFSET>,
-            AddToSelection::<Impl, IMPL_OFFSET>,
-            RemoveFromSelection::<Impl, IMPL_OFFSET>,
-            ScrollIntoView::<Impl, IMPL_OFFSET>,
-            GetChildren::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextRangeProvider, BASE_OFFSET>(),
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            Compare: Compare::<Impl, IMPL_OFFSET>,
+            CompareEndpoints: CompareEndpoints::<Impl, IMPL_OFFSET>,
+            ExpandToEnclosingUnit: ExpandToEnclosingUnit::<Impl, IMPL_OFFSET>,
+            FindAttribute: FindAttribute::<Impl, IMPL_OFFSET>,
+            FindText: FindText::<Impl, IMPL_OFFSET>,
+            GetAttributeValue: GetAttributeValue::<Impl, IMPL_OFFSET>,
+            GetBoundingRectangles: GetBoundingRectangles::<Impl, IMPL_OFFSET>,
+            GetEnclosingElement: GetEnclosingElement::<Impl, IMPL_OFFSET>,
+            GetText: GetText::<Impl, IMPL_OFFSET>,
+            Move: Move::<Impl, IMPL_OFFSET>,
+            MoveEndpointByUnit: MoveEndpointByUnit::<Impl, IMPL_OFFSET>,
+            MoveEndpointByRange: MoveEndpointByRange::<Impl, IMPL_OFFSET>,
+            Select: Select::<Impl, IMPL_OFFSET>,
+            AddToSelection: AddToSelection::<Impl, IMPL_OFFSET>,
+            RemoveFromSelection: RemoveFromSelection::<Impl, IMPL_OFFSET>,
+            ScrollIntoView: ScrollIntoView::<Impl, IMPL_OFFSET>,
+            GetChildren: GetChildren::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextRangeProvider as ::windows::core::Interface>::IID
@@ -1607,7 +1680,10 @@ impl ITextRangeProvider2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowContextMenu().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextRangeProvider2>, ::windows::core::GetTrustLevel, ShowContextMenu::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextRangeProvider2, BASE_OFFSET>(),
+            ShowContextMenu: ShowContextMenu::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextRangeProvider2 as ::windows::core::Interface>::IID
@@ -1637,7 +1713,11 @@ impl IToggleProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Toggle().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToggleProvider>, ::windows::core::GetTrustLevel, ToggleState::<Impl, IMPL_OFFSET>, Toggle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleProvider, BASE_OFFSET>(),
+            ToggleState: ToggleState::<Impl, IMPL_OFFSET>,
+            Toggle: Toggle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToggleProvider as ::windows::core::Interface>::IID
@@ -1701,7 +1781,15 @@ impl ITransformProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Rotate(degrees).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformProvider>, ::windows::core::GetTrustLevel, CanMove::<Impl, IMPL_OFFSET>, CanResize::<Impl, IMPL_OFFSET>, CanRotate::<Impl, IMPL_OFFSET>, Move::<Impl, IMPL_OFFSET>, Resize::<Impl, IMPL_OFFSET>, Rotate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITransformProvider, BASE_OFFSET>(),
+            CanMove: CanMove::<Impl, IMPL_OFFSET>,
+            CanResize: CanResize::<Impl, IMPL_OFFSET>,
+            CanRotate: CanRotate::<Impl, IMPL_OFFSET>,
+            Move: Move::<Impl, IMPL_OFFSET>,
+            Resize: Resize::<Impl, IMPL_OFFSET>,
+            Rotate: Rotate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITransformProvider as ::windows::core::Interface>::IID
@@ -1772,7 +1860,15 @@ impl ITransformProvider2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ZoomByUnit(zoomunit).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformProvider2>, ::windows::core::GetTrustLevel, CanZoom::<Impl, IMPL_OFFSET>, ZoomLevel::<Impl, IMPL_OFFSET>, MaxZoom::<Impl, IMPL_OFFSET>, MinZoom::<Impl, IMPL_OFFSET>, Zoom::<Impl, IMPL_OFFSET>, ZoomByUnit::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITransformProvider2, BASE_OFFSET>(),
+            CanZoom: CanZoom::<Impl, IMPL_OFFSET>,
+            ZoomLevel: ZoomLevel::<Impl, IMPL_OFFSET>,
+            MaxZoom: MaxZoom::<Impl, IMPL_OFFSET>,
+            MinZoom: MinZoom::<Impl, IMPL_OFFSET>,
+            Zoom: Zoom::<Impl, IMPL_OFFSET>,
+            ZoomByUnit: ZoomByUnit::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITransformProvider2 as ::windows::core::Interface>::IID
@@ -1814,7 +1910,12 @@ impl IValueProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IValueProvider>, ::windows::core::GetTrustLevel, IsReadOnly::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IValueProvider, BASE_OFFSET>(),
+            IsReadOnly: IsReadOnly::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IValueProvider as ::windows::core::Interface>::IID
@@ -1832,7 +1933,7 @@ impl IVirtualizedItemProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Realize().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVirtualizedItemProvider>, ::windows::core::GetTrustLevel, Realize::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVirtualizedItemProvider, BASE_OFFSET>(), Realize: Realize::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVirtualizedItemProvider as ::windows::core::Interface>::IID
@@ -1939,23 +2040,18 @@ impl IWindowProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWindowProvider>,
-            ::windows::core::GetTrustLevel,
-            IsModal::<Impl, IMPL_OFFSET>,
-            IsTopmost::<Impl, IMPL_OFFSET>,
-            Maximizable::<Impl, IMPL_OFFSET>,
-            Minimizable::<Impl, IMPL_OFFSET>,
-            InteractionState::<Impl, IMPL_OFFSET>,
-            VisualState::<Impl, IMPL_OFFSET>,
-            Close::<Impl, IMPL_OFFSET>,
-            SetVisualState::<Impl, IMPL_OFFSET>,
-            WaitForInputIdle::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWindowProvider, BASE_OFFSET>(),
+            IsModal: IsModal::<Impl, IMPL_OFFSET>,
+            IsTopmost: IsTopmost::<Impl, IMPL_OFFSET>,
+            Maximizable: Maximizable::<Impl, IMPL_OFFSET>,
+            Minimizable: Minimizable::<Impl, IMPL_OFFSET>,
+            InteractionState: InteractionState::<Impl, IMPL_OFFSET>,
+            VisualState: VisualState::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+            SetVisualState: SetVisualState::<Impl, IMPL_OFFSET>,
+            WaitForInputIdle: WaitForInputIdle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowProvider as ::windows::core::Interface>::IID

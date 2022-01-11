@@ -92,21 +92,16 @@ impl IGeofenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGeofence>,
-            ::windows::core::GetTrustLevel,
-            StartTime::<Impl, IMPL_OFFSET>,
-            Duration::<Impl, IMPL_OFFSET>,
-            DwellTime::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            MonitoredStates::<Impl, IMPL_OFFSET>,
-            Geoshape::<Impl, IMPL_OFFSET>,
-            SingleUse::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeofence, BASE_OFFSET>(),
+            StartTime: StartTime::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            DwellTime: DwellTime::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            MonitoredStates: MonitoredStates::<Impl, IMPL_OFFSET>,
+            Geoshape: Geoshape::<Impl, IMPL_OFFSET>,
+            SingleUse: SingleUse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeofence as ::windows::core::Interface>::IID
@@ -184,18 +179,13 @@ impl IGeofenceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGeofenceFactory>,
-            ::windows::core::GetTrustLevel,
-            Create::<Impl, IMPL_OFFSET>,
-            CreateWithMonitorStates::<Impl, IMPL_OFFSET>,
-            CreateWithMonitorStatesAndDwellTime::<Impl, IMPL_OFFSET>,
-            CreateWithMonitorStatesDwellTimeStartTimeAndDuration::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeofenceFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithMonitorStates: CreateWithMonitorStates::<Impl, IMPL_OFFSET>,
+            CreateWithMonitorStatesAndDwellTime: CreateWithMonitorStatesAndDwellTime::<Impl, IMPL_OFFSET>,
+            CreateWithMonitorStatesDwellTimeStartTimeAndDuration: CreateWithMonitorStatesDwellTimeStartTimeAndDuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeofenceFactory as ::windows::core::Interface>::IID
@@ -293,22 +283,17 @@ impl IGeofenceMonitorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGeofenceMonitor>,
-            ::windows::core::GetTrustLevel,
-            Status::<Impl, IMPL_OFFSET>,
-            Geofences::<Impl, IMPL_OFFSET>,
-            LastKnownGeoposition::<Impl, IMPL_OFFSET>,
-            GeofenceStateChanged::<Impl, IMPL_OFFSET>,
-            RemoveGeofenceStateChanged::<Impl, IMPL_OFFSET>,
-            ReadReports::<Impl, IMPL_OFFSET>,
-            StatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeofenceMonitor, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Geofences: Geofences::<Impl, IMPL_OFFSET>,
+            LastKnownGeoposition: LastKnownGeoposition::<Impl, IMPL_OFFSET>,
+            GeofenceStateChanged: GeofenceStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveGeofenceStateChanged: RemoveGeofenceStateChanged::<Impl, IMPL_OFFSET>,
+            ReadReports: ReadReports::<Impl, IMPL_OFFSET>,
+            StatusChanged: StatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged: RemoveStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeofenceMonitor as ::windows::core::Interface>::IID
@@ -336,7 +321,7 @@ impl IGeofenceMonitorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeofenceMonitorStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGeofenceMonitorStatics, BASE_OFFSET>(), Current: Current::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeofenceMonitorStatics as ::windows::core::Interface>::IID
@@ -400,7 +385,13 @@ impl IGeofenceStateChangeReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeofenceStateChangeReport>, ::windows::core::GetTrustLevel, NewState::<Impl, IMPL_OFFSET>, Geofence::<Impl, IMPL_OFFSET>, Geoposition::<Impl, IMPL_OFFSET>, RemovalReason::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeofenceStateChangeReport, BASE_OFFSET>(),
+            NewState: NewState::<Impl, IMPL_OFFSET>,
+            Geofence: Geofence::<Impl, IMPL_OFFSET>,
+            Geoposition: Geoposition::<Impl, IMPL_OFFSET>,
+            RemovalReason: RemovalReason::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeofenceStateChangeReport as ::windows::core::Interface>::IID

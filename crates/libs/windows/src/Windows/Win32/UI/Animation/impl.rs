@@ -37,7 +37,16 @@ impl IUIAnimationInterpolatorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetInitialValueAndVelocity::<Impl, IMPL_OFFSET>, SetDuration::<Impl, IMPL_OFFSET>, GetDuration::<Impl, IMPL_OFFSET>, GetFinalValue::<Impl, IMPL_OFFSET>, InterpolateValue::<Impl, IMPL_OFFSET>, InterpolateVelocity::<Impl, IMPL_OFFSET>, GetDependencies::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetInitialValueAndVelocity: SetInitialValueAndVelocity::<Impl, IMPL_OFFSET>,
+            SetDuration: SetDuration::<Impl, IMPL_OFFSET>,
+            GetDuration: GetDuration::<Impl, IMPL_OFFSET>,
+            GetFinalValue: GetFinalValue::<Impl, IMPL_OFFSET>,
+            InterpolateValue: InterpolateValue::<Impl, IMPL_OFFSET>,
+            InterpolateVelocity: InterpolateVelocity::<Impl, IMPL_OFFSET>,
+            GetDependencies: GetDependencies::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationInterpolator as ::windows::core::Interface>::IID
@@ -92,20 +101,18 @@ impl IUIAnimationInterpolator2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetDimension::<Impl, IMPL_OFFSET>,
-            SetInitialValueAndVelocity::<Impl, IMPL_OFFSET>,
-            SetDuration::<Impl, IMPL_OFFSET>,
-            GetDuration::<Impl, IMPL_OFFSET>,
-            GetFinalValue::<Impl, IMPL_OFFSET>,
-            InterpolateValue::<Impl, IMPL_OFFSET>,
-            InterpolateVelocity::<Impl, IMPL_OFFSET>,
-            GetPrimitiveInterpolation::<Impl, IMPL_OFFSET>,
-            GetDependencies::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetDimension: GetDimension::<Impl, IMPL_OFFSET>,
+            SetInitialValueAndVelocity: SetInitialValueAndVelocity::<Impl, IMPL_OFFSET>,
+            SetDuration: SetDuration::<Impl, IMPL_OFFSET>,
+            GetDuration: GetDuration::<Impl, IMPL_OFFSET>,
+            GetFinalValue: GetFinalValue::<Impl, IMPL_OFFSET>,
+            InterpolateValue: InterpolateValue::<Impl, IMPL_OFFSET>,
+            InterpolateVelocity: InterpolateVelocity::<Impl, IMPL_OFFSET>,
+            GetPrimitiveInterpolation: GetPrimitiveInterpolation::<Impl, IMPL_OFFSET>,
+            GetDependencies: GetDependencies::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationInterpolator2 as ::windows::core::Interface>::IID
@@ -120,7 +127,7 @@ impl IUIAnimationLoopIterationChangeHandler2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnLoopIterationChanged::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnLoopIterationChanged: OnLoopIterationChanged::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationLoopIterationChangeHandler2 as ::windows::core::Interface>::IID
@@ -225,30 +232,28 @@ impl IUIAnimationManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            CreateAnimationVariable::<Impl, IMPL_OFFSET>,
-            ScheduleTransition::<Impl, IMPL_OFFSET>,
-            CreateStoryboard::<Impl, IMPL_OFFSET>,
-            FinishAllStoryboards::<Impl, IMPL_OFFSET>,
-            AbandonAllStoryboards::<Impl, IMPL_OFFSET>,
-            Update::<Impl, IMPL_OFFSET>,
-            GetVariableFromTag::<Impl, IMPL_OFFSET>,
-            GetStoryboardFromTag::<Impl, IMPL_OFFSET>,
-            GetStatus::<Impl, IMPL_OFFSET>,
-            SetAnimationMode::<Impl, IMPL_OFFSET>,
-            Pause::<Impl, IMPL_OFFSET>,
-            Resume::<Impl, IMPL_OFFSET>,
-            SetManagerEventHandler::<Impl, IMPL_OFFSET>,
-            SetCancelPriorityComparison::<Impl, IMPL_OFFSET>,
-            SetTrimPriorityComparison::<Impl, IMPL_OFFSET>,
-            SetCompressPriorityComparison::<Impl, IMPL_OFFSET>,
-            SetConcludePriorityComparison::<Impl, IMPL_OFFSET>,
-            SetDefaultLongestAcceptableDelay::<Impl, IMPL_OFFSET>,
-            Shutdown::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateAnimationVariable: CreateAnimationVariable::<Impl, IMPL_OFFSET>,
+            ScheduleTransition: ScheduleTransition::<Impl, IMPL_OFFSET>,
+            CreateStoryboard: CreateStoryboard::<Impl, IMPL_OFFSET>,
+            FinishAllStoryboards: FinishAllStoryboards::<Impl, IMPL_OFFSET>,
+            AbandonAllStoryboards: AbandonAllStoryboards::<Impl, IMPL_OFFSET>,
+            Update: Update::<Impl, IMPL_OFFSET>,
+            GetVariableFromTag: GetVariableFromTag::<Impl, IMPL_OFFSET>,
+            GetStoryboardFromTag: GetStoryboardFromTag::<Impl, IMPL_OFFSET>,
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            SetAnimationMode: SetAnimationMode::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+            SetManagerEventHandler: SetManagerEventHandler::<Impl, IMPL_OFFSET>,
+            SetCancelPriorityComparison: SetCancelPriorityComparison::<Impl, IMPL_OFFSET>,
+            SetTrimPriorityComparison: SetTrimPriorityComparison::<Impl, IMPL_OFFSET>,
+            SetCompressPriorityComparison: SetCompressPriorityComparison::<Impl, IMPL_OFFSET>,
+            SetConcludePriorityComparison: SetConcludePriorityComparison::<Impl, IMPL_OFFSET>,
+            SetDefaultLongestAcceptableDelay: SetDefaultLongestAcceptableDelay::<Impl, IMPL_OFFSET>,
+            Shutdown: Shutdown::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationManager as ::windows::core::Interface>::IID
@@ -365,32 +370,30 @@ impl IUIAnimationManager2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            CreateAnimationVectorVariable::<Impl, IMPL_OFFSET>,
-            CreateAnimationVariable::<Impl, IMPL_OFFSET>,
-            ScheduleTransition::<Impl, IMPL_OFFSET>,
-            CreateStoryboard::<Impl, IMPL_OFFSET>,
-            FinishAllStoryboards::<Impl, IMPL_OFFSET>,
-            AbandonAllStoryboards::<Impl, IMPL_OFFSET>,
-            Update::<Impl, IMPL_OFFSET>,
-            GetVariableFromTag::<Impl, IMPL_OFFSET>,
-            GetStoryboardFromTag::<Impl, IMPL_OFFSET>,
-            EstimateNextEventTime::<Impl, IMPL_OFFSET>,
-            GetStatus::<Impl, IMPL_OFFSET>,
-            SetAnimationMode::<Impl, IMPL_OFFSET>,
-            Pause::<Impl, IMPL_OFFSET>,
-            Resume::<Impl, IMPL_OFFSET>,
-            SetManagerEventHandler::<Impl, IMPL_OFFSET>,
-            SetCancelPriorityComparison::<Impl, IMPL_OFFSET>,
-            SetTrimPriorityComparison::<Impl, IMPL_OFFSET>,
-            SetCompressPriorityComparison::<Impl, IMPL_OFFSET>,
-            SetConcludePriorityComparison::<Impl, IMPL_OFFSET>,
-            SetDefaultLongestAcceptableDelay::<Impl, IMPL_OFFSET>,
-            Shutdown::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateAnimationVectorVariable: CreateAnimationVectorVariable::<Impl, IMPL_OFFSET>,
+            CreateAnimationVariable: CreateAnimationVariable::<Impl, IMPL_OFFSET>,
+            ScheduleTransition: ScheduleTransition::<Impl, IMPL_OFFSET>,
+            CreateStoryboard: CreateStoryboard::<Impl, IMPL_OFFSET>,
+            FinishAllStoryboards: FinishAllStoryboards::<Impl, IMPL_OFFSET>,
+            AbandonAllStoryboards: AbandonAllStoryboards::<Impl, IMPL_OFFSET>,
+            Update: Update::<Impl, IMPL_OFFSET>,
+            GetVariableFromTag: GetVariableFromTag::<Impl, IMPL_OFFSET>,
+            GetStoryboardFromTag: GetStoryboardFromTag::<Impl, IMPL_OFFSET>,
+            EstimateNextEventTime: EstimateNextEventTime::<Impl, IMPL_OFFSET>,
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            SetAnimationMode: SetAnimationMode::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+            SetManagerEventHandler: SetManagerEventHandler::<Impl, IMPL_OFFSET>,
+            SetCancelPriorityComparison: SetCancelPriorityComparison::<Impl, IMPL_OFFSET>,
+            SetTrimPriorityComparison: SetTrimPriorityComparison::<Impl, IMPL_OFFSET>,
+            SetCompressPriorityComparison: SetCompressPriorityComparison::<Impl, IMPL_OFFSET>,
+            SetConcludePriorityComparison: SetConcludePriorityComparison::<Impl, IMPL_OFFSET>,
+            SetDefaultLongestAcceptableDelay: SetDefaultLongestAcceptableDelay::<Impl, IMPL_OFFSET>,
+            Shutdown: Shutdown::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationManager2 as ::windows::core::Interface>::IID
@@ -405,7 +408,7 @@ impl IUIAnimationManagerEventHandlerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnManagerStatusChanged::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnManagerStatusChanged: OnManagerStatusChanged::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationManagerEventHandler as ::windows::core::Interface>::IID
@@ -420,7 +423,7 @@ impl IUIAnimationManagerEventHandler2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnManagerStatusChanged::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnManagerStatusChanged: OnManagerStatusChanged::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationManagerEventHandler2 as ::windows::core::Interface>::IID
@@ -440,7 +443,11 @@ impl IUIAnimationPrimitiveInterpolationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, AddCubic::<Impl, IMPL_OFFSET>, AddSinusoidal::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddCubic: AddCubic::<Impl, IMPL_OFFSET>,
+            AddSinusoidal: AddSinusoidal::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationPrimitiveInterpolation as ::windows::core::Interface>::IID
@@ -455,7 +462,7 @@ impl IUIAnimationPriorityComparisonVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, HasPriority::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), HasPriority: HasPriority::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationPriorityComparison as ::windows::core::Interface>::IID
@@ -470,7 +477,7 @@ impl IUIAnimationPriorityComparison2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, HasPriority::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), HasPriority: HasPriority::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationPriorityComparison2 as ::windows::core::Interface>::IID
@@ -565,28 +572,26 @@ impl IUIAnimationStoryboardVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            AddTransition::<Impl, IMPL_OFFSET>,
-            AddKeyframeAtOffset::<Impl, IMPL_OFFSET>,
-            AddKeyframeAfterTransition::<Impl, IMPL_OFFSET>,
-            AddTransitionAtKeyframe::<Impl, IMPL_OFFSET>,
-            AddTransitionBetweenKeyframes::<Impl, IMPL_OFFSET>,
-            RepeatBetweenKeyframes::<Impl, IMPL_OFFSET>,
-            HoldVariable::<Impl, IMPL_OFFSET>,
-            SetLongestAcceptableDelay::<Impl, IMPL_OFFSET>,
-            Schedule::<Impl, IMPL_OFFSET>,
-            Conclude::<Impl, IMPL_OFFSET>,
-            Finish::<Impl, IMPL_OFFSET>,
-            Abandon::<Impl, IMPL_OFFSET>,
-            SetTag::<Impl, IMPL_OFFSET>,
-            GetTag::<Impl, IMPL_OFFSET>,
-            GetStatus::<Impl, IMPL_OFFSET>,
-            GetElapsedTime::<Impl, IMPL_OFFSET>,
-            SetStoryboardEventHandler::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddTransition: AddTransition::<Impl, IMPL_OFFSET>,
+            AddKeyframeAtOffset: AddKeyframeAtOffset::<Impl, IMPL_OFFSET>,
+            AddKeyframeAfterTransition: AddKeyframeAfterTransition::<Impl, IMPL_OFFSET>,
+            AddTransitionAtKeyframe: AddTransitionAtKeyframe::<Impl, IMPL_OFFSET>,
+            AddTransitionBetweenKeyframes: AddTransitionBetweenKeyframes::<Impl, IMPL_OFFSET>,
+            RepeatBetweenKeyframes: RepeatBetweenKeyframes::<Impl, IMPL_OFFSET>,
+            HoldVariable: HoldVariable::<Impl, IMPL_OFFSET>,
+            SetLongestAcceptableDelay: SetLongestAcceptableDelay::<Impl, IMPL_OFFSET>,
+            Schedule: Schedule::<Impl, IMPL_OFFSET>,
+            Conclude: Conclude::<Impl, IMPL_OFFSET>,
+            Finish: Finish::<Impl, IMPL_OFFSET>,
+            Abandon: Abandon::<Impl, IMPL_OFFSET>,
+            SetTag: SetTag::<Impl, IMPL_OFFSET>,
+            GetTag: GetTag::<Impl, IMPL_OFFSET>,
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            GetElapsedTime: GetElapsedTime::<Impl, IMPL_OFFSET>,
+            SetStoryboardEventHandler: SetStoryboardEventHandler::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationStoryboard as ::windows::core::Interface>::IID
@@ -688,29 +693,27 @@ impl IUIAnimationStoryboard2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            AddTransition::<Impl, IMPL_OFFSET>,
-            AddKeyframeAtOffset::<Impl, IMPL_OFFSET>,
-            AddKeyframeAfterTransition::<Impl, IMPL_OFFSET>,
-            AddTransitionAtKeyframe::<Impl, IMPL_OFFSET>,
-            AddTransitionBetweenKeyframes::<Impl, IMPL_OFFSET>,
-            RepeatBetweenKeyframes::<Impl, IMPL_OFFSET>,
-            HoldVariable::<Impl, IMPL_OFFSET>,
-            SetLongestAcceptableDelay::<Impl, IMPL_OFFSET>,
-            SetSkipDuration::<Impl, IMPL_OFFSET>,
-            Schedule::<Impl, IMPL_OFFSET>,
-            Conclude::<Impl, IMPL_OFFSET>,
-            Finish::<Impl, IMPL_OFFSET>,
-            Abandon::<Impl, IMPL_OFFSET>,
-            SetTag::<Impl, IMPL_OFFSET>,
-            GetTag::<Impl, IMPL_OFFSET>,
-            GetStatus::<Impl, IMPL_OFFSET>,
-            GetElapsedTime::<Impl, IMPL_OFFSET>,
-            SetStoryboardEventHandler::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddTransition: AddTransition::<Impl, IMPL_OFFSET>,
+            AddKeyframeAtOffset: AddKeyframeAtOffset::<Impl, IMPL_OFFSET>,
+            AddKeyframeAfterTransition: AddKeyframeAfterTransition::<Impl, IMPL_OFFSET>,
+            AddTransitionAtKeyframe: AddTransitionAtKeyframe::<Impl, IMPL_OFFSET>,
+            AddTransitionBetweenKeyframes: AddTransitionBetweenKeyframes::<Impl, IMPL_OFFSET>,
+            RepeatBetweenKeyframes: RepeatBetweenKeyframes::<Impl, IMPL_OFFSET>,
+            HoldVariable: HoldVariable::<Impl, IMPL_OFFSET>,
+            SetLongestAcceptableDelay: SetLongestAcceptableDelay::<Impl, IMPL_OFFSET>,
+            SetSkipDuration: SetSkipDuration::<Impl, IMPL_OFFSET>,
+            Schedule: Schedule::<Impl, IMPL_OFFSET>,
+            Conclude: Conclude::<Impl, IMPL_OFFSET>,
+            Finish: Finish::<Impl, IMPL_OFFSET>,
+            Abandon: Abandon::<Impl, IMPL_OFFSET>,
+            SetTag: SetTag::<Impl, IMPL_OFFSET>,
+            GetTag: GetTag::<Impl, IMPL_OFFSET>,
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            GetElapsedTime: GetElapsedTime::<Impl, IMPL_OFFSET>,
+            SetStoryboardEventHandler: SetStoryboardEventHandler::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationStoryboard2 as ::windows::core::Interface>::IID
@@ -730,7 +733,11 @@ impl IUIAnimationStoryboardEventHandlerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnStoryboardStatusChanged::<Impl, IMPL_OFFSET>, OnStoryboardUpdated::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnStoryboardStatusChanged: OnStoryboardStatusChanged::<Impl, IMPL_OFFSET>,
+            OnStoryboardUpdated: OnStoryboardUpdated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationStoryboardEventHandler as ::windows::core::Interface>::IID
@@ -750,7 +757,11 @@ impl IUIAnimationStoryboardEventHandler2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnStoryboardStatusChanged::<Impl, IMPL_OFFSET>, OnStoryboardUpdated::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnStoryboardStatusChanged: OnStoryboardStatusChanged::<Impl, IMPL_OFFSET>,
+            OnStoryboardUpdated: OnStoryboardUpdated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationStoryboardEventHandler2 as ::windows::core::Interface>::IID
@@ -795,7 +806,16 @@ impl IUIAnimationTimerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetTimerUpdateHandler::<Impl, IMPL_OFFSET>, SetTimerEventHandler::<Impl, IMPL_OFFSET>, Enable::<Impl, IMPL_OFFSET>, Disable::<Impl, IMPL_OFFSET>, IsEnabled::<Impl, IMPL_OFFSET>, GetTime::<Impl, IMPL_OFFSET>, SetFrameRateThreshold::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetTimerUpdateHandler: SetTimerUpdateHandler::<Impl, IMPL_OFFSET>,
+            SetTimerEventHandler: SetTimerEventHandler::<Impl, IMPL_OFFSET>,
+            Enable: Enable::<Impl, IMPL_OFFSET>,
+            Disable: Disable::<Impl, IMPL_OFFSET>,
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            GetTime: GetTime::<Impl, IMPL_OFFSET>,
+            SetFrameRateThreshold: SetFrameRateThreshold::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationTimer as ::windows::core::Interface>::IID
@@ -810,7 +830,7 @@ impl IUIAnimationTimerClientEventHandlerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnTimerClientStatusChanged::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnTimerClientStatusChanged: OnTimerClientStatusChanged::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationTimerClientEventHandler as ::windows::core::Interface>::IID
@@ -835,7 +855,12 @@ impl IUIAnimationTimerEventHandlerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnPreUpdate::<Impl, IMPL_OFFSET>, OnPostUpdate::<Impl, IMPL_OFFSET>, OnRenderingTooSlow::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnPreUpdate: OnPreUpdate::<Impl, IMPL_OFFSET>,
+            OnPostUpdate: OnPostUpdate::<Impl, IMPL_OFFSET>,
+            OnRenderingTooSlow: OnRenderingTooSlow::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationTimerEventHandler as ::windows::core::Interface>::IID
@@ -860,7 +885,12 @@ impl IUIAnimationTimerUpdateHandlerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnUpdate::<Impl, IMPL_OFFSET>, SetTimerClientEventHandler::<Impl, IMPL_OFFSET>, ClearTimerClientEventHandler::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnUpdate: OnUpdate::<Impl, IMPL_OFFSET>,
+            SetTimerClientEventHandler: SetTimerClientEventHandler::<Impl, IMPL_OFFSET>,
+            ClearTimerClientEventHandler: ClearTimerClientEventHandler::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationTimerUpdateHandler as ::windows::core::Interface>::IID
@@ -890,7 +920,13 @@ impl IUIAnimationTransitionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetInitialValue::<Impl, IMPL_OFFSET>, SetInitialVelocity::<Impl, IMPL_OFFSET>, IsDurationKnown::<Impl, IMPL_OFFSET>, GetDuration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetInitialValue: SetInitialValue::<Impl, IMPL_OFFSET>,
+            SetInitialVelocity: SetInitialVelocity::<Impl, IMPL_OFFSET>,
+            IsDurationKnown: IsDurationKnown::<Impl, IMPL_OFFSET>,
+            GetDuration: GetDuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationTransition as ::windows::core::Interface>::IID
@@ -935,7 +971,16 @@ impl IUIAnimationTransition2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetDimension::<Impl, IMPL_OFFSET>, SetInitialValue::<Impl, IMPL_OFFSET>, SetInitialVectorValue::<Impl, IMPL_OFFSET>, SetInitialVelocity::<Impl, IMPL_OFFSET>, SetInitialVectorVelocity::<Impl, IMPL_OFFSET>, IsDurationKnown::<Impl, IMPL_OFFSET>, GetDuration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetDimension: GetDimension::<Impl, IMPL_OFFSET>,
+            SetInitialValue: SetInitialValue::<Impl, IMPL_OFFSET>,
+            SetInitialVectorValue: SetInitialVectorValue::<Impl, IMPL_OFFSET>,
+            SetInitialVelocity: SetInitialVelocity::<Impl, IMPL_OFFSET>,
+            SetInitialVectorVelocity: SetInitialVectorVelocity::<Impl, IMPL_OFFSET>,
+            IsDurationKnown: IsDurationKnown::<Impl, IMPL_OFFSET>,
+            GetDuration: GetDuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationTransition2 as ::windows::core::Interface>::IID
@@ -950,7 +995,7 @@ impl IUIAnimationTransitionFactoryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CreateTransition::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateTransition: CreateTransition::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationTransitionFactory as ::windows::core::Interface>::IID
@@ -965,7 +1010,7 @@ impl IUIAnimationTransitionFactory2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CreateTransition::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateTransition: CreateTransition::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationTransitionFactory2 as ::windows::core::Interface>::IID
@@ -1035,23 +1080,21 @@ impl IUIAnimationTransitionLibraryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            CreateInstantaneousTransition::<Impl, IMPL_OFFSET>,
-            CreateConstantTransition::<Impl, IMPL_OFFSET>,
-            CreateDiscreteTransition::<Impl, IMPL_OFFSET>,
-            CreateLinearTransition::<Impl, IMPL_OFFSET>,
-            CreateLinearTransitionFromSpeed::<Impl, IMPL_OFFSET>,
-            CreateSinusoidalTransitionFromVelocity::<Impl, IMPL_OFFSET>,
-            CreateSinusoidalTransitionFromRange::<Impl, IMPL_OFFSET>,
-            CreateAccelerateDecelerateTransition::<Impl, IMPL_OFFSET>,
-            CreateReversalTransition::<Impl, IMPL_OFFSET>,
-            CreateCubicTransition::<Impl, IMPL_OFFSET>,
-            CreateSmoothStopTransition::<Impl, IMPL_OFFSET>,
-            CreateParabolicTransitionFromAcceleration::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateInstantaneousTransition: CreateInstantaneousTransition::<Impl, IMPL_OFFSET>,
+            CreateConstantTransition: CreateConstantTransition::<Impl, IMPL_OFFSET>,
+            CreateDiscreteTransition: CreateDiscreteTransition::<Impl, IMPL_OFFSET>,
+            CreateLinearTransition: CreateLinearTransition::<Impl, IMPL_OFFSET>,
+            CreateLinearTransitionFromSpeed: CreateLinearTransitionFromSpeed::<Impl, IMPL_OFFSET>,
+            CreateSinusoidalTransitionFromVelocity: CreateSinusoidalTransitionFromVelocity::<Impl, IMPL_OFFSET>,
+            CreateSinusoidalTransitionFromRange: CreateSinusoidalTransitionFromRange::<Impl, IMPL_OFFSET>,
+            CreateAccelerateDecelerateTransition: CreateAccelerateDecelerateTransition::<Impl, IMPL_OFFSET>,
+            CreateReversalTransition: CreateReversalTransition::<Impl, IMPL_OFFSET>,
+            CreateCubicTransition: CreateCubicTransition::<Impl, IMPL_OFFSET>,
+            CreateSmoothStopTransition: CreateSmoothStopTransition::<Impl, IMPL_OFFSET>,
+            CreateParabolicTransitionFromAcceleration: CreateParabolicTransitionFromAcceleration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationTransitionLibrary as ::windows::core::Interface>::IID
@@ -1156,30 +1199,28 @@ impl IUIAnimationTransitionLibrary2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            CreateInstantaneousTransition::<Impl, IMPL_OFFSET>,
-            CreateInstantaneousVectorTransition::<Impl, IMPL_OFFSET>,
-            CreateConstantTransition::<Impl, IMPL_OFFSET>,
-            CreateDiscreteTransition::<Impl, IMPL_OFFSET>,
-            CreateDiscreteVectorTransition::<Impl, IMPL_OFFSET>,
-            CreateLinearTransition::<Impl, IMPL_OFFSET>,
-            CreateLinearVectorTransition::<Impl, IMPL_OFFSET>,
-            CreateLinearTransitionFromSpeed::<Impl, IMPL_OFFSET>,
-            CreateLinearVectorTransitionFromSpeed::<Impl, IMPL_OFFSET>,
-            CreateSinusoidalTransitionFromVelocity::<Impl, IMPL_OFFSET>,
-            CreateSinusoidalTransitionFromRange::<Impl, IMPL_OFFSET>,
-            CreateAccelerateDecelerateTransition::<Impl, IMPL_OFFSET>,
-            CreateReversalTransition::<Impl, IMPL_OFFSET>,
-            CreateCubicTransition::<Impl, IMPL_OFFSET>,
-            CreateCubicVectorTransition::<Impl, IMPL_OFFSET>,
-            CreateSmoothStopTransition::<Impl, IMPL_OFFSET>,
-            CreateParabolicTransitionFromAcceleration::<Impl, IMPL_OFFSET>,
-            CreateCubicBezierLinearTransition::<Impl, IMPL_OFFSET>,
-            CreateCubicBezierLinearVectorTransition::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateInstantaneousTransition: CreateInstantaneousTransition::<Impl, IMPL_OFFSET>,
+            CreateInstantaneousVectorTransition: CreateInstantaneousVectorTransition::<Impl, IMPL_OFFSET>,
+            CreateConstantTransition: CreateConstantTransition::<Impl, IMPL_OFFSET>,
+            CreateDiscreteTransition: CreateDiscreteTransition::<Impl, IMPL_OFFSET>,
+            CreateDiscreteVectorTransition: CreateDiscreteVectorTransition::<Impl, IMPL_OFFSET>,
+            CreateLinearTransition: CreateLinearTransition::<Impl, IMPL_OFFSET>,
+            CreateLinearVectorTransition: CreateLinearVectorTransition::<Impl, IMPL_OFFSET>,
+            CreateLinearTransitionFromSpeed: CreateLinearTransitionFromSpeed::<Impl, IMPL_OFFSET>,
+            CreateLinearVectorTransitionFromSpeed: CreateLinearVectorTransitionFromSpeed::<Impl, IMPL_OFFSET>,
+            CreateSinusoidalTransitionFromVelocity: CreateSinusoidalTransitionFromVelocity::<Impl, IMPL_OFFSET>,
+            CreateSinusoidalTransitionFromRange: CreateSinusoidalTransitionFromRange::<Impl, IMPL_OFFSET>,
+            CreateAccelerateDecelerateTransition: CreateAccelerateDecelerateTransition::<Impl, IMPL_OFFSET>,
+            CreateReversalTransition: CreateReversalTransition::<Impl, IMPL_OFFSET>,
+            CreateCubicTransition: CreateCubicTransition::<Impl, IMPL_OFFSET>,
+            CreateCubicVectorTransition: CreateCubicVectorTransition::<Impl, IMPL_OFFSET>,
+            CreateSmoothStopTransition: CreateSmoothStopTransition::<Impl, IMPL_OFFSET>,
+            CreateParabolicTransitionFromAcceleration: CreateParabolicTransitionFromAcceleration::<Impl, IMPL_OFFSET>,
+            CreateCubicBezierLinearTransition: CreateCubicBezierLinearTransition::<Impl, IMPL_OFFSET>,
+            CreateCubicBezierLinearVectorTransition: CreateCubicBezierLinearVectorTransition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationTransitionLibrary2 as ::windows::core::Interface>::IID
@@ -1259,25 +1300,23 @@ impl IUIAnimationVariableVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetValue::<Impl, IMPL_OFFSET>,
-            GetFinalValue::<Impl, IMPL_OFFSET>,
-            GetPreviousValue::<Impl, IMPL_OFFSET>,
-            GetIntegerValue::<Impl, IMPL_OFFSET>,
-            GetFinalIntegerValue::<Impl, IMPL_OFFSET>,
-            GetPreviousIntegerValue::<Impl, IMPL_OFFSET>,
-            GetCurrentStoryboard::<Impl, IMPL_OFFSET>,
-            SetLowerBound::<Impl, IMPL_OFFSET>,
-            SetUpperBound::<Impl, IMPL_OFFSET>,
-            SetRoundingMode::<Impl, IMPL_OFFSET>,
-            SetTag::<Impl, IMPL_OFFSET>,
-            GetTag::<Impl, IMPL_OFFSET>,
-            SetVariableChangeHandler::<Impl, IMPL_OFFSET>,
-            SetVariableIntegerChangeHandler::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetValue: GetValue::<Impl, IMPL_OFFSET>,
+            GetFinalValue: GetFinalValue::<Impl, IMPL_OFFSET>,
+            GetPreviousValue: GetPreviousValue::<Impl, IMPL_OFFSET>,
+            GetIntegerValue: GetIntegerValue::<Impl, IMPL_OFFSET>,
+            GetFinalIntegerValue: GetFinalIntegerValue::<Impl, IMPL_OFFSET>,
+            GetPreviousIntegerValue: GetPreviousIntegerValue::<Impl, IMPL_OFFSET>,
+            GetCurrentStoryboard: GetCurrentStoryboard::<Impl, IMPL_OFFSET>,
+            SetLowerBound: SetLowerBound::<Impl, IMPL_OFFSET>,
+            SetUpperBound: SetUpperBound::<Impl, IMPL_OFFSET>,
+            SetRoundingMode: SetRoundingMode::<Impl, IMPL_OFFSET>,
+            SetTag: SetTag::<Impl, IMPL_OFFSET>,
+            GetTag: GetTag::<Impl, IMPL_OFFSET>,
+            SetVariableChangeHandler: SetVariableChangeHandler::<Impl, IMPL_OFFSET>,
+            SetVariableIntegerChangeHandler: SetVariableIntegerChangeHandler::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationVariable as ::windows::core::Interface>::IID
@@ -1419,37 +1458,35 @@ impl IUIAnimationVariable2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetDimension::<Impl, IMPL_OFFSET>,
-            GetValue::<Impl, IMPL_OFFSET>,
-            GetVectorValue::<Impl, IMPL_OFFSET>,
-            GetCurve::<Impl, IMPL_OFFSET>,
-            GetVectorCurve::<Impl, IMPL_OFFSET>,
-            GetFinalValue::<Impl, IMPL_OFFSET>,
-            GetFinalVectorValue::<Impl, IMPL_OFFSET>,
-            GetPreviousValue::<Impl, IMPL_OFFSET>,
-            GetPreviousVectorValue::<Impl, IMPL_OFFSET>,
-            GetIntegerValue::<Impl, IMPL_OFFSET>,
-            GetIntegerVectorValue::<Impl, IMPL_OFFSET>,
-            GetFinalIntegerValue::<Impl, IMPL_OFFSET>,
-            GetFinalIntegerVectorValue::<Impl, IMPL_OFFSET>,
-            GetPreviousIntegerValue::<Impl, IMPL_OFFSET>,
-            GetPreviousIntegerVectorValue::<Impl, IMPL_OFFSET>,
-            GetCurrentStoryboard::<Impl, IMPL_OFFSET>,
-            SetLowerBound::<Impl, IMPL_OFFSET>,
-            SetLowerBoundVector::<Impl, IMPL_OFFSET>,
-            SetUpperBound::<Impl, IMPL_OFFSET>,
-            SetUpperBoundVector::<Impl, IMPL_OFFSET>,
-            SetRoundingMode::<Impl, IMPL_OFFSET>,
-            SetTag::<Impl, IMPL_OFFSET>,
-            GetTag::<Impl, IMPL_OFFSET>,
-            SetVariableChangeHandler::<Impl, IMPL_OFFSET>,
-            SetVariableIntegerChangeHandler::<Impl, IMPL_OFFSET>,
-            SetVariableCurveChangeHandler::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetDimension: GetDimension::<Impl, IMPL_OFFSET>,
+            GetValue: GetValue::<Impl, IMPL_OFFSET>,
+            GetVectorValue: GetVectorValue::<Impl, IMPL_OFFSET>,
+            GetCurve: GetCurve::<Impl, IMPL_OFFSET>,
+            GetVectorCurve: GetVectorCurve::<Impl, IMPL_OFFSET>,
+            GetFinalValue: GetFinalValue::<Impl, IMPL_OFFSET>,
+            GetFinalVectorValue: GetFinalVectorValue::<Impl, IMPL_OFFSET>,
+            GetPreviousValue: GetPreviousValue::<Impl, IMPL_OFFSET>,
+            GetPreviousVectorValue: GetPreviousVectorValue::<Impl, IMPL_OFFSET>,
+            GetIntegerValue: GetIntegerValue::<Impl, IMPL_OFFSET>,
+            GetIntegerVectorValue: GetIntegerVectorValue::<Impl, IMPL_OFFSET>,
+            GetFinalIntegerValue: GetFinalIntegerValue::<Impl, IMPL_OFFSET>,
+            GetFinalIntegerVectorValue: GetFinalIntegerVectorValue::<Impl, IMPL_OFFSET>,
+            GetPreviousIntegerValue: GetPreviousIntegerValue::<Impl, IMPL_OFFSET>,
+            GetPreviousIntegerVectorValue: GetPreviousIntegerVectorValue::<Impl, IMPL_OFFSET>,
+            GetCurrentStoryboard: GetCurrentStoryboard::<Impl, IMPL_OFFSET>,
+            SetLowerBound: SetLowerBound::<Impl, IMPL_OFFSET>,
+            SetLowerBoundVector: SetLowerBoundVector::<Impl, IMPL_OFFSET>,
+            SetUpperBound: SetUpperBound::<Impl, IMPL_OFFSET>,
+            SetUpperBoundVector: SetUpperBoundVector::<Impl, IMPL_OFFSET>,
+            SetRoundingMode: SetRoundingMode::<Impl, IMPL_OFFSET>,
+            SetTag: SetTag::<Impl, IMPL_OFFSET>,
+            GetTag: GetTag::<Impl, IMPL_OFFSET>,
+            SetVariableChangeHandler: SetVariableChangeHandler::<Impl, IMPL_OFFSET>,
+            SetVariableIntegerChangeHandler: SetVariableIntegerChangeHandler::<Impl, IMPL_OFFSET>,
+            SetVariableCurveChangeHandler: SetVariableCurveChangeHandler::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationVariable2 as ::windows::core::Interface>::IID
@@ -1464,7 +1501,7 @@ impl IUIAnimationVariableChangeHandlerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnValueChanged::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnValueChanged: OnValueChanged::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationVariableChangeHandler as ::windows::core::Interface>::IID
@@ -1479,7 +1516,7 @@ impl IUIAnimationVariableChangeHandler2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnValueChanged::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnValueChanged: OnValueChanged::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationVariableChangeHandler2 as ::windows::core::Interface>::IID
@@ -1494,7 +1531,7 @@ impl IUIAnimationVariableCurveChangeHandler2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnCurveChanged::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnCurveChanged: OnCurveChanged::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationVariableCurveChangeHandler2 as ::windows::core::Interface>::IID
@@ -1509,7 +1546,7 @@ impl IUIAnimationVariableIntegerChangeHandlerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnIntegerValueChanged::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnIntegerValueChanged: OnIntegerValueChanged::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationVariableIntegerChangeHandler as ::windows::core::Interface>::IID
@@ -1524,7 +1561,7 @@ impl IUIAnimationVariableIntegerChangeHandler2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnIntegerValueChanged::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnIntegerValueChanged: OnIntegerValueChanged::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationVariableIntegerChangeHandler2 as ::windows::core::Interface>::IID

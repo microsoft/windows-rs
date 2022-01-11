@@ -90,24 +90,19 @@ impl IPwmControllerProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPulseParameters(pin, dutycycle, invertpolarity).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPwmControllerProvider>,
-            ::windows::core::GetTrustLevel,
-            PinCount::<Impl, IMPL_OFFSET>,
-            ActualFrequency::<Impl, IMPL_OFFSET>,
-            SetDesiredFrequency::<Impl, IMPL_OFFSET>,
-            MaxFrequency::<Impl, IMPL_OFFSET>,
-            MinFrequency::<Impl, IMPL_OFFSET>,
-            AcquirePin::<Impl, IMPL_OFFSET>,
-            ReleasePin::<Impl, IMPL_OFFSET>,
-            EnablePin::<Impl, IMPL_OFFSET>,
-            DisablePin::<Impl, IMPL_OFFSET>,
-            SetPulseParameters::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPwmControllerProvider, BASE_OFFSET>(),
+            PinCount: PinCount::<Impl, IMPL_OFFSET>,
+            ActualFrequency: ActualFrequency::<Impl, IMPL_OFFSET>,
+            SetDesiredFrequency: SetDesiredFrequency::<Impl, IMPL_OFFSET>,
+            MaxFrequency: MaxFrequency::<Impl, IMPL_OFFSET>,
+            MinFrequency: MinFrequency::<Impl, IMPL_OFFSET>,
+            AcquirePin: AcquirePin::<Impl, IMPL_OFFSET>,
+            ReleasePin: ReleasePin::<Impl, IMPL_OFFSET>,
+            EnablePin: EnablePin::<Impl, IMPL_OFFSET>,
+            DisablePin: DisablePin::<Impl, IMPL_OFFSET>,
+            SetPulseParameters: SetPulseParameters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPwmControllerProvider as ::windows::core::Interface>::IID
@@ -135,7 +130,7 @@ impl IPwmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPwmProvider>, ::windows::core::GetTrustLevel, GetControllers::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPwmProvider, BASE_OFFSET>(), GetControllers: GetControllers::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPwmProvider as ::windows::core::Interface>::IID

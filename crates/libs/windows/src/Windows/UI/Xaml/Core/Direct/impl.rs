@@ -443,66 +443,61 @@ impl IXamlDirectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEventHandler(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), eventindex, &*(&handler as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXamlDirect>,
-            ::windows::core::GetTrustLevel,
-            GetObject::<Impl, IMPL_OFFSET>,
-            GetXamlDirectObject::<Impl, IMPL_OFFSET>,
-            CreateInstance::<Impl, IMPL_OFFSET>,
-            SetObjectProperty::<Impl, IMPL_OFFSET>,
-            SetXamlDirectObjectProperty::<Impl, IMPL_OFFSET>,
-            SetBooleanProperty::<Impl, IMPL_OFFSET>,
-            SetDoubleProperty::<Impl, IMPL_OFFSET>,
-            SetInt32Property::<Impl, IMPL_OFFSET>,
-            SetStringProperty::<Impl, IMPL_OFFSET>,
-            SetDateTimeProperty::<Impl, IMPL_OFFSET>,
-            SetPointProperty::<Impl, IMPL_OFFSET>,
-            SetRectProperty::<Impl, IMPL_OFFSET>,
-            SetSizeProperty::<Impl, IMPL_OFFSET>,
-            SetTimeSpanProperty::<Impl, IMPL_OFFSET>,
-            SetColorProperty::<Impl, IMPL_OFFSET>,
-            SetCornerRadiusProperty::<Impl, IMPL_OFFSET>,
-            SetDurationProperty::<Impl, IMPL_OFFSET>,
-            SetGridLengthProperty::<Impl, IMPL_OFFSET>,
-            SetThicknessProperty::<Impl, IMPL_OFFSET>,
-            SetMatrixProperty::<Impl, IMPL_OFFSET>,
-            SetMatrix3DProperty::<Impl, IMPL_OFFSET>,
-            SetEnumProperty::<Impl, IMPL_OFFSET>,
-            GetObjectProperty::<Impl, IMPL_OFFSET>,
-            GetXamlDirectObjectProperty::<Impl, IMPL_OFFSET>,
-            GetBooleanProperty::<Impl, IMPL_OFFSET>,
-            GetDoubleProperty::<Impl, IMPL_OFFSET>,
-            GetInt32Property::<Impl, IMPL_OFFSET>,
-            GetStringProperty::<Impl, IMPL_OFFSET>,
-            GetDateTimeProperty::<Impl, IMPL_OFFSET>,
-            GetPointProperty::<Impl, IMPL_OFFSET>,
-            GetRectProperty::<Impl, IMPL_OFFSET>,
-            GetSizeProperty::<Impl, IMPL_OFFSET>,
-            GetTimeSpanProperty::<Impl, IMPL_OFFSET>,
-            GetColorProperty::<Impl, IMPL_OFFSET>,
-            GetCornerRadiusProperty::<Impl, IMPL_OFFSET>,
-            GetDurationProperty::<Impl, IMPL_OFFSET>,
-            GetGridLengthProperty::<Impl, IMPL_OFFSET>,
-            GetThicknessProperty::<Impl, IMPL_OFFSET>,
-            GetMatrixProperty::<Impl, IMPL_OFFSET>,
-            GetMatrix3DProperty::<Impl, IMPL_OFFSET>,
-            GetEnumProperty::<Impl, IMPL_OFFSET>,
-            ClearProperty::<Impl, IMPL_OFFSET>,
-            GetCollectionCount::<Impl, IMPL_OFFSET>,
-            GetXamlDirectObjectFromCollectionAt::<Impl, IMPL_OFFSET>,
-            AddToCollection::<Impl, IMPL_OFFSET>,
-            InsertIntoCollectionAt::<Impl, IMPL_OFFSET>,
-            RemoveFromCollection::<Impl, IMPL_OFFSET>,
-            RemoveFromCollectionAt::<Impl, IMPL_OFFSET>,
-            ClearCollection::<Impl, IMPL_OFFSET>,
-            AddEventHandler::<Impl, IMPL_OFFSET>,
-            AddEventHandler_HandledEventsToo::<Impl, IMPL_OFFSET>,
-            RemoveEventHandler::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlDirect, BASE_OFFSET>(),
+            GetObject: GetObject::<Impl, IMPL_OFFSET>,
+            GetXamlDirectObject: GetXamlDirectObject::<Impl, IMPL_OFFSET>,
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+            SetObjectProperty: SetObjectProperty::<Impl, IMPL_OFFSET>,
+            SetXamlDirectObjectProperty: SetXamlDirectObjectProperty::<Impl, IMPL_OFFSET>,
+            SetBooleanProperty: SetBooleanProperty::<Impl, IMPL_OFFSET>,
+            SetDoubleProperty: SetDoubleProperty::<Impl, IMPL_OFFSET>,
+            SetInt32Property: SetInt32Property::<Impl, IMPL_OFFSET>,
+            SetStringProperty: SetStringProperty::<Impl, IMPL_OFFSET>,
+            SetDateTimeProperty: SetDateTimeProperty::<Impl, IMPL_OFFSET>,
+            SetPointProperty: SetPointProperty::<Impl, IMPL_OFFSET>,
+            SetRectProperty: SetRectProperty::<Impl, IMPL_OFFSET>,
+            SetSizeProperty: SetSizeProperty::<Impl, IMPL_OFFSET>,
+            SetTimeSpanProperty: SetTimeSpanProperty::<Impl, IMPL_OFFSET>,
+            SetColorProperty: SetColorProperty::<Impl, IMPL_OFFSET>,
+            SetCornerRadiusProperty: SetCornerRadiusProperty::<Impl, IMPL_OFFSET>,
+            SetDurationProperty: SetDurationProperty::<Impl, IMPL_OFFSET>,
+            SetGridLengthProperty: SetGridLengthProperty::<Impl, IMPL_OFFSET>,
+            SetThicknessProperty: SetThicknessProperty::<Impl, IMPL_OFFSET>,
+            SetMatrixProperty: SetMatrixProperty::<Impl, IMPL_OFFSET>,
+            SetMatrix3DProperty: SetMatrix3DProperty::<Impl, IMPL_OFFSET>,
+            SetEnumProperty: SetEnumProperty::<Impl, IMPL_OFFSET>,
+            GetObjectProperty: GetObjectProperty::<Impl, IMPL_OFFSET>,
+            GetXamlDirectObjectProperty: GetXamlDirectObjectProperty::<Impl, IMPL_OFFSET>,
+            GetBooleanProperty: GetBooleanProperty::<Impl, IMPL_OFFSET>,
+            GetDoubleProperty: GetDoubleProperty::<Impl, IMPL_OFFSET>,
+            GetInt32Property: GetInt32Property::<Impl, IMPL_OFFSET>,
+            GetStringProperty: GetStringProperty::<Impl, IMPL_OFFSET>,
+            GetDateTimeProperty: GetDateTimeProperty::<Impl, IMPL_OFFSET>,
+            GetPointProperty: GetPointProperty::<Impl, IMPL_OFFSET>,
+            GetRectProperty: GetRectProperty::<Impl, IMPL_OFFSET>,
+            GetSizeProperty: GetSizeProperty::<Impl, IMPL_OFFSET>,
+            GetTimeSpanProperty: GetTimeSpanProperty::<Impl, IMPL_OFFSET>,
+            GetColorProperty: GetColorProperty::<Impl, IMPL_OFFSET>,
+            GetCornerRadiusProperty: GetCornerRadiusProperty::<Impl, IMPL_OFFSET>,
+            GetDurationProperty: GetDurationProperty::<Impl, IMPL_OFFSET>,
+            GetGridLengthProperty: GetGridLengthProperty::<Impl, IMPL_OFFSET>,
+            GetThicknessProperty: GetThicknessProperty::<Impl, IMPL_OFFSET>,
+            GetMatrixProperty: GetMatrixProperty::<Impl, IMPL_OFFSET>,
+            GetMatrix3DProperty: GetMatrix3DProperty::<Impl, IMPL_OFFSET>,
+            GetEnumProperty: GetEnumProperty::<Impl, IMPL_OFFSET>,
+            ClearProperty: ClearProperty::<Impl, IMPL_OFFSET>,
+            GetCollectionCount: GetCollectionCount::<Impl, IMPL_OFFSET>,
+            GetXamlDirectObjectFromCollectionAt: GetXamlDirectObjectFromCollectionAt::<Impl, IMPL_OFFSET>,
+            AddToCollection: AddToCollection::<Impl, IMPL_OFFSET>,
+            InsertIntoCollectionAt: InsertIntoCollectionAt::<Impl, IMPL_OFFSET>,
+            RemoveFromCollection: RemoveFromCollection::<Impl, IMPL_OFFSET>,
+            RemoveFromCollectionAt: RemoveFromCollectionAt::<Impl, IMPL_OFFSET>,
+            ClearCollection: ClearCollection::<Impl, IMPL_OFFSET>,
+            AddEventHandler: AddEventHandler::<Impl, IMPL_OFFSET>,
+            AddEventHandler_HandledEventsToo: AddEventHandler_HandledEventsToo::<Impl, IMPL_OFFSET>,
+            RemoveEventHandler: RemoveEventHandler::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlDirect as ::windows::core::Interface>::IID
@@ -514,7 +509,7 @@ impl ::windows::core::RuntimeName for IXamlDirectObject {
 }
 impl IXamlDirectObjectVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDirectObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlDirectObjectVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlDirectObject>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlDirectObject, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlDirectObject as ::windows::core::Interface>::IID
@@ -542,7 +537,7 @@ impl IXamlDirectStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlDirectStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlDirectStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlDirectStatics as ::windows::core::Interface>::IID

@@ -114,24 +114,19 @@ impl ICameraIntrinsicsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnprojectPixelsAtUnitDepth(::core::slice::from_raw_parts(::core::mem::transmute_copy(&pixelcoordinates), pixelCoordinates_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&results), results_array_size as _)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICameraIntrinsics>,
-            ::windows::core::GetTrustLevel,
-            FocalLength::<Impl, IMPL_OFFSET>,
-            PrincipalPoint::<Impl, IMPL_OFFSET>,
-            RadialDistortion::<Impl, IMPL_OFFSET>,
-            TangentialDistortion::<Impl, IMPL_OFFSET>,
-            ImageWidth::<Impl, IMPL_OFFSET>,
-            ImageHeight::<Impl, IMPL_OFFSET>,
-            ProjectOntoFrame::<Impl, IMPL_OFFSET>,
-            UnprojectAtUnitDepth::<Impl, IMPL_OFFSET>,
-            ProjectManyOntoFrame::<Impl, IMPL_OFFSET>,
-            UnprojectPixelsAtUnitDepth::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICameraIntrinsics, BASE_OFFSET>(),
+            FocalLength: FocalLength::<Impl, IMPL_OFFSET>,
+            PrincipalPoint: PrincipalPoint::<Impl, IMPL_OFFSET>,
+            RadialDistortion: RadialDistortion::<Impl, IMPL_OFFSET>,
+            TangentialDistortion: TangentialDistortion::<Impl, IMPL_OFFSET>,
+            ImageWidth: ImageWidth::<Impl, IMPL_OFFSET>,
+            ImageHeight: ImageHeight::<Impl, IMPL_OFFSET>,
+            ProjectOntoFrame: ProjectOntoFrame::<Impl, IMPL_OFFSET>,
+            UnprojectAtUnitDepth: UnprojectAtUnitDepth::<Impl, IMPL_OFFSET>,
+            ProjectManyOntoFrame: ProjectManyOntoFrame::<Impl, IMPL_OFFSET>,
+            UnprojectPixelsAtUnitDepth: UnprojectPixelsAtUnitDepth::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICameraIntrinsics as ::windows::core::Interface>::IID
@@ -193,7 +188,14 @@ impl ICameraIntrinsics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UndistortPoints(::core::slice::from_raw_parts(::core::mem::transmute_copy(&inputs), inputs_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&results), results_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICameraIntrinsics2>, ::windows::core::GetTrustLevel, UndistortedProjectionTransform::<Impl, IMPL_OFFSET>, DistortPoint::<Impl, IMPL_OFFSET>, DistortPoints::<Impl, IMPL_OFFSET>, UndistortPoint::<Impl, IMPL_OFFSET>, UndistortPoints::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICameraIntrinsics2, BASE_OFFSET>(),
+            UndistortedProjectionTransform: UndistortedProjectionTransform::<Impl, IMPL_OFFSET>,
+            DistortPoint: DistortPoint::<Impl, IMPL_OFFSET>,
+            DistortPoints: DistortPoints::<Impl, IMPL_OFFSET>,
+            UndistortPoint: UndistortPoint::<Impl, IMPL_OFFSET>,
+            UndistortPoints: UndistortPoints::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICameraIntrinsics2 as ::windows::core::Interface>::IID
@@ -228,7 +230,7 @@ impl ICameraIntrinsicsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICameraIntrinsicsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICameraIntrinsicsFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICameraIntrinsicsFactory as ::windows::core::Interface>::IID
@@ -291,7 +293,13 @@ impl IDepthCorrelatedCoordinateMapperVtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDepthCorrelatedCoordinateMapper>, ::windows::core::GetTrustLevel, UnprojectPoint::<Impl, IMPL_OFFSET>, UnprojectPoints::<Impl, IMPL_OFFSET>, MapPoint::<Impl, IMPL_OFFSET>, MapPoints::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDepthCorrelatedCoordinateMapper, BASE_OFFSET>(),
+            UnprojectPoint: UnprojectPoint::<Impl, IMPL_OFFSET>,
+            UnprojectPoints: UnprojectPoints::<Impl, IMPL_OFFSET>,
+            MapPoint: MapPoint::<Impl, IMPL_OFFSET>,
+            MapPoints: MapPoints::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDepthCorrelatedCoordinateMapper as ::windows::core::Interface>::IID
@@ -367,7 +375,14 @@ impl IFrameControlCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameControlCapabilities>, ::windows::core::GetTrustLevel, Exposure::<Impl, IMPL_OFFSET>, ExposureCompensation::<Impl, IMPL_OFFSET>, IsoSpeed::<Impl, IMPL_OFFSET>, Focus::<Impl, IMPL_OFFSET>, PhotoConfirmationSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameControlCapabilities, BASE_OFFSET>(),
+            Exposure: Exposure::<Impl, IMPL_OFFSET>,
+            ExposureCompensation: ExposureCompensation::<Impl, IMPL_OFFSET>,
+            IsoSpeed: IsoSpeed::<Impl, IMPL_OFFSET>,
+            Focus: Focus::<Impl, IMPL_OFFSET>,
+            PhotoConfirmationSupported: PhotoConfirmationSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameControlCapabilities as ::windows::core::Interface>::IID
@@ -395,7 +410,7 @@ impl IFrameControlCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameControlCapabilities2>, ::windows::core::GetTrustLevel, Flash::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameControlCapabilities2, BASE_OFFSET>(), Flash: Flash::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameControlCapabilities2 as ::windows::core::Interface>::IID
@@ -476,20 +491,15 @@ impl IFrameControllerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPhotoConfirmationEnabled(&*(&value as *const <super::super::super::Foundation::IReference<bool> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<bool> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFrameController>,
-            ::windows::core::GetTrustLevel,
-            ExposureControl::<Impl, IMPL_OFFSET>,
-            ExposureCompensationControl::<Impl, IMPL_OFFSET>,
-            IsoSpeedControl::<Impl, IMPL_OFFSET>,
-            FocusControl::<Impl, IMPL_OFFSET>,
-            PhotoConfirmationEnabled::<Impl, IMPL_OFFSET>,
-            SetPhotoConfirmationEnabled::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameController, BASE_OFFSET>(),
+            ExposureControl: ExposureControl::<Impl, IMPL_OFFSET>,
+            ExposureCompensationControl: ExposureCompensationControl::<Impl, IMPL_OFFSET>,
+            IsoSpeedControl: IsoSpeedControl::<Impl, IMPL_OFFSET>,
+            FocusControl: FocusControl::<Impl, IMPL_OFFSET>,
+            PhotoConfirmationEnabled: PhotoConfirmationEnabled::<Impl, IMPL_OFFSET>,
+            SetPhotoConfirmationEnabled: SetPhotoConfirmationEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameController as ::windows::core::Interface>::IID
@@ -517,7 +527,7 @@ impl IFrameController2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameController2>, ::windows::core::GetTrustLevel, FlashControl::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameController2, BASE_OFFSET>(), FlashControl: FlashControl::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameController2 as ::windows::core::Interface>::IID
@@ -581,7 +591,13 @@ impl IFrameExposureCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameExposureCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, IMPL_OFFSET>, Min::<Impl, IMPL_OFFSET>, Max::<Impl, IMPL_OFFSET>, Step::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameExposureCapabilities, BASE_OFFSET>(),
+            Supported: Supported::<Impl, IMPL_OFFSET>,
+            Min: Min::<Impl, IMPL_OFFSET>,
+            Max: Max::<Impl, IMPL_OFFSET>,
+            Step: Step::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameExposureCapabilities as ::windows::core::Interface>::IID
@@ -645,7 +661,13 @@ impl IFrameExposureCompensationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameExposureCompensationCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, IMPL_OFFSET>, Min::<Impl, IMPL_OFFSET>, Max::<Impl, IMPL_OFFSET>, Step::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameExposureCompensationCapabilities, BASE_OFFSET>(),
+            Supported: Supported::<Impl, IMPL_OFFSET>,
+            Min: Min::<Impl, IMPL_OFFSET>,
+            Max: Max::<Impl, IMPL_OFFSET>,
+            Step: Step::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameExposureCompensationCapabilities as ::windows::core::Interface>::IID
@@ -678,7 +700,11 @@ impl IFrameExposureCompensationControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <super::super::super::Foundation::IReference<f32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<f32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameExposureCompensationControl>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameExposureCompensationControl, BASE_OFFSET>(),
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameExposureCompensationControl as ::windows::core::Interface>::IID
@@ -728,7 +754,13 @@ impl IFrameExposureControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameExposureControl>, ::windows::core::GetTrustLevel, Auto::<Impl, IMPL_OFFSET>, SetAuto::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameExposureControl, BASE_OFFSET>(),
+            Auto: Auto::<Impl, IMPL_OFFSET>,
+            SetAuto: SetAuto::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameExposureControl as ::windows::core::Interface>::IID
@@ -780,7 +812,12 @@ impl IFrameFlashCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameFlashCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, IMPL_OFFSET>, RedEyeReductionSupported::<Impl, IMPL_OFFSET>, PowerSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameFlashCapabilities, BASE_OFFSET>(),
+            Supported: Supported::<Impl, IMPL_OFFSET>,
+            RedEyeReductionSupported: RedEyeReductionSupported::<Impl, IMPL_OFFSET>,
+            PowerSupported: PowerSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameFlashCapabilities as ::windows::core::Interface>::IID
@@ -864,22 +901,17 @@ impl IFrameFlashControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPowerPercent(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFrameFlashControl>,
-            ::windows::core::GetTrustLevel,
-            Mode::<Impl, IMPL_OFFSET>,
-            SetMode::<Impl, IMPL_OFFSET>,
-            Auto::<Impl, IMPL_OFFSET>,
-            SetAuto::<Impl, IMPL_OFFSET>,
-            RedEyeReduction::<Impl, IMPL_OFFSET>,
-            SetRedEyeReduction::<Impl, IMPL_OFFSET>,
-            PowerPercent::<Impl, IMPL_OFFSET>,
-            SetPowerPercent::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameFlashControl, BASE_OFFSET>(),
+            Mode: Mode::<Impl, IMPL_OFFSET>,
+            SetMode: SetMode::<Impl, IMPL_OFFSET>,
+            Auto: Auto::<Impl, IMPL_OFFSET>,
+            SetAuto: SetAuto::<Impl, IMPL_OFFSET>,
+            RedEyeReduction: RedEyeReduction::<Impl, IMPL_OFFSET>,
+            SetRedEyeReduction: SetRedEyeReduction::<Impl, IMPL_OFFSET>,
+            PowerPercent: PowerPercent::<Impl, IMPL_OFFSET>,
+            SetPowerPercent: SetPowerPercent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameFlashControl as ::windows::core::Interface>::IID
@@ -943,7 +975,13 @@ impl IFrameFocusCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameFocusCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, IMPL_OFFSET>, Min::<Impl, IMPL_OFFSET>, Max::<Impl, IMPL_OFFSET>, Step::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameFocusCapabilities, BASE_OFFSET>(),
+            Supported: Supported::<Impl, IMPL_OFFSET>,
+            Min: Min::<Impl, IMPL_OFFSET>,
+            Max: Max::<Impl, IMPL_OFFSET>,
+            Step: Step::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameFocusCapabilities as ::windows::core::Interface>::IID
@@ -976,7 +1014,11 @@ impl IFrameFocusControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameFocusControl>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameFocusControl, BASE_OFFSET>(),
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameFocusControl as ::windows::core::Interface>::IID
@@ -1040,7 +1082,13 @@ impl IFrameIsoSpeedCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameIsoSpeedCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, IMPL_OFFSET>, Min::<Impl, IMPL_OFFSET>, Max::<Impl, IMPL_OFFSET>, Step::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameIsoSpeedCapabilities, BASE_OFFSET>(),
+            Supported: Supported::<Impl, IMPL_OFFSET>,
+            Min: Min::<Impl, IMPL_OFFSET>,
+            Max: Max::<Impl, IMPL_OFFSET>,
+            Step: Step::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameIsoSpeedCapabilities as ::windows::core::Interface>::IID
@@ -1090,7 +1138,13 @@ impl IFrameIsoSpeedControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameIsoSpeedControl>, ::windows::core::GetTrustLevel, Auto::<Impl, IMPL_OFFSET>, SetAuto::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameIsoSpeedControl, BASE_OFFSET>(),
+            Auto: Auto::<Impl, IMPL_OFFSET>,
+            SetAuto: SetAuto::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameIsoSpeedControl as ::windows::core::Interface>::IID
@@ -1195,22 +1249,17 @@ impl IVariablePhotoSequenceControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVariablePhotoSequenceController>,
-            ::windows::core::GetTrustLevel,
-            Supported::<Impl, IMPL_OFFSET>,
-            MaxPhotosPerSecond::<Impl, IMPL_OFFSET>,
-            PhotosPerSecondLimit::<Impl, IMPL_OFFSET>,
-            SetPhotosPerSecondLimit::<Impl, IMPL_OFFSET>,
-            GetHighestConcurrentFrameRate::<Impl, IMPL_OFFSET>,
-            GetCurrentFrameRate::<Impl, IMPL_OFFSET>,
-            FrameCapabilities::<Impl, IMPL_OFFSET>,
-            DesiredFrameControllers::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVariablePhotoSequenceController, BASE_OFFSET>(),
+            Supported: Supported::<Impl, IMPL_OFFSET>,
+            MaxPhotosPerSecond: MaxPhotosPerSecond::<Impl, IMPL_OFFSET>,
+            PhotosPerSecondLimit: PhotosPerSecondLimit::<Impl, IMPL_OFFSET>,
+            SetPhotosPerSecondLimit: SetPhotosPerSecondLimit::<Impl, IMPL_OFFSET>,
+            GetHighestConcurrentFrameRate: GetHighestConcurrentFrameRate::<Impl, IMPL_OFFSET>,
+            GetCurrentFrameRate: GetCurrentFrameRate::<Impl, IMPL_OFFSET>,
+            FrameCapabilities: FrameCapabilities::<Impl, IMPL_OFFSET>,
+            DesiredFrameControllers: DesiredFrameControllers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVariablePhotoSequenceController as ::windows::core::Interface>::IID

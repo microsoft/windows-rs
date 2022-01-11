@@ -20,7 +20,10 @@ impl IAudioStreamDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioStreamDescriptor>, ::windows::core::GetTrustLevel, EncodingProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioStreamDescriptor, BASE_OFFSET>(),
+            EncodingProperties: EncodingProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioStreamDescriptor as ::windows::core::Interface>::IID
@@ -70,7 +73,13 @@ impl IAudioStreamDescriptor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioStreamDescriptor2>, ::windows::core::GetTrustLevel, SetLeadingEncoderPadding::<Impl, IMPL_OFFSET>, LeadingEncoderPadding::<Impl, IMPL_OFFSET>, SetTrailingEncoderPadding::<Impl, IMPL_OFFSET>, TrailingEncoderPadding::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioStreamDescriptor2, BASE_OFFSET>(),
+            SetLeadingEncoderPadding: SetLeadingEncoderPadding::<Impl, IMPL_OFFSET>,
+            LeadingEncoderPadding: LeadingEncoderPadding::<Impl, IMPL_OFFSET>,
+            SetTrailingEncoderPadding: SetTrailingEncoderPadding::<Impl, IMPL_OFFSET>,
+            TrailingEncoderPadding: TrailingEncoderPadding::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioStreamDescriptor2 as ::windows::core::Interface>::IID
@@ -98,7 +107,7 @@ impl IAudioStreamDescriptor3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioStreamDescriptor3>, ::windows::core::GetTrustLevel, Copy::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioStreamDescriptor3, BASE_OFFSET>(), Copy: Copy::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioStreamDescriptor3 as ::windows::core::Interface>::IID
@@ -126,7 +135,7 @@ impl IAudioStreamDescriptorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioStreamDescriptorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioStreamDescriptorFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioStreamDescriptorFactory as ::windows::core::Interface>::IID
@@ -207,7 +216,15 @@ impl IAudioTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioTrack>, ::windows::core::GetTrustLevel, OpenFailed::<Impl, IMPL_OFFSET>, RemoveOpenFailed::<Impl, IMPL_OFFSET>, GetEncodingProperties::<Impl, IMPL_OFFSET>, PlaybackItem::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, SupportInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioTrack, BASE_OFFSET>(),
+            OpenFailed: OpenFailed::<Impl, IMPL_OFFSET>,
+            RemoveOpenFailed: RemoveOpenFailed::<Impl, IMPL_OFFSET>,
+            GetEncodingProperties: GetEncodingProperties::<Impl, IMPL_OFFSET>,
+            PlaybackItem: PlaybackItem::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SupportInfo: SupportInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioTrack as ::windows::core::Interface>::IID
@@ -235,7 +252,10 @@ impl IAudioTrackOpenFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioTrackOpenFailedEventArgs>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioTrackOpenFailedEventArgs, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioTrackOpenFailedEventArgs as ::windows::core::Interface>::IID
@@ -299,7 +319,13 @@ impl IAudioTrackSupportInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioTrackSupportInfo>, ::windows::core::GetTrustLevel, DecoderStatus::<Impl, IMPL_OFFSET>, Degradation::<Impl, IMPL_OFFSET>, DegradationReason::<Impl, IMPL_OFFSET>, MediaSourceStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioTrackSupportInfo, BASE_OFFSET>(),
+            DecoderStatus: DecoderStatus::<Impl, IMPL_OFFSET>,
+            Degradation: Degradation::<Impl, IMPL_OFFSET>,
+            DegradationReason: DegradationReason::<Impl, IMPL_OFFSET>,
+            MediaSourceStatus: MediaSourceStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioTrackSupportInfo as ::windows::core::Interface>::IID
@@ -332,7 +358,11 @@ impl IChapterCueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChapterCue>, ::windows::core::GetTrustLevel, SetTitle::<Impl, IMPL_OFFSET>, Title::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChapterCue, BASE_OFFSET>(),
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChapterCue as ::windows::core::Interface>::IID
@@ -408,7 +438,14 @@ impl ICodecInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICodecInfo>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, Category::<Impl, IMPL_OFFSET>, Subtypes::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, IsTrusted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICodecInfo, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            Category: Category::<Impl, IMPL_OFFSET>,
+            Subtypes: Subtypes::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            IsTrusted: IsTrusted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICodecInfo as ::windows::core::Interface>::IID
@@ -436,7 +473,7 @@ impl ICodecQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICodecQuery>, ::windows::core::GetTrustLevel, FindAllAsync::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICodecQuery, BASE_OFFSET>(), FindAllAsync: FindAllAsync::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICodecQuery as ::windows::core::Interface>::IID
@@ -1064,65 +1101,60 @@ impl ICodecSubtypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICodecSubtypesStatics>,
-            ::windows::core::GetTrustLevel,
-            VideoFormatDV25::<Impl, IMPL_OFFSET>,
-            VideoFormatDV50::<Impl, IMPL_OFFSET>,
-            VideoFormatDvc::<Impl, IMPL_OFFSET>,
-            VideoFormatDvh1::<Impl, IMPL_OFFSET>,
-            VideoFormatDvhD::<Impl, IMPL_OFFSET>,
-            VideoFormatDvsd::<Impl, IMPL_OFFSET>,
-            VideoFormatDvsl::<Impl, IMPL_OFFSET>,
-            VideoFormatH263::<Impl, IMPL_OFFSET>,
-            VideoFormatH264::<Impl, IMPL_OFFSET>,
-            VideoFormatH265::<Impl, IMPL_OFFSET>,
-            VideoFormatH264ES::<Impl, IMPL_OFFSET>,
-            VideoFormatHevc::<Impl, IMPL_OFFSET>,
-            VideoFormatHevcES::<Impl, IMPL_OFFSET>,
-            VideoFormatM4S2::<Impl, IMPL_OFFSET>,
-            VideoFormatMjpg::<Impl, IMPL_OFFSET>,
-            VideoFormatMP43::<Impl, IMPL_OFFSET>,
-            VideoFormatMP4S::<Impl, IMPL_OFFSET>,
-            VideoFormatMP4V::<Impl, IMPL_OFFSET>,
-            VideoFormatMpeg2::<Impl, IMPL_OFFSET>,
-            VideoFormatVP80::<Impl, IMPL_OFFSET>,
-            VideoFormatVP90::<Impl, IMPL_OFFSET>,
-            VideoFormatMpg1::<Impl, IMPL_OFFSET>,
-            VideoFormatMss1::<Impl, IMPL_OFFSET>,
-            VideoFormatMss2::<Impl, IMPL_OFFSET>,
-            VideoFormatWmv1::<Impl, IMPL_OFFSET>,
-            VideoFormatWmv2::<Impl, IMPL_OFFSET>,
-            VideoFormatWmv3::<Impl, IMPL_OFFSET>,
-            VideoFormatWvc1::<Impl, IMPL_OFFSET>,
-            VideoFormat420O::<Impl, IMPL_OFFSET>,
-            AudioFormatAac::<Impl, IMPL_OFFSET>,
-            AudioFormatAdts::<Impl, IMPL_OFFSET>,
-            AudioFormatAlac::<Impl, IMPL_OFFSET>,
-            AudioFormatAmrNB::<Impl, IMPL_OFFSET>,
-            AudioFormatAmrWB::<Impl, IMPL_OFFSET>,
-            AudioFormatAmrWP::<Impl, IMPL_OFFSET>,
-            AudioFormatDolbyAC3::<Impl, IMPL_OFFSET>,
-            AudioFormatDolbyAC3Spdif::<Impl, IMPL_OFFSET>,
-            AudioFormatDolbyDDPlus::<Impl, IMPL_OFFSET>,
-            AudioFormatDrm::<Impl, IMPL_OFFSET>,
-            AudioFormatDts::<Impl, IMPL_OFFSET>,
-            AudioFormatFlac::<Impl, IMPL_OFFSET>,
-            AudioFormatFloat::<Impl, IMPL_OFFSET>,
-            AudioFormatMP3::<Impl, IMPL_OFFSET>,
-            AudioFormatMPeg::<Impl, IMPL_OFFSET>,
-            AudioFormatMsp1::<Impl, IMPL_OFFSET>,
-            AudioFormatOpus::<Impl, IMPL_OFFSET>,
-            AudioFormatPcm::<Impl, IMPL_OFFSET>,
-            AudioFormatWmaSpdif::<Impl, IMPL_OFFSET>,
-            AudioFormatWMAudioLossless::<Impl, IMPL_OFFSET>,
-            AudioFormatWMAudioV8::<Impl, IMPL_OFFSET>,
-            AudioFormatWMAudioV9::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICodecSubtypesStatics, BASE_OFFSET>(),
+            VideoFormatDV25: VideoFormatDV25::<Impl, IMPL_OFFSET>,
+            VideoFormatDV50: VideoFormatDV50::<Impl, IMPL_OFFSET>,
+            VideoFormatDvc: VideoFormatDvc::<Impl, IMPL_OFFSET>,
+            VideoFormatDvh1: VideoFormatDvh1::<Impl, IMPL_OFFSET>,
+            VideoFormatDvhD: VideoFormatDvhD::<Impl, IMPL_OFFSET>,
+            VideoFormatDvsd: VideoFormatDvsd::<Impl, IMPL_OFFSET>,
+            VideoFormatDvsl: VideoFormatDvsl::<Impl, IMPL_OFFSET>,
+            VideoFormatH263: VideoFormatH263::<Impl, IMPL_OFFSET>,
+            VideoFormatH264: VideoFormatH264::<Impl, IMPL_OFFSET>,
+            VideoFormatH265: VideoFormatH265::<Impl, IMPL_OFFSET>,
+            VideoFormatH264ES: VideoFormatH264ES::<Impl, IMPL_OFFSET>,
+            VideoFormatHevc: VideoFormatHevc::<Impl, IMPL_OFFSET>,
+            VideoFormatHevcES: VideoFormatHevcES::<Impl, IMPL_OFFSET>,
+            VideoFormatM4S2: VideoFormatM4S2::<Impl, IMPL_OFFSET>,
+            VideoFormatMjpg: VideoFormatMjpg::<Impl, IMPL_OFFSET>,
+            VideoFormatMP43: VideoFormatMP43::<Impl, IMPL_OFFSET>,
+            VideoFormatMP4S: VideoFormatMP4S::<Impl, IMPL_OFFSET>,
+            VideoFormatMP4V: VideoFormatMP4V::<Impl, IMPL_OFFSET>,
+            VideoFormatMpeg2: VideoFormatMpeg2::<Impl, IMPL_OFFSET>,
+            VideoFormatVP80: VideoFormatVP80::<Impl, IMPL_OFFSET>,
+            VideoFormatVP90: VideoFormatVP90::<Impl, IMPL_OFFSET>,
+            VideoFormatMpg1: VideoFormatMpg1::<Impl, IMPL_OFFSET>,
+            VideoFormatMss1: VideoFormatMss1::<Impl, IMPL_OFFSET>,
+            VideoFormatMss2: VideoFormatMss2::<Impl, IMPL_OFFSET>,
+            VideoFormatWmv1: VideoFormatWmv1::<Impl, IMPL_OFFSET>,
+            VideoFormatWmv2: VideoFormatWmv2::<Impl, IMPL_OFFSET>,
+            VideoFormatWmv3: VideoFormatWmv3::<Impl, IMPL_OFFSET>,
+            VideoFormatWvc1: VideoFormatWvc1::<Impl, IMPL_OFFSET>,
+            VideoFormat420O: VideoFormat420O::<Impl, IMPL_OFFSET>,
+            AudioFormatAac: AudioFormatAac::<Impl, IMPL_OFFSET>,
+            AudioFormatAdts: AudioFormatAdts::<Impl, IMPL_OFFSET>,
+            AudioFormatAlac: AudioFormatAlac::<Impl, IMPL_OFFSET>,
+            AudioFormatAmrNB: AudioFormatAmrNB::<Impl, IMPL_OFFSET>,
+            AudioFormatAmrWB: AudioFormatAmrWB::<Impl, IMPL_OFFSET>,
+            AudioFormatAmrWP: AudioFormatAmrWP::<Impl, IMPL_OFFSET>,
+            AudioFormatDolbyAC3: AudioFormatDolbyAC3::<Impl, IMPL_OFFSET>,
+            AudioFormatDolbyAC3Spdif: AudioFormatDolbyAC3Spdif::<Impl, IMPL_OFFSET>,
+            AudioFormatDolbyDDPlus: AudioFormatDolbyDDPlus::<Impl, IMPL_OFFSET>,
+            AudioFormatDrm: AudioFormatDrm::<Impl, IMPL_OFFSET>,
+            AudioFormatDts: AudioFormatDts::<Impl, IMPL_OFFSET>,
+            AudioFormatFlac: AudioFormatFlac::<Impl, IMPL_OFFSET>,
+            AudioFormatFloat: AudioFormatFloat::<Impl, IMPL_OFFSET>,
+            AudioFormatMP3: AudioFormatMP3::<Impl, IMPL_OFFSET>,
+            AudioFormatMPeg: AudioFormatMPeg::<Impl, IMPL_OFFSET>,
+            AudioFormatMsp1: AudioFormatMsp1::<Impl, IMPL_OFFSET>,
+            AudioFormatOpus: AudioFormatOpus::<Impl, IMPL_OFFSET>,
+            AudioFormatPcm: AudioFormatPcm::<Impl, IMPL_OFFSET>,
+            AudioFormatWmaSpdif: AudioFormatWmaSpdif::<Impl, IMPL_OFFSET>,
+            AudioFormatWMAudioLossless: AudioFormatWMAudioLossless::<Impl, IMPL_OFFSET>,
+            AudioFormatWMAudioV8: AudioFormatWMAudioV8::<Impl, IMPL_OFFSET>,
+            AudioFormatWMAudioV9: AudioFormatWMAudioV9::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICodecSubtypesStatics as ::windows::core::Interface>::IID
@@ -1155,7 +1187,11 @@ impl IDataCueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataCue>, ::windows::core::GetTrustLevel, SetData::<Impl, IMPL_OFFSET>, Data::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataCue, BASE_OFFSET>(),
+            SetData: SetData::<Impl, IMPL_OFFSET>,
+            Data: Data::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataCue as ::windows::core::Interface>::IID
@@ -1183,7 +1219,7 @@ impl IDataCue2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataCue2>, ::windows::core::GetTrustLevel, Properties::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDataCue2, BASE_OFFSET>(), Properties: Properties::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataCue2 as ::windows::core::Interface>::IID
@@ -1211,7 +1247,7 @@ impl IFaceDetectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFaceDetectedEventArgs>, ::windows::core::GetTrustLevel, ResultFrame::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFaceDetectedEventArgs, BASE_OFFSET>(), ResultFrame: ResultFrame::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFaceDetectedEventArgs as ::windows::core::Interface>::IID
@@ -1278,20 +1314,15 @@ impl IFaceDetectionEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFaceDetected(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFaceDetectionEffect>,
-            ::windows::core::GetTrustLevel,
-            SetEnabled::<Impl, IMPL_OFFSET>,
-            Enabled::<Impl, IMPL_OFFSET>,
-            SetDesiredDetectionInterval::<Impl, IMPL_OFFSET>,
-            DesiredDetectionInterval::<Impl, IMPL_OFFSET>,
-            FaceDetected::<Impl, IMPL_OFFSET>,
-            RemoveFaceDetected::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFaceDetectionEffect, BASE_OFFSET>(),
+            SetEnabled: SetEnabled::<Impl, IMPL_OFFSET>,
+            Enabled: Enabled::<Impl, IMPL_OFFSET>,
+            SetDesiredDetectionInterval: SetDesiredDetectionInterval::<Impl, IMPL_OFFSET>,
+            DesiredDetectionInterval: DesiredDetectionInterval::<Impl, IMPL_OFFSET>,
+            FaceDetected: FaceDetected::<Impl, IMPL_OFFSET>,
+            RemoveFaceDetected: RemoveFaceDetected::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFaceDetectionEffect as ::windows::core::Interface>::IID
@@ -1341,7 +1372,13 @@ impl IFaceDetectionEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFaceDetectionEffectDefinition>, ::windows::core::GetTrustLevel, SetDetectionMode::<Impl, IMPL_OFFSET>, DetectionMode::<Impl, IMPL_OFFSET>, SetSynchronousDetectionEnabled::<Impl, IMPL_OFFSET>, SynchronousDetectionEnabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFaceDetectionEffectDefinition, BASE_OFFSET>(),
+            SetDetectionMode: SetDetectionMode::<Impl, IMPL_OFFSET>,
+            DetectionMode: DetectionMode::<Impl, IMPL_OFFSET>,
+            SetSynchronousDetectionEnabled: SetSynchronousDetectionEnabled::<Impl, IMPL_OFFSET>,
+            SynchronousDetectionEnabled: SynchronousDetectionEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFaceDetectionEffectDefinition as ::windows::core::Interface>::IID
@@ -1369,7 +1406,10 @@ impl IFaceDetectionEffectFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFaceDetectionEffectFrame>, ::windows::core::GetTrustLevel, DetectedFaces::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFaceDetectionEffectFrame, BASE_OFFSET>(),
+            DetectedFaces: DetectedFaces::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFaceDetectionEffectFrame as ::windows::core::Interface>::IID
@@ -1402,7 +1442,11 @@ impl IHighDynamicRangeControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHighDynamicRangeControl>, ::windows::core::GetTrustLevel, SetEnabled::<Impl, IMPL_OFFSET>, Enabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHighDynamicRangeControl, BASE_OFFSET>(),
+            SetEnabled: SetEnabled::<Impl, IMPL_OFFSET>,
+            Enabled: Enabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHighDynamicRangeControl as ::windows::core::Interface>::IID
@@ -1442,7 +1486,11 @@ impl IHighDynamicRangeOutputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHighDynamicRangeOutput>, ::windows::core::GetTrustLevel, Certainty::<Impl, IMPL_OFFSET>, FrameControllers::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHighDynamicRangeOutput, BASE_OFFSET>(),
+            Certainty: Certainty::<Impl, IMPL_OFFSET>,
+            FrameControllers: FrameControllers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHighDynamicRangeOutput as ::windows::core::Interface>::IID
@@ -1509,7 +1557,15 @@ impl IImageCueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageCue>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, SetPosition::<Impl, IMPL_OFFSET>, Extent::<Impl, IMPL_OFFSET>, SetExtent::<Impl, IMPL_OFFSET>, SetSoftwareBitmap::<Impl, IMPL_OFFSET>, SoftwareBitmap::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageCue, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            SetPosition: SetPosition::<Impl, IMPL_OFFSET>,
+            Extent: Extent::<Impl, IMPL_OFFSET>,
+            SetExtent: SetExtent::<Impl, IMPL_OFFSET>,
+            SetSoftwareBitmap: SetSoftwareBitmap::<Impl, IMPL_OFFSET>,
+            SoftwareBitmap: SoftwareBitmap::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageCue as ::windows::core::Interface>::IID
@@ -1561,7 +1617,12 @@ impl IInitializeMediaStreamSourceRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInitializeMediaStreamSourceRequestedEventArgs>, ::windows::core::GetTrustLevel, Source::<Impl, IMPL_OFFSET>, RandomAccessStream::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInitializeMediaStreamSourceRequestedEventArgs, BASE_OFFSET>(),
+            Source: Source::<Impl, IMPL_OFFSET>,
+            RandomAccessStream: RandomAccessStream::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInitializeMediaStreamSourceRequestedEventArgs as ::windows::core::Interface>::IID
@@ -1589,7 +1650,7 @@ impl ILowLightFusionResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILowLightFusionResult>, ::windows::core::GetTrustLevel, Frame::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILowLightFusionResult, BASE_OFFSET>(), Frame: Frame::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILowLightFusionResult as ::windows::core::Interface>::IID
@@ -1641,7 +1702,12 @@ impl ILowLightFusionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILowLightFusionStatics>, ::windows::core::GetTrustLevel, SupportedBitmapPixelFormats::<Impl, IMPL_OFFSET>, MaxSupportedFrameCount::<Impl, IMPL_OFFSET>, FuseAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILowLightFusionStatics, BASE_OFFSET>(),
+            SupportedBitmapPixelFormats: SupportedBitmapPixelFormats::<Impl, IMPL_OFFSET>,
+            MaxSupportedFrameCount: MaxSupportedFrameCount::<Impl, IMPL_OFFSET>,
+            FuseAsync: FuseAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILowLightFusionStatics as ::windows::core::Interface>::IID
@@ -1703,7 +1769,14 @@ impl IMediaBinderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaBinder>, ::windows::core::GetTrustLevel, Binding::<Impl, IMPL_OFFSET>, RemoveBinding::<Impl, IMPL_OFFSET>, Token::<Impl, IMPL_OFFSET>, SetToken::<Impl, IMPL_OFFSET>, Source::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaBinder, BASE_OFFSET>(),
+            Binding: Binding::<Impl, IMPL_OFFSET>,
+            RemoveBinding: RemoveBinding::<Impl, IMPL_OFFSET>,
+            Token: Token::<Impl, IMPL_OFFSET>,
+            SetToken: SetToken::<Impl, IMPL_OFFSET>,
+            Source: Source::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaBinder as ::windows::core::Interface>::IID
@@ -1775,21 +1848,16 @@ impl IMediaBindingEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStreamReference(&*(&stream as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType), &*(&contenttype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaBindingEventArgs>,
-            ::windows::core::GetTrustLevel,
-            Canceled::<Impl, IMPL_OFFSET>,
-            RemoveCanceled::<Impl, IMPL_OFFSET>,
-            MediaBinder::<Impl, IMPL_OFFSET>,
-            GetDeferral::<Impl, IMPL_OFFSET>,
-            SetUri::<Impl, IMPL_OFFSET>,
-            SetStream::<Impl, IMPL_OFFSET>,
-            SetStreamReference::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaBindingEventArgs, BASE_OFFSET>(),
+            Canceled: Canceled::<Impl, IMPL_OFFSET>,
+            RemoveCanceled: RemoveCanceled::<Impl, IMPL_OFFSET>,
+            MediaBinder: MediaBinder::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            SetUri: SetUri::<Impl, IMPL_OFFSET>,
+            SetStream: SetStream::<Impl, IMPL_OFFSET>,
+            SetStreamReference: SetStreamReference::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaBindingEventArgs as ::windows::core::Interface>::IID
@@ -1815,7 +1883,11 @@ impl IMediaBindingEventArgs2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStorageFile(&*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaBindingEventArgs2>, ::windows::core::GetTrustLevel, SetAdaptiveMediaSource::<Impl, IMPL_OFFSET>, SetStorageFile::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaBindingEventArgs2, BASE_OFFSET>(),
+            SetAdaptiveMediaSource: SetAdaptiveMediaSource::<Impl, IMPL_OFFSET>,
+            SetStorageFile: SetStorageFile::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaBindingEventArgs2 as ::windows::core::Interface>::IID
@@ -1836,7 +1908,10 @@ impl IMediaBindingEventArgs3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDownloadOperation(&*(&downloadoperation as *const <super::super::Networking::BackgroundTransfer::DownloadOperation as ::windows::core::Abi>::Abi as *const <super::super::Networking::BackgroundTransfer::DownloadOperation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaBindingEventArgs3>, ::windows::core::GetTrustLevel, SetDownloadOperation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaBindingEventArgs3, BASE_OFFSET>(),
+            SetDownloadOperation: SetDownloadOperation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaBindingEventArgs3 as ::windows::core::Interface>::IID
@@ -1903,7 +1978,15 @@ impl IMediaCueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaCue>, ::windows::core::GetTrustLevel, SetStartTime::<Impl, IMPL_OFFSET>, StartTime::<Impl, IMPL_OFFSET>, SetDuration::<Impl, IMPL_OFFSET>, Duration::<Impl, IMPL_OFFSET>, SetId::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaCue, BASE_OFFSET>(),
+            SetStartTime: SetStartTime::<Impl, IMPL_OFFSET>,
+            StartTime: StartTime::<Impl, IMPL_OFFSET>,
+            SetDuration: SetDuration::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaCue as ::windows::core::Interface>::IID
@@ -1931,7 +2014,7 @@ impl IMediaCueEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaCueEventArgs>, ::windows::core::GetTrustLevel, Cue::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaCueEventArgs, BASE_OFFSET>(), Cue: Cue::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaCueEventArgs as ::windows::core::Interface>::IID
@@ -1943,7 +2026,7 @@ impl ::windows::core::RuntimeName for IMediaSource {
 }
 impl IMediaSourceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaSourceVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaSource>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSource, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSource as ::windows::core::Interface>::IID
@@ -2036,21 +2119,16 @@ impl IMediaSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaSource2>,
-            ::windows::core::GetTrustLevel,
-            OpenOperationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveOpenOperationCompleted::<Impl, IMPL_OFFSET>,
-            CustomProperties::<Impl, IMPL_OFFSET>,
-            Duration::<Impl, IMPL_OFFSET>,
-            IsOpen::<Impl, IMPL_OFFSET>,
-            ExternalTimedTextSources::<Impl, IMPL_OFFSET>,
-            ExternalTimedMetadataTracks::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSource2, BASE_OFFSET>(),
+            OpenOperationCompleted: OpenOperationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveOpenOperationCompleted: RemoveOpenOperationCompleted::<Impl, IMPL_OFFSET>,
+            CustomProperties: CustomProperties::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            IsOpen: IsOpen::<Impl, IMPL_OFFSET>,
+            ExternalTimedTextSources: ExternalTimedTextSources::<Impl, IMPL_OFFSET>,
+            ExternalTimedMetadataTracks: ExternalTimedMetadataTracks::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSource2 as ::windows::core::Interface>::IID
@@ -2100,7 +2178,13 @@ impl IMediaSource3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Reset().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaSource3>, ::windows::core::GetTrustLevel, StateChanged::<Impl, IMPL_OFFSET>, RemoveStateChanged::<Impl, IMPL_OFFSET>, State::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSource3, BASE_OFFSET>(),
+            StateChanged: StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged: RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSource3 as ::windows::core::Interface>::IID
@@ -2176,7 +2260,14 @@ impl IMediaSource4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaSource4>, ::windows::core::GetTrustLevel, AdaptiveMediaSource::<Impl, IMPL_OFFSET>, MediaStreamSource::<Impl, IMPL_OFFSET>, MseStreamSource::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>, OpenAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSource4, BASE_OFFSET>(),
+            AdaptiveMediaSource: AdaptiveMediaSource::<Impl, IMPL_OFFSET>,
+            MediaStreamSource: MediaStreamSource::<Impl, IMPL_OFFSET>,
+            MseStreamSource: MseStreamSource::<Impl, IMPL_OFFSET>,
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            OpenAsync: OpenAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSource4 as ::windows::core::Interface>::IID
@@ -2204,7 +2295,10 @@ impl IMediaSource5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaSource5>, ::windows::core::GetTrustLevel, DownloadOperation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSource5, BASE_OFFSET>(),
+            DownloadOperation: DownloadOperation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSource5 as ::windows::core::Interface>::IID
@@ -2242,7 +2336,12 @@ impl IMediaSourceAppServiceConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaSourceAppServiceConnection>, ::windows::core::GetTrustLevel, InitializeMediaStreamSourceRequested::<Impl, IMPL_OFFSET>, RemoveInitializeMediaStreamSourceRequested::<Impl, IMPL_OFFSET>, Start::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSourceAppServiceConnection, BASE_OFFSET>(),
+            InitializeMediaStreamSourceRequested: InitializeMediaStreamSourceRequested::<Impl, IMPL_OFFSET>,
+            RemoveInitializeMediaStreamSourceRequested: RemoveInitializeMediaStreamSourceRequested::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSourceAppServiceConnection as ::windows::core::Interface>::IID
@@ -2270,7 +2369,10 @@ impl IMediaSourceAppServiceConnectionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaSourceAppServiceConnectionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSourceAppServiceConnectionFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSourceAppServiceConnectionFactory as ::windows::core::Interface>::IID
@@ -2298,7 +2400,7 @@ impl IMediaSourceErrorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaSourceError>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSourceError, BASE_OFFSET>(), ExtendedError: ExtendedError::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSourceError as ::windows::core::Interface>::IID
@@ -2326,7 +2428,10 @@ impl IMediaSourceOpenOperationCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaSourceOpenOperationCompletedEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSourceOpenOperationCompletedEventArgs, BASE_OFFSET>(),
+            Error: Error::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSourceOpenOperationCompletedEventArgs as ::windows::core::Interface>::IID
@@ -2366,7 +2471,11 @@ impl IMediaSourceStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaSourceStateChangedEventArgs>, ::windows::core::GetTrustLevel, OldState::<Impl, IMPL_OFFSET>, NewState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSourceStateChangedEventArgs, BASE_OFFSET>(),
+            OldState: OldState::<Impl, IMPL_OFFSET>,
+            NewState: NewState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSourceStateChangedEventArgs as ::windows::core::Interface>::IID
@@ -2478,22 +2587,17 @@ impl IMediaSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaSourceStatics>,
-            ::windows::core::GetTrustLevel,
-            CreateFromAdaptiveMediaSource::<Impl, IMPL_OFFSET>,
-            CreateFromMediaStreamSource::<Impl, IMPL_OFFSET>,
-            CreateFromMseStreamSource::<Impl, IMPL_OFFSET>,
-            CreateFromIMediaSource::<Impl, IMPL_OFFSET>,
-            CreateFromStorageFile::<Impl, IMPL_OFFSET>,
-            CreateFromStream::<Impl, IMPL_OFFSET>,
-            CreateFromStreamReference::<Impl, IMPL_OFFSET>,
-            CreateFromUri::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSourceStatics, BASE_OFFSET>(),
+            CreateFromAdaptiveMediaSource: CreateFromAdaptiveMediaSource::<Impl, IMPL_OFFSET>,
+            CreateFromMediaStreamSource: CreateFromMediaStreamSource::<Impl, IMPL_OFFSET>,
+            CreateFromMseStreamSource: CreateFromMseStreamSource::<Impl, IMPL_OFFSET>,
+            CreateFromIMediaSource: CreateFromIMediaSource::<Impl, IMPL_OFFSET>,
+            CreateFromStorageFile: CreateFromStorageFile::<Impl, IMPL_OFFSET>,
+            CreateFromStream: CreateFromStream::<Impl, IMPL_OFFSET>,
+            CreateFromStreamReference: CreateFromStreamReference::<Impl, IMPL_OFFSET>,
+            CreateFromUri: CreateFromUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSourceStatics as ::windows::core::Interface>::IID
@@ -2521,7 +2625,10 @@ impl IMediaSourceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaSourceStatics2>, ::windows::core::GetTrustLevel, CreateFromMediaBinder::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSourceStatics2, BASE_OFFSET>(),
+            CreateFromMediaBinder: CreateFromMediaBinder::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSourceStatics2 as ::windows::core::Interface>::IID
@@ -2549,7 +2656,10 @@ impl IMediaSourceStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaSourceStatics3>, ::windows::core::GetTrustLevel, CreateFromMediaFrameSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSourceStatics3, BASE_OFFSET>(),
+            CreateFromMediaFrameSource: CreateFromMediaFrameSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSourceStatics3 as ::windows::core::Interface>::IID
@@ -2577,7 +2687,10 @@ impl IMediaSourceStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaSourceStatics4>, ::windows::core::GetTrustLevel, CreateFromDownloadOperation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSourceStatics4, BASE_OFFSET>(),
+            CreateFromDownloadOperation: CreateFromDownloadOperation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSourceStatics4 as ::windows::core::Interface>::IID
@@ -2636,7 +2749,14 @@ impl IMediaStreamDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamDescriptor>, ::windows::core::GetTrustLevel, IsSelected::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, SetLanguage::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamDescriptor, BASE_OFFSET>(),
+            IsSelected: IsSelected::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetLanguage: SetLanguage::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamDescriptor as ::windows::core::Interface>::IID
@@ -2666,7 +2786,11 @@ impl IMediaStreamDescriptor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamDescriptor2>, ::windows::core::GetTrustLevel, SetLabel::<Impl, IMPL_OFFSET>, Label::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamDescriptor2, BASE_OFFSET>(),
+            SetLabel: SetLabel::<Impl, IMPL_OFFSET>,
+            Label: Label::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamDescriptor2 as ::windows::core::Interface>::IID
@@ -2815,28 +2939,23 @@ impl IMediaStreamSampleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaStreamSample>,
-            ::windows::core::GetTrustLevel,
-            Processed::<Impl, IMPL_OFFSET>,
-            RemoveProcessed::<Impl, IMPL_OFFSET>,
-            Buffer::<Impl, IMPL_OFFSET>,
-            Timestamp::<Impl, IMPL_OFFSET>,
-            ExtendedProperties::<Impl, IMPL_OFFSET>,
-            Protection::<Impl, IMPL_OFFSET>,
-            SetDecodeTimestamp::<Impl, IMPL_OFFSET>,
-            DecodeTimestamp::<Impl, IMPL_OFFSET>,
-            SetDuration::<Impl, IMPL_OFFSET>,
-            Duration::<Impl, IMPL_OFFSET>,
-            SetKeyFrame::<Impl, IMPL_OFFSET>,
-            KeyFrame::<Impl, IMPL_OFFSET>,
-            SetDiscontinuous::<Impl, IMPL_OFFSET>,
-            Discontinuous::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSample, BASE_OFFSET>(),
+            Processed: Processed::<Impl, IMPL_OFFSET>,
+            RemoveProcessed: RemoveProcessed::<Impl, IMPL_OFFSET>,
+            Buffer: Buffer::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            ExtendedProperties: ExtendedProperties::<Impl, IMPL_OFFSET>,
+            Protection: Protection::<Impl, IMPL_OFFSET>,
+            SetDecodeTimestamp: SetDecodeTimestamp::<Impl, IMPL_OFFSET>,
+            DecodeTimestamp: DecodeTimestamp::<Impl, IMPL_OFFSET>,
+            SetDuration: SetDuration::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            SetKeyFrame: SetKeyFrame::<Impl, IMPL_OFFSET>,
+            KeyFrame: KeyFrame::<Impl, IMPL_OFFSET>,
+            SetDiscontinuous: SetDiscontinuous::<Impl, IMPL_OFFSET>,
+            Discontinuous: Discontinuous::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSample as ::windows::core::Interface>::IID
@@ -2864,7 +2983,10 @@ impl IMediaStreamSample2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSample2>, ::windows::core::GetTrustLevel, Direct3D11Surface::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSample2, BASE_OFFSET>(),
+            Direct3D11Surface: Direct3D11Surface::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSample2 as ::windows::core::Interface>::IID
@@ -2910,20 +3032,15 @@ impl IMediaStreamSampleProtectionPropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetSubSampleMapping(::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size).as_array()).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaStreamSampleProtectionProperties>,
-            ::windows::core::GetTrustLevel,
-            SetKeyIdentifier::<Impl, IMPL_OFFSET>,
-            GetKeyIdentifier::<Impl, IMPL_OFFSET>,
-            SetInitializationVector::<Impl, IMPL_OFFSET>,
-            GetInitializationVector::<Impl, IMPL_OFFSET>,
-            SetSubSampleMapping::<Impl, IMPL_OFFSET>,
-            GetSubSampleMapping::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSampleProtectionProperties, BASE_OFFSET>(),
+            SetKeyIdentifier: SetKeyIdentifier::<Impl, IMPL_OFFSET>,
+            GetKeyIdentifier: GetKeyIdentifier::<Impl, IMPL_OFFSET>,
+            SetInitializationVector: SetInitializationVector::<Impl, IMPL_OFFSET>,
+            GetInitializationVector: GetInitializationVector::<Impl, IMPL_OFFSET>,
+            SetSubSampleMapping: SetSubSampleMapping::<Impl, IMPL_OFFSET>,
+            GetSubSampleMapping: GetSubSampleMapping::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSampleProtectionProperties as ::windows::core::Interface>::IID
@@ -2963,7 +3080,11 @@ impl IMediaStreamSampleStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSampleStatics>, ::windows::core::GetTrustLevel, CreateFromBuffer::<Impl, IMPL_OFFSET>, CreateFromStreamAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSampleStatics, BASE_OFFSET>(),
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+            CreateFromStreamAsync: CreateFromStreamAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSampleStatics as ::windows::core::Interface>::IID
@@ -2991,7 +3112,10 @@ impl IMediaStreamSampleStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSampleStatics2>, ::windows::core::GetTrustLevel, CreateFromDirect3D11Surface::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSampleStatics2, BASE_OFFSET>(),
+            CreateFromDirect3D11Surface: CreateFromDirect3D11Surface::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSampleStatics2 as ::windows::core::Interface>::IID
@@ -3221,40 +3345,35 @@ impl IMediaStreamSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddProtectionKey(&*(&streamdescriptor as *const <IMediaStreamDescriptor as ::windows::core::Abi>::Abi as *const <IMediaStreamDescriptor as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&keyidentifier), keyIdentifier_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&licensedata), licenseData_array_size as _)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaStreamSource>,
-            ::windows::core::GetTrustLevel,
-            Closed::<Impl, IMPL_OFFSET>,
-            RemoveClosed::<Impl, IMPL_OFFSET>,
-            Starting::<Impl, IMPL_OFFSET>,
-            RemoveStarting::<Impl, IMPL_OFFSET>,
-            Paused::<Impl, IMPL_OFFSET>,
-            RemovePaused::<Impl, IMPL_OFFSET>,
-            SampleRequested::<Impl, IMPL_OFFSET>,
-            RemoveSampleRequested::<Impl, IMPL_OFFSET>,
-            SwitchStreamsRequested::<Impl, IMPL_OFFSET>,
-            RemoveSwitchStreamsRequested::<Impl, IMPL_OFFSET>,
-            NotifyError::<Impl, IMPL_OFFSET>,
-            AddStreamDescriptor::<Impl, IMPL_OFFSET>,
-            SetMediaProtectionManager::<Impl, IMPL_OFFSET>,
-            MediaProtectionManager::<Impl, IMPL_OFFSET>,
-            SetDuration::<Impl, IMPL_OFFSET>,
-            Duration::<Impl, IMPL_OFFSET>,
-            SetCanSeek::<Impl, IMPL_OFFSET>,
-            CanSeek::<Impl, IMPL_OFFSET>,
-            SetBufferTime::<Impl, IMPL_OFFSET>,
-            BufferTime::<Impl, IMPL_OFFSET>,
-            SetBufferedRange::<Impl, IMPL_OFFSET>,
-            MusicProperties::<Impl, IMPL_OFFSET>,
-            VideoProperties::<Impl, IMPL_OFFSET>,
-            SetThumbnail::<Impl, IMPL_OFFSET>,
-            Thumbnail::<Impl, IMPL_OFFSET>,
-            AddProtectionKey::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSource, BASE_OFFSET>(),
+            Closed: Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed: RemoveClosed::<Impl, IMPL_OFFSET>,
+            Starting: Starting::<Impl, IMPL_OFFSET>,
+            RemoveStarting: RemoveStarting::<Impl, IMPL_OFFSET>,
+            Paused: Paused::<Impl, IMPL_OFFSET>,
+            RemovePaused: RemovePaused::<Impl, IMPL_OFFSET>,
+            SampleRequested: SampleRequested::<Impl, IMPL_OFFSET>,
+            RemoveSampleRequested: RemoveSampleRequested::<Impl, IMPL_OFFSET>,
+            SwitchStreamsRequested: SwitchStreamsRequested::<Impl, IMPL_OFFSET>,
+            RemoveSwitchStreamsRequested: RemoveSwitchStreamsRequested::<Impl, IMPL_OFFSET>,
+            NotifyError: NotifyError::<Impl, IMPL_OFFSET>,
+            AddStreamDescriptor: AddStreamDescriptor::<Impl, IMPL_OFFSET>,
+            SetMediaProtectionManager: SetMediaProtectionManager::<Impl, IMPL_OFFSET>,
+            MediaProtectionManager: MediaProtectionManager::<Impl, IMPL_OFFSET>,
+            SetDuration: SetDuration::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            SetCanSeek: SetCanSeek::<Impl, IMPL_OFFSET>,
+            CanSeek: CanSeek::<Impl, IMPL_OFFSET>,
+            SetBufferTime: SetBufferTime::<Impl, IMPL_OFFSET>,
+            BufferTime: BufferTime::<Impl, IMPL_OFFSET>,
+            SetBufferedRange: SetBufferedRange::<Impl, IMPL_OFFSET>,
+            MusicProperties: MusicProperties::<Impl, IMPL_OFFSET>,
+            VideoProperties: VideoProperties::<Impl, IMPL_OFFSET>,
+            SetThumbnail: SetThumbnail::<Impl, IMPL_OFFSET>,
+            Thumbnail: Thumbnail::<Impl, IMPL_OFFSET>,
+            AddProtectionKey: AddProtectionKey::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSource as ::windows::core::Interface>::IID
@@ -3287,7 +3406,11 @@ impl IMediaStreamSource2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSampleRendered(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSource2>, ::windows::core::GetTrustLevel, SampleRendered::<Impl, IMPL_OFFSET>, RemoveSampleRendered::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSource2, BASE_OFFSET>(),
+            SampleRendered: SampleRendered::<Impl, IMPL_OFFSET>,
+            RemoveSampleRendered: RemoveSampleRendered::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSource2 as ::windows::core::Interface>::IID
@@ -3320,7 +3443,11 @@ impl IMediaStreamSource3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSource3>, ::windows::core::GetTrustLevel, SetMaxSupportedPlaybackRate::<Impl, IMPL_OFFSET>, MaxSupportedPlaybackRate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSource3, BASE_OFFSET>(),
+            SetMaxSupportedPlaybackRate: SetMaxSupportedPlaybackRate::<Impl, IMPL_OFFSET>,
+            MaxSupportedPlaybackRate: MaxSupportedPlaybackRate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSource3 as ::windows::core::Interface>::IID
@@ -3353,7 +3480,11 @@ impl IMediaStreamSource4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSource4>, ::windows::core::GetTrustLevel, SetIsLive::<Impl, IMPL_OFFSET>, IsLive::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSource4, BASE_OFFSET>(),
+            SetIsLive: SetIsLive::<Impl, IMPL_OFFSET>,
+            IsLive: IsLive::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSource4 as ::windows::core::Interface>::IID
@@ -3381,7 +3512,10 @@ impl IMediaStreamSourceClosedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSourceClosedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSourceClosedEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSourceClosedEventArgs as ::windows::core::Interface>::IID
@@ -3409,7 +3543,7 @@ impl IMediaStreamSourceClosedRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSourceClosedRequest>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSourceClosedRequest, BASE_OFFSET>(), Reason: Reason::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSourceClosedRequest as ::windows::core::Interface>::IID
@@ -3449,7 +3583,11 @@ impl IMediaStreamSourceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSourceFactory>, ::windows::core::GetTrustLevel, CreateFromDescriptor::<Impl, IMPL_OFFSET>, CreateFromDescriptors::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSourceFactory, BASE_OFFSET>(),
+            CreateFromDescriptor: CreateFromDescriptor::<Impl, IMPL_OFFSET>,
+            CreateFromDescriptors: CreateFromDescriptors::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSourceFactory as ::windows::core::Interface>::IID
@@ -3477,7 +3615,10 @@ impl IMediaStreamSourceSampleRenderedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSourceSampleRenderedEventArgs>, ::windows::core::GetTrustLevel, SampleLag::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSourceSampleRenderedEventArgs, BASE_OFFSET>(),
+            SampleLag: SampleLag::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSourceSampleRenderedEventArgs as ::windows::core::Interface>::IID
@@ -3539,7 +3680,14 @@ impl IMediaStreamSourceSampleRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportSampleProgress(progress).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSourceSampleRequest>, ::windows::core::GetTrustLevel, StreamDescriptor::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>, SetSample::<Impl, IMPL_OFFSET>, Sample::<Impl, IMPL_OFFSET>, ReportSampleProgress::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSourceSampleRequest, BASE_OFFSET>(),
+            StreamDescriptor: StreamDescriptor::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            SetSample: SetSample::<Impl, IMPL_OFFSET>,
+            Sample: Sample::<Impl, IMPL_OFFSET>,
+            ReportSampleProgress: ReportSampleProgress::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSourceSampleRequest as ::windows::core::Interface>::IID
@@ -3560,7 +3708,10 @@ impl IMediaStreamSourceSampleRequestDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSourceSampleRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSourceSampleRequestDeferral, BASE_OFFSET>(),
+            Complete: Complete::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSourceSampleRequestDeferral as ::windows::core::Interface>::IID
@@ -3588,7 +3739,10 @@ impl IMediaStreamSourceSampleRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSourceSampleRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSourceSampleRequestedEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSourceSampleRequestedEventArgs as ::windows::core::Interface>::IID
@@ -3616,7 +3770,10 @@ impl IMediaStreamSourceStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSourceStartingEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSourceStartingEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSourceStartingEventArgs as ::windows::core::Interface>::IID
@@ -3661,7 +3818,12 @@ impl IMediaStreamSourceStartingRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetActualStartPosition(&*(&position as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSourceStartingRequest>, ::windows::core::GetTrustLevel, StartPosition::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>, SetActualStartPosition::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSourceStartingRequest, BASE_OFFSET>(),
+            StartPosition: StartPosition::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            SetActualStartPosition: SetActualStartPosition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSourceStartingRequest as ::windows::core::Interface>::IID
@@ -3682,7 +3844,10 @@ impl IMediaStreamSourceStartingRequestDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSourceStartingRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSourceStartingRequestDeferral, BASE_OFFSET>(),
+            Complete: Complete::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSourceStartingRequestDeferral as ::windows::core::Interface>::IID
@@ -3734,7 +3899,12 @@ impl IMediaStreamSourceSwitchStreamsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSourceSwitchStreamsRequest>, ::windows::core::GetTrustLevel, OldStreamDescriptor::<Impl, IMPL_OFFSET>, NewStreamDescriptor::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSourceSwitchStreamsRequest, BASE_OFFSET>(),
+            OldStreamDescriptor: OldStreamDescriptor::<Impl, IMPL_OFFSET>,
+            NewStreamDescriptor: NewStreamDescriptor::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSourceSwitchStreamsRequest as ::windows::core::Interface>::IID
@@ -3755,7 +3925,10 @@ impl IMediaStreamSourceSwitchStreamsRequestDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSourceSwitchStreamsRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSourceSwitchStreamsRequestDeferral, BASE_OFFSET>(),
+            Complete: Complete::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSourceSwitchStreamsRequestDeferral as ::windows::core::Interface>::IID
@@ -3783,7 +3956,10 @@ impl IMediaStreamSourceSwitchStreamsRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaStreamSourceSwitchStreamsRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamSourceSwitchStreamsRequestedEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaStreamSourceSwitchStreamsRequestedEventArgs as ::windows::core::Interface>::IID
@@ -3849,7 +4025,14 @@ impl IMediaTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaTrack>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>, TrackKind::<Impl, IMPL_OFFSET>, SetLabel::<Impl, IMPL_OFFSET>, Label::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaTrack, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+            TrackKind: TrackKind::<Impl, IMPL_OFFSET>,
+            SetLabel: SetLabel::<Impl, IMPL_OFFSET>,
+            Label: Label::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaTrack as ::windows::core::Interface>::IID
@@ -4067,39 +4250,34 @@ impl IMseSourceBufferVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Remove(&*(&start as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType), &*(&end as *const <super::super::Foundation::IReference<super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMseSourceBuffer>,
-            ::windows::core::GetTrustLevel,
-            UpdateStarting::<Impl, IMPL_OFFSET>,
-            RemoveUpdateStarting::<Impl, IMPL_OFFSET>,
-            Updated::<Impl, IMPL_OFFSET>,
-            RemoveUpdated::<Impl, IMPL_OFFSET>,
-            UpdateEnded::<Impl, IMPL_OFFSET>,
-            RemoveUpdateEnded::<Impl, IMPL_OFFSET>,
-            ErrorOccurred::<Impl, IMPL_OFFSET>,
-            RemoveErrorOccurred::<Impl, IMPL_OFFSET>,
-            Aborted::<Impl, IMPL_OFFSET>,
-            RemoveAborted::<Impl, IMPL_OFFSET>,
-            Mode::<Impl, IMPL_OFFSET>,
-            SetMode::<Impl, IMPL_OFFSET>,
-            IsUpdating::<Impl, IMPL_OFFSET>,
-            Buffered::<Impl, IMPL_OFFSET>,
-            TimestampOffset::<Impl, IMPL_OFFSET>,
-            SetTimestampOffset::<Impl, IMPL_OFFSET>,
-            AppendWindowStart::<Impl, IMPL_OFFSET>,
-            SetAppendWindowStart::<Impl, IMPL_OFFSET>,
-            AppendWindowEnd::<Impl, IMPL_OFFSET>,
-            SetAppendWindowEnd::<Impl, IMPL_OFFSET>,
-            AppendBuffer::<Impl, IMPL_OFFSET>,
-            AppendStream::<Impl, IMPL_OFFSET>,
-            AppendStreamMaxSize::<Impl, IMPL_OFFSET>,
-            Abort::<Impl, IMPL_OFFSET>,
-            Remove::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMseSourceBuffer, BASE_OFFSET>(),
+            UpdateStarting: UpdateStarting::<Impl, IMPL_OFFSET>,
+            RemoveUpdateStarting: RemoveUpdateStarting::<Impl, IMPL_OFFSET>,
+            Updated: Updated::<Impl, IMPL_OFFSET>,
+            RemoveUpdated: RemoveUpdated::<Impl, IMPL_OFFSET>,
+            UpdateEnded: UpdateEnded::<Impl, IMPL_OFFSET>,
+            RemoveUpdateEnded: RemoveUpdateEnded::<Impl, IMPL_OFFSET>,
+            ErrorOccurred: ErrorOccurred::<Impl, IMPL_OFFSET>,
+            RemoveErrorOccurred: RemoveErrorOccurred::<Impl, IMPL_OFFSET>,
+            Aborted: Aborted::<Impl, IMPL_OFFSET>,
+            RemoveAborted: RemoveAborted::<Impl, IMPL_OFFSET>,
+            Mode: Mode::<Impl, IMPL_OFFSET>,
+            SetMode: SetMode::<Impl, IMPL_OFFSET>,
+            IsUpdating: IsUpdating::<Impl, IMPL_OFFSET>,
+            Buffered: Buffered::<Impl, IMPL_OFFSET>,
+            TimestampOffset: TimestampOffset::<Impl, IMPL_OFFSET>,
+            SetTimestampOffset: SetTimestampOffset::<Impl, IMPL_OFFSET>,
+            AppendWindowStart: AppendWindowStart::<Impl, IMPL_OFFSET>,
+            SetAppendWindowStart: SetAppendWindowStart::<Impl, IMPL_OFFSET>,
+            AppendWindowEnd: AppendWindowEnd::<Impl, IMPL_OFFSET>,
+            SetAppendWindowEnd: SetAppendWindowEnd::<Impl, IMPL_OFFSET>,
+            AppendBuffer: AppendBuffer::<Impl, IMPL_OFFSET>,
+            AppendStream: AppendStream::<Impl, IMPL_OFFSET>,
+            AppendStreamMaxSize: AppendStreamMaxSize::<Impl, IMPL_OFFSET>,
+            Abort: Abort::<Impl, IMPL_OFFSET>,
+            Remove: Remove::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMseSourceBuffer as ::windows::core::Interface>::IID
@@ -4161,19 +4339,14 @@ impl IMseSourceBufferListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMseSourceBufferList>,
-            ::windows::core::GetTrustLevel,
-            SourceBufferAdded::<Impl, IMPL_OFFSET>,
-            RemoveSourceBufferAdded::<Impl, IMPL_OFFSET>,
-            SourceBufferRemoved::<Impl, IMPL_OFFSET>,
-            RemoveSourceBufferRemoved::<Impl, IMPL_OFFSET>,
-            Buffers::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMseSourceBufferList, BASE_OFFSET>(),
+            SourceBufferAdded: SourceBufferAdded::<Impl, IMPL_OFFSET>,
+            RemoveSourceBufferAdded: RemoveSourceBufferAdded::<Impl, IMPL_OFFSET>,
+            SourceBufferRemoved: SourceBufferRemoved::<Impl, IMPL_OFFSET>,
+            RemoveSourceBufferRemoved: RemoveSourceBufferRemoved::<Impl, IMPL_OFFSET>,
+            Buffers: Buffers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMseSourceBufferList as ::windows::core::Interface>::IID
@@ -4315,28 +4488,23 @@ impl IMseStreamSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EndOfStream(status).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMseStreamSource>,
-            ::windows::core::GetTrustLevel,
-            Opened::<Impl, IMPL_OFFSET>,
-            RemoveOpened::<Impl, IMPL_OFFSET>,
-            Ended::<Impl, IMPL_OFFSET>,
-            RemoveEnded::<Impl, IMPL_OFFSET>,
-            Closed::<Impl, IMPL_OFFSET>,
-            RemoveClosed::<Impl, IMPL_OFFSET>,
-            SourceBuffers::<Impl, IMPL_OFFSET>,
-            ActiveSourceBuffers::<Impl, IMPL_OFFSET>,
-            ReadyState::<Impl, IMPL_OFFSET>,
-            Duration::<Impl, IMPL_OFFSET>,
-            SetDuration::<Impl, IMPL_OFFSET>,
-            AddSourceBuffer::<Impl, IMPL_OFFSET>,
-            RemoveSourceBuffer::<Impl, IMPL_OFFSET>,
-            EndOfStream::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMseStreamSource, BASE_OFFSET>(),
+            Opened: Opened::<Impl, IMPL_OFFSET>,
+            RemoveOpened: RemoveOpened::<Impl, IMPL_OFFSET>,
+            Ended: Ended::<Impl, IMPL_OFFSET>,
+            RemoveEnded: RemoveEnded::<Impl, IMPL_OFFSET>,
+            Closed: Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed: RemoveClosed::<Impl, IMPL_OFFSET>,
+            SourceBuffers: SourceBuffers::<Impl, IMPL_OFFSET>,
+            ActiveSourceBuffers: ActiveSourceBuffers::<Impl, IMPL_OFFSET>,
+            ReadyState: ReadyState::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            SetDuration: SetDuration::<Impl, IMPL_OFFSET>,
+            AddSourceBuffer: AddSourceBuffer::<Impl, IMPL_OFFSET>,
+            RemoveSourceBuffer: RemoveSourceBuffer::<Impl, IMPL_OFFSET>,
+            EndOfStream: EndOfStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMseStreamSource as ::windows::core::Interface>::IID
@@ -4369,7 +4537,11 @@ impl IMseStreamSource2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLiveSeekableRange(&*(&value as *const <super::super::Foundation::IReference<MseTimeRange> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<MseTimeRange> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMseStreamSource2>, ::windows::core::GetTrustLevel, LiveSeekableRange::<Impl, IMPL_OFFSET>, SetLiveSeekableRange::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMseStreamSource2, BASE_OFFSET>(),
+            LiveSeekableRange: LiveSeekableRange::<Impl, IMPL_OFFSET>,
+            SetLiveSeekableRange: SetLiveSeekableRange::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMseStreamSource2 as ::windows::core::Interface>::IID
@@ -4397,7 +4569,10 @@ impl IMseStreamSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMseStreamSourceStatics>, ::windows::core::GetTrustLevel, IsContentTypeSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMseStreamSourceStatics, BASE_OFFSET>(),
+            IsContentTypeSupported: IsContentTypeSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMseStreamSourceStatics as ::windows::core::Interface>::IID
@@ -4459,19 +4634,14 @@ impl ISceneAnalysisEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSceneAnalyzed(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISceneAnalysisEffect>,
-            ::windows::core::GetTrustLevel,
-            HighDynamicRangeAnalyzer::<Impl, IMPL_OFFSET>,
-            SetDesiredAnalysisInterval::<Impl, IMPL_OFFSET>,
-            DesiredAnalysisInterval::<Impl, IMPL_OFFSET>,
-            SceneAnalyzed::<Impl, IMPL_OFFSET>,
-            RemoveSceneAnalyzed::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneAnalysisEffect, BASE_OFFSET>(),
+            HighDynamicRangeAnalyzer: HighDynamicRangeAnalyzer::<Impl, IMPL_OFFSET>,
+            SetDesiredAnalysisInterval: SetDesiredAnalysisInterval::<Impl, IMPL_OFFSET>,
+            DesiredAnalysisInterval: DesiredAnalysisInterval::<Impl, IMPL_OFFSET>,
+            SceneAnalyzed: SceneAnalyzed::<Impl, IMPL_OFFSET>,
+            RemoveSceneAnalyzed: RemoveSceneAnalyzed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneAnalysisEffect as ::windows::core::Interface>::IID
@@ -4511,7 +4681,11 @@ impl ISceneAnalysisEffectFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneAnalysisEffectFrame>, ::windows::core::GetTrustLevel, FrameControlValues::<Impl, IMPL_OFFSET>, HighDynamicRange::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneAnalysisEffectFrame, BASE_OFFSET>(),
+            FrameControlValues: FrameControlValues::<Impl, IMPL_OFFSET>,
+            HighDynamicRange: HighDynamicRange::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneAnalysisEffectFrame as ::windows::core::Interface>::IID
@@ -4539,7 +4713,10 @@ impl ISceneAnalysisEffectFrame2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneAnalysisEffectFrame2>, ::windows::core::GetTrustLevel, AnalysisRecommendation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneAnalysisEffectFrame2, BASE_OFFSET>(),
+            AnalysisRecommendation: AnalysisRecommendation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneAnalysisEffectFrame2 as ::windows::core::Interface>::IID
@@ -4567,7 +4744,7 @@ impl ISceneAnalyzedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneAnalyzedEventArgs>, ::windows::core::GetTrustLevel, ResultFrame::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneAnalyzedEventArgs, BASE_OFFSET>(), ResultFrame: ResultFrame::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneAnalyzedEventArgs as ::windows::core::Interface>::IID
@@ -4617,7 +4794,13 @@ impl ISingleSelectMediaTrackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISingleSelectMediaTrackList>, ::windows::core::GetTrustLevel, SelectedIndexChanged::<Impl, IMPL_OFFSET>, RemoveSelectedIndexChanged::<Impl, IMPL_OFFSET>, SetSelectedIndex::<Impl, IMPL_OFFSET>, SelectedIndex::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISingleSelectMediaTrackList, BASE_OFFSET>(),
+            SelectedIndexChanged: SelectedIndexChanged::<Impl, IMPL_OFFSET>,
+            RemoveSelectedIndexChanged: RemoveSelectedIndexChanged::<Impl, IMPL_OFFSET>,
+            SetSelectedIndex: SetSelectedIndex::<Impl, IMPL_OFFSET>,
+            SelectedIndex: SelectedIndex::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISingleSelectMediaTrackList as ::windows::core::Interface>::IID
@@ -4684,20 +4867,15 @@ impl ISpeechCueVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEndPositionInInput(&*(&value as *const <super::super::Foundation::IReference<i32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<i32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpeechCue>,
-            ::windows::core::GetTrustLevel,
-            Text::<Impl, IMPL_OFFSET>,
-            SetText::<Impl, IMPL_OFFSET>,
-            StartPositionInInput::<Impl, IMPL_OFFSET>,
-            SetStartPositionInInput::<Impl, IMPL_OFFSET>,
-            EndPositionInInput::<Impl, IMPL_OFFSET>,
-            SetEndPositionInInput::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechCue, BASE_OFFSET>(),
+            Text: Text::<Impl, IMPL_OFFSET>,
+            SetText: SetText::<Impl, IMPL_OFFSET>,
+            StartPositionInInput: StartPositionInInput::<Impl, IMPL_OFFSET>,
+            SetStartPositionInInput: SetStartPositionInInput::<Impl, IMPL_OFFSET>,
+            EndPositionInInput: EndPositionInInput::<Impl, IMPL_OFFSET>,
+            SetEndPositionInInput: SetEndPositionInInput::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechCue as ::windows::core::Interface>::IID
@@ -4737,7 +4915,11 @@ impl ITimedMetadataStreamDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedMetadataStreamDescriptor>, ::windows::core::GetTrustLevel, EncodingProperties::<Impl, IMPL_OFFSET>, Copy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataStreamDescriptor, BASE_OFFSET>(),
+            EncodingProperties: EncodingProperties::<Impl, IMPL_OFFSET>,
+            Copy: Copy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedMetadataStreamDescriptor as ::windows::core::Interface>::IID
@@ -4765,7 +4947,10 @@ impl ITimedMetadataStreamDescriptorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedMetadataStreamDescriptorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataStreamDescriptorFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedMetadataStreamDescriptorFactory as ::windows::core::Interface>::IID
@@ -4890,26 +5075,21 @@ impl ITimedMetadataTrackVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCue(&*(&cue as *const <IMediaCue as ::windows::core::Abi>::Abi as *const <IMediaCue as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITimedMetadataTrack>,
-            ::windows::core::GetTrustLevel,
-            CueEntered::<Impl, IMPL_OFFSET>,
-            RemoveCueEntered::<Impl, IMPL_OFFSET>,
-            CueExited::<Impl, IMPL_OFFSET>,
-            RemoveCueExited::<Impl, IMPL_OFFSET>,
-            TrackFailed::<Impl, IMPL_OFFSET>,
-            RemoveTrackFailed::<Impl, IMPL_OFFSET>,
-            Cues::<Impl, IMPL_OFFSET>,
-            ActiveCues::<Impl, IMPL_OFFSET>,
-            TimedMetadataKind::<Impl, IMPL_OFFSET>,
-            DispatchType::<Impl, IMPL_OFFSET>,
-            AddCue::<Impl, IMPL_OFFSET>,
-            RemoveCue::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataTrack, BASE_OFFSET>(),
+            CueEntered: CueEntered::<Impl, IMPL_OFFSET>,
+            RemoveCueEntered: RemoveCueEntered::<Impl, IMPL_OFFSET>,
+            CueExited: CueExited::<Impl, IMPL_OFFSET>,
+            RemoveCueExited: RemoveCueExited::<Impl, IMPL_OFFSET>,
+            TrackFailed: TrackFailed::<Impl, IMPL_OFFSET>,
+            RemoveTrackFailed: RemoveTrackFailed::<Impl, IMPL_OFFSET>,
+            Cues: Cues::<Impl, IMPL_OFFSET>,
+            ActiveCues: ActiveCues::<Impl, IMPL_OFFSET>,
+            TimedMetadataKind: TimedMetadataKind::<Impl, IMPL_OFFSET>,
+            DispatchType: DispatchType::<Impl, IMPL_OFFSET>,
+            AddCue: AddCue::<Impl, IMPL_OFFSET>,
+            RemoveCue: RemoveCue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedMetadataTrack as ::windows::core::Interface>::IID
@@ -4949,7 +5129,11 @@ impl ITimedMetadataTrack2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedMetadataTrack2>, ::windows::core::GetTrustLevel, PlaybackItem::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataTrack2, BASE_OFFSET>(),
+            PlaybackItem: PlaybackItem::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedMetadataTrack2 as ::windows::core::Interface>::IID
@@ -4989,7 +5173,11 @@ impl ITimedMetadataTrackErrorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedMetadataTrackError>, ::windows::core::GetTrustLevel, ErrorCode::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataTrackError, BASE_OFFSET>(),
+            ErrorCode: ErrorCode::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedMetadataTrackError as ::windows::core::Interface>::IID
@@ -5017,7 +5205,7 @@ impl ITimedMetadataTrackFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedMetadataTrackFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataTrackFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedMetadataTrackFactory as ::windows::core::Interface>::IID
@@ -5045,7 +5233,7 @@ impl ITimedMetadataTrackFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedMetadataTrackFailedEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataTrackFailedEventArgs, BASE_OFFSET>(), Error: Error::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedMetadataTrackFailedEventArgs as ::windows::core::Interface>::IID
@@ -5073,7 +5261,10 @@ impl ITimedMetadataTrackProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedMetadataTrackProvider>, ::windows::core::GetTrustLevel, TimedMetadataTracks::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataTrackProvider, BASE_OFFSET>(),
+            TimedMetadataTracks: TimedMetadataTracks::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedMetadataTrackProvider as ::windows::core::Interface>::IID
@@ -5140,7 +5331,15 @@ impl ITimedTextBoutenVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPosition(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedTextBouten>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, SetType::<Impl, IMPL_OFFSET>, Color::<Impl, IMPL_OFFSET>, SetColor::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>, SetPosition::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedTextBouten, BASE_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            SetType: SetType::<Impl, IMPL_OFFSET>,
+            Color: Color::<Impl, IMPL_OFFSET>,
+            SetColor: SetColor::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            SetPosition: SetPosition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedTextBouten as ::windows::core::Interface>::IID
@@ -5202,7 +5401,14 @@ impl ITimedTextCueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedTextCue>, ::windows::core::GetTrustLevel, CueRegion::<Impl, IMPL_OFFSET>, SetCueRegion::<Impl, IMPL_OFFSET>, CueStyle::<Impl, IMPL_OFFSET>, SetCueStyle::<Impl, IMPL_OFFSET>, Lines::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedTextCue, BASE_OFFSET>(),
+            CueRegion: CueRegion::<Impl, IMPL_OFFSET>,
+            SetCueRegion: SetCueRegion::<Impl, IMPL_OFFSET>,
+            CueStyle: CueStyle::<Impl, IMPL_OFFSET>,
+            SetCueStyle: SetCueStyle::<Impl, IMPL_OFFSET>,
+            Lines: Lines::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedTextCue as ::windows::core::Interface>::IID
@@ -5247,7 +5453,12 @@ impl ITimedTextLineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedTextLine>, ::windows::core::GetTrustLevel, Text::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>, Subformats::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedTextLine, BASE_OFFSET>(),
+            Text: Text::<Impl, IMPL_OFFSET>,
+            SetText: SetText::<Impl, IMPL_OFFSET>,
+            Subformats: Subformats::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedTextLine as ::windows::core::Interface>::IID
@@ -5467,38 +5678,33 @@ impl ITimedTextRegionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScrollMode(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITimedTextRegion>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            SetName::<Impl, IMPL_OFFSET>,
-            Position::<Impl, IMPL_OFFSET>,
-            SetPosition::<Impl, IMPL_OFFSET>,
-            Extent::<Impl, IMPL_OFFSET>,
-            SetExtent::<Impl, IMPL_OFFSET>,
-            Background::<Impl, IMPL_OFFSET>,
-            SetBackground::<Impl, IMPL_OFFSET>,
-            WritingMode::<Impl, IMPL_OFFSET>,
-            SetWritingMode::<Impl, IMPL_OFFSET>,
-            DisplayAlignment::<Impl, IMPL_OFFSET>,
-            SetDisplayAlignment::<Impl, IMPL_OFFSET>,
-            LineHeight::<Impl, IMPL_OFFSET>,
-            SetLineHeight::<Impl, IMPL_OFFSET>,
-            IsOverflowClipped::<Impl, IMPL_OFFSET>,
-            SetIsOverflowClipped::<Impl, IMPL_OFFSET>,
-            Padding::<Impl, IMPL_OFFSET>,
-            SetPadding::<Impl, IMPL_OFFSET>,
-            TextWrapping::<Impl, IMPL_OFFSET>,
-            SetTextWrapping::<Impl, IMPL_OFFSET>,
-            ZIndex::<Impl, IMPL_OFFSET>,
-            SetZIndex::<Impl, IMPL_OFFSET>,
-            ScrollMode::<Impl, IMPL_OFFSET>,
-            SetScrollMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedTextRegion, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            SetPosition: SetPosition::<Impl, IMPL_OFFSET>,
+            Extent: Extent::<Impl, IMPL_OFFSET>,
+            SetExtent: SetExtent::<Impl, IMPL_OFFSET>,
+            Background: Background::<Impl, IMPL_OFFSET>,
+            SetBackground: SetBackground::<Impl, IMPL_OFFSET>,
+            WritingMode: WritingMode::<Impl, IMPL_OFFSET>,
+            SetWritingMode: SetWritingMode::<Impl, IMPL_OFFSET>,
+            DisplayAlignment: DisplayAlignment::<Impl, IMPL_OFFSET>,
+            SetDisplayAlignment: SetDisplayAlignment::<Impl, IMPL_OFFSET>,
+            LineHeight: LineHeight::<Impl, IMPL_OFFSET>,
+            SetLineHeight: SetLineHeight::<Impl, IMPL_OFFSET>,
+            IsOverflowClipped: IsOverflowClipped::<Impl, IMPL_OFFSET>,
+            SetIsOverflowClipped: SetIsOverflowClipped::<Impl, IMPL_OFFSET>,
+            Padding: Padding::<Impl, IMPL_OFFSET>,
+            SetPadding: SetPadding::<Impl, IMPL_OFFSET>,
+            TextWrapping: TextWrapping::<Impl, IMPL_OFFSET>,
+            SetTextWrapping: SetTextWrapping::<Impl, IMPL_OFFSET>,
+            ZIndex: ZIndex::<Impl, IMPL_OFFSET>,
+            SetZIndex: SetZIndex::<Impl, IMPL_OFFSET>,
+            ScrollMode: ScrollMode::<Impl, IMPL_OFFSET>,
+            SetScrollMode: SetScrollMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedTextRegion as ::windows::core::Interface>::IID
@@ -5582,22 +5788,17 @@ impl ITimedTextRubyVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReserve(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITimedTextRuby>,
-            ::windows::core::GetTrustLevel,
-            Text::<Impl, IMPL_OFFSET>,
-            SetText::<Impl, IMPL_OFFSET>,
-            Position::<Impl, IMPL_OFFSET>,
-            SetPosition::<Impl, IMPL_OFFSET>,
-            Align::<Impl, IMPL_OFFSET>,
-            SetAlign::<Impl, IMPL_OFFSET>,
-            Reserve::<Impl, IMPL_OFFSET>,
-            SetReserve::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedTextRuby, BASE_OFFSET>(),
+            Text: Text::<Impl, IMPL_OFFSET>,
+            SetText: SetText::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            SetPosition: SetPosition::<Impl, IMPL_OFFSET>,
+            Align: Align::<Impl, IMPL_OFFSET>,
+            SetAlign: SetAlign::<Impl, IMPL_OFFSET>,
+            Reserve: Reserve::<Impl, IMPL_OFFSET>,
+            SetReserve: SetReserve::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedTextRuby as ::windows::core::Interface>::IID
@@ -5630,7 +5831,11 @@ impl ITimedTextSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveResolved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedTextSource>, ::windows::core::GetTrustLevel, Resolved::<Impl, IMPL_OFFSET>, RemoveResolved::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedTextSource, BASE_OFFSET>(),
+            Resolved: Resolved::<Impl, IMPL_OFFSET>,
+            RemoveResolved: RemoveResolved::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedTextSource as ::windows::core::Interface>::IID
@@ -5670,7 +5875,11 @@ impl ITimedTextSourceResolveResultEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedTextSourceResolveResultEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, IMPL_OFFSET>, Tracks::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedTextSourceResolveResultEventArgs, BASE_OFFSET>(),
+            Error: Error::<Impl, IMPL_OFFSET>,
+            Tracks: Tracks::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedTextSourceResolveResultEventArgs as ::windows::core::Interface>::IID
@@ -5734,7 +5943,13 @@ impl ITimedTextSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedTextSourceStatics>, ::windows::core::GetTrustLevel, CreateFromStream::<Impl, IMPL_OFFSET>, CreateFromUri::<Impl, IMPL_OFFSET>, CreateFromStreamWithLanguage::<Impl, IMPL_OFFSET>, CreateFromUriWithLanguage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedTextSourceStatics, BASE_OFFSET>(),
+            CreateFromStream: CreateFromStream::<Impl, IMPL_OFFSET>,
+            CreateFromUri: CreateFromUri::<Impl, IMPL_OFFSET>,
+            CreateFromStreamWithLanguage: CreateFromStreamWithLanguage::<Impl, IMPL_OFFSET>,
+            CreateFromUriWithLanguage: CreateFromUriWithLanguage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedTextSourceStatics as ::windows::core::Interface>::IID
@@ -5806,18 +6021,13 @@ impl ITimedTextSourceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITimedTextSourceStatics2>,
-            ::windows::core::GetTrustLevel,
-            CreateFromStreamWithIndex::<Impl, IMPL_OFFSET>,
-            CreateFromUriWithIndex::<Impl, IMPL_OFFSET>,
-            CreateFromStreamWithIndexAndLanguage::<Impl, IMPL_OFFSET>,
-            CreateFromUriWithIndexAndLanguage::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedTextSourceStatics2, BASE_OFFSET>(),
+            CreateFromStreamWithIndex: CreateFromStreamWithIndex::<Impl, IMPL_OFFSET>,
+            CreateFromUriWithIndex: CreateFromUriWithIndex::<Impl, IMPL_OFFSET>,
+            CreateFromStreamWithIndexAndLanguage: CreateFromStreamWithIndexAndLanguage::<Impl, IMPL_OFFSET>,
+            CreateFromUriWithIndexAndLanguage: CreateFromUriWithIndexAndLanguage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedTextSourceStatics2 as ::windows::core::Interface>::IID
@@ -6037,38 +6247,33 @@ impl ITimedTextStyleVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOutlineRadius(&*(&value as *const <TimedTextDouble as ::windows::core::Abi>::Abi as *const <TimedTextDouble as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITimedTextStyle>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            SetName::<Impl, IMPL_OFFSET>,
-            FontFamily::<Impl, IMPL_OFFSET>,
-            SetFontFamily::<Impl, IMPL_OFFSET>,
-            FontSize::<Impl, IMPL_OFFSET>,
-            SetFontSize::<Impl, IMPL_OFFSET>,
-            FontWeight::<Impl, IMPL_OFFSET>,
-            SetFontWeight::<Impl, IMPL_OFFSET>,
-            Foreground::<Impl, IMPL_OFFSET>,
-            SetForeground::<Impl, IMPL_OFFSET>,
-            Background::<Impl, IMPL_OFFSET>,
-            SetBackground::<Impl, IMPL_OFFSET>,
-            IsBackgroundAlwaysShown::<Impl, IMPL_OFFSET>,
-            SetIsBackgroundAlwaysShown::<Impl, IMPL_OFFSET>,
-            FlowDirection::<Impl, IMPL_OFFSET>,
-            SetFlowDirection::<Impl, IMPL_OFFSET>,
-            LineAlignment::<Impl, IMPL_OFFSET>,
-            SetLineAlignment::<Impl, IMPL_OFFSET>,
-            OutlineColor::<Impl, IMPL_OFFSET>,
-            SetOutlineColor::<Impl, IMPL_OFFSET>,
-            OutlineThickness::<Impl, IMPL_OFFSET>,
-            SetOutlineThickness::<Impl, IMPL_OFFSET>,
-            OutlineRadius::<Impl, IMPL_OFFSET>,
-            SetOutlineRadius::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedTextStyle, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            FontFamily: FontFamily::<Impl, IMPL_OFFSET>,
+            SetFontFamily: SetFontFamily::<Impl, IMPL_OFFSET>,
+            FontSize: FontSize::<Impl, IMPL_OFFSET>,
+            SetFontSize: SetFontSize::<Impl, IMPL_OFFSET>,
+            FontWeight: FontWeight::<Impl, IMPL_OFFSET>,
+            SetFontWeight: SetFontWeight::<Impl, IMPL_OFFSET>,
+            Foreground: Foreground::<Impl, IMPL_OFFSET>,
+            SetForeground: SetForeground::<Impl, IMPL_OFFSET>,
+            Background: Background::<Impl, IMPL_OFFSET>,
+            SetBackground: SetBackground::<Impl, IMPL_OFFSET>,
+            IsBackgroundAlwaysShown: IsBackgroundAlwaysShown::<Impl, IMPL_OFFSET>,
+            SetIsBackgroundAlwaysShown: SetIsBackgroundAlwaysShown::<Impl, IMPL_OFFSET>,
+            FlowDirection: FlowDirection::<Impl, IMPL_OFFSET>,
+            SetFlowDirection: SetFlowDirection::<Impl, IMPL_OFFSET>,
+            LineAlignment: LineAlignment::<Impl, IMPL_OFFSET>,
+            SetLineAlignment: SetLineAlignment::<Impl, IMPL_OFFSET>,
+            OutlineColor: OutlineColor::<Impl, IMPL_OFFSET>,
+            SetOutlineColor: SetOutlineColor::<Impl, IMPL_OFFSET>,
+            OutlineThickness: OutlineThickness::<Impl, IMPL_OFFSET>,
+            SetOutlineThickness: SetOutlineThickness::<Impl, IMPL_OFFSET>,
+            OutlineRadius: OutlineRadius::<Impl, IMPL_OFFSET>,
+            SetOutlineRadius: SetOutlineRadius::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedTextStyle as ::windows::core::Interface>::IID
@@ -6152,22 +6357,17 @@ impl ITimedTextStyle2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsOverlineEnabled(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITimedTextStyle2>,
-            ::windows::core::GetTrustLevel,
-            FontStyle::<Impl, IMPL_OFFSET>,
-            SetFontStyle::<Impl, IMPL_OFFSET>,
-            IsUnderlineEnabled::<Impl, IMPL_OFFSET>,
-            SetIsUnderlineEnabled::<Impl, IMPL_OFFSET>,
-            IsLineThroughEnabled::<Impl, IMPL_OFFSET>,
-            SetIsLineThroughEnabled::<Impl, IMPL_OFFSET>,
-            IsOverlineEnabled::<Impl, IMPL_OFFSET>,
-            SetIsOverlineEnabled::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedTextStyle2, BASE_OFFSET>(),
+            FontStyle: FontStyle::<Impl, IMPL_OFFSET>,
+            SetFontStyle: SetFontStyle::<Impl, IMPL_OFFSET>,
+            IsUnderlineEnabled: IsUnderlineEnabled::<Impl, IMPL_OFFSET>,
+            SetIsUnderlineEnabled: SetIsUnderlineEnabled::<Impl, IMPL_OFFSET>,
+            IsLineThroughEnabled: IsLineThroughEnabled::<Impl, IMPL_OFFSET>,
+            SetIsLineThroughEnabled: SetIsLineThroughEnabled::<Impl, IMPL_OFFSET>,
+            IsOverlineEnabled: IsOverlineEnabled::<Impl, IMPL_OFFSET>,
+            SetIsOverlineEnabled: SetIsOverlineEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedTextStyle2 as ::windows::core::Interface>::IID
@@ -6241,20 +6441,15 @@ impl ITimedTextStyle3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFontAngleInDegrees(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITimedTextStyle3>,
-            ::windows::core::GetTrustLevel,
-            Ruby::<Impl, IMPL_OFFSET>,
-            Bouten::<Impl, IMPL_OFFSET>,
-            IsTextCombined::<Impl, IMPL_OFFSET>,
-            SetIsTextCombined::<Impl, IMPL_OFFSET>,
-            FontAngleInDegrees::<Impl, IMPL_OFFSET>,
-            SetFontAngleInDegrees::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedTextStyle3, BASE_OFFSET>(),
+            Ruby: Ruby::<Impl, IMPL_OFFSET>,
+            Bouten: Bouten::<Impl, IMPL_OFFSET>,
+            IsTextCombined: IsTextCombined::<Impl, IMPL_OFFSET>,
+            SetIsTextCombined: SetIsTextCombined::<Impl, IMPL_OFFSET>,
+            FontAngleInDegrees: FontAngleInDegrees::<Impl, IMPL_OFFSET>,
+            SetFontAngleInDegrees: SetFontAngleInDegrees::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedTextStyle3 as ::windows::core::Interface>::IID
@@ -6321,20 +6516,15 @@ impl ITimedTextSubformatVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSubformatStyle(&*(&value as *const <TimedTextStyle as ::windows::core::Abi>::Abi as *const <TimedTextStyle as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITimedTextSubformat>,
-            ::windows::core::GetTrustLevel,
-            StartIndex::<Impl, IMPL_OFFSET>,
-            SetStartIndex::<Impl, IMPL_OFFSET>,
-            Length::<Impl, IMPL_OFFSET>,
-            SetLength::<Impl, IMPL_OFFSET>,
-            SubformatStyle::<Impl, IMPL_OFFSET>,
-            SetSubformatStyle::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedTextSubformat, BASE_OFFSET>(),
+            StartIndex: StartIndex::<Impl, IMPL_OFFSET>,
+            SetStartIndex: SetStartIndex::<Impl, IMPL_OFFSET>,
+            Length: Length::<Impl, IMPL_OFFSET>,
+            SetLength: SetLength::<Impl, IMPL_OFFSET>,
+            SubformatStyle: SubformatStyle::<Impl, IMPL_OFFSET>,
+            SetSubformatStyle: SetSubformatStyle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedTextSubformat as ::windows::core::Interface>::IID
@@ -6396,19 +6586,14 @@ impl IVideoStabilizationEffectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVideoStabilizationEffect>,
-            ::windows::core::GetTrustLevel,
-            SetEnabled::<Impl, IMPL_OFFSET>,
-            Enabled::<Impl, IMPL_OFFSET>,
-            EnabledChanged::<Impl, IMPL_OFFSET>,
-            RemoveEnabledChanged::<Impl, IMPL_OFFSET>,
-            GetRecommendedStreamConfiguration::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoStabilizationEffect, BASE_OFFSET>(),
+            SetEnabled: SetEnabled::<Impl, IMPL_OFFSET>,
+            Enabled: Enabled::<Impl, IMPL_OFFSET>,
+            EnabledChanged: EnabledChanged::<Impl, IMPL_OFFSET>,
+            RemoveEnabledChanged: RemoveEnabledChanged::<Impl, IMPL_OFFSET>,
+            GetRecommendedStreamConfiguration: GetRecommendedStreamConfiguration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoStabilizationEffect as ::windows::core::Interface>::IID
@@ -6436,7 +6621,10 @@ impl IVideoStabilizationEffectEnabledChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoStabilizationEffectEnabledChangedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoStabilizationEffectEnabledChangedEventArgs, BASE_OFFSET>(),
+            Reason: Reason::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoStabilizationEffectEnabledChangedEventArgs as ::windows::core::Interface>::IID
@@ -6464,7 +6652,10 @@ impl IVideoStreamDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoStreamDescriptor>, ::windows::core::GetTrustLevel, EncodingProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoStreamDescriptor, BASE_OFFSET>(),
+            EncodingProperties: EncodingProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoStreamDescriptor as ::windows::core::Interface>::IID
@@ -6492,7 +6683,7 @@ impl IVideoStreamDescriptor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoStreamDescriptor2>, ::windows::core::GetTrustLevel, Copy::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoStreamDescriptor2, BASE_OFFSET>(), Copy: Copy::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoStreamDescriptor2 as ::windows::core::Interface>::IID
@@ -6520,7 +6711,7 @@ impl IVideoStreamDescriptorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoStreamDescriptorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoStreamDescriptorFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoStreamDescriptorFactory as ::windows::core::Interface>::IID
@@ -6601,7 +6792,15 @@ impl IVideoTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoTrack>, ::windows::core::GetTrustLevel, OpenFailed::<Impl, IMPL_OFFSET>, RemoveOpenFailed::<Impl, IMPL_OFFSET>, GetEncodingProperties::<Impl, IMPL_OFFSET>, PlaybackItem::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, SupportInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoTrack, BASE_OFFSET>(),
+            OpenFailed: OpenFailed::<Impl, IMPL_OFFSET>,
+            RemoveOpenFailed: RemoveOpenFailed::<Impl, IMPL_OFFSET>,
+            GetEncodingProperties: GetEncodingProperties::<Impl, IMPL_OFFSET>,
+            PlaybackItem: PlaybackItem::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SupportInfo: SupportInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoTrack as ::windows::core::Interface>::IID
@@ -6629,7 +6828,10 @@ impl IVideoTrackOpenFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoTrackOpenFailedEventArgs>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoTrackOpenFailedEventArgs, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoTrackOpenFailedEventArgs as ::windows::core::Interface>::IID
@@ -6669,7 +6871,11 @@ impl IVideoTrackSupportInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoTrackSupportInfo>, ::windows::core::GetTrustLevel, DecoderStatus::<Impl, IMPL_OFFSET>, MediaSourceStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoTrackSupportInfo, BASE_OFFSET>(),
+            DecoderStatus: DecoderStatus::<Impl, IMPL_OFFSET>,
+            MediaSourceStatus: MediaSourceStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoTrackSupportInfo as ::windows::core::Interface>::IID

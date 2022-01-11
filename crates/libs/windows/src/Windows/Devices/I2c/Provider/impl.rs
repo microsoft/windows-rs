@@ -17,7 +17,10 @@ impl II2cControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cControllerProvider>, ::windows::core::GetTrustLevel, GetDeviceProvider::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, II2cControllerProvider, BASE_OFFSET>(),
+            GetDeviceProvider: GetDeviceProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<II2cControllerProvider as ::windows::core::Interface>::IID
@@ -96,21 +99,16 @@ impl II2cDeviceProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<II2cDeviceProvider>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            Write::<Impl, IMPL_OFFSET>,
-            WritePartial::<Impl, IMPL_OFFSET>,
-            Read::<Impl, IMPL_OFFSET>,
-            ReadPartial::<Impl, IMPL_OFFSET>,
-            WriteRead::<Impl, IMPL_OFFSET>,
-            WriteReadPartial::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, II2cDeviceProvider, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            Write: Write::<Impl, IMPL_OFFSET>,
+            WritePartial: WritePartial::<Impl, IMPL_OFFSET>,
+            Read: Read::<Impl, IMPL_OFFSET>,
+            ReadPartial: ReadPartial::<Impl, IMPL_OFFSET>,
+            WriteRead: WriteRead::<Impl, IMPL_OFFSET>,
+            WriteReadPartial: WriteReadPartial::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<II2cDeviceProvider as ::windows::core::Interface>::IID
@@ -138,7 +136,10 @@ impl II2cProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cProvider>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, II2cProvider, BASE_OFFSET>(),
+            GetControllersAsync: GetControllersAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<II2cProvider as ::windows::core::Interface>::IID
@@ -205,20 +206,15 @@ impl IProviderI2cConnectionSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSharingMode(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProviderI2cConnectionSettings>,
-            ::windows::core::GetTrustLevel,
-            SlaveAddress::<Impl, IMPL_OFFSET>,
-            SetSlaveAddress::<Impl, IMPL_OFFSET>,
-            BusSpeed::<Impl, IMPL_OFFSET>,
-            SetBusSpeed::<Impl, IMPL_OFFSET>,
-            SharingMode::<Impl, IMPL_OFFSET>,
-            SetSharingMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProviderI2cConnectionSettings, BASE_OFFSET>(),
+            SlaveAddress: SlaveAddress::<Impl, IMPL_OFFSET>,
+            SetSlaveAddress: SetSlaveAddress::<Impl, IMPL_OFFSET>,
+            BusSpeed: BusSpeed::<Impl, IMPL_OFFSET>,
+            SetBusSpeed: SetBusSpeed::<Impl, IMPL_OFFSET>,
+            SharingMode: SharingMode::<Impl, IMPL_OFFSET>,
+            SetSharingMode: SetSharingMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProviderI2cConnectionSettings as ::windows::core::Interface>::IID

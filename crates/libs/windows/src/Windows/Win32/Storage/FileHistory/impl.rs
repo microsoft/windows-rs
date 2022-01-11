@@ -74,25 +74,23 @@ impl IFhConfigMgrVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            LoadConfiguration::<Impl, IMPL_OFFSET>,
-            CreateDefaultConfiguration::<Impl, IMPL_OFFSET>,
-            SaveConfiguration::<Impl, IMPL_OFFSET>,
-            AddRemoveExcludeRule::<Impl, IMPL_OFFSET>,
-            GetIncludeExcludeRules::<Impl, IMPL_OFFSET>,
-            GetLocalPolicy::<Impl, IMPL_OFFSET>,
-            SetLocalPolicy::<Impl, IMPL_OFFSET>,
-            GetBackupStatus::<Impl, IMPL_OFFSET>,
-            SetBackupStatus::<Impl, IMPL_OFFSET>,
-            GetDefaultTarget::<Impl, IMPL_OFFSET>,
-            ValidateTarget::<Impl, IMPL_OFFSET>,
-            ProvisionAndSetNewTarget::<Impl, IMPL_OFFSET>,
-            ChangeDefaultTargetRecommendation::<Impl, IMPL_OFFSET>,
-            QueryProtectionStatus::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            LoadConfiguration: LoadConfiguration::<Impl, IMPL_OFFSET>,
+            CreateDefaultConfiguration: CreateDefaultConfiguration::<Impl, IMPL_OFFSET>,
+            SaveConfiguration: SaveConfiguration::<Impl, IMPL_OFFSET>,
+            AddRemoveExcludeRule: AddRemoveExcludeRule::<Impl, IMPL_OFFSET>,
+            GetIncludeExcludeRules: GetIncludeExcludeRules::<Impl, IMPL_OFFSET>,
+            GetLocalPolicy: GetLocalPolicy::<Impl, IMPL_OFFSET>,
+            SetLocalPolicy: SetLocalPolicy::<Impl, IMPL_OFFSET>,
+            GetBackupStatus: GetBackupStatus::<Impl, IMPL_OFFSET>,
+            SetBackupStatus: SetBackupStatus::<Impl, IMPL_OFFSET>,
+            GetDefaultTarget: GetDefaultTarget::<Impl, IMPL_OFFSET>,
+            ValidateTarget: ValidateTarget::<Impl, IMPL_OFFSET>,
+            ProvisionAndSetNewTarget: ProvisionAndSetNewTarget::<Impl, IMPL_OFFSET>,
+            ChangeDefaultTargetRecommendation: ChangeDefaultTargetRecommendation::<Impl, IMPL_OFFSET>,
+            QueryProtectionStatus: QueryProtectionStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFhConfigMgr as ::windows::core::Interface>::IID
@@ -129,7 +127,14 @@ impl IFhReassociationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ValidateTarget::<Impl, IMPL_OFFSET>, ScanTargetForConfigurations::<Impl, IMPL_OFFSET>, GetConfigurationDetails::<Impl, IMPL_OFFSET>, SelectConfiguration::<Impl, IMPL_OFFSET>, PerformReassociation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ValidateTarget: ValidateTarget::<Impl, IMPL_OFFSET>,
+            ScanTargetForConfigurations: ScanTargetForConfigurations::<Impl, IMPL_OFFSET>,
+            GetConfigurationDetails: GetConfigurationDetails::<Impl, IMPL_OFFSET>,
+            SelectConfiguration: SelectConfiguration::<Impl, IMPL_OFFSET>,
+            PerformReassociation: PerformReassociation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFhReassociation as ::windows::core::Interface>::IID
@@ -151,7 +156,11 @@ impl IFhScopeIteratorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, MoveToNextItem::<Impl, IMPL_OFFSET>, GetItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            MoveToNextItem: MoveToNextItem::<Impl, IMPL_OFFSET>,
+            GetItem: GetItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFhScopeIterator as ::windows::core::Interface>::IID
@@ -173,7 +182,11 @@ impl IFhTargetVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetStringProperty::<Impl, IMPL_OFFSET>, GetNumericalProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetStringProperty: GetStringProperty::<Impl, IMPL_OFFSET>,
+            GetNumericalProperty: GetNumericalProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFhTarget as ::windows::core::Interface>::IID

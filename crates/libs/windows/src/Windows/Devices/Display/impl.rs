@@ -249,34 +249,29 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDisplayMonitor>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            ConnectionKind::<Impl, IMPL_OFFSET>,
-            PhysicalConnector::<Impl, IMPL_OFFSET>,
-            DisplayAdapterDeviceId::<Impl, IMPL_OFFSET>,
-            DisplayAdapterId::<Impl, IMPL_OFFSET>,
-            DisplayAdapterTargetId::<Impl, IMPL_OFFSET>,
-            UsageKind::<Impl, IMPL_OFFSET>,
-            NativeResolutionInRawPixels::<Impl, IMPL_OFFSET>,
-            PhysicalSizeInInches::<Impl, IMPL_OFFSET>,
-            RawDpiX::<Impl, IMPL_OFFSET>,
-            RawDpiY::<Impl, IMPL_OFFSET>,
-            RedPrimary::<Impl, IMPL_OFFSET>,
-            GreenPrimary::<Impl, IMPL_OFFSET>,
-            BluePrimary::<Impl, IMPL_OFFSET>,
-            WhitePoint::<Impl, IMPL_OFFSET>,
-            MaxLuminanceInNits::<Impl, IMPL_OFFSET>,
-            MinLuminanceInNits::<Impl, IMPL_OFFSET>,
-            MaxAverageFullFrameLuminanceInNits::<Impl, IMPL_OFFSET>,
-            GetDescriptor::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayMonitor, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            ConnectionKind: ConnectionKind::<Impl, IMPL_OFFSET>,
+            PhysicalConnector: PhysicalConnector::<Impl, IMPL_OFFSET>,
+            DisplayAdapterDeviceId: DisplayAdapterDeviceId::<Impl, IMPL_OFFSET>,
+            DisplayAdapterId: DisplayAdapterId::<Impl, IMPL_OFFSET>,
+            DisplayAdapterTargetId: DisplayAdapterTargetId::<Impl, IMPL_OFFSET>,
+            UsageKind: UsageKind::<Impl, IMPL_OFFSET>,
+            NativeResolutionInRawPixels: NativeResolutionInRawPixels::<Impl, IMPL_OFFSET>,
+            PhysicalSizeInInches: PhysicalSizeInInches::<Impl, IMPL_OFFSET>,
+            RawDpiX: RawDpiX::<Impl, IMPL_OFFSET>,
+            RawDpiY: RawDpiY::<Impl, IMPL_OFFSET>,
+            RedPrimary: RedPrimary::<Impl, IMPL_OFFSET>,
+            GreenPrimary: GreenPrimary::<Impl, IMPL_OFFSET>,
+            BluePrimary: BluePrimary::<Impl, IMPL_OFFSET>,
+            WhitePoint: WhitePoint::<Impl, IMPL_OFFSET>,
+            MaxLuminanceInNits: MaxLuminanceInNits::<Impl, IMPL_OFFSET>,
+            MinLuminanceInNits: MinLuminanceInNits::<Impl, IMPL_OFFSET>,
+            MaxAverageFullFrameLuminanceInNits: MaxAverageFullFrameLuminanceInNits::<Impl, IMPL_OFFSET>,
+            GetDescriptor: GetDescriptor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayMonitor as ::windows::core::Interface>::IID
@@ -304,7 +299,10 @@ impl IDisplayMonitor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayMonitor2>, ::windows::core::GetTrustLevel, IsDolbyVisionSupportedInHdrMode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayMonitor2, BASE_OFFSET>(),
+            IsDolbyVisionSupportedInHdrMode: IsDolbyVisionSupportedInHdrMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayMonitor2 as ::windows::core::Interface>::IID
@@ -356,7 +354,12 @@ impl IDisplayMonitorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayMonitorStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, FromInterfaceIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayMonitorStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            FromInterfaceIdAsync: FromInterfaceIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayMonitorStatics as ::windows::core::Interface>::IID

@@ -42,7 +42,13 @@ impl ICoreDragDropManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAreConcurrentOperationsEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragDropManager>, ::windows::core::GetTrustLevel, TargetRequested::<Impl, IMPL_OFFSET>, RemoveTargetRequested::<Impl, IMPL_OFFSET>, AreConcurrentOperationsEnabled::<Impl, IMPL_OFFSET>, SetAreConcurrentOperationsEnabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreDragDropManager, BASE_OFFSET>(),
+            TargetRequested: TargetRequested::<Impl, IMPL_OFFSET>,
+            RemoveTargetRequested: RemoveTargetRequested::<Impl, IMPL_OFFSET>,
+            AreConcurrentOperationsEnabled: AreConcurrentOperationsEnabled::<Impl, IMPL_OFFSET>,
+            SetAreConcurrentOperationsEnabled: SetAreConcurrentOperationsEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreDragDropManager as ::windows::core::Interface>::IID
@@ -70,7 +76,10 @@ impl ICoreDragDropManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragDropManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreDragDropManagerStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreDragDropManagerStatics as ::windows::core::Interface>::IID
@@ -122,7 +131,12 @@ impl ICoreDragInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragInfo>, ::windows::core::GetTrustLevel, Data::<Impl, IMPL_OFFSET>, Modifiers::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreDragInfo, BASE_OFFSET>(),
+            Data: Data::<Impl, IMPL_OFFSET>,
+            Modifiers: Modifiers::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreDragInfo as ::windows::core::Interface>::IID
@@ -150,7 +164,10 @@ impl ICoreDragInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragInfo2>, ::windows::core::GetTrustLevel, AllowedOperations::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreDragInfo2, BASE_OFFSET>(),
+            AllowedOperations: AllowedOperations::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreDragInfo2 as ::windows::core::Interface>::IID
@@ -224,21 +241,16 @@ impl ICoreDragOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreDragOperation>,
-            ::windows::core::GetTrustLevel,
-            Data::<Impl, IMPL_OFFSET>,
-            SetPointerId::<Impl, IMPL_OFFSET>,
-            SetDragUIContentFromSoftwareBitmap::<Impl, IMPL_OFFSET>,
-            SetDragUIContentFromSoftwareBitmapWithAnchorPoint::<Impl, IMPL_OFFSET>,
-            DragUIContentMode::<Impl, IMPL_OFFSET>,
-            SetDragUIContentMode::<Impl, IMPL_OFFSET>,
-            StartAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreDragOperation, BASE_OFFSET>(),
+            Data: Data::<Impl, IMPL_OFFSET>,
+            SetPointerId: SetPointerId::<Impl, IMPL_OFFSET>,
+            SetDragUIContentFromSoftwareBitmap: SetDragUIContentFromSoftwareBitmap::<Impl, IMPL_OFFSET>,
+            SetDragUIContentFromSoftwareBitmapWithAnchorPoint: SetDragUIContentFromSoftwareBitmapWithAnchorPoint::<Impl, IMPL_OFFSET>,
+            DragUIContentMode: DragUIContentMode::<Impl, IMPL_OFFSET>,
+            SetDragUIContentMode: SetDragUIContentMode::<Impl, IMPL_OFFSET>,
+            StartAsync: StartAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreDragOperation as ::windows::core::Interface>::IID
@@ -271,7 +283,11 @@ impl ICoreDragOperation2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowedOperations(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragOperation2>, ::windows::core::GetTrustLevel, AllowedOperations::<Impl, IMPL_OFFSET>, SetAllowedOperations::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreDragOperation2, BASE_OFFSET>(),
+            AllowedOperations: AllowedOperations::<Impl, IMPL_OFFSET>,
+            SetAllowedOperations: SetAllowedOperations::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreDragOperation2 as ::windows::core::Interface>::IID
@@ -372,25 +388,20 @@ impl ICoreDragUIOverrideVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreDragUIOverride>,
-            ::windows::core::GetTrustLevel,
-            SetContentFromSoftwareBitmap::<Impl, IMPL_OFFSET>,
-            SetContentFromSoftwareBitmapWithAnchorPoint::<Impl, IMPL_OFFSET>,
-            IsContentVisible::<Impl, IMPL_OFFSET>,
-            SetIsContentVisible::<Impl, IMPL_OFFSET>,
-            Caption::<Impl, IMPL_OFFSET>,
-            SetCaption::<Impl, IMPL_OFFSET>,
-            IsCaptionVisible::<Impl, IMPL_OFFSET>,
-            SetIsCaptionVisible::<Impl, IMPL_OFFSET>,
-            IsGlyphVisible::<Impl, IMPL_OFFSET>,
-            SetIsGlyphVisible::<Impl, IMPL_OFFSET>,
-            Clear::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreDragUIOverride, BASE_OFFSET>(),
+            SetContentFromSoftwareBitmap: SetContentFromSoftwareBitmap::<Impl, IMPL_OFFSET>,
+            SetContentFromSoftwareBitmapWithAnchorPoint: SetContentFromSoftwareBitmapWithAnchorPoint::<Impl, IMPL_OFFSET>,
+            IsContentVisible: IsContentVisible::<Impl, IMPL_OFFSET>,
+            SetIsContentVisible: SetIsContentVisible::<Impl, IMPL_OFFSET>,
+            Caption: Caption::<Impl, IMPL_OFFSET>,
+            SetCaption: SetCaption::<Impl, IMPL_OFFSET>,
+            IsCaptionVisible: IsCaptionVisible::<Impl, IMPL_OFFSET>,
+            SetIsCaptionVisible: SetIsCaptionVisible::<Impl, IMPL_OFFSET>,
+            IsGlyphVisible: IsGlyphVisible::<Impl, IMPL_OFFSET>,
+            SetIsGlyphVisible: SetIsGlyphVisible::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreDragUIOverride as ::windows::core::Interface>::IID
@@ -454,7 +465,13 @@ impl ICoreDropOperationTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDropOperationTarget>, ::windows::core::GetTrustLevel, EnterAsync::<Impl, IMPL_OFFSET>, OverAsync::<Impl, IMPL_OFFSET>, LeaveAsync::<Impl, IMPL_OFFSET>, DropAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreDropOperationTarget, BASE_OFFSET>(),
+            EnterAsync: EnterAsync::<Impl, IMPL_OFFSET>,
+            OverAsync: OverAsync::<Impl, IMPL_OFFSET>,
+            LeaveAsync: LeaveAsync::<Impl, IMPL_OFFSET>,
+            DropAsync: DropAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreDropOperationTarget as ::windows::core::Interface>::IID
@@ -475,7 +492,10 @@ impl ICoreDropOperationTargetRequestedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTarget(&*(&target as *const <ICoreDropOperationTarget as ::windows::core::Abi>::Abi as *const <ICoreDropOperationTarget as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDropOperationTargetRequestedEventArgs>, ::windows::core::GetTrustLevel, SetTarget::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreDropOperationTargetRequestedEventArgs, BASE_OFFSET>(),
+            SetTarget: SetTarget::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreDropOperationTargetRequestedEventArgs as ::windows::core::Interface>::IID

@@ -44,7 +44,12 @@ impl IPdfDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPdfDocument>, ::windows::core::GetTrustLevel, GetPage::<Impl, IMPL_OFFSET>, PageCount::<Impl, IMPL_OFFSET>, IsPasswordProtected::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPdfDocument, BASE_OFFSET>(),
+            GetPage: GetPage::<Impl, IMPL_OFFSET>,
+            PageCount: PageCount::<Impl, IMPL_OFFSET>,
+            IsPasswordProtected: IsPasswordProtected::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPdfDocument as ::windows::core::Interface>::IID
@@ -108,7 +113,13 @@ impl IPdfDocumentStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPdfDocumentStatics>, ::windows::core::GetTrustLevel, LoadFromFileAsync::<Impl, IMPL_OFFSET>, LoadFromFileWithPasswordAsync::<Impl, IMPL_OFFSET>, LoadFromStreamAsync::<Impl, IMPL_OFFSET>, LoadFromStreamWithPasswordAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPdfDocumentStatics, BASE_OFFSET>(),
+            LoadFromFileAsync: LoadFromFileAsync::<Impl, IMPL_OFFSET>,
+            LoadFromFileWithPasswordAsync: LoadFromFileWithPasswordAsync::<Impl, IMPL_OFFSET>,
+            LoadFromStreamAsync: LoadFromStreamAsync::<Impl, IMPL_OFFSET>,
+            LoadFromStreamWithPasswordAsync: LoadFromStreamWithPasswordAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPdfDocumentStatics as ::windows::core::Interface>::IID
@@ -220,22 +231,17 @@ impl IPdfPageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPdfPage>,
-            ::windows::core::GetTrustLevel,
-            RenderToStreamAsync::<Impl, IMPL_OFFSET>,
-            RenderWithOptionsToStreamAsync::<Impl, IMPL_OFFSET>,
-            PreparePageAsync::<Impl, IMPL_OFFSET>,
-            Index::<Impl, IMPL_OFFSET>,
-            Size::<Impl, IMPL_OFFSET>,
-            Dimensions::<Impl, IMPL_OFFSET>,
-            Rotation::<Impl, IMPL_OFFSET>,
-            PreferredZoom::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPdfPage, BASE_OFFSET>(),
+            RenderToStreamAsync: RenderToStreamAsync::<Impl, IMPL_OFFSET>,
+            RenderWithOptionsToStreamAsync: RenderWithOptionsToStreamAsync::<Impl, IMPL_OFFSET>,
+            PreparePageAsync: PreparePageAsync::<Impl, IMPL_OFFSET>,
+            Index: Index::<Impl, IMPL_OFFSET>,
+            Size: Size::<Impl, IMPL_OFFSET>,
+            Dimensions: Dimensions::<Impl, IMPL_OFFSET>,
+            Rotation: Rotation::<Impl, IMPL_OFFSET>,
+            PreferredZoom: PreferredZoom::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPdfPage as ::windows::core::Interface>::IID
@@ -311,7 +317,14 @@ impl IPdfPageDimensionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPdfPageDimensions>, ::windows::core::GetTrustLevel, MediaBox::<Impl, IMPL_OFFSET>, CropBox::<Impl, IMPL_OFFSET>, BleedBox::<Impl, IMPL_OFFSET>, TrimBox::<Impl, IMPL_OFFSET>, ArtBox::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPdfPageDimensions, BASE_OFFSET>(),
+            MediaBox: MediaBox::<Impl, IMPL_OFFSET>,
+            CropBox: CropBox::<Impl, IMPL_OFFSET>,
+            BleedBox: BleedBox::<Impl, IMPL_OFFSET>,
+            TrimBox: TrimBox::<Impl, IMPL_OFFSET>,
+            ArtBox: ArtBox::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPdfPageDimensions as ::windows::core::Interface>::IID
@@ -429,26 +442,21 @@ impl IPdfPageRenderOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBitmapEncoderId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPdfPageRenderOptions>,
-            ::windows::core::GetTrustLevel,
-            SourceRect::<Impl, IMPL_OFFSET>,
-            SetSourceRect::<Impl, IMPL_OFFSET>,
-            DestinationWidth::<Impl, IMPL_OFFSET>,
-            SetDestinationWidth::<Impl, IMPL_OFFSET>,
-            DestinationHeight::<Impl, IMPL_OFFSET>,
-            SetDestinationHeight::<Impl, IMPL_OFFSET>,
-            BackgroundColor::<Impl, IMPL_OFFSET>,
-            SetBackgroundColor::<Impl, IMPL_OFFSET>,
-            IsIgnoringHighContrast::<Impl, IMPL_OFFSET>,
-            SetIsIgnoringHighContrast::<Impl, IMPL_OFFSET>,
-            BitmapEncoderId::<Impl, IMPL_OFFSET>,
-            SetBitmapEncoderId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPdfPageRenderOptions, BASE_OFFSET>(),
+            SourceRect: SourceRect::<Impl, IMPL_OFFSET>,
+            SetSourceRect: SetSourceRect::<Impl, IMPL_OFFSET>,
+            DestinationWidth: DestinationWidth::<Impl, IMPL_OFFSET>,
+            SetDestinationWidth: SetDestinationWidth::<Impl, IMPL_OFFSET>,
+            DestinationHeight: DestinationHeight::<Impl, IMPL_OFFSET>,
+            SetDestinationHeight: SetDestinationHeight::<Impl, IMPL_OFFSET>,
+            BackgroundColor: BackgroundColor::<Impl, IMPL_OFFSET>,
+            SetBackgroundColor: SetBackgroundColor::<Impl, IMPL_OFFSET>,
+            IsIgnoringHighContrast: IsIgnoringHighContrast::<Impl, IMPL_OFFSET>,
+            SetIsIgnoringHighContrast: SetIsIgnoringHighContrast::<Impl, IMPL_OFFSET>,
+            BitmapEncoderId: BitmapEncoderId::<Impl, IMPL_OFFSET>,
+            SetBitmapEncoderId: SetBitmapEncoderId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPdfPageRenderOptions as ::windows::core::Interface>::IID

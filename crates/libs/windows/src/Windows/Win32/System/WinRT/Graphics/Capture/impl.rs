@@ -14,7 +14,11 @@ impl IGraphicsCaptureItemInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CreateForWindow::<Impl, IMPL_OFFSET>, CreateForMonitor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateForWindow: CreateForWindow::<Impl, IMPL_OFFSET>,
+            CreateForMonitor: CreateForMonitor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGraphicsCaptureItemInterop as ::windows::core::Interface>::IID

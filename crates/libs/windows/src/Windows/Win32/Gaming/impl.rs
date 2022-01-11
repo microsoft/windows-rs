@@ -24,7 +24,13 @@ impl IGameExplorerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, AddGame::<Impl, IMPL_OFFSET>, RemoveGame::<Impl, IMPL_OFFSET>, UpdateGame::<Impl, IMPL_OFFSET>, VerifyAccess::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddGame: AddGame::<Impl, IMPL_OFFSET>,
+            RemoveGame: RemoveGame::<Impl, IMPL_OFFSET>,
+            UpdateGame: UpdateGame::<Impl, IMPL_OFFSET>,
+            VerifyAccess: VerifyAccess::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameExplorer as ::windows::core::Interface>::IID
@@ -51,7 +57,12 @@ impl IGameExplorer2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, InstallGame::<Impl, IMPL_OFFSET>, UninstallGame::<Impl, IMPL_OFFSET>, CheckAccess::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            InstallGame: InstallGame::<Impl, IMPL_OFFSET>,
+            UninstallGame: UninstallGame::<Impl, IMPL_OFFSET>,
+            CheckAccess: CheckAccess::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameExplorer2 as ::windows::core::Interface>::IID
@@ -123,23 +134,21 @@ impl IGameStatisticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetMaxCategoryLength::<Impl, IMPL_OFFSET>,
-            GetMaxNameLength::<Impl, IMPL_OFFSET>,
-            GetMaxValueLength::<Impl, IMPL_OFFSET>,
-            GetMaxCategories::<Impl, IMPL_OFFSET>,
-            GetMaxStatsPerCategory::<Impl, IMPL_OFFSET>,
-            SetCategoryTitle::<Impl, IMPL_OFFSET>,
-            GetCategoryTitle::<Impl, IMPL_OFFSET>,
-            GetStatistic::<Impl, IMPL_OFFSET>,
-            SetStatistic::<Impl, IMPL_OFFSET>,
-            Save::<Impl, IMPL_OFFSET>,
-            SetLastPlayedCategory::<Impl, IMPL_OFFSET>,
-            GetLastPlayedCategory::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetMaxCategoryLength: GetMaxCategoryLength::<Impl, IMPL_OFFSET>,
+            GetMaxNameLength: GetMaxNameLength::<Impl, IMPL_OFFSET>,
+            GetMaxValueLength: GetMaxValueLength::<Impl, IMPL_OFFSET>,
+            GetMaxCategories: GetMaxCategories::<Impl, IMPL_OFFSET>,
+            GetMaxStatsPerCategory: GetMaxStatsPerCategory::<Impl, IMPL_OFFSET>,
+            SetCategoryTitle: SetCategoryTitle::<Impl, IMPL_OFFSET>,
+            GetCategoryTitle: GetCategoryTitle::<Impl, IMPL_OFFSET>,
+            GetStatistic: GetStatistic::<Impl, IMPL_OFFSET>,
+            SetStatistic: SetStatistic::<Impl, IMPL_OFFSET>,
+            Save: Save::<Impl, IMPL_OFFSET>,
+            SetLastPlayedCategory: SetLastPlayedCategory::<Impl, IMPL_OFFSET>,
+            GetLastPlayedCategory: GetLastPlayedCategory::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameStatistics as ::windows::core::Interface>::IID
@@ -161,7 +170,11 @@ impl IGameStatisticsMgrVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetGameStatistics::<Impl, IMPL_OFFSET>, RemoveGameStatistics::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetGameStatistics: GetGameStatistics::<Impl, IMPL_OFFSET>,
+            RemoveGameStatistics: RemoveGameStatistics::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameStatisticsMgr as ::windows::core::Interface>::IID
@@ -203,7 +216,15 @@ impl IXblIdpAuthManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetGamerAccount::<Impl, IMPL_OFFSET>, GetGamerAccount::<Impl, IMPL_OFFSET>, SetAppViewInitialized::<Impl, IMPL_OFFSET>, GetEnvironment::<Impl, IMPL_OFFSET>, GetSandbox::<Impl, IMPL_OFFSET>, GetTokenAndSignatureWithTokenResult::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetGamerAccount: SetGamerAccount::<Impl, IMPL_OFFSET>,
+            GetGamerAccount: GetGamerAccount::<Impl, IMPL_OFFSET>,
+            SetAppViewInitialized: SetAppViewInitialized::<Impl, IMPL_OFFSET>,
+            GetEnvironment: GetEnvironment::<Impl, IMPL_OFFSET>,
+            GetSandbox: GetSandbox::<Impl, IMPL_OFFSET>,
+            GetTokenAndSignatureWithTokenResult: GetTokenAndSignatureWithTokenResult::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXblIdpAuthManager as ::windows::core::Interface>::IID
@@ -315,31 +336,29 @@ impl IXblIdpAuthTokenResultVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetStatus::<Impl, IMPL_OFFSET>,
-            GetErrorCode::<Impl, IMPL_OFFSET>,
-            GetToken::<Impl, IMPL_OFFSET>,
-            GetSignature::<Impl, IMPL_OFFSET>,
-            GetSandbox::<Impl, IMPL_OFFSET>,
-            GetEnvironment::<Impl, IMPL_OFFSET>,
-            GetMsaAccountId::<Impl, IMPL_OFFSET>,
-            GetXuid::<Impl, IMPL_OFFSET>,
-            GetGamertag::<Impl, IMPL_OFFSET>,
-            GetAgeGroup::<Impl, IMPL_OFFSET>,
-            GetPrivileges::<Impl, IMPL_OFFSET>,
-            GetMsaTarget::<Impl, IMPL_OFFSET>,
-            GetMsaPolicy::<Impl, IMPL_OFFSET>,
-            GetMsaAppId::<Impl, IMPL_OFFSET>,
-            GetRedirect::<Impl, IMPL_OFFSET>,
-            GetMessage::<Impl, IMPL_OFFSET>,
-            GetHelpId::<Impl, IMPL_OFFSET>,
-            GetEnforcementBans::<Impl, IMPL_OFFSET>,
-            GetRestrictions::<Impl, IMPL_OFFSET>,
-            GetTitleRestrictions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            GetErrorCode: GetErrorCode::<Impl, IMPL_OFFSET>,
+            GetToken: GetToken::<Impl, IMPL_OFFSET>,
+            GetSignature: GetSignature::<Impl, IMPL_OFFSET>,
+            GetSandbox: GetSandbox::<Impl, IMPL_OFFSET>,
+            GetEnvironment: GetEnvironment::<Impl, IMPL_OFFSET>,
+            GetMsaAccountId: GetMsaAccountId::<Impl, IMPL_OFFSET>,
+            GetXuid: GetXuid::<Impl, IMPL_OFFSET>,
+            GetGamertag: GetGamertag::<Impl, IMPL_OFFSET>,
+            GetAgeGroup: GetAgeGroup::<Impl, IMPL_OFFSET>,
+            GetPrivileges: GetPrivileges::<Impl, IMPL_OFFSET>,
+            GetMsaTarget: GetMsaTarget::<Impl, IMPL_OFFSET>,
+            GetMsaPolicy: GetMsaPolicy::<Impl, IMPL_OFFSET>,
+            GetMsaAppId: GetMsaAppId::<Impl, IMPL_OFFSET>,
+            GetRedirect: GetRedirect::<Impl, IMPL_OFFSET>,
+            GetMessage: GetMessage::<Impl, IMPL_OFFSET>,
+            GetHelpId: GetHelpId::<Impl, IMPL_OFFSET>,
+            GetEnforcementBans: GetEnforcementBans::<Impl, IMPL_OFFSET>,
+            GetRestrictions: GetRestrictions::<Impl, IMPL_OFFSET>,
+            GetTitleRestrictions: GetTitleRestrictions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXblIdpAuthTokenResult as ::windows::core::Interface>::IID
@@ -366,7 +385,12 @@ impl IXblIdpAuthTokenResult2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetModernGamertag::<Impl, IMPL_OFFSET>, GetModernGamertagSuffix::<Impl, IMPL_OFFSET>, GetUniqueModernGamertag::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetModernGamertag: GetModernGamertag::<Impl, IMPL_OFFSET>,
+            GetModernGamertagSuffix: GetModernGamertagSuffix::<Impl, IMPL_OFFSET>,
+            GetUniqueModernGamertag: GetUniqueModernGamertag::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXblIdpAuthTokenResult2 as ::windows::core::Interface>::IID

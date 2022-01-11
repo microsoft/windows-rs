@@ -52,7 +52,12 @@ impl IBackgroundDownloaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundDownloader>, ::windows::core::GetTrustLevel, CreateDownload::<Impl, IMPL_OFFSET>, CreateDownloadFromFile::<Impl, IMPL_OFFSET>, CreateDownloadAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundDownloader, BASE_OFFSET>(),
+            CreateDownload: CreateDownload::<Impl, IMPL_OFFSET>,
+            CreateDownloadFromFile: CreateDownloadFromFile::<Impl, IMPL_OFFSET>,
+            CreateDownloadAsync: CreateDownloadAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundDownloader as ::windows::core::Interface>::IID
@@ -153,24 +158,19 @@ impl IBackgroundDownloader2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFailureTileNotification(&*(&value as *const <super::super::UI::Notifications::TileNotification as ::windows::core::Abi>::Abi as *const <super::super::UI::Notifications::TileNotification as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBackgroundDownloader2>,
-            ::windows::core::GetTrustLevel,
-            TransferGroup::<Impl, IMPL_OFFSET>,
-            SetTransferGroup::<Impl, IMPL_OFFSET>,
-            SuccessToastNotification::<Impl, IMPL_OFFSET>,
-            SetSuccessToastNotification::<Impl, IMPL_OFFSET>,
-            FailureToastNotification::<Impl, IMPL_OFFSET>,
-            SetFailureToastNotification::<Impl, IMPL_OFFSET>,
-            SuccessTileNotification::<Impl, IMPL_OFFSET>,
-            SetSuccessTileNotification::<Impl, IMPL_OFFSET>,
-            FailureTileNotification::<Impl, IMPL_OFFSET>,
-            SetFailureTileNotification::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundDownloader2, BASE_OFFSET>(),
+            TransferGroup: TransferGroup::<Impl, IMPL_OFFSET>,
+            SetTransferGroup: SetTransferGroup::<Impl, IMPL_OFFSET>,
+            SuccessToastNotification: SuccessToastNotification::<Impl, IMPL_OFFSET>,
+            SetSuccessToastNotification: SetSuccessToastNotification::<Impl, IMPL_OFFSET>,
+            FailureToastNotification: FailureToastNotification::<Impl, IMPL_OFFSET>,
+            SetFailureToastNotification: SetFailureToastNotification::<Impl, IMPL_OFFSET>,
+            SuccessTileNotification: SuccessTileNotification::<Impl, IMPL_OFFSET>,
+            SetSuccessTileNotification: SetSuccessTileNotification::<Impl, IMPL_OFFSET>,
+            FailureTileNotification: FailureTileNotification::<Impl, IMPL_OFFSET>,
+            SetFailureTileNotification: SetFailureTileNotification::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundDownloader2 as ::windows::core::Interface>::IID
@@ -198,7 +198,10 @@ impl IBackgroundDownloader3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundDownloader3>, ::windows::core::GetTrustLevel, CompletionGroup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundDownloader3, BASE_OFFSET>(),
+            CompletionGroup: CompletionGroup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundDownloader3 as ::windows::core::Interface>::IID
@@ -226,7 +229,10 @@ impl IBackgroundDownloaderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundDownloaderFactory>, ::windows::core::GetTrustLevel, CreateWithCompletionGroup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundDownloaderFactory, BASE_OFFSET>(),
+            CreateWithCompletionGroup: CreateWithCompletionGroup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundDownloaderFactory as ::windows::core::Interface>::IID
@@ -266,7 +272,11 @@ impl IBackgroundDownloaderStaticMethodsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundDownloaderStaticMethods>, ::windows::core::GetTrustLevel, GetCurrentDownloadsAsync::<Impl, IMPL_OFFSET>, GetCurrentDownloadsForGroupAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundDownloaderStaticMethods, BASE_OFFSET>(),
+            GetCurrentDownloadsAsync: GetCurrentDownloadsAsync::<Impl, IMPL_OFFSET>,
+            GetCurrentDownloadsForGroupAsync: GetCurrentDownloadsForGroupAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundDownloaderStaticMethods as ::windows::core::Interface>::IID
@@ -294,7 +304,10 @@ impl IBackgroundDownloaderStaticMethods2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundDownloaderStaticMethods2>, ::windows::core::GetTrustLevel, GetCurrentDownloadsForTransferGroupAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundDownloaderStaticMethods2, BASE_OFFSET>(),
+            GetCurrentDownloadsForTransferGroupAsync: GetCurrentDownloadsForTransferGroupAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundDownloaderStaticMethods2 as ::windows::core::Interface>::IID
@@ -322,7 +335,10 @@ impl IBackgroundDownloaderUserConsentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundDownloaderUserConsent>, ::windows::core::GetTrustLevel, RequestUnconstrainedDownloadsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundDownloaderUserConsent, BASE_OFFSET>(),
+            RequestUnconstrainedDownloadsAsync: RequestUnconstrainedDownloadsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundDownloaderUserConsent as ::windows::core::Interface>::IID
@@ -428,25 +444,20 @@ impl IBackgroundTransferBaseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCostPolicy(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBackgroundTransferBase>,
-            ::windows::core::GetTrustLevel,
-            SetRequestHeader::<Impl, IMPL_OFFSET>,
-            ServerCredential::<Impl, IMPL_OFFSET>,
-            SetServerCredential::<Impl, IMPL_OFFSET>,
-            ProxyCredential::<Impl, IMPL_OFFSET>,
-            SetProxyCredential::<Impl, IMPL_OFFSET>,
-            Method::<Impl, IMPL_OFFSET>,
-            SetMethod::<Impl, IMPL_OFFSET>,
-            Group::<Impl, IMPL_OFFSET>,
-            SetGroup::<Impl, IMPL_OFFSET>,
-            CostPolicy::<Impl, IMPL_OFFSET>,
-            SetCostPolicy::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferBase, BASE_OFFSET>(),
+            SetRequestHeader: SetRequestHeader::<Impl, IMPL_OFFSET>,
+            ServerCredential: ServerCredential::<Impl, IMPL_OFFSET>,
+            SetServerCredential: SetServerCredential::<Impl, IMPL_OFFSET>,
+            ProxyCredential: ProxyCredential::<Impl, IMPL_OFFSET>,
+            SetProxyCredential: SetProxyCredential::<Impl, IMPL_OFFSET>,
+            Method: Method::<Impl, IMPL_OFFSET>,
+            SetMethod: SetMethod::<Impl, IMPL_OFFSET>,
+            Group: Group::<Impl, IMPL_OFFSET>,
+            SetGroup: SetGroup::<Impl, IMPL_OFFSET>,
+            CostPolicy: CostPolicy::<Impl, IMPL_OFFSET>,
+            SetCostPolicy: SetCostPolicy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTransferBase as ::windows::core::Interface>::IID
@@ -491,7 +502,12 @@ impl IBackgroundTransferCompletionGroupVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Enable().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTransferCompletionGroup>, ::windows::core::GetTrustLevel, Trigger::<Impl, IMPL_OFFSET>, IsEnabled::<Impl, IMPL_OFFSET>, Enable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferCompletionGroup, BASE_OFFSET>(),
+            Trigger: Trigger::<Impl, IMPL_OFFSET>,
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            Enable: Enable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTransferCompletionGroup as ::windows::core::Interface>::IID
@@ -531,7 +547,11 @@ impl IBackgroundTransferCompletionGroupTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTransferCompletionGroupTriggerDetails>, ::windows::core::GetTrustLevel, Downloads::<Impl, IMPL_OFFSET>, Uploads::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferCompletionGroupTriggerDetails, BASE_OFFSET>(),
+            Downloads: Downloads::<Impl, IMPL_OFFSET>,
+            Uploads: Uploads::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTransferCompletionGroupTriggerDetails as ::windows::core::Interface>::IID
@@ -562,7 +582,12 @@ impl IBackgroundTransferContentPartVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFile(&*(&value as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTransferContentPart>, ::windows::core::GetTrustLevel, SetHeader::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>, SetFile::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferContentPart, BASE_OFFSET>(),
+            SetHeader: SetHeader::<Impl, IMPL_OFFSET>,
+            SetText: SetText::<Impl, IMPL_OFFSET>,
+            SetFile: SetFile::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTransferContentPart as ::windows::core::Interface>::IID
@@ -599,7 +624,11 @@ impl IBackgroundTransferContentPartFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTransferContentPartFactory>, ::windows::core::GetTrustLevel, CreateWithName::<Impl, IMPL_OFFSET>, CreateWithNameAndFileName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferContentPartFactory, BASE_OFFSET>(),
+            CreateWithName: CreateWithName::<Impl, IMPL_OFFSET>,
+            CreateWithNameAndFileName: CreateWithNameAndFileName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTransferContentPartFactory as ::windows::core::Interface>::IID
@@ -627,7 +656,10 @@ impl IBackgroundTransferErrorStaticMethodsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTransferErrorStaticMethods>, ::windows::core::GetTrustLevel, GetStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferErrorStaticMethods, BASE_OFFSET>(),
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTransferErrorStaticMethods as ::windows::core::Interface>::IID
@@ -672,7 +704,12 @@ impl IBackgroundTransferGroupVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransferBehavior(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTransferGroup>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, TransferBehavior::<Impl, IMPL_OFFSET>, SetTransferBehavior::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferGroup, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            TransferBehavior: TransferBehavior::<Impl, IMPL_OFFSET>,
+            SetTransferBehavior: SetTransferBehavior::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTransferGroup as ::windows::core::Interface>::IID
@@ -700,7 +737,10 @@ impl IBackgroundTransferGroupStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTransferGroupStatics>, ::windows::core::GetTrustLevel, CreateGroup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferGroupStatics, BASE_OFFSET>(),
+            CreateGroup: CreateGroup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTransferGroupStatics as ::windows::core::Interface>::IID
@@ -805,22 +845,17 @@ impl IBackgroundTransferOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBackgroundTransferOperation>,
-            ::windows::core::GetTrustLevel,
-            Guid::<Impl, IMPL_OFFSET>,
-            RequestedUri::<Impl, IMPL_OFFSET>,
-            Method::<Impl, IMPL_OFFSET>,
-            Group::<Impl, IMPL_OFFSET>,
-            CostPolicy::<Impl, IMPL_OFFSET>,
-            SetCostPolicy::<Impl, IMPL_OFFSET>,
-            GetResultStreamAt::<Impl, IMPL_OFFSET>,
-            GetResponseInformation::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferOperation, BASE_OFFSET>(),
+            Guid: Guid::<Impl, IMPL_OFFSET>,
+            RequestedUri: RequestedUri::<Impl, IMPL_OFFSET>,
+            Method: Method::<Impl, IMPL_OFFSET>,
+            Group: Group::<Impl, IMPL_OFFSET>,
+            CostPolicy: CostPolicy::<Impl, IMPL_OFFSET>,
+            SetCostPolicy: SetCostPolicy::<Impl, IMPL_OFFSET>,
+            GetResultStreamAt: GetResultStreamAt::<Impl, IMPL_OFFSET>,
+            GetResponseInformation: GetResponseInformation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTransferOperation as ::windows::core::Interface>::IID
@@ -850,7 +885,11 @@ impl IBackgroundTransferOperationPriorityVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPriority(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTransferOperationPriority>, ::windows::core::GetTrustLevel, Priority::<Impl, IMPL_OFFSET>, SetPriority::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferOperationPriority, BASE_OFFSET>(),
+            Priority: Priority::<Impl, IMPL_OFFSET>,
+            SetPriority: SetPriority::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTransferOperationPriority as ::windows::core::Interface>::IID
@@ -902,7 +941,12 @@ impl IBackgroundTransferRangesDownloadedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTransferRangesDownloadedEventArgs>, ::windows::core::GetTrustLevel, WasDownloadRestarted::<Impl, IMPL_OFFSET>, AddedRanges::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferRangesDownloadedEventArgs, BASE_OFFSET>(),
+            WasDownloadRestarted: WasDownloadRestarted::<Impl, IMPL_OFFSET>,
+            AddedRanges: AddedRanges::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTransferRangesDownloadedEventArgs as ::windows::core::Interface>::IID
@@ -987,19 +1031,14 @@ impl IBackgroundUploaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBackgroundUploader>,
-            ::windows::core::GetTrustLevel,
-            CreateUpload::<Impl, IMPL_OFFSET>,
-            CreateUploadFromStreamAsync::<Impl, IMPL_OFFSET>,
-            CreateUploadWithFormDataAndAutoBoundaryAsync::<Impl, IMPL_OFFSET>,
-            CreateUploadWithSubTypeAsync::<Impl, IMPL_OFFSET>,
-            CreateUploadWithSubTypeAndBoundaryAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundUploader, BASE_OFFSET>(),
+            CreateUpload: CreateUpload::<Impl, IMPL_OFFSET>,
+            CreateUploadFromStreamAsync: CreateUploadFromStreamAsync::<Impl, IMPL_OFFSET>,
+            CreateUploadWithFormDataAndAutoBoundaryAsync: CreateUploadWithFormDataAndAutoBoundaryAsync::<Impl, IMPL_OFFSET>,
+            CreateUploadWithSubTypeAsync: CreateUploadWithSubTypeAsync::<Impl, IMPL_OFFSET>,
+            CreateUploadWithSubTypeAndBoundaryAsync: CreateUploadWithSubTypeAndBoundaryAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundUploader as ::windows::core::Interface>::IID
@@ -1100,24 +1139,19 @@ impl IBackgroundUploader2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFailureTileNotification(&*(&value as *const <super::super::UI::Notifications::TileNotification as ::windows::core::Abi>::Abi as *const <super::super::UI::Notifications::TileNotification as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBackgroundUploader2>,
-            ::windows::core::GetTrustLevel,
-            TransferGroup::<Impl, IMPL_OFFSET>,
-            SetTransferGroup::<Impl, IMPL_OFFSET>,
-            SuccessToastNotification::<Impl, IMPL_OFFSET>,
-            SetSuccessToastNotification::<Impl, IMPL_OFFSET>,
-            FailureToastNotification::<Impl, IMPL_OFFSET>,
-            SetFailureToastNotification::<Impl, IMPL_OFFSET>,
-            SuccessTileNotification::<Impl, IMPL_OFFSET>,
-            SetSuccessTileNotification::<Impl, IMPL_OFFSET>,
-            FailureTileNotification::<Impl, IMPL_OFFSET>,
-            SetFailureTileNotification::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundUploader2, BASE_OFFSET>(),
+            TransferGroup: TransferGroup::<Impl, IMPL_OFFSET>,
+            SetTransferGroup: SetTransferGroup::<Impl, IMPL_OFFSET>,
+            SuccessToastNotification: SuccessToastNotification::<Impl, IMPL_OFFSET>,
+            SetSuccessToastNotification: SetSuccessToastNotification::<Impl, IMPL_OFFSET>,
+            FailureToastNotification: FailureToastNotification::<Impl, IMPL_OFFSET>,
+            SetFailureToastNotification: SetFailureToastNotification::<Impl, IMPL_OFFSET>,
+            SuccessTileNotification: SuccessTileNotification::<Impl, IMPL_OFFSET>,
+            SetSuccessTileNotification: SetSuccessTileNotification::<Impl, IMPL_OFFSET>,
+            FailureTileNotification: FailureTileNotification::<Impl, IMPL_OFFSET>,
+            SetFailureTileNotification: SetFailureTileNotification::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundUploader2 as ::windows::core::Interface>::IID
@@ -1145,7 +1179,10 @@ impl IBackgroundUploader3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundUploader3>, ::windows::core::GetTrustLevel, CompletionGroup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundUploader3, BASE_OFFSET>(),
+            CompletionGroup: CompletionGroup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundUploader3 as ::windows::core::Interface>::IID
@@ -1173,7 +1210,10 @@ impl IBackgroundUploaderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundUploaderFactory>, ::windows::core::GetTrustLevel, CreateWithCompletionGroup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundUploaderFactory, BASE_OFFSET>(),
+            CreateWithCompletionGroup: CreateWithCompletionGroup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundUploaderFactory as ::windows::core::Interface>::IID
@@ -1213,7 +1253,11 @@ impl IBackgroundUploaderStaticMethodsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundUploaderStaticMethods>, ::windows::core::GetTrustLevel, GetCurrentUploadsAsync::<Impl, IMPL_OFFSET>, GetCurrentUploadsForGroupAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundUploaderStaticMethods, BASE_OFFSET>(),
+            GetCurrentUploadsAsync: GetCurrentUploadsAsync::<Impl, IMPL_OFFSET>,
+            GetCurrentUploadsForGroupAsync: GetCurrentUploadsForGroupAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundUploaderStaticMethods as ::windows::core::Interface>::IID
@@ -1241,7 +1285,10 @@ impl IBackgroundUploaderStaticMethods2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundUploaderStaticMethods2>, ::windows::core::GetTrustLevel, GetCurrentUploadsForTransferGroupAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundUploaderStaticMethods2, BASE_OFFSET>(),
+            GetCurrentUploadsForTransferGroupAsync: GetCurrentUploadsForTransferGroupAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundUploaderStaticMethods2 as ::windows::core::Interface>::IID
@@ -1269,7 +1316,10 @@ impl IBackgroundUploaderUserConsentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundUploaderUserConsent>, ::windows::core::GetTrustLevel, RequestUnconstrainedUploadsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundUploaderUserConsent, BASE_OFFSET>(),
+            RequestUnconstrainedUploadsAsync: RequestUnconstrainedUploadsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundUploaderUserConsent as ::windows::core::Interface>::IID
@@ -1314,7 +1364,12 @@ impl IContentPrefetcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentPrefetcher>, ::windows::core::GetTrustLevel, ContentUris::<Impl, IMPL_OFFSET>, SetIndirectContentUri::<Impl, IMPL_OFFSET>, IndirectContentUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContentPrefetcher, BASE_OFFSET>(),
+            ContentUris: ContentUris::<Impl, IMPL_OFFSET>,
+            SetIndirectContentUri: SetIndirectContentUri::<Impl, IMPL_OFFSET>,
+            IndirectContentUri: IndirectContentUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContentPrefetcher as ::windows::core::Interface>::IID
@@ -1342,7 +1397,10 @@ impl IContentPrefetcherTimeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentPrefetcherTime>, ::windows::core::GetTrustLevel, LastSuccessfulPrefetchTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContentPrefetcherTime, BASE_OFFSET>(),
+            LastSuccessfulPrefetchTime: LastSuccessfulPrefetchTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContentPrefetcherTime as ::windows::core::Interface>::IID
@@ -1416,7 +1474,15 @@ impl IDownloadOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Resume().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDownloadOperation>, ::windows::core::GetTrustLevel, ResultFile::<Impl, IMPL_OFFSET>, Progress::<Impl, IMPL_OFFSET>, StartAsync::<Impl, IMPL_OFFSET>, AttachAsync::<Impl, IMPL_OFFSET>, Pause::<Impl, IMPL_OFFSET>, Resume::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDownloadOperation, BASE_OFFSET>(),
+            ResultFile: ResultFile::<Impl, IMPL_OFFSET>,
+            Progress: Progress::<Impl, IMPL_OFFSET>,
+            StartAsync: StartAsync::<Impl, IMPL_OFFSET>,
+            AttachAsync: AttachAsync::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDownloadOperation as ::windows::core::Interface>::IID
@@ -1444,7 +1510,7 @@ impl IDownloadOperation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDownloadOperation2>, ::windows::core::GetTrustLevel, TransferGroup::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDownloadOperation2, BASE_OFFSET>(), TransferGroup: TransferGroup::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDownloadOperation2 as ::windows::core::Interface>::IID
@@ -1547,23 +1613,18 @@ impl IDownloadOperation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDownloadOperation3>,
-            ::windows::core::GetTrustLevel,
-            IsRandomAccessRequired::<Impl, IMPL_OFFSET>,
-            SetIsRandomAccessRequired::<Impl, IMPL_OFFSET>,
-            GetResultRandomAccessStreamReference::<Impl, IMPL_OFFSET>,
-            GetDownloadedRanges::<Impl, IMPL_OFFSET>,
-            RangesDownloaded::<Impl, IMPL_OFFSET>,
-            RemoveRangesDownloaded::<Impl, IMPL_OFFSET>,
-            SetRequestedUri::<Impl, IMPL_OFFSET>,
-            RecoverableWebErrorStatuses::<Impl, IMPL_OFFSET>,
-            CurrentWebErrorStatus::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDownloadOperation3, BASE_OFFSET>(),
+            IsRandomAccessRequired: IsRandomAccessRequired::<Impl, IMPL_OFFSET>,
+            SetIsRandomAccessRequired: SetIsRandomAccessRequired::<Impl, IMPL_OFFSET>,
+            GetResultRandomAccessStreamReference: GetResultRandomAccessStreamReference::<Impl, IMPL_OFFSET>,
+            GetDownloadedRanges: GetDownloadedRanges::<Impl, IMPL_OFFSET>,
+            RangesDownloaded: RangesDownloaded::<Impl, IMPL_OFFSET>,
+            RemoveRangesDownloaded: RemoveRangesDownloaded::<Impl, IMPL_OFFSET>,
+            SetRequestedUri: SetRequestedUri::<Impl, IMPL_OFFSET>,
+            RecoverableWebErrorStatuses: RecoverableWebErrorStatuses::<Impl, IMPL_OFFSET>,
+            CurrentWebErrorStatus: CurrentWebErrorStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDownloadOperation3 as ::windows::core::Interface>::IID
@@ -1584,7 +1645,10 @@ impl IDownloadOperation4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MakeCurrentInTransferGroup().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDownloadOperation4>, ::windows::core::GetTrustLevel, MakeCurrentInTransferGroup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDownloadOperation4, BASE_OFFSET>(),
+            MakeCurrentInTransferGroup: MakeCurrentInTransferGroup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDownloadOperation4 as ::windows::core::Interface>::IID
@@ -1610,7 +1674,11 @@ impl IDownloadOperation5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRequestHeader(&*(&headername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDownloadOperation5>, ::windows::core::GetTrustLevel, SetRequestHeader::<Impl, IMPL_OFFSET>, RemoveRequestHeader::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDownloadOperation5, BASE_OFFSET>(),
+            SetRequestHeader: SetRequestHeader::<Impl, IMPL_OFFSET>,
+            RemoveRequestHeader: RemoveRequestHeader::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDownloadOperation5 as ::windows::core::Interface>::IID
@@ -1674,7 +1742,13 @@ impl IResponseInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResponseInformation>, ::windows::core::GetTrustLevel, IsResumable::<Impl, IMPL_OFFSET>, ActualUri::<Impl, IMPL_OFFSET>, StatusCode::<Impl, IMPL_OFFSET>, Headers::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IResponseInformation, BASE_OFFSET>(),
+            IsResumable: IsResumable::<Impl, IMPL_OFFSET>,
+            ActualUri: ActualUri::<Impl, IMPL_OFFSET>,
+            StatusCode: StatusCode::<Impl, IMPL_OFFSET>,
+            Headers: Headers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResponseInformation as ::windows::core::Interface>::IID
@@ -1702,7 +1776,10 @@ impl IUnconstrainedTransferRequestResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUnconstrainedTransferRequestResult>, ::windows::core::GetTrustLevel, IsUnconstrained::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUnconstrainedTransferRequestResult, BASE_OFFSET>(),
+            IsUnconstrained: IsUnconstrained::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUnconstrainedTransferRequestResult as ::windows::core::Interface>::IID
@@ -1766,7 +1843,13 @@ impl IUploadOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUploadOperation>, ::windows::core::GetTrustLevel, SourceFile::<Impl, IMPL_OFFSET>, Progress::<Impl, IMPL_OFFSET>, StartAsync::<Impl, IMPL_OFFSET>, AttachAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUploadOperation, BASE_OFFSET>(),
+            SourceFile: SourceFile::<Impl, IMPL_OFFSET>,
+            Progress: Progress::<Impl, IMPL_OFFSET>,
+            StartAsync: StartAsync::<Impl, IMPL_OFFSET>,
+            AttachAsync: AttachAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUploadOperation as ::windows::core::Interface>::IID
@@ -1794,7 +1877,7 @@ impl IUploadOperation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUploadOperation2>, ::windows::core::GetTrustLevel, TransferGroup::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUploadOperation2, BASE_OFFSET>(), TransferGroup: TransferGroup::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUploadOperation2 as ::windows::core::Interface>::IID
@@ -1815,7 +1898,10 @@ impl IUploadOperation3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MakeCurrentInTransferGroup().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUploadOperation3>, ::windows::core::GetTrustLevel, MakeCurrentInTransferGroup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUploadOperation3, BASE_OFFSET>(),
+            MakeCurrentInTransferGroup: MakeCurrentInTransferGroup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUploadOperation3 as ::windows::core::Interface>::IID
@@ -1841,7 +1927,11 @@ impl IUploadOperation4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRequestHeader(&*(&headername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUploadOperation4>, ::windows::core::GetTrustLevel, SetRequestHeader::<Impl, IMPL_OFFSET>, RemoveRequestHeader::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUploadOperation4, BASE_OFFSET>(),
+            SetRequestHeader: SetRequestHeader::<Impl, IMPL_OFFSET>,
+            RemoveRequestHeader: RemoveRequestHeader::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUploadOperation4 as ::windows::core::Interface>::IID

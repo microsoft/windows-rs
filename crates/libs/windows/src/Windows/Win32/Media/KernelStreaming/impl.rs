@@ -12,7 +12,11 @@ impl IKsAggregateControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, KsAddAggregate::<Impl, IMPL_OFFSET>, KsRemoveAggregate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            KsAddAggregate: KsAddAggregate::<Impl, IMPL_OFFSET>,
+            KsRemoveAggregate: KsRemoveAggregate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKsAggregateControl as ::windows::core::Interface>::IID
@@ -37,7 +41,12 @@ impl IKsControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, KsProperty::<Impl, IMPL_OFFSET>, KsMethod::<Impl, IMPL_OFFSET>, KsEvent::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            KsProperty: KsProperty::<Impl, IMPL_OFFSET>,
+            KsMethod: KsMethod::<Impl, IMPL_OFFSET>,
+            KsEvent: KsEvent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKsControl as ::windows::core::Interface>::IID
@@ -59,7 +68,11 @@ impl IKsFormatSupportVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, IsFormatSupported::<Impl, IMPL_OFFSET>, GetDevicePreferredFormat::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            IsFormatSupported: IsFormatSupported::<Impl, IMPL_OFFSET>,
+            GetDevicePreferredFormat: GetDevicePreferredFormat::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKsFormatSupport as ::windows::core::Interface>::IID
@@ -74,7 +87,7 @@ impl IKsJackContainerIdVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetJackContainerId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetJackContainerId: GetJackContainerId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKsJackContainerId as ::windows::core::Interface>::IID
@@ -96,7 +109,11 @@ impl IKsJackDescriptionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetJackCount::<Impl, IMPL_OFFSET>, GetJackDescription::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetJackCount: GetJackCount::<Impl, IMPL_OFFSET>,
+            GetJackDescription: GetJackDescription::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKsJackDescription as ::windows::core::Interface>::IID
@@ -116,7 +133,11 @@ impl IKsJackDescription2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetJackCount::<Impl, IMPL_OFFSET>, GetJackDescription2::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetJackCount: GetJackCount::<Impl, IMPL_OFFSET>,
+            GetJackDescription2: GetJackDescription2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKsJackDescription2 as ::windows::core::Interface>::IID
@@ -133,7 +154,7 @@ impl IKsJackSinkInformationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetJackSinkInformation::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetJackSinkInformation: GetJackSinkInformation::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKsJackSinkInformation as ::windows::core::Interface>::IID
@@ -158,7 +179,12 @@ impl IKsPropertySetVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Set::<Impl, IMPL_OFFSET>, Get::<Impl, IMPL_OFFSET>, QuerySupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Set: Set::<Impl, IMPL_OFFSET>,
+            Get: Get::<Impl, IMPL_OFFSET>,
+            QuerySupported: QuerySupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKsPropertySet as ::windows::core::Interface>::IID
@@ -173,7 +199,7 @@ impl IKsTopologyVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CreateNodeInstance::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateNodeInstance: CreateNodeInstance::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKsTopology as ::windows::core::Interface>::IID

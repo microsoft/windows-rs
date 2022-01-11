@@ -22,7 +22,13 @@ impl ICreateDeviceAccessAsyncVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Cancel::<Impl, IMPL_OFFSET>, Wait::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>, GetResult::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+            Wait: Wait::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+            GetResult: GetResult::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateDeviceAccessAsync as ::windows::core::Interface>::IID
@@ -47,7 +53,12 @@ impl IDeviceIoControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, DeviceIoControlSync::<Impl, IMPL_OFFSET>, DeviceIoControlAsync::<Impl, IMPL_OFFSET>, CancelOperation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            DeviceIoControlSync: DeviceIoControlSync::<Impl, IMPL_OFFSET>,
+            DeviceIoControlAsync: DeviceIoControlAsync::<Impl, IMPL_OFFSET>,
+            CancelOperation: CancelOperation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceIoControl as ::windows::core::Interface>::IID
@@ -62,7 +73,7 @@ impl IDeviceRequestCompletionCallbackVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Invoke::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Invoke: Invoke::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceRequestCompletionCallback as ::windows::core::Interface>::IID

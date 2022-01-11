@@ -73,7 +73,15 @@ impl IRadioVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadio>, ::windows::core::GetTrustLevel, SetStateAsync::<Impl, IMPL_OFFSET>, StateChanged::<Impl, IMPL_OFFSET>, RemoveStateChanged::<Impl, IMPL_OFFSET>, State::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRadio, BASE_OFFSET>(),
+            SetStateAsync: SetStateAsync::<Impl, IMPL_OFFSET>,
+            StateChanged: StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged: RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRadio as ::windows::core::Interface>::IID
@@ -137,7 +145,13 @@ impl IRadioStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadioStatics>, ::windows::core::GetTrustLevel, GetRadiosAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRadioStatics, BASE_OFFSET>(),
+            GetRadiosAsync: GetRadiosAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRadioStatics as ::windows::core::Interface>::IID

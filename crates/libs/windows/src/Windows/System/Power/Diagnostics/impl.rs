@@ -37,7 +37,12 @@ impl IBackgroundEnergyDiagnosticsStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetTotalEnergyUsage().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundEnergyDiagnosticsStatics>, ::windows::core::GetTrustLevel, DeviceSpecificConversionFactor::<Impl, IMPL_OFFSET>, ComputeTotalEnergyUsage::<Impl, IMPL_OFFSET>, ResetTotalEnergyUsage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundEnergyDiagnosticsStatics, BASE_OFFSET>(),
+            DeviceSpecificConversionFactor: DeviceSpecificConversionFactor::<Impl, IMPL_OFFSET>,
+            ComputeTotalEnergyUsage: ComputeTotalEnergyUsage::<Impl, IMPL_OFFSET>,
+            ResetTotalEnergyUsage: ResetTotalEnergyUsage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundEnergyDiagnosticsStatics as ::windows::core::Interface>::IID
@@ -82,7 +87,12 @@ impl IForegroundEnergyDiagnosticsStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetTotalEnergyUsage().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IForegroundEnergyDiagnosticsStatics>, ::windows::core::GetTrustLevel, DeviceSpecificConversionFactor::<Impl, IMPL_OFFSET>, ComputeTotalEnergyUsage::<Impl, IMPL_OFFSET>, ResetTotalEnergyUsage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IForegroundEnergyDiagnosticsStatics, BASE_OFFSET>(),
+            DeviceSpecificConversionFactor: DeviceSpecificConversionFactor::<Impl, IMPL_OFFSET>,
+            ComputeTotalEnergyUsage: ComputeTotalEnergyUsage::<Impl, IMPL_OFFSET>,
+            ResetTotalEnergyUsage: ResetTotalEnergyUsage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IForegroundEnergyDiagnosticsStatics as ::windows::core::Interface>::IID

@@ -80,7 +80,15 @@ impl IEnterpriseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterprise>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, WorkplaceId::<Impl, IMPL_OFFSET>, EnrollmentValidFrom::<Impl, IMPL_OFFSET>, EnrollmentValidTo::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEnterprise, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            WorkplaceId: WorkplaceId::<Impl, IMPL_OFFSET>,
+            EnrollmentValidFrom: EnrollmentValidFrom::<Impl, IMPL_OFFSET>,
+            EnrollmentValidTo: EnrollmentValidTo::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnterprise as ::windows::core::Interface>::IID
@@ -156,19 +164,14 @@ impl IEnterpriseEnrollmentManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEnterpriseEnrollmentManager>,
-            ::windows::core::GetTrustLevel,
-            EnrolledEnterprises::<Impl, IMPL_OFFSET>,
-            CurrentEnterprise::<Impl, IMPL_OFFSET>,
-            ValidateEnterprisesAsync::<Impl, IMPL_OFFSET>,
-            RequestEnrollmentAsync::<Impl, IMPL_OFFSET>,
-            RequestUnenrollmentAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEnterpriseEnrollmentManager, BASE_OFFSET>(),
+            EnrolledEnterprises: EnrolledEnterprises::<Impl, IMPL_OFFSET>,
+            CurrentEnterprise: CurrentEnterprise::<Impl, IMPL_OFFSET>,
+            ValidateEnterprisesAsync: ValidateEnterprisesAsync::<Impl, IMPL_OFFSET>,
+            RequestEnrollmentAsync: RequestEnrollmentAsync::<Impl, IMPL_OFFSET>,
+            RequestUnenrollmentAsync: RequestUnenrollmentAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnterpriseEnrollmentManager as ::windows::core::Interface>::IID
@@ -208,7 +211,11 @@ impl IEnterpriseEnrollmentResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterpriseEnrollmentResult>, ::windows::core::GetTrustLevel, EnrolledEnterprise::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEnterpriseEnrollmentResult, BASE_OFFSET>(),
+            EnrolledEnterprise: EnrolledEnterprise::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnterpriseEnrollmentResult as ::windows::core::Interface>::IID
@@ -290,19 +297,14 @@ impl IInstallationManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInstallationManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            AddPackageAsync::<Impl, IMPL_OFFSET>,
-            AddPackagePreloadedAsync::<Impl, IMPL_OFFSET>,
-            GetPendingPackageInstalls::<Impl, IMPL_OFFSET>,
-            FindPackagesForCurrentPublisher::<Impl, IMPL_OFFSET>,
-            FindPackages::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInstallationManagerStatics, BASE_OFFSET>(),
+            AddPackageAsync: AddPackageAsync::<Impl, IMPL_OFFSET>,
+            AddPackagePreloadedAsync: AddPackagePreloadedAsync::<Impl, IMPL_OFFSET>,
+            GetPendingPackageInstalls: GetPendingPackageInstalls::<Impl, IMPL_OFFSET>,
+            FindPackagesForCurrentPublisher: FindPackagesForCurrentPublisher::<Impl, IMPL_OFFSET>,
+            FindPackages: FindPackages::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstallationManagerStatics as ::windows::core::Interface>::IID
@@ -358,7 +360,12 @@ impl IInstallationManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstallationManagerStatics2>, ::windows::core::GetTrustLevel, RemovePackageAsync::<Impl, IMPL_OFFSET>, RegisterPackageAsync::<Impl, IMPL_OFFSET>, FindPackagesByNamePublisher::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInstallationManagerStatics2, BASE_OFFSET>(),
+            RemovePackageAsync: RemovePackageAsync::<Impl, IMPL_OFFSET>,
+            RegisterPackageAsync: RegisterPackageAsync::<Impl, IMPL_OFFSET>,
+            FindPackagesByNamePublisher: FindPackagesByNamePublisher::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstallationManagerStatics2 as ::windows::core::Interface>::IID
@@ -398,7 +405,11 @@ impl IPackageInstallResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageInstallResult>, ::windows::core::GetTrustLevel, ProductId::<Impl, IMPL_OFFSET>, InstallState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageInstallResult, BASE_OFFSET>(),
+            ProductId: ProductId::<Impl, IMPL_OFFSET>,
+            InstallState: InstallState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageInstallResult as ::windows::core::Interface>::IID
@@ -426,7 +437,7 @@ impl IPackageInstallResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageInstallResult2>, ::windows::core::GetTrustLevel, ErrorText::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageInstallResult2, BASE_OFFSET>(), ErrorText: ErrorText::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageInstallResult2 as ::windows::core::Interface>::IID

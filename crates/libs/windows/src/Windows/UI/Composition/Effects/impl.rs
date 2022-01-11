@@ -93,24 +93,19 @@ impl ISceneLightingEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSpecularShine(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISceneLightingEffect>,
-            ::windows::core::GetTrustLevel,
-            AmbientAmount::<Impl, IMPL_OFFSET>,
-            SetAmbientAmount::<Impl, IMPL_OFFSET>,
-            DiffuseAmount::<Impl, IMPL_OFFSET>,
-            SetDiffuseAmount::<Impl, IMPL_OFFSET>,
-            NormalMapSource::<Impl, IMPL_OFFSET>,
-            SetNormalMapSource::<Impl, IMPL_OFFSET>,
-            SpecularAmount::<Impl, IMPL_OFFSET>,
-            SetSpecularAmount::<Impl, IMPL_OFFSET>,
-            SpecularShine::<Impl, IMPL_OFFSET>,
-            SetSpecularShine::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneLightingEffect, BASE_OFFSET>(),
+            AmbientAmount: AmbientAmount::<Impl, IMPL_OFFSET>,
+            SetAmbientAmount: SetAmbientAmount::<Impl, IMPL_OFFSET>,
+            DiffuseAmount: DiffuseAmount::<Impl, IMPL_OFFSET>,
+            SetDiffuseAmount: SetDiffuseAmount::<Impl, IMPL_OFFSET>,
+            NormalMapSource: NormalMapSource::<Impl, IMPL_OFFSET>,
+            SetNormalMapSource: SetNormalMapSource::<Impl, IMPL_OFFSET>,
+            SpecularAmount: SpecularAmount::<Impl, IMPL_OFFSET>,
+            SetSpecularAmount: SetSpecularAmount::<Impl, IMPL_OFFSET>,
+            SpecularShine: SpecularShine::<Impl, IMPL_OFFSET>,
+            SetSpecularShine: SetSpecularShine::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneLightingEffect as ::windows::core::Interface>::IID
@@ -143,7 +138,11 @@ impl ISceneLightingEffect2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReflectanceModel(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneLightingEffect2>, ::windows::core::GetTrustLevel, ReflectanceModel::<Impl, IMPL_OFFSET>, SetReflectanceModel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneLightingEffect2, BASE_OFFSET>(),
+            ReflectanceModel: ReflectanceModel::<Impl, IMPL_OFFSET>,
+            SetReflectanceModel: SetReflectanceModel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceneLightingEffect2 as ::windows::core::Interface>::IID

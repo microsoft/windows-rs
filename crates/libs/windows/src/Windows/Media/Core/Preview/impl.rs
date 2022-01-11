@@ -37,7 +37,12 @@ impl ISoundLevelBrokerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSoundLevelChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISoundLevelBrokerStatics>, ::windows::core::GetTrustLevel, SoundLevel::<Impl, IMPL_OFFSET>, SoundLevelChanged::<Impl, IMPL_OFFSET>, RemoveSoundLevelChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISoundLevelBrokerStatics, BASE_OFFSET>(),
+            SoundLevel: SoundLevel::<Impl, IMPL_OFFSET>,
+            SoundLevelChanged: SoundLevelChanged::<Impl, IMPL_OFFSET>,
+            RemoveSoundLevelChanged: RemoveSoundLevelChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISoundLevelBrokerStatics as ::windows::core::Interface>::IID

@@ -104,22 +104,17 @@ impl ISystemUpdateItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISystemUpdateItem>,
-            ::windows::core::GetTrustLevel,
-            State::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            Revision::<Impl, IMPL_OFFSET>,
-            DownloadProgress::<Impl, IMPL_OFFSET>,
-            InstallProgress::<Impl, IMPL_OFFSET>,
-            ExtendedError::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemUpdateItem, BASE_OFFSET>(),
+            State: State::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Revision: Revision::<Impl, IMPL_OFFSET>,
+            DownloadProgress: DownloadProgress::<Impl, IMPL_OFFSET>,
+            InstallProgress: InstallProgress::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemUpdateItem as ::windows::core::Interface>::IID
@@ -171,7 +166,12 @@ impl ISystemUpdateLastErrorInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemUpdateLastErrorInfo>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, IsInteractive::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemUpdateLastErrorInfo, BASE_OFFSET>(),
+            State: State::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            IsInteractive: IsInteractive::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemUpdateLastErrorInfo as ::windows::core::Interface>::IID
@@ -447,38 +447,33 @@ impl ISystemUpdateManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartCancelUpdates().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISystemUpdateManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            IsSupported::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            StateChanged::<Impl, IMPL_OFFSET>,
-            RemoveStateChanged::<Impl, IMPL_OFFSET>,
-            DownloadProgress::<Impl, IMPL_OFFSET>,
-            InstallProgress::<Impl, IMPL_OFFSET>,
-            UserActiveHoursStart::<Impl, IMPL_OFFSET>,
-            UserActiveHoursEnd::<Impl, IMPL_OFFSET>,
-            UserActiveHoursMax::<Impl, IMPL_OFFSET>,
-            TrySetUserActiveHours::<Impl, IMPL_OFFSET>,
-            LastUpdateCheckTime::<Impl, IMPL_OFFSET>,
-            LastUpdateInstallTime::<Impl, IMPL_OFFSET>,
-            LastErrorInfo::<Impl, IMPL_OFFSET>,
-            GetAutomaticRebootBlockIds::<Impl, IMPL_OFFSET>,
-            BlockAutomaticRebootAsync::<Impl, IMPL_OFFSET>,
-            UnblockAutomaticRebootAsync::<Impl, IMPL_OFFSET>,
-            ExtendedError::<Impl, IMPL_OFFSET>,
-            GetUpdateItems::<Impl, IMPL_OFFSET>,
-            AttentionRequiredReason::<Impl, IMPL_OFFSET>,
-            SetFlightRing::<Impl, IMPL_OFFSET>,
-            GetFlightRing::<Impl, IMPL_OFFSET>,
-            StartInstall::<Impl, IMPL_OFFSET>,
-            RebootToCompleteInstall::<Impl, IMPL_OFFSET>,
-            StartCancelUpdates::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemUpdateManagerStatics, BASE_OFFSET>(),
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            StateChanged: StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged: RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            DownloadProgress: DownloadProgress::<Impl, IMPL_OFFSET>,
+            InstallProgress: InstallProgress::<Impl, IMPL_OFFSET>,
+            UserActiveHoursStart: UserActiveHoursStart::<Impl, IMPL_OFFSET>,
+            UserActiveHoursEnd: UserActiveHoursEnd::<Impl, IMPL_OFFSET>,
+            UserActiveHoursMax: UserActiveHoursMax::<Impl, IMPL_OFFSET>,
+            TrySetUserActiveHours: TrySetUserActiveHours::<Impl, IMPL_OFFSET>,
+            LastUpdateCheckTime: LastUpdateCheckTime::<Impl, IMPL_OFFSET>,
+            LastUpdateInstallTime: LastUpdateInstallTime::<Impl, IMPL_OFFSET>,
+            LastErrorInfo: LastErrorInfo::<Impl, IMPL_OFFSET>,
+            GetAutomaticRebootBlockIds: GetAutomaticRebootBlockIds::<Impl, IMPL_OFFSET>,
+            BlockAutomaticRebootAsync: BlockAutomaticRebootAsync::<Impl, IMPL_OFFSET>,
+            UnblockAutomaticRebootAsync: UnblockAutomaticRebootAsync::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            GetUpdateItems: GetUpdateItems::<Impl, IMPL_OFFSET>,
+            AttentionRequiredReason: AttentionRequiredReason::<Impl, IMPL_OFFSET>,
+            SetFlightRing: SetFlightRing::<Impl, IMPL_OFFSET>,
+            GetFlightRing: GetFlightRing::<Impl, IMPL_OFFSET>,
+            StartInstall: StartInstall::<Impl, IMPL_OFFSET>,
+            RebootToCompleteInstall: RebootToCompleteInstall::<Impl, IMPL_OFFSET>,
+            StartCancelUpdates: StartCancelUpdates::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemUpdateManagerStatics as ::windows::core::Interface>::IID

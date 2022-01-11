@@ -59,20 +59,15 @@ impl IPrintSupportExtensionSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintSupportExtensionSession>,
-            ::windows::core::GetTrustLevel,
-            Printer::<Impl, IMPL_OFFSET>,
-            PrintTicketValidationRequested::<Impl, IMPL_OFFSET>,
-            RemovePrintTicketValidationRequested::<Impl, IMPL_OFFSET>,
-            PrintDeviceCapabilitiesChanged::<Impl, IMPL_OFFSET>,
-            RemovePrintDeviceCapabilitiesChanged::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintSupportExtensionSession, BASE_OFFSET>(),
+            Printer: Printer::<Impl, IMPL_OFFSET>,
+            PrintTicketValidationRequested: PrintTicketValidationRequested::<Impl, IMPL_OFFSET>,
+            RemovePrintTicketValidationRequested: RemovePrintTicketValidationRequested::<Impl, IMPL_OFFSET>,
+            PrintDeviceCapabilitiesChanged: PrintDeviceCapabilitiesChanged::<Impl, IMPL_OFFSET>,
+            RemovePrintDeviceCapabilitiesChanged: RemovePrintDeviceCapabilitiesChanged::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintSupportExtensionSession as ::windows::core::Interface>::IID
@@ -100,7 +95,10 @@ impl IPrintSupportExtensionTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSupportExtensionTriggerDetails>, ::windows::core::GetTrustLevel, Session::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintSupportExtensionTriggerDetails, BASE_OFFSET>(),
+            Session: Session::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintSupportExtensionTriggerDetails as ::windows::core::Interface>::IID
@@ -145,7 +143,12 @@ impl IPrintSupportPrintDeviceCapabilitiesChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs>, ::windows::core::GetTrustLevel, GetCurrentPrintDeviceCapabilities::<Impl, IMPL_OFFSET>, UpdatePrintDeviceCapabilities::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs, BASE_OFFSET>(),
+            GetCurrentPrintDeviceCapabilities: GetCurrentPrintDeviceCapabilities::<Impl, IMPL_OFFSET>,
+            UpdatePrintDeviceCapabilities: UpdatePrintDeviceCapabilities::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs as ::windows::core::Interface>::IID
@@ -190,7 +193,12 @@ impl IPrintSupportPrintTicketValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSupportPrintTicketValidationRequestedEventArgs>, ::windows::core::GetTrustLevel, PrintTicket::<Impl, IMPL_OFFSET>, SetPrintTicketValidationStatus::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintSupportPrintTicketValidationRequestedEventArgs, BASE_OFFSET>(),
+            PrintTicket: PrintTicket::<Impl, IMPL_OFFSET>,
+            SetPrintTicketValidationStatus: SetPrintTicketValidationStatus::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintSupportPrintTicketValidationRequestedEventArgs as ::windows::core::Interface>::IID
@@ -230,7 +238,11 @@ impl IPrintSupportSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSupportSessionInfo>, ::windows::core::GetTrustLevel, SourceAppInfo::<Impl, IMPL_OFFSET>, Printer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintSupportSessionInfo, BASE_OFFSET>(),
+            SourceAppInfo: SourceAppInfo::<Impl, IMPL_OFFSET>,
+            Printer: Printer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintSupportSessionInfo as ::windows::core::Interface>::IID
@@ -270,7 +282,11 @@ impl IPrintSupportSettingsActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSupportSettingsActivatedEventArgs>, ::windows::core::GetTrustLevel, Session::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintSupportSettingsActivatedEventArgs, BASE_OFFSET>(),
+            Session: Session::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintSupportSettingsActivatedEventArgs as ::windows::core::Interface>::IID
@@ -339,7 +355,14 @@ impl IPrintSupportSettingsUISessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSupportSettingsUISession>, ::windows::core::GetTrustLevel, SessionPrintTicket::<Impl, IMPL_OFFSET>, DocumentTitle::<Impl, IMPL_OFFSET>, LaunchKind::<Impl, IMPL_OFFSET>, UpdatePrintTicket::<Impl, IMPL_OFFSET>, SessionInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintSupportSettingsUISession, BASE_OFFSET>(),
+            SessionPrintTicket: SessionPrintTicket::<Impl, IMPL_OFFSET>,
+            DocumentTitle: DocumentTitle::<Impl, IMPL_OFFSET>,
+            LaunchKind: LaunchKind::<Impl, IMPL_OFFSET>,
+            UpdatePrintTicket: UpdatePrintTicket::<Impl, IMPL_OFFSET>,
+            SessionInfo: SessionInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintSupportSettingsUISession as ::windows::core::Interface>::IID

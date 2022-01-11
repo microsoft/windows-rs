@@ -32,7 +32,11 @@ impl IHttpBufferContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpBufferContentFactory>, ::windows::core::GetTrustLevel, CreateFromBuffer::<Impl, IMPL_OFFSET>, CreateFromBufferWithOffset::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpBufferContentFactory, BASE_OFFSET>(),
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+            CreateFromBufferWithOffset: CreateFromBufferWithOffset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpBufferContentFactory as ::windows::core::Interface>::IID
@@ -180,25 +184,20 @@ impl IHttpClientVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpClient>,
-            ::windows::core::GetTrustLevel,
-            DeleteAsync::<Impl, IMPL_OFFSET>,
-            GetAsync::<Impl, IMPL_OFFSET>,
-            GetWithOptionAsync::<Impl, IMPL_OFFSET>,
-            GetBufferAsync::<Impl, IMPL_OFFSET>,
-            GetInputStreamAsync::<Impl, IMPL_OFFSET>,
-            GetStringAsync::<Impl, IMPL_OFFSET>,
-            PostAsync::<Impl, IMPL_OFFSET>,
-            PutAsync::<Impl, IMPL_OFFSET>,
-            SendRequestAsync::<Impl, IMPL_OFFSET>,
-            SendRequestWithOptionAsync::<Impl, IMPL_OFFSET>,
-            DefaultRequestHeaders::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpClient, BASE_OFFSET>(),
+            DeleteAsync: DeleteAsync::<Impl, IMPL_OFFSET>,
+            GetAsync: GetAsync::<Impl, IMPL_OFFSET>,
+            GetWithOptionAsync: GetWithOptionAsync::<Impl, IMPL_OFFSET>,
+            GetBufferAsync: GetBufferAsync::<Impl, IMPL_OFFSET>,
+            GetInputStreamAsync: GetInputStreamAsync::<Impl, IMPL_OFFSET>,
+            GetStringAsync: GetStringAsync::<Impl, IMPL_OFFSET>,
+            PostAsync: PostAsync::<Impl, IMPL_OFFSET>,
+            PutAsync: PutAsync::<Impl, IMPL_OFFSET>,
+            SendRequestAsync: SendRequestAsync::<Impl, IMPL_OFFSET>,
+            SendRequestWithOptionAsync: SendRequestWithOptionAsync::<Impl, IMPL_OFFSET>,
+            DefaultRequestHeaders: DefaultRequestHeaders::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpClient as ::windows::core::Interface>::IID
@@ -334,24 +333,19 @@ impl IHttpClient2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpClient2>,
-            ::windows::core::GetTrustLevel,
-            TryDeleteAsync::<Impl, IMPL_OFFSET>,
-            TryGetAsync::<Impl, IMPL_OFFSET>,
-            TryGetAsync2::<Impl, IMPL_OFFSET>,
-            TryGetBufferAsync::<Impl, IMPL_OFFSET>,
-            TryGetInputStreamAsync::<Impl, IMPL_OFFSET>,
-            TryGetStringAsync::<Impl, IMPL_OFFSET>,
-            TryPostAsync::<Impl, IMPL_OFFSET>,
-            TryPutAsync::<Impl, IMPL_OFFSET>,
-            TrySendRequestAsync::<Impl, IMPL_OFFSET>,
-            TrySendRequestAsync2::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpClient2, BASE_OFFSET>(),
+            TryDeleteAsync: TryDeleteAsync::<Impl, IMPL_OFFSET>,
+            TryGetAsync: TryGetAsync::<Impl, IMPL_OFFSET>,
+            TryGetAsync2: TryGetAsync2::<Impl, IMPL_OFFSET>,
+            TryGetBufferAsync: TryGetBufferAsync::<Impl, IMPL_OFFSET>,
+            TryGetInputStreamAsync: TryGetInputStreamAsync::<Impl, IMPL_OFFSET>,
+            TryGetStringAsync: TryGetStringAsync::<Impl, IMPL_OFFSET>,
+            TryPostAsync: TryPostAsync::<Impl, IMPL_OFFSET>,
+            TryPutAsync: TryPutAsync::<Impl, IMPL_OFFSET>,
+            TrySendRequestAsync: TrySendRequestAsync::<Impl, IMPL_OFFSET>,
+            TrySendRequestAsync2: TrySendRequestAsync2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpClient2 as ::windows::core::Interface>::IID
@@ -379,7 +373,7 @@ impl IHttpClientFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpClientFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpClientFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpClientFactory as ::windows::core::Interface>::IID
@@ -479,21 +473,16 @@ impl IHttpContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpContent>,
-            ::windows::core::GetTrustLevel,
-            Headers::<Impl, IMPL_OFFSET>,
-            BufferAllAsync::<Impl, IMPL_OFFSET>,
-            ReadAsBufferAsync::<Impl, IMPL_OFFSET>,
-            ReadAsInputStreamAsync::<Impl, IMPL_OFFSET>,
-            ReadAsStringAsync::<Impl, IMPL_OFFSET>,
-            TryComputeLength::<Impl, IMPL_OFFSET>,
-            WriteToStreamAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContent, BASE_OFFSET>(),
+            Headers: Headers::<Impl, IMPL_OFFSET>,
+            BufferAllAsync: BufferAllAsync::<Impl, IMPL_OFFSET>,
+            ReadAsBufferAsync: ReadAsBufferAsync::<Impl, IMPL_OFFSET>,
+            ReadAsInputStreamAsync: ReadAsInputStreamAsync::<Impl, IMPL_OFFSET>,
+            ReadAsStringAsync: ReadAsStringAsync::<Impl, IMPL_OFFSET>,
+            TryComputeLength: TryComputeLength::<Impl, IMPL_OFFSET>,
+            WriteToStreamAsync: WriteToStreamAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContent as ::windows::core::Interface>::IID
@@ -613,25 +602,20 @@ impl IHttpCookieVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpCookie>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            Domain::<Impl, IMPL_OFFSET>,
-            Path::<Impl, IMPL_OFFSET>,
-            Expires::<Impl, IMPL_OFFSET>,
-            SetExpires::<Impl, IMPL_OFFSET>,
-            HttpOnly::<Impl, IMPL_OFFSET>,
-            SetHttpOnly::<Impl, IMPL_OFFSET>,
-            Secure::<Impl, IMPL_OFFSET>,
-            SetSecure::<Impl, IMPL_OFFSET>,
-            Value::<Impl, IMPL_OFFSET>,
-            SetValue::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpCookie, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Domain: Domain::<Impl, IMPL_OFFSET>,
+            Path: Path::<Impl, IMPL_OFFSET>,
+            Expires: Expires::<Impl, IMPL_OFFSET>,
+            SetExpires: SetExpires::<Impl, IMPL_OFFSET>,
+            HttpOnly: HttpOnly::<Impl, IMPL_OFFSET>,
+            SetHttpOnly: SetHttpOnly::<Impl, IMPL_OFFSET>,
+            Secure: Secure::<Impl, IMPL_OFFSET>,
+            SetSecure: SetSecure::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpCookie as ::windows::core::Interface>::IID
@@ -659,7 +643,7 @@ impl IHttpCookieFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCookieFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpCookieFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpCookieFactory as ::windows::core::Interface>::IID
@@ -716,7 +700,13 @@ impl IHttpCookieManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCookieManager>, ::windows::core::GetTrustLevel, SetCookie::<Impl, IMPL_OFFSET>, SetCookieWithThirdParty::<Impl, IMPL_OFFSET>, DeleteCookie::<Impl, IMPL_OFFSET>, GetCookies::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpCookieManager, BASE_OFFSET>(),
+            SetCookie: SetCookie::<Impl, IMPL_OFFSET>,
+            SetCookieWithThirdParty: SetCookieWithThirdParty::<Impl, IMPL_OFFSET>,
+            DeleteCookie: DeleteCookie::<Impl, IMPL_OFFSET>,
+            GetCookies: GetCookies::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpCookieManager as ::windows::core::Interface>::IID
@@ -744,7 +734,7 @@ impl IHttpFormUrlEncodedContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpFormUrlEncodedContentFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpFormUrlEncodedContentFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpFormUrlEncodedContentFactory as ::windows::core::Interface>::IID
@@ -820,7 +810,14 @@ impl IHttpGetBufferResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpGetBufferResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, RequestMessage::<Impl, IMPL_OFFSET>, ResponseMessage::<Impl, IMPL_OFFSET>, Succeeded::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpGetBufferResult, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            RequestMessage: RequestMessage::<Impl, IMPL_OFFSET>,
+            ResponseMessage: ResponseMessage::<Impl, IMPL_OFFSET>,
+            Succeeded: Succeeded::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpGetBufferResult as ::windows::core::Interface>::IID
@@ -896,7 +893,14 @@ impl IHttpGetInputStreamResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpGetInputStreamResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, RequestMessage::<Impl, IMPL_OFFSET>, ResponseMessage::<Impl, IMPL_OFFSET>, Succeeded::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpGetInputStreamResult, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            RequestMessage: RequestMessage::<Impl, IMPL_OFFSET>,
+            ResponseMessage: ResponseMessage::<Impl, IMPL_OFFSET>,
+            Succeeded: Succeeded::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpGetInputStreamResult as ::windows::core::Interface>::IID
@@ -972,7 +976,14 @@ impl IHttpGetStringResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpGetStringResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, RequestMessage::<Impl, IMPL_OFFSET>, ResponseMessage::<Impl, IMPL_OFFSET>, Succeeded::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpGetStringResult, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            RequestMessage: RequestMessage::<Impl, IMPL_OFFSET>,
+            ResponseMessage: ResponseMessage::<Impl, IMPL_OFFSET>,
+            Succeeded: Succeeded::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpGetStringResult as ::windows::core::Interface>::IID
@@ -1000,7 +1011,7 @@ impl IHttpMethodVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMethod>, ::windows::core::GetTrustLevel, Method::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMethod, BASE_OFFSET>(), Method: Method::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMethod as ::windows::core::Interface>::IID
@@ -1028,7 +1039,7 @@ impl IHttpMethodFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMethodFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMethodFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMethodFactory as ::windows::core::Interface>::IID
@@ -1128,7 +1139,16 @@ impl IHttpMethodStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMethodStatics>, ::windows::core::GetTrustLevel, Delete::<Impl, IMPL_OFFSET>, Get::<Impl, IMPL_OFFSET>, Head::<Impl, IMPL_OFFSET>, Options::<Impl, IMPL_OFFSET>, Patch::<Impl, IMPL_OFFSET>, Post::<Impl, IMPL_OFFSET>, Put::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMethodStatics, BASE_OFFSET>(),
+            Delete: Delete::<Impl, IMPL_OFFSET>,
+            Get: Get::<Impl, IMPL_OFFSET>,
+            Head: Head::<Impl, IMPL_OFFSET>,
+            Options: Options::<Impl, IMPL_OFFSET>,
+            Patch: Patch::<Impl, IMPL_OFFSET>,
+            Post: Post::<Impl, IMPL_OFFSET>,
+            Put: Put::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMethodStatics as ::windows::core::Interface>::IID
@@ -1149,7 +1169,7 @@ impl IHttpMultipartContentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(&*(&content as *const <IHttpContent as ::windows::core::Abi>::Abi as *const <IHttpContent as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMultipartContent>, ::windows::core::GetTrustLevel, Add::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMultipartContent, BASE_OFFSET>(), Add: Add::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMultipartContent as ::windows::core::Interface>::IID
@@ -1189,7 +1209,11 @@ impl IHttpMultipartContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMultipartContentFactory>, ::windows::core::GetTrustLevel, CreateWithSubtype::<Impl, IMPL_OFFSET>, CreateWithSubtypeAndBoundary::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMultipartContentFactory, BASE_OFFSET>(),
+            CreateWithSubtype: CreateWithSubtype::<Impl, IMPL_OFFSET>,
+            CreateWithSubtypeAndBoundary: CreateWithSubtypeAndBoundary::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMultipartContentFactory as ::windows::core::Interface>::IID
@@ -1222,7 +1246,12 @@ impl IHttpMultipartFormDataContentVtbl {
                 .AddWithNameAndFileName(&*(&content as *const <IHttpContent as ::windows::core::Abi>::Abi as *const <IHttpContent as ::windows::core::DefaultType>::DefaultType), &*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&filename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType))
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMultipartFormDataContent>, ::windows::core::GetTrustLevel, Add::<Impl, IMPL_OFFSET>, AddWithName::<Impl, IMPL_OFFSET>, AddWithNameAndFileName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMultipartFormDataContent, BASE_OFFSET>(),
+            Add: Add::<Impl, IMPL_OFFSET>,
+            AddWithName: AddWithName::<Impl, IMPL_OFFSET>,
+            AddWithNameAndFileName: AddWithNameAndFileName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMultipartFormDataContent as ::windows::core::Interface>::IID
@@ -1250,7 +1279,10 @@ impl IHttpMultipartFormDataContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMultipartFormDataContentFactory>, ::windows::core::GetTrustLevel, CreateWithBoundary::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMultipartFormDataContentFactory, BASE_OFFSET>(),
+            CreateWithBoundary: CreateWithBoundary::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMultipartFormDataContentFactory as ::windows::core::Interface>::IID
@@ -1353,23 +1385,18 @@ impl IHttpRequestMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpRequestMessage>,
-            ::windows::core::GetTrustLevel,
-            Content::<Impl, IMPL_OFFSET>,
-            SetContent::<Impl, IMPL_OFFSET>,
-            Headers::<Impl, IMPL_OFFSET>,
-            Method::<Impl, IMPL_OFFSET>,
-            SetMethod::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            RequestUri::<Impl, IMPL_OFFSET>,
-            SetRequestUri::<Impl, IMPL_OFFSET>,
-            TransportInformation::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpRequestMessage, BASE_OFFSET>(),
+            Content: Content::<Impl, IMPL_OFFSET>,
+            SetContent: SetContent::<Impl, IMPL_OFFSET>,
+            Headers: Headers::<Impl, IMPL_OFFSET>,
+            Method: Method::<Impl, IMPL_OFFSET>,
+            SetMethod: SetMethod::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            RequestUri: RequestUri::<Impl, IMPL_OFFSET>,
+            SetRequestUri: SetRequestUri::<Impl, IMPL_OFFSET>,
+            TransportInformation: TransportInformation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpRequestMessage as ::windows::core::Interface>::IID
@@ -1397,7 +1424,7 @@ impl IHttpRequestMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpRequestMessageFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpRequestMessageFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpRequestMessageFactory as ::windows::core::Interface>::IID
@@ -1461,7 +1488,13 @@ impl IHttpRequestResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpRequestResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, RequestMessage::<Impl, IMPL_OFFSET>, ResponseMessage::<Impl, IMPL_OFFSET>, Succeeded::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpRequestResult, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            RequestMessage: RequestMessage::<Impl, IMPL_OFFSET>,
+            ResponseMessage: ResponseMessage::<Impl, IMPL_OFFSET>,
+            Succeeded: Succeeded::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpRequestResult as ::windows::core::Interface>::IID
@@ -1615,29 +1648,24 @@ impl IHttpResponseMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpResponseMessage>,
-            ::windows::core::GetTrustLevel,
-            Content::<Impl, IMPL_OFFSET>,
-            SetContent::<Impl, IMPL_OFFSET>,
-            Headers::<Impl, IMPL_OFFSET>,
-            IsSuccessStatusCode::<Impl, IMPL_OFFSET>,
-            ReasonPhrase::<Impl, IMPL_OFFSET>,
-            SetReasonPhrase::<Impl, IMPL_OFFSET>,
-            RequestMessage::<Impl, IMPL_OFFSET>,
-            SetRequestMessage::<Impl, IMPL_OFFSET>,
-            Source::<Impl, IMPL_OFFSET>,
-            SetSource::<Impl, IMPL_OFFSET>,
-            StatusCode::<Impl, IMPL_OFFSET>,
-            SetStatusCode::<Impl, IMPL_OFFSET>,
-            Version::<Impl, IMPL_OFFSET>,
-            SetVersion::<Impl, IMPL_OFFSET>,
-            EnsureSuccessStatusCode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpResponseMessage, BASE_OFFSET>(),
+            Content: Content::<Impl, IMPL_OFFSET>,
+            SetContent: SetContent::<Impl, IMPL_OFFSET>,
+            Headers: Headers::<Impl, IMPL_OFFSET>,
+            IsSuccessStatusCode: IsSuccessStatusCode::<Impl, IMPL_OFFSET>,
+            ReasonPhrase: ReasonPhrase::<Impl, IMPL_OFFSET>,
+            SetReasonPhrase: SetReasonPhrase::<Impl, IMPL_OFFSET>,
+            RequestMessage: RequestMessage::<Impl, IMPL_OFFSET>,
+            SetRequestMessage: SetRequestMessage::<Impl, IMPL_OFFSET>,
+            Source: Source::<Impl, IMPL_OFFSET>,
+            SetSource: SetSource::<Impl, IMPL_OFFSET>,
+            StatusCode: StatusCode::<Impl, IMPL_OFFSET>,
+            SetStatusCode: SetStatusCode::<Impl, IMPL_OFFSET>,
+            Version: Version::<Impl, IMPL_OFFSET>,
+            SetVersion: SetVersion::<Impl, IMPL_OFFSET>,
+            EnsureSuccessStatusCode: EnsureSuccessStatusCode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpResponseMessage as ::windows::core::Interface>::IID
@@ -1665,7 +1693,7 @@ impl IHttpResponseMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpResponseMessageFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpResponseMessageFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpResponseMessageFactory as ::windows::core::Interface>::IID
@@ -1693,7 +1721,10 @@ impl IHttpStreamContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpStreamContentFactory>, ::windows::core::GetTrustLevel, CreateFromInputStream::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpStreamContentFactory, BASE_OFFSET>(),
+            CreateFromInputStream: CreateFromInputStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpStreamContentFactory as ::windows::core::Interface>::IID
@@ -1745,7 +1776,12 @@ impl IHttpStringContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpStringContentFactory>, ::windows::core::GetTrustLevel, CreateFromString::<Impl, IMPL_OFFSET>, CreateFromStringWithEncoding::<Impl, IMPL_OFFSET>, CreateFromStringWithEncodingAndMediaType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpStringContentFactory, BASE_OFFSET>(),
+            CreateFromString: CreateFromString::<Impl, IMPL_OFFSET>,
+            CreateFromStringWithEncoding: CreateFromStringWithEncoding::<Impl, IMPL_OFFSET>,
+            CreateFromStringWithEncodingAndMediaType: CreateFromStringWithEncodingAndMediaType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpStringContentFactory as ::windows::core::Interface>::IID
@@ -1809,7 +1845,13 @@ impl IHttpTransportInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpTransportInformation>, ::windows::core::GetTrustLevel, ServerCertificate::<Impl, IMPL_OFFSET>, ServerCertificateErrorSeverity::<Impl, IMPL_OFFSET>, ServerCertificateErrors::<Impl, IMPL_OFFSET>, ServerIntermediateCertificates::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpTransportInformation, BASE_OFFSET>(),
+            ServerCertificate: ServerCertificate::<Impl, IMPL_OFFSET>,
+            ServerCertificateErrorSeverity: ServerCertificateErrorSeverity::<Impl, IMPL_OFFSET>,
+            ServerCertificateErrors: ServerCertificateErrors::<Impl, IMPL_OFFSET>,
+            ServerIntermediateCertificates: ServerIntermediateCertificates::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpTransportInformation as ::windows::core::Interface>::IID

@@ -42,7 +42,13 @@ impl ICoreFrameworkInputViewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveOcclusionsChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreFrameworkInputView>, ::windows::core::GetTrustLevel, PrimaryViewAnimationStarting::<Impl, IMPL_OFFSET>, RemovePrimaryViewAnimationStarting::<Impl, IMPL_OFFSET>, OcclusionsChanged::<Impl, IMPL_OFFSET>, RemoveOcclusionsChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreFrameworkInputView, BASE_OFFSET>(),
+            PrimaryViewAnimationStarting: PrimaryViewAnimationStarting::<Impl, IMPL_OFFSET>,
+            RemovePrimaryViewAnimationStarting: RemovePrimaryViewAnimationStarting::<Impl, IMPL_OFFSET>,
+            OcclusionsChanged: OcclusionsChanged::<Impl, IMPL_OFFSET>,
+            RemoveOcclusionsChanged: RemoveOcclusionsChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreFrameworkInputView as ::windows::core::Interface>::IID
@@ -94,7 +100,12 @@ impl ICoreFrameworkInputViewAnimationStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreFrameworkInputViewAnimationStartingEventArgs>, ::windows::core::GetTrustLevel, Occlusions::<Impl, IMPL_OFFSET>, FrameworkAnimationRecommended::<Impl, IMPL_OFFSET>, AnimationDuration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreFrameworkInputViewAnimationStartingEventArgs, BASE_OFFSET>(),
+            Occlusions: Occlusions::<Impl, IMPL_OFFSET>,
+            FrameworkAnimationRecommended: FrameworkAnimationRecommended::<Impl, IMPL_OFFSET>,
+            AnimationDuration: AnimationDuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreFrameworkInputViewAnimationStartingEventArgs as ::windows::core::Interface>::IID
@@ -134,7 +145,11 @@ impl ICoreFrameworkInputViewOcclusionsChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreFrameworkInputViewOcclusionsChangedEventArgs>, ::windows::core::GetTrustLevel, Occlusions::<Impl, IMPL_OFFSET>, Handled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreFrameworkInputViewOcclusionsChangedEventArgs, BASE_OFFSET>(),
+            Occlusions: Occlusions::<Impl, IMPL_OFFSET>,
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreFrameworkInputViewOcclusionsChangedEventArgs as ::windows::core::Interface>::IID
@@ -174,7 +189,11 @@ impl ICoreFrameworkInputViewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreFrameworkInputViewStatics>, ::windows::core::GetTrustLevel, GetForUIContext::<Impl, IMPL_OFFSET>, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreFrameworkInputViewStatics, BASE_OFFSET>(),
+            GetForUIContext: GetForUIContext::<Impl, IMPL_OFFSET>,
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreFrameworkInputViewStatics as ::windows::core::Interface>::IID
@@ -243,19 +262,14 @@ impl ICoreInputViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreInputView>,
-            ::windows::core::GetTrustLevel,
-            OcclusionsChanged::<Impl, IMPL_OFFSET>,
-            RemoveOcclusionsChanged::<Impl, IMPL_OFFSET>,
-            GetCoreInputViewOcclusions::<Impl, IMPL_OFFSET>,
-            TryShowPrimaryView::<Impl, IMPL_OFFSET>,
-            TryHidePrimaryView::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputView, BASE_OFFSET>(),
+            OcclusionsChanged: OcclusionsChanged::<Impl, IMPL_OFFSET>,
+            RemoveOcclusionsChanged: RemoveOcclusionsChanged::<Impl, IMPL_OFFSET>,
+            GetCoreInputViewOcclusions: GetCoreInputViewOcclusions::<Impl, IMPL_OFFSET>,
+            TryShowPrimaryView: TryShowPrimaryView::<Impl, IMPL_OFFSET>,
+            TryHidePrimaryView: TryHidePrimaryView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInputView as ::windows::core::Interface>::IID
@@ -317,19 +331,14 @@ impl ICoreInputView2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreInputView2>,
-            ::windows::core::GetTrustLevel,
-            XYFocusTransferringFromPrimaryView::<Impl, IMPL_OFFSET>,
-            RemoveXYFocusTransferringFromPrimaryView::<Impl, IMPL_OFFSET>,
-            XYFocusTransferredToPrimaryView::<Impl, IMPL_OFFSET>,
-            RemoveXYFocusTransferredToPrimaryView::<Impl, IMPL_OFFSET>,
-            TryTransferXYFocusToPrimaryView::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputView2, BASE_OFFSET>(),
+            XYFocusTransferringFromPrimaryView: XYFocusTransferringFromPrimaryView::<Impl, IMPL_OFFSET>,
+            RemoveXYFocusTransferringFromPrimaryView: RemoveXYFocusTransferringFromPrimaryView::<Impl, IMPL_OFFSET>,
+            XYFocusTransferredToPrimaryView: XYFocusTransferredToPrimaryView::<Impl, IMPL_OFFSET>,
+            RemoveXYFocusTransferredToPrimaryView: RemoveXYFocusTransferredToPrimaryView::<Impl, IMPL_OFFSET>,
+            TryTransferXYFocusToPrimaryView: TryTransferXYFocusToPrimaryView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInputView2 as ::windows::core::Interface>::IID
@@ -381,7 +390,12 @@ impl ICoreInputView3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInputView3>, ::windows::core::GetTrustLevel, TryShow::<Impl, IMPL_OFFSET>, TryShowWithKind::<Impl, IMPL_OFFSET>, TryHide::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputView3, BASE_OFFSET>(),
+            TryShow: TryShow::<Impl, IMPL_OFFSET>,
+            TryShowWithKind: TryShowWithKind::<Impl, IMPL_OFFSET>,
+            TryHide: TryHide::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInputView3 as ::windows::core::Interface>::IID
@@ -431,7 +445,13 @@ impl ICoreInputView4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePrimaryViewHiding(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInputView4>, ::windows::core::GetTrustLevel, PrimaryViewShowing::<Impl, IMPL_OFFSET>, RemovePrimaryViewShowing::<Impl, IMPL_OFFSET>, PrimaryViewHiding::<Impl, IMPL_OFFSET>, RemovePrimaryViewHiding::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputView4, BASE_OFFSET>(),
+            PrimaryViewShowing: PrimaryViewShowing::<Impl, IMPL_OFFSET>,
+            RemovePrimaryViewShowing: RemovePrimaryViewShowing::<Impl, IMPL_OFFSET>,
+            PrimaryViewHiding: PrimaryViewHiding::<Impl, IMPL_OFFSET>,
+            RemovePrimaryViewHiding: RemovePrimaryViewHiding::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInputView4 as ::windows::core::Interface>::IID
@@ -493,19 +513,14 @@ impl ICoreInputView5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePrimaryViewAnimationStarting(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreInputView5>,
-            ::windows::core::GetTrustLevel,
-            IsKindSupported::<Impl, IMPL_OFFSET>,
-            SupportedKindsChanged::<Impl, IMPL_OFFSET>,
-            RemoveSupportedKindsChanged::<Impl, IMPL_OFFSET>,
-            PrimaryViewAnimationStarting::<Impl, IMPL_OFFSET>,
-            RemovePrimaryViewAnimationStarting::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputView5, BASE_OFFSET>(),
+            IsKindSupported: IsKindSupported::<Impl, IMPL_OFFSET>,
+            SupportedKindsChanged: SupportedKindsChanged::<Impl, IMPL_OFFSET>,
+            RemoveSupportedKindsChanged: RemoveSupportedKindsChanged::<Impl, IMPL_OFFSET>,
+            PrimaryViewAnimationStarting: PrimaryViewAnimationStarting::<Impl, IMPL_OFFSET>,
+            RemovePrimaryViewAnimationStarting: RemovePrimaryViewAnimationStarting::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInputView5 as ::windows::core::Interface>::IID
@@ -562,7 +577,13 @@ impl ICoreInputViewAnimationStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInputViewAnimationStartingEventArgs>, ::windows::core::GetTrustLevel, Occlusions::<Impl, IMPL_OFFSET>, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, AnimationDuration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputViewAnimationStartingEventArgs, BASE_OFFSET>(),
+            Occlusions: Occlusions::<Impl, IMPL_OFFSET>,
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            AnimationDuration: AnimationDuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInputViewAnimationStartingEventArgs as ::windows::core::Interface>::IID
@@ -590,7 +611,10 @@ impl ICoreInputViewHidingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInputViewHidingEventArgs>, ::windows::core::GetTrustLevel, TryCancel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputViewHidingEventArgs, BASE_OFFSET>(),
+            TryCancel: TryCancel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInputViewHidingEventArgs as ::windows::core::Interface>::IID
@@ -630,7 +654,11 @@ impl ICoreInputViewOcclusionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInputViewOcclusion>, ::windows::core::GetTrustLevel, OccludingRect::<Impl, IMPL_OFFSET>, OcclusionKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputViewOcclusion, BASE_OFFSET>(),
+            OccludingRect: OccludingRect::<Impl, IMPL_OFFSET>,
+            OcclusionKind: OcclusionKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInputViewOcclusion as ::windows::core::Interface>::IID
@@ -675,7 +703,12 @@ impl ICoreInputViewOcclusionsChangedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInputViewOcclusionsChangedEventArgs>, ::windows::core::GetTrustLevel, Occlusions::<Impl, IMPL_OFFSET>, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputViewOcclusionsChangedEventArgs, BASE_OFFSET>(),
+            Occlusions: Occlusions::<Impl, IMPL_OFFSET>,
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInputViewOcclusionsChangedEventArgs as ::windows::core::Interface>::IID
@@ -703,7 +736,10 @@ impl ICoreInputViewShowingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInputViewShowingEventArgs>, ::windows::core::GetTrustLevel, TryCancel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputViewShowingEventArgs, BASE_OFFSET>(),
+            TryCancel: TryCancel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInputViewShowingEventArgs as ::windows::core::Interface>::IID
@@ -731,7 +767,10 @@ impl ICoreInputViewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInputViewStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputViewStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInputViewStatics as ::windows::core::Interface>::IID
@@ -759,7 +798,10 @@ impl ICoreInputViewStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInputViewStatics2>, ::windows::core::GetTrustLevel, GetForUIContext::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputViewStatics2, BASE_OFFSET>(),
+            GetForUIContext: GetForUIContext::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInputViewStatics2 as ::windows::core::Interface>::IID
@@ -833,20 +875,15 @@ impl ICoreInputViewTransferringXYFocusEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreInputViewTransferringXYFocusEventArgs>,
-            ::windows::core::GetTrustLevel,
-            Origin::<Impl, IMPL_OFFSET>,
-            Direction::<Impl, IMPL_OFFSET>,
-            SetTransferHandled::<Impl, IMPL_OFFSET>,
-            TransferHandled::<Impl, IMPL_OFFSET>,
-            SetKeepPrimaryViewVisible::<Impl, IMPL_OFFSET>,
-            KeepPrimaryViewVisible::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputViewTransferringXYFocusEventArgs, BASE_OFFSET>(),
+            Origin: Origin::<Impl, IMPL_OFFSET>,
+            Direction: Direction::<Impl, IMPL_OFFSET>,
+            SetTransferHandled: SetTransferHandled::<Impl, IMPL_OFFSET>,
+            TransferHandled: TransferHandled::<Impl, IMPL_OFFSET>,
+            SetKeepPrimaryViewVisible: SetKeepPrimaryViewVisible::<Impl, IMPL_OFFSET>,
+            KeepPrimaryViewVisible: KeepPrimaryViewVisible::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreInputViewTransferringXYFocusEventArgs as ::windows::core::Interface>::IID
@@ -887,19 +924,14 @@ impl IUISettingsControllerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTextScaleFactor(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUISettingsController>,
-            ::windows::core::GetTrustLevel,
-            SetAdvancedEffectsEnabled::<Impl, IMPL_OFFSET>,
-            SetAnimationsEnabled::<Impl, IMPL_OFFSET>,
-            SetAutoHideScrollBars::<Impl, IMPL_OFFSET>,
-            SetMessageDuration::<Impl, IMPL_OFFSET>,
-            SetTextScaleFactor::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUISettingsController, BASE_OFFSET>(),
+            SetAdvancedEffectsEnabled: SetAdvancedEffectsEnabled::<Impl, IMPL_OFFSET>,
+            SetAnimationsEnabled: SetAnimationsEnabled::<Impl, IMPL_OFFSET>,
+            SetAutoHideScrollBars: SetAutoHideScrollBars::<Impl, IMPL_OFFSET>,
+            SetMessageDuration: SetMessageDuration::<Impl, IMPL_OFFSET>,
+            SetTextScaleFactor: SetTextScaleFactor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUISettingsController as ::windows::core::Interface>::IID
@@ -927,7 +959,10 @@ impl IUISettingsControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUISettingsControllerStatics>, ::windows::core::GetTrustLevel, RequestDefaultAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUISettingsControllerStatics, BASE_OFFSET>(),
+            RequestDefaultAsync: RequestDefaultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUISettingsControllerStatics as ::windows::core::Interface>::IID

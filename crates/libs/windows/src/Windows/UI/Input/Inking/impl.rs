@@ -93,24 +93,19 @@ impl IInkDrawingAttributesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFitToCurve(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInkDrawingAttributes>,
-            ::windows::core::GetTrustLevel,
-            Color::<Impl, IMPL_OFFSET>,
-            SetColor::<Impl, IMPL_OFFSET>,
-            PenTip::<Impl, IMPL_OFFSET>,
-            SetPenTip::<Impl, IMPL_OFFSET>,
-            Size::<Impl, IMPL_OFFSET>,
-            SetSize::<Impl, IMPL_OFFSET>,
-            IgnorePressure::<Impl, IMPL_OFFSET>,
-            SetIgnorePressure::<Impl, IMPL_OFFSET>,
-            FitToCurve::<Impl, IMPL_OFFSET>,
-            SetFitToCurve::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkDrawingAttributes, BASE_OFFSET>(),
+            Color: Color::<Impl, IMPL_OFFSET>,
+            SetColor: SetColor::<Impl, IMPL_OFFSET>,
+            PenTip: PenTip::<Impl, IMPL_OFFSET>,
+            SetPenTip: SetPenTip::<Impl, IMPL_OFFSET>,
+            Size: Size::<Impl, IMPL_OFFSET>,
+            SetSize: SetSize::<Impl, IMPL_OFFSET>,
+            IgnorePressure: IgnorePressure::<Impl, IMPL_OFFSET>,
+            SetIgnorePressure: SetIgnorePressure::<Impl, IMPL_OFFSET>,
+            FitToCurve: FitToCurve::<Impl, IMPL_OFFSET>,
+            SetFitToCurve: SetFitToCurve::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkDrawingAttributes as ::windows::core::Interface>::IID
@@ -160,7 +155,13 @@ impl IInkDrawingAttributes2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDrawAsHighlighter(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkDrawingAttributes2>, ::windows::core::GetTrustLevel, PenTipTransform::<Impl, IMPL_OFFSET>, SetPenTipTransform::<Impl, IMPL_OFFSET>, DrawAsHighlighter::<Impl, IMPL_OFFSET>, SetDrawAsHighlighter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkDrawingAttributes2, BASE_OFFSET>(),
+            PenTipTransform: PenTipTransform::<Impl, IMPL_OFFSET>,
+            SetPenTipTransform: SetPenTipTransform::<Impl, IMPL_OFFSET>,
+            DrawAsHighlighter: DrawAsHighlighter::<Impl, IMPL_OFFSET>,
+            SetDrawAsHighlighter: SetDrawAsHighlighter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkDrawingAttributes2 as ::windows::core::Interface>::IID
@@ -200,7 +201,11 @@ impl IInkDrawingAttributes3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkDrawingAttributes3>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, PencilProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkDrawingAttributes3, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            PencilProperties: PencilProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkDrawingAttributes3 as ::windows::core::Interface>::IID
@@ -233,7 +238,11 @@ impl IInkDrawingAttributes4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIgnoreTilt(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkDrawingAttributes4>, ::windows::core::GetTrustLevel, IgnoreTilt::<Impl, IMPL_OFFSET>, SetIgnoreTilt::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkDrawingAttributes4, BASE_OFFSET>(),
+            IgnoreTilt: IgnoreTilt::<Impl, IMPL_OFFSET>,
+            SetIgnoreTilt: SetIgnoreTilt::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkDrawingAttributes4 as ::windows::core::Interface>::IID
@@ -261,7 +270,10 @@ impl IInkDrawingAttributes5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkDrawingAttributes5>, ::windows::core::GetTrustLevel, ModelerAttributes::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkDrawingAttributes5, BASE_OFFSET>(),
+            ModelerAttributes: ModelerAttributes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkDrawingAttributes5 as ::windows::core::Interface>::IID
@@ -294,7 +306,11 @@ impl IInkDrawingAttributesPencilPropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOpacity(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkDrawingAttributesPencilProperties>, ::windows::core::GetTrustLevel, Opacity::<Impl, IMPL_OFFSET>, SetOpacity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkDrawingAttributesPencilProperties, BASE_OFFSET>(),
+            Opacity: Opacity::<Impl, IMPL_OFFSET>,
+            SetOpacity: SetOpacity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkDrawingAttributesPencilProperties as ::windows::core::Interface>::IID
@@ -322,7 +338,10 @@ impl IInkDrawingAttributesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkDrawingAttributesStatics>, ::windows::core::GetTrustLevel, CreateForPencil::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkDrawingAttributesStatics, BASE_OFFSET>(),
+            CreateForPencil: CreateForPencil::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkDrawingAttributesStatics as ::windows::core::Interface>::IID
@@ -372,18 +391,13 @@ impl IInkInputConfigurationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEraserInputEnabled(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInkInputConfiguration>,
-            ::windows::core::GetTrustLevel,
-            IsPrimaryBarrelButtonInputEnabled::<Impl, IMPL_OFFSET>,
-            SetIsPrimaryBarrelButtonInputEnabled::<Impl, IMPL_OFFSET>,
-            IsEraserInputEnabled::<Impl, IMPL_OFFSET>,
-            SetIsEraserInputEnabled::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkInputConfiguration, BASE_OFFSET>(),
+            IsPrimaryBarrelButtonInputEnabled: IsPrimaryBarrelButtonInputEnabled::<Impl, IMPL_OFFSET>,
+            SetIsPrimaryBarrelButtonInputEnabled: SetIsPrimaryBarrelButtonInputEnabled::<Impl, IMPL_OFFSET>,
+            IsEraserInputEnabled: IsEraserInputEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEraserInputEnabled: SetIsEraserInputEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkInputConfiguration as ::windows::core::Interface>::IID
@@ -416,7 +430,11 @@ impl IInkInputConfiguration2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsPenHapticFeedbackEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkInputConfiguration2>, ::windows::core::GetTrustLevel, IsPenHapticFeedbackEnabled::<Impl, IMPL_OFFSET>, SetIsPenHapticFeedbackEnabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkInputConfiguration2, BASE_OFFSET>(),
+            IsPenHapticFeedbackEnabled: IsPenHapticFeedbackEnabled::<Impl, IMPL_OFFSET>,
+            SetIsPenHapticFeedbackEnabled: SetIsPenHapticFeedbackEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkInputConfiguration2 as ::windows::core::Interface>::IID
@@ -466,7 +484,13 @@ impl IInkInputProcessingConfigurationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRightDragAction(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkInputProcessingConfiguration>, ::windows::core::GetTrustLevel, Mode::<Impl, IMPL_OFFSET>, SetMode::<Impl, IMPL_OFFSET>, RightDragAction::<Impl, IMPL_OFFSET>, SetRightDragAction::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkInputProcessingConfiguration, BASE_OFFSET>(),
+            Mode: Mode::<Impl, IMPL_OFFSET>,
+            SetMode: SetMode::<Impl, IMPL_OFFSET>,
+            RightDragAction: RightDragAction::<Impl, IMPL_OFFSET>,
+            SetRightDragAction: SetRightDragAction::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkInputProcessingConfiguration as ::windows::core::Interface>::IID
@@ -545,21 +569,16 @@ impl IInkManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInkManager>,
-            ::windows::core::GetTrustLevel,
-            Mode::<Impl, IMPL_OFFSET>,
-            SetMode::<Impl, IMPL_OFFSET>,
-            ProcessPointerDown::<Impl, IMPL_OFFSET>,
-            ProcessPointerUpdate::<Impl, IMPL_OFFSET>,
-            ProcessPointerUp::<Impl, IMPL_OFFSET>,
-            SetDefaultDrawingAttributes::<Impl, IMPL_OFFSET>,
-            RecognizeAsync2::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkManager, BASE_OFFSET>(),
+            Mode: Mode::<Impl, IMPL_OFFSET>,
+            SetMode: SetMode::<Impl, IMPL_OFFSET>,
+            ProcessPointerDown: ProcessPointerDown::<Impl, IMPL_OFFSET>,
+            ProcessPointerUpdate: ProcessPointerUpdate::<Impl, IMPL_OFFSET>,
+            ProcessPointerUp: ProcessPointerUp::<Impl, IMPL_OFFSET>,
+            SetDefaultDrawingAttributes: SetDefaultDrawingAttributes::<Impl, IMPL_OFFSET>,
+            RecognizeAsync2: RecognizeAsync2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkManager as ::windows::core::Interface>::IID
@@ -609,7 +628,13 @@ impl IInkModelerAttributesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScalingFactor(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkModelerAttributes>, ::windows::core::GetTrustLevel, PredictionTime::<Impl, IMPL_OFFSET>, SetPredictionTime::<Impl, IMPL_OFFSET>, ScalingFactor::<Impl, IMPL_OFFSET>, SetScalingFactor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkModelerAttributes, BASE_OFFSET>(),
+            PredictionTime: PredictionTime::<Impl, IMPL_OFFSET>,
+            SetPredictionTime: SetPredictionTime::<Impl, IMPL_OFFSET>,
+            ScalingFactor: ScalingFactor::<Impl, IMPL_OFFSET>,
+            SetScalingFactor: SetScalingFactor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkModelerAttributes as ::windows::core::Interface>::IID
@@ -642,7 +667,11 @@ impl IInkModelerAttributes2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUseVelocityBasedPressure(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkModelerAttributes2>, ::windows::core::GetTrustLevel, UseVelocityBasedPressure::<Impl, IMPL_OFFSET>, SetUseVelocityBasedPressure::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkModelerAttributes2, BASE_OFFSET>(),
+            UseVelocityBasedPressure: UseVelocityBasedPressure::<Impl, IMPL_OFFSET>,
+            SetUseVelocityBasedPressure: SetUseVelocityBasedPressure::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkModelerAttributes2 as ::windows::core::Interface>::IID
@@ -682,7 +711,11 @@ impl IInkPointVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkPoint>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, Pressure::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPoint, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            Pressure: Pressure::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPoint as ::windows::core::Interface>::IID
@@ -734,7 +767,12 @@ impl IInkPoint2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkPoint2>, ::windows::core::GetTrustLevel, TiltX::<Impl, IMPL_OFFSET>, TiltY::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPoint2, BASE_OFFSET>(),
+            TiltX: TiltX::<Impl, IMPL_OFFSET>,
+            TiltY: TiltY::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPoint2 as ::windows::core::Interface>::IID
@@ -762,7 +800,7 @@ impl IInkPointFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkPointFactory>, ::windows::core::GetTrustLevel, CreateInkPoint::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPointFactory, BASE_OFFSET>(), CreateInkPoint: CreateInkPoint::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPointFactory as ::windows::core::Interface>::IID
@@ -790,7 +828,10 @@ impl IInkPointFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkPointFactory2>, ::windows::core::GetTrustLevel, CreateInkPointWithTiltAndTimestamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPointFactory2, BASE_OFFSET>(),
+            CreateInkPointWithTiltAndTimestamp: CreateInkPointWithTiltAndTimestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPointFactory2 as ::windows::core::Interface>::IID
@@ -961,31 +1002,26 @@ impl IInkPresenterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStrokesErased(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInkPresenter>,
-            ::windows::core::GetTrustLevel,
-            IsInputEnabled::<Impl, IMPL_OFFSET>,
-            SetIsInputEnabled::<Impl, IMPL_OFFSET>,
-            InputDeviceTypes::<Impl, IMPL_OFFSET>,
-            SetInputDeviceTypes::<Impl, IMPL_OFFSET>,
-            UnprocessedInput::<Impl, IMPL_OFFSET>,
-            StrokeInput::<Impl, IMPL_OFFSET>,
-            InputProcessingConfiguration::<Impl, IMPL_OFFSET>,
-            StrokeContainer::<Impl, IMPL_OFFSET>,
-            SetStrokeContainer::<Impl, IMPL_OFFSET>,
-            CopyDefaultDrawingAttributes::<Impl, IMPL_OFFSET>,
-            UpdateDefaultDrawingAttributes::<Impl, IMPL_OFFSET>,
-            ActivateCustomDrying::<Impl, IMPL_OFFSET>,
-            SetPredefinedConfiguration::<Impl, IMPL_OFFSET>,
-            StrokesCollected::<Impl, IMPL_OFFSET>,
-            RemoveStrokesCollected::<Impl, IMPL_OFFSET>,
-            StrokesErased::<Impl, IMPL_OFFSET>,
-            RemoveStrokesErased::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPresenter, BASE_OFFSET>(),
+            IsInputEnabled: IsInputEnabled::<Impl, IMPL_OFFSET>,
+            SetIsInputEnabled: SetIsInputEnabled::<Impl, IMPL_OFFSET>,
+            InputDeviceTypes: InputDeviceTypes::<Impl, IMPL_OFFSET>,
+            SetInputDeviceTypes: SetInputDeviceTypes::<Impl, IMPL_OFFSET>,
+            UnprocessedInput: UnprocessedInput::<Impl, IMPL_OFFSET>,
+            StrokeInput: StrokeInput::<Impl, IMPL_OFFSET>,
+            InputProcessingConfiguration: InputProcessingConfiguration::<Impl, IMPL_OFFSET>,
+            StrokeContainer: StrokeContainer::<Impl, IMPL_OFFSET>,
+            SetStrokeContainer: SetStrokeContainer::<Impl, IMPL_OFFSET>,
+            CopyDefaultDrawingAttributes: CopyDefaultDrawingAttributes::<Impl, IMPL_OFFSET>,
+            UpdateDefaultDrawingAttributes: UpdateDefaultDrawingAttributes::<Impl, IMPL_OFFSET>,
+            ActivateCustomDrying: ActivateCustomDrying::<Impl, IMPL_OFFSET>,
+            SetPredefinedConfiguration: SetPredefinedConfiguration::<Impl, IMPL_OFFSET>,
+            StrokesCollected: StrokesCollected::<Impl, IMPL_OFFSET>,
+            RemoveStrokesCollected: RemoveStrokesCollected::<Impl, IMPL_OFFSET>,
+            StrokesErased: StrokesErased::<Impl, IMPL_OFFSET>,
+            RemoveStrokesErased: RemoveStrokesErased::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPresenter as ::windows::core::Interface>::IID
@@ -1018,7 +1054,11 @@ impl IInkPresenter2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHighContrastAdjustment(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkPresenter2>, ::windows::core::GetTrustLevel, HighContrastAdjustment::<Impl, IMPL_OFFSET>, SetHighContrastAdjustment::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPresenter2, BASE_OFFSET>(),
+            HighContrastAdjustment: HighContrastAdjustment::<Impl, IMPL_OFFSET>,
+            SetHighContrastAdjustment: SetHighContrastAdjustment::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPresenter2 as ::windows::core::Interface>::IID
@@ -1046,7 +1086,10 @@ impl IInkPresenter3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkPresenter3>, ::windows::core::GetTrustLevel, InputConfiguration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPresenter3, BASE_OFFSET>(),
+            InputConfiguration: InputConfiguration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPresenter3 as ::windows::core::Interface>::IID
@@ -1181,28 +1224,23 @@ impl IInkPresenterProtractorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAccentColor(&*(&value as *const <super::super::Color as ::windows::core::Abi>::Abi as *const <super::super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInkPresenterProtractor>,
-            ::windows::core::GetTrustLevel,
-            AreTickMarksVisible::<Impl, IMPL_OFFSET>,
-            SetAreTickMarksVisible::<Impl, IMPL_OFFSET>,
-            AreRaysVisible::<Impl, IMPL_OFFSET>,
-            SetAreRaysVisible::<Impl, IMPL_OFFSET>,
-            IsCenterMarkerVisible::<Impl, IMPL_OFFSET>,
-            SetIsCenterMarkerVisible::<Impl, IMPL_OFFSET>,
-            IsAngleReadoutVisible::<Impl, IMPL_OFFSET>,
-            SetIsAngleReadoutVisible::<Impl, IMPL_OFFSET>,
-            IsResizable::<Impl, IMPL_OFFSET>,
-            SetIsResizable::<Impl, IMPL_OFFSET>,
-            Radius::<Impl, IMPL_OFFSET>,
-            SetRadius::<Impl, IMPL_OFFSET>,
-            AccentColor::<Impl, IMPL_OFFSET>,
-            SetAccentColor::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPresenterProtractor, BASE_OFFSET>(),
+            AreTickMarksVisible: AreTickMarksVisible::<Impl, IMPL_OFFSET>,
+            SetAreTickMarksVisible: SetAreTickMarksVisible::<Impl, IMPL_OFFSET>,
+            AreRaysVisible: AreRaysVisible::<Impl, IMPL_OFFSET>,
+            SetAreRaysVisible: SetAreRaysVisible::<Impl, IMPL_OFFSET>,
+            IsCenterMarkerVisible: IsCenterMarkerVisible::<Impl, IMPL_OFFSET>,
+            SetIsCenterMarkerVisible: SetIsCenterMarkerVisible::<Impl, IMPL_OFFSET>,
+            IsAngleReadoutVisible: IsAngleReadoutVisible::<Impl, IMPL_OFFSET>,
+            SetIsAngleReadoutVisible: SetIsAngleReadoutVisible::<Impl, IMPL_OFFSET>,
+            IsResizable: IsResizable::<Impl, IMPL_OFFSET>,
+            SetIsResizable: SetIsResizable::<Impl, IMPL_OFFSET>,
+            Radius: Radius::<Impl, IMPL_OFFSET>,
+            SetRadius: SetRadius::<Impl, IMPL_OFFSET>,
+            AccentColor: AccentColor::<Impl, IMPL_OFFSET>,
+            SetAccentColor: SetAccentColor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPresenterProtractor as ::windows::core::Interface>::IID
@@ -1230,7 +1268,7 @@ impl IInkPresenterProtractorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkPresenterProtractorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPresenterProtractorFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPresenterProtractorFactory as ::windows::core::Interface>::IID
@@ -1280,7 +1318,13 @@ impl IInkPresenterRulerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWidth(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkPresenterRuler>, ::windows::core::GetTrustLevel, Length::<Impl, IMPL_OFFSET>, SetLength::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>, SetWidth::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPresenterRuler, BASE_OFFSET>(),
+            Length: Length::<Impl, IMPL_OFFSET>,
+            SetLength: SetLength::<Impl, IMPL_OFFSET>,
+            Width: Width::<Impl, IMPL_OFFSET>,
+            SetWidth: SetWidth::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPresenterRuler as ::windows::core::Interface>::IID
@@ -1330,7 +1374,13 @@ impl IInkPresenterRuler2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsCompassVisible(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkPresenterRuler2>, ::windows::core::GetTrustLevel, AreTickMarksVisible::<Impl, IMPL_OFFSET>, SetAreTickMarksVisible::<Impl, IMPL_OFFSET>, IsCompassVisible::<Impl, IMPL_OFFSET>, SetIsCompassVisible::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPresenterRuler2, BASE_OFFSET>(),
+            AreTickMarksVisible: AreTickMarksVisible::<Impl, IMPL_OFFSET>,
+            SetAreTickMarksVisible: SetAreTickMarksVisible::<Impl, IMPL_OFFSET>,
+            IsCompassVisible: IsCompassVisible::<Impl, IMPL_OFFSET>,
+            SetIsCompassVisible: SetIsCompassVisible::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPresenterRuler2 as ::windows::core::Interface>::IID
@@ -1355,7 +1405,7 @@ impl IInkPresenterRulerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkPresenterRulerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPresenterRulerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPresenterRulerFactory as ::windows::core::Interface>::IID
@@ -1451,23 +1501,18 @@ impl IInkPresenterStencilVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransform(&*(&value as *const <super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInkPresenterStencil>,
-            ::windows::core::GetTrustLevel,
-            Kind::<Impl, IMPL_OFFSET>,
-            IsVisible::<Impl, IMPL_OFFSET>,
-            SetIsVisible::<Impl, IMPL_OFFSET>,
-            BackgroundColor::<Impl, IMPL_OFFSET>,
-            SetBackgroundColor::<Impl, IMPL_OFFSET>,
-            ForegroundColor::<Impl, IMPL_OFFSET>,
-            SetForegroundColor::<Impl, IMPL_OFFSET>,
-            Transform::<Impl, IMPL_OFFSET>,
-            SetTransform::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPresenterStencil, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            IsVisible: IsVisible::<Impl, IMPL_OFFSET>,
+            SetIsVisible: SetIsVisible::<Impl, IMPL_OFFSET>,
+            BackgroundColor: BackgroundColor::<Impl, IMPL_OFFSET>,
+            SetBackgroundColor: SetBackgroundColor::<Impl, IMPL_OFFSET>,
+            ForegroundColor: ForegroundColor::<Impl, IMPL_OFFSET>,
+            SetForegroundColor: SetForegroundColor::<Impl, IMPL_OFFSET>,
+            Transform: Transform::<Impl, IMPL_OFFSET>,
+            SetTransform: SetTransform::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPresenterStencil as ::windows::core::Interface>::IID
@@ -1519,7 +1564,12 @@ impl IInkRecognitionResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkRecognitionResult>, ::windows::core::GetTrustLevel, BoundingRect::<Impl, IMPL_OFFSET>, GetTextCandidates::<Impl, IMPL_OFFSET>, GetStrokes::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkRecognitionResult, BASE_OFFSET>(),
+            BoundingRect: BoundingRect::<Impl, IMPL_OFFSET>,
+            GetTextCandidates: GetTextCandidates::<Impl, IMPL_OFFSET>,
+            GetStrokes: GetStrokes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkRecognitionResult as ::windows::core::Interface>::IID
@@ -1547,7 +1597,7 @@ impl IInkRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkRecognizer>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInkRecognizer, BASE_OFFSET>(), Name: Name::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkRecognizer as ::windows::core::Interface>::IID
@@ -1592,7 +1642,12 @@ impl IInkRecognizerContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkRecognizerContainer>, ::windows::core::GetTrustLevel, SetDefaultRecognizer::<Impl, IMPL_OFFSET>, RecognizeAsync::<Impl, IMPL_OFFSET>, GetRecognizers::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkRecognizerContainer, BASE_OFFSET>(),
+            SetDefaultRecognizer: SetDefaultRecognizer::<Impl, IMPL_OFFSET>,
+            RecognizeAsync: RecognizeAsync::<Impl, IMPL_OFFSET>,
+            GetRecognizers: GetRecognizers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkRecognizerContainer as ::windows::core::Interface>::IID
@@ -1690,22 +1745,17 @@ impl IInkStrokeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInkStroke>,
-            ::windows::core::GetTrustLevel,
-            DrawingAttributes::<Impl, IMPL_OFFSET>,
-            SetDrawingAttributes::<Impl, IMPL_OFFSET>,
-            BoundingRect::<Impl, IMPL_OFFSET>,
-            Selected::<Impl, IMPL_OFFSET>,
-            SetSelected::<Impl, IMPL_OFFSET>,
-            Recognized::<Impl, IMPL_OFFSET>,
-            GetRenderingSegments::<Impl, IMPL_OFFSET>,
-            Clone::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStroke, BASE_OFFSET>(),
+            DrawingAttributes: DrawingAttributes::<Impl, IMPL_OFFSET>,
+            SetDrawingAttributes: SetDrawingAttributes::<Impl, IMPL_OFFSET>,
+            BoundingRect: BoundingRect::<Impl, IMPL_OFFSET>,
+            Selected: Selected::<Impl, IMPL_OFFSET>,
+            SetSelected: SetSelected::<Impl, IMPL_OFFSET>,
+            Recognized: Recognized::<Impl, IMPL_OFFSET>,
+            GetRenderingSegments: GetRenderingSegments::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStroke as ::windows::core::Interface>::IID
@@ -1750,7 +1800,12 @@ impl IInkStroke2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkStroke2>, ::windows::core::GetTrustLevel, PointTransform::<Impl, IMPL_OFFSET>, SetPointTransform::<Impl, IMPL_OFFSET>, GetInkPoints::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStroke2, BASE_OFFSET>(),
+            PointTransform: PointTransform::<Impl, IMPL_OFFSET>,
+            SetPointTransform: SetPointTransform::<Impl, IMPL_OFFSET>,
+            GetInkPoints: GetInkPoints::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStroke2 as ::windows::core::Interface>::IID
@@ -1812,7 +1867,14 @@ impl IInkStroke3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeDuration(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkStroke3>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, StrokeStartedTime::<Impl, IMPL_OFFSET>, SetStrokeStartedTime::<Impl, IMPL_OFFSET>, StrokeDuration::<Impl, IMPL_OFFSET>, SetStrokeDuration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStroke3, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            StrokeStartedTime: StrokeStartedTime::<Impl, IMPL_OFFSET>,
+            SetStrokeStartedTime: SetStrokeStartedTime::<Impl, IMPL_OFFSET>,
+            StrokeDuration: StrokeDuration::<Impl, IMPL_OFFSET>,
+            SetStrokeDuration: SetStrokeDuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStroke3 as ::windows::core::Interface>::IID
@@ -1840,7 +1902,7 @@ impl IInkStroke4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkStroke4>, ::windows::core::GetTrustLevel, PointerId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStroke4, BASE_OFFSET>(), PointerId: PointerId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStroke4 as ::windows::core::Interface>::IID
@@ -1902,7 +1964,14 @@ impl IInkStrokeBuilderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultDrawingAttributes(&*(&drawingattributes as *const <InkDrawingAttributes as ::windows::core::Abi>::Abi as *const <InkDrawingAttributes as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkStrokeBuilder>, ::windows::core::GetTrustLevel, BeginStroke::<Impl, IMPL_OFFSET>, AppendToStroke::<Impl, IMPL_OFFSET>, EndStroke::<Impl, IMPL_OFFSET>, CreateStroke::<Impl, IMPL_OFFSET>, SetDefaultDrawingAttributes::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStrokeBuilder, BASE_OFFSET>(),
+            BeginStroke: BeginStroke::<Impl, IMPL_OFFSET>,
+            AppendToStroke: AppendToStroke::<Impl, IMPL_OFFSET>,
+            EndStroke: EndStroke::<Impl, IMPL_OFFSET>,
+            CreateStroke: CreateStroke::<Impl, IMPL_OFFSET>,
+            SetDefaultDrawingAttributes: SetDefaultDrawingAttributes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStrokeBuilder as ::windows::core::Interface>::IID
@@ -1930,7 +1999,10 @@ impl IInkStrokeBuilder2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkStrokeBuilder2>, ::windows::core::GetTrustLevel, CreateStrokeFromInkPoints::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStrokeBuilder2, BASE_OFFSET>(),
+            CreateStrokeFromInkPoints: CreateStrokeFromInkPoints::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStrokeBuilder2 as ::windows::core::Interface>::IID
@@ -1963,7 +2035,10 @@ impl IInkStrokeBuilder3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkStrokeBuilder3>, ::windows::core::GetTrustLevel, CreateStrokeFromInkPoints::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStrokeBuilder3, BASE_OFFSET>(),
+            CreateStrokeFromInkPoints: CreateStrokeFromInkPoints::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStrokeBuilder3 as ::windows::core::Interface>::IID
@@ -2126,28 +2201,23 @@ impl IInkStrokeContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInkStrokeContainer>,
-            ::windows::core::GetTrustLevel,
-            BoundingRect::<Impl, IMPL_OFFSET>,
-            AddStroke::<Impl, IMPL_OFFSET>,
-            DeleteSelected::<Impl, IMPL_OFFSET>,
-            MoveSelected::<Impl, IMPL_OFFSET>,
-            SelectWithPolyLine::<Impl, IMPL_OFFSET>,
-            SelectWithLine::<Impl, IMPL_OFFSET>,
-            CopySelectedToClipboard::<Impl, IMPL_OFFSET>,
-            PasteFromClipboard::<Impl, IMPL_OFFSET>,
-            CanPasteFromClipboard::<Impl, IMPL_OFFSET>,
-            LoadAsync::<Impl, IMPL_OFFSET>,
-            SaveAsync::<Impl, IMPL_OFFSET>,
-            UpdateRecognitionResults::<Impl, IMPL_OFFSET>,
-            GetStrokes::<Impl, IMPL_OFFSET>,
-            GetRecognitionResults::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStrokeContainer, BASE_OFFSET>(),
+            BoundingRect: BoundingRect::<Impl, IMPL_OFFSET>,
+            AddStroke: AddStroke::<Impl, IMPL_OFFSET>,
+            DeleteSelected: DeleteSelected::<Impl, IMPL_OFFSET>,
+            MoveSelected: MoveSelected::<Impl, IMPL_OFFSET>,
+            SelectWithPolyLine: SelectWithPolyLine::<Impl, IMPL_OFFSET>,
+            SelectWithLine: SelectWithLine::<Impl, IMPL_OFFSET>,
+            CopySelectedToClipboard: CopySelectedToClipboard::<Impl, IMPL_OFFSET>,
+            PasteFromClipboard: PasteFromClipboard::<Impl, IMPL_OFFSET>,
+            CanPasteFromClipboard: CanPasteFromClipboard::<Impl, IMPL_OFFSET>,
+            LoadAsync: LoadAsync::<Impl, IMPL_OFFSET>,
+            SaveAsync: SaveAsync::<Impl, IMPL_OFFSET>,
+            UpdateRecognitionResults: UpdateRecognitionResults::<Impl, IMPL_OFFSET>,
+            GetStrokes: GetStrokes::<Impl, IMPL_OFFSET>,
+            GetRecognitionResults: GetRecognitionResults::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStrokeContainer as ::windows::core::Interface>::IID
@@ -2173,7 +2243,11 @@ impl IInkStrokeContainer2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkStrokeContainer2>, ::windows::core::GetTrustLevel, AddStrokes::<Impl, IMPL_OFFSET>, Clear::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStrokeContainer2, BASE_OFFSET>(),
+            AddStrokes: AddStrokes::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStrokeContainer2 as ::windows::core::Interface>::IID
@@ -2213,7 +2287,11 @@ impl IInkStrokeContainer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkStrokeContainer3>, ::windows::core::GetTrustLevel, SaveWithFormatAsync::<Impl, IMPL_OFFSET>, GetStrokeById::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStrokeContainer3, BASE_OFFSET>(),
+            SaveWithFormatAsync: SaveWithFormatAsync::<Impl, IMPL_OFFSET>,
+            GetStrokeById: GetStrokeById::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStrokeContainer3 as ::windows::core::Interface>::IID
@@ -2309,23 +2387,18 @@ impl IInkStrokeInputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInkStrokeInput>,
-            ::windows::core::GetTrustLevel,
-            StrokeStarted::<Impl, IMPL_OFFSET>,
-            RemoveStrokeStarted::<Impl, IMPL_OFFSET>,
-            StrokeContinued::<Impl, IMPL_OFFSET>,
-            RemoveStrokeContinued::<Impl, IMPL_OFFSET>,
-            StrokeEnded::<Impl, IMPL_OFFSET>,
-            RemoveStrokeEnded::<Impl, IMPL_OFFSET>,
-            StrokeCanceled::<Impl, IMPL_OFFSET>,
-            RemoveStrokeCanceled::<Impl, IMPL_OFFSET>,
-            InkPresenter::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStrokeInput, BASE_OFFSET>(),
+            StrokeStarted: StrokeStarted::<Impl, IMPL_OFFSET>,
+            RemoveStrokeStarted: RemoveStrokeStarted::<Impl, IMPL_OFFSET>,
+            StrokeContinued: StrokeContinued::<Impl, IMPL_OFFSET>,
+            RemoveStrokeContinued: RemoveStrokeContinued::<Impl, IMPL_OFFSET>,
+            StrokeEnded: StrokeEnded::<Impl, IMPL_OFFSET>,
+            RemoveStrokeEnded: RemoveStrokeEnded::<Impl, IMPL_OFFSET>,
+            StrokeCanceled: StrokeCanceled::<Impl, IMPL_OFFSET>,
+            RemoveStrokeCanceled: RemoveStrokeCanceled::<Impl, IMPL_OFFSET>,
+            InkPresenter: InkPresenter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStrokeInput as ::windows::core::Interface>::IID
@@ -2425,21 +2498,16 @@ impl IInkStrokeRenderingSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInkStrokeRenderingSegment>,
-            ::windows::core::GetTrustLevel,
-            Position::<Impl, IMPL_OFFSET>,
-            BezierControlPoint1::<Impl, IMPL_OFFSET>,
-            BezierControlPoint2::<Impl, IMPL_OFFSET>,
-            Pressure::<Impl, IMPL_OFFSET>,
-            TiltX::<Impl, IMPL_OFFSET>,
-            TiltY::<Impl, IMPL_OFFSET>,
-            Twist::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStrokeRenderingSegment, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            BezierControlPoint1: BezierControlPoint1::<Impl, IMPL_OFFSET>,
+            BezierControlPoint2: BezierControlPoint2::<Impl, IMPL_OFFSET>,
+            Pressure: Pressure::<Impl, IMPL_OFFSET>,
+            TiltX: TiltX::<Impl, IMPL_OFFSET>,
+            TiltY: TiltY::<Impl, IMPL_OFFSET>,
+            Twist: Twist::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStrokeRenderingSegment as ::windows::core::Interface>::IID
@@ -2467,7 +2535,7 @@ impl IInkStrokesCollectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkStrokesCollectedEventArgs>, ::windows::core::GetTrustLevel, Strokes::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStrokesCollectedEventArgs, BASE_OFFSET>(), Strokes: Strokes::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStrokesCollectedEventArgs as ::windows::core::Interface>::IID
@@ -2495,7 +2563,7 @@ impl IInkStrokesErasedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkStrokesErasedEventArgs>, ::windows::core::GetTrustLevel, Strokes::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStrokesErasedEventArgs, BASE_OFFSET>(), Strokes: Strokes::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkStrokesErasedEventArgs as ::windows::core::Interface>::IID
@@ -2528,7 +2596,11 @@ impl IInkSynchronizerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EndDry().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkSynchronizer>, ::windows::core::GetTrustLevel, BeginDry::<Impl, IMPL_OFFSET>, EndDry::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkSynchronizer, BASE_OFFSET>(),
+            BeginDry: BeginDry::<Impl, IMPL_OFFSET>,
+            EndDry: EndDry::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkSynchronizer as ::windows::core::Interface>::IID
@@ -2675,29 +2747,24 @@ impl IInkUnprocessedInputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInkUnprocessedInput>,
-            ::windows::core::GetTrustLevel,
-            PointerEntered::<Impl, IMPL_OFFSET>,
-            RemovePointerEntered::<Impl, IMPL_OFFSET>,
-            PointerHovered::<Impl, IMPL_OFFSET>,
-            RemovePointerHovered::<Impl, IMPL_OFFSET>,
-            PointerExited::<Impl, IMPL_OFFSET>,
-            RemovePointerExited::<Impl, IMPL_OFFSET>,
-            PointerPressed::<Impl, IMPL_OFFSET>,
-            RemovePointerPressed::<Impl, IMPL_OFFSET>,
-            PointerMoved::<Impl, IMPL_OFFSET>,
-            RemovePointerMoved::<Impl, IMPL_OFFSET>,
-            PointerReleased::<Impl, IMPL_OFFSET>,
-            RemovePointerReleased::<Impl, IMPL_OFFSET>,
-            PointerLost::<Impl, IMPL_OFFSET>,
-            RemovePointerLost::<Impl, IMPL_OFFSET>,
-            InkPresenter::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkUnprocessedInput, BASE_OFFSET>(),
+            PointerEntered: PointerEntered::<Impl, IMPL_OFFSET>,
+            RemovePointerEntered: RemovePointerEntered::<Impl, IMPL_OFFSET>,
+            PointerHovered: PointerHovered::<Impl, IMPL_OFFSET>,
+            RemovePointerHovered: RemovePointerHovered::<Impl, IMPL_OFFSET>,
+            PointerExited: PointerExited::<Impl, IMPL_OFFSET>,
+            RemovePointerExited: RemovePointerExited::<Impl, IMPL_OFFSET>,
+            PointerPressed: PointerPressed::<Impl, IMPL_OFFSET>,
+            RemovePointerPressed: RemovePointerPressed::<Impl, IMPL_OFFSET>,
+            PointerMoved: PointerMoved::<Impl, IMPL_OFFSET>,
+            RemovePointerMoved: RemovePointerMoved::<Impl, IMPL_OFFSET>,
+            PointerReleased: PointerReleased::<Impl, IMPL_OFFSET>,
+            RemovePointerReleased: RemovePointerReleased::<Impl, IMPL_OFFSET>,
+            PointerLost: PointerLost::<Impl, IMPL_OFFSET>,
+            RemovePointerLost: RemovePointerLost::<Impl, IMPL_OFFSET>,
+            InkPresenter: InkPresenter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkUnprocessedInput as ::windows::core::Interface>::IID
@@ -2785,20 +2852,15 @@ impl IPenAndInkSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPenAndInkSettings>,
-            ::windows::core::GetTrustLevel,
-            IsHandwritingDirectlyIntoTextFieldEnabled::<Impl, IMPL_OFFSET>,
-            PenHandedness::<Impl, IMPL_OFFSET>,
-            HandwritingLineHeight::<Impl, IMPL_OFFSET>,
-            FontFamilyName::<Impl, IMPL_OFFSET>,
-            UserConsentsToHandwritingTelemetryCollection::<Impl, IMPL_OFFSET>,
-            IsTouchHandwritingEnabled::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPenAndInkSettings, BASE_OFFSET>(),
+            IsHandwritingDirectlyIntoTextFieldEnabled: IsHandwritingDirectlyIntoTextFieldEnabled::<Impl, IMPL_OFFSET>,
+            PenHandedness: PenHandedness::<Impl, IMPL_OFFSET>,
+            HandwritingLineHeight: HandwritingLineHeight::<Impl, IMPL_OFFSET>,
+            FontFamilyName: FontFamilyName::<Impl, IMPL_OFFSET>,
+            UserConsentsToHandwritingTelemetryCollection: UserConsentsToHandwritingTelemetryCollection::<Impl, IMPL_OFFSET>,
+            IsTouchHandwritingEnabled: IsTouchHandwritingEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenAndInkSettings as ::windows::core::Interface>::IID
@@ -2819,7 +2881,10 @@ impl IPenAndInkSettings2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPenHandedness(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPenAndInkSettings2>, ::windows::core::GetTrustLevel, SetPenHandedness::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPenAndInkSettings2, BASE_OFFSET>(),
+            SetPenHandedness: SetPenHandedness::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenAndInkSettings2 as ::windows::core::Interface>::IID
@@ -2847,7 +2912,7 @@ impl IPenAndInkSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPenAndInkSettingsStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenAndInkSettingsStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenAndInkSettingsStatics as ::windows::core::Interface>::IID

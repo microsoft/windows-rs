@@ -73,7 +73,15 @@ impl IDualSimTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDualSimTile>, ::windows::core::GetTrustLevel, SetDisplayName::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, IsPinnedToStart::<Impl, IMPL_OFFSET>, CreateAsync::<Impl, IMPL_OFFSET>, UpdateAsync::<Impl, IMPL_OFFSET>, DeleteAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDualSimTile, BASE_OFFSET>(),
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            IsPinnedToStart: IsPinnedToStart::<Impl, IMPL_OFFSET>,
+            CreateAsync: CreateAsync::<Impl, IMPL_OFFSET>,
+            UpdateAsync: UpdateAsync::<Impl, IMPL_OFFSET>,
+            DeleteAsync: DeleteAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDualSimTile as ::windows::core::Interface>::IID
@@ -185,22 +193,17 @@ impl IDualSimTileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDualSimTileStatics>,
-            ::windows::core::GetTrustLevel,
-            GetTileForSim2::<Impl, IMPL_OFFSET>,
-            UpdateDisplayNameForSim1Async::<Impl, IMPL_OFFSET>,
-            CreateTileUpdaterForSim1::<Impl, IMPL_OFFSET>,
-            CreateTileUpdaterForSim2::<Impl, IMPL_OFFSET>,
-            CreateBadgeUpdaterForSim1::<Impl, IMPL_OFFSET>,
-            CreateBadgeUpdaterForSim2::<Impl, IMPL_OFFSET>,
-            CreateToastNotifierForSim1::<Impl, IMPL_OFFSET>,
-            CreateToastNotifierForSim2::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDualSimTileStatics, BASE_OFFSET>(),
+            GetTileForSim2: GetTileForSim2::<Impl, IMPL_OFFSET>,
+            UpdateDisplayNameForSim1Async: UpdateDisplayNameForSim1Async::<Impl, IMPL_OFFSET>,
+            CreateTileUpdaterForSim1: CreateTileUpdaterForSim1::<Impl, IMPL_OFFSET>,
+            CreateTileUpdaterForSim2: CreateTileUpdaterForSim2::<Impl, IMPL_OFFSET>,
+            CreateBadgeUpdaterForSim1: CreateBadgeUpdaterForSim1::<Impl, IMPL_OFFSET>,
+            CreateBadgeUpdaterForSim2: CreateBadgeUpdaterForSim2::<Impl, IMPL_OFFSET>,
+            CreateToastNotifierForSim1: CreateToastNotifierForSim1::<Impl, IMPL_OFFSET>,
+            CreateToastNotifierForSim2: CreateToastNotifierForSim2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDualSimTileStatics as ::windows::core::Interface>::IID
@@ -228,7 +231,10 @@ impl IToastNotificationManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics3>, ::windows::core::GetTrustLevel, CreateToastNotifierForSecondaryTile::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationManagerStatics3, BASE_OFFSET>(),
+            CreateToastNotifierForSecondaryTile: CreateToastNotifierForSecondaryTile::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationManagerStatics3 as ::windows::core::Interface>::IID

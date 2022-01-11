@@ -44,7 +44,12 @@ impl IKnownPerceptionFrameKindStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionFrameKindStatics>, ::windows::core::GetTrustLevel, Color::<Impl, IMPL_OFFSET>, Depth::<Impl, IMPL_OFFSET>, Infrared::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownPerceptionFrameKindStatics, BASE_OFFSET>(),
+            Color: Color::<Impl, IMPL_OFFSET>,
+            Depth: Depth::<Impl, IMPL_OFFSET>,
+            Infrared: Infrared::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownPerceptionFrameKindStatics as ::windows::core::Interface>::IID
@@ -72,7 +77,10 @@ impl IPerceptionControlGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionControlGroup>, ::windows::core::GetTrustLevel, FrameProviderIds::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionControlGroup, BASE_OFFSET>(),
+            FrameProviderIds: FrameProviderIds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionControlGroup as ::windows::core::Interface>::IID
@@ -100,7 +108,7 @@ impl IPerceptionControlGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionControlGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionControlGroupFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionControlGroupFactory as ::windows::core::Interface>::IID
@@ -152,7 +160,12 @@ impl IPerceptionCorrelationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelation>, ::windows::core::GetTrustLevel, TargetId::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>, Orientation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionCorrelation, BASE_OFFSET>(),
+            TargetId: TargetId::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            Orientation: Orientation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionCorrelation as ::windows::core::Interface>::IID
@@ -184,7 +197,7 @@ impl IPerceptionCorrelationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionCorrelationFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionCorrelationFactory as ::windows::core::Interface>::IID
@@ -212,7 +225,10 @@ impl IPerceptionCorrelationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationGroup>, ::windows::core::GetTrustLevel, RelativeLocations::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionCorrelationGroup, BASE_OFFSET>(),
+            RelativeLocations: RelativeLocations::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionCorrelationGroup as ::windows::core::Interface>::IID
@@ -240,7 +256,7 @@ impl IPerceptionCorrelationGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionCorrelationGroupFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionCorrelationGroupFactory as ::windows::core::Interface>::IID
@@ -268,7 +284,10 @@ impl IPerceptionFaceAuthenticationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFaceAuthenticationGroup>, ::windows::core::GetTrustLevel, FrameProviderIds::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionFaceAuthenticationGroup, BASE_OFFSET>(),
+            FrameProviderIds: FrameProviderIds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionFaceAuthenticationGroup as ::windows::core::Interface>::IID
@@ -300,7 +319,10 @@ impl IPerceptionFaceAuthenticationGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFaceAuthenticationGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionFaceAuthenticationGroupFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionFaceAuthenticationGroupFactory as ::windows::core::Interface>::IID
@@ -357,7 +379,13 @@ impl IPerceptionFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrame>, ::windows::core::GetTrustLevel, RelativeTime::<Impl, IMPL_OFFSET>, SetRelativeTime::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>, FrameData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionFrame, BASE_OFFSET>(),
+            RelativeTime: RelativeTime::<Impl, IMPL_OFFSET>,
+            SetRelativeTime: SetRelativeTime::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            FrameData: FrameData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionFrame as ::windows::core::Interface>::IID
@@ -424,7 +452,15 @@ impl IPerceptionFrameProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProperty(&*(&value as *const <PerceptionPropertyChangeRequest as ::windows::core::Abi>::Abi as *const <PerceptionPropertyChangeRequest as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameProvider>, ::windows::core::GetTrustLevel, FrameProviderInfo::<Impl, IMPL_OFFSET>, Available::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>, Start::<Impl, IMPL_OFFSET>, Stop::<Impl, IMPL_OFFSET>, SetProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionFrameProvider, BASE_OFFSET>(),
+            FrameProviderInfo: FrameProviderInfo::<Impl, IMPL_OFFSET>,
+            Available: Available::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            SetProperty: SetProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionFrameProvider as ::windows::core::Interface>::IID
@@ -525,24 +561,19 @@ impl IPerceptionFrameProviderInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHidden(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPerceptionFrameProviderInfo>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            SetId::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            SetDisplayName::<Impl, IMPL_OFFSET>,
-            DeviceKind::<Impl, IMPL_OFFSET>,
-            SetDeviceKind::<Impl, IMPL_OFFSET>,
-            FrameKind::<Impl, IMPL_OFFSET>,
-            SetFrameKind::<Impl, IMPL_OFFSET>,
-            Hidden::<Impl, IMPL_OFFSET>,
-            SetHidden::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionFrameProviderInfo, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            DeviceKind: DeviceKind::<Impl, IMPL_OFFSET>,
+            SetDeviceKind: SetDeviceKind::<Impl, IMPL_OFFSET>,
+            FrameKind: FrameKind::<Impl, IMPL_OFFSET>,
+            SetFrameKind: SetFrameKind::<Impl, IMPL_OFFSET>,
+            Hidden: Hidden::<Impl, IMPL_OFFSET>,
+            SetHidden: SetHidden::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionFrameProviderInfo as ::windows::core::Interface>::IID
@@ -570,7 +601,10 @@ impl IPerceptionFrameProviderManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameProviderManager>, ::windows::core::GetTrustLevel, GetFrameProvider::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionFrameProviderManager, BASE_OFFSET>(),
+            GetFrameProvider: GetFrameProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionFrameProviderManager as ::windows::core::Interface>::IID
@@ -636,24 +670,19 @@ impl IPerceptionFrameProviderManagerServiceStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PublishFrameForProvider(&*(&provider as *const <IPerceptionFrameProvider as ::windows::core::Abi>::Abi as *const <IPerceptionFrameProvider as ::windows::core::DefaultType>::DefaultType), &*(&frame as *const <PerceptionFrame as ::windows::core::Abi>::Abi as *const <PerceptionFrame as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPerceptionFrameProviderManagerServiceStatics>,
-            ::windows::core::GetTrustLevel,
-            RegisterFrameProviderInfo::<Impl, IMPL_OFFSET>,
-            UnregisterFrameProviderInfo::<Impl, IMPL_OFFSET>,
-            RegisterFaceAuthenticationGroup::<Impl, IMPL_OFFSET>,
-            UnregisterFaceAuthenticationGroup::<Impl, IMPL_OFFSET>,
-            RegisterControlGroup::<Impl, IMPL_OFFSET>,
-            UnregisterControlGroup::<Impl, IMPL_OFFSET>,
-            RegisterCorrelationGroup::<Impl, IMPL_OFFSET>,
-            UnregisterCorrelationGroup::<Impl, IMPL_OFFSET>,
-            UpdateAvailabilityForProvider::<Impl, IMPL_OFFSET>,
-            PublishFrameForProvider::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionFrameProviderManagerServiceStatics, BASE_OFFSET>(),
+            RegisterFrameProviderInfo: RegisterFrameProviderInfo::<Impl, IMPL_OFFSET>,
+            UnregisterFrameProviderInfo: UnregisterFrameProviderInfo::<Impl, IMPL_OFFSET>,
+            RegisterFaceAuthenticationGroup: RegisterFaceAuthenticationGroup::<Impl, IMPL_OFFSET>,
+            UnregisterFaceAuthenticationGroup: UnregisterFaceAuthenticationGroup::<Impl, IMPL_OFFSET>,
+            RegisterControlGroup: RegisterControlGroup::<Impl, IMPL_OFFSET>,
+            UnregisterControlGroup: UnregisterControlGroup::<Impl, IMPL_OFFSET>,
+            RegisterCorrelationGroup: RegisterCorrelationGroup::<Impl, IMPL_OFFSET>,
+            UnregisterCorrelationGroup: UnregisterCorrelationGroup::<Impl, IMPL_OFFSET>,
+            UpdateAvailabilityForProvider: UpdateAvailabilityForProvider::<Impl, IMPL_OFFSET>,
+            PublishFrameForProvider: PublishFrameForProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionFrameProviderManagerServiceStatics as ::windows::core::Interface>::IID
@@ -722,7 +751,14 @@ impl IPerceptionPropertyChangeRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionPropertyChangeRequest>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, SetStatus::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionPropertyChangeRequest, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            SetStatus: SetStatus::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionPropertyChangeRequest as ::windows::core::Interface>::IID
@@ -762,7 +798,11 @@ impl IPerceptionVideoFrameAllocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionVideoFrameAllocator>, ::windows::core::GetTrustLevel, AllocateFrame::<Impl, IMPL_OFFSET>, CopyFromVideoFrame::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionVideoFrameAllocator, BASE_OFFSET>(),
+            AllocateFrame: AllocateFrame::<Impl, IMPL_OFFSET>,
+            CopyFromVideoFrame: CopyFromVideoFrame::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionVideoFrameAllocator as ::windows::core::Interface>::IID
@@ -790,7 +830,10 @@ impl IPerceptionVideoFrameAllocatorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionVideoFrameAllocatorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionVideoFrameAllocatorFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionVideoFrameAllocatorFactory as ::windows::core::Interface>::IID

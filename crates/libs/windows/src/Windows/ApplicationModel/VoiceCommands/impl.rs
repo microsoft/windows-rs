@@ -44,7 +44,12 @@ impl IVoiceCommandVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommand>, ::windows::core::GetTrustLevel, CommandName::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>, SpeechRecognitionResult::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommand, BASE_OFFSET>(),
+            CommandName: CommandName::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            SpeechRecognitionResult: SpeechRecognitionResult::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommand as ::windows::core::Interface>::IID
@@ -72,7 +77,7 @@ impl IVoiceCommandCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandCompletedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandCompletedEventArgs, BASE_OFFSET>(), Reason: Reason::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandCompletedEventArgs as ::windows::core::Interface>::IID
@@ -100,7 +105,10 @@ impl IVoiceCommandConfirmationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandConfirmationResult>, ::windows::core::GetTrustLevel, Confirmed::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandConfirmationResult, BASE_OFFSET>(),
+            Confirmed: Confirmed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandConfirmationResult as ::windows::core::Interface>::IID
@@ -252,30 +260,25 @@ impl IVoiceCommandContentTileVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentTileType(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVoiceCommandContentTile>,
-            ::windows::core::GetTrustLevel,
-            Title::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            TextLine1::<Impl, IMPL_OFFSET>,
-            SetTextLine1::<Impl, IMPL_OFFSET>,
-            TextLine2::<Impl, IMPL_OFFSET>,
-            SetTextLine2::<Impl, IMPL_OFFSET>,
-            TextLine3::<Impl, IMPL_OFFSET>,
-            SetTextLine3::<Impl, IMPL_OFFSET>,
-            Image::<Impl, IMPL_OFFSET>,
-            SetImage::<Impl, IMPL_OFFSET>,
-            AppContext::<Impl, IMPL_OFFSET>,
-            SetAppContext::<Impl, IMPL_OFFSET>,
-            AppLaunchArgument::<Impl, IMPL_OFFSET>,
-            SetAppLaunchArgument::<Impl, IMPL_OFFSET>,
-            ContentTileType::<Impl, IMPL_OFFSET>,
-            SetContentTileType::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandContentTile, BASE_OFFSET>(),
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            TextLine1: TextLine1::<Impl, IMPL_OFFSET>,
+            SetTextLine1: SetTextLine1::<Impl, IMPL_OFFSET>,
+            TextLine2: TextLine2::<Impl, IMPL_OFFSET>,
+            SetTextLine2: SetTextLine2::<Impl, IMPL_OFFSET>,
+            TextLine3: TextLine3::<Impl, IMPL_OFFSET>,
+            SetTextLine3: SetTextLine3::<Impl, IMPL_OFFSET>,
+            Image: Image::<Impl, IMPL_OFFSET>,
+            SetImage: SetImage::<Impl, IMPL_OFFSET>,
+            AppContext: AppContext::<Impl, IMPL_OFFSET>,
+            SetAppContext: SetAppContext::<Impl, IMPL_OFFSET>,
+            AppLaunchArgument: AppLaunchArgument::<Impl, IMPL_OFFSET>,
+            SetAppLaunchArgument: SetAppLaunchArgument::<Impl, IMPL_OFFSET>,
+            ContentTileType: ContentTileType::<Impl, IMPL_OFFSET>,
+            SetContentTileType: SetContentTileType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandContentTile as ::windows::core::Interface>::IID
@@ -327,7 +330,12 @@ impl IVoiceCommandDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandDefinition>, ::windows::core::GetTrustLevel, Language::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, SetPhraseListAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandDefinition, BASE_OFFSET>(),
+            Language: Language::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetPhraseListAsync: SetPhraseListAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandDefinition as ::windows::core::Interface>::IID
@@ -367,7 +375,11 @@ impl IVoiceCommandDefinitionManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandDefinitionManagerStatics>, ::windows::core::GetTrustLevel, InstallCommandDefinitionsFromStorageFileAsync::<Impl, IMPL_OFFSET>, InstalledCommandDefinitions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandDefinitionManagerStatics, BASE_OFFSET>(),
+            InstallCommandDefinitionsFromStorageFileAsync: InstallCommandDefinitionsFromStorageFileAsync::<Impl, IMPL_OFFSET>,
+            InstalledCommandDefinitions: InstalledCommandDefinitions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandDefinitionManagerStatics as ::windows::core::Interface>::IID
@@ -395,7 +407,10 @@ impl IVoiceCommandDisambiguationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandDisambiguationResult>, ::windows::core::GetTrustLevel, SelectedItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandDisambiguationResult, BASE_OFFSET>(),
+            SelectedItem: SelectedItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandDisambiguationResult as ::windows::core::Interface>::IID
@@ -474,21 +489,16 @@ impl IVoiceCommandResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVoiceCommandResponse>,
-            ::windows::core::GetTrustLevel,
-            Message::<Impl, IMPL_OFFSET>,
-            SetMessage::<Impl, IMPL_OFFSET>,
-            RepeatMessage::<Impl, IMPL_OFFSET>,
-            SetRepeatMessage::<Impl, IMPL_OFFSET>,
-            AppLaunchArgument::<Impl, IMPL_OFFSET>,
-            SetAppLaunchArgument::<Impl, IMPL_OFFSET>,
-            VoiceCommandContentTiles::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandResponse, BASE_OFFSET>(),
+            Message: Message::<Impl, IMPL_OFFSET>,
+            SetMessage: SetMessage::<Impl, IMPL_OFFSET>,
+            RepeatMessage: RepeatMessage::<Impl, IMPL_OFFSET>,
+            SetRepeatMessage: SetRepeatMessage::<Impl, IMPL_OFFSET>,
+            AppLaunchArgument: AppLaunchArgument::<Impl, IMPL_OFFSET>,
+            SetAppLaunchArgument: SetAppLaunchArgument::<Impl, IMPL_OFFSET>,
+            VoiceCommandContentTiles: VoiceCommandContentTiles::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandResponse as ::windows::core::Interface>::IID
@@ -568,19 +578,14 @@ impl IVoiceCommandResponseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVoiceCommandResponseStatics>,
-            ::windows::core::GetTrustLevel,
-            MaxSupportedVoiceCommandContentTiles::<Impl, IMPL_OFFSET>,
-            CreateResponse::<Impl, IMPL_OFFSET>,
-            CreateResponseWithTiles::<Impl, IMPL_OFFSET>,
-            CreateResponseForPrompt::<Impl, IMPL_OFFSET>,
-            CreateResponseForPromptWithTiles::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandResponseStatics, BASE_OFFSET>(),
+            MaxSupportedVoiceCommandContentTiles: MaxSupportedVoiceCommandContentTiles::<Impl, IMPL_OFFSET>,
+            CreateResponse: CreateResponse::<Impl, IMPL_OFFSET>,
+            CreateResponseWithTiles: CreateResponseWithTiles::<Impl, IMPL_OFFSET>,
+            CreateResponseForPrompt: CreateResponseForPrompt::<Impl, IMPL_OFFSET>,
+            CreateResponseForPromptWithTiles: CreateResponseForPromptWithTiles::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandResponseStatics as ::windows::core::Interface>::IID
@@ -709,24 +714,19 @@ impl IVoiceCommandServiceConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVoiceCommandCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVoiceCommandServiceConnection>,
-            ::windows::core::GetTrustLevel,
-            GetVoiceCommandAsync::<Impl, IMPL_OFFSET>,
-            RequestConfirmationAsync::<Impl, IMPL_OFFSET>,
-            RequestDisambiguationAsync::<Impl, IMPL_OFFSET>,
-            ReportProgressAsync::<Impl, IMPL_OFFSET>,
-            ReportSuccessAsync::<Impl, IMPL_OFFSET>,
-            ReportFailureAsync::<Impl, IMPL_OFFSET>,
-            RequestAppLaunchAsync::<Impl, IMPL_OFFSET>,
-            Language::<Impl, IMPL_OFFSET>,
-            VoiceCommandCompleted::<Impl, IMPL_OFFSET>,
-            RemoveVoiceCommandCompleted::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandServiceConnection, BASE_OFFSET>(),
+            GetVoiceCommandAsync: GetVoiceCommandAsync::<Impl, IMPL_OFFSET>,
+            RequestConfirmationAsync: RequestConfirmationAsync::<Impl, IMPL_OFFSET>,
+            RequestDisambiguationAsync: RequestDisambiguationAsync::<Impl, IMPL_OFFSET>,
+            ReportProgressAsync: ReportProgressAsync::<Impl, IMPL_OFFSET>,
+            ReportSuccessAsync: ReportSuccessAsync::<Impl, IMPL_OFFSET>,
+            ReportFailureAsync: ReportFailureAsync::<Impl, IMPL_OFFSET>,
+            RequestAppLaunchAsync: RequestAppLaunchAsync::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+            VoiceCommandCompleted: VoiceCommandCompleted::<Impl, IMPL_OFFSET>,
+            RemoveVoiceCommandCompleted: RemoveVoiceCommandCompleted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandServiceConnection as ::windows::core::Interface>::IID
@@ -754,7 +754,10 @@ impl IVoiceCommandServiceConnectionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandServiceConnectionStatics>, ::windows::core::GetTrustLevel, FromAppServiceTriggerDetails::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandServiceConnectionStatics, BASE_OFFSET>(),
+            FromAppServiceTriggerDetails: FromAppServiceTriggerDetails::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandServiceConnectionStatics as ::windows::core::Interface>::IID
@@ -804,7 +807,13 @@ impl IVoiceCommandUserMessageVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSpokenMessage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandUserMessage>, ::windows::core::GetTrustLevel, DisplayMessage::<Impl, IMPL_OFFSET>, SetDisplayMessage::<Impl, IMPL_OFFSET>, SpokenMessage::<Impl, IMPL_OFFSET>, SetSpokenMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandUserMessage, BASE_OFFSET>(),
+            DisplayMessage: DisplayMessage::<Impl, IMPL_OFFSET>,
+            SetDisplayMessage: SetDisplayMessage::<Impl, IMPL_OFFSET>,
+            SpokenMessage: SpokenMessage::<Impl, IMPL_OFFSET>,
+            SetSpokenMessage: SetSpokenMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandUserMessage as ::windows::core::Interface>::IID

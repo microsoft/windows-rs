@@ -107,24 +107,19 @@ impl ISocialFeedChildItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSharedItem(&*(&value as *const <SocialFeedSharedItem as ::windows::core::Abi>::Abi as *const <SocialFeedSharedItem as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISocialFeedChildItem>,
-            ::windows::core::GetTrustLevel,
-            Author::<Impl, IMPL_OFFSET>,
-            PrimaryContent::<Impl, IMPL_OFFSET>,
-            SecondaryContent::<Impl, IMPL_OFFSET>,
-            Timestamp::<Impl, IMPL_OFFSET>,
-            SetTimestamp::<Impl, IMPL_OFFSET>,
-            TargetUri::<Impl, IMPL_OFFSET>,
-            SetTargetUri::<Impl, IMPL_OFFSET>,
-            Thumbnails::<Impl, IMPL_OFFSET>,
-            SharedItem::<Impl, IMPL_OFFSET>,
-            SetSharedItem::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISocialFeedChildItem, BASE_OFFSET>(),
+            Author: Author::<Impl, IMPL_OFFSET>,
+            PrimaryContent: PrimaryContent::<Impl, IMPL_OFFSET>,
+            SecondaryContent: SecondaryContent::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            SetTimestamp: SetTimestamp::<Impl, IMPL_OFFSET>,
+            TargetUri: TargetUri::<Impl, IMPL_OFFSET>,
+            SetTargetUri: SetTargetUri::<Impl, IMPL_OFFSET>,
+            Thumbnails: Thumbnails::<Impl, IMPL_OFFSET>,
+            SharedItem: SharedItem::<Impl, IMPL_OFFSET>,
+            SetSharedItem: SetSharedItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISocialFeedChildItem as ::windows::core::Interface>::IID
@@ -191,7 +186,15 @@ impl ISocialFeedContentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocialFeedContent>, ::windows::core::GetTrustLevel, Title::<Impl, IMPL_OFFSET>, SetTitle::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>, SetMessage::<Impl, IMPL_OFFSET>, TargetUri::<Impl, IMPL_OFFSET>, SetTargetUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISocialFeedContent, BASE_OFFSET>(),
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            Message: Message::<Impl, IMPL_OFFSET>,
+            SetMessage: SetMessage::<Impl, IMPL_OFFSET>,
+            TargetUri: TargetUri::<Impl, IMPL_OFFSET>,
+            SetTargetUri: SetTargetUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISocialFeedContent as ::windows::core::Interface>::IID
@@ -391,34 +394,29 @@ impl ISocialFeedItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStyle(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISocialFeedItem>,
-            ::windows::core::GetTrustLevel,
-            Author::<Impl, IMPL_OFFSET>,
-            PrimaryContent::<Impl, IMPL_OFFSET>,
-            SecondaryContent::<Impl, IMPL_OFFSET>,
-            Timestamp::<Impl, IMPL_OFFSET>,
-            SetTimestamp::<Impl, IMPL_OFFSET>,
-            TargetUri::<Impl, IMPL_OFFSET>,
-            SetTargetUri::<Impl, IMPL_OFFSET>,
-            Thumbnails::<Impl, IMPL_OFFSET>,
-            SharedItem::<Impl, IMPL_OFFSET>,
-            SetSharedItem::<Impl, IMPL_OFFSET>,
-            BadgeStyle::<Impl, IMPL_OFFSET>,
-            SetBadgeStyle::<Impl, IMPL_OFFSET>,
-            BadgeCountValue::<Impl, IMPL_OFFSET>,
-            SetBadgeCountValue::<Impl, IMPL_OFFSET>,
-            RemoteId::<Impl, IMPL_OFFSET>,
-            SetRemoteId::<Impl, IMPL_OFFSET>,
-            ChildItem::<Impl, IMPL_OFFSET>,
-            SetChildItem::<Impl, IMPL_OFFSET>,
-            Style::<Impl, IMPL_OFFSET>,
-            SetStyle::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISocialFeedItem, BASE_OFFSET>(),
+            Author: Author::<Impl, IMPL_OFFSET>,
+            PrimaryContent: PrimaryContent::<Impl, IMPL_OFFSET>,
+            SecondaryContent: SecondaryContent::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            SetTimestamp: SetTimestamp::<Impl, IMPL_OFFSET>,
+            TargetUri: TargetUri::<Impl, IMPL_OFFSET>,
+            SetTargetUri: SetTargetUri::<Impl, IMPL_OFFSET>,
+            Thumbnails: Thumbnails::<Impl, IMPL_OFFSET>,
+            SharedItem: SharedItem::<Impl, IMPL_OFFSET>,
+            SetSharedItem: SetSharedItem::<Impl, IMPL_OFFSET>,
+            BadgeStyle: BadgeStyle::<Impl, IMPL_OFFSET>,
+            SetBadgeStyle: SetBadgeStyle::<Impl, IMPL_OFFSET>,
+            BadgeCountValue: BadgeCountValue::<Impl, IMPL_OFFSET>,
+            SetBadgeCountValue: SetBadgeCountValue::<Impl, IMPL_OFFSET>,
+            RemoteId: RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId: SetRemoteId::<Impl, IMPL_OFFSET>,
+            ChildItem: ChildItem::<Impl, IMPL_OFFSET>,
+            SetChildItem: SetChildItem::<Impl, IMPL_OFFSET>,
+            Style: Style::<Impl, IMPL_OFFSET>,
+            SetStyle: SetStyle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISocialFeedItem as ::windows::core::Interface>::IID
@@ -514,23 +512,18 @@ impl ISocialFeedSharedItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISocialFeedSharedItem>,
-            ::windows::core::GetTrustLevel,
-            OriginalSource::<Impl, IMPL_OFFSET>,
-            SetOriginalSource::<Impl, IMPL_OFFSET>,
-            Content::<Impl, IMPL_OFFSET>,
-            Timestamp::<Impl, IMPL_OFFSET>,
-            SetTimestamp::<Impl, IMPL_OFFSET>,
-            TargetUri::<Impl, IMPL_OFFSET>,
-            SetTargetUri::<Impl, IMPL_OFFSET>,
-            SetThumbnail::<Impl, IMPL_OFFSET>,
-            Thumbnail::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISocialFeedSharedItem, BASE_OFFSET>(),
+            OriginalSource: OriginalSource::<Impl, IMPL_OFFSET>,
+            SetOriginalSource: SetOriginalSource::<Impl, IMPL_OFFSET>,
+            Content: Content::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            SetTimestamp: SetTimestamp::<Impl, IMPL_OFFSET>,
+            TargetUri: TargetUri::<Impl, IMPL_OFFSET>,
+            SetTargetUri: SetTargetUri::<Impl, IMPL_OFFSET>,
+            SetThumbnail: SetThumbnail::<Impl, IMPL_OFFSET>,
+            Thumbnail: Thumbnail::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISocialFeedSharedItem as ::windows::core::Interface>::IID
@@ -609,21 +602,16 @@ impl ISocialItemThumbnailVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISocialItemThumbnail>,
-            ::windows::core::GetTrustLevel,
-            TargetUri::<Impl, IMPL_OFFSET>,
-            SetTargetUri::<Impl, IMPL_OFFSET>,
-            ImageUri::<Impl, IMPL_OFFSET>,
-            SetImageUri::<Impl, IMPL_OFFSET>,
-            BitmapSize::<Impl, IMPL_OFFSET>,
-            SetBitmapSize::<Impl, IMPL_OFFSET>,
-            SetImageAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISocialItemThumbnail, BASE_OFFSET>(),
+            TargetUri: TargetUri::<Impl, IMPL_OFFSET>,
+            SetTargetUri: SetTargetUri::<Impl, IMPL_OFFSET>,
+            ImageUri: ImageUri::<Impl, IMPL_OFFSET>,
+            SetImageUri: SetImageUri::<Impl, IMPL_OFFSET>,
+            BitmapSize: BitmapSize::<Impl, IMPL_OFFSET>,
+            SetBitmapSize: SetBitmapSize::<Impl, IMPL_OFFSET>,
+            SetImageAsync: SetImageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISocialItemThumbnail as ::windows::core::Interface>::IID
@@ -707,22 +695,17 @@ impl ISocialUserInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISocialUserInfo>,
-            ::windows::core::GetTrustLevel,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            SetDisplayName::<Impl, IMPL_OFFSET>,
-            UserName::<Impl, IMPL_OFFSET>,
-            SetUserName::<Impl, IMPL_OFFSET>,
-            RemoteId::<Impl, IMPL_OFFSET>,
-            SetRemoteId::<Impl, IMPL_OFFSET>,
-            TargetUri::<Impl, IMPL_OFFSET>,
-            SetTargetUri::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISocialUserInfo, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            UserName: UserName::<Impl, IMPL_OFFSET>,
+            SetUserName: SetUserName::<Impl, IMPL_OFFSET>,
+            RemoteId: RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId: SetRemoteId::<Impl, IMPL_OFFSET>,
+            TargetUri: TargetUri::<Impl, IMPL_OFFSET>,
+            SetTargetUri: SetTargetUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISocialUserInfo as ::windows::core::Interface>::IID

@@ -29,7 +29,11 @@ impl IGpioControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioControllerProvider>, ::windows::core::GetTrustLevel, PinCount::<Impl, IMPL_OFFSET>, OpenPinProvider::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioControllerProvider, BASE_OFFSET>(),
+            PinCount: PinCount::<Impl, IMPL_OFFSET>,
+            OpenPinProvider: OpenPinProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioControllerProvider as ::windows::core::Interface>::IID
@@ -149,25 +153,20 @@ impl IGpioPinProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGpioPinProvider>,
-            ::windows::core::GetTrustLevel,
-            ValueChanged::<Impl, IMPL_OFFSET>,
-            RemoveValueChanged::<Impl, IMPL_OFFSET>,
-            DebounceTimeout::<Impl, IMPL_OFFSET>,
-            SetDebounceTimeout::<Impl, IMPL_OFFSET>,
-            PinNumber::<Impl, IMPL_OFFSET>,
-            SharingMode::<Impl, IMPL_OFFSET>,
-            IsDriveModeSupported::<Impl, IMPL_OFFSET>,
-            GetDriveMode::<Impl, IMPL_OFFSET>,
-            SetDriveMode::<Impl, IMPL_OFFSET>,
-            Write::<Impl, IMPL_OFFSET>,
-            Read::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioPinProvider, BASE_OFFSET>(),
+            ValueChanged: ValueChanged::<Impl, IMPL_OFFSET>,
+            RemoveValueChanged: RemoveValueChanged::<Impl, IMPL_OFFSET>,
+            DebounceTimeout: DebounceTimeout::<Impl, IMPL_OFFSET>,
+            SetDebounceTimeout: SetDebounceTimeout::<Impl, IMPL_OFFSET>,
+            PinNumber: PinNumber::<Impl, IMPL_OFFSET>,
+            SharingMode: SharingMode::<Impl, IMPL_OFFSET>,
+            IsDriveModeSupported: IsDriveModeSupported::<Impl, IMPL_OFFSET>,
+            GetDriveMode: GetDriveMode::<Impl, IMPL_OFFSET>,
+            SetDriveMode: SetDriveMode::<Impl, IMPL_OFFSET>,
+            Write: Write::<Impl, IMPL_OFFSET>,
+            Read: Read::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioPinProvider as ::windows::core::Interface>::IID
@@ -195,7 +194,7 @@ impl IGpioPinProviderValueChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioPinProviderValueChangedEventArgs>, ::windows::core::GetTrustLevel, Edge::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioPinProviderValueChangedEventArgs, BASE_OFFSET>(), Edge: Edge::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioPinProviderValueChangedEventArgs as ::windows::core::Interface>::IID
@@ -223,7 +222,10 @@ impl IGpioPinProviderValueChangedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioPinProviderValueChangedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioPinProviderValueChangedEventArgsFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioPinProviderValueChangedEventArgsFactory as ::windows::core::Interface>::IID
@@ -251,7 +253,7 @@ impl IGpioProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioProvider>, ::windows::core::GetTrustLevel, GetControllers::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioProvider, BASE_OFFSET>(), GetControllers: GetControllers::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioProvider as ::windows::core::Interface>::IID

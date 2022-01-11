@@ -25,7 +25,11 @@ impl IBackPressedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackPressedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackPressedEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackPressedEventArgs as ::windows::core::Interface>::IID
@@ -40,7 +44,7 @@ impl ::windows::core::RuntimeName for ICameraEventArgs {
 #[cfg(feature = "implement_exclusive")]
 impl ICameraEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICameraEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICameraEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICameraEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICameraEventArgs as ::windows::core::Interface>::IID
@@ -73,7 +77,11 @@ impl IHardwareButtonsStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBackPressed(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHardwareButtonsStatics>, ::windows::core::GetTrustLevel, BackPressed::<Impl, IMPL_OFFSET>, RemoveBackPressed::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHardwareButtonsStatics, BASE_OFFSET>(),
+            BackPressed: BackPressed::<Impl, IMPL_OFFSET>,
+            RemoveBackPressed: RemoveBackPressed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHardwareButtonsStatics as ::windows::core::Interface>::IID
@@ -140,20 +148,15 @@ impl IHardwareButtonsStatics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCameraReleased(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHardwareButtonsStatics2>,
-            ::windows::core::GetTrustLevel,
-            CameraHalfPressed::<Impl, IMPL_OFFSET>,
-            RemoveCameraHalfPressed::<Impl, IMPL_OFFSET>,
-            CameraPressed::<Impl, IMPL_OFFSET>,
-            RemoveCameraPressed::<Impl, IMPL_OFFSET>,
-            CameraReleased::<Impl, IMPL_OFFSET>,
-            RemoveCameraReleased::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHardwareButtonsStatics2, BASE_OFFSET>(),
+            CameraHalfPressed: CameraHalfPressed::<Impl, IMPL_OFFSET>,
+            RemoveCameraHalfPressed: RemoveCameraHalfPressed::<Impl, IMPL_OFFSET>,
+            CameraPressed: CameraPressed::<Impl, IMPL_OFFSET>,
+            RemoveCameraPressed: RemoveCameraPressed::<Impl, IMPL_OFFSET>,
+            CameraReleased: CameraReleased::<Impl, IMPL_OFFSET>,
+            RemoveCameraReleased: RemoveCameraReleased::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHardwareButtonsStatics2 as ::windows::core::Interface>::IID

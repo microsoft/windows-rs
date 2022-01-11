@@ -197,35 +197,30 @@ impl IAllJoynAboutDataVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAppId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAllJoynAboutData>,
-            ::windows::core::GetTrustLevel,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            SetIsEnabled::<Impl, IMPL_OFFSET>,
-            DefaultAppName::<Impl, IMPL_OFFSET>,
-            SetDefaultAppName::<Impl, IMPL_OFFSET>,
-            AppNames::<Impl, IMPL_OFFSET>,
-            DateOfManufacture::<Impl, IMPL_OFFSET>,
-            SetDateOfManufacture::<Impl, IMPL_OFFSET>,
-            DefaultDescription::<Impl, IMPL_OFFSET>,
-            SetDefaultDescription::<Impl, IMPL_OFFSET>,
-            Descriptions::<Impl, IMPL_OFFSET>,
-            DefaultManufacturer::<Impl, IMPL_OFFSET>,
-            SetDefaultManufacturer::<Impl, IMPL_OFFSET>,
-            Manufacturers::<Impl, IMPL_OFFSET>,
-            ModelNumber::<Impl, IMPL_OFFSET>,
-            SetModelNumber::<Impl, IMPL_OFFSET>,
-            SoftwareVersion::<Impl, IMPL_OFFSET>,
-            SetSoftwareVersion::<Impl, IMPL_OFFSET>,
-            SupportUrl::<Impl, IMPL_OFFSET>,
-            SetSupportUrl::<Impl, IMPL_OFFSET>,
-            AppId::<Impl, IMPL_OFFSET>,
-            SetAppId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynAboutData, BASE_OFFSET>(),
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled: SetIsEnabled::<Impl, IMPL_OFFSET>,
+            DefaultAppName: DefaultAppName::<Impl, IMPL_OFFSET>,
+            SetDefaultAppName: SetDefaultAppName::<Impl, IMPL_OFFSET>,
+            AppNames: AppNames::<Impl, IMPL_OFFSET>,
+            DateOfManufacture: DateOfManufacture::<Impl, IMPL_OFFSET>,
+            SetDateOfManufacture: SetDateOfManufacture::<Impl, IMPL_OFFSET>,
+            DefaultDescription: DefaultDescription::<Impl, IMPL_OFFSET>,
+            SetDefaultDescription: SetDefaultDescription::<Impl, IMPL_OFFSET>,
+            Descriptions: Descriptions::<Impl, IMPL_OFFSET>,
+            DefaultManufacturer: DefaultManufacturer::<Impl, IMPL_OFFSET>,
+            SetDefaultManufacturer: SetDefaultManufacturer::<Impl, IMPL_OFFSET>,
+            Manufacturers: Manufacturers::<Impl, IMPL_OFFSET>,
+            ModelNumber: ModelNumber::<Impl, IMPL_OFFSET>,
+            SetModelNumber: SetModelNumber::<Impl, IMPL_OFFSET>,
+            SoftwareVersion: SoftwareVersion::<Impl, IMPL_OFFSET>,
+            SetSoftwareVersion: SetSoftwareVersion::<Impl, IMPL_OFFSET>,
+            SupportUrl: SupportUrl::<Impl, IMPL_OFFSET>,
+            SetSupportUrl: SetSupportUrl::<Impl, IMPL_OFFSET>,
+            AppId: AppId::<Impl, IMPL_OFFSET>,
+            SetAppId: SetAppId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynAboutData as ::windows::core::Interface>::IID
@@ -433,30 +428,25 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAllJoynAboutDataView>,
-            ::windows::core::GetTrustLevel,
-            Status::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            AJSoftwareVersion::<Impl, IMPL_OFFSET>,
-            AppId::<Impl, IMPL_OFFSET>,
-            DateOfManufacture::<Impl, IMPL_OFFSET>,
-            DefaultLanguage::<Impl, IMPL_OFFSET>,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            HardwareVersion::<Impl, IMPL_OFFSET>,
-            ModelNumber::<Impl, IMPL_OFFSET>,
-            SoftwareVersion::<Impl, IMPL_OFFSET>,
-            SupportedLanguages::<Impl, IMPL_OFFSET>,
-            SupportUrl::<Impl, IMPL_OFFSET>,
-            AppName::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            DeviceName::<Impl, IMPL_OFFSET>,
-            Manufacturer::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynAboutDataView, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            AJSoftwareVersion: AJSoftwareVersion::<Impl, IMPL_OFFSET>,
+            AppId: AppId::<Impl, IMPL_OFFSET>,
+            DateOfManufacture: DateOfManufacture::<Impl, IMPL_OFFSET>,
+            DefaultLanguage: DefaultLanguage::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            HardwareVersion: HardwareVersion::<Impl, IMPL_OFFSET>,
+            ModelNumber: ModelNumber::<Impl, IMPL_OFFSET>,
+            SoftwareVersion: SoftwareVersion::<Impl, IMPL_OFFSET>,
+            SupportedLanguages: SupportedLanguages::<Impl, IMPL_OFFSET>,
+            SupportUrl: SupportUrl::<Impl, IMPL_OFFSET>,
+            AppName: AppName::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            DeviceName: DeviceName::<Impl, IMPL_OFFSET>,
+            Manufacturer: Manufacturer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynAboutDataView as ::windows::core::Interface>::IID
@@ -501,7 +491,11 @@ impl IAllJoynAboutDataViewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynAboutDataViewStatics>, ::windows::core::GetTrustLevel, GetDataBySessionPortAsync::<Impl, IMPL_OFFSET>, GetDataBySessionPortWithLanguageAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynAboutDataViewStatics, BASE_OFFSET>(),
+            GetDataBySessionPortAsync: GetDataBySessionPortAsync::<Impl, IMPL_OFFSET>,
+            GetDataBySessionPortWithLanguageAsync: GetDataBySessionPortWithLanguageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynAboutDataViewStatics as ::windows::core::Interface>::IID
@@ -522,7 +516,7 @@ impl IAllJoynAcceptSessionJoinerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Accept().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynAcceptSessionJoiner>, ::windows::core::GetTrustLevel, Accept::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynAcceptSessionJoiner, BASE_OFFSET>(), Accept: Accept::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynAcceptSessionJoiner as ::windows::core::Interface>::IID
@@ -603,20 +597,15 @@ impl IAllJoynAcceptSessionJoinerEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Accept().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAllJoynAcceptSessionJoinerEventArgs>,
-            ::windows::core::GetTrustLevel,
-            UniqueName::<Impl, IMPL_OFFSET>,
-            SessionPort::<Impl, IMPL_OFFSET>,
-            TrafficType::<Impl, IMPL_OFFSET>,
-            SamePhysicalNode::<Impl, IMPL_OFFSET>,
-            SameNetwork::<Impl, IMPL_OFFSET>,
-            Accept::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynAcceptSessionJoinerEventArgs, BASE_OFFSET>(),
+            UniqueName: UniqueName::<Impl, IMPL_OFFSET>,
+            SessionPort: SessionPort::<Impl, IMPL_OFFSET>,
+            TrafficType: TrafficType::<Impl, IMPL_OFFSET>,
+            SamePhysicalNode: SamePhysicalNode::<Impl, IMPL_OFFSET>,
+            SameNetwork: SameNetwork::<Impl, IMPL_OFFSET>,
+            Accept: Accept::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynAcceptSessionJoinerEventArgs as ::windows::core::Interface>::IID
@@ -644,7 +633,10 @@ impl IAllJoynAcceptSessionJoinerEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynAcceptSessionJoinerEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynAcceptSessionJoinerEventArgsFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynAcceptSessionJoinerEventArgsFactory as ::windows::core::Interface>::IID
@@ -696,7 +688,12 @@ impl IAllJoynAuthenticationCompleteEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynAuthenticationCompleteEventArgs>, ::windows::core::GetTrustLevel, AuthenticationMechanism::<Impl, IMPL_OFFSET>, PeerUniqueName::<Impl, IMPL_OFFSET>, Succeeded::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynAuthenticationCompleteEventArgs, BASE_OFFSET>(),
+            AuthenticationMechanism: AuthenticationMechanism::<Impl, IMPL_OFFSET>,
+            PeerUniqueName: PeerUniqueName::<Impl, IMPL_OFFSET>,
+            Succeeded: Succeeded::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynAuthenticationCompleteEventArgs as ::windows::core::Interface>::IID
@@ -862,30 +859,25 @@ impl IAllJoynBusAttachmentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAuthenticationComplete(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAllJoynBusAttachment>,
-            ::windows::core::GetTrustLevel,
-            AboutData::<Impl, IMPL_OFFSET>,
-            ConnectionSpecification::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            UniqueName::<Impl, IMPL_OFFSET>,
-            PingAsync::<Impl, IMPL_OFFSET>,
-            Connect::<Impl, IMPL_OFFSET>,
-            Disconnect::<Impl, IMPL_OFFSET>,
-            StateChanged::<Impl, IMPL_OFFSET>,
-            RemoveStateChanged::<Impl, IMPL_OFFSET>,
-            AuthenticationMechanisms::<Impl, IMPL_OFFSET>,
-            CredentialsRequested::<Impl, IMPL_OFFSET>,
-            RemoveCredentialsRequested::<Impl, IMPL_OFFSET>,
-            CredentialsVerificationRequested::<Impl, IMPL_OFFSET>,
-            RemoveCredentialsVerificationRequested::<Impl, IMPL_OFFSET>,
-            AuthenticationComplete::<Impl, IMPL_OFFSET>,
-            RemoveAuthenticationComplete::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynBusAttachment, BASE_OFFSET>(),
+            AboutData: AboutData::<Impl, IMPL_OFFSET>,
+            ConnectionSpecification: ConnectionSpecification::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            UniqueName: UniqueName::<Impl, IMPL_OFFSET>,
+            PingAsync: PingAsync::<Impl, IMPL_OFFSET>,
+            Connect: Connect::<Impl, IMPL_OFFSET>,
+            Disconnect: Disconnect::<Impl, IMPL_OFFSET>,
+            StateChanged: StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged: RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            AuthenticationMechanisms: AuthenticationMechanisms::<Impl, IMPL_OFFSET>,
+            CredentialsRequested: CredentialsRequested::<Impl, IMPL_OFFSET>,
+            RemoveCredentialsRequested: RemoveCredentialsRequested::<Impl, IMPL_OFFSET>,
+            CredentialsVerificationRequested: CredentialsVerificationRequested::<Impl, IMPL_OFFSET>,
+            RemoveCredentialsVerificationRequested: RemoveCredentialsVerificationRequested::<Impl, IMPL_OFFSET>,
+            AuthenticationComplete: AuthenticationComplete::<Impl, IMPL_OFFSET>,
+            RemoveAuthenticationComplete: RemoveAuthenticationComplete::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynBusAttachment as ::windows::core::Interface>::IID
@@ -959,20 +951,15 @@ impl IAllJoynBusAttachment2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSessionJoined(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAllJoynBusAttachment2>,
-            ::windows::core::GetTrustLevel,
-            GetAboutDataAsync::<Impl, IMPL_OFFSET>,
-            GetAboutDataWithLanguageAsync::<Impl, IMPL_OFFSET>,
-            AcceptSessionJoinerRequested::<Impl, IMPL_OFFSET>,
-            RemoveAcceptSessionJoinerRequested::<Impl, IMPL_OFFSET>,
-            SessionJoined::<Impl, IMPL_OFFSET>,
-            RemoveSessionJoined::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynBusAttachment2, BASE_OFFSET>(),
+            GetAboutDataAsync: GetAboutDataAsync::<Impl, IMPL_OFFSET>,
+            GetAboutDataWithLanguageAsync: GetAboutDataWithLanguageAsync::<Impl, IMPL_OFFSET>,
+            AcceptSessionJoinerRequested: AcceptSessionJoinerRequested::<Impl, IMPL_OFFSET>,
+            RemoveAcceptSessionJoinerRequested: RemoveAcceptSessionJoinerRequested::<Impl, IMPL_OFFSET>,
+            SessionJoined: SessionJoined::<Impl, IMPL_OFFSET>,
+            RemoveSessionJoined: RemoveSessionJoined::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynBusAttachment2 as ::windows::core::Interface>::IID
@@ -1000,7 +987,7 @@ impl IAllJoynBusAttachmentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusAttachmentFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynBusAttachmentFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynBusAttachmentFactory as ::windows::core::Interface>::IID
@@ -1040,7 +1027,11 @@ impl IAllJoynBusAttachmentStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusAttachmentStateChangedEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynBusAttachmentStateChangedEventArgs, BASE_OFFSET>(),
+            State: State::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynBusAttachmentStateChangedEventArgs as ::windows::core::Interface>::IID
@@ -1080,7 +1071,11 @@ impl IAllJoynBusAttachmentStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusAttachmentStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetWatcher::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynBusAttachmentStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            GetWatcher: GetWatcher::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynBusAttachmentStatics as ::windows::core::Interface>::IID
@@ -1152,21 +1147,16 @@ impl IAllJoynBusObjectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStopped(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAllJoynBusObject>,
-            ::windows::core::GetTrustLevel,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            AddProducer::<Impl, IMPL_OFFSET>,
-            BusAttachment::<Impl, IMPL_OFFSET>,
-            Session::<Impl, IMPL_OFFSET>,
-            Stopped::<Impl, IMPL_OFFSET>,
-            RemoveStopped::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynBusObject, BASE_OFFSET>(),
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            AddProducer: AddProducer::<Impl, IMPL_OFFSET>,
+            BusAttachment: BusAttachment::<Impl, IMPL_OFFSET>,
+            Session: Session::<Impl, IMPL_OFFSET>,
+            Stopped: Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped: RemoveStopped::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynBusObject as ::windows::core::Interface>::IID
@@ -1206,7 +1196,11 @@ impl IAllJoynBusObjectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusObjectFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithBusAttachment::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynBusObjectFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithBusAttachment: CreateWithBusAttachment::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynBusObjectFactory as ::windows::core::Interface>::IID
@@ -1234,7 +1228,7 @@ impl IAllJoynBusObjectStoppedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusObjectStoppedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynBusObjectStoppedEventArgs, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynBusObjectStoppedEventArgs as ::windows::core::Interface>::IID
@@ -1262,7 +1256,10 @@ impl IAllJoynBusObjectStoppedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusObjectStoppedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynBusObjectStoppedEventArgsFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynBusObjectStoppedEventArgsFactory as ::windows::core::Interface>::IID
@@ -1341,21 +1338,16 @@ impl IAllJoynCredentialsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTimeout(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAllJoynCredentials>,
-            ::windows::core::GetTrustLevel,
-            AuthenticationMechanism::<Impl, IMPL_OFFSET>,
-            Certificate::<Impl, IMPL_OFFSET>,
-            SetCertificate::<Impl, IMPL_OFFSET>,
-            PasswordCredential::<Impl, IMPL_OFFSET>,
-            SetPasswordCredential::<Impl, IMPL_OFFSET>,
-            Timeout::<Impl, IMPL_OFFSET>,
-            SetTimeout::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynCredentials, BASE_OFFSET>(),
+            AuthenticationMechanism: AuthenticationMechanism::<Impl, IMPL_OFFSET>,
+            Certificate: Certificate::<Impl, IMPL_OFFSET>,
+            SetCertificate: SetCertificate::<Impl, IMPL_OFFSET>,
+            PasswordCredential: PasswordCredential::<Impl, IMPL_OFFSET>,
+            SetPasswordCredential: SetPasswordCredential::<Impl, IMPL_OFFSET>,
+            Timeout: Timeout::<Impl, IMPL_OFFSET>,
+            SetTimeout: SetTimeout::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynCredentials as ::windows::core::Interface>::IID
@@ -1431,7 +1423,14 @@ impl IAllJoynCredentialsRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynCredentialsRequestedEventArgs>, ::windows::core::GetTrustLevel, AttemptCount::<Impl, IMPL_OFFSET>, Credentials::<Impl, IMPL_OFFSET>, PeerUniqueName::<Impl, IMPL_OFFSET>, RequestedUserName::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynCredentialsRequestedEventArgs, BASE_OFFSET>(),
+            AttemptCount: AttemptCount::<Impl, IMPL_OFFSET>,
+            Credentials: Credentials::<Impl, IMPL_OFFSET>,
+            PeerUniqueName: PeerUniqueName::<Impl, IMPL_OFFSET>,
+            RequestedUserName: RequestedUserName::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynCredentialsRequestedEventArgs as ::windows::core::Interface>::IID
@@ -1536,22 +1535,17 @@ impl IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAllJoynCredentialsVerificationRequestedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            AuthenticationMechanism::<Impl, IMPL_OFFSET>,
-            PeerUniqueName::<Impl, IMPL_OFFSET>,
-            PeerCertificate::<Impl, IMPL_OFFSET>,
-            PeerCertificateErrorSeverity::<Impl, IMPL_OFFSET>,
-            PeerCertificateErrors::<Impl, IMPL_OFFSET>,
-            PeerIntermediateCertificates::<Impl, IMPL_OFFSET>,
-            Accept::<Impl, IMPL_OFFSET>,
-            GetDeferral::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynCredentialsVerificationRequestedEventArgs, BASE_OFFSET>(),
+            AuthenticationMechanism: AuthenticationMechanism::<Impl, IMPL_OFFSET>,
+            PeerUniqueName: PeerUniqueName::<Impl, IMPL_OFFSET>,
+            PeerCertificate: PeerCertificate::<Impl, IMPL_OFFSET>,
+            PeerCertificateErrorSeverity: PeerCertificateErrorSeverity::<Impl, IMPL_OFFSET>,
+            PeerCertificateErrors: PeerCertificateErrors::<Impl, IMPL_OFFSET>,
+            PeerIntermediateCertificates: PeerIntermediateCertificates::<Impl, IMPL_OFFSET>,
+            Accept: Accept::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynCredentialsVerificationRequestedEventArgs as ::windows::core::Interface>::IID
@@ -1579,7 +1573,10 @@ impl IAllJoynMessageInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynMessageInfo>, ::windows::core::GetTrustLevel, SenderUniqueName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynMessageInfo, BASE_OFFSET>(),
+            SenderUniqueName: SenderUniqueName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynMessageInfo as ::windows::core::Interface>::IID
@@ -1607,7 +1604,7 @@ impl IAllJoynMessageInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynMessageInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynMessageInfoFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynMessageInfoFactory as ::windows::core::Interface>::IID
@@ -1628,7 +1625,7 @@ impl IAllJoynProducerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBusObject(&*(&busobject as *const <AllJoynBusObject as ::windows::core::Abi>::Abi as *const <AllJoynBusObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynProducer>, ::windows::core::GetTrustLevel, SetBusObject::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynProducer, BASE_OFFSET>(), SetBusObject: SetBusObject::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynProducer as ::windows::core::Interface>::IID
@@ -1656,7 +1653,7 @@ impl IAllJoynProducerStoppedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynProducerStoppedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynProducerStoppedEventArgs, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynProducerStoppedEventArgs as ::windows::core::Interface>::IID
@@ -1684,7 +1681,10 @@ impl IAllJoynProducerStoppedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynProducerStoppedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynProducerStoppedEventArgsFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynProducerStoppedEventArgsFactory as ::windows::core::Interface>::IID
@@ -1736,7 +1736,12 @@ impl IAllJoynServiceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfo>, ::windows::core::GetTrustLevel, UniqueName::<Impl, IMPL_OFFSET>, ObjectPath::<Impl, IMPL_OFFSET>, SessionPort::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynServiceInfo, BASE_OFFSET>(),
+            UniqueName: UniqueName::<Impl, IMPL_OFFSET>,
+            ObjectPath: ObjectPath::<Impl, IMPL_OFFSET>,
+            SessionPort: SessionPort::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynServiceInfo as ::windows::core::Interface>::IID
@@ -1764,7 +1769,7 @@ impl IAllJoynServiceInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynServiceInfoFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynServiceInfoFactory as ::windows::core::Interface>::IID
@@ -1792,7 +1797,10 @@ impl IAllJoynServiceInfoRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfoRemovedEventArgs>, ::windows::core::GetTrustLevel, UniqueName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynServiceInfoRemovedEventArgs, BASE_OFFSET>(),
+            UniqueName: UniqueName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynServiceInfoRemovedEventArgs as ::windows::core::Interface>::IID
@@ -1820,7 +1828,10 @@ impl IAllJoynServiceInfoRemovedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfoRemovedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynServiceInfoRemovedEventArgsFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynServiceInfoRemovedEventArgsFactory as ::windows::core::Interface>::IID
@@ -1848,7 +1859,10 @@ impl IAllJoynServiceInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfoStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynServiceInfoStatics, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynServiceInfoStatics as ::windows::core::Interface>::IID
@@ -1951,23 +1965,18 @@ impl IAllJoynSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLost(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAllJoynSession>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            RemoveMemberAsync::<Impl, IMPL_OFFSET>,
-            MemberAdded::<Impl, IMPL_OFFSET>,
-            RemoveMemberAdded::<Impl, IMPL_OFFSET>,
-            MemberRemoved::<Impl, IMPL_OFFSET>,
-            RemoveMemberRemoved::<Impl, IMPL_OFFSET>,
-            Lost::<Impl, IMPL_OFFSET>,
-            RemoveLost::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynSession, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            RemoveMemberAsync: RemoveMemberAsync::<Impl, IMPL_OFFSET>,
+            MemberAdded: MemberAdded::<Impl, IMPL_OFFSET>,
+            RemoveMemberAdded: RemoveMemberAdded::<Impl, IMPL_OFFSET>,
+            MemberRemoved: MemberRemoved::<Impl, IMPL_OFFSET>,
+            RemoveMemberRemoved: RemoveMemberRemoved::<Impl, IMPL_OFFSET>,
+            Lost: Lost::<Impl, IMPL_OFFSET>,
+            RemoveLost: RemoveLost::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynSession as ::windows::core::Interface>::IID
@@ -1995,7 +2004,7 @@ impl IAllJoynSessionJoinedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionJoinedEventArgs>, ::windows::core::GetTrustLevel, Session::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynSessionJoinedEventArgs, BASE_OFFSET>(), Session: Session::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynSessionJoinedEventArgs as ::windows::core::Interface>::IID
@@ -2023,7 +2032,10 @@ impl IAllJoynSessionJoinedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionJoinedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynSessionJoinedEventArgsFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynSessionJoinedEventArgsFactory as ::windows::core::Interface>::IID
@@ -2051,7 +2063,7 @@ impl IAllJoynSessionLostEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionLostEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynSessionLostEventArgs, BASE_OFFSET>(), Reason: Reason::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynSessionLostEventArgs as ::windows::core::Interface>::IID
@@ -2079,7 +2091,10 @@ impl IAllJoynSessionLostEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionLostEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynSessionLostEventArgsFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynSessionLostEventArgsFactory as ::windows::core::Interface>::IID
@@ -2107,7 +2122,10 @@ impl IAllJoynSessionMemberAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionMemberAddedEventArgs>, ::windows::core::GetTrustLevel, UniqueName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynSessionMemberAddedEventArgs, BASE_OFFSET>(),
+            UniqueName: UniqueName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynSessionMemberAddedEventArgs as ::windows::core::Interface>::IID
@@ -2135,7 +2153,10 @@ impl IAllJoynSessionMemberAddedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionMemberAddedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynSessionMemberAddedEventArgsFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynSessionMemberAddedEventArgsFactory as ::windows::core::Interface>::IID
@@ -2163,7 +2184,10 @@ impl IAllJoynSessionMemberRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionMemberRemovedEventArgs>, ::windows::core::GetTrustLevel, UniqueName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynSessionMemberRemovedEventArgs, BASE_OFFSET>(),
+            UniqueName: UniqueName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynSessionMemberRemovedEventArgs as ::windows::core::Interface>::IID
@@ -2191,7 +2215,10 @@ impl IAllJoynSessionMemberRemovedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionMemberRemovedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynSessionMemberRemovedEventArgsFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynSessionMemberRemovedEventArgsFactory as ::windows::core::Interface>::IID
@@ -2231,7 +2258,11 @@ impl IAllJoynSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionStatics>, ::windows::core::GetTrustLevel, GetFromServiceInfoAsync::<Impl, IMPL_OFFSET>, GetFromServiceInfoAndBusAttachmentAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynSessionStatics, BASE_OFFSET>(),
+            GetFromServiceInfoAsync: GetFromServiceInfoAsync::<Impl, IMPL_OFFSET>,
+            GetFromServiceInfoAndBusAttachmentAsync: GetFromServiceInfoAndBusAttachmentAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynSessionStatics as ::windows::core::Interface>::IID
@@ -2463,32 +2494,27 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAllJoynStatusStatics>,
-            ::windows::core::GetTrustLevel,
-            Ok::<Impl, IMPL_OFFSET>,
-            Fail::<Impl, IMPL_OFFSET>,
-            OperationTimedOut::<Impl, IMPL_OFFSET>,
-            OtherEndClosed::<Impl, IMPL_OFFSET>,
-            ConnectionRefused::<Impl, IMPL_OFFSET>,
-            AuthenticationFailed::<Impl, IMPL_OFFSET>,
-            AuthenticationRejectedByUser::<Impl, IMPL_OFFSET>,
-            SslConnectFailed::<Impl, IMPL_OFFSET>,
-            SslIdentityVerificationFailed::<Impl, IMPL_OFFSET>,
-            InsufficientSecurity::<Impl, IMPL_OFFSET>,
-            InvalidArgument1::<Impl, IMPL_OFFSET>,
-            InvalidArgument2::<Impl, IMPL_OFFSET>,
-            InvalidArgument3::<Impl, IMPL_OFFSET>,
-            InvalidArgument4::<Impl, IMPL_OFFSET>,
-            InvalidArgument5::<Impl, IMPL_OFFSET>,
-            InvalidArgument6::<Impl, IMPL_OFFSET>,
-            InvalidArgument7::<Impl, IMPL_OFFSET>,
-            InvalidArgument8::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynStatusStatics, BASE_OFFSET>(),
+            Ok: Ok::<Impl, IMPL_OFFSET>,
+            Fail: Fail::<Impl, IMPL_OFFSET>,
+            OperationTimedOut: OperationTimedOut::<Impl, IMPL_OFFSET>,
+            OtherEndClosed: OtherEndClosed::<Impl, IMPL_OFFSET>,
+            ConnectionRefused: ConnectionRefused::<Impl, IMPL_OFFSET>,
+            AuthenticationFailed: AuthenticationFailed::<Impl, IMPL_OFFSET>,
+            AuthenticationRejectedByUser: AuthenticationRejectedByUser::<Impl, IMPL_OFFSET>,
+            SslConnectFailed: SslConnectFailed::<Impl, IMPL_OFFSET>,
+            SslIdentityVerificationFailed: SslIdentityVerificationFailed::<Impl, IMPL_OFFSET>,
+            InsufficientSecurity: InsufficientSecurity::<Impl, IMPL_OFFSET>,
+            InvalidArgument1: InvalidArgument1::<Impl, IMPL_OFFSET>,
+            InvalidArgument2: InvalidArgument2::<Impl, IMPL_OFFSET>,
+            InvalidArgument3: InvalidArgument3::<Impl, IMPL_OFFSET>,
+            InvalidArgument4: InvalidArgument4::<Impl, IMPL_OFFSET>,
+            InvalidArgument5: InvalidArgument5::<Impl, IMPL_OFFSET>,
+            InvalidArgument6: InvalidArgument6::<Impl, IMPL_OFFSET>,
+            InvalidArgument7: InvalidArgument7::<Impl, IMPL_OFFSET>,
+            InvalidArgument8: InvalidArgument8::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynStatusStatics as ::windows::core::Interface>::IID
@@ -2516,7 +2542,7 @@ impl IAllJoynWatcherStoppedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynWatcherStoppedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynWatcherStoppedEventArgs, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynWatcherStoppedEventArgs as ::windows::core::Interface>::IID
@@ -2544,7 +2570,10 @@ impl IAllJoynWatcherStoppedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynWatcherStoppedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynWatcherStoppedEventArgsFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynWatcherStoppedEventArgsFactory as ::windows::core::Interface>::IID

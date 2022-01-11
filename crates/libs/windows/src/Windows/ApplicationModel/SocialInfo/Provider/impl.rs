@@ -95,23 +95,18 @@ impl ISocialDashboardItemUpdaterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetUri(&*(&value as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISocialDashboardItemUpdater>,
-            ::windows::core::GetTrustLevel,
-            OwnerRemoteId::<Impl, IMPL_OFFSET>,
-            Content::<Impl, IMPL_OFFSET>,
-            Timestamp::<Impl, IMPL_OFFSET>,
-            SetTimestamp::<Impl, IMPL_OFFSET>,
-            SetThumbnail::<Impl, IMPL_OFFSET>,
-            Thumbnail::<Impl, IMPL_OFFSET>,
-            CommitAsync::<Impl, IMPL_OFFSET>,
-            TargetUri::<Impl, IMPL_OFFSET>,
-            SetTargetUri::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISocialDashboardItemUpdater, BASE_OFFSET>(),
+            OwnerRemoteId: OwnerRemoteId::<Impl, IMPL_OFFSET>,
+            Content: Content::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            SetTimestamp: SetTimestamp::<Impl, IMPL_OFFSET>,
+            SetThumbnail: SetThumbnail::<Impl, IMPL_OFFSET>,
+            Thumbnail: Thumbnail::<Impl, IMPL_OFFSET>,
+            CommitAsync: CommitAsync::<Impl, IMPL_OFFSET>,
+            TargetUri: TargetUri::<Impl, IMPL_OFFSET>,
+            SetTargetUri: SetTargetUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISocialDashboardItemUpdater as ::windows::core::Interface>::IID
@@ -175,7 +170,13 @@ impl ISocialFeedUpdaterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocialFeedUpdater>, ::windows::core::GetTrustLevel, OwnerRemoteId::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>, Items::<Impl, IMPL_OFFSET>, CommitAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISocialFeedUpdater, BASE_OFFSET>(),
+            OwnerRemoteId: OwnerRemoteId::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            Items: Items::<Impl, IMPL_OFFSET>,
+            CommitAsync: CommitAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISocialFeedUpdater as ::windows::core::Interface>::IID
@@ -249,20 +250,15 @@ impl ISocialInfoProviderManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISocialInfoProviderManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            CreateSocialFeedUpdaterAsync::<Impl, IMPL_OFFSET>,
-            CreateDashboardItemUpdaterAsync::<Impl, IMPL_OFFSET>,
-            UpdateBadgeCountValue::<Impl, IMPL_OFFSET>,
-            ReportNewContentAvailable::<Impl, IMPL_OFFSET>,
-            ProvisionAsync::<Impl, IMPL_OFFSET>,
-            DeprovisionAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISocialInfoProviderManagerStatics, BASE_OFFSET>(),
+            CreateSocialFeedUpdaterAsync: CreateSocialFeedUpdaterAsync::<Impl, IMPL_OFFSET>,
+            CreateDashboardItemUpdaterAsync: CreateDashboardItemUpdaterAsync::<Impl, IMPL_OFFSET>,
+            UpdateBadgeCountValue: UpdateBadgeCountValue::<Impl, IMPL_OFFSET>,
+            ReportNewContentAvailable: ReportNewContentAvailable::<Impl, IMPL_OFFSET>,
+            ProvisionAsync: ProvisionAsync::<Impl, IMPL_OFFSET>,
+            DeprovisionAsync: DeprovisionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISocialInfoProviderManagerStatics as ::windows::core::Interface>::IID

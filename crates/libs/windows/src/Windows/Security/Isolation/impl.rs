@@ -144,25 +144,20 @@ impl IIsolatedWindowsEnvironmentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnregisterMessageReceiver(&*(&receiverid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironment>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            StartProcessSilentlyAsync::<Impl, IMPL_OFFSET>,
-            StartProcessSilentlyWithTelemetryAsync::<Impl, IMPL_OFFSET>,
-            ShareFolderAsync::<Impl, IMPL_OFFSET>,
-            ShareFolderWithTelemetryAsync::<Impl, IMPL_OFFSET>,
-            LaunchFileWithUIAsync::<Impl, IMPL_OFFSET>,
-            LaunchFileWithUIAndTelemetryAsync::<Impl, IMPL_OFFSET>,
-            TerminateAsync::<Impl, IMPL_OFFSET>,
-            TerminateWithTelemetryAsync::<Impl, IMPL_OFFSET>,
-            RegisterMessageReceiver::<Impl, IMPL_OFFSET>,
-            UnregisterMessageReceiver::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironment, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            StartProcessSilentlyAsync: StartProcessSilentlyAsync::<Impl, IMPL_OFFSET>,
+            StartProcessSilentlyWithTelemetryAsync: StartProcessSilentlyWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            ShareFolderAsync: ShareFolderAsync::<Impl, IMPL_OFFSET>,
+            ShareFolderWithTelemetryAsync: ShareFolderWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            LaunchFileWithUIAsync: LaunchFileWithUIAsync::<Impl, IMPL_OFFSET>,
+            LaunchFileWithUIAndTelemetryAsync: LaunchFileWithUIAndTelemetryAsync::<Impl, IMPL_OFFSET>,
+            TerminateAsync: TerminateAsync::<Impl, IMPL_OFFSET>,
+            TerminateWithTelemetryAsync: TerminateWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            RegisterMessageReceiver: RegisterMessageReceiver::<Impl, IMPL_OFFSET>,
+            UnregisterMessageReceiver: UnregisterMessageReceiver::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironment as ::windows::core::Interface>::IID
@@ -206,7 +201,11 @@ impl IIsolatedWindowsEnvironment2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironment2>, ::windows::core::GetTrustLevel, PostMessageToReceiverAsync::<Impl, IMPL_OFFSET>, PostMessageToReceiverWithTelemetryAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironment2, BASE_OFFSET>(),
+            PostMessageToReceiverAsync: PostMessageToReceiverAsync::<Impl, IMPL_OFFSET>,
+            PostMessageToReceiverWithTelemetryAsync: PostMessageToReceiverWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironment2 as ::windows::core::Interface>::IID
@@ -262,7 +261,12 @@ impl IIsolatedWindowsEnvironment3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironment3>, ::windows::core::GetTrustLevel, GetUserInfo::<Impl, IMPL_OFFSET>, ShareFileAsync::<Impl, IMPL_OFFSET>, ShareFileWithTelemetryAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironment3, BASE_OFFSET>(),
+            GetUserInfo: GetUserInfo::<Impl, IMPL_OFFSET>,
+            ShareFileAsync: ShareFileAsync::<Impl, IMPL_OFFSET>,
+            ShareFileWithTelemetryAsync: ShareFileWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironment3 as ::windows::core::Interface>::IID
@@ -314,7 +318,12 @@ impl IIsolatedWindowsEnvironmentCreateResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentCreateResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, Environment::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentCreateResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            Environment: Environment::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentCreateResult as ::windows::core::Interface>::IID
@@ -378,7 +387,13 @@ impl IIsolatedWindowsEnvironmentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentFactory>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>, CreateWithTelemetryAsync::<Impl, IMPL_OFFSET>, GetById::<Impl, IMPL_OFFSET>, FindByOwnerId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentFactory, BASE_OFFSET>(),
+            CreateAsync: CreateAsync::<Impl, IMPL_OFFSET>,
+            CreateWithTelemetryAsync: CreateWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            GetById: GetById::<Impl, IMPL_OFFSET>,
+            FindByOwnerId: FindByOwnerId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentFactory as ::windows::core::Interface>::IID
@@ -423,7 +438,12 @@ impl IIsolatedWindowsEnvironmentFileVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentFile>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, HostPath::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentFile, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            HostPath: HostPath::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentFile as ::windows::core::Interface>::IID
@@ -463,7 +483,11 @@ impl IIsolatedWindowsEnvironmentFile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentFile2>, ::windows::core::GetTrustLevel, GuestPath::<Impl, IMPL_OFFSET>, IsReadOnly::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentFile2, BASE_OFFSET>(),
+            GuestPath: GuestPath::<Impl, IMPL_OFFSET>,
+            IsReadOnly: IsReadOnly::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentFile2 as ::windows::core::Interface>::IID
@@ -503,7 +527,11 @@ impl IIsolatedWindowsEnvironmentHostStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentHostStatics>, ::windows::core::GetTrustLevel, IsReady::<Impl, IMPL_OFFSET>, HostErrors::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentHostStatics, BASE_OFFSET>(),
+            IsReady: IsReady::<Impl, IMPL_OFFSET>,
+            HostErrors: HostErrors::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentHostStatics as ::windows::core::Interface>::IID
@@ -555,7 +583,12 @@ impl IIsolatedWindowsEnvironmentLaunchFileResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentLaunchFileResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, File::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentLaunchFileResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            File: File::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentLaunchFileResult as ::windows::core::Interface>::IID
@@ -719,31 +752,26 @@ impl IIsolatedWindowsEnvironmentOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowCameraAndMicrophoneAccess(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOptions>,
-            ::windows::core::GetTrustLevel,
-            EnvironmentOwnerId::<Impl, IMPL_OFFSET>,
-            SetEnvironmentOwnerId::<Impl, IMPL_OFFSET>,
-            AllowedClipboardFormats::<Impl, IMPL_OFFSET>,
-            SetAllowedClipboardFormats::<Impl, IMPL_OFFSET>,
-            ClipboardCopyPasteDirections::<Impl, IMPL_OFFSET>,
-            SetClipboardCopyPasteDirections::<Impl, IMPL_OFFSET>,
-            AvailablePrinters::<Impl, IMPL_OFFSET>,
-            SetAvailablePrinters::<Impl, IMPL_OFFSET>,
-            SharedHostFolderPath::<Impl, IMPL_OFFSET>,
-            SharedFolderNameInEnvironment::<Impl, IMPL_OFFSET>,
-            ShareHostFolderForUntrustedItems::<Impl, IMPL_OFFSET>,
-            PersistUserProfile::<Impl, IMPL_OFFSET>,
-            SetPersistUserProfile::<Impl, IMPL_OFFSET>,
-            AllowGraphicsHardwareAcceleration::<Impl, IMPL_OFFSET>,
-            SetAllowGraphicsHardwareAcceleration::<Impl, IMPL_OFFSET>,
-            AllowCameraAndMicrophoneAccess::<Impl, IMPL_OFFSET>,
-            SetAllowCameraAndMicrophoneAccess::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentOptions, BASE_OFFSET>(),
+            EnvironmentOwnerId: EnvironmentOwnerId::<Impl, IMPL_OFFSET>,
+            SetEnvironmentOwnerId: SetEnvironmentOwnerId::<Impl, IMPL_OFFSET>,
+            AllowedClipboardFormats: AllowedClipboardFormats::<Impl, IMPL_OFFSET>,
+            SetAllowedClipboardFormats: SetAllowedClipboardFormats::<Impl, IMPL_OFFSET>,
+            ClipboardCopyPasteDirections: ClipboardCopyPasteDirections::<Impl, IMPL_OFFSET>,
+            SetClipboardCopyPasteDirections: SetClipboardCopyPasteDirections::<Impl, IMPL_OFFSET>,
+            AvailablePrinters: AvailablePrinters::<Impl, IMPL_OFFSET>,
+            SetAvailablePrinters: SetAvailablePrinters::<Impl, IMPL_OFFSET>,
+            SharedHostFolderPath: SharedHostFolderPath::<Impl, IMPL_OFFSET>,
+            SharedFolderNameInEnvironment: SharedFolderNameInEnvironment::<Impl, IMPL_OFFSET>,
+            ShareHostFolderForUntrustedItems: ShareHostFolderForUntrustedItems::<Impl, IMPL_OFFSET>,
+            PersistUserProfile: PersistUserProfile::<Impl, IMPL_OFFSET>,
+            SetPersistUserProfile: SetPersistUserProfile::<Impl, IMPL_OFFSET>,
+            AllowGraphicsHardwareAcceleration: AllowGraphicsHardwareAcceleration::<Impl, IMPL_OFFSET>,
+            SetAllowGraphicsHardwareAcceleration: SetAllowGraphicsHardwareAcceleration::<Impl, IMPL_OFFSET>,
+            AllowCameraAndMicrophoneAccess: AllowCameraAndMicrophoneAccess::<Impl, IMPL_OFFSET>,
+            SetAllowCameraAndMicrophoneAccess: SetAllowCameraAndMicrophoneAccess::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentOptions as ::windows::core::Interface>::IID
@@ -776,7 +804,11 @@ impl IIsolatedWindowsEnvironmentOptions2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWindowAnnotationOverride(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOptions2>, ::windows::core::GetTrustLevel, WindowAnnotationOverride::<Impl, IMPL_OFFSET>, SetWindowAnnotationOverride::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentOptions2, BASE_OFFSET>(),
+            WindowAnnotationOverride: WindowAnnotationOverride::<Impl, IMPL_OFFSET>,
+            SetWindowAnnotationOverride: SetWindowAnnotationOverride::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentOptions2 as ::windows::core::Interface>::IID
@@ -840,18 +872,13 @@ impl IIsolatedWindowsEnvironmentOwnerRegistrationDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOwnerRegistrationData>,
-            ::windows::core::GetTrustLevel,
-            ShareableFolders::<Impl, IMPL_OFFSET>,
-            ProcessesRunnableAsSystem::<Impl, IMPL_OFFSET>,
-            ProcessesRunnableAsUser::<Impl, IMPL_OFFSET>,
-            ActivationFileExtensions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentOwnerRegistrationData, BASE_OFFSET>(),
+            ShareableFolders: ShareableFolders::<Impl, IMPL_OFFSET>,
+            ProcessesRunnableAsSystem: ProcessesRunnableAsSystem::<Impl, IMPL_OFFSET>,
+            ProcessesRunnableAsUser: ProcessesRunnableAsUser::<Impl, IMPL_OFFSET>,
+            ActivationFileExtensions: ActivationFileExtensions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentOwnerRegistrationData as ::windows::core::Interface>::IID
@@ -891,7 +918,11 @@ impl IIsolatedWindowsEnvironmentOwnerRegistrationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOwnerRegistrationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentOwnerRegistrationResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentOwnerRegistrationResult as ::windows::core::Interface>::IID
@@ -924,7 +955,11 @@ impl IIsolatedWindowsEnvironmentOwnerRegistrationStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Unregister(&*(&ownername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOwnerRegistrationStatics>, ::windows::core::GetTrustLevel, Register::<Impl, IMPL_OFFSET>, Unregister::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentOwnerRegistrationStatics, BASE_OFFSET>(),
+            Register: Register::<Impl, IMPL_OFFSET>,
+            Unregister: Unregister::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentOwnerRegistrationStatics as ::windows::core::Interface>::IID
@@ -964,7 +999,11 @@ impl IIsolatedWindowsEnvironmentPostMessageResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentPostMessageResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentPostMessageResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentPostMessageResult as ::windows::core::Interface>::IID
@@ -1026,7 +1065,14 @@ impl IIsolatedWindowsEnvironmentProcessVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentProcess>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>, ExitCode::<Impl, IMPL_OFFSET>, WaitForExit::<Impl, IMPL_OFFSET>, WaitForExitWithTimeout::<Impl, IMPL_OFFSET>, WaitForExitAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentProcess, BASE_OFFSET>(),
+            State: State::<Impl, IMPL_OFFSET>,
+            ExitCode: ExitCode::<Impl, IMPL_OFFSET>,
+            WaitForExit: WaitForExit::<Impl, IMPL_OFFSET>,
+            WaitForExitWithTimeout: WaitForExitWithTimeout::<Impl, IMPL_OFFSET>,
+            WaitForExitAsync: WaitForExitAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentProcess as ::windows::core::Interface>::IID
@@ -1059,7 +1105,11 @@ impl IIsolatedWindowsEnvironmentShareFileRequestOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowWrite(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentShareFileRequestOptions>, ::windows::core::GetTrustLevel, AllowWrite::<Impl, IMPL_OFFSET>, SetAllowWrite::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentShareFileRequestOptions, BASE_OFFSET>(),
+            AllowWrite: AllowWrite::<Impl, IMPL_OFFSET>,
+            SetAllowWrite: SetAllowWrite::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentShareFileRequestOptions as ::windows::core::Interface>::IID
@@ -1111,7 +1161,12 @@ impl IIsolatedWindowsEnvironmentShareFileResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentShareFileResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, File::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentShareFileResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            File: File::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentShareFileResult as ::windows::core::Interface>::IID
@@ -1144,7 +1199,11 @@ impl IIsolatedWindowsEnvironmentShareFolderRequestOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowWrite(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentShareFolderRequestOptions>, ::windows::core::GetTrustLevel, AllowWrite::<Impl, IMPL_OFFSET>, SetAllowWrite::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentShareFolderRequestOptions, BASE_OFFSET>(),
+            AllowWrite: AllowWrite::<Impl, IMPL_OFFSET>,
+            SetAllowWrite: SetAllowWrite::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentShareFolderRequestOptions as ::windows::core::Interface>::IID
@@ -1184,7 +1243,11 @@ impl IIsolatedWindowsEnvironmentShareFolderResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentShareFolderResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentShareFolderResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentShareFolderResult as ::windows::core::Interface>::IID
@@ -1236,7 +1299,12 @@ impl IIsolatedWindowsEnvironmentStartProcessResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentStartProcessResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, Process::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentStartProcessResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            Process: Process::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentStartProcessResult as ::windows::core::Interface>::IID
@@ -1269,7 +1337,11 @@ impl IIsolatedWindowsEnvironmentTelemetryParametersVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCorrelationId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentTelemetryParameters>, ::windows::core::GetTrustLevel, CorrelationId::<Impl, IMPL_OFFSET>, SetCorrelationId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentTelemetryParameters, BASE_OFFSET>(),
+            CorrelationId: CorrelationId::<Impl, IMPL_OFFSET>,
+            SetCorrelationId: SetCorrelationId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentTelemetryParameters as ::windows::core::Interface>::IID
@@ -1321,7 +1393,12 @@ impl IIsolatedWindowsEnvironmentUserInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentUserInfo>, ::windows::core::GetTrustLevel, EnvironmentUserSid::<Impl, IMPL_OFFSET>, EnvironmentUserName::<Impl, IMPL_OFFSET>, TryWaitForSignInAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsEnvironmentUserInfo, BASE_OFFSET>(),
+            EnvironmentUserSid: EnvironmentUserSid::<Impl, IMPL_OFFSET>,
+            EnvironmentUserName: EnvironmentUserName::<Impl, IMPL_OFFSET>,
+            TryWaitForSignInAsync: TryWaitForSignInAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsEnvironmentUserInfo as ::windows::core::Interface>::IID
@@ -1354,7 +1431,11 @@ impl IIsolatedWindowsHostMessengerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsHostMessengerStatics>, ::windows::core::GetTrustLevel, PostMessageToReceiver::<Impl, IMPL_OFFSET>, GetFileId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsHostMessengerStatics, BASE_OFFSET>(),
+            PostMessageToReceiver: PostMessageToReceiver::<Impl, IMPL_OFFSET>,
+            GetFileId: GetFileId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsHostMessengerStatics as ::windows::core::Interface>::IID
@@ -1380,7 +1461,11 @@ impl IIsolatedWindowsHostMessengerStatics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnregisterHostMessageReceiver(&*(&receiverid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsHostMessengerStatics2>, ::windows::core::GetTrustLevel, RegisterHostMessageReceiver::<Impl, IMPL_OFFSET>, UnregisterHostMessageReceiver::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIsolatedWindowsHostMessengerStatics2, BASE_OFFSET>(),
+            RegisterHostMessageReceiver: RegisterHostMessageReceiver::<Impl, IMPL_OFFSET>,
+            UnregisterHostMessageReceiver: UnregisterHostMessageReceiver::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedWindowsHostMessengerStatics2 as ::windows::core::Interface>::IID

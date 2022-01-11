@@ -24,7 +24,10 @@ impl ICredentialFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICredentialFactory>, ::windows::core::GetTrustLevel, CreatePasswordCredential::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICredentialFactory, BASE_OFFSET>(),
+            CreatePasswordCredential: CreatePasswordCredential::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICredentialFactory as ::windows::core::Interface>::IID
@@ -100,19 +103,14 @@ impl IKeyCredentialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IKeyCredential>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            RetrievePublicKeyWithDefaultBlobType::<Impl, IMPL_OFFSET>,
-            RetrievePublicKeyWithBlobType::<Impl, IMPL_OFFSET>,
-            RequestSignAsync::<Impl, IMPL_OFFSET>,
-            GetAttestationAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyCredential, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            RetrievePublicKeyWithDefaultBlobType: RetrievePublicKeyWithDefaultBlobType::<Impl, IMPL_OFFSET>,
+            RetrievePublicKeyWithBlobType: RetrievePublicKeyWithBlobType::<Impl, IMPL_OFFSET>,
+            RequestSignAsync: RequestSignAsync::<Impl, IMPL_OFFSET>,
+            GetAttestationAsync: GetAttestationAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyCredential as ::windows::core::Interface>::IID
@@ -164,7 +162,12 @@ impl IKeyCredentialAttestationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyCredentialAttestationResult>, ::windows::core::GetTrustLevel, CertificateChainBuffer::<Impl, IMPL_OFFSET>, AttestationBuffer::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyCredentialAttestationResult, BASE_OFFSET>(),
+            CertificateChainBuffer: CertificateChainBuffer::<Impl, IMPL_OFFSET>,
+            AttestationBuffer: AttestationBuffer::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyCredentialAttestationResult as ::windows::core::Interface>::IID
@@ -240,7 +243,14 @@ impl IKeyCredentialManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyCredentialManagerStatics>, ::windows::core::GetTrustLevel, IsSupportedAsync::<Impl, IMPL_OFFSET>, RenewAttestationAsync::<Impl, IMPL_OFFSET>, RequestCreateAsync::<Impl, IMPL_OFFSET>, OpenAsync::<Impl, IMPL_OFFSET>, DeleteAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyCredentialManagerStatics, BASE_OFFSET>(),
+            IsSupportedAsync: IsSupportedAsync::<Impl, IMPL_OFFSET>,
+            RenewAttestationAsync: RenewAttestationAsync::<Impl, IMPL_OFFSET>,
+            RequestCreateAsync: RequestCreateAsync::<Impl, IMPL_OFFSET>,
+            OpenAsync: OpenAsync::<Impl, IMPL_OFFSET>,
+            DeleteAsync: DeleteAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyCredentialManagerStatics as ::windows::core::Interface>::IID
@@ -280,7 +290,11 @@ impl IKeyCredentialOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyCredentialOperationResult>, ::windows::core::GetTrustLevel, Result::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyCredentialOperationResult, BASE_OFFSET>(),
+            Result: Result::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyCredentialOperationResult as ::windows::core::Interface>::IID
@@ -320,7 +334,11 @@ impl IKeyCredentialRetrievalResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyCredentialRetrievalResult>, ::windows::core::GetTrustLevel, Credential::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyCredentialRetrievalResult, BASE_OFFSET>(),
+            Credential: Credential::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyCredentialRetrievalResult as ::windows::core::Interface>::IID
@@ -404,22 +422,17 @@ impl IPasswordCredentialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPasswordCredential>,
-            ::windows::core::GetTrustLevel,
-            Resource::<Impl, IMPL_OFFSET>,
-            SetResource::<Impl, IMPL_OFFSET>,
-            UserName::<Impl, IMPL_OFFSET>,
-            SetUserName::<Impl, IMPL_OFFSET>,
-            Password::<Impl, IMPL_OFFSET>,
-            SetPassword::<Impl, IMPL_OFFSET>,
-            RetrievePassword::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPasswordCredential, BASE_OFFSET>(),
+            Resource: Resource::<Impl, IMPL_OFFSET>,
+            SetResource: SetResource::<Impl, IMPL_OFFSET>,
+            UserName: UserName::<Impl, IMPL_OFFSET>,
+            SetUserName: SetUserName::<Impl, IMPL_OFFSET>,
+            Password: Password::<Impl, IMPL_OFFSET>,
+            SetPassword: SetPassword::<Impl, IMPL_OFFSET>,
+            RetrievePassword: RetrievePassword::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPasswordCredential as ::windows::core::Interface>::IID
@@ -493,7 +506,15 @@ impl IPasswordVaultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPasswordVault>, ::windows::core::GetTrustLevel, Add::<Impl, IMPL_OFFSET>, Remove::<Impl, IMPL_OFFSET>, Retrieve::<Impl, IMPL_OFFSET>, FindAllByResource::<Impl, IMPL_OFFSET>, FindAllByUserName::<Impl, IMPL_OFFSET>, RetrieveAll::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPasswordVault, BASE_OFFSET>(),
+            Add: Add::<Impl, IMPL_OFFSET>,
+            Remove: Remove::<Impl, IMPL_OFFSET>,
+            Retrieve: Retrieve::<Impl, IMPL_OFFSET>,
+            FindAllByResource: FindAllByResource::<Impl, IMPL_OFFSET>,
+            FindAllByUserName: FindAllByUserName::<Impl, IMPL_OFFSET>,
+            RetrieveAll: RetrieveAll::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPasswordVault as ::windows::core::Interface>::IID
@@ -542,7 +563,12 @@ impl IWebAccountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccount>, ::windows::core::GetTrustLevel, WebAccountProvider::<Impl, IMPL_OFFSET>, UserName::<Impl, IMPL_OFFSET>, State::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccount, BASE_OFFSET>(),
+            WebAccountProvider: WebAccountProvider::<Impl, IMPL_OFFSET>,
+            UserName: UserName::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccount as ::windows::core::Interface>::IID
@@ -618,7 +644,14 @@ impl IWebAccount2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccount2>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>, GetPictureAsync::<Impl, IMPL_OFFSET>, SignOutAsync::<Impl, IMPL_OFFSET>, SignOutWithClientIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccount2, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            GetPictureAsync: GetPictureAsync::<Impl, IMPL_OFFSET>,
+            SignOutAsync: SignOutAsync::<Impl, IMPL_OFFSET>,
+            SignOutWithClientIdAsync: SignOutWithClientIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccount2 as ::windows::core::Interface>::IID
@@ -646,7 +679,10 @@ impl IWebAccountFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountFactory>, ::windows::core::GetTrustLevel, CreateWebAccount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountFactory, BASE_OFFSET>(),
+            CreateWebAccount: CreateWebAccount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountFactory as ::windows::core::Interface>::IID
@@ -698,7 +734,12 @@ impl IWebAccountProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProvider>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, IconUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProvider, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            IconUri: IconUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProvider as ::windows::core::Interface>::IID
@@ -738,7 +779,11 @@ impl IWebAccountProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProvider2>, ::windows::core::GetTrustLevel, DisplayPurpose::<Impl, IMPL_OFFSET>, Authority::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProvider2, BASE_OFFSET>(),
+            DisplayPurpose: DisplayPurpose::<Impl, IMPL_OFFSET>,
+            Authority: Authority::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProvider2 as ::windows::core::Interface>::IID
@@ -766,7 +811,7 @@ impl IWebAccountProvider3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProvider3>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProvider3, BASE_OFFSET>(), User: User::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProvider3 as ::windows::core::Interface>::IID
@@ -794,7 +839,10 @@ impl IWebAccountProvider4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProvider4>, ::windows::core::GetTrustLevel, IsSystemProvider::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProvider4, BASE_OFFSET>(),
+            IsSystemProvider: IsSystemProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProvider4 as ::windows::core::Interface>::IID
@@ -826,7 +874,10 @@ impl IWebAccountProviderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderFactory>, ::windows::core::GetTrustLevel, CreateWebAccountProvider::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderFactory, BASE_OFFSET>(),
+            CreateWebAccountProvider: CreateWebAccountProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderFactory as ::windows::core::Interface>::IID

@@ -44,7 +44,12 @@ impl IWebAccountClientViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountClientView>, ::windows::core::GetTrustLevel, ApplicationCallbackUri::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>, AccountPairwiseId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountClientView, BASE_OFFSET>(),
+            ApplicationCallbackUri: ApplicationCallbackUri::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+            AccountPairwiseId: AccountPairwiseId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountClientView as ::windows::core::Interface>::IID
@@ -84,7 +89,11 @@ impl IWebAccountClientViewFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountClientViewFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithPairwiseId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountClientViewFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithPairwiseId: CreateWithPairwiseId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountClientViewFactory as ::windows::core::Interface>::IID
@@ -231,24 +240,19 @@ impl IWebAccountManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebAccountManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            UpdateWebAccountPropertiesAsync::<Impl, IMPL_OFFSET>,
-            AddWebAccountAsync::<Impl, IMPL_OFFSET>,
-            DeleteWebAccountAsync::<Impl, IMPL_OFFSET>,
-            FindAllProviderWebAccountsAsync::<Impl, IMPL_OFFSET>,
-            PushCookiesAsync::<Impl, IMPL_OFFSET>,
-            SetViewAsync::<Impl, IMPL_OFFSET>,
-            ClearViewAsync::<Impl, IMPL_OFFSET>,
-            GetViewsAsync::<Impl, IMPL_OFFSET>,
-            SetWebAccountPictureAsync::<Impl, IMPL_OFFSET>,
-            ClearWebAccountPictureAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountManagerStatics, BASE_OFFSET>(),
+            UpdateWebAccountPropertiesAsync: UpdateWebAccountPropertiesAsync::<Impl, IMPL_OFFSET>,
+            AddWebAccountAsync: AddWebAccountAsync::<Impl, IMPL_OFFSET>,
+            DeleteWebAccountAsync: DeleteWebAccountAsync::<Impl, IMPL_OFFSET>,
+            FindAllProviderWebAccountsAsync: FindAllProviderWebAccountsAsync::<Impl, IMPL_OFFSET>,
+            PushCookiesAsync: PushCookiesAsync::<Impl, IMPL_OFFSET>,
+            SetViewAsync: SetViewAsync::<Impl, IMPL_OFFSET>,
+            ClearViewAsync: ClearViewAsync::<Impl, IMPL_OFFSET>,
+            GetViewsAsync: GetViewsAsync::<Impl, IMPL_OFFSET>,
+            SetWebAccountPictureAsync: SetWebAccountPictureAsync::<Impl, IMPL_OFFSET>,
+            ClearWebAccountPictureAsync: ClearWebAccountPictureAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountManagerStatics as ::windows::core::Interface>::IID
@@ -276,7 +280,10 @@ impl IWebAccountManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountManagerStatics2>, ::windows::core::GetTrustLevel, PullCookiesAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountManagerStatics2, BASE_OFFSET>(),
+            PullCookiesAsync: PullCookiesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountManagerStatics2 as ::windows::core::Interface>::IID
@@ -358,18 +365,13 @@ impl IWebAccountManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebAccountManagerStatics3>,
-            ::windows::core::GetTrustLevel,
-            FindAllProviderWebAccountsForUserAsync::<Impl, IMPL_OFFSET>,
-            AddWebAccountForUserAsync::<Impl, IMPL_OFFSET>,
-            AddWebAccountWithScopeForUserAsync::<Impl, IMPL_OFFSET>,
-            AddWebAccountWithScopeAndMapForUserAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountManagerStatics3, BASE_OFFSET>(),
+            FindAllProviderWebAccountsForUserAsync: FindAllProviderWebAccountsForUserAsync::<Impl, IMPL_OFFSET>,
+            AddWebAccountForUserAsync: AddWebAccountForUserAsync::<Impl, IMPL_OFFSET>,
+            AddWebAccountWithScopeForUserAsync: AddWebAccountWithScopeForUserAsync::<Impl, IMPL_OFFSET>,
+            AddWebAccountWithScopeAndMapForUserAsync: AddWebAccountWithScopeAndMapForUserAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountManagerStatics3 as ::windows::core::Interface>::IID
@@ -409,7 +411,11 @@ impl IWebAccountManagerStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountManagerStatics4>, ::windows::core::GetTrustLevel, InvalidateAppCacheForAllAccountsAsync::<Impl, IMPL_OFFSET>, InvalidateAppCacheForAccountAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountManagerStatics4, BASE_OFFSET>(),
+            InvalidateAppCacheForAllAccountsAsync: InvalidateAppCacheForAllAccountsAsync::<Impl, IMPL_OFFSET>,
+            InvalidateAppCacheForAccountAsync: InvalidateAppCacheForAccountAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountManagerStatics4 as ::windows::core::Interface>::IID
@@ -479,18 +485,13 @@ impl IWebAccountMapManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebAccountMapManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            AddWebAccountWithScopeAndMapAsync::<Impl, IMPL_OFFSET>,
-            SetPerAppToPerUserAccountAsync::<Impl, IMPL_OFFSET>,
-            GetPerUserFromPerAppAccountAsync::<Impl, IMPL_OFFSET>,
-            ClearPerUserFromPerAppAccountAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountMapManagerStatics, BASE_OFFSET>(),
+            AddWebAccountWithScopeAndMapAsync: AddWebAccountWithScopeAndMapAsync::<Impl, IMPL_OFFSET>,
+            SetPerAppToPerUserAccountAsync: SetPerAppToPerUserAccountAsync::<Impl, IMPL_OFFSET>,
+            GetPerUserFromPerAppAccountAsync: GetPerUserFromPerAppAccountAsync::<Impl, IMPL_OFFSET>,
+            ClearPerUserFromPerAppAccountAsync: ClearPerUserFromPerAppAccountAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountMapManagerStatics as ::windows::core::Interface>::IID
@@ -511,7 +512,10 @@ impl IWebAccountProviderAddAccountOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderAddAccountOperation>, ::windows::core::GetTrustLevel, ReportCompleted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderAddAccountOperation, BASE_OFFSET>(),
+            ReportCompleted: ReportCompleted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderAddAccountOperation as ::windows::core::Interface>::IID
@@ -537,7 +541,11 @@ impl IWebAccountProviderBaseReportOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportError(&*(&value as *const <super::Core::WebProviderError as ::windows::core::Abi>::Abi as *const <super::Core::WebProviderError as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderBaseReportOperation>, ::windows::core::GetTrustLevel, ReportCompleted::<Impl, IMPL_OFFSET>, ReportError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderBaseReportOperation, BASE_OFFSET>(),
+            ReportCompleted: ReportCompleted::<Impl, IMPL_OFFSET>,
+            ReportError: ReportError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderBaseReportOperation as ::windows::core::Interface>::IID
@@ -565,7 +573,10 @@ impl IWebAccountProviderDeleteAccountOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderDeleteAccountOperation>, ::windows::core::GetTrustLevel, WebAccount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderDeleteAccountOperation, BASE_OFFSET>(),
+            WebAccount: WebAccount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderDeleteAccountOperation as ::windows::core::Interface>::IID
@@ -598,7 +609,11 @@ impl IWebAccountProviderManageAccountOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderManageAccountOperation>, ::windows::core::GetTrustLevel, WebAccount::<Impl, IMPL_OFFSET>, ReportCompleted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderManageAccountOperation, BASE_OFFSET>(),
+            WebAccount: WebAccount::<Impl, IMPL_OFFSET>,
+            ReportCompleted: ReportCompleted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderManageAccountOperation as ::windows::core::Interface>::IID
@@ -623,7 +638,7 @@ impl IWebAccountProviderOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderOperation>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderOperation, BASE_OFFSET>(), Kind: Kind::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderOperation as ::windows::core::Interface>::IID
@@ -692,7 +707,14 @@ impl IWebAccountProviderRetrieveCookiesOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderRetrieveCookiesOperation>, ::windows::core::GetTrustLevel, Context::<Impl, IMPL_OFFSET>, Cookies::<Impl, IMPL_OFFSET>, SetUri::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>, ApplicationCallbackUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderRetrieveCookiesOperation, BASE_OFFSET>(),
+            Context: Context::<Impl, IMPL_OFFSET>,
+            Cookies: Cookies::<Impl, IMPL_OFFSET>,
+            SetUri: SetUri::<Impl, IMPL_OFFSET>,
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            ApplicationCallbackUri: ApplicationCallbackUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderRetrieveCookiesOperation as ::windows::core::Interface>::IID
@@ -744,7 +766,12 @@ impl IWebAccountProviderSignOutAccountOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderSignOutAccountOperation>, ::windows::core::GetTrustLevel, WebAccount::<Impl, IMPL_OFFSET>, ApplicationCallbackUri::<Impl, IMPL_OFFSET>, ClientId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderSignOutAccountOperation, BASE_OFFSET>(),
+            WebAccount: WebAccount::<Impl, IMPL_OFFSET>,
+            ApplicationCallbackUri: ApplicationCallbackUri::<Impl, IMPL_OFFSET>,
+            ClientId: ClientId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderSignOutAccountOperation as ::windows::core::Interface>::IID
@@ -770,7 +797,11 @@ impl IWebAccountProviderSilentReportOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportUserInteractionRequiredWithError(&*(&value as *const <super::Core::WebProviderError as ::windows::core::Abi>::Abi as *const <super::Core::WebProviderError as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderSilentReportOperation>, ::windows::core::GetTrustLevel, ReportUserInteractionRequired::<Impl, IMPL_OFFSET>, ReportUserInteractionRequiredWithError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderSilentReportOperation, BASE_OFFSET>(),
+            ReportUserInteractionRequired: ReportUserInteractionRequired::<Impl, IMPL_OFFSET>,
+            ReportUserInteractionRequiredWithError: ReportUserInteractionRequiredWithError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderSilentReportOperation as ::windows::core::Interface>::IID
@@ -795,7 +826,10 @@ impl IWebAccountProviderTokenObjectsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderTokenObjects>, ::windows::core::GetTrustLevel, Operation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenObjects, BASE_OFFSET>(),
+            Operation: Operation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderTokenObjects as ::windows::core::Interface>::IID
@@ -823,7 +857,7 @@ impl IWebAccountProviderTokenObjects2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderTokenObjects2>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenObjects2, BASE_OFFSET>(), User: User::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderTokenObjects2 as ::windows::core::Interface>::IID
@@ -880,7 +914,13 @@ impl IWebAccountProviderTokenOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderTokenOperation>, ::windows::core::GetTrustLevel, ProviderRequest::<Impl, IMPL_OFFSET>, ProviderResponses::<Impl, IMPL_OFFSET>, SetCacheExpirationTime::<Impl, IMPL_OFFSET>, CacheExpirationTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenOperation, BASE_OFFSET>(),
+            ProviderRequest: ProviderRequest::<Impl, IMPL_OFFSET>,
+            ProviderResponses: ProviderResponses::<Impl, IMPL_OFFSET>,
+            SetCacheExpirationTime: SetCacheExpirationTime::<Impl, IMPL_OFFSET>,
+            CacheExpirationTime: CacheExpirationTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderTokenOperation as ::windows::core::Interface>::IID
@@ -901,7 +941,10 @@ impl IWebAccountProviderUIReportOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportUserCanceled().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderUIReportOperation>, ::windows::core::GetTrustLevel, ReportUserCanceled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderUIReportOperation, BASE_OFFSET>(),
+            ReportUserCanceled: ReportUserCanceled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderUIReportOperation as ::windows::core::Interface>::IID
@@ -958,7 +1001,12 @@ impl IWebAccountScopeManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountScopeManagerStatics>, ::windows::core::GetTrustLevel, AddWebAccountWithScopeAsync::<Impl, IMPL_OFFSET>, SetScopeAsync::<Impl, IMPL_OFFSET>, GetScope::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountScopeManagerStatics, BASE_OFFSET>(),
+            AddWebAccountWithScopeAsync: AddWebAccountWithScopeAsync::<Impl, IMPL_OFFSET>,
+            SetScopeAsync: SetScopeAsync::<Impl, IMPL_OFFSET>,
+            GetScope: GetScope::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountScopeManagerStatics as ::windows::core::Interface>::IID
@@ -1034,19 +1082,14 @@ impl IWebProviderTokenRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebProviderTokenRequest>,
-            ::windows::core::GetTrustLevel,
-            ClientRequest::<Impl, IMPL_OFFSET>,
-            WebAccounts::<Impl, IMPL_OFFSET>,
-            WebAccountSelectionOptions::<Impl, IMPL_OFFSET>,
-            ApplicationCallbackUri::<Impl, IMPL_OFFSET>,
-            GetApplicationTokenBindingKeyAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebProviderTokenRequest, BASE_OFFSET>(),
+            ClientRequest: ClientRequest::<Impl, IMPL_OFFSET>,
+            WebAccounts: WebAccounts::<Impl, IMPL_OFFSET>,
+            WebAccountSelectionOptions: WebAccountSelectionOptions::<Impl, IMPL_OFFSET>,
+            ApplicationCallbackUri: ApplicationCallbackUri::<Impl, IMPL_OFFSET>,
+            GetApplicationTokenBindingKeyAsync: GetApplicationTokenBindingKeyAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebProviderTokenRequest as ::windows::core::Interface>::IID
@@ -1074,7 +1117,10 @@ impl IWebProviderTokenRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebProviderTokenRequest2>, ::windows::core::GetTrustLevel, GetApplicationTokenBindingKeyIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebProviderTokenRequest2, BASE_OFFSET>(),
+            GetApplicationTokenBindingKeyIdAsync: GetApplicationTokenBindingKeyIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebProviderTokenRequest2 as ::windows::core::Interface>::IID
@@ -1126,7 +1172,12 @@ impl IWebProviderTokenRequest3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebProviderTokenRequest3>, ::windows::core::GetTrustLevel, ApplicationPackageFamilyName::<Impl, IMPL_OFFSET>, ApplicationProcessName::<Impl, IMPL_OFFSET>, CheckApplicationForCapabilityAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebProviderTokenRequest3, BASE_OFFSET>(),
+            ApplicationPackageFamilyName: ApplicationPackageFamilyName::<Impl, IMPL_OFFSET>,
+            ApplicationProcessName: ApplicationProcessName::<Impl, IMPL_OFFSET>,
+            CheckApplicationForCapabilityAsync: CheckApplicationForCapabilityAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebProviderTokenRequest3 as ::windows::core::Interface>::IID
@@ -1154,7 +1205,10 @@ impl IWebProviderTokenResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebProviderTokenResponse>, ::windows::core::GetTrustLevel, ClientResponse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebProviderTokenResponse, BASE_OFFSET>(),
+            ClientResponse: ClientResponse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebProviderTokenResponse as ::windows::core::Interface>::IID
@@ -1182,7 +1236,7 @@ impl IWebProviderTokenResponseFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebProviderTokenResponseFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebProviderTokenResponseFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebProviderTokenResponseFactory as ::windows::core::Interface>::IID

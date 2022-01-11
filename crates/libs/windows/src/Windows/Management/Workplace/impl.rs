@@ -56,7 +56,13 @@ impl IMdmAllowPolicyStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMdmAllowPolicyStatics>, ::windows::core::GetTrustLevel, IsBrowserAllowed::<Impl, IMPL_OFFSET>, IsCameraAllowed::<Impl, IMPL_OFFSET>, IsMicrosoftAccountAllowed::<Impl, IMPL_OFFSET>, IsStoreAllowed::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMdmAllowPolicyStatics, BASE_OFFSET>(),
+            IsBrowserAllowed: IsBrowserAllowed::<Impl, IMPL_OFFSET>,
+            IsCameraAllowed: IsCameraAllowed::<Impl, IMPL_OFFSET>,
+            IsMicrosoftAccountAllowed: IsMicrosoftAccountAllowed::<Impl, IMPL_OFFSET>,
+            IsStoreAllowed: IsStoreAllowed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMdmAllowPolicyStatics as ::windows::core::Interface>::IID
@@ -84,7 +90,10 @@ impl IMdmPolicyStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMdmPolicyStatics2>, ::windows::core::GetTrustLevel, GetMessagingSyncPolicy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMdmPolicyStatics2, BASE_OFFSET>(),
+            GetMessagingSyncPolicy: GetMessagingSyncPolicy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMdmPolicyStatics2 as ::windows::core::Interface>::IID
@@ -112,7 +121,10 @@ impl IWorkplaceSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWorkplaceSettingsStatics>, ::windows::core::GetTrustLevel, IsMicrosoftAccountOptional::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWorkplaceSettingsStatics, BASE_OFFSET>(),
+            IsMicrosoftAccountOptional: IsMicrosoftAccountOptional::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWorkplaceSettingsStatics as ::windows::core::Interface>::IID

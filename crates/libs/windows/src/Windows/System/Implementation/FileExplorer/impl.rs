@@ -20,7 +20,10 @@ impl ISysStorageProviderEventReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISysStorageProviderEventReceivedEventArgs>, ::windows::core::GetTrustLevel, Json::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISysStorageProviderEventReceivedEventArgs, BASE_OFFSET>(),
+            Json: Json::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISysStorageProviderEventReceivedEventArgs as ::windows::core::Interface>::IID
@@ -48,7 +51,10 @@ impl ISysStorageProviderEventReceivedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISysStorageProviderEventReceivedEventArgsFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISysStorageProviderEventReceivedEventArgsFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISysStorageProviderEventReceivedEventArgsFactory as ::windows::core::Interface>::IID
@@ -81,7 +87,11 @@ impl ISysStorageProviderEventSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEventReceived(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISysStorageProviderEventSource>, ::windows::core::GetTrustLevel, EventReceived::<Impl, IMPL_OFFSET>, RemoveEventReceived::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISysStorageProviderEventSource, BASE_OFFSET>(),
+            EventReceived: EventReceived::<Impl, IMPL_OFFSET>,
+            RemoveEventReceived: RemoveEventReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISysStorageProviderEventSource as ::windows::core::Interface>::IID
@@ -118,7 +128,11 @@ impl ISysStorageProviderHandlerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISysStorageProviderHandlerFactory>, ::windows::core::GetTrustLevel, GetHttpRequestProvider::<Impl, IMPL_OFFSET>, GetEventSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISysStorageProviderHandlerFactory, BASE_OFFSET>(),
+            GetHttpRequestProvider: GetHttpRequestProvider::<Impl, IMPL_OFFSET>,
+            GetEventSource: GetEventSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISysStorageProviderHandlerFactory as ::windows::core::Interface>::IID
@@ -146,7 +160,10 @@ impl ISysStorageProviderHttpRequestProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISysStorageProviderHttpRequestProvider>, ::windows::core::GetTrustLevel, SendRequestAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISysStorageProviderHttpRequestProvider, BASE_OFFSET>(),
+            SendRequestAsync: SendRequestAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISysStorageProviderHttpRequestProvider as ::windows::core::Interface>::IID

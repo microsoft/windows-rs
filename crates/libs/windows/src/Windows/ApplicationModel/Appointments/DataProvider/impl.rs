@@ -104,22 +104,17 @@ impl IAppointmentCalendarCancelMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCancelMeetingRequest>,
-            ::windows::core::GetTrustLevel,
-            AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
-            AppointmentLocalId::<Impl, IMPL_OFFSET>,
-            AppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
-            Subject::<Impl, IMPL_OFFSET>,
-            Comment::<Impl, IMPL_OFFSET>,
-            NotifyInvitees::<Impl, IMPL_OFFSET>,
-            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
-            ReportFailedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentCalendarCancelMeetingRequest, BASE_OFFSET>(),
+            AppointmentCalendarLocalId: AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentLocalId: AppointmentLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentOriginalStartTime: AppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
+            Subject: Subject::<Impl, IMPL_OFFSET>,
+            Comment: Comment::<Impl, IMPL_OFFSET>,
+            NotifyInvitees: NotifyInvitees::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentCalendarCancelMeetingRequest as ::windows::core::Interface>::IID
@@ -159,7 +154,11 @@ impl IAppointmentCalendarCancelMeetingRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCancelMeetingRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentCalendarCancelMeetingRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentCalendarCancelMeetingRequestEventArgs as ::windows::core::Interface>::IID
@@ -247,20 +246,15 @@ impl IAppointmentCalendarCreateOrUpdateAppointmentRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCreateOrUpdateAppointmentRequest>,
-            ::windows::core::GetTrustLevel,
-            AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
-            Appointment::<Impl, IMPL_OFFSET>,
-            NotifyInvitees::<Impl, IMPL_OFFSET>,
-            ChangedProperties::<Impl, IMPL_OFFSET>,
-            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
-            ReportFailedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentCalendarCreateOrUpdateAppointmentRequest, BASE_OFFSET>(),
+            AppointmentCalendarLocalId: AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
+            Appointment: Appointment::<Impl, IMPL_OFFSET>,
+            NotifyInvitees: NotifyInvitees::<Impl, IMPL_OFFSET>,
+            ChangedProperties: ChangedProperties::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentCalendarCreateOrUpdateAppointmentRequest as ::windows::core::Interface>::IID
@@ -300,7 +294,11 @@ impl IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs as ::windows::core::Interface>::IID
@@ -424,23 +422,18 @@ impl IAppointmentCalendarForwardMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppointmentCalendarForwardMeetingRequest>,
-            ::windows::core::GetTrustLevel,
-            AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
-            AppointmentLocalId::<Impl, IMPL_OFFSET>,
-            AppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
-            Invitees::<Impl, IMPL_OFFSET>,
-            Subject::<Impl, IMPL_OFFSET>,
-            ForwardHeader::<Impl, IMPL_OFFSET>,
-            Comment::<Impl, IMPL_OFFSET>,
-            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
-            ReportFailedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentCalendarForwardMeetingRequest, BASE_OFFSET>(),
+            AppointmentCalendarLocalId: AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentLocalId: AppointmentLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentOriginalStartTime: AppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
+            Invitees: Invitees::<Impl, IMPL_OFFSET>,
+            Subject: Subject::<Impl, IMPL_OFFSET>,
+            ForwardHeader: ForwardHeader::<Impl, IMPL_OFFSET>,
+            Comment: Comment::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentCalendarForwardMeetingRequest as ::windows::core::Interface>::IID
@@ -480,7 +473,11 @@ impl IAppointmentCalendarForwardMeetingRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarForwardMeetingRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentCalendarForwardMeetingRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentCalendarForwardMeetingRequestEventArgs as ::windows::core::Interface>::IID
@@ -604,23 +601,18 @@ impl IAppointmentCalendarProposeNewTimeForMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppointmentCalendarProposeNewTimeForMeetingRequest>,
-            ::windows::core::GetTrustLevel,
-            AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
-            AppointmentLocalId::<Impl, IMPL_OFFSET>,
-            AppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
-            NewStartTime::<Impl, IMPL_OFFSET>,
-            NewDuration::<Impl, IMPL_OFFSET>,
-            Subject::<Impl, IMPL_OFFSET>,
-            Comment::<Impl, IMPL_OFFSET>,
-            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
-            ReportFailedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentCalendarProposeNewTimeForMeetingRequest, BASE_OFFSET>(),
+            AppointmentCalendarLocalId: AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentLocalId: AppointmentLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentOriginalStartTime: AppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
+            NewStartTime: NewStartTime::<Impl, IMPL_OFFSET>,
+            NewDuration: NewDuration::<Impl, IMPL_OFFSET>,
+            Subject: Subject::<Impl, IMPL_OFFSET>,
+            Comment: Comment::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentCalendarProposeNewTimeForMeetingRequest as ::windows::core::Interface>::IID
@@ -660,7 +652,11 @@ impl IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs as ::windows::core::Interface>::IID
@@ -712,7 +708,12 @@ impl IAppointmentCalendarSyncManagerSyncRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarSyncManagerSyncRequest>, ::windows::core::GetTrustLevel, AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentCalendarSyncManagerSyncRequest, BASE_OFFSET>(),
+            AppointmentCalendarLocalId: AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentCalendarSyncManagerSyncRequest as ::windows::core::Interface>::IID
@@ -752,7 +753,11 @@ impl IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarSyncManagerSyncRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentCalendarSyncManagerSyncRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentCalendarSyncManagerSyncRequestEventArgs as ::windows::core::Interface>::IID
@@ -876,23 +881,18 @@ impl IAppointmentCalendarUpdateMeetingResponseRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppointmentCalendarUpdateMeetingResponseRequest>,
-            ::windows::core::GetTrustLevel,
-            AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
-            AppointmentLocalId::<Impl, IMPL_OFFSET>,
-            AppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
-            Response::<Impl, IMPL_OFFSET>,
-            Subject::<Impl, IMPL_OFFSET>,
-            Comment::<Impl, IMPL_OFFSET>,
-            SendUpdate::<Impl, IMPL_OFFSET>,
-            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
-            ReportFailedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentCalendarUpdateMeetingResponseRequest, BASE_OFFSET>(),
+            AppointmentCalendarLocalId: AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentLocalId: AppointmentLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentOriginalStartTime: AppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
+            Response: Response::<Impl, IMPL_OFFSET>,
+            Subject: Subject::<Impl, IMPL_OFFSET>,
+            Comment: Comment::<Impl, IMPL_OFFSET>,
+            SendUpdate: SendUpdate::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentCalendarUpdateMeetingResponseRequest as ::windows::core::Interface>::IID
@@ -932,7 +932,11 @@ impl IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarUpdateMeetingResponseRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentCalendarUpdateMeetingResponseRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentCalendarUpdateMeetingResponseRequestEventArgs as ::windows::core::Interface>::IID
@@ -1055,27 +1059,22 @@ impl IAppointmentDataProviderConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppointmentDataProviderConnection>,
-            ::windows::core::GetTrustLevel,
-            SyncRequested::<Impl, IMPL_OFFSET>,
-            RemoveSyncRequested::<Impl, IMPL_OFFSET>,
-            CreateOrUpdateAppointmentRequested::<Impl, IMPL_OFFSET>,
-            RemoveCreateOrUpdateAppointmentRequested::<Impl, IMPL_OFFSET>,
-            CancelMeetingRequested::<Impl, IMPL_OFFSET>,
-            RemoveCancelMeetingRequested::<Impl, IMPL_OFFSET>,
-            ForwardMeetingRequested::<Impl, IMPL_OFFSET>,
-            RemoveForwardMeetingRequested::<Impl, IMPL_OFFSET>,
-            ProposeNewTimeForMeetingRequested::<Impl, IMPL_OFFSET>,
-            RemoveProposeNewTimeForMeetingRequested::<Impl, IMPL_OFFSET>,
-            UpdateMeetingResponseRequested::<Impl, IMPL_OFFSET>,
-            RemoveUpdateMeetingResponseRequested::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentDataProviderConnection, BASE_OFFSET>(),
+            SyncRequested: SyncRequested::<Impl, IMPL_OFFSET>,
+            RemoveSyncRequested: RemoveSyncRequested::<Impl, IMPL_OFFSET>,
+            CreateOrUpdateAppointmentRequested: CreateOrUpdateAppointmentRequested::<Impl, IMPL_OFFSET>,
+            RemoveCreateOrUpdateAppointmentRequested: RemoveCreateOrUpdateAppointmentRequested::<Impl, IMPL_OFFSET>,
+            CancelMeetingRequested: CancelMeetingRequested::<Impl, IMPL_OFFSET>,
+            RemoveCancelMeetingRequested: RemoveCancelMeetingRequested::<Impl, IMPL_OFFSET>,
+            ForwardMeetingRequested: ForwardMeetingRequested::<Impl, IMPL_OFFSET>,
+            RemoveForwardMeetingRequested: RemoveForwardMeetingRequested::<Impl, IMPL_OFFSET>,
+            ProposeNewTimeForMeetingRequested: ProposeNewTimeForMeetingRequested::<Impl, IMPL_OFFSET>,
+            RemoveProposeNewTimeForMeetingRequested: RemoveProposeNewTimeForMeetingRequested::<Impl, IMPL_OFFSET>,
+            UpdateMeetingResponseRequested: UpdateMeetingResponseRequested::<Impl, IMPL_OFFSET>,
+            RemoveUpdateMeetingResponseRequested: RemoveUpdateMeetingResponseRequested::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentDataProviderConnection as ::windows::core::Interface>::IID
@@ -1103,7 +1102,10 @@ impl IAppointmentDataProviderTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentDataProviderTriggerDetails>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentDataProviderTriggerDetails, BASE_OFFSET>(),
+            Connection: Connection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentDataProviderTriggerDetails as ::windows::core::Interface>::IID

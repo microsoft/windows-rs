@@ -111,22 +111,17 @@ impl IPlatformDiagnosticActionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPlatformDiagnosticActionsStatics>,
-            ::windows::core::GetTrustLevel,
-            IsScenarioEnabled::<Impl, IMPL_OFFSET>,
-            TryEscalateScenario::<Impl, IMPL_OFFSET>,
-            DownloadLatestSettingsForNamespace::<Impl, IMPL_OFFSET>,
-            GetActiveScenarioList::<Impl, IMPL_OFFSET>,
-            ForceUpload::<Impl, IMPL_OFFSET>,
-            IsTraceRunning::<Impl, IMPL_OFFSET>,
-            GetActiveTraceRuntime::<Impl, IMPL_OFFSET>,
-            GetKnownTraceList::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlatformDiagnosticActionsStatics, BASE_OFFSET>(),
+            IsScenarioEnabled: IsScenarioEnabled::<Impl, IMPL_OFFSET>,
+            TryEscalateScenario: TryEscalateScenario::<Impl, IMPL_OFFSET>,
+            DownloadLatestSettingsForNamespace: DownloadLatestSettingsForNamespace::<Impl, IMPL_OFFSET>,
+            GetActiveScenarioList: GetActiveScenarioList::<Impl, IMPL_OFFSET>,
+            ForceUpload: ForceUpload::<Impl, IMPL_OFFSET>,
+            IsTraceRunning: IsTraceRunning::<Impl, IMPL_OFFSET>,
+            GetActiveTraceRuntime: GetActiveTraceRuntime::<Impl, IMPL_OFFSET>,
+            GetKnownTraceList: GetKnownTraceList::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlatformDiagnosticActionsStatics as ::windows::core::Interface>::IID
@@ -214,20 +209,15 @@ impl IPlatformDiagnosticTraceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPlatformDiagnosticTraceInfo>,
-            ::windows::core::GetTrustLevel,
-            ScenarioId::<Impl, IMPL_OFFSET>,
-            ProfileHash::<Impl, IMPL_OFFSET>,
-            IsExclusive::<Impl, IMPL_OFFSET>,
-            IsAutoLogger::<Impl, IMPL_OFFSET>,
-            MaxTraceDurationFileTime::<Impl, IMPL_OFFSET>,
-            Priority::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlatformDiagnosticTraceInfo, BASE_OFFSET>(),
+            ScenarioId: ScenarioId::<Impl, IMPL_OFFSET>,
+            ProfileHash: ProfileHash::<Impl, IMPL_OFFSET>,
+            IsExclusive: IsExclusive::<Impl, IMPL_OFFSET>,
+            IsAutoLogger: IsAutoLogger::<Impl, IMPL_OFFSET>,
+            MaxTraceDurationFileTime: MaxTraceDurationFileTime::<Impl, IMPL_OFFSET>,
+            Priority: Priority::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlatformDiagnosticTraceInfo as ::windows::core::Interface>::IID
@@ -267,7 +257,11 @@ impl IPlatformDiagnosticTraceRuntimeInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlatformDiagnosticTraceRuntimeInfo>, ::windows::core::GetTrustLevel, RuntimeFileTime::<Impl, IMPL_OFFSET>, EtwRuntimeFileTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlatformDiagnosticTraceRuntimeInfo, BASE_OFFSET>(),
+            RuntimeFileTime: RuntimeFileTime::<Impl, IMPL_OFFSET>,
+            EtwRuntimeFileTime: EtwRuntimeFileTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlatformDiagnosticTraceRuntimeInfo as ::windows::core::Interface>::IID

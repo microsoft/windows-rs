@@ -20,7 +20,7 @@ impl IPreallocatedWorkItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreallocatedWorkItem>, ::windows::core::GetTrustLevel, RunAsync::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPreallocatedWorkItem, BASE_OFFSET>(), RunAsync: RunAsync::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPreallocatedWorkItem as ::windows::core::Interface>::IID
@@ -72,7 +72,12 @@ impl IPreallocatedWorkItemFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreallocatedWorkItemFactory>, ::windows::core::GetTrustLevel, CreateWorkItem::<Impl, IMPL_OFFSET>, CreateWorkItemWithPriority::<Impl, IMPL_OFFSET>, CreateWorkItemWithPriorityAndOptions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPreallocatedWorkItemFactory, BASE_OFFSET>(),
+            CreateWorkItem: CreateWorkItem::<Impl, IMPL_OFFSET>,
+            CreateWorkItemWithPriority: CreateWorkItemWithPriority::<Impl, IMPL_OFFSET>,
+            CreateWorkItemWithPriorityAndOptions: CreateWorkItemWithPriorityAndOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPreallocatedWorkItemFactory as ::windows::core::Interface>::IID
@@ -98,7 +103,11 @@ impl ISignalNotifierVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Terminate().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignalNotifier>, ::windows::core::GetTrustLevel, Enable::<Impl, IMPL_OFFSET>, Terminate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISignalNotifier, BASE_OFFSET>(),
+            Enable: Enable::<Impl, IMPL_OFFSET>,
+            Terminate: Terminate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISignalNotifier as ::windows::core::Interface>::IID
@@ -170,7 +179,13 @@ impl ISignalNotifierStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignalNotifierStatics>, ::windows::core::GetTrustLevel, AttachToEvent::<Impl, IMPL_OFFSET>, AttachToEventWithTimeout::<Impl, IMPL_OFFSET>, AttachToSemaphore::<Impl, IMPL_OFFSET>, AttachToSemaphoreWithTimeout::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISignalNotifierStatics, BASE_OFFSET>(),
+            AttachToEvent: AttachToEvent::<Impl, IMPL_OFFSET>,
+            AttachToEventWithTimeout: AttachToEventWithTimeout::<Impl, IMPL_OFFSET>,
+            AttachToSemaphore: AttachToSemaphore::<Impl, IMPL_OFFSET>,
+            AttachToSemaphoreWithTimeout: AttachToSemaphoreWithTimeout::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISignalNotifierStatics as ::windows::core::Interface>::IID

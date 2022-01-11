@@ -102,23 +102,18 @@ impl IXboxLiveDeviceAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXboxLiveDeviceAddress>,
-            ::windows::core::GetTrustLevel,
-            SnapshotChanged::<Impl, IMPL_OFFSET>,
-            RemoveSnapshotChanged::<Impl, IMPL_OFFSET>,
-            GetSnapshotAsBase64::<Impl, IMPL_OFFSET>,
-            GetSnapshotAsBuffer::<Impl, IMPL_OFFSET>,
-            GetSnapshotAsBytes::<Impl, IMPL_OFFSET>,
-            Compare::<Impl, IMPL_OFFSET>,
-            IsValid::<Impl, IMPL_OFFSET>,
-            IsLocal::<Impl, IMPL_OFFSET>,
-            NetworkAccessKind::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXboxLiveDeviceAddress, BASE_OFFSET>(),
+            SnapshotChanged: SnapshotChanged::<Impl, IMPL_OFFSET>,
+            RemoveSnapshotChanged: RemoveSnapshotChanged::<Impl, IMPL_OFFSET>,
+            GetSnapshotAsBase64: GetSnapshotAsBase64::<Impl, IMPL_OFFSET>,
+            GetSnapshotAsBuffer: GetSnapshotAsBuffer::<Impl, IMPL_OFFSET>,
+            GetSnapshotAsBytes: GetSnapshotAsBytes::<Impl, IMPL_OFFSET>,
+            Compare: Compare::<Impl, IMPL_OFFSET>,
+            IsValid: IsValid::<Impl, IMPL_OFFSET>,
+            IsLocal: IsLocal::<Impl, IMPL_OFFSET>,
+            NetworkAccessKind: NetworkAccessKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXboxLiveDeviceAddress as ::windows::core::Interface>::IID
@@ -194,19 +189,14 @@ impl IXboxLiveDeviceAddressStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXboxLiveDeviceAddressStatics>,
-            ::windows::core::GetTrustLevel,
-            CreateFromSnapshotBase64::<Impl, IMPL_OFFSET>,
-            CreateFromSnapshotBuffer::<Impl, IMPL_OFFSET>,
-            CreateFromSnapshotBytes::<Impl, IMPL_OFFSET>,
-            GetLocal::<Impl, IMPL_OFFSET>,
-            MaxSnapshotBytesSize::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXboxLiveDeviceAddressStatics, BASE_OFFSET>(),
+            CreateFromSnapshotBase64: CreateFromSnapshotBase64::<Impl, IMPL_OFFSET>,
+            CreateFromSnapshotBuffer: CreateFromSnapshotBuffer::<Impl, IMPL_OFFSET>,
+            CreateFromSnapshotBytes: CreateFromSnapshotBytes::<Impl, IMPL_OFFSET>,
+            GetLocal: GetLocal::<Impl, IMPL_OFFSET>,
+            MaxSnapshotBytesSize: MaxSnapshotBytesSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXboxLiveDeviceAddressStatics as ::windows::core::Interface>::IID
@@ -345,26 +335,21 @@ impl IXboxLiveEndpointPairVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPair>,
-            ::windows::core::GetTrustLevel,
-            StateChanged::<Impl, IMPL_OFFSET>,
-            RemoveStateChanged::<Impl, IMPL_OFFSET>,
-            DeleteAsync::<Impl, IMPL_OFFSET>,
-            GetRemoteSocketAddressBytes::<Impl, IMPL_OFFSET>,
-            GetLocalSocketAddressBytes::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            Template::<Impl, IMPL_OFFSET>,
-            RemoteDeviceAddress::<Impl, IMPL_OFFSET>,
-            RemoteHostName::<Impl, IMPL_OFFSET>,
-            RemotePort::<Impl, IMPL_OFFSET>,
-            LocalHostName::<Impl, IMPL_OFFSET>,
-            LocalPort::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXboxLiveEndpointPair, BASE_OFFSET>(),
+            StateChanged: StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged: RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            DeleteAsync: DeleteAsync::<Impl, IMPL_OFFSET>,
+            GetRemoteSocketAddressBytes: GetRemoteSocketAddressBytes::<Impl, IMPL_OFFSET>,
+            GetLocalSocketAddressBytes: GetLocalSocketAddressBytes::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            Template: Template::<Impl, IMPL_OFFSET>,
+            RemoteDeviceAddress: RemoteDeviceAddress::<Impl, IMPL_OFFSET>,
+            RemoteHostName: RemoteHostName::<Impl, IMPL_OFFSET>,
+            RemotePort: RemotePort::<Impl, IMPL_OFFSET>,
+            LocalHostName: LocalHostName::<Impl, IMPL_OFFSET>,
+            LocalPort: LocalPort::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXboxLiveEndpointPair as ::windows::core::Interface>::IID
@@ -428,7 +413,13 @@ impl IXboxLiveEndpointPairCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairCreationResult>, ::windows::core::GetTrustLevel, DeviceAddress::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, IsExistingPathEvaluation::<Impl, IMPL_OFFSET>, EndpointPair::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXboxLiveEndpointPairCreationResult, BASE_OFFSET>(),
+            DeviceAddress: DeviceAddress::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            IsExistingPathEvaluation: IsExistingPathEvaluation::<Impl, IMPL_OFFSET>,
+            EndpointPair: EndpointPair::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXboxLiveEndpointPairCreationResult as ::windows::core::Interface>::IID
@@ -468,7 +459,11 @@ impl IXboxLiveEndpointPairStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairStateChangedEventArgs>, ::windows::core::GetTrustLevel, OldState::<Impl, IMPL_OFFSET>, NewState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXboxLiveEndpointPairStateChangedEventArgs, BASE_OFFSET>(),
+            OldState: OldState::<Impl, IMPL_OFFSET>,
+            NewState: NewState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXboxLiveEndpointPairStateChangedEventArgs as ::windows::core::Interface>::IID
@@ -513,7 +508,11 @@ impl IXboxLiveEndpointPairStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairStatics>, ::windows::core::GetTrustLevel, FindEndpointPairBySocketAddressBytes::<Impl, IMPL_OFFSET>, FindEndpointPairByHostNamesAndPorts::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXboxLiveEndpointPairStatics, BASE_OFFSET>(),
+            FindEndpointPairBySocketAddressBytes: FindEndpointPairBySocketAddressBytes::<Impl, IMPL_OFFSET>,
+            FindEndpointPairByHostNamesAndPorts: FindEndpointPairByHostNamesAndPorts::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXboxLiveEndpointPairStatics as ::windows::core::Interface>::IID
@@ -687,27 +686,22 @@ impl IXboxLiveEndpointPairTemplateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairTemplate>,
-            ::windows::core::GetTrustLevel,
-            InboundEndpointPairCreated::<Impl, IMPL_OFFSET>,
-            RemoveInboundEndpointPairCreated::<Impl, IMPL_OFFSET>,
-            CreateEndpointPairDefaultAsync::<Impl, IMPL_OFFSET>,
-            CreateEndpointPairWithBehaviorsAsync::<Impl, IMPL_OFFSET>,
-            CreateEndpointPairForPortsDefaultAsync::<Impl, IMPL_OFFSET>,
-            CreateEndpointPairForPortsWithBehaviorsAsync::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            SocketKind::<Impl, IMPL_OFFSET>,
-            InitiatorBoundPortRangeLower::<Impl, IMPL_OFFSET>,
-            InitiatorBoundPortRangeUpper::<Impl, IMPL_OFFSET>,
-            AcceptorBoundPortRangeLower::<Impl, IMPL_OFFSET>,
-            AcceptorBoundPortRangeUpper::<Impl, IMPL_OFFSET>,
-            EndpointPairs::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXboxLiveEndpointPairTemplate, BASE_OFFSET>(),
+            InboundEndpointPairCreated: InboundEndpointPairCreated::<Impl, IMPL_OFFSET>,
+            RemoveInboundEndpointPairCreated: RemoveInboundEndpointPairCreated::<Impl, IMPL_OFFSET>,
+            CreateEndpointPairDefaultAsync: CreateEndpointPairDefaultAsync::<Impl, IMPL_OFFSET>,
+            CreateEndpointPairWithBehaviorsAsync: CreateEndpointPairWithBehaviorsAsync::<Impl, IMPL_OFFSET>,
+            CreateEndpointPairForPortsDefaultAsync: CreateEndpointPairForPortsDefaultAsync::<Impl, IMPL_OFFSET>,
+            CreateEndpointPairForPortsWithBehaviorsAsync: CreateEndpointPairForPortsWithBehaviorsAsync::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SocketKind: SocketKind::<Impl, IMPL_OFFSET>,
+            InitiatorBoundPortRangeLower: InitiatorBoundPortRangeLower::<Impl, IMPL_OFFSET>,
+            InitiatorBoundPortRangeUpper: InitiatorBoundPortRangeUpper::<Impl, IMPL_OFFSET>,
+            AcceptorBoundPortRangeLower: AcceptorBoundPortRangeLower::<Impl, IMPL_OFFSET>,
+            AcceptorBoundPortRangeUpper: AcceptorBoundPortRangeUpper::<Impl, IMPL_OFFSET>,
+            EndpointPairs: EndpointPairs::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXboxLiveEndpointPairTemplate as ::windows::core::Interface>::IID
@@ -747,7 +741,11 @@ impl IXboxLiveEndpointPairTemplateStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairTemplateStatics>, ::windows::core::GetTrustLevel, GetTemplateByName::<Impl, IMPL_OFFSET>, Templates::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXboxLiveEndpointPairTemplateStatics, BASE_OFFSET>(),
+            GetTemplateByName: GetTemplateByName::<Impl, IMPL_OFFSET>,
+            Templates: Templates::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXboxLiveEndpointPairTemplateStatics as ::windows::core::Interface>::IID
@@ -775,7 +773,10 @@ impl IXboxLiveInboundEndpointPairCreatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveInboundEndpointPairCreatedEventArgs>, ::windows::core::GetTrustLevel, EndpointPair::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXboxLiveInboundEndpointPairCreatedEventArgs, BASE_OFFSET>(),
+            EndpointPair: EndpointPair::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXboxLiveInboundEndpointPairCreatedEventArgs as ::windows::core::Interface>::IID
@@ -962,30 +963,25 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXboxLiveQualityOfServiceMeasurement>,
-            ::windows::core::GetTrustLevel,
-            MeasureAsync::<Impl, IMPL_OFFSET>,
-            GetMetricResultsForDevice::<Impl, IMPL_OFFSET>,
-            GetMetricResultsForMetric::<Impl, IMPL_OFFSET>,
-            GetMetricResult::<Impl, IMPL_OFFSET>,
-            GetPrivatePayloadResult::<Impl, IMPL_OFFSET>,
-            Metrics::<Impl, IMPL_OFFSET>,
-            DeviceAddresses::<Impl, IMPL_OFFSET>,
-            ShouldRequestPrivatePayloads::<Impl, IMPL_OFFSET>,
-            SetShouldRequestPrivatePayloads::<Impl, IMPL_OFFSET>,
-            TimeoutInMilliseconds::<Impl, IMPL_OFFSET>,
-            SetTimeoutInMilliseconds::<Impl, IMPL_OFFSET>,
-            NumberOfProbesToAttempt::<Impl, IMPL_OFFSET>,
-            SetNumberOfProbesToAttempt::<Impl, IMPL_OFFSET>,
-            NumberOfResultsPending::<Impl, IMPL_OFFSET>,
-            MetricResults::<Impl, IMPL_OFFSET>,
-            PrivatePayloadResults::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXboxLiveQualityOfServiceMeasurement, BASE_OFFSET>(),
+            MeasureAsync: MeasureAsync::<Impl, IMPL_OFFSET>,
+            GetMetricResultsForDevice: GetMetricResultsForDevice::<Impl, IMPL_OFFSET>,
+            GetMetricResultsForMetric: GetMetricResultsForMetric::<Impl, IMPL_OFFSET>,
+            GetMetricResult: GetMetricResult::<Impl, IMPL_OFFSET>,
+            GetPrivatePayloadResult: GetPrivatePayloadResult::<Impl, IMPL_OFFSET>,
+            Metrics: Metrics::<Impl, IMPL_OFFSET>,
+            DeviceAddresses: DeviceAddresses::<Impl, IMPL_OFFSET>,
+            ShouldRequestPrivatePayloads: ShouldRequestPrivatePayloads::<Impl, IMPL_OFFSET>,
+            SetShouldRequestPrivatePayloads: SetShouldRequestPrivatePayloads::<Impl, IMPL_OFFSET>,
+            TimeoutInMilliseconds: TimeoutInMilliseconds::<Impl, IMPL_OFFSET>,
+            SetTimeoutInMilliseconds: SetTimeoutInMilliseconds::<Impl, IMPL_OFFSET>,
+            NumberOfProbesToAttempt: NumberOfProbesToAttempt::<Impl, IMPL_OFFSET>,
+            SetNumberOfProbesToAttempt: SetNumberOfProbesToAttempt::<Impl, IMPL_OFFSET>,
+            NumberOfResultsPending: NumberOfResultsPending::<Impl, IMPL_OFFSET>,
+            MetricResults: MetricResults::<Impl, IMPL_OFFSET>,
+            PrivatePayloadResults: PrivatePayloadResults::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXboxLiveQualityOfServiceMeasurement as ::windows::core::Interface>::IID
@@ -1091,25 +1087,20 @@ impl IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXboxLiveQualityOfServiceMeasurementStatics>,
-            ::windows::core::GetTrustLevel,
-            PublishPrivatePayloadBytes::<Impl, IMPL_OFFSET>,
-            ClearPrivatePayload::<Impl, IMPL_OFFSET>,
-            MaxSimultaneousProbeConnections::<Impl, IMPL_OFFSET>,
-            SetMaxSimultaneousProbeConnections::<Impl, IMPL_OFFSET>,
-            IsSystemOutboundBandwidthConstrained::<Impl, IMPL_OFFSET>,
-            SetIsSystemOutboundBandwidthConstrained::<Impl, IMPL_OFFSET>,
-            IsSystemInboundBandwidthConstrained::<Impl, IMPL_OFFSET>,
-            SetIsSystemInboundBandwidthConstrained::<Impl, IMPL_OFFSET>,
-            PublishedPrivatePayload::<Impl, IMPL_OFFSET>,
-            SetPublishedPrivatePayload::<Impl, IMPL_OFFSET>,
-            MaxPrivatePayloadSize::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXboxLiveQualityOfServiceMeasurementStatics, BASE_OFFSET>(),
+            PublishPrivatePayloadBytes: PublishPrivatePayloadBytes::<Impl, IMPL_OFFSET>,
+            ClearPrivatePayload: ClearPrivatePayload::<Impl, IMPL_OFFSET>,
+            MaxSimultaneousProbeConnections: MaxSimultaneousProbeConnections::<Impl, IMPL_OFFSET>,
+            SetMaxSimultaneousProbeConnections: SetMaxSimultaneousProbeConnections::<Impl, IMPL_OFFSET>,
+            IsSystemOutboundBandwidthConstrained: IsSystemOutboundBandwidthConstrained::<Impl, IMPL_OFFSET>,
+            SetIsSystemOutboundBandwidthConstrained: SetIsSystemOutboundBandwidthConstrained::<Impl, IMPL_OFFSET>,
+            IsSystemInboundBandwidthConstrained: IsSystemInboundBandwidthConstrained::<Impl, IMPL_OFFSET>,
+            SetIsSystemInboundBandwidthConstrained: SetIsSystemInboundBandwidthConstrained::<Impl, IMPL_OFFSET>,
+            PublishedPrivatePayload: PublishedPrivatePayload::<Impl, IMPL_OFFSET>,
+            SetPublishedPrivatePayload: SetPublishedPrivatePayload::<Impl, IMPL_OFFSET>,
+            MaxPrivatePayloadSize: MaxPrivatePayloadSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXboxLiveQualityOfServiceMeasurementStatics as ::windows::core::Interface>::IID
@@ -1173,7 +1164,13 @@ impl IXboxLiveQualityOfServiceMetricResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveQualityOfServiceMetricResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, DeviceAddress::<Impl, IMPL_OFFSET>, Metric::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXboxLiveQualityOfServiceMetricResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            DeviceAddress: DeviceAddress::<Impl, IMPL_OFFSET>,
+            Metric: Metric::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXboxLiveQualityOfServiceMetricResult as ::windows::core::Interface>::IID
@@ -1225,7 +1222,12 @@ impl IXboxLiveQualityOfServicePrivatePayloadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveQualityOfServicePrivatePayloadResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, DeviceAddress::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXboxLiveQualityOfServicePrivatePayloadResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            DeviceAddress: DeviceAddress::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXboxLiveQualityOfServicePrivatePayloadResult as ::windows::core::Interface>::IID

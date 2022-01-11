@@ -10,7 +10,7 @@ impl ISoftwareBitmapNativeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISoftwareBitmapNative>, ::windows::core::GetTrustLevel, GetData::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISoftwareBitmapNative, BASE_OFFSET>(), GetData: GetData::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISoftwareBitmapNative as ::windows::core::Interface>::IID
@@ -36,7 +36,11 @@ impl ISoftwareBitmapNativeFactoryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISoftwareBitmapNativeFactory>, ::windows::core::GetTrustLevel, CreateFromWICBitmap::<Impl, IMPL_OFFSET>, CreateFromMF2DBuffer2::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISoftwareBitmapNativeFactory, BASE_OFFSET>(),
+            CreateFromWICBitmap: CreateFromWICBitmap::<Impl, IMPL_OFFSET>,
+            CreateFromMF2DBuffer2: CreateFromMF2DBuffer2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISoftwareBitmapNativeFactory as ::windows::core::Interface>::IID

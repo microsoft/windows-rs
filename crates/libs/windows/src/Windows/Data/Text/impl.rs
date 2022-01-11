@@ -44,7 +44,12 @@ impl IAlternateWordFormVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlternateWordForm>, ::windows::core::GetTrustLevel, SourceTextSegment::<Impl, IMPL_OFFSET>, AlternateText::<Impl, IMPL_OFFSET>, NormalizationFormat::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAlternateWordForm, BASE_OFFSET>(),
+            SourceTextSegment: SourceTextSegment::<Impl, IMPL_OFFSET>,
+            AlternateText: AlternateText::<Impl, IMPL_OFFSET>,
+            NormalizationFormat: NormalizationFormat::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAlternateWordForm as ::windows::core::Interface>::IID
@@ -84,7 +89,11 @@ impl ISelectableWordSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectableWordSegment>, ::windows::core::GetTrustLevel, Text::<Impl, IMPL_OFFSET>, SourceTextSegment::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectableWordSegment, BASE_OFFSET>(),
+            Text: Text::<Impl, IMPL_OFFSET>,
+            SourceTextSegment: SourceTextSegment::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectableWordSegment as ::windows::core::Interface>::IID
@@ -141,7 +150,13 @@ impl ISelectableWordsSegmenterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Tokenize(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), startindex, &*(&handler as *const <SelectableWordSegmentsTokenizingHandler as ::windows::core::Abi>::Abi as *const <SelectableWordSegmentsTokenizingHandler as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectableWordsSegmenter>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, IMPL_OFFSET>, GetTokenAt::<Impl, IMPL_OFFSET>, GetTokens::<Impl, IMPL_OFFSET>, Tokenize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectableWordsSegmenter, BASE_OFFSET>(),
+            ResolvedLanguage: ResolvedLanguage::<Impl, IMPL_OFFSET>,
+            GetTokenAt: GetTokenAt::<Impl, IMPL_OFFSET>,
+            GetTokens: GetTokens::<Impl, IMPL_OFFSET>,
+            Tokenize: Tokenize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectableWordsSegmenter as ::windows::core::Interface>::IID
@@ -169,7 +184,10 @@ impl ISelectableWordsSegmenterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectableWordsSegmenterFactory>, ::windows::core::GetTrustLevel, CreateWithLanguage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectableWordsSegmenterFactory, BASE_OFFSET>(),
+            CreateWithLanguage: CreateWithLanguage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectableWordsSegmenterFactory as ::windows::core::Interface>::IID
@@ -209,7 +227,11 @@ impl ISemanticTextQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISemanticTextQuery>, ::windows::core::GetTrustLevel, Find::<Impl, IMPL_OFFSET>, FindInProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISemanticTextQuery, BASE_OFFSET>(),
+            Find: Find::<Impl, IMPL_OFFSET>,
+            FindInProperty: FindInProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISemanticTextQuery as ::windows::core::Interface>::IID
@@ -249,7 +271,11 @@ impl ISemanticTextQueryFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISemanticTextQueryFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithLanguage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISemanticTextQueryFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithLanguage: CreateWithLanguage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISemanticTextQueryFactory as ::windows::core::Interface>::IID
@@ -313,7 +339,13 @@ impl ITextConversionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextConversionGenerator>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, IMPL_OFFSET>, LanguageAvailableButNotInstalled::<Impl, IMPL_OFFSET>, GetCandidatesAsync::<Impl, IMPL_OFFSET>, GetCandidatesWithMaxCountAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextConversionGenerator, BASE_OFFSET>(),
+            ResolvedLanguage: ResolvedLanguage::<Impl, IMPL_OFFSET>,
+            LanguageAvailableButNotInstalled: LanguageAvailableButNotInstalled::<Impl, IMPL_OFFSET>,
+            GetCandidatesAsync: GetCandidatesAsync::<Impl, IMPL_OFFSET>,
+            GetCandidatesWithMaxCountAsync: GetCandidatesWithMaxCountAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextConversionGenerator as ::windows::core::Interface>::IID
@@ -341,7 +373,7 @@ impl ITextConversionGeneratorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextConversionGeneratorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITextConversionGeneratorFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextConversionGeneratorFactory as ::windows::core::Interface>::IID
@@ -381,7 +413,11 @@ impl ITextPhonemeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPhoneme>, ::windows::core::GetTrustLevel, DisplayText::<Impl, IMPL_OFFSET>, ReadingText::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextPhoneme, BASE_OFFSET>(),
+            DisplayText: DisplayText::<Impl, IMPL_OFFSET>,
+            ReadingText: ReadingText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextPhoneme as ::windows::core::Interface>::IID
@@ -445,7 +481,13 @@ impl ITextPredictionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPredictionGenerator>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, IMPL_OFFSET>, LanguageAvailableButNotInstalled::<Impl, IMPL_OFFSET>, GetCandidatesAsync::<Impl, IMPL_OFFSET>, GetCandidatesWithMaxCountAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextPredictionGenerator, BASE_OFFSET>(),
+            ResolvedLanguage: ResolvedLanguage::<Impl, IMPL_OFFSET>,
+            LanguageAvailableButNotInstalled: LanguageAvailableButNotInstalled::<Impl, IMPL_OFFSET>,
+            GetCandidatesAsync: GetCandidatesAsync::<Impl, IMPL_OFFSET>,
+            GetCandidatesWithMaxCountAsync: GetCandidatesWithMaxCountAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextPredictionGenerator as ::windows::core::Interface>::IID
@@ -502,7 +544,13 @@ impl ITextPredictionGenerator2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInputScope(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPredictionGenerator2>, ::windows::core::GetTrustLevel, GetCandidatesWithParametersAsync::<Impl, IMPL_OFFSET>, GetNextWordCandidatesAsync::<Impl, IMPL_OFFSET>, InputScope::<Impl, IMPL_OFFSET>, SetInputScope::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextPredictionGenerator2, BASE_OFFSET>(),
+            GetCandidatesWithParametersAsync: GetCandidatesWithParametersAsync::<Impl, IMPL_OFFSET>,
+            GetNextWordCandidatesAsync: GetNextWordCandidatesAsync::<Impl, IMPL_OFFSET>,
+            InputScope: InputScope::<Impl, IMPL_OFFSET>,
+            SetInputScope: SetInputScope::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextPredictionGenerator2 as ::windows::core::Interface>::IID
@@ -530,7 +578,7 @@ impl ITextPredictionGeneratorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPredictionGeneratorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITextPredictionGeneratorFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextPredictionGeneratorFactory as ::windows::core::Interface>::IID
@@ -582,7 +630,12 @@ impl ITextReverseConversionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGenerator>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, IMPL_OFFSET>, LanguageAvailableButNotInstalled::<Impl, IMPL_OFFSET>, ConvertBackAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextReverseConversionGenerator, BASE_OFFSET>(),
+            ResolvedLanguage: ResolvedLanguage::<Impl, IMPL_OFFSET>,
+            LanguageAvailableButNotInstalled: LanguageAvailableButNotInstalled::<Impl, IMPL_OFFSET>,
+            ConvertBackAsync: ConvertBackAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextReverseConversionGenerator as ::windows::core::Interface>::IID
@@ -610,7 +663,10 @@ impl ITextReverseConversionGenerator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGenerator2>, ::windows::core::GetTrustLevel, GetPhonemesAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextReverseConversionGenerator2, BASE_OFFSET>(),
+            GetPhonemesAsync: GetPhonemesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextReverseConversionGenerator2 as ::windows::core::Interface>::IID
@@ -638,7 +694,10 @@ impl ITextReverseConversionGeneratorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGeneratorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextReverseConversionGeneratorFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextReverseConversionGeneratorFactory as ::windows::core::Interface>::IID
@@ -851,31 +910,26 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUnicodeCharactersStatics>,
-            ::windows::core::GetTrustLevel,
-            GetCodepointFromSurrogatePair::<Impl, IMPL_OFFSET>,
-            GetSurrogatePairFromCodepoint::<Impl, IMPL_OFFSET>,
-            IsHighSurrogate::<Impl, IMPL_OFFSET>,
-            IsLowSurrogate::<Impl, IMPL_OFFSET>,
-            IsSupplementary::<Impl, IMPL_OFFSET>,
-            IsNoncharacter::<Impl, IMPL_OFFSET>,
-            IsWhitespace::<Impl, IMPL_OFFSET>,
-            IsAlphabetic::<Impl, IMPL_OFFSET>,
-            IsCased::<Impl, IMPL_OFFSET>,
-            IsUppercase::<Impl, IMPL_OFFSET>,
-            IsLowercase::<Impl, IMPL_OFFSET>,
-            IsIdStart::<Impl, IMPL_OFFSET>,
-            IsIdContinue::<Impl, IMPL_OFFSET>,
-            IsGraphemeBase::<Impl, IMPL_OFFSET>,
-            IsGraphemeExtend::<Impl, IMPL_OFFSET>,
-            GetNumericType::<Impl, IMPL_OFFSET>,
-            GetGeneralCategory::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUnicodeCharactersStatics, BASE_OFFSET>(),
+            GetCodepointFromSurrogatePair: GetCodepointFromSurrogatePair::<Impl, IMPL_OFFSET>,
+            GetSurrogatePairFromCodepoint: GetSurrogatePairFromCodepoint::<Impl, IMPL_OFFSET>,
+            IsHighSurrogate: IsHighSurrogate::<Impl, IMPL_OFFSET>,
+            IsLowSurrogate: IsLowSurrogate::<Impl, IMPL_OFFSET>,
+            IsSupplementary: IsSupplementary::<Impl, IMPL_OFFSET>,
+            IsNoncharacter: IsNoncharacter::<Impl, IMPL_OFFSET>,
+            IsWhitespace: IsWhitespace::<Impl, IMPL_OFFSET>,
+            IsAlphabetic: IsAlphabetic::<Impl, IMPL_OFFSET>,
+            IsCased: IsCased::<Impl, IMPL_OFFSET>,
+            IsUppercase: IsUppercase::<Impl, IMPL_OFFSET>,
+            IsLowercase: IsLowercase::<Impl, IMPL_OFFSET>,
+            IsIdStart: IsIdStart::<Impl, IMPL_OFFSET>,
+            IsIdContinue: IsIdContinue::<Impl, IMPL_OFFSET>,
+            IsGraphemeBase: IsGraphemeBase::<Impl, IMPL_OFFSET>,
+            IsGraphemeExtend: IsGraphemeExtend::<Impl, IMPL_OFFSET>,
+            GetNumericType: GetNumericType::<Impl, IMPL_OFFSET>,
+            GetGeneralCategory: GetGeneralCategory::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUnicodeCharactersStatics as ::windows::core::Interface>::IID
@@ -927,7 +981,12 @@ impl IWordSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWordSegment>, ::windows::core::GetTrustLevel, Text::<Impl, IMPL_OFFSET>, SourceTextSegment::<Impl, IMPL_OFFSET>, AlternateForms::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWordSegment, BASE_OFFSET>(),
+            Text: Text::<Impl, IMPL_OFFSET>,
+            SourceTextSegment: SourceTextSegment::<Impl, IMPL_OFFSET>,
+            AlternateForms: AlternateForms::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWordSegment as ::windows::core::Interface>::IID
@@ -984,7 +1043,13 @@ impl IWordsSegmenterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Tokenize(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), startindex, &*(&handler as *const <WordSegmentsTokenizingHandler as ::windows::core::Abi>::Abi as *const <WordSegmentsTokenizingHandler as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWordsSegmenter>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, IMPL_OFFSET>, GetTokenAt::<Impl, IMPL_OFFSET>, GetTokens::<Impl, IMPL_OFFSET>, Tokenize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWordsSegmenter, BASE_OFFSET>(),
+            ResolvedLanguage: ResolvedLanguage::<Impl, IMPL_OFFSET>,
+            GetTokenAt: GetTokenAt::<Impl, IMPL_OFFSET>,
+            GetTokens: GetTokens::<Impl, IMPL_OFFSET>,
+            Tokenize: Tokenize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWordsSegmenter as ::windows::core::Interface>::IID
@@ -1012,7 +1077,10 @@ impl IWordsSegmenterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWordsSegmenterFactory>, ::windows::core::GetTrustLevel, CreateWithLanguage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWordsSegmenterFactory, BASE_OFFSET>(),
+            CreateWithLanguage: CreateWithLanguage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWordsSegmenterFactory as ::windows::core::Interface>::IID

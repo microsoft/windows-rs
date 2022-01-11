@@ -133,25 +133,20 @@ impl ICryptographicBufferStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICryptographicBufferStatics>,
-            ::windows::core::GetTrustLevel,
-            Compare::<Impl, IMPL_OFFSET>,
-            GenerateRandom::<Impl, IMPL_OFFSET>,
-            GenerateRandomNumber::<Impl, IMPL_OFFSET>,
-            CreateFromByteArray::<Impl, IMPL_OFFSET>,
-            CopyToByteArray::<Impl, IMPL_OFFSET>,
-            DecodeFromHexString::<Impl, IMPL_OFFSET>,
-            EncodeToHexString::<Impl, IMPL_OFFSET>,
-            DecodeFromBase64String::<Impl, IMPL_OFFSET>,
-            EncodeToBase64String::<Impl, IMPL_OFFSET>,
-            ConvertStringToBinary::<Impl, IMPL_OFFSET>,
-            ConvertBinaryToString::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICryptographicBufferStatics, BASE_OFFSET>(),
+            Compare: Compare::<Impl, IMPL_OFFSET>,
+            GenerateRandom: GenerateRandom::<Impl, IMPL_OFFSET>,
+            GenerateRandomNumber: GenerateRandomNumber::<Impl, IMPL_OFFSET>,
+            CreateFromByteArray: CreateFromByteArray::<Impl, IMPL_OFFSET>,
+            CopyToByteArray: CopyToByteArray::<Impl, IMPL_OFFSET>,
+            DecodeFromHexString: DecodeFromHexString::<Impl, IMPL_OFFSET>,
+            EncodeToHexString: EncodeToHexString::<Impl, IMPL_OFFSET>,
+            DecodeFromBase64String: DecodeFromBase64String::<Impl, IMPL_OFFSET>,
+            EncodeToBase64String: EncodeToBase64String::<Impl, IMPL_OFFSET>,
+            ConvertStringToBinary: ConvertStringToBinary::<Impl, IMPL_OFFSET>,
+            ConvertBinaryToString: ConvertBinaryToString::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICryptographicBufferStatics as ::windows::core::Interface>::IID

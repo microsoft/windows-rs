@@ -92,21 +92,16 @@ impl IGazeDevicePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGazeDevicePreview>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            CanTrackEyes::<Impl, IMPL_OFFSET>,
-            CanTrackHead::<Impl, IMPL_OFFSET>,
-            ConfigurationState::<Impl, IMPL_OFFSET>,
-            RequestCalibrationAsync::<Impl, IMPL_OFFSET>,
-            GetNumericControlDescriptions::<Impl, IMPL_OFFSET>,
-            GetBooleanControlDescriptions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGazeDevicePreview, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            CanTrackEyes: CanTrackEyes::<Impl, IMPL_OFFSET>,
+            CanTrackHead: CanTrackHead::<Impl, IMPL_OFFSET>,
+            ConfigurationState: ConfigurationState::<Impl, IMPL_OFFSET>,
+            RequestCalibrationAsync: RequestCalibrationAsync::<Impl, IMPL_OFFSET>,
+            GetNumericControlDescriptions: GetNumericControlDescriptions::<Impl, IMPL_OFFSET>,
+            GetBooleanControlDescriptions: GetBooleanControlDescriptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGazeDevicePreview as ::windows::core::Interface>::IID
@@ -134,7 +129,10 @@ impl IGazeDeviceWatcherAddedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeDeviceWatcherAddedPreviewEventArgs>, ::windows::core::GetTrustLevel, Device::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGazeDeviceWatcherAddedPreviewEventArgs, BASE_OFFSET>(),
+            Device: Device::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGazeDeviceWatcherAddedPreviewEventArgs as ::windows::core::Interface>::IID
@@ -228,24 +226,19 @@ impl IGazeDeviceWatcherPreviewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGazeDeviceWatcherPreview>,
-            ::windows::core::GetTrustLevel,
-            Added::<Impl, IMPL_OFFSET>,
-            RemoveAdded::<Impl, IMPL_OFFSET>,
-            Removed::<Impl, IMPL_OFFSET>,
-            RemoveRemoved::<Impl, IMPL_OFFSET>,
-            Updated::<Impl, IMPL_OFFSET>,
-            RemoveUpdated::<Impl, IMPL_OFFSET>,
-            EnumerationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGazeDeviceWatcherPreview, BASE_OFFSET>(),
+            Added: Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded: RemoveAdded::<Impl, IMPL_OFFSET>,
+            Removed: Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved: RemoveRemoved::<Impl, IMPL_OFFSET>,
+            Updated: Updated::<Impl, IMPL_OFFSET>,
+            RemoveUpdated: RemoveUpdated::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGazeDeviceWatcherPreview as ::windows::core::Interface>::IID
@@ -273,7 +266,10 @@ impl IGazeDeviceWatcherRemovedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeDeviceWatcherRemovedPreviewEventArgs>, ::windows::core::GetTrustLevel, Device::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGazeDeviceWatcherRemovedPreviewEventArgs, BASE_OFFSET>(),
+            Device: Device::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGazeDeviceWatcherRemovedPreviewEventArgs as ::windows::core::Interface>::IID
@@ -301,7 +297,10 @@ impl IGazeDeviceWatcherUpdatedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeDeviceWatcherUpdatedPreviewEventArgs>, ::windows::core::GetTrustLevel, Device::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGazeDeviceWatcherUpdatedPreviewEventArgs, BASE_OFFSET>(),
+            Device: Device::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGazeDeviceWatcherUpdatedPreviewEventArgs as ::windows::core::Interface>::IID
@@ -346,7 +345,12 @@ impl IGazeEnteredPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeEnteredPreviewEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, CurrentPoint::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGazeEnteredPreviewEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            CurrentPoint: CurrentPoint::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGazeEnteredPreviewEventArgs as ::windows::core::Interface>::IID
@@ -391,7 +395,12 @@ impl IGazeExitedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeExitedPreviewEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, CurrentPoint::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGazeExitedPreviewEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            CurrentPoint: CurrentPoint::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGazeExitedPreviewEventArgs as ::windows::core::Interface>::IID
@@ -458,20 +467,15 @@ impl IGazeInputSourcePreviewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveGazeExited(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGazeInputSourcePreview>,
-            ::windows::core::GetTrustLevel,
-            GazeMoved::<Impl, IMPL_OFFSET>,
-            RemoveGazeMoved::<Impl, IMPL_OFFSET>,
-            GazeEntered::<Impl, IMPL_OFFSET>,
-            RemoveGazeEntered::<Impl, IMPL_OFFSET>,
-            GazeExited::<Impl, IMPL_OFFSET>,
-            RemoveGazeExited::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGazeInputSourcePreview, BASE_OFFSET>(),
+            GazeMoved: GazeMoved::<Impl, IMPL_OFFSET>,
+            RemoveGazeMoved: RemoveGazeMoved::<Impl, IMPL_OFFSET>,
+            GazeEntered: GazeEntered::<Impl, IMPL_OFFSET>,
+            RemoveGazeEntered: RemoveGazeEntered::<Impl, IMPL_OFFSET>,
+            GazeExited: GazeExited::<Impl, IMPL_OFFSET>,
+            RemoveGazeExited: RemoveGazeExited::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGazeInputSourcePreview as ::windows::core::Interface>::IID
@@ -511,7 +515,11 @@ impl IGazeInputSourcePreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeInputSourcePreviewStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>, CreateWatcher::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGazeInputSourcePreviewStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+            CreateWatcher: CreateWatcher::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGazeInputSourcePreviewStatics as ::windows::core::Interface>::IID
@@ -568,7 +576,13 @@ impl IGazeMovedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeMovedPreviewEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, CurrentPoint::<Impl, IMPL_OFFSET>, GetIntermediatePoints::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGazeMovedPreviewEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            CurrentPoint: CurrentPoint::<Impl, IMPL_OFFSET>,
+            GetIntermediatePoints: GetIntermediatePoints::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGazeMovedPreviewEventArgs as ::windows::core::Interface>::IID
@@ -644,7 +658,14 @@ impl IGazePointPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazePointPreview>, ::windows::core::GetTrustLevel, SourceDevice::<Impl, IMPL_OFFSET>, EyeGazePosition::<Impl, IMPL_OFFSET>, HeadGazePosition::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>, HidInputReport::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGazePointPreview, BASE_OFFSET>(),
+            SourceDevice: SourceDevice::<Impl, IMPL_OFFSET>,
+            EyeGazePosition: EyeGazePosition::<Impl, IMPL_OFFSET>,
+            HeadGazePosition: HeadGazePosition::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            HidInputReport: HidInputReport::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGazePointPreview as ::windows::core::Interface>::IID

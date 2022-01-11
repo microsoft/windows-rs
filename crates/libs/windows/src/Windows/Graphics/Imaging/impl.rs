@@ -32,7 +32,11 @@ impl IBitmapBufferVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapBuffer>, ::windows::core::GetTrustLevel, GetPlaneCount::<Impl, IMPL_OFFSET>, GetPlaneDescription::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapBuffer, BASE_OFFSET>(),
+            GetPlaneCount: GetPlaneCount::<Impl, IMPL_OFFSET>,
+            GetPlaneDescription: GetPlaneDescription::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapBuffer as ::windows::core::Interface>::IID
@@ -96,7 +100,13 @@ impl IBitmapCodecInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapCodecInformation>, ::windows::core::GetTrustLevel, CodecId::<Impl, IMPL_OFFSET>, FileExtensions::<Impl, IMPL_OFFSET>, FriendlyName::<Impl, IMPL_OFFSET>, MimeTypes::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapCodecInformation, BASE_OFFSET>(),
+            CodecId: CodecId::<Impl, IMPL_OFFSET>,
+            FileExtensions: FileExtensions::<Impl, IMPL_OFFSET>,
+            FriendlyName: FriendlyName::<Impl, IMPL_OFFSET>,
+            MimeTypes: MimeTypes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapCodecInformation as ::windows::core::Interface>::IID
@@ -172,7 +182,14 @@ impl IBitmapDecoderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapDecoder>, ::windows::core::GetTrustLevel, BitmapContainerProperties::<Impl, IMPL_OFFSET>, DecoderInformation::<Impl, IMPL_OFFSET>, FrameCount::<Impl, IMPL_OFFSET>, GetPreviewAsync::<Impl, IMPL_OFFSET>, GetFrameAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapDecoder, BASE_OFFSET>(),
+            BitmapContainerProperties: BitmapContainerProperties::<Impl, IMPL_OFFSET>,
+            DecoderInformation: DecoderInformation::<Impl, IMPL_OFFSET>,
+            FrameCount: FrameCount::<Impl, IMPL_OFFSET>,
+            GetPreviewAsync: GetPreviewAsync::<Impl, IMPL_OFFSET>,
+            GetFrameAsync: GetFrameAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapDecoder as ::windows::core::Interface>::IID
@@ -308,24 +325,19 @@ impl IBitmapDecoderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBitmapDecoderStatics>,
-            ::windows::core::GetTrustLevel,
-            BmpDecoderId::<Impl, IMPL_OFFSET>,
-            JpegDecoderId::<Impl, IMPL_OFFSET>,
-            PngDecoderId::<Impl, IMPL_OFFSET>,
-            TiffDecoderId::<Impl, IMPL_OFFSET>,
-            GifDecoderId::<Impl, IMPL_OFFSET>,
-            JpegXRDecoderId::<Impl, IMPL_OFFSET>,
-            IcoDecoderId::<Impl, IMPL_OFFSET>,
-            GetDecoderInformationEnumerator::<Impl, IMPL_OFFSET>,
-            CreateAsync::<Impl, IMPL_OFFSET>,
-            CreateWithIdAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapDecoderStatics, BASE_OFFSET>(),
+            BmpDecoderId: BmpDecoderId::<Impl, IMPL_OFFSET>,
+            JpegDecoderId: JpegDecoderId::<Impl, IMPL_OFFSET>,
+            PngDecoderId: PngDecoderId::<Impl, IMPL_OFFSET>,
+            TiffDecoderId: TiffDecoderId::<Impl, IMPL_OFFSET>,
+            GifDecoderId: GifDecoderId::<Impl, IMPL_OFFSET>,
+            JpegXRDecoderId: JpegXRDecoderId::<Impl, IMPL_OFFSET>,
+            IcoDecoderId: IcoDecoderId::<Impl, IMPL_OFFSET>,
+            GetDecoderInformationEnumerator: GetDecoderInformationEnumerator::<Impl, IMPL_OFFSET>,
+            CreateAsync: CreateAsync::<Impl, IMPL_OFFSET>,
+            CreateWithIdAsync: CreateWithIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapDecoderStatics as ::windows::core::Interface>::IID
@@ -365,7 +377,11 @@ impl IBitmapDecoderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapDecoderStatics2>, ::windows::core::GetTrustLevel, HeifDecoderId::<Impl, IMPL_OFFSET>, WebpDecoderId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapDecoderStatics2, BASE_OFFSET>(),
+            HeifDecoderId: HeifDecoderId::<Impl, IMPL_OFFSET>,
+            WebpDecoderId: WebpDecoderId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapDecoderStatics2 as ::windows::core::Interface>::IID
@@ -521,28 +537,23 @@ impl IBitmapEncoderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBitmapEncoder>,
-            ::windows::core::GetTrustLevel,
-            EncoderInformation::<Impl, IMPL_OFFSET>,
-            BitmapProperties::<Impl, IMPL_OFFSET>,
-            BitmapContainerProperties::<Impl, IMPL_OFFSET>,
-            IsThumbnailGenerated::<Impl, IMPL_OFFSET>,
-            SetIsThumbnailGenerated::<Impl, IMPL_OFFSET>,
-            GeneratedThumbnailWidth::<Impl, IMPL_OFFSET>,
-            SetGeneratedThumbnailWidth::<Impl, IMPL_OFFSET>,
-            GeneratedThumbnailHeight::<Impl, IMPL_OFFSET>,
-            SetGeneratedThumbnailHeight::<Impl, IMPL_OFFSET>,
-            BitmapTransform::<Impl, IMPL_OFFSET>,
-            SetPixelData::<Impl, IMPL_OFFSET>,
-            GoToNextFrameAsync::<Impl, IMPL_OFFSET>,
-            GoToNextFrameWithEncodingOptionsAsync::<Impl, IMPL_OFFSET>,
-            FlushAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapEncoder, BASE_OFFSET>(),
+            EncoderInformation: EncoderInformation::<Impl, IMPL_OFFSET>,
+            BitmapProperties: BitmapProperties::<Impl, IMPL_OFFSET>,
+            BitmapContainerProperties: BitmapContainerProperties::<Impl, IMPL_OFFSET>,
+            IsThumbnailGenerated: IsThumbnailGenerated::<Impl, IMPL_OFFSET>,
+            SetIsThumbnailGenerated: SetIsThumbnailGenerated::<Impl, IMPL_OFFSET>,
+            GeneratedThumbnailWidth: GeneratedThumbnailWidth::<Impl, IMPL_OFFSET>,
+            SetGeneratedThumbnailWidth: SetGeneratedThumbnailWidth::<Impl, IMPL_OFFSET>,
+            GeneratedThumbnailHeight: GeneratedThumbnailHeight::<Impl, IMPL_OFFSET>,
+            SetGeneratedThumbnailHeight: SetGeneratedThumbnailHeight::<Impl, IMPL_OFFSET>,
+            BitmapTransform: BitmapTransform::<Impl, IMPL_OFFSET>,
+            SetPixelData: SetPixelData::<Impl, IMPL_OFFSET>,
+            GoToNextFrameAsync: GoToNextFrameAsync::<Impl, IMPL_OFFSET>,
+            GoToNextFrameWithEncodingOptionsAsync: GoToNextFrameWithEncodingOptionsAsync::<Impl, IMPL_OFFSET>,
+            FlushAsync: FlushAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapEncoder as ::windows::core::Interface>::IID
@@ -694,25 +705,20 @@ impl IBitmapEncoderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBitmapEncoderStatics>,
-            ::windows::core::GetTrustLevel,
-            BmpEncoderId::<Impl, IMPL_OFFSET>,
-            JpegEncoderId::<Impl, IMPL_OFFSET>,
-            PngEncoderId::<Impl, IMPL_OFFSET>,
-            TiffEncoderId::<Impl, IMPL_OFFSET>,
-            GifEncoderId::<Impl, IMPL_OFFSET>,
-            JpegXREncoderId::<Impl, IMPL_OFFSET>,
-            GetEncoderInformationEnumerator::<Impl, IMPL_OFFSET>,
-            CreateAsync::<Impl, IMPL_OFFSET>,
-            CreateWithEncodingOptionsAsync::<Impl, IMPL_OFFSET>,
-            CreateForTranscodingAsync::<Impl, IMPL_OFFSET>,
-            CreateForInPlacePropertyEncodingAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapEncoderStatics, BASE_OFFSET>(),
+            BmpEncoderId: BmpEncoderId::<Impl, IMPL_OFFSET>,
+            JpegEncoderId: JpegEncoderId::<Impl, IMPL_OFFSET>,
+            PngEncoderId: PngEncoderId::<Impl, IMPL_OFFSET>,
+            TiffEncoderId: TiffEncoderId::<Impl, IMPL_OFFSET>,
+            GifEncoderId: GifEncoderId::<Impl, IMPL_OFFSET>,
+            JpegXREncoderId: JpegXREncoderId::<Impl, IMPL_OFFSET>,
+            GetEncoderInformationEnumerator: GetEncoderInformationEnumerator::<Impl, IMPL_OFFSET>,
+            CreateAsync: CreateAsync::<Impl, IMPL_OFFSET>,
+            CreateWithEncodingOptionsAsync: CreateWithEncodingOptionsAsync::<Impl, IMPL_OFFSET>,
+            CreateForTranscodingAsync: CreateForTranscodingAsync::<Impl, IMPL_OFFSET>,
+            CreateForInPlacePropertyEncodingAsync: CreateForInPlacePropertyEncodingAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapEncoderStatics as ::windows::core::Interface>::IID
@@ -740,7 +746,10 @@ impl IBitmapEncoderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapEncoderStatics2>, ::windows::core::GetTrustLevel, HeifEncoderId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapEncoderStatics2, BASE_OFFSET>(),
+            HeifEncoderId: HeifEncoderId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapEncoderStatics2 as ::windows::core::Interface>::IID
@@ -761,7 +770,10 @@ impl IBitmapEncoderWithSoftwareBitmapVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSoftwareBitmap(&*(&bitmap as *const <SoftwareBitmap as ::windows::core::Abi>::Abi as *const <SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapEncoderWithSoftwareBitmap>, ::windows::core::GetTrustLevel, SetSoftwareBitmap::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapEncoderWithSoftwareBitmap, BASE_OFFSET>(),
+            SetSoftwareBitmap: SetSoftwareBitmap::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapEncoderWithSoftwareBitmap as ::windows::core::Interface>::IID
@@ -921,26 +933,21 @@ impl IBitmapFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBitmapFrame>,
-            ::windows::core::GetTrustLevel,
-            GetThumbnailAsync::<Impl, IMPL_OFFSET>,
-            BitmapProperties::<Impl, IMPL_OFFSET>,
-            BitmapPixelFormat::<Impl, IMPL_OFFSET>,
-            BitmapAlphaMode::<Impl, IMPL_OFFSET>,
-            DpiX::<Impl, IMPL_OFFSET>,
-            DpiY::<Impl, IMPL_OFFSET>,
-            PixelWidth::<Impl, IMPL_OFFSET>,
-            PixelHeight::<Impl, IMPL_OFFSET>,
-            OrientedPixelWidth::<Impl, IMPL_OFFSET>,
-            OrientedPixelHeight::<Impl, IMPL_OFFSET>,
-            GetPixelDataAsync::<Impl, IMPL_OFFSET>,
-            GetPixelDataTransformedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapFrame, BASE_OFFSET>(),
+            GetThumbnailAsync: GetThumbnailAsync::<Impl, IMPL_OFFSET>,
+            BitmapProperties: BitmapProperties::<Impl, IMPL_OFFSET>,
+            BitmapPixelFormat: BitmapPixelFormat::<Impl, IMPL_OFFSET>,
+            BitmapAlphaMode: BitmapAlphaMode::<Impl, IMPL_OFFSET>,
+            DpiX: DpiX::<Impl, IMPL_OFFSET>,
+            DpiY: DpiY::<Impl, IMPL_OFFSET>,
+            PixelWidth: PixelWidth::<Impl, IMPL_OFFSET>,
+            PixelHeight: PixelHeight::<Impl, IMPL_OFFSET>,
+            OrientedPixelWidth: OrientedPixelWidth::<Impl, IMPL_OFFSET>,
+            OrientedPixelHeight: OrientedPixelHeight::<Impl, IMPL_OFFSET>,
+            GetPixelDataAsync: GetPixelDataAsync::<Impl, IMPL_OFFSET>,
+            GetPixelDataTransformedAsync: GetPixelDataTransformedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapFrame as ::windows::core::Interface>::IID
@@ -992,7 +999,12 @@ impl IBitmapFrameWithSoftwareBitmapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapFrameWithSoftwareBitmap>, ::windows::core::GetTrustLevel, GetSoftwareBitmapAsync::<Impl, IMPL_OFFSET>, GetSoftwareBitmapConvertedAsync::<Impl, IMPL_OFFSET>, GetSoftwareBitmapTransformedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapFrameWithSoftwareBitmap, BASE_OFFSET>(),
+            GetSoftwareBitmapAsync: GetSoftwareBitmapAsync::<Impl, IMPL_OFFSET>,
+            GetSoftwareBitmapConvertedAsync: GetSoftwareBitmapConvertedAsync::<Impl, IMPL_OFFSET>,
+            GetSoftwareBitmapTransformedAsync: GetSoftwareBitmapTransformedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapFrameWithSoftwareBitmap as ::windows::core::Interface>::IID
@@ -1020,7 +1032,10 @@ impl IBitmapPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapProperties>, ::windows::core::GetTrustLevel, SetPropertiesAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapProperties, BASE_OFFSET>(),
+            SetPropertiesAsync: SetPropertiesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapProperties as ::windows::core::Interface>::IID
@@ -1048,7 +1063,10 @@ impl IBitmapPropertiesViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapPropertiesView>, ::windows::core::GetTrustLevel, GetPropertiesAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapPropertiesView, BASE_OFFSET>(),
+            GetPropertiesAsync: GetPropertiesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapPropertiesView as ::windows::core::Interface>::IID
@@ -1166,26 +1184,21 @@ impl IBitmapTransformVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBounds(&*(&value as *const <BitmapBounds as ::windows::core::Abi>::Abi as *const <BitmapBounds as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBitmapTransform>,
-            ::windows::core::GetTrustLevel,
-            ScaledWidth::<Impl, IMPL_OFFSET>,
-            SetScaledWidth::<Impl, IMPL_OFFSET>,
-            ScaledHeight::<Impl, IMPL_OFFSET>,
-            SetScaledHeight::<Impl, IMPL_OFFSET>,
-            InterpolationMode::<Impl, IMPL_OFFSET>,
-            SetInterpolationMode::<Impl, IMPL_OFFSET>,
-            Flip::<Impl, IMPL_OFFSET>,
-            SetFlip::<Impl, IMPL_OFFSET>,
-            Rotation::<Impl, IMPL_OFFSET>,
-            SetRotation::<Impl, IMPL_OFFSET>,
-            Bounds::<Impl, IMPL_OFFSET>,
-            SetBounds::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapTransform, BASE_OFFSET>(),
+            ScaledWidth: ScaledWidth::<Impl, IMPL_OFFSET>,
+            SetScaledWidth: SetScaledWidth::<Impl, IMPL_OFFSET>,
+            ScaledHeight: ScaledHeight::<Impl, IMPL_OFFSET>,
+            SetScaledHeight: SetScaledHeight::<Impl, IMPL_OFFSET>,
+            InterpolationMode: InterpolationMode::<Impl, IMPL_OFFSET>,
+            SetInterpolationMode: SetInterpolationMode::<Impl, IMPL_OFFSET>,
+            Flip: Flip::<Impl, IMPL_OFFSET>,
+            SetFlip: SetFlip::<Impl, IMPL_OFFSET>,
+            Rotation: Rotation::<Impl, IMPL_OFFSET>,
+            SetRotation: SetRotation::<Impl, IMPL_OFFSET>,
+            Bounds: Bounds::<Impl, IMPL_OFFSET>,
+            SetBounds: SetBounds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapTransform as ::windows::core::Interface>::IID
@@ -1225,7 +1238,11 @@ impl IBitmapTypedValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapTypedValue>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapTypedValue, BASE_OFFSET>(),
+            Value: Value::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapTypedValue as ::windows::core::Interface>::IID
@@ -1253,7 +1270,7 @@ impl IBitmapTypedValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapTypedValueFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapTypedValueFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBitmapTypedValueFactory as ::windows::core::Interface>::IID
@@ -1282,7 +1299,10 @@ impl IPixelDataProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPixelDataProvider>, ::windows::core::GetTrustLevel, DetachPixelData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPixelDataProvider, BASE_OFFSET>(),
+            DetachPixelData: DetachPixelData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPixelDataProvider as ::windows::core::Interface>::IID
@@ -1431,28 +1451,23 @@ impl ISoftwareBitmapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISoftwareBitmap>,
-            ::windows::core::GetTrustLevel,
-            BitmapPixelFormat::<Impl, IMPL_OFFSET>,
-            BitmapAlphaMode::<Impl, IMPL_OFFSET>,
-            PixelWidth::<Impl, IMPL_OFFSET>,
-            PixelHeight::<Impl, IMPL_OFFSET>,
-            IsReadOnly::<Impl, IMPL_OFFSET>,
-            SetDpiX::<Impl, IMPL_OFFSET>,
-            DpiX::<Impl, IMPL_OFFSET>,
-            SetDpiY::<Impl, IMPL_OFFSET>,
-            DpiY::<Impl, IMPL_OFFSET>,
-            LockBuffer::<Impl, IMPL_OFFSET>,
-            CopyTo::<Impl, IMPL_OFFSET>,
-            CopyFromBuffer::<Impl, IMPL_OFFSET>,
-            CopyToBuffer::<Impl, IMPL_OFFSET>,
-            GetReadOnlyView::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISoftwareBitmap, BASE_OFFSET>(),
+            BitmapPixelFormat: BitmapPixelFormat::<Impl, IMPL_OFFSET>,
+            BitmapAlphaMode: BitmapAlphaMode::<Impl, IMPL_OFFSET>,
+            PixelWidth: PixelWidth::<Impl, IMPL_OFFSET>,
+            PixelHeight: PixelHeight::<Impl, IMPL_OFFSET>,
+            IsReadOnly: IsReadOnly::<Impl, IMPL_OFFSET>,
+            SetDpiX: SetDpiX::<Impl, IMPL_OFFSET>,
+            DpiX: DpiX::<Impl, IMPL_OFFSET>,
+            SetDpiY: SetDpiY::<Impl, IMPL_OFFSET>,
+            DpiY: DpiY::<Impl, IMPL_OFFSET>,
+            LockBuffer: LockBuffer::<Impl, IMPL_OFFSET>,
+            CopyTo: CopyTo::<Impl, IMPL_OFFSET>,
+            CopyFromBuffer: CopyFromBuffer::<Impl, IMPL_OFFSET>,
+            CopyToBuffer: CopyToBuffer::<Impl, IMPL_OFFSET>,
+            GetReadOnlyView: GetReadOnlyView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISoftwareBitmap as ::windows::core::Interface>::IID
@@ -1492,7 +1507,11 @@ impl ISoftwareBitmapFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISoftwareBitmapFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithAlpha::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISoftwareBitmapFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithAlpha: CreateWithAlpha::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISoftwareBitmapFactory as ::windows::core::Interface>::IID
@@ -1592,21 +1611,16 @@ impl ISoftwareBitmapStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISoftwareBitmapStatics>,
-            ::windows::core::GetTrustLevel,
-            Copy::<Impl, IMPL_OFFSET>,
-            Convert::<Impl, IMPL_OFFSET>,
-            ConvertWithAlpha::<Impl, IMPL_OFFSET>,
-            CreateCopyFromBuffer::<Impl, IMPL_OFFSET>,
-            CreateCopyWithAlphaFromBuffer::<Impl, IMPL_OFFSET>,
-            CreateCopyFromSurfaceAsync::<Impl, IMPL_OFFSET>,
-            CreateCopyWithAlphaFromSurfaceAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISoftwareBitmapStatics, BASE_OFFSET>(),
+            Copy: Copy::<Impl, IMPL_OFFSET>,
+            Convert: Convert::<Impl, IMPL_OFFSET>,
+            ConvertWithAlpha: ConvertWithAlpha::<Impl, IMPL_OFFSET>,
+            CreateCopyFromBuffer: CreateCopyFromBuffer::<Impl, IMPL_OFFSET>,
+            CreateCopyWithAlphaFromBuffer: CreateCopyWithAlphaFromBuffer::<Impl, IMPL_OFFSET>,
+            CreateCopyFromSurfaceAsync: CreateCopyFromSurfaceAsync::<Impl, IMPL_OFFSET>,
+            CreateCopyWithAlphaFromSurfaceAsync: CreateCopyWithAlphaFromSurfaceAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISoftwareBitmapStatics as ::windows::core::Interface>::IID

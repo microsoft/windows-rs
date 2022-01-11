@@ -11,23 +11,23 @@ impl IWPCGamesSettings {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLoggingRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsLoggingRequired)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).GetLastSettingsChangeTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
     pub unsafe fn GetRestrictions(&self) -> ::windows::core::Result<WPCFLAG_RESTRICTION> {
         let mut result__: WPCFLAG_RESTRICTION = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WPCFLAG_RESTRICTION>(result__)
+        (::windows::core::Interface::vtable(self).GetRestrictions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WPCFLAG_RESTRICTION>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
     pub unsafe fn IsBlocked<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, guidappid: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), guidappid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).IsBlocked)(::core::mem::transmute_copy(self), guidappid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IWPCGamesSettings> for IWPCSettings {
@@ -92,17 +92,10 @@ unsafe impl ::windows::core::Interface for IWPCGamesSettings {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWPCGamesSettingsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrequired: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwrestrictions: *mut WPCFLAG_RESTRICTION) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidappid: ::windows::core::GUID, pdwreasons: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IWPCGamesSettingsVtbl {
+    pub base: IWPCSettingsVtbl,
+    pub IsBlocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidappid: ::windows::core::GUID, pdwreasons: *mut u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
 #[repr(transparent)]
 pub struct IWPCProviderConfig(::windows::core::IUnknown);
@@ -111,17 +104,17 @@ impl IWPCProviderConfig {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserSummary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsid: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrsid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetUserSummary)(::core::mem::transmute_copy(self), bstrsid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Configure<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hwnd: Param0, bstrsid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), bstrsid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Configure)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), bstrsid.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestOverride<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hwnd: Param0, bstrpath: Param1, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), bstrpath.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).RequestOverride)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), bstrpath.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
 }
 impl ::core::convert::From<IWPCProviderConfig> for ::windows::core::IUnknown {
@@ -166,28 +159,32 @@ unsafe impl ::windows::core::Interface for IWPCProviderConfig {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWPCProviderConfigVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrusersummary: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IWPCProviderConfigVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetUserSummary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrusersummary: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetUserSummary: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Configure: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub RequestOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    RequestOverride: usize,
+}
 #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
 #[repr(transparent)]
 pub struct IWPCProviderState(::windows::core::IUnknown);
 impl IWPCProviderState {
     #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
     pub unsafe fn Enable(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Enable)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
     pub unsafe fn Disable(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Disable)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IWPCProviderState> for ::windows::core::IUnknown {
@@ -232,13 +229,11 @@ unsafe impl ::windows::core::Interface for IWPCProviderState {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWPCProviderStateVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IWPCProviderStateVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Disable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
 #[repr(transparent)]
 pub struct IWPCProviderSupport(::windows::core::IUnknown);
@@ -246,7 +241,7 @@ impl IWPCProviderSupport {
     #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetCurrent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
 }
 impl ::core::convert::From<IWPCProviderSupport> for ::windows::core::IUnknown {
@@ -291,7 +286,10 @@ unsafe impl ::windows::core::Interface for IWPCProviderSupport {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWPCProviderSupportVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidprovider: *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
+pub struct IWPCProviderSupportVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidprovider: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
 #[repr(transparent)]
 pub struct IWPCSettings(::windows::core::IUnknown);
@@ -300,18 +298,18 @@ impl IWPCSettings {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLoggingRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsLoggingRequired)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).GetLastSettingsChangeTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
     pub unsafe fn GetRestrictions(&self) -> ::windows::core::Result<WPCFLAG_RESTRICTION> {
         let mut result__: WPCFLAG_RESTRICTION = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WPCFLAG_RESTRICTION>(result__)
+        (::windows::core::Interface::vtable(self).GetRestrictions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WPCFLAG_RESTRICTION>(result__)
     }
 }
 impl ::core::convert::From<IWPCSettings> for ::windows::core::IUnknown {
@@ -356,16 +354,18 @@ unsafe impl ::windows::core::Interface for IWPCSettings {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWPCSettingsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrequired: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwrestrictions: *mut WPCFLAG_RESTRICTION) -> ::windows::core::HRESULT,
-);
+pub struct IWPCSettingsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsLoggingRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrequired: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsLoggingRequired: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetLastSettingsChangeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetLastSettingsChangeTime: usize,
+    pub GetRestrictions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwrestrictions: *mut WPCFLAG_RESTRICTION) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
 #[repr(transparent)]
 pub struct IWPCWebSettings(::windows::core::IUnknown);
@@ -374,29 +374,29 @@ impl IWPCWebSettings {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLoggingRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsLoggingRequired)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).GetLastSettingsChangeTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
     pub unsafe fn GetRestrictions(&self) -> ::windows::core::Result<WPCFLAG_RESTRICTION> {
         let mut result__: WPCFLAG_RESTRICTION = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WPCFLAG_RESTRICTION>(result__)
+        (::windows::core::Interface::vtable(self).GetRestrictions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WPCFLAG_RESTRICTION>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
     pub unsafe fn GetSettings(&self) -> ::windows::core::Result<WPCFLAG_WEB_SETTING> {
         let mut result__: WPCFLAG_WEB_SETTING = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WPCFLAG_WEB_SETTING>(result__)
+        (::windows::core::Interface::vtable(self).GetSettings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WPCFLAG_WEB_SETTING>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestURLOverride<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hwnd: Param0, pcszurl: Param1, curls: u32, ppcszsuburls: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pcszurl.into_param().abi(), ::core::mem::transmute(curls), ::core::mem::transmute(ppcszsuburls), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).RequestURLOverride)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pcszurl.into_param().abi(), ::core::mem::transmute(curls), ::core::mem::transmute(ppcszsuburls), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IWPCWebSettings> for IWPCSettings {
@@ -461,19 +461,14 @@ unsafe impl ::windows::core::Interface for IWPCWebSettings {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWPCWebSettingsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrequired: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwrestrictions: *mut WPCFLAG_RESTRICTION) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsettings: *mut WPCFLAG_WEB_SETTING) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pcszurl: super::super::Foundation::PWSTR, curls: u32, ppcszsuburls: *const super::super::Foundation::PWSTR, pfchanged: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IWPCWebSettingsVtbl {
+    pub base: IWPCSettingsVtbl,
+    pub GetSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsettings: *mut WPCFLAG_WEB_SETTING) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub RequestURLOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pcszurl: super::super::Foundation::PWSTR, curls: u32, ppcszsuburls: *const super::super::Foundation::PWSTR, pfchanged: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    RequestURLOverride: usize,
+}
 #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
 #[repr(transparent)]
 pub struct IWindowsParentalControls(::windows::core::IUnknown);
@@ -481,30 +476,30 @@ impl IWindowsParentalControls {
     #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
     pub unsafe fn GetVisibility(&self) -> ::windows::core::Result<WPCFLAG_VISIBILITY> {
         let mut result__: WPCFLAG_VISIBILITY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WPCFLAG_VISIBILITY>(result__)
+        (::windows::core::Interface::vtable(self).GetVisibility)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WPCFLAG_VISIBILITY>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::core::Result<IWPCSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pcszsid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWPCSettings>(result__)
+        (::windows::core::Interface::vtable(self).GetUserSettings)(::core::mem::transmute_copy(self), pcszsid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWPCSettings>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWebSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::core::Result<IWPCWebSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pcszsid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWPCWebSettings>(result__)
+        (::windows::core::Interface::vtable(self).GetWebSettings)(::core::mem::transmute_copy(self), pcszsid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWPCWebSettings>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWebFilterInfo(&self, pguidid: *mut ::windows::core::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidid), ::core::mem::transmute(ppszname)).ok()
+        (::windows::core::Interface::vtable(self).GetWebFilterInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidid), ::core::mem::transmute(ppszname)).ok()
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGamesSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::core::Result<IWPCGamesSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pcszsid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWPCGamesSettings>(result__)
+        (::windows::core::Interface::vtable(self).GetGamesSettings)(::core::mem::transmute_copy(self), pcszsid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWPCGamesSettings>(result__)
     }
 }
 impl ::core::convert::From<IWindowsParentalControls> for IWindowsParentalControlsCore {
@@ -569,20 +564,13 @@ unsafe impl ::windows::core::Interface for IWindowsParentalControls {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsParentalControlsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevisibility: *mut WPCFLAG_VISIBILITY) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidid: *mut ::windows::core::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IWindowsParentalControlsVtbl {
+    pub base: IWindowsParentalControlsCoreVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetGamesSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetGamesSettings: usize,
+}
 #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
 #[repr(transparent)]
 pub struct IWindowsParentalControlsCore(::windows::core::IUnknown);
@@ -590,24 +578,24 @@ impl IWindowsParentalControlsCore {
     #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
     pub unsafe fn GetVisibility(&self) -> ::windows::core::Result<WPCFLAG_VISIBILITY> {
         let mut result__: WPCFLAG_VISIBILITY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WPCFLAG_VISIBILITY>(result__)
+        (::windows::core::Interface::vtable(self).GetVisibility)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WPCFLAG_VISIBILITY>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::core::Result<IWPCSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pcszsid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWPCSettings>(result__)
+        (::windows::core::Interface::vtable(self).GetUserSettings)(::core::mem::transmute_copy(self), pcszsid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWPCSettings>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWebSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::core::Result<IWPCWebSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pcszsid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWPCWebSettings>(result__)
+        (::windows::core::Interface::vtable(self).GetWebSettings)(::core::mem::transmute_copy(self), pcszsid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWPCWebSettings>(result__)
     }
     #[doc = "*Required features: 'Win32_System_ParentalControls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWebFilterInfo(&self, pguidid: *mut ::windows::core::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidid), ::core::mem::transmute(ppszname)).ok()
+        (::windows::core::Interface::vtable(self).GetWebFilterInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidid), ::core::mem::transmute(ppszname)).ok()
     }
 }
 impl ::core::convert::From<IWindowsParentalControlsCore> for ::windows::core::IUnknown {
@@ -652,18 +640,22 @@ unsafe impl ::windows::core::Interface for IWindowsParentalControlsCore {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsParentalControlsCoreVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevisibility: *mut WPCFLAG_VISIBILITY) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidid: *mut ::windows::core::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IWindowsParentalControlsCoreVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevisibility: *mut WPCFLAG_VISIBILITY) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetUserSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetUserSettings: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetWebSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetWebSettings: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetWebFilterInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidid: *mut ::windows::core::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetWebFilterInfo: usize,
+}
 #[doc = "*Required features: 'Win32_System_ParentalControls'*"]
 pub const MSG_Event_AppBlocked: i32 = -1342177264i32;
 #[doc = "*Required features: 'Win32_System_ParentalControls'*"]

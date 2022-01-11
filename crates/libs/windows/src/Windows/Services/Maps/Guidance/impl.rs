@@ -44,7 +44,12 @@ impl IGuidanceAudioNotificationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceAudioNotificationRequestedEventArgs>, ::windows::core::GetTrustLevel, AudioNotification::<Impl, IMPL_OFFSET>, AudioFilePaths::<Impl, IMPL_OFFSET>, AudioText::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceAudioNotificationRequestedEventArgs, BASE_OFFSET>(),
+            AudioNotification: AudioNotification::<Impl, IMPL_OFFSET>,
+            AudioFilePaths: AudioFilePaths::<Impl, IMPL_OFFSET>,
+            AudioText: AudioText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceAudioNotificationRequestedEventArgs as ::windows::core::Interface>::IID
@@ -84,7 +89,11 @@ impl IGuidanceLaneInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceLaneInfo>, ::windows::core::GetTrustLevel, LaneMarkers::<Impl, IMPL_OFFSET>, IsOnRoute::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceLaneInfo, BASE_OFFSET>(),
+            LaneMarkers: LaneMarkers::<Impl, IMPL_OFFSET>,
+            IsOnRoute: IsOnRoute::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceLaneInfo as ::windows::core::Interface>::IID
@@ -244,26 +253,21 @@ impl IGuidanceManeuverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGuidanceManeuver>,
-            ::windows::core::GetTrustLevel,
-            StartLocation::<Impl, IMPL_OFFSET>,
-            DistanceFromRouteStart::<Impl, IMPL_OFFSET>,
-            DistanceFromPreviousManeuver::<Impl, IMPL_OFFSET>,
-            DepartureRoadName::<Impl, IMPL_OFFSET>,
-            NextRoadName::<Impl, IMPL_OFFSET>,
-            DepartureShortRoadName::<Impl, IMPL_OFFSET>,
-            NextShortRoadName::<Impl, IMPL_OFFSET>,
-            Kind::<Impl, IMPL_OFFSET>,
-            StartAngle::<Impl, IMPL_OFFSET>,
-            EndAngle::<Impl, IMPL_OFFSET>,
-            RoadSignpost::<Impl, IMPL_OFFSET>,
-            InstructionText::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceManeuver, BASE_OFFSET>(),
+            StartLocation: StartLocation::<Impl, IMPL_OFFSET>,
+            DistanceFromRouteStart: DistanceFromRouteStart::<Impl, IMPL_OFFSET>,
+            DistanceFromPreviousManeuver: DistanceFromPreviousManeuver::<Impl, IMPL_OFFSET>,
+            DepartureRoadName: DepartureRoadName::<Impl, IMPL_OFFSET>,
+            NextRoadName: NextRoadName::<Impl, IMPL_OFFSET>,
+            DepartureShortRoadName: DepartureShortRoadName::<Impl, IMPL_OFFSET>,
+            NextShortRoadName: NextShortRoadName::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            StartAngle: StartAngle::<Impl, IMPL_OFFSET>,
+            EndAngle: EndAngle::<Impl, IMPL_OFFSET>,
+            RoadSignpost: RoadSignpost::<Impl, IMPL_OFFSET>,
+            InstructionText: InstructionText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceManeuver as ::windows::core::Interface>::IID
@@ -339,7 +343,14 @@ impl IGuidanceMapMatchedCoordinateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceMapMatchedCoordinate>, ::windows::core::GetTrustLevel, Location::<Impl, IMPL_OFFSET>, CurrentHeading::<Impl, IMPL_OFFSET>, CurrentSpeed::<Impl, IMPL_OFFSET>, IsOnStreet::<Impl, IMPL_OFFSET>, Road::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceMapMatchedCoordinate, BASE_OFFSET>(),
+            Location: Location::<Impl, IMPL_OFFSET>,
+            CurrentHeading: CurrentHeading::<Impl, IMPL_OFFSET>,
+            CurrentSpeed: CurrentSpeed::<Impl, IMPL_OFFSET>,
+            IsOnStreet: IsOnStreet::<Impl, IMPL_OFFSET>,
+            Road: Road::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceMapMatchedCoordinate as ::windows::core::Interface>::IID
@@ -560,42 +571,37 @@ impl IGuidanceNavigatorVtbl {
                 .UpdateUserLocationWithPositionOverride(&*(&userlocation as *const <super::super::super::Devices::Geolocation::Geocoordinate as ::windows::core::Abi>::Abi as *const <super::super::super::Devices::Geolocation::Geocoordinate as ::windows::core::DefaultType>::DefaultType), &*(&positionoverride as *const <super::super::super::Devices::Geolocation::BasicGeoposition as ::windows::core::Abi>::Abi as *const <super::super::super::Devices::Geolocation::BasicGeoposition as ::windows::core::DefaultType>::DefaultType))
                 .into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGuidanceNavigator>,
-            ::windows::core::GetTrustLevel,
-            StartNavigating::<Impl, IMPL_OFFSET>,
-            StartSimulating::<Impl, IMPL_OFFSET>,
-            StartTracking::<Impl, IMPL_OFFSET>,
-            Pause::<Impl, IMPL_OFFSET>,
-            Resume::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            RepeatLastAudioNotification::<Impl, IMPL_OFFSET>,
-            AudioMeasurementSystem::<Impl, IMPL_OFFSET>,
-            SetAudioMeasurementSystem::<Impl, IMPL_OFFSET>,
-            AudioNotifications::<Impl, IMPL_OFFSET>,
-            SetAudioNotifications::<Impl, IMPL_OFFSET>,
-            GuidanceUpdated::<Impl, IMPL_OFFSET>,
-            RemoveGuidanceUpdated::<Impl, IMPL_OFFSET>,
-            DestinationReached::<Impl, IMPL_OFFSET>,
-            RemoveDestinationReached::<Impl, IMPL_OFFSET>,
-            Rerouting::<Impl, IMPL_OFFSET>,
-            RemoveRerouting::<Impl, IMPL_OFFSET>,
-            Rerouted::<Impl, IMPL_OFFSET>,
-            RemoveRerouted::<Impl, IMPL_OFFSET>,
-            RerouteFailed::<Impl, IMPL_OFFSET>,
-            RemoveRerouteFailed::<Impl, IMPL_OFFSET>,
-            UserLocationLost::<Impl, IMPL_OFFSET>,
-            RemoveUserLocationLost::<Impl, IMPL_OFFSET>,
-            UserLocationRestored::<Impl, IMPL_OFFSET>,
-            RemoveUserLocationRestored::<Impl, IMPL_OFFSET>,
-            SetGuidanceVoice::<Impl, IMPL_OFFSET>,
-            UpdateUserLocation::<Impl, IMPL_OFFSET>,
-            UpdateUserLocationWithPositionOverride::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceNavigator, BASE_OFFSET>(),
+            StartNavigating: StartNavigating::<Impl, IMPL_OFFSET>,
+            StartSimulating: StartSimulating::<Impl, IMPL_OFFSET>,
+            StartTracking: StartTracking::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            RepeatLastAudioNotification: RepeatLastAudioNotification::<Impl, IMPL_OFFSET>,
+            AudioMeasurementSystem: AudioMeasurementSystem::<Impl, IMPL_OFFSET>,
+            SetAudioMeasurementSystem: SetAudioMeasurementSystem::<Impl, IMPL_OFFSET>,
+            AudioNotifications: AudioNotifications::<Impl, IMPL_OFFSET>,
+            SetAudioNotifications: SetAudioNotifications::<Impl, IMPL_OFFSET>,
+            GuidanceUpdated: GuidanceUpdated::<Impl, IMPL_OFFSET>,
+            RemoveGuidanceUpdated: RemoveGuidanceUpdated::<Impl, IMPL_OFFSET>,
+            DestinationReached: DestinationReached::<Impl, IMPL_OFFSET>,
+            RemoveDestinationReached: RemoveDestinationReached::<Impl, IMPL_OFFSET>,
+            Rerouting: Rerouting::<Impl, IMPL_OFFSET>,
+            RemoveRerouting: RemoveRerouting::<Impl, IMPL_OFFSET>,
+            Rerouted: Rerouted::<Impl, IMPL_OFFSET>,
+            RemoveRerouted: RemoveRerouted::<Impl, IMPL_OFFSET>,
+            RerouteFailed: RerouteFailed::<Impl, IMPL_OFFSET>,
+            RemoveRerouteFailed: RemoveRerouteFailed::<Impl, IMPL_OFFSET>,
+            UserLocationLost: UserLocationLost::<Impl, IMPL_OFFSET>,
+            RemoveUserLocationLost: RemoveUserLocationLost::<Impl, IMPL_OFFSET>,
+            UserLocationRestored: UserLocationRestored::<Impl, IMPL_OFFSET>,
+            RemoveUserLocationRestored: RemoveUserLocationRestored::<Impl, IMPL_OFFSET>,
+            SetGuidanceVoice: SetGuidanceVoice::<Impl, IMPL_OFFSET>,
+            UpdateUserLocation: UpdateUserLocation::<Impl, IMPL_OFFSET>,
+            UpdateUserLocationWithPositionOverride: UpdateUserLocationWithPositionOverride::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceNavigator as ::windows::core::Interface>::IID
@@ -645,7 +651,13 @@ impl IGuidanceNavigator2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsGuidanceAudioMuted(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceNavigator2>, ::windows::core::GetTrustLevel, AudioNotificationRequested::<Impl, IMPL_OFFSET>, RemoveAudioNotificationRequested::<Impl, IMPL_OFFSET>, IsGuidanceAudioMuted::<Impl, IMPL_OFFSET>, SetIsGuidanceAudioMuted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceNavigator2, BASE_OFFSET>(),
+            AudioNotificationRequested: AudioNotificationRequested::<Impl, IMPL_OFFSET>,
+            RemoveAudioNotificationRequested: RemoveAudioNotificationRequested::<Impl, IMPL_OFFSET>,
+            IsGuidanceAudioMuted: IsGuidanceAudioMuted::<Impl, IMPL_OFFSET>,
+            SetIsGuidanceAudioMuted: SetIsGuidanceAudioMuted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceNavigator2 as ::windows::core::Interface>::IID
@@ -673,7 +685,7 @@ impl IGuidanceNavigatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceNavigatorStatics>, ::windows::core::GetTrustLevel, GetCurrent::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceNavigatorStatics, BASE_OFFSET>(), GetCurrent: GetCurrent::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceNavigatorStatics as ::windows::core::Interface>::IID
@@ -701,7 +713,10 @@ impl IGuidanceNavigatorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceNavigatorStatics2>, ::windows::core::GetTrustLevel, UseAppProvidedVoice::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceNavigatorStatics2, BASE_OFFSET>(),
+            UseAppProvidedVoice: UseAppProvidedVoice::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceNavigatorStatics2 as ::windows::core::Interface>::IID
@@ -729,7 +744,7 @@ impl IGuidanceReroutedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceReroutedEventArgs>, ::windows::core::GetTrustLevel, Route::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceReroutedEventArgs, BASE_OFFSET>(), Route: Route::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceReroutedEventArgs as ::windows::core::Interface>::IID
@@ -853,23 +868,18 @@ impl IGuidanceRoadSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGuidanceRoadSegment>,
-            ::windows::core::GetTrustLevel,
-            RoadName::<Impl, IMPL_OFFSET>,
-            ShortRoadName::<Impl, IMPL_OFFSET>,
-            SpeedLimit::<Impl, IMPL_OFFSET>,
-            TravelTime::<Impl, IMPL_OFFSET>,
-            Path::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            IsHighway::<Impl, IMPL_OFFSET>,
-            IsTunnel::<Impl, IMPL_OFFSET>,
-            IsTollRoad::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceRoadSegment, BASE_OFFSET>(),
+            RoadName: RoadName::<Impl, IMPL_OFFSET>,
+            ShortRoadName: ShortRoadName::<Impl, IMPL_OFFSET>,
+            SpeedLimit: SpeedLimit::<Impl, IMPL_OFFSET>,
+            TravelTime: TravelTime::<Impl, IMPL_OFFSET>,
+            Path: Path::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            IsHighway: IsHighway::<Impl, IMPL_OFFSET>,
+            IsTunnel: IsTunnel::<Impl, IMPL_OFFSET>,
+            IsTollRoad: IsTollRoad::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceRoadSegment as ::windows::core::Interface>::IID
@@ -897,7 +907,7 @@ impl IGuidanceRoadSegment2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceRoadSegment2>, ::windows::core::GetTrustLevel, IsScenic::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceRoadSegment2, BASE_OFFSET>(), IsScenic: IsScenic::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceRoadSegment2 as ::windows::core::Interface>::IID
@@ -973,7 +983,14 @@ impl IGuidanceRoadSignpostVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceRoadSignpost>, ::windows::core::GetTrustLevel, ExitNumber::<Impl, IMPL_OFFSET>, Exit::<Impl, IMPL_OFFSET>, BackgroundColor::<Impl, IMPL_OFFSET>, ForegroundColor::<Impl, IMPL_OFFSET>, ExitDirections::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceRoadSignpost, BASE_OFFSET>(),
+            ExitNumber: ExitNumber::<Impl, IMPL_OFFSET>,
+            Exit: Exit::<Impl, IMPL_OFFSET>,
+            BackgroundColor: BackgroundColor::<Impl, IMPL_OFFSET>,
+            ForegroundColor: ForegroundColor::<Impl, IMPL_OFFSET>,
+            ExitDirections: ExitDirections::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceRoadSignpost as ::windows::core::Interface>::IID
@@ -1073,21 +1090,16 @@ impl IGuidanceRouteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGuidanceRoute>,
-            ::windows::core::GetTrustLevel,
-            Duration::<Impl, IMPL_OFFSET>,
-            Distance::<Impl, IMPL_OFFSET>,
-            Maneuvers::<Impl, IMPL_OFFSET>,
-            BoundingBox::<Impl, IMPL_OFFSET>,
-            Path::<Impl, IMPL_OFFSET>,
-            RoadSegments::<Impl, IMPL_OFFSET>,
-            ConvertToMapRoute::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceRoute, BASE_OFFSET>(),
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            Distance: Distance::<Impl, IMPL_OFFSET>,
+            Maneuvers: Maneuvers::<Impl, IMPL_OFFSET>,
+            BoundingBox: BoundingBox::<Impl, IMPL_OFFSET>,
+            Path: Path::<Impl, IMPL_OFFSET>,
+            RoadSegments: RoadSegments::<Impl, IMPL_OFFSET>,
+            ConvertToMapRoute: ConvertToMapRoute::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceRoute as ::windows::core::Interface>::IID
@@ -1127,7 +1139,11 @@ impl IGuidanceRouteStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceRouteStatics>, ::windows::core::GetTrustLevel, CanCreateFromMapRoute::<Impl, IMPL_OFFSET>, TryCreateFromMapRoute::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceRouteStatics, BASE_OFFSET>(),
+            CanCreateFromMapRoute: CanCreateFromMapRoute::<Impl, IMPL_OFFSET>,
+            TryCreateFromMapRoute: TryCreateFromMapRoute::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceRouteStatics as ::windows::core::Interface>::IID
@@ -1199,21 +1215,16 @@ impl IGuidanceTelemetryCollectorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUploadFrequency(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGuidanceTelemetryCollector>,
-            ::windows::core::GetTrustLevel,
-            Enabled::<Impl, IMPL_OFFSET>,
-            SetEnabled::<Impl, IMPL_OFFSET>,
-            ClearLocalData::<Impl, IMPL_OFFSET>,
-            SpeedTrigger::<Impl, IMPL_OFFSET>,
-            SetSpeedTrigger::<Impl, IMPL_OFFSET>,
-            UploadFrequency::<Impl, IMPL_OFFSET>,
-            SetUploadFrequency::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceTelemetryCollector, BASE_OFFSET>(),
+            Enabled: Enabled::<Impl, IMPL_OFFSET>,
+            SetEnabled: SetEnabled::<Impl, IMPL_OFFSET>,
+            ClearLocalData: ClearLocalData::<Impl, IMPL_OFFSET>,
+            SpeedTrigger: SpeedTrigger::<Impl, IMPL_OFFSET>,
+            SetSpeedTrigger: SetSpeedTrigger::<Impl, IMPL_OFFSET>,
+            UploadFrequency: UploadFrequency::<Impl, IMPL_OFFSET>,
+            SetUploadFrequency: SetUploadFrequency::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceTelemetryCollector as ::windows::core::Interface>::IID
@@ -1241,7 +1252,10 @@ impl IGuidanceTelemetryCollectorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceTelemetryCollectorStatics>, ::windows::core::GetTrustLevel, GetCurrent::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceTelemetryCollectorStatics, BASE_OFFSET>(),
+            GetCurrent: GetCurrent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceTelemetryCollectorStatics as ::windows::core::Interface>::IID
@@ -1425,28 +1439,23 @@ impl IGuidanceUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGuidanceUpdatedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            Mode::<Impl, IMPL_OFFSET>,
-            NextManeuver::<Impl, IMPL_OFFSET>,
-            NextManeuverDistance::<Impl, IMPL_OFFSET>,
-            AfterNextManeuver::<Impl, IMPL_OFFSET>,
-            AfterNextManeuverDistance::<Impl, IMPL_OFFSET>,
-            DistanceToDestination::<Impl, IMPL_OFFSET>,
-            ElapsedDistance::<Impl, IMPL_OFFSET>,
-            ElapsedTime::<Impl, IMPL_OFFSET>,
-            TimeToDestination::<Impl, IMPL_OFFSET>,
-            RoadName::<Impl, IMPL_OFFSET>,
-            Route::<Impl, IMPL_OFFSET>,
-            CurrentLocation::<Impl, IMPL_OFFSET>,
-            IsNewManeuver::<Impl, IMPL_OFFSET>,
-            LaneInfo::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidanceUpdatedEventArgs, BASE_OFFSET>(),
+            Mode: Mode::<Impl, IMPL_OFFSET>,
+            NextManeuver: NextManeuver::<Impl, IMPL_OFFSET>,
+            NextManeuverDistance: NextManeuverDistance::<Impl, IMPL_OFFSET>,
+            AfterNextManeuver: AfterNextManeuver::<Impl, IMPL_OFFSET>,
+            AfterNextManeuverDistance: AfterNextManeuverDistance::<Impl, IMPL_OFFSET>,
+            DistanceToDestination: DistanceToDestination::<Impl, IMPL_OFFSET>,
+            ElapsedDistance: ElapsedDistance::<Impl, IMPL_OFFSET>,
+            ElapsedTime: ElapsedTime::<Impl, IMPL_OFFSET>,
+            TimeToDestination: TimeToDestination::<Impl, IMPL_OFFSET>,
+            RoadName: RoadName::<Impl, IMPL_OFFSET>,
+            Route: Route::<Impl, IMPL_OFFSET>,
+            CurrentLocation: CurrentLocation::<Impl, IMPL_OFFSET>,
+            IsNewManeuver: IsNewManeuver::<Impl, IMPL_OFFSET>,
+            LaneInfo: LaneInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidanceUpdatedEventArgs as ::windows::core::Interface>::IID

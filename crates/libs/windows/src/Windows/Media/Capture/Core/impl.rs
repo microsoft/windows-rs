@@ -56,7 +56,13 @@ impl IVariablePhotoCapturedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVariablePhotoCapturedEventArgs>, ::windows::core::GetTrustLevel, Frame::<Impl, IMPL_OFFSET>, CaptureTimeOffset::<Impl, IMPL_OFFSET>, UsedFrameControllerIndex::<Impl, IMPL_OFFSET>, CapturedFrameControlValues::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVariablePhotoCapturedEventArgs, BASE_OFFSET>(),
+            Frame: Frame::<Impl, IMPL_OFFSET>,
+            CaptureTimeOffset: CaptureTimeOffset::<Impl, IMPL_OFFSET>,
+            UsedFrameControllerIndex: UsedFrameControllerIndex::<Impl, IMPL_OFFSET>,
+            CapturedFrameControlValues: CapturedFrameControlValues::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVariablePhotoCapturedEventArgs as ::windows::core::Interface>::IID
@@ -142,21 +148,16 @@ impl IVariablePhotoSequenceCaptureVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStopped(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVariablePhotoSequenceCapture>,
-            ::windows::core::GetTrustLevel,
-            StartAsync::<Impl, IMPL_OFFSET>,
-            StopAsync::<Impl, IMPL_OFFSET>,
-            FinishAsync::<Impl, IMPL_OFFSET>,
-            PhotoCaptured::<Impl, IMPL_OFFSET>,
-            RemovePhotoCaptured::<Impl, IMPL_OFFSET>,
-            Stopped::<Impl, IMPL_OFFSET>,
-            RemoveStopped::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVariablePhotoSequenceCapture, BASE_OFFSET>(),
+            StartAsync: StartAsync::<Impl, IMPL_OFFSET>,
+            StopAsync: StopAsync::<Impl, IMPL_OFFSET>,
+            FinishAsync: FinishAsync::<Impl, IMPL_OFFSET>,
+            PhotoCaptured: PhotoCaptured::<Impl, IMPL_OFFSET>,
+            RemovePhotoCaptured: RemovePhotoCaptured::<Impl, IMPL_OFFSET>,
+            Stopped: Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped: RemoveStopped::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVariablePhotoSequenceCapture as ::windows::core::Interface>::IID
@@ -184,7 +185,10 @@ impl IVariablePhotoSequenceCapture2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVariablePhotoSequenceCapture2>, ::windows::core::GetTrustLevel, UpdateSettingsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVariablePhotoSequenceCapture2, BASE_OFFSET>(),
+            UpdateSettingsAsync: UpdateSettingsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVariablePhotoSequenceCapture2 as ::windows::core::Interface>::IID

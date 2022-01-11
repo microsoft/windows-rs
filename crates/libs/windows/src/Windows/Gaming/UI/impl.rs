@@ -66,20 +66,15 @@ impl IGameBarStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGameBarStatics>,
-            ::windows::core::GetTrustLevel,
-            VisibilityChanged::<Impl, IMPL_OFFSET>,
-            RemoveVisibilityChanged::<Impl, IMPL_OFFSET>,
-            IsInputRedirectedChanged::<Impl, IMPL_OFFSET>,
-            RemoveIsInputRedirectedChanged::<Impl, IMPL_OFFSET>,
-            Visible::<Impl, IMPL_OFFSET>,
-            IsInputRedirected::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameBarStatics, BASE_OFFSET>(),
+            VisibilityChanged: VisibilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveVisibilityChanged: RemoveVisibilityChanged::<Impl, IMPL_OFFSET>,
+            IsInputRedirectedChanged: IsInputRedirectedChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsInputRedirectedChanged: RemoveIsInputRedirectedChanged::<Impl, IMPL_OFFSET>,
+            Visible: Visible::<Impl, IMPL_OFFSET>,
+            IsInputRedirected: IsInputRedirected::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameBarStatics as ::windows::core::Interface>::IID
@@ -155,7 +150,14 @@ impl IGameChatMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameChatMessageReceivedEventArgs>, ::windows::core::GetTrustLevel, AppId::<Impl, IMPL_OFFSET>, AppDisplayName::<Impl, IMPL_OFFSET>, SenderName::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>, Origin::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameChatMessageReceivedEventArgs, BASE_OFFSET>(),
+            AppId: AppId::<Impl, IMPL_OFFSET>,
+            AppDisplayName: AppDisplayName::<Impl, IMPL_OFFSET>,
+            SenderName: SenderName::<Impl, IMPL_OFFSET>,
+            Message: Message::<Impl, IMPL_OFFSET>,
+            Origin: Origin::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameChatMessageReceivedEventArgs as ::windows::core::Interface>::IID
@@ -193,7 +195,12 @@ impl IGameChatOverlayVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddMessage(&*(&sender as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&message as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), origin).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameChatOverlay>, ::windows::core::GetTrustLevel, DesiredPosition::<Impl, IMPL_OFFSET>, SetDesiredPosition::<Impl, IMPL_OFFSET>, AddMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameChatOverlay, BASE_OFFSET>(),
+            DesiredPosition: DesiredPosition::<Impl, IMPL_OFFSET>,
+            SetDesiredPosition: SetDesiredPosition::<Impl, IMPL_OFFSET>,
+            AddMessage: AddMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameChatOverlay as ::windows::core::Interface>::IID
@@ -231,7 +238,12 @@ impl IGameChatOverlayMessageSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDelayBeforeClosingAfterMessageReceived(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameChatOverlayMessageSource>, ::windows::core::GetTrustLevel, MessageReceived::<Impl, IMPL_OFFSET>, RemoveMessageReceived::<Impl, IMPL_OFFSET>, SetDelayBeforeClosingAfterMessageReceived::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameChatOverlayMessageSource, BASE_OFFSET>(),
+            MessageReceived: MessageReceived::<Impl, IMPL_OFFSET>,
+            RemoveMessageReceived: RemoveMessageReceived::<Impl, IMPL_OFFSET>,
+            SetDelayBeforeClosingAfterMessageReceived: SetDelayBeforeClosingAfterMessageReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameChatOverlayMessageSource as ::windows::core::Interface>::IID
@@ -259,7 +271,7 @@ impl IGameChatOverlayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameChatOverlayStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGameChatOverlayStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameChatOverlayStatics as ::windows::core::Interface>::IID
@@ -292,7 +304,11 @@ impl IGameUIProviderActivatedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted(&*(&results as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameUIProviderActivatedEventArgs>, ::windows::core::GetTrustLevel, GameUIArgs::<Impl, IMPL_OFFSET>, ReportCompleted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameUIProviderActivatedEventArgs, BASE_OFFSET>(),
+            GameUIArgs: GameUIArgs::<Impl, IMPL_OFFSET>,
+            ReportCompleted: ReportCompleted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameUIProviderActivatedEventArgs as ::windows::core::Interface>::IID

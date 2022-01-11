@@ -12,7 +12,11 @@ impl IWsbApplicationAsyncVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, QueryStatus::<Impl, IMPL_OFFSET>, Abort::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            QueryStatus: QueryStatus::<Impl, IMPL_OFFSET>,
+            Abort: Abort::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWsbApplicationAsync as ::windows::core::Interface>::IID
@@ -29,7 +33,7 @@ impl IWsbApplicationBackupSupportVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CheckConsistency::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CheckConsistency: CheckConsistency::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWsbApplicationBackupSupport as ::windows::core::Interface>::IID
@@ -61,7 +65,13 @@ impl IWsbApplicationRestoreSupportVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, PreRestore::<Impl, IMPL_OFFSET>, PostRestore::<Impl, IMPL_OFFSET>, OrderComponents::<Impl, IMPL_OFFSET>, IsRollForwardSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            PreRestore: PreRestore::<Impl, IMPL_OFFSET>,
+            PostRestore: PostRestore::<Impl, IMPL_OFFSET>,
+            OrderComponents: OrderComponents::<Impl, IMPL_OFFSET>,
+            IsRollForwardSupported: IsRollForwardSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWsbApplicationRestoreSupport as ::windows::core::Interface>::IID

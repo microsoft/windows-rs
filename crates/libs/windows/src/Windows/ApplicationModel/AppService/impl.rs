@@ -20,7 +20,10 @@ impl IAppServiceCatalogStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceCatalogStatics>, ::windows::core::GetTrustLevel, FindAppServiceProvidersAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppServiceCatalogStatics, BASE_OFFSET>(),
+            FindAppServiceProvidersAsync: FindAppServiceProvidersAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppServiceCatalogStatics as ::windows::core::Interface>::IID
@@ -48,7 +51,7 @@ impl IAppServiceClosedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceClosedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAppServiceClosedEventArgs, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppServiceClosedEventArgs as ::windows::core::Interface>::IID
@@ -156,24 +159,19 @@ impl IAppServiceConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveServiceClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppServiceConnection>,
-            ::windows::core::GetTrustLevel,
-            AppServiceName::<Impl, IMPL_OFFSET>,
-            SetAppServiceName::<Impl, IMPL_OFFSET>,
-            PackageFamilyName::<Impl, IMPL_OFFSET>,
-            SetPackageFamilyName::<Impl, IMPL_OFFSET>,
-            OpenAsync::<Impl, IMPL_OFFSET>,
-            SendMessageAsync::<Impl, IMPL_OFFSET>,
-            RequestReceived::<Impl, IMPL_OFFSET>,
-            RemoveRequestReceived::<Impl, IMPL_OFFSET>,
-            ServiceClosed::<Impl, IMPL_OFFSET>,
-            RemoveServiceClosed::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppServiceConnection, BASE_OFFSET>(),
+            AppServiceName: AppServiceName::<Impl, IMPL_OFFSET>,
+            SetAppServiceName: SetAppServiceName::<Impl, IMPL_OFFSET>,
+            PackageFamilyName: PackageFamilyName::<Impl, IMPL_OFFSET>,
+            SetPackageFamilyName: SetPackageFamilyName::<Impl, IMPL_OFFSET>,
+            OpenAsync: OpenAsync::<Impl, IMPL_OFFSET>,
+            SendMessageAsync: SendMessageAsync::<Impl, IMPL_OFFSET>,
+            RequestReceived: RequestReceived::<Impl, IMPL_OFFSET>,
+            RemoveRequestReceived: RemoveRequestReceived::<Impl, IMPL_OFFSET>,
+            ServiceClosed: ServiceClosed::<Impl, IMPL_OFFSET>,
+            RemoveServiceClosed: RemoveServiceClosed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppServiceConnection as ::windows::core::Interface>::IID
@@ -218,7 +216,12 @@ impl IAppServiceConnection2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUser(&*(&value as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceConnection2>, ::windows::core::GetTrustLevel, OpenRemoteAsync::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>, SetUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppServiceConnection2, BASE_OFFSET>(),
+            OpenRemoteAsync: OpenRemoteAsync::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+            SetUser: SetUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppServiceConnection2 as ::windows::core::Interface>::IID
@@ -250,7 +253,10 @@ impl IAppServiceConnectionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceConnectionStatics>, ::windows::core::GetTrustLevel, SendStatelessMessageAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppServiceConnectionStatics, BASE_OFFSET>(),
+            SendStatelessMessageAsync: SendStatelessMessageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppServiceConnectionStatics as ::windows::core::Interface>::IID
@@ -271,7 +277,7 @@ impl IAppServiceDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAppServiceDeferral, BASE_OFFSET>(), Complete: Complete::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppServiceDeferral as ::windows::core::Interface>::IID
@@ -311,7 +317,11 @@ impl IAppServiceRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceRequest>, ::windows::core::GetTrustLevel, Message::<Impl, IMPL_OFFSET>, SendResponseAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppServiceRequest, BASE_OFFSET>(),
+            Message: Message::<Impl, IMPL_OFFSET>,
+            SendResponseAsync: SendResponseAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppServiceRequest as ::windows::core::Interface>::IID
@@ -351,7 +361,11 @@ impl IAppServiceRequestReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceRequestReceivedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppServiceRequestReceivedEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppServiceRequestReceivedEventArgs as ::windows::core::Interface>::IID
@@ -391,7 +405,11 @@ impl IAppServiceResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceResponse>, ::windows::core::GetTrustLevel, Message::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppServiceResponse, BASE_OFFSET>(),
+            Message: Message::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppServiceResponse as ::windows::core::Interface>::IID
@@ -443,7 +461,12 @@ impl IAppServiceTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceTriggerDetails>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, CallerPackageFamilyName::<Impl, IMPL_OFFSET>, AppServiceConnection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppServiceTriggerDetails, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            CallerPackageFamilyName: CallerPackageFamilyName::<Impl, IMPL_OFFSET>,
+            AppServiceConnection: AppServiceConnection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppServiceTriggerDetails as ::windows::core::Interface>::IID
@@ -471,7 +494,10 @@ impl IAppServiceTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceTriggerDetails2>, ::windows::core::GetTrustLevel, IsRemoteSystemConnection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppServiceTriggerDetails2, BASE_OFFSET>(),
+            IsRemoteSystemConnection: IsRemoteSystemConnection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppServiceTriggerDetails2 as ::windows::core::Interface>::IID
@@ -499,7 +525,10 @@ impl IAppServiceTriggerDetails3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceTriggerDetails3>, ::windows::core::GetTrustLevel, CheckCallerForCapabilityAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppServiceTriggerDetails3, BASE_OFFSET>(),
+            CheckCallerForCapabilityAsync: CheckCallerForCapabilityAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppServiceTriggerDetails3 as ::windows::core::Interface>::IID
@@ -527,7 +556,10 @@ impl IAppServiceTriggerDetails4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceTriggerDetails4>, ::windows::core::GetTrustLevel, CallerRemoteConnectionToken::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppServiceTriggerDetails4, BASE_OFFSET>(),
+            CallerRemoteConnectionToken: CallerRemoteConnectionToken::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppServiceTriggerDetails4 as ::windows::core::Interface>::IID
@@ -567,7 +599,11 @@ impl IStatelessAppServiceResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStatelessAppServiceResponse>, ::windows::core::GetTrustLevel, Message::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStatelessAppServiceResponse, BASE_OFFSET>(),
+            Message: Message::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStatelessAppServiceResponse as ::windows::core::Interface>::IID

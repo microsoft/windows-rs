@@ -143,27 +143,22 @@ impl IMiracastReceiverVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveKnownTransmitter(&*(&transmitter as *const <MiracastTransmitter as ::windows::core::Abi>::Abi as *const <MiracastTransmitter as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMiracastReceiver>,
-            ::windows::core::GetTrustLevel,
-            GetDefaultSettings::<Impl, IMPL_OFFSET>,
-            GetCurrentSettings::<Impl, IMPL_OFFSET>,
-            GetCurrentSettingsAsync::<Impl, IMPL_OFFSET>,
-            DisconnectAllAndApplySettings::<Impl, IMPL_OFFSET>,
-            DisconnectAllAndApplySettingsAsync::<Impl, IMPL_OFFSET>,
-            GetStatus::<Impl, IMPL_OFFSET>,
-            GetStatusAsync::<Impl, IMPL_OFFSET>,
-            StatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
-            CreateSession::<Impl, IMPL_OFFSET>,
-            CreateSessionAsync::<Impl, IMPL_OFFSET>,
-            ClearKnownTransmitters::<Impl, IMPL_OFFSET>,
-            RemoveKnownTransmitter::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiver, BASE_OFFSET>(),
+            GetDefaultSettings: GetDefaultSettings::<Impl, IMPL_OFFSET>,
+            GetCurrentSettings: GetCurrentSettings::<Impl, IMPL_OFFSET>,
+            GetCurrentSettingsAsync: GetCurrentSettingsAsync::<Impl, IMPL_OFFSET>,
+            DisconnectAllAndApplySettings: DisconnectAllAndApplySettings::<Impl, IMPL_OFFSET>,
+            DisconnectAllAndApplySettingsAsync: DisconnectAllAndApplySettingsAsync::<Impl, IMPL_OFFSET>,
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            GetStatusAsync: GetStatusAsync::<Impl, IMPL_OFFSET>,
+            StatusChanged: StatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged: RemoveStatusChanged::<Impl, IMPL_OFFSET>,
+            CreateSession: CreateSession::<Impl, IMPL_OFFSET>,
+            CreateSessionAsync: CreateSessionAsync::<Impl, IMPL_OFFSET>,
+            ClearKnownTransmitters: ClearKnownTransmitters::<Impl, IMPL_OFFSET>,
+            RemoveKnownTransmitter: RemoveKnownTransmitter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiver as ::windows::core::Interface>::IID
@@ -203,7 +198,11 @@ impl IMiracastReceiverApplySettingsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverApplySettingsResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverApplySettingsResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverApplySettingsResult as ::windows::core::Interface>::IID
@@ -311,24 +310,19 @@ impl IMiracastReceiverConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMiracastReceiverConnection>,
-            ::windows::core::GetTrustLevel,
-            Disconnect::<Impl, IMPL_OFFSET>,
-            DisconnectWithMessage::<Impl, IMPL_OFFSET>,
-            Pause::<Impl, IMPL_OFFSET>,
-            PauseAsync::<Impl, IMPL_OFFSET>,
-            Resume::<Impl, IMPL_OFFSET>,
-            ResumeAsync::<Impl, IMPL_OFFSET>,
-            Transmitter::<Impl, IMPL_OFFSET>,
-            InputDevices::<Impl, IMPL_OFFSET>,
-            CursorImageChannel::<Impl, IMPL_OFFSET>,
-            StreamControl::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverConnection, BASE_OFFSET>(),
+            Disconnect: Disconnect::<Impl, IMPL_OFFSET>,
+            DisconnectWithMessage: DisconnectWithMessage::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            PauseAsync: PauseAsync::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+            ResumeAsync: ResumeAsync::<Impl, IMPL_OFFSET>,
+            Transmitter: Transmitter::<Impl, IMPL_OFFSET>,
+            InputDevices: InputDevices::<Impl, IMPL_OFFSET>,
+            CursorImageChannel: CursorImageChannel::<Impl, IMPL_OFFSET>,
+            StreamControl: StreamControl::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverConnection as ::windows::core::Interface>::IID
@@ -380,7 +374,12 @@ impl IMiracastReceiverConnectionCreatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverConnectionCreatedEventArgs>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>, Pin::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverConnectionCreatedEventArgs, BASE_OFFSET>(),
+            Connection: Connection::<Impl, IMPL_OFFSET>,
+            Pin: Pin::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverConnectionCreatedEventArgs as ::windows::core::Interface>::IID
@@ -478,22 +477,17 @@ impl IMiracastReceiverCursorImageChannelVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePositionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMiracastReceiverCursorImageChannel>,
-            ::windows::core::GetTrustLevel,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            MaxImageSize::<Impl, IMPL_OFFSET>,
-            Position::<Impl, IMPL_OFFSET>,
-            ImageStream::<Impl, IMPL_OFFSET>,
-            ImageStreamChanged::<Impl, IMPL_OFFSET>,
-            RemoveImageStreamChanged::<Impl, IMPL_OFFSET>,
-            PositionChanged::<Impl, IMPL_OFFSET>,
-            RemovePositionChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverCursorImageChannel, BASE_OFFSET>(),
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            MaxImageSize: MaxImageSize::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            ImageStream: ImageStream::<Impl, IMPL_OFFSET>,
+            ImageStreamChanged: ImageStreamChanged::<Impl, IMPL_OFFSET>,
+            RemoveImageStreamChanged: RemoveImageStreamChanged::<Impl, IMPL_OFFSET>,
+            PositionChanged: PositionChanged::<Impl, IMPL_OFFSET>,
+            RemovePositionChanged: RemovePositionChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverCursorImageChannel as ::windows::core::Interface>::IID
@@ -543,7 +537,13 @@ impl IMiracastReceiverCursorImageChannelSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxImageSize(&*(&value as *const <super::super::Graphics::SizeInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::SizeInt32 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverCursorImageChannelSettings>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, IMPL_OFFSET>, SetIsEnabled::<Impl, IMPL_OFFSET>, MaxImageSize::<Impl, IMPL_OFFSET>, SetMaxImageSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverCursorImageChannelSettings, BASE_OFFSET>(),
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled: SetIsEnabled::<Impl, IMPL_OFFSET>,
+            MaxImageSize: MaxImageSize::<Impl, IMPL_OFFSET>,
+            SetMaxImageSize: SetMaxImageSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverCursorImageChannelSettings as ::windows::core::Interface>::IID
@@ -571,7 +571,10 @@ impl IMiracastReceiverDisconnectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverDisconnectedEventArgs>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverDisconnectedEventArgs, BASE_OFFSET>(),
+            Connection: Connection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverDisconnectedEventArgs as ::windows::core::Interface>::IID
@@ -662,22 +665,17 @@ impl IMiracastReceiverGameControllerDeviceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMiracastReceiverGameControllerDevice>,
-            ::windows::core::GetTrustLevel,
-            TransmitInput::<Impl, IMPL_OFFSET>,
-            SetTransmitInput::<Impl, IMPL_OFFSET>,
-            IsRequestedByTransmitter::<Impl, IMPL_OFFSET>,
-            IsTransmittingInput::<Impl, IMPL_OFFSET>,
-            Mode::<Impl, IMPL_OFFSET>,
-            SetMode::<Impl, IMPL_OFFSET>,
-            Changed::<Impl, IMPL_OFFSET>,
-            RemoveChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverGameControllerDevice, BASE_OFFSET>(),
+            TransmitInput: TransmitInput::<Impl, IMPL_OFFSET>,
+            SetTransmitInput: SetTransmitInput::<Impl, IMPL_OFFSET>,
+            IsRequestedByTransmitter: IsRequestedByTransmitter::<Impl, IMPL_OFFSET>,
+            IsTransmittingInput: IsTransmittingInput::<Impl, IMPL_OFFSET>,
+            Mode: Mode::<Impl, IMPL_OFFSET>,
+            SetMode: SetMode::<Impl, IMPL_OFFSET>,
+            Changed: Changed::<Impl, IMPL_OFFSET>,
+            RemoveChanged: RemoveChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverGameControllerDevice as ::windows::core::Interface>::IID
@@ -717,7 +715,11 @@ impl IMiracastReceiverInputDevicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverInputDevices>, ::windows::core::GetTrustLevel, Keyboard::<Impl, IMPL_OFFSET>, GameController::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverInputDevices, BASE_OFFSET>(),
+            Keyboard: Keyboard::<Impl, IMPL_OFFSET>,
+            GameController: GameController::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverInputDevices as ::windows::core::Interface>::IID
@@ -791,20 +793,15 @@ impl IMiracastReceiverKeyboardDeviceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMiracastReceiverKeyboardDevice>,
-            ::windows::core::GetTrustLevel,
-            TransmitInput::<Impl, IMPL_OFFSET>,
-            SetTransmitInput::<Impl, IMPL_OFFSET>,
-            IsRequestedByTransmitter::<Impl, IMPL_OFFSET>,
-            IsTransmittingInput::<Impl, IMPL_OFFSET>,
-            Changed::<Impl, IMPL_OFFSET>,
-            RemoveChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverKeyboardDevice, BASE_OFFSET>(),
+            TransmitInput: TransmitInput::<Impl, IMPL_OFFSET>,
+            SetTransmitInput: SetTransmitInput::<Impl, IMPL_OFFSET>,
+            IsRequestedByTransmitter: IsRequestedByTransmitter::<Impl, IMPL_OFFSET>,
+            IsTransmittingInput: IsTransmittingInput::<Impl, IMPL_OFFSET>,
+            Changed: Changed::<Impl, IMPL_OFFSET>,
+            RemoveChanged: RemoveChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverKeyboardDevice as ::windows::core::Interface>::IID
@@ -868,7 +865,13 @@ impl IMiracastReceiverMediaSourceCreatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverMediaSourceCreatedEventArgs>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>, MediaSource::<Impl, IMPL_OFFSET>, CursorImageChannelSettings::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverMediaSourceCreatedEventArgs, BASE_OFFSET>(),
+            Connection: Connection::<Impl, IMPL_OFFSET>,
+            MediaSource: MediaSource::<Impl, IMPL_OFFSET>,
+            CursorImageChannelSettings: CursorImageChannelSettings::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverMediaSourceCreatedEventArgs as ::windows::core::Interface>::IID
@@ -993,26 +996,21 @@ impl IMiracastReceiverSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMiracastReceiverSession>,
-            ::windows::core::GetTrustLevel,
-            ConnectionCreated::<Impl, IMPL_OFFSET>,
-            RemoveConnectionCreated::<Impl, IMPL_OFFSET>,
-            MediaSourceCreated::<Impl, IMPL_OFFSET>,
-            RemoveMediaSourceCreated::<Impl, IMPL_OFFSET>,
-            Disconnected::<Impl, IMPL_OFFSET>,
-            RemoveDisconnected::<Impl, IMPL_OFFSET>,
-            AllowConnectionTakeover::<Impl, IMPL_OFFSET>,
-            SetAllowConnectionTakeover::<Impl, IMPL_OFFSET>,
-            MaxSimultaneousConnections::<Impl, IMPL_OFFSET>,
-            SetMaxSimultaneousConnections::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            StartAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverSession, BASE_OFFSET>(),
+            ConnectionCreated: ConnectionCreated::<Impl, IMPL_OFFSET>,
+            RemoveConnectionCreated: RemoveConnectionCreated::<Impl, IMPL_OFFSET>,
+            MediaSourceCreated: MediaSourceCreated::<Impl, IMPL_OFFSET>,
+            RemoveMediaSourceCreated: RemoveMediaSourceCreated::<Impl, IMPL_OFFSET>,
+            Disconnected: Disconnected::<Impl, IMPL_OFFSET>,
+            RemoveDisconnected: RemoveDisconnected::<Impl, IMPL_OFFSET>,
+            AllowConnectionTakeover: AllowConnectionTakeover::<Impl, IMPL_OFFSET>,
+            SetAllowConnectionTakeover: SetAllowConnectionTakeover::<Impl, IMPL_OFFSET>,
+            MaxSimultaneousConnections: MaxSimultaneousConnections::<Impl, IMPL_OFFSET>,
+            SetMaxSimultaneousConnections: SetMaxSimultaneousConnections::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            StartAsync: StartAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverSession as ::windows::core::Interface>::IID
@@ -1052,7 +1050,11 @@ impl IMiracastReceiverSessionStartResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverSessionStartResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverSessionStartResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverSessionStartResult as ::windows::core::Interface>::IID
@@ -1153,24 +1155,19 @@ impl IMiracastReceiverSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequireAuthorizationFromKnownTransmitters(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMiracastReceiverSettings>,
-            ::windows::core::GetTrustLevel,
-            FriendlyName::<Impl, IMPL_OFFSET>,
-            SetFriendlyName::<Impl, IMPL_OFFSET>,
-            ModelName::<Impl, IMPL_OFFSET>,
-            SetModelName::<Impl, IMPL_OFFSET>,
-            ModelNumber::<Impl, IMPL_OFFSET>,
-            SetModelNumber::<Impl, IMPL_OFFSET>,
-            AuthorizationMethod::<Impl, IMPL_OFFSET>,
-            SetAuthorizationMethod::<Impl, IMPL_OFFSET>,
-            RequireAuthorizationFromKnownTransmitters::<Impl, IMPL_OFFSET>,
-            SetRequireAuthorizationFromKnownTransmitters::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverSettings, BASE_OFFSET>(),
+            FriendlyName: FriendlyName::<Impl, IMPL_OFFSET>,
+            SetFriendlyName: SetFriendlyName::<Impl, IMPL_OFFSET>,
+            ModelName: ModelName::<Impl, IMPL_OFFSET>,
+            SetModelName: SetModelName::<Impl, IMPL_OFFSET>,
+            ModelNumber: ModelNumber::<Impl, IMPL_OFFSET>,
+            SetModelNumber: SetModelNumber::<Impl, IMPL_OFFSET>,
+            AuthorizationMethod: AuthorizationMethod::<Impl, IMPL_OFFSET>,
+            SetAuthorizationMethod: SetAuthorizationMethod::<Impl, IMPL_OFFSET>,
+            RequireAuthorizationFromKnownTransmitters: RequireAuthorizationFromKnownTransmitters::<Impl, IMPL_OFFSET>,
+            SetRequireAuthorizationFromKnownTransmitters: SetRequireAuthorizationFromKnownTransmitters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverSettings as ::windows::core::Interface>::IID
@@ -1246,19 +1243,14 @@ impl IMiracastReceiverStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMiracastReceiverStatus>,
-            ::windows::core::GetTrustLevel,
-            ListeningStatus::<Impl, IMPL_OFFSET>,
-            WiFiStatus::<Impl, IMPL_OFFSET>,
-            IsConnectionTakeoverSupported::<Impl, IMPL_OFFSET>,
-            MaxSimultaneousConnections::<Impl, IMPL_OFFSET>,
-            KnownTransmitters::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverStatus, BASE_OFFSET>(),
+            ListeningStatus: ListeningStatus::<Impl, IMPL_OFFSET>,
+            WiFiStatus: WiFiStatus::<Impl, IMPL_OFFSET>,
+            IsConnectionTakeoverSupported: IsConnectionTakeoverSupported::<Impl, IMPL_OFFSET>,
+            MaxSimultaneousConnections: MaxSimultaneousConnections::<Impl, IMPL_OFFSET>,
+            KnownTransmitters: KnownTransmitters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverStatus as ::windows::core::Interface>::IID
@@ -1332,20 +1324,15 @@ impl IMiracastReceiverStreamControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMuteAudio(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMiracastReceiverStreamControl>,
-            ::windows::core::GetTrustLevel,
-            GetVideoStreamSettings::<Impl, IMPL_OFFSET>,
-            GetVideoStreamSettingsAsync::<Impl, IMPL_OFFSET>,
-            SuggestVideoStreamSettings::<Impl, IMPL_OFFSET>,
-            SuggestVideoStreamSettingsAsync::<Impl, IMPL_OFFSET>,
-            MuteAudio::<Impl, IMPL_OFFSET>,
-            SetMuteAudio::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverStreamControl, BASE_OFFSET>(),
+            GetVideoStreamSettings: GetVideoStreamSettings::<Impl, IMPL_OFFSET>,
+            GetVideoStreamSettingsAsync: GetVideoStreamSettingsAsync::<Impl, IMPL_OFFSET>,
+            SuggestVideoStreamSettings: SuggestVideoStreamSettings::<Impl, IMPL_OFFSET>,
+            SuggestVideoStreamSettingsAsync: SuggestVideoStreamSettingsAsync::<Impl, IMPL_OFFSET>,
+            MuteAudio: MuteAudio::<Impl, IMPL_OFFSET>,
+            SetMuteAudio: SetMuteAudio::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverStreamControl as ::windows::core::Interface>::IID
@@ -1395,7 +1382,13 @@ impl IMiracastReceiverVideoStreamSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBitrate(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverVideoStreamSettings>, ::windows::core::GetTrustLevel, Size::<Impl, IMPL_OFFSET>, SetSize::<Impl, IMPL_OFFSET>, Bitrate::<Impl, IMPL_OFFSET>, SetBitrate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastReceiverVideoStreamSettings, BASE_OFFSET>(),
+            Size: Size::<Impl, IMPL_OFFSET>,
+            SetSize: SetSize::<Impl, IMPL_OFFSET>,
+            Bitrate: Bitrate::<Impl, IMPL_OFFSET>,
+            SetBitrate: SetBitrate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastReceiverVideoStreamSettings as ::windows::core::Interface>::IID
@@ -1481,21 +1474,16 @@ impl IMiracastTransmitterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMiracastTransmitter>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            SetName::<Impl, IMPL_OFFSET>,
-            AuthorizationStatus::<Impl, IMPL_OFFSET>,
-            SetAuthorizationStatus::<Impl, IMPL_OFFSET>,
-            GetConnections::<Impl, IMPL_OFFSET>,
-            MacAddress::<Impl, IMPL_OFFSET>,
-            LastConnectionTime::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMiracastTransmitter, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            AuthorizationStatus: AuthorizationStatus::<Impl, IMPL_OFFSET>,
+            SetAuthorizationStatus: SetAuthorizationStatus::<Impl, IMPL_OFFSET>,
+            GetConnections: GetConnections::<Impl, IMPL_OFFSET>,
+            MacAddress: MacAddress::<Impl, IMPL_OFFSET>,
+            LastConnectionTime: LastConnectionTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMiracastTransmitter as ::windows::core::Interface>::IID

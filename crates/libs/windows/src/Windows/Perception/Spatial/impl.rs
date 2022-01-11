@@ -49,7 +49,13 @@ impl ISpatialAnchorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRawCoordinateSystemAdjusted(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchor>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, IMPL_OFFSET>, RawCoordinateSystem::<Impl, IMPL_OFFSET>, RawCoordinateSystemAdjusted::<Impl, IMPL_OFFSET>, RemoveRawCoordinateSystemAdjusted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAnchor, BASE_OFFSET>(),
+            CoordinateSystem: CoordinateSystem::<Impl, IMPL_OFFSET>,
+            RawCoordinateSystem: RawCoordinateSystem::<Impl, IMPL_OFFSET>,
+            RawCoordinateSystemAdjusted: RawCoordinateSystemAdjusted::<Impl, IMPL_OFFSET>,
+            RemoveRawCoordinateSystemAdjusted: RemoveRawCoordinateSystemAdjusted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAnchor as ::windows::core::Interface>::IID
@@ -77,7 +83,7 @@ impl ISpatialAnchor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchor2>, ::windows::core::GetTrustLevel, RemovedByUser::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAnchor2, BASE_OFFSET>(), RemovedByUser: RemovedByUser::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAnchor2 as ::windows::core::Interface>::IID
@@ -129,7 +135,12 @@ impl ISpatialAnchorExportSufficiencyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExportSufficiency>, ::windows::core::GetTrustLevel, IsMinimallySufficient::<Impl, IMPL_OFFSET>, SufficiencyLevel::<Impl, IMPL_OFFSET>, RecommendedSufficiencyLevel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAnchorExportSufficiency, BASE_OFFSET>(),
+            IsMinimallySufficient: IsMinimallySufficient::<Impl, IMPL_OFFSET>,
+            SufficiencyLevel: SufficiencyLevel::<Impl, IMPL_OFFSET>,
+            RecommendedSufficiencyLevel: RecommendedSufficiencyLevel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAnchorExportSufficiency as ::windows::core::Interface>::IID
@@ -169,7 +180,11 @@ impl ISpatialAnchorExporterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExporter>, ::windows::core::GetTrustLevel, GetAnchorExportSufficiencyAsync::<Impl, IMPL_OFFSET>, TryExportAnchorAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAnchorExporter, BASE_OFFSET>(),
+            GetAnchorExportSufficiencyAsync: GetAnchorExportSufficiencyAsync::<Impl, IMPL_OFFSET>,
+            TryExportAnchorAsync: TryExportAnchorAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAnchorExporter as ::windows::core::Interface>::IID
@@ -209,7 +224,11 @@ impl ISpatialAnchorExporterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExporterStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAnchorExporterStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAnchorExporterStatics as ::windows::core::Interface>::IID
@@ -237,7 +256,10 @@ impl ISpatialAnchorManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorManagerStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAnchorManagerStatics, BASE_OFFSET>(),
+            RequestStoreAsync: RequestStoreAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAnchorManagerStatics as ::windows::core::Interface>::IID
@@ -265,7 +287,10 @@ impl ISpatialAnchorRawCoordinateSystemAdjustedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorRawCoordinateSystemAdjustedEventArgs>, ::windows::core::GetTrustLevel, OldRawCoordinateSystemToNewRawCoordinateSystemTransform::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAnchorRawCoordinateSystemAdjustedEventArgs, BASE_OFFSET>(),
+            OldRawCoordinateSystemToNewRawCoordinateSystemTransform: OldRawCoordinateSystemToNewRawCoordinateSystemTransform::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAnchorRawCoordinateSystemAdjustedEventArgs as ::windows::core::Interface>::IID
@@ -321,7 +346,12 @@ impl ISpatialAnchorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorStatics>, ::windows::core::GetTrustLevel, TryCreateRelativeTo::<Impl, IMPL_OFFSET>, TryCreateWithPositionRelativeTo::<Impl, IMPL_OFFSET>, TryCreateWithPositionAndOrientationRelativeTo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAnchorStatics, BASE_OFFSET>(),
+            TryCreateRelativeTo: TryCreateRelativeTo::<Impl, IMPL_OFFSET>,
+            TryCreateWithPositionRelativeTo: TryCreateWithPositionRelativeTo::<Impl, IMPL_OFFSET>,
+            TryCreateWithPositionAndOrientationRelativeTo: TryCreateWithPositionAndOrientationRelativeTo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAnchorStatics as ::windows::core::Interface>::IID
@@ -371,7 +401,13 @@ impl ISpatialAnchorStoreVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorStore>, ::windows::core::GetTrustLevel, GetAllSavedAnchors::<Impl, IMPL_OFFSET>, TrySave::<Impl, IMPL_OFFSET>, Remove::<Impl, IMPL_OFFSET>, Clear::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAnchorStore, BASE_OFFSET>(),
+            GetAllSavedAnchors: GetAllSavedAnchors::<Impl, IMPL_OFFSET>,
+            TrySave: TrySave::<Impl, IMPL_OFFSET>,
+            Remove: Remove::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAnchorStore as ::windows::core::Interface>::IID
@@ -426,7 +462,12 @@ impl ISpatialAnchorTransferManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorTransferManagerStatics>, ::windows::core::GetTrustLevel, TryImportAnchorsAsync::<Impl, IMPL_OFFSET>, TryExportAnchorsAsync::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAnchorTransferManagerStatics, BASE_OFFSET>(),
+            TryImportAnchorsAsync: TryImportAnchorsAsync::<Impl, IMPL_OFFSET>,
+            TryExportAnchorsAsync: TryExportAnchorsAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAnchorTransferManagerStatics as ::windows::core::Interface>::IID
@@ -441,7 +482,7 @@ impl ::windows::core::RuntimeName for ISpatialBoundingVolume {
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialBoundingVolumeVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialBoundingVolumeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialBoundingVolumeVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialBoundingVolume>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialBoundingVolume, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialBoundingVolume as ::windows::core::Interface>::IID
@@ -505,7 +546,13 @@ impl ISpatialBoundingVolumeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialBoundingVolumeStatics>, ::windows::core::GetTrustLevel, FromBox::<Impl, IMPL_OFFSET>, FromOrientedBox::<Impl, IMPL_OFFSET>, FromSphere::<Impl, IMPL_OFFSET>, FromFrustum::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialBoundingVolumeStatics, BASE_OFFSET>(),
+            FromBox: FromBox::<Impl, IMPL_OFFSET>,
+            FromOrientedBox: FromOrientedBox::<Impl, IMPL_OFFSET>,
+            FromSphere: FromSphere::<Impl, IMPL_OFFSET>,
+            FromFrustum: FromFrustum::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialBoundingVolumeStatics as ::windows::core::Interface>::IID
@@ -533,7 +580,10 @@ impl ISpatialCoordinateSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialCoordinateSystem>, ::windows::core::GetTrustLevel, TryGetTransformTo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialCoordinateSystem, BASE_OFFSET>(),
+            TryGetTransformTo: TryGetTransformTo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialCoordinateSystem as ::windows::core::Interface>::IID
@@ -585,7 +635,12 @@ impl ISpatialEntityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntity>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Anchor::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialEntity, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Anchor: Anchor::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialEntity as ::windows::core::Interface>::IID
@@ -613,7 +668,7 @@ impl ISpatialEntityAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityAddedEventArgs>, ::windows::core::GetTrustLevel, Entity::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialEntityAddedEventArgs, BASE_OFFSET>(), Entity: Entity::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialEntityAddedEventArgs as ::windows::core::Interface>::IID
@@ -653,7 +708,11 @@ impl ISpatialEntityFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityFactory>, ::windows::core::GetTrustLevel, CreateWithSpatialAnchor::<Impl, IMPL_OFFSET>, CreateWithSpatialAnchorAndProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialEntityFactory, BASE_OFFSET>(),
+            CreateWithSpatialAnchor: CreateWithSpatialAnchor::<Impl, IMPL_OFFSET>,
+            CreateWithSpatialAnchorAndProperties: CreateWithSpatialAnchorAndProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialEntityFactory as ::windows::core::Interface>::IID
@@ -681,7 +740,7 @@ impl ISpatialEntityRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityRemovedEventArgs>, ::windows::core::GetTrustLevel, Entity::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialEntityRemovedEventArgs, BASE_OFFSET>(), Entity: Entity::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialEntityRemovedEventArgs as ::windows::core::Interface>::IID
@@ -733,7 +792,12 @@ impl ISpatialEntityStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityStore>, ::windows::core::GetTrustLevel, SaveAsync::<Impl, IMPL_OFFSET>, RemoveAsync::<Impl, IMPL_OFFSET>, CreateEntityWatcher::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialEntityStore, BASE_OFFSET>(),
+            SaveAsync: SaveAsync::<Impl, IMPL_OFFSET>,
+            RemoveAsync: RemoveAsync::<Impl, IMPL_OFFSET>,
+            CreateEntityWatcher: CreateEntityWatcher::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialEntityStore as ::windows::core::Interface>::IID
@@ -773,7 +837,11 @@ impl ISpatialEntityStoreStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityStoreStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>, TryGetForRemoteSystemSession::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialEntityStoreStatics, BASE_OFFSET>(),
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+            TryGetForRemoteSystemSession: TryGetForRemoteSystemSession::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialEntityStoreStatics as ::windows::core::Interface>::IID
@@ -801,7 +869,7 @@ impl ISpatialEntityUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityUpdatedEventArgs>, ::windows::core::GetTrustLevel, Entity::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialEntityUpdatedEventArgs, BASE_OFFSET>(), Entity: Entity::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialEntityUpdatedEventArgs as ::windows::core::Interface>::IID
@@ -907,25 +975,20 @@ impl ISpatialEntityWatcherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialEntityWatcher>,
-            ::windows::core::GetTrustLevel,
-            Status::<Impl, IMPL_OFFSET>,
-            Added::<Impl, IMPL_OFFSET>,
-            RemoveAdded::<Impl, IMPL_OFFSET>,
-            Updated::<Impl, IMPL_OFFSET>,
-            RemoveUpdated::<Impl, IMPL_OFFSET>,
-            Removed::<Impl, IMPL_OFFSET>,
-            RemoveRemoved::<Impl, IMPL_OFFSET>,
-            EnumerationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialEntityWatcher, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Added: Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded: RemoveAdded::<Impl, IMPL_OFFSET>,
+            Updated: Updated::<Impl, IMPL_OFFSET>,
+            RemoveUpdated: RemoveUpdated::<Impl, IMPL_OFFSET>,
+            Removed: Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved: RemoveRemoved::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialEntityWatcher as ::windows::core::Interface>::IID
@@ -1013,20 +1076,15 @@ impl ISpatialLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialLocation>,
-            ::windows::core::GetTrustLevel,
-            Position::<Impl, IMPL_OFFSET>,
-            Orientation::<Impl, IMPL_OFFSET>,
-            AbsoluteLinearVelocity::<Impl, IMPL_OFFSET>,
-            AbsoluteLinearAcceleration::<Impl, IMPL_OFFSET>,
-            AbsoluteAngularVelocity::<Impl, IMPL_OFFSET>,
-            AbsoluteAngularAcceleration::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialLocation, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            Orientation: Orientation::<Impl, IMPL_OFFSET>,
+            AbsoluteLinearVelocity: AbsoluteLinearVelocity::<Impl, IMPL_OFFSET>,
+            AbsoluteLinearAcceleration: AbsoluteLinearAcceleration::<Impl, IMPL_OFFSET>,
+            AbsoluteAngularVelocity: AbsoluteAngularVelocity::<Impl, IMPL_OFFSET>,
+            AbsoluteAngularAcceleration: AbsoluteAngularAcceleration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialLocation as ::windows::core::Interface>::IID
@@ -1066,7 +1124,11 @@ impl ISpatialLocation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialLocation2>, ::windows::core::GetTrustLevel, AbsoluteAngularVelocityAxisAngle::<Impl, IMPL_OFFSET>, AbsoluteAngularAccelerationAxisAngle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialLocation2, BASE_OFFSET>(),
+            AbsoluteAngularVelocityAxisAngle: AbsoluteAngularVelocityAxisAngle::<Impl, IMPL_OFFSET>,
+            AbsoluteAngularAccelerationAxisAngle: AbsoluteAngularAccelerationAxisAngle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialLocation2 as ::windows::core::Interface>::IID
@@ -1236,28 +1298,23 @@ impl ISpatialLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialLocator>,
-            ::windows::core::GetTrustLevel,
-            Locatability::<Impl, IMPL_OFFSET>,
-            LocatabilityChanged::<Impl, IMPL_OFFSET>,
-            RemoveLocatabilityChanged::<Impl, IMPL_OFFSET>,
-            PositionalTrackingDeactivating::<Impl, IMPL_OFFSET>,
-            RemovePositionalTrackingDeactivating::<Impl, IMPL_OFFSET>,
-            TryLocateAtTimestamp::<Impl, IMPL_OFFSET>,
-            CreateAttachedFrameOfReferenceAtCurrentHeading::<Impl, IMPL_OFFSET>,
-            CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition::<Impl, IMPL_OFFSET>,
-            CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation::<Impl, IMPL_OFFSET>,
-            CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading::<Impl, IMPL_OFFSET>,
-            CreateStationaryFrameOfReferenceAtCurrentLocation::<Impl, IMPL_OFFSET>,
-            CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition::<Impl, IMPL_OFFSET>,
-            CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation::<Impl, IMPL_OFFSET>,
-            CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialLocator, BASE_OFFSET>(),
+            Locatability: Locatability::<Impl, IMPL_OFFSET>,
+            LocatabilityChanged: LocatabilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveLocatabilityChanged: RemoveLocatabilityChanged::<Impl, IMPL_OFFSET>,
+            PositionalTrackingDeactivating: PositionalTrackingDeactivating::<Impl, IMPL_OFFSET>,
+            RemovePositionalTrackingDeactivating: RemovePositionalTrackingDeactivating::<Impl, IMPL_OFFSET>,
+            TryLocateAtTimestamp: TryLocateAtTimestamp::<Impl, IMPL_OFFSET>,
+            CreateAttachedFrameOfReferenceAtCurrentHeading: CreateAttachedFrameOfReferenceAtCurrentHeading::<Impl, IMPL_OFFSET>,
+            CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition: CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition::<Impl, IMPL_OFFSET>,
+            CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation: CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation::<Impl, IMPL_OFFSET>,
+            CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading: CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading::<Impl, IMPL_OFFSET>,
+            CreateStationaryFrameOfReferenceAtCurrentLocation: CreateStationaryFrameOfReferenceAtCurrentLocation::<Impl, IMPL_OFFSET>,
+            CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition: CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition::<Impl, IMPL_OFFSET>,
+            CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation: CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation::<Impl, IMPL_OFFSET>,
+            CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading: CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialLocator as ::windows::core::Interface>::IID
@@ -1336,21 +1393,16 @@ impl ISpatialLocatorAttachedFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialLocatorAttachedFrameOfReference>,
-            ::windows::core::GetTrustLevel,
-            RelativePosition::<Impl, IMPL_OFFSET>,
-            SetRelativePosition::<Impl, IMPL_OFFSET>,
-            RelativeOrientation::<Impl, IMPL_OFFSET>,
-            SetRelativeOrientation::<Impl, IMPL_OFFSET>,
-            AdjustHeading::<Impl, IMPL_OFFSET>,
-            GetStationaryCoordinateSystemAtTimestamp::<Impl, IMPL_OFFSET>,
-            TryGetRelativeHeadingAtTimestamp::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialLocatorAttachedFrameOfReference, BASE_OFFSET>(),
+            RelativePosition: RelativePosition::<Impl, IMPL_OFFSET>,
+            SetRelativePosition: SetRelativePosition::<Impl, IMPL_OFFSET>,
+            RelativeOrientation: RelativeOrientation::<Impl, IMPL_OFFSET>,
+            SetRelativeOrientation: SetRelativeOrientation::<Impl, IMPL_OFFSET>,
+            AdjustHeading: AdjustHeading::<Impl, IMPL_OFFSET>,
+            GetStationaryCoordinateSystemAtTimestamp: GetStationaryCoordinateSystemAtTimestamp::<Impl, IMPL_OFFSET>,
+            TryGetRelativeHeadingAtTimestamp: TryGetRelativeHeadingAtTimestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialLocatorAttachedFrameOfReference as ::windows::core::Interface>::IID
@@ -1383,7 +1435,11 @@ impl ISpatialLocatorPositionalTrackingDeactivatingEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCanceled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialLocatorPositionalTrackingDeactivatingEventArgs>, ::windows::core::GetTrustLevel, Canceled::<Impl, IMPL_OFFSET>, SetCanceled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialLocatorPositionalTrackingDeactivatingEventArgs, BASE_OFFSET>(),
+            Canceled: Canceled::<Impl, IMPL_OFFSET>,
+            SetCanceled: SetCanceled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialLocatorPositionalTrackingDeactivatingEventArgs as ::windows::core::Interface>::IID
@@ -1411,7 +1467,7 @@ impl ISpatialLocatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialLocatorStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialLocatorStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialLocatorStatics as ::windows::core::Interface>::IID
@@ -1488,19 +1544,14 @@ impl ISpatialStageFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialStageFrameOfReference>,
-            ::windows::core::GetTrustLevel,
-            CoordinateSystem::<Impl, IMPL_OFFSET>,
-            MovementRange::<Impl, IMPL_OFFSET>,
-            LookDirectionRange::<Impl, IMPL_OFFSET>,
-            GetCoordinateSystemAtCurrentLocation::<Impl, IMPL_OFFSET>,
-            TryGetMovementBounds::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialStageFrameOfReference, BASE_OFFSET>(),
+            CoordinateSystem: CoordinateSystem::<Impl, IMPL_OFFSET>,
+            MovementRange: MovementRange::<Impl, IMPL_OFFSET>,
+            LookDirectionRange: LookDirectionRange::<Impl, IMPL_OFFSET>,
+            GetCoordinateSystemAtCurrentLocation: GetCoordinateSystemAtCurrentLocation::<Impl, IMPL_OFFSET>,
+            TryGetMovementBounds: TryGetMovementBounds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialStageFrameOfReference as ::windows::core::Interface>::IID
@@ -1557,7 +1608,13 @@ impl ISpatialStageFrameOfReferenceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialStageFrameOfReferenceStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>, CurrentChanged::<Impl, IMPL_OFFSET>, RemoveCurrentChanged::<Impl, IMPL_OFFSET>, RequestNewStageAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialStageFrameOfReferenceStatics, BASE_OFFSET>(),
+            Current: Current::<Impl, IMPL_OFFSET>,
+            CurrentChanged: CurrentChanged::<Impl, IMPL_OFFSET>,
+            RemoveCurrentChanged: RemoveCurrentChanged::<Impl, IMPL_OFFSET>,
+            RequestNewStageAsync: RequestNewStageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialStageFrameOfReferenceStatics as ::windows::core::Interface>::IID
@@ -1585,7 +1642,10 @@ impl ISpatialStationaryFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialStationaryFrameOfReference>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialStationaryFrameOfReference, BASE_OFFSET>(),
+            CoordinateSystem: CoordinateSystem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialStationaryFrameOfReference as ::windows::core::Interface>::IID

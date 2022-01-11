@@ -52,20 +52,15 @@ impl IAddAppointmentOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissUI().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAddAppointmentOperation>,
-            ::windows::core::GetTrustLevel,
-            AppointmentInformation::<Impl, IMPL_OFFSET>,
-            SourcePackageFamilyName::<Impl, IMPL_OFFSET>,
-            ReportCompleted::<Impl, IMPL_OFFSET>,
-            ReportCanceled::<Impl, IMPL_OFFSET>,
-            ReportError::<Impl, IMPL_OFFSET>,
-            DismissUI::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAddAppointmentOperation, BASE_OFFSET>(),
+            AppointmentInformation: AppointmentInformation::<Impl, IMPL_OFFSET>,
+            SourcePackageFamilyName: SourcePackageFamilyName::<Impl, IMPL_OFFSET>,
+            ReportCompleted: ReportCompleted::<Impl, IMPL_OFFSET>,
+            ReportCanceled: ReportCanceled::<Impl, IMPL_OFFSET>,
+            ReportError: ReportError::<Impl, IMPL_OFFSET>,
+            DismissUI: DismissUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAddAppointmentOperation as ::windows::core::Interface>::IID
@@ -129,7 +124,13 @@ impl IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentsProviderLaunchActionVerbsStatics>, ::windows::core::GetTrustLevel, AddAppointment::<Impl, IMPL_OFFSET>, ReplaceAppointment::<Impl, IMPL_OFFSET>, RemoveAppointment::<Impl, IMPL_OFFSET>, ShowTimeFrame::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderLaunchActionVerbsStatics, BASE_OFFSET>(),
+            AddAppointment: AddAppointment::<Impl, IMPL_OFFSET>,
+            ReplaceAppointment: ReplaceAppointment::<Impl, IMPL_OFFSET>,
+            RemoveAppointment: RemoveAppointment::<Impl, IMPL_OFFSET>,
+            ShowTimeFrame: ShowTimeFrame::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentsProviderLaunchActionVerbsStatics as ::windows::core::Interface>::IID
@@ -157,7 +158,10 @@ impl IAppointmentsProviderLaunchActionVerbsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentsProviderLaunchActionVerbsStatics2>, ::windows::core::GetTrustLevel, ShowAppointmentDetails::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderLaunchActionVerbsStatics2, BASE_OFFSET>(),
+            ShowAppointmentDetails: ShowAppointmentDetails::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentsProviderLaunchActionVerbsStatics2 as ::windows::core::Interface>::IID
@@ -229,21 +233,16 @@ impl IRemoveAppointmentOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissUI().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRemoveAppointmentOperation>,
-            ::windows::core::GetTrustLevel,
-            AppointmentId::<Impl, IMPL_OFFSET>,
-            InstanceStartDate::<Impl, IMPL_OFFSET>,
-            SourcePackageFamilyName::<Impl, IMPL_OFFSET>,
-            ReportCompleted::<Impl, IMPL_OFFSET>,
-            ReportCanceled::<Impl, IMPL_OFFSET>,
-            ReportError::<Impl, IMPL_OFFSET>,
-            DismissUI::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoveAppointmentOperation, BASE_OFFSET>(),
+            AppointmentId: AppointmentId::<Impl, IMPL_OFFSET>,
+            InstanceStartDate: InstanceStartDate::<Impl, IMPL_OFFSET>,
+            SourcePackageFamilyName: SourcePackageFamilyName::<Impl, IMPL_OFFSET>,
+            ReportCompleted: ReportCompleted::<Impl, IMPL_OFFSET>,
+            ReportCanceled: ReportCanceled::<Impl, IMPL_OFFSET>,
+            ReportError: ReportError::<Impl, IMPL_OFFSET>,
+            DismissUI: DismissUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoveAppointmentOperation as ::windows::core::Interface>::IID
@@ -327,22 +326,17 @@ impl IReplaceAppointmentOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissUI().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IReplaceAppointmentOperation>,
-            ::windows::core::GetTrustLevel,
-            AppointmentId::<Impl, IMPL_OFFSET>,
-            AppointmentInformation::<Impl, IMPL_OFFSET>,
-            InstanceStartDate::<Impl, IMPL_OFFSET>,
-            SourcePackageFamilyName::<Impl, IMPL_OFFSET>,
-            ReportCompleted::<Impl, IMPL_OFFSET>,
-            ReportCanceled::<Impl, IMPL_OFFSET>,
-            ReportError::<Impl, IMPL_OFFSET>,
-            DismissUI::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IReplaceAppointmentOperation, BASE_OFFSET>(),
+            AppointmentId: AppointmentId::<Impl, IMPL_OFFSET>,
+            AppointmentInformation: AppointmentInformation::<Impl, IMPL_OFFSET>,
+            InstanceStartDate: InstanceStartDate::<Impl, IMPL_OFFSET>,
+            SourcePackageFamilyName: SourcePackageFamilyName::<Impl, IMPL_OFFSET>,
+            ReportCompleted: ReportCompleted::<Impl, IMPL_OFFSET>,
+            ReportCanceled: ReportCanceled::<Impl, IMPL_OFFSET>,
+            ReportError: ReportError::<Impl, IMPL_OFFSET>,
+            DismissUI: DismissUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IReplaceAppointmentOperation as ::windows::core::Interface>::IID

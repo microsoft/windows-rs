@@ -59,20 +59,15 @@ impl II2cConnectionSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSharingMode(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<II2cConnectionSettings>,
-            ::windows::core::GetTrustLevel,
-            SlaveAddress::<Impl, IMPL_OFFSET>,
-            SetSlaveAddress::<Impl, IMPL_OFFSET>,
-            BusSpeed::<Impl, IMPL_OFFSET>,
-            SetBusSpeed::<Impl, IMPL_OFFSET>,
-            SharingMode::<Impl, IMPL_OFFSET>,
-            SetSharingMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, II2cConnectionSettings, BASE_OFFSET>(),
+            SlaveAddress: SlaveAddress::<Impl, IMPL_OFFSET>,
+            SetSlaveAddress: SetSlaveAddress::<Impl, IMPL_OFFSET>,
+            BusSpeed: BusSpeed::<Impl, IMPL_OFFSET>,
+            SetBusSpeed: SetBusSpeed::<Impl, IMPL_OFFSET>,
+            SharingMode: SharingMode::<Impl, IMPL_OFFSET>,
+            SetSharingMode: SetSharingMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<II2cConnectionSettings as ::windows::core::Interface>::IID
@@ -100,7 +95,7 @@ impl II2cConnectionSettingsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cConnectionSettingsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, II2cConnectionSettingsFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<II2cConnectionSettingsFactory as ::windows::core::Interface>::IID
@@ -128,7 +123,7 @@ impl II2cControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cController>, ::windows::core::GetTrustLevel, GetDevice::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, II2cController, BASE_OFFSET>(), GetDevice: GetDevice::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<II2cController as ::windows::core::Interface>::IID
@@ -168,7 +163,11 @@ impl II2cControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cControllerStatics>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, II2cControllerStatics, BASE_OFFSET>(),
+            GetControllersAsync: GetControllersAsync::<Impl, IMPL_OFFSET>,
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<II2cControllerStatics as ::windows::core::Interface>::IID
@@ -259,22 +258,17 @@ impl II2cDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<II2cDevice>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            ConnectionSettings::<Impl, IMPL_OFFSET>,
-            Write::<Impl, IMPL_OFFSET>,
-            WritePartial::<Impl, IMPL_OFFSET>,
-            Read::<Impl, IMPL_OFFSET>,
-            ReadPartial::<Impl, IMPL_OFFSET>,
-            WriteRead::<Impl, IMPL_OFFSET>,
-            WriteReadPartial::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, II2cDevice, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            ConnectionSettings: ConnectionSettings::<Impl, IMPL_OFFSET>,
+            Write: Write::<Impl, IMPL_OFFSET>,
+            WritePartial: WritePartial::<Impl, IMPL_OFFSET>,
+            Read: Read::<Impl, IMPL_OFFSET>,
+            ReadPartial: ReadPartial::<Impl, IMPL_OFFSET>,
+            WriteRead: WriteRead::<Impl, IMPL_OFFSET>,
+            WriteReadPartial: WriteReadPartial::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<II2cDevice as ::windows::core::Interface>::IID
@@ -326,7 +320,12 @@ impl II2cDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromFriendlyName::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, II2cDeviceStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromFriendlyName: GetDeviceSelectorFromFriendlyName::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<II2cDeviceStatics as ::windows::core::Interface>::IID

@@ -73,20 +73,15 @@ impl IWebViewControlAcceleratorKeyPressedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebViewControlAcceleratorKeyPressedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            EventType::<Impl, IMPL_OFFSET>,
-            VirtualKey::<Impl, IMPL_OFFSET>,
-            KeyStatus::<Impl, IMPL_OFFSET>,
-            RoutingStage::<Impl, IMPL_OFFSET>,
-            Handled::<Impl, IMPL_OFFSET>,
-            SetHandled::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlAcceleratorKeyPressedEventArgs, BASE_OFFSET>(),
+            EventType: EventType::<Impl, IMPL_OFFSET>,
+            VirtualKey: VirtualKey::<Impl, IMPL_OFFSET>,
+            KeyStatus: KeyStatus::<Impl, IMPL_OFFSET>,
+            RoutingStage: RoutingStage::<Impl, IMPL_OFFSET>,
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlAcceleratorKeyPressedEventArgs as ::windows::core::Interface>::IID
@@ -114,7 +109,10 @@ impl IWebViewControlMoveFocusRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlMoveFocusRequestedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlMoveFocusRequestedEventArgs, BASE_OFFSET>(),
+            Reason: Reason::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlMoveFocusRequestedEventArgs as ::windows::core::Interface>::IID
@@ -212,22 +210,17 @@ impl IWebViewControlProcessVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveProcessExited(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebViewControlProcess>,
-            ::windows::core::GetTrustLevel,
-            ProcessId::<Impl, IMPL_OFFSET>,
-            EnterpriseId::<Impl, IMPL_OFFSET>,
-            IsPrivateNetworkClientServerCapabilityEnabled::<Impl, IMPL_OFFSET>,
-            CreateWebViewControlAsync::<Impl, IMPL_OFFSET>,
-            GetWebViewControls::<Impl, IMPL_OFFSET>,
-            Terminate::<Impl, IMPL_OFFSET>,
-            ProcessExited::<Impl, IMPL_OFFSET>,
-            RemoveProcessExited::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlProcess, BASE_OFFSET>(),
+            ProcessId: ProcessId::<Impl, IMPL_OFFSET>,
+            EnterpriseId: EnterpriseId::<Impl, IMPL_OFFSET>,
+            IsPrivateNetworkClientServerCapabilityEnabled: IsPrivateNetworkClientServerCapabilityEnabled::<Impl, IMPL_OFFSET>,
+            CreateWebViewControlAsync: CreateWebViewControlAsync::<Impl, IMPL_OFFSET>,
+            GetWebViewControls: GetWebViewControls::<Impl, IMPL_OFFSET>,
+            Terminate: Terminate::<Impl, IMPL_OFFSET>,
+            ProcessExited: ProcessExited::<Impl, IMPL_OFFSET>,
+            RemoveProcessExited: RemoveProcessExited::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlProcess as ::windows::core::Interface>::IID
@@ -255,7 +248,10 @@ impl IWebViewControlProcessFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlProcessFactory>, ::windows::core::GetTrustLevel, CreateWithOptions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlProcessFactory, BASE_OFFSET>(),
+            CreateWithOptions: CreateWithOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlProcessFactory as ::windows::core::Interface>::IID
@@ -305,7 +301,13 @@ impl IWebViewControlProcessOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlProcessOptions>, ::windows::core::GetTrustLevel, SetEnterpriseId::<Impl, IMPL_OFFSET>, EnterpriseId::<Impl, IMPL_OFFSET>, SetPrivateNetworkClientServerCapability::<Impl, IMPL_OFFSET>, PrivateNetworkClientServerCapability::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlProcessOptions, BASE_OFFSET>(),
+            SetEnterpriseId: SetEnterpriseId::<Impl, IMPL_OFFSET>,
+            EnterpriseId: EnterpriseId::<Impl, IMPL_OFFSET>,
+            SetPrivateNetworkClientServerCapability: SetPrivateNetworkClientServerCapability::<Impl, IMPL_OFFSET>,
+            PrivateNetworkClientServerCapability: PrivateNetworkClientServerCapability::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlProcessOptions as ::windows::core::Interface>::IID
@@ -428,27 +430,22 @@ impl IWebViewControlSiteVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAcceleratorKeyPressed(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebViewControlSite>,
-            ::windows::core::GetTrustLevel,
-            Process::<Impl, IMPL_OFFSET>,
-            SetScale::<Impl, IMPL_OFFSET>,
-            Scale::<Impl, IMPL_OFFSET>,
-            SetBounds::<Impl, IMPL_OFFSET>,
-            Bounds::<Impl, IMPL_OFFSET>,
-            SetIsVisible::<Impl, IMPL_OFFSET>,
-            IsVisible::<Impl, IMPL_OFFSET>,
-            Close::<Impl, IMPL_OFFSET>,
-            MoveFocus::<Impl, IMPL_OFFSET>,
-            MoveFocusRequested::<Impl, IMPL_OFFSET>,
-            RemoveMoveFocusRequested::<Impl, IMPL_OFFSET>,
-            AcceleratorKeyPressed::<Impl, IMPL_OFFSET>,
-            RemoveAcceleratorKeyPressed::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlSite, BASE_OFFSET>(),
+            Process: Process::<Impl, IMPL_OFFSET>,
+            SetScale: SetScale::<Impl, IMPL_OFFSET>,
+            Scale: Scale::<Impl, IMPL_OFFSET>,
+            SetBounds: SetBounds::<Impl, IMPL_OFFSET>,
+            Bounds: Bounds::<Impl, IMPL_OFFSET>,
+            SetIsVisible: SetIsVisible::<Impl, IMPL_OFFSET>,
+            IsVisible: IsVisible::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+            MoveFocus: MoveFocus::<Impl, IMPL_OFFSET>,
+            MoveFocusRequested: MoveFocusRequested::<Impl, IMPL_OFFSET>,
+            RemoveMoveFocusRequested: RemoveMoveFocusRequested::<Impl, IMPL_OFFSET>,
+            AcceleratorKeyPressed: AcceleratorKeyPressed::<Impl, IMPL_OFFSET>,
+            RemoveAcceleratorKeyPressed: RemoveAcceleratorKeyPressed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlSite as ::windows::core::Interface>::IID
@@ -498,7 +495,13 @@ impl IWebViewControlSite2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLostFocus(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlSite2>, ::windows::core::GetTrustLevel, GotFocus::<Impl, IMPL_OFFSET>, RemoveGotFocus::<Impl, IMPL_OFFSET>, LostFocus::<Impl, IMPL_OFFSET>, RemoveLostFocus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlSite2, BASE_OFFSET>(),
+            GotFocus: GotFocus::<Impl, IMPL_OFFSET>,
+            RemoveGotFocus: RemoveGotFocus::<Impl, IMPL_OFFSET>,
+            LostFocus: LostFocus::<Impl, IMPL_OFFSET>,
+            RemoveLostFocus: RemoveLostFocus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlSite2 as ::windows::core::Interface>::IID

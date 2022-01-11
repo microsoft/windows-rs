@@ -20,7 +20,7 @@ impl IHtmlUtilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHtmlUtilities>, ::windows::core::GetTrustLevel, ConvertToText::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHtmlUtilities, BASE_OFFSET>(), ConvertToText: ConvertToText::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHtmlUtilities as ::windows::core::Interface>::IID

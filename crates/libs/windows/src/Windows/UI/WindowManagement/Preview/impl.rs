@@ -7,7 +7,7 @@ impl ::windows::core::RuntimeName for IWindowManagementPreview {
 #[cfg(feature = "implement_exclusive")]
 impl IWindowManagementPreviewVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowManagementPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowManagementPreviewVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowManagementPreview>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWindowManagementPreview, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowManagementPreview as ::windows::core::Interface>::IID
@@ -28,7 +28,10 @@ impl IWindowManagementPreviewStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreferredMinSize(&*(&window as *const <super::AppWindow as ::windows::core::Abi>::Abi as *const <super::AppWindow as ::windows::core::DefaultType>::DefaultType), &*(&preferredframeminsize as *const <super::super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowManagementPreviewStatics>, ::windows::core::GetTrustLevel, SetPreferredMinSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWindowManagementPreviewStatics, BASE_OFFSET>(),
+            SetPreferredMinSize: SetPreferredMinSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowManagementPreviewStatics as ::windows::core::Interface>::IID

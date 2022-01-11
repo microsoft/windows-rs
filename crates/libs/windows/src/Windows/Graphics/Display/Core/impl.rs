@@ -97,22 +97,17 @@ impl IHdmiDisplayInformationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDisplayModesChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHdmiDisplayInformation>,
-            ::windows::core::GetTrustLevel,
-            GetSupportedDisplayModes::<Impl, IMPL_OFFSET>,
-            GetCurrentDisplayMode::<Impl, IMPL_OFFSET>,
-            SetDefaultDisplayModeAsync::<Impl, IMPL_OFFSET>,
-            RequestSetCurrentDisplayModeAsync::<Impl, IMPL_OFFSET>,
-            RequestSetCurrentDisplayModeWithHdrAsync::<Impl, IMPL_OFFSET>,
-            RequestSetCurrentDisplayModeWithHdrAndMetadataAsync::<Impl, IMPL_OFFSET>,
-            DisplayModesChanged::<Impl, IMPL_OFFSET>,
-            RemoveDisplayModesChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHdmiDisplayInformation, BASE_OFFSET>(),
+            GetSupportedDisplayModes: GetSupportedDisplayModes::<Impl, IMPL_OFFSET>,
+            GetCurrentDisplayMode: GetCurrentDisplayMode::<Impl, IMPL_OFFSET>,
+            SetDefaultDisplayModeAsync: SetDefaultDisplayModeAsync::<Impl, IMPL_OFFSET>,
+            RequestSetCurrentDisplayModeAsync: RequestSetCurrentDisplayModeAsync::<Impl, IMPL_OFFSET>,
+            RequestSetCurrentDisplayModeWithHdrAsync: RequestSetCurrentDisplayModeWithHdrAsync::<Impl, IMPL_OFFSET>,
+            RequestSetCurrentDisplayModeWithHdrAndMetadataAsync: RequestSetCurrentDisplayModeWithHdrAndMetadataAsync::<Impl, IMPL_OFFSET>,
+            DisplayModesChanged: DisplayModesChanged::<Impl, IMPL_OFFSET>,
+            RemoveDisplayModesChanged: RemoveDisplayModesChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHdmiDisplayInformation as ::windows::core::Interface>::IID
@@ -140,7 +135,10 @@ impl IHdmiDisplayInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHdmiDisplayInformationStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHdmiDisplayInformationStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHdmiDisplayInformationStatics as ::windows::core::Interface>::IID
@@ -288,25 +286,20 @@ impl IHdmiDisplayModeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHdmiDisplayMode>,
-            ::windows::core::GetTrustLevel,
-            ResolutionWidthInRawPixels::<Impl, IMPL_OFFSET>,
-            ResolutionHeightInRawPixels::<Impl, IMPL_OFFSET>,
-            RefreshRate::<Impl, IMPL_OFFSET>,
-            StereoEnabled::<Impl, IMPL_OFFSET>,
-            BitsPerPixel::<Impl, IMPL_OFFSET>,
-            IsEqual::<Impl, IMPL_OFFSET>,
-            ColorSpace::<Impl, IMPL_OFFSET>,
-            PixelEncoding::<Impl, IMPL_OFFSET>,
-            IsSdrLuminanceSupported::<Impl, IMPL_OFFSET>,
-            IsSmpte2084Supported::<Impl, IMPL_OFFSET>,
-            Is2086MetadataSupported::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHdmiDisplayMode, BASE_OFFSET>(),
+            ResolutionWidthInRawPixels: ResolutionWidthInRawPixels::<Impl, IMPL_OFFSET>,
+            ResolutionHeightInRawPixels: ResolutionHeightInRawPixels::<Impl, IMPL_OFFSET>,
+            RefreshRate: RefreshRate::<Impl, IMPL_OFFSET>,
+            StereoEnabled: StereoEnabled::<Impl, IMPL_OFFSET>,
+            BitsPerPixel: BitsPerPixel::<Impl, IMPL_OFFSET>,
+            IsEqual: IsEqual::<Impl, IMPL_OFFSET>,
+            ColorSpace: ColorSpace::<Impl, IMPL_OFFSET>,
+            PixelEncoding: PixelEncoding::<Impl, IMPL_OFFSET>,
+            IsSdrLuminanceSupported: IsSdrLuminanceSupported::<Impl, IMPL_OFFSET>,
+            IsSmpte2084Supported: IsSmpte2084Supported::<Impl, IMPL_OFFSET>,
+            Is2086MetadataSupported: Is2086MetadataSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHdmiDisplayMode as ::windows::core::Interface>::IID
@@ -334,7 +327,10 @@ impl IHdmiDisplayMode2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHdmiDisplayMode2>, ::windows::core::GetTrustLevel, IsDolbyVisionLowLatencySupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHdmiDisplayMode2, BASE_OFFSET>(),
+            IsDolbyVisionLowLatencySupported: IsDolbyVisionLowLatencySupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHdmiDisplayMode2 as ::windows::core::Interface>::IID

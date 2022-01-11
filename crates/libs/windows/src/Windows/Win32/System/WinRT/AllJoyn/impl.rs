@@ -10,7 +10,10 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowsDevicesAllJoynBusAttachmentFactoryInterop>, ::windows::core::GetTrustLevel, CreateFromWin32Handle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWindowsDevicesAllJoynBusAttachmentFactoryInterop, BASE_OFFSET>(),
+            CreateFromWin32Handle: CreateFromWin32Handle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowsDevicesAllJoynBusAttachmentFactoryInterop as ::windows::core::Interface>::IID
@@ -28,7 +31,10 @@ impl IWindowsDevicesAllJoynBusAttachmentInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowsDevicesAllJoynBusAttachmentInterop>, ::windows::core::GetTrustLevel, Win32Handle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWindowsDevicesAllJoynBusAttachmentInterop, BASE_OFFSET>(),
+            Win32Handle: Win32Handle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowsDevicesAllJoynBusAttachmentInterop as ::windows::core::Interface>::IID
@@ -46,7 +52,10 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowsDevicesAllJoynBusObjectFactoryInterop>, ::windows::core::GetTrustLevel, CreateFromWin32Handle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWindowsDevicesAllJoynBusObjectFactoryInterop, BASE_OFFSET>(),
+            CreateFromWin32Handle: CreateFromWin32Handle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowsDevicesAllJoynBusObjectFactoryInterop as ::windows::core::Interface>::IID
@@ -74,7 +83,12 @@ impl IWindowsDevicesAllJoynBusObjectInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowsDevicesAllJoynBusObjectInterop>, ::windows::core::GetTrustLevel, AddPropertyGetHandler::<Impl, IMPL_OFFSET>, AddPropertySetHandler::<Impl, IMPL_OFFSET>, Win32Handle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWindowsDevicesAllJoynBusObjectInterop, BASE_OFFSET>(),
+            AddPropertyGetHandler: AddPropertyGetHandler::<Impl, IMPL_OFFSET>,
+            AddPropertySetHandler: AddPropertySetHandler::<Impl, IMPL_OFFSET>,
+            Win32Handle: Win32Handle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowsDevicesAllJoynBusObjectInterop as ::windows::core::Interface>::IID

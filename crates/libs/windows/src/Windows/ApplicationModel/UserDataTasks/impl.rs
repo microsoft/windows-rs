@@ -248,41 +248,36 @@ impl IUserDataTaskVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStartDate(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserDataTask>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            ListId::<Impl, IMPL_OFFSET>,
-            RemoteId::<Impl, IMPL_OFFSET>,
-            SetRemoteId::<Impl, IMPL_OFFSET>,
-            CompletedDate::<Impl, IMPL_OFFSET>,
-            SetCompletedDate::<Impl, IMPL_OFFSET>,
-            Details::<Impl, IMPL_OFFSET>,
-            SetDetails::<Impl, IMPL_OFFSET>,
-            DetailsKind::<Impl, IMPL_OFFSET>,
-            SetDetailsKind::<Impl, IMPL_OFFSET>,
-            DueDate::<Impl, IMPL_OFFSET>,
-            SetDueDate::<Impl, IMPL_OFFSET>,
-            Kind::<Impl, IMPL_OFFSET>,
-            Priority::<Impl, IMPL_OFFSET>,
-            SetPriority::<Impl, IMPL_OFFSET>,
-            RecurrenceProperties::<Impl, IMPL_OFFSET>,
-            SetRecurrenceProperties::<Impl, IMPL_OFFSET>,
-            RegenerationProperties::<Impl, IMPL_OFFSET>,
-            SetRegenerationProperties::<Impl, IMPL_OFFSET>,
-            Reminder::<Impl, IMPL_OFFSET>,
-            SetReminder::<Impl, IMPL_OFFSET>,
-            Sensitivity::<Impl, IMPL_OFFSET>,
-            SetSensitivity::<Impl, IMPL_OFFSET>,
-            Subject::<Impl, IMPL_OFFSET>,
-            SetSubject::<Impl, IMPL_OFFSET>,
-            StartDate::<Impl, IMPL_OFFSET>,
-            SetStartDate::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTask, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            ListId: ListId::<Impl, IMPL_OFFSET>,
+            RemoteId: RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId: SetRemoteId::<Impl, IMPL_OFFSET>,
+            CompletedDate: CompletedDate::<Impl, IMPL_OFFSET>,
+            SetCompletedDate: SetCompletedDate::<Impl, IMPL_OFFSET>,
+            Details: Details::<Impl, IMPL_OFFSET>,
+            SetDetails: SetDetails::<Impl, IMPL_OFFSET>,
+            DetailsKind: DetailsKind::<Impl, IMPL_OFFSET>,
+            SetDetailsKind: SetDetailsKind::<Impl, IMPL_OFFSET>,
+            DueDate: DueDate::<Impl, IMPL_OFFSET>,
+            SetDueDate: SetDueDate::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            Priority: Priority::<Impl, IMPL_OFFSET>,
+            SetPriority: SetPriority::<Impl, IMPL_OFFSET>,
+            RecurrenceProperties: RecurrenceProperties::<Impl, IMPL_OFFSET>,
+            SetRecurrenceProperties: SetRecurrenceProperties::<Impl, IMPL_OFFSET>,
+            RegenerationProperties: RegenerationProperties::<Impl, IMPL_OFFSET>,
+            SetRegenerationProperties: SetRegenerationProperties::<Impl, IMPL_OFFSET>,
+            Reminder: Reminder::<Impl, IMPL_OFFSET>,
+            SetReminder: SetReminder::<Impl, IMPL_OFFSET>,
+            Sensitivity: Sensitivity::<Impl, IMPL_OFFSET>,
+            SetSensitivity: SetSensitivity::<Impl, IMPL_OFFSET>,
+            Subject: Subject::<Impl, IMPL_OFFSET>,
+            SetSubject: SetSubject::<Impl, IMPL_OFFSET>,
+            StartDate: StartDate::<Impl, IMPL_OFFSET>,
+            SetStartDate: SetStartDate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTask as ::windows::core::Interface>::IID
@@ -310,7 +305,7 @@ impl IUserDataTaskBatchVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskBatch>, ::windows::core::GetTrustLevel, Tasks::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskBatch, BASE_OFFSET>(), Tasks: Tasks::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskBatch as ::windows::core::Interface>::IID
@@ -533,33 +528,28 @@ impl IUserDataTaskListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserDataTaskList>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            UserDataAccountId::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            SetDisplayName::<Impl, IMPL_OFFSET>,
-            SourceDisplayName::<Impl, IMPL_OFFSET>,
-            OtherAppReadAccess::<Impl, IMPL_OFFSET>,
-            SetOtherAppReadAccess::<Impl, IMPL_OFFSET>,
-            OtherAppWriteAccess::<Impl, IMPL_OFFSET>,
-            SetOtherAppWriteAccess::<Impl, IMPL_OFFSET>,
-            LimitedWriteOperations::<Impl, IMPL_OFFSET>,
-            SyncManager::<Impl, IMPL_OFFSET>,
-            RegisterSyncManagerAsync::<Impl, IMPL_OFFSET>,
-            GetTaskReader::<Impl, IMPL_OFFSET>,
-            GetTaskReaderWithOptions::<Impl, IMPL_OFFSET>,
-            GetTaskAsync::<Impl, IMPL_OFFSET>,
-            SaveTaskAsync::<Impl, IMPL_OFFSET>,
-            DeleteTaskAsync::<Impl, IMPL_OFFSET>,
-            DeleteAsync::<Impl, IMPL_OFFSET>,
-            SaveAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskList, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            UserDataAccountId: UserDataAccountId::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            SourceDisplayName: SourceDisplayName::<Impl, IMPL_OFFSET>,
+            OtherAppReadAccess: OtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            SetOtherAppReadAccess: SetOtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            OtherAppWriteAccess: OtherAppWriteAccess::<Impl, IMPL_OFFSET>,
+            SetOtherAppWriteAccess: SetOtherAppWriteAccess::<Impl, IMPL_OFFSET>,
+            LimitedWriteOperations: LimitedWriteOperations::<Impl, IMPL_OFFSET>,
+            SyncManager: SyncManager::<Impl, IMPL_OFFSET>,
+            RegisterSyncManagerAsync: RegisterSyncManagerAsync::<Impl, IMPL_OFFSET>,
+            GetTaskReader: GetTaskReader::<Impl, IMPL_OFFSET>,
+            GetTaskReaderWithOptions: GetTaskReaderWithOptions::<Impl, IMPL_OFFSET>,
+            GetTaskAsync: GetTaskAsync::<Impl, IMPL_OFFSET>,
+            SaveTaskAsync: SaveTaskAsync::<Impl, IMPL_OFFSET>,
+            DeleteTaskAsync: DeleteTaskAsync::<Impl, IMPL_OFFSET>,
+            DeleteAsync: DeleteAsync::<Impl, IMPL_OFFSET>,
+            SaveAsync: SaveAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskList as ::windows::core::Interface>::IID
@@ -623,7 +613,13 @@ impl IUserDataTaskListLimitedWriteOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskListLimitedWriteOperations>, ::windows::core::GetTrustLevel, TryCompleteTaskAsync::<Impl, IMPL_OFFSET>, TryCreateOrUpdateTaskAsync::<Impl, IMPL_OFFSET>, TryDeleteTaskAsync::<Impl, IMPL_OFFSET>, TrySkipOccurrenceAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskListLimitedWriteOperations, BASE_OFFSET>(),
+            TryCompleteTaskAsync: TryCompleteTaskAsync::<Impl, IMPL_OFFSET>,
+            TryCreateOrUpdateTaskAsync: TryCreateOrUpdateTaskAsync::<Impl, IMPL_OFFSET>,
+            TryDeleteTaskAsync: TryDeleteTaskAsync::<Impl, IMPL_OFFSET>,
+            TrySkipOccurrenceAsync: TrySkipOccurrenceAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskListLimitedWriteOperations as ::windows::core::Interface>::IID
@@ -719,23 +715,18 @@ impl IUserDataTaskListSyncManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSyncStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserDataTaskListSyncManager>,
-            ::windows::core::GetTrustLevel,
-            LastAttemptedSyncTime::<Impl, IMPL_OFFSET>,
-            SetLastAttemptedSyncTime::<Impl, IMPL_OFFSET>,
-            LastSuccessfulSyncTime::<Impl, IMPL_OFFSET>,
-            SetLastSuccessfulSyncTime::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            SetStatus::<Impl, IMPL_OFFSET>,
-            SyncAsync::<Impl, IMPL_OFFSET>,
-            SyncStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveSyncStatusChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskListSyncManager, BASE_OFFSET>(),
+            LastAttemptedSyncTime: LastAttemptedSyncTime::<Impl, IMPL_OFFSET>,
+            SetLastAttemptedSyncTime: SetLastAttemptedSyncTime::<Impl, IMPL_OFFSET>,
+            LastSuccessfulSyncTime: LastSuccessfulSyncTime::<Impl, IMPL_OFFSET>,
+            SetLastSuccessfulSyncTime: SetLastSuccessfulSyncTime::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            SetStatus: SetStatus::<Impl, IMPL_OFFSET>,
+            SyncAsync: SyncAsync::<Impl, IMPL_OFFSET>,
+            SyncStatusChanged: SyncStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveSyncStatusChanged: RemoveSyncStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskListSyncManager as ::windows::core::Interface>::IID
@@ -775,7 +766,11 @@ impl IUserDataTaskManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskManager>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskManager, BASE_OFFSET>(),
+            RequestStoreAsync: RequestStoreAsync::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskManager as ::windows::core::Interface>::IID
@@ -815,7 +810,11 @@ impl IUserDataTaskManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskManagerStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskManagerStatics as ::windows::core::Interface>::IID
@@ -865,7 +864,13 @@ impl IUserDataTaskQueryOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKind(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskQueryOptions>, ::windows::core::GetTrustLevel, SortProperty::<Impl, IMPL_OFFSET>, SetSortProperty::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>, SetKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskQueryOptions, BASE_OFFSET>(),
+            SortProperty: SortProperty::<Impl, IMPL_OFFSET>,
+            SetSortProperty: SetSortProperty::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            SetKind: SetKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskQueryOptions as ::windows::core::Interface>::IID
@@ -893,7 +898,10 @@ impl IUserDataTaskReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskReader, BASE_OFFSET>(),
+            ReadBatchAsync: ReadBatchAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskReader as ::windows::core::Interface>::IID
@@ -1045,30 +1053,25 @@ impl IUserDataTaskRecurrencePropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDay(&*(&value as *const <super::super::Foundation::IReference<i32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<i32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserDataTaskRecurrenceProperties>,
-            ::windows::core::GetTrustLevel,
-            Unit::<Impl, IMPL_OFFSET>,
-            SetUnit::<Impl, IMPL_OFFSET>,
-            Occurrences::<Impl, IMPL_OFFSET>,
-            SetOccurrences::<Impl, IMPL_OFFSET>,
-            Until::<Impl, IMPL_OFFSET>,
-            SetUntil::<Impl, IMPL_OFFSET>,
-            Interval::<Impl, IMPL_OFFSET>,
-            SetInterval::<Impl, IMPL_OFFSET>,
-            DaysOfWeek::<Impl, IMPL_OFFSET>,
-            SetDaysOfWeek::<Impl, IMPL_OFFSET>,
-            WeekOfMonth::<Impl, IMPL_OFFSET>,
-            SetWeekOfMonth::<Impl, IMPL_OFFSET>,
-            Month::<Impl, IMPL_OFFSET>,
-            SetMonth::<Impl, IMPL_OFFSET>,
-            Day::<Impl, IMPL_OFFSET>,
-            SetDay::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskRecurrenceProperties, BASE_OFFSET>(),
+            Unit: Unit::<Impl, IMPL_OFFSET>,
+            SetUnit: SetUnit::<Impl, IMPL_OFFSET>,
+            Occurrences: Occurrences::<Impl, IMPL_OFFSET>,
+            SetOccurrences: SetOccurrences::<Impl, IMPL_OFFSET>,
+            Until: Until::<Impl, IMPL_OFFSET>,
+            SetUntil: SetUntil::<Impl, IMPL_OFFSET>,
+            Interval: Interval::<Impl, IMPL_OFFSET>,
+            SetInterval: SetInterval::<Impl, IMPL_OFFSET>,
+            DaysOfWeek: DaysOfWeek::<Impl, IMPL_OFFSET>,
+            SetDaysOfWeek: SetDaysOfWeek::<Impl, IMPL_OFFSET>,
+            WeekOfMonth: WeekOfMonth::<Impl, IMPL_OFFSET>,
+            SetWeekOfMonth: SetWeekOfMonth::<Impl, IMPL_OFFSET>,
+            Month: Month::<Impl, IMPL_OFFSET>,
+            SetMonth: SetMonth::<Impl, IMPL_OFFSET>,
+            Day: Day::<Impl, IMPL_OFFSET>,
+            SetDay: SetDay::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskRecurrenceProperties as ::windows::core::Interface>::IID
@@ -1152,22 +1155,17 @@ impl IUserDataTaskRegenerationPropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInterval(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserDataTaskRegenerationProperties>,
-            ::windows::core::GetTrustLevel,
-            Unit::<Impl, IMPL_OFFSET>,
-            SetUnit::<Impl, IMPL_OFFSET>,
-            Occurrences::<Impl, IMPL_OFFSET>,
-            SetOccurrences::<Impl, IMPL_OFFSET>,
-            Until::<Impl, IMPL_OFFSET>,
-            SetUntil::<Impl, IMPL_OFFSET>,
-            Interval::<Impl, IMPL_OFFSET>,
-            SetInterval::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskRegenerationProperties, BASE_OFFSET>(),
+            Unit: Unit::<Impl, IMPL_OFFSET>,
+            SetUnit: SetUnit::<Impl, IMPL_OFFSET>,
+            Occurrences: Occurrences::<Impl, IMPL_OFFSET>,
+            SetOccurrences: SetOccurrences::<Impl, IMPL_OFFSET>,
+            Until: Until::<Impl, IMPL_OFFSET>,
+            SetUntil: SetUntil::<Impl, IMPL_OFFSET>,
+            Interval: Interval::<Impl, IMPL_OFFSET>,
+            SetInterval: SetInterval::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskRegenerationProperties as ::windows::core::Interface>::IID
@@ -1231,7 +1229,13 @@ impl IUserDataTaskStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskStore>, ::windows::core::GetTrustLevel, CreateListAsync::<Impl, IMPL_OFFSET>, CreateListInAccountAsync::<Impl, IMPL_OFFSET>, FindListsAsync::<Impl, IMPL_OFFSET>, GetListAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskStore, BASE_OFFSET>(),
+            CreateListAsync: CreateListAsync::<Impl, IMPL_OFFSET>,
+            CreateListInAccountAsync: CreateListInAccountAsync::<Impl, IMPL_OFFSET>,
+            FindListsAsync: FindListsAsync::<Impl, IMPL_OFFSET>,
+            GetListAsync: GetListAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskStore as ::windows::core::Interface>::IID

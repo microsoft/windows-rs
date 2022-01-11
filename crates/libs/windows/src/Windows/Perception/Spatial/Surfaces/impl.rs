@@ -68,7 +68,14 @@ impl ISpatialSurfaceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceInfo>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, UpdateTime::<Impl, IMPL_OFFSET>, TryGetBounds::<Impl, IMPL_OFFSET>, TryComputeLatestMeshAsync::<Impl, IMPL_OFFSET>, TryComputeLatestMeshWithOptionsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialSurfaceInfo, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            UpdateTime: UpdateTime::<Impl, IMPL_OFFSET>,
+            TryGetBounds: TryGetBounds::<Impl, IMPL_OFFSET>,
+            TryComputeLatestMeshAsync: TryComputeLatestMeshAsync::<Impl, IMPL_OFFSET>,
+            TryComputeLatestMeshWithOptionsAsync: TryComputeLatestMeshWithOptionsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialSurfaceInfo as ::windows::core::Interface>::IID
@@ -156,20 +163,15 @@ impl ISpatialSurfaceMeshVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMesh>,
-            ::windows::core::GetTrustLevel,
-            SurfaceInfo::<Impl, IMPL_OFFSET>,
-            CoordinateSystem::<Impl, IMPL_OFFSET>,
-            TriangleIndices::<Impl, IMPL_OFFSET>,
-            VertexPositions::<Impl, IMPL_OFFSET>,
-            VertexPositionScale::<Impl, IMPL_OFFSET>,
-            VertexNormals::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialSurfaceMesh, BASE_OFFSET>(),
+            SurfaceInfo: SurfaceInfo::<Impl, IMPL_OFFSET>,
+            CoordinateSystem: CoordinateSystem::<Impl, IMPL_OFFSET>,
+            TriangleIndices: TriangleIndices::<Impl, IMPL_OFFSET>,
+            VertexPositions: VertexPositions::<Impl, IMPL_OFFSET>,
+            VertexPositionScale: VertexPositionScale::<Impl, IMPL_OFFSET>,
+            VertexNormals: VertexNormals::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialSurfaceMesh as ::windows::core::Interface>::IID
@@ -233,7 +235,13 @@ impl ISpatialSurfaceMeshBufferVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMeshBuffer>, ::windows::core::GetTrustLevel, Format::<Impl, IMPL_OFFSET>, Stride::<Impl, IMPL_OFFSET>, ElementCount::<Impl, IMPL_OFFSET>, Data::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialSurfaceMeshBuffer, BASE_OFFSET>(),
+            Format: Format::<Impl, IMPL_OFFSET>,
+            Stride: Stride::<Impl, IMPL_OFFSET>,
+            ElementCount: ElementCount::<Impl, IMPL_OFFSET>,
+            Data: Data::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialSurfaceMeshBuffer as ::windows::core::Interface>::IID
@@ -317,22 +325,17 @@ impl ISpatialSurfaceMeshOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIncludeVertexNormals(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMeshOptions>,
-            ::windows::core::GetTrustLevel,
-            VertexPositionFormat::<Impl, IMPL_OFFSET>,
-            SetVertexPositionFormat::<Impl, IMPL_OFFSET>,
-            TriangleIndexFormat::<Impl, IMPL_OFFSET>,
-            SetTriangleIndexFormat::<Impl, IMPL_OFFSET>,
-            VertexNormalFormat::<Impl, IMPL_OFFSET>,
-            SetVertexNormalFormat::<Impl, IMPL_OFFSET>,
-            IncludeVertexNormals::<Impl, IMPL_OFFSET>,
-            SetIncludeVertexNormals::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialSurfaceMeshOptions, BASE_OFFSET>(),
+            VertexPositionFormat: VertexPositionFormat::<Impl, IMPL_OFFSET>,
+            SetVertexPositionFormat: SetVertexPositionFormat::<Impl, IMPL_OFFSET>,
+            TriangleIndexFormat: TriangleIndexFormat::<Impl, IMPL_OFFSET>,
+            SetTriangleIndexFormat: SetTriangleIndexFormat::<Impl, IMPL_OFFSET>,
+            VertexNormalFormat: VertexNormalFormat::<Impl, IMPL_OFFSET>,
+            SetVertexNormalFormat: SetVertexNormalFormat::<Impl, IMPL_OFFSET>,
+            IncludeVertexNormals: IncludeVertexNormals::<Impl, IMPL_OFFSET>,
+            SetIncludeVertexNormals: SetIncludeVertexNormals::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialSurfaceMeshOptions as ::windows::core::Interface>::IID
@@ -384,7 +387,12 @@ impl ISpatialSurfaceMeshOptionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMeshOptionsStatics>, ::windows::core::GetTrustLevel, SupportedVertexPositionFormats::<Impl, IMPL_OFFSET>, SupportedTriangleIndexFormats::<Impl, IMPL_OFFSET>, SupportedVertexNormalFormats::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialSurfaceMeshOptionsStatics, BASE_OFFSET>(),
+            SupportedVertexPositionFormats: SupportedVertexPositionFormats::<Impl, IMPL_OFFSET>,
+            SupportedTriangleIndexFormats: SupportedTriangleIndexFormats::<Impl, IMPL_OFFSET>,
+            SupportedVertexNormalFormats: SupportedVertexNormalFormats::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialSurfaceMeshOptionsStatics as ::windows::core::Interface>::IID
@@ -439,19 +447,14 @@ impl ISpatialSurfaceObserverVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveObservedSurfacesChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialSurfaceObserver>,
-            ::windows::core::GetTrustLevel,
-            GetObservedSurfaces::<Impl, IMPL_OFFSET>,
-            SetBoundingVolume::<Impl, IMPL_OFFSET>,
-            SetBoundingVolumes::<Impl, IMPL_OFFSET>,
-            ObservedSurfacesChanged::<Impl, IMPL_OFFSET>,
-            RemoveObservedSurfacesChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialSurfaceObserver, BASE_OFFSET>(),
+            GetObservedSurfaces: GetObservedSurfaces::<Impl, IMPL_OFFSET>,
+            SetBoundingVolume: SetBoundingVolume::<Impl, IMPL_OFFSET>,
+            SetBoundingVolumes: SetBoundingVolumes::<Impl, IMPL_OFFSET>,
+            ObservedSurfacesChanged: ObservedSurfacesChanged::<Impl, IMPL_OFFSET>,
+            RemoveObservedSurfacesChanged: RemoveObservedSurfacesChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialSurfaceObserver as ::windows::core::Interface>::IID
@@ -479,7 +482,10 @@ impl ISpatialSurfaceObserverStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceObserverStatics>, ::windows::core::GetTrustLevel, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialSurfaceObserverStatics, BASE_OFFSET>(),
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialSurfaceObserverStatics as ::windows::core::Interface>::IID
@@ -507,7 +513,10 @@ impl ISpatialSurfaceObserverStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceObserverStatics2>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialSurfaceObserverStatics2, BASE_OFFSET>(),
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialSurfaceObserverStatics2 as ::windows::core::Interface>::IID

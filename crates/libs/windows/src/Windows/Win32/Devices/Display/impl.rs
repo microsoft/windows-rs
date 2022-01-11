@@ -24,7 +24,13 @@ impl ICloneViewHelperVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetConnectedIDs::<Impl, IMPL_OFFSET>, GetActiveTopology::<Impl, IMPL_OFFSET>, SetActiveTopology::<Impl, IMPL_OFFSET>, Commit::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetConnectedIDs: GetConnectedIDs::<Impl, IMPL_OFFSET>,
+            GetActiveTopology: GetActiveTopology::<Impl, IMPL_OFFSET>,
+            SetActiveTopology: SetActiveTopology::<Impl, IMPL_OFFSET>,
+            Commit: Commit::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICloneViewHelper as ::windows::core::Interface>::IID
@@ -66,7 +72,15 @@ impl IViewHelperVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetConnectedIDs::<Impl, IMPL_OFFSET>, GetActiveTopology::<Impl, IMPL_OFFSET>, SetActiveTopology::<Impl, IMPL_OFFSET>, Commit::<Impl, IMPL_OFFSET>, SetConfiguration::<Impl, IMPL_OFFSET>, GetProceedOnNewConfiguration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetConnectedIDs: GetConnectedIDs::<Impl, IMPL_OFFSET>,
+            GetActiveTopology: GetActiveTopology::<Impl, IMPL_OFFSET>,
+            SetActiveTopology: SetActiveTopology::<Impl, IMPL_OFFSET>,
+            Commit: Commit::<Impl, IMPL_OFFSET>,
+            SetConfiguration: SetConfiguration::<Impl, IMPL_OFFSET>,
+            GetProceedOnNewConfiguration: GetProceedOnNewConfiguration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IViewHelper as ::windows::core::Interface>::IID

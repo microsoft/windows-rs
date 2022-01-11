@@ -44,7 +44,12 @@ impl ISpatialGraphInteropFrameOfReferencePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialGraphInteropFrameOfReferencePreview>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, IMPL_OFFSET>, NodeId::<Impl, IMPL_OFFSET>, CoordinateSystemToNodeTransform::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialGraphInteropFrameOfReferencePreview, BASE_OFFSET>(),
+            CoordinateSystem: CoordinateSystem::<Impl, IMPL_OFFSET>,
+            NodeId: NodeId::<Impl, IMPL_OFFSET>,
+            CoordinateSystemToNodeTransform: CoordinateSystemToNodeTransform::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialGraphInteropFrameOfReferencePreview as ::windows::core::Interface>::IID
@@ -112,18 +117,13 @@ impl ISpatialGraphInteropPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialGraphInteropPreviewStatics>,
-            ::windows::core::GetTrustLevel,
-            CreateCoordinateSystemForNode::<Impl, IMPL_OFFSET>,
-            CreateCoordinateSystemForNodeWithPosition::<Impl, IMPL_OFFSET>,
-            CreateCoordinateSystemForNodeWithPositionAndOrientation::<Impl, IMPL_OFFSET>,
-            CreateLocatorForNode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialGraphInteropPreviewStatics, BASE_OFFSET>(),
+            CreateCoordinateSystemForNode: CreateCoordinateSystemForNode::<Impl, IMPL_OFFSET>,
+            CreateCoordinateSystemForNodeWithPosition: CreateCoordinateSystemForNodeWithPosition::<Impl, IMPL_OFFSET>,
+            CreateCoordinateSystemForNodeWithPositionAndOrientation: CreateCoordinateSystemForNodeWithPositionAndOrientation::<Impl, IMPL_OFFSET>,
+            CreateLocatorForNode: CreateLocatorForNode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialGraphInteropPreviewStatics as ::windows::core::Interface>::IID
@@ -179,7 +179,12 @@ impl ISpatialGraphInteropPreviewStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialGraphInteropPreviewStatics2>, ::windows::core::GetTrustLevel, TryCreateFrameOfReference::<Impl, IMPL_OFFSET>, TryCreateFrameOfReferenceWithPosition::<Impl, IMPL_OFFSET>, TryCreateFrameOfReferenceWithPositionAndOrientation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialGraphInteropPreviewStatics2, BASE_OFFSET>(),
+            TryCreateFrameOfReference: TryCreateFrameOfReference::<Impl, IMPL_OFFSET>,
+            TryCreateFrameOfReferenceWithPosition: TryCreateFrameOfReferenceWithPosition::<Impl, IMPL_OFFSET>,
+            TryCreateFrameOfReferenceWithPositionAndOrientation: TryCreateFrameOfReferenceWithPositionAndOrientation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialGraphInteropPreviewStatics2 as ::windows::core::Interface>::IID

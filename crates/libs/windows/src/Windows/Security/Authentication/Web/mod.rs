@@ -12,20 +12,21 @@ unsafe impl ::windows::core::Interface for IWebAuthenticationBrokerStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAuthenticationBrokerStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: WebAuthenticationOptions, requesturi: ::windows::core::RawPtr, callbackuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: WebAuthenticationOptions, requesturi: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct IWebAuthenticationBrokerStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub AuthenticateWithCallbackUriAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: WebAuthenticationOptions, requesturi: ::windows::core::RawPtr, callbackuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AuthenticateWithCallbackUriAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub AuthenticateWithoutCallbackUriAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: WebAuthenticationOptions, requesturi: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AuthenticateWithoutCallbackUriAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub GetCurrentApplicationCallbackUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetCurrentApplicationCallbackUri: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebAuthenticationBrokerStatics2(::windows::core::IUnknown);
@@ -35,24 +36,29 @@ unsafe impl ::windows::core::Interface for IWebAuthenticationBrokerStatics2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAuthenticationBrokerStatics2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requesturi: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requesturi: ::windows::core::RawPtr, callbackuri: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requesturi: ::windows::core::RawPtr, callbackuri: ::windows::core::RawPtr, continuationdata: ::windows::core::RawPtr, options: WebAuthenticationOptions) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requesturi: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requesturi: ::windows::core::RawPtr, options: WebAuthenticationOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct IWebAuthenticationBrokerStatics2Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub AuthenticateAndContinue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requesturi: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AuthenticateAndContinue: usize,
+    #[cfg(feature = "Foundation")]
+    pub AuthenticateWithCallbackUriAndContinue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requesturi: ::windows::core::RawPtr, callbackuri: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AuthenticateWithCallbackUriAndContinue: usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    pub AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requesturi: ::windows::core::RawPtr, callbackuri: ::windows::core::RawPtr, continuationdata: ::windows::core::RawPtr, options: WebAuthenticationOptions) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue: usize,
+    #[cfg(feature = "Foundation")]
+    pub AuthenticateSilentlyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requesturi: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AuthenticateSilentlyAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub AuthenticateSilentlyWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requesturi: ::windows::core::RawPtr, options: WebAuthenticationOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AuthenticateSilentlyWithOptionsAsync: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebAuthenticationResult(::windows::core::IUnknown);
@@ -62,17 +68,12 @@ unsafe impl ::windows::core::Interface for IWebAuthenticationResult {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAuthenticationResultVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebAuthenticationStatus) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IWebAuthenticationResultVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub ResponseData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ResponseStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebAuthenticationStatus) -> ::windows::core::HRESULT,
+    pub ResponseErrorDetail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
 pub struct TokenBindingKeyType(pub i32);
@@ -115,7 +116,7 @@ impl WebAuthenticationBroker {
     pub fn AuthenticateWithCallbackUriAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(options: WebAuthenticationOptions, requesturi: Param1, callbackuri: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), options, requesturi.into_param().abi(), callbackuri.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticateWithCallbackUriAsync)(::core::mem::transmute_copy(this), options, requesturi.into_param().abi(), callbackuri.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
         })
     }
     #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation'*"]
@@ -123,7 +124,7 @@ impl WebAuthenticationBroker {
     pub fn AuthenticateWithoutCallbackUriAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(options: WebAuthenticationOptions, requesturi: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), options, requesturi.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticateWithoutCallbackUriAsync)(::core::mem::transmute_copy(this), options, requesturi.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
         })
     }
     #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation'*"]
@@ -131,30 +132,30 @@ impl WebAuthenticationBroker {
     pub fn GetCurrentApplicationCallbackUri() -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentApplicationCallbackUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         })
     }
     #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateAndContinue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(requesturi: Param0) -> ::windows::core::Result<()> {
-        Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), requesturi.into_param().abi()).ok() })
+        Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).AuthenticateAndContinue)(::core::mem::transmute_copy(this), requesturi.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateWithCallbackUriAndContinue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(requesturi: Param0, callbackuri: Param1) -> ::windows::core::Result<()> {
-        Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), requesturi.into_param().abi(), callbackuri.into_param().abi()).ok() })
+        Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).AuthenticateWithCallbackUriAndContinue)(::core::mem::transmute_copy(this), requesturi.into_param().abi(), callbackuri.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::ValueSet>>(requesturi: Param0, callbackuri: Param1, continuationdata: Param2, options: WebAuthenticationOptions) -> ::windows::core::Result<()> {
-        Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), requesturi.into_param().abi(), callbackuri.into_param().abi(), continuationdata.into_param().abi(), options).ok() })
+        Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue)(::core::mem::transmute_copy(this), requesturi.into_param().abi(), callbackuri.into_param().abi(), continuationdata.into_param().abi(), options).ok() })
     }
     #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateSilentlyAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(requesturi: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), requesturi.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticateSilentlyAsync)(::core::mem::transmute_copy(this), requesturi.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
         })
     }
     #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation'*"]
@@ -162,7 +163,7 @@ impl WebAuthenticationBroker {
     pub fn AuthenticateSilentlyWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(requesturi: Param0, options: WebAuthenticationOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), requesturi.into_param().abi(), options, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticateSilentlyWithOptionsAsync)(::core::mem::transmute_copy(this), requesturi.into_param().abi(), options, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -252,7 +253,7 @@ impl WebAuthenticationResult {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ResponseData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Security_Authentication_Web'*"]
@@ -260,7 +261,7 @@ impl WebAuthenticationResult {
         let this = self;
         unsafe {
             let mut result__: WebAuthenticationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebAuthenticationStatus>(result__)
+            (::windows::core::Interface::vtable(this).ResponseStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebAuthenticationStatus>(result__)
         }
     }
     #[doc = "*Required features: 'Security_Authentication_Web'*"]
@@ -268,7 +269,7 @@ impl WebAuthenticationResult {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ResponseErrorDetail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }

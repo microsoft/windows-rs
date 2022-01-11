@@ -77,19 +77,14 @@ impl IAppRecordingManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppRecordingManager>,
-            ::windows::core::GetTrustLevel,
-            GetStatus::<Impl, IMPL_OFFSET>,
-            StartRecordingToFileAsync::<Impl, IMPL_OFFSET>,
-            RecordTimeSpanToFileAsync::<Impl, IMPL_OFFSET>,
-            SupportedScreenshotMediaEncodingSubtypes::<Impl, IMPL_OFFSET>,
-            SaveScreenshotToFilesAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppRecordingManager, BASE_OFFSET>(),
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            StartRecordingToFileAsync: StartRecordingToFileAsync::<Impl, IMPL_OFFSET>,
+            RecordTimeSpanToFileAsync: RecordTimeSpanToFileAsync::<Impl, IMPL_OFFSET>,
+            SupportedScreenshotMediaEncodingSubtypes: SupportedScreenshotMediaEncodingSubtypes::<Impl, IMPL_OFFSET>,
+            SaveScreenshotToFilesAsync: SaveScreenshotToFilesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppRecordingManager as ::windows::core::Interface>::IID
@@ -117,7 +112,10 @@ impl IAppRecordingManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppRecordingManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppRecordingManagerStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppRecordingManagerStatics as ::windows::core::Interface>::IID
@@ -181,7 +179,13 @@ impl IAppRecordingResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppRecordingResult>, ::windows::core::GetTrustLevel, Succeeded::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, Duration::<Impl, IMPL_OFFSET>, IsFileTruncated::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppRecordingResult, BASE_OFFSET>(),
+            Succeeded: Succeeded::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            IsFileTruncated: IsFileTruncated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppRecordingResult as ::windows::core::Interface>::IID
@@ -233,7 +237,12 @@ impl IAppRecordingSaveScreenshotResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppRecordingSaveScreenshotResult>, ::windows::core::GetTrustLevel, Succeeded::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, SavedScreenshotInfos::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppRecordingSaveScreenshotResult, BASE_OFFSET>(),
+            Succeeded: Succeeded::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            SavedScreenshotInfos: SavedScreenshotInfos::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppRecordingSaveScreenshotResult as ::windows::core::Interface>::IID
@@ -273,7 +282,11 @@ impl IAppRecordingSavedScreenshotInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppRecordingSavedScreenshotInfo>, ::windows::core::GetTrustLevel, File::<Impl, IMPL_OFFSET>, MediaEncodingSubtype::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppRecordingSavedScreenshotInfo, BASE_OFFSET>(),
+            File: File::<Impl, IMPL_OFFSET>,
+            MediaEncodingSubtype: MediaEncodingSubtype::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppRecordingSavedScreenshotInfo as ::windows::core::Interface>::IID
@@ -337,7 +350,13 @@ impl IAppRecordingStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppRecordingStatus>, ::windows::core::GetTrustLevel, CanRecord::<Impl, IMPL_OFFSET>, CanRecordTimeSpan::<Impl, IMPL_OFFSET>, HistoricalBufferDuration::<Impl, IMPL_OFFSET>, Details::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppRecordingStatus, BASE_OFFSET>(),
+            CanRecord: CanRecord::<Impl, IMPL_OFFSET>,
+            CanRecordTimeSpan: CanRecordTimeSpan::<Impl, IMPL_OFFSET>,
+            HistoricalBufferDuration: HistoricalBufferDuration::<Impl, IMPL_OFFSET>,
+            Details: Details::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppRecordingStatus as ::windows::core::Interface>::IID
@@ -461,23 +480,18 @@ impl IAppRecordingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppRecordingStatusDetails>,
-            ::windows::core::GetTrustLevel,
-            IsAnyAppBroadcasting::<Impl, IMPL_OFFSET>,
-            IsCaptureResourceUnavailable::<Impl, IMPL_OFFSET>,
-            IsGameStreamInProgress::<Impl, IMPL_OFFSET>,
-            IsTimeSpanRecordingDisabled::<Impl, IMPL_OFFSET>,
-            IsGpuConstrained::<Impl, IMPL_OFFSET>,
-            IsAppInactive::<Impl, IMPL_OFFSET>,
-            IsBlockedForApp::<Impl, IMPL_OFFSET>,
-            IsDisabledByUser::<Impl, IMPL_OFFSET>,
-            IsDisabledBySystem::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppRecordingStatusDetails, BASE_OFFSET>(),
+            IsAnyAppBroadcasting: IsAnyAppBroadcasting::<Impl, IMPL_OFFSET>,
+            IsCaptureResourceUnavailable: IsCaptureResourceUnavailable::<Impl, IMPL_OFFSET>,
+            IsGameStreamInProgress: IsGameStreamInProgress::<Impl, IMPL_OFFSET>,
+            IsTimeSpanRecordingDisabled: IsTimeSpanRecordingDisabled::<Impl, IMPL_OFFSET>,
+            IsGpuConstrained: IsGpuConstrained::<Impl, IMPL_OFFSET>,
+            IsAppInactive: IsAppInactive::<Impl, IMPL_OFFSET>,
+            IsBlockedForApp: IsBlockedForApp::<Impl, IMPL_OFFSET>,
+            IsDisabledByUser: IsDisabledByUser::<Impl, IMPL_OFFSET>,
+            IsDisabledBySystem: IsDisabledBySystem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppRecordingStatusDetails as ::windows::core::Interface>::IID

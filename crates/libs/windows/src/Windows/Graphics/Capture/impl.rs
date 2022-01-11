@@ -44,7 +44,12 @@ impl IDirect3D11CaptureFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirect3D11CaptureFrame>, ::windows::core::GetTrustLevel, Surface::<Impl, IMPL_OFFSET>, SystemRelativeTime::<Impl, IMPL_OFFSET>, ContentSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDirect3D11CaptureFrame, BASE_OFFSET>(),
+            Surface: Surface::<Impl, IMPL_OFFSET>,
+            SystemRelativeTime: SystemRelativeTime::<Impl, IMPL_OFFSET>,
+            ContentSize: ContentSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirect3D11CaptureFrame as ::windows::core::Interface>::IID
@@ -118,20 +123,15 @@ impl IDirect3D11CaptureFramePoolVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDirect3D11CaptureFramePool>,
-            ::windows::core::GetTrustLevel,
-            Recreate::<Impl, IMPL_OFFSET>,
-            TryGetNextFrame::<Impl, IMPL_OFFSET>,
-            FrameArrived::<Impl, IMPL_OFFSET>,
-            RemoveFrameArrived::<Impl, IMPL_OFFSET>,
-            CreateCaptureSession::<Impl, IMPL_OFFSET>,
-            DispatcherQueue::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDirect3D11CaptureFramePool, BASE_OFFSET>(),
+            Recreate: Recreate::<Impl, IMPL_OFFSET>,
+            TryGetNextFrame: TryGetNextFrame::<Impl, IMPL_OFFSET>,
+            FrameArrived: FrameArrived::<Impl, IMPL_OFFSET>,
+            RemoveFrameArrived: RemoveFrameArrived::<Impl, IMPL_OFFSET>,
+            CreateCaptureSession: CreateCaptureSession::<Impl, IMPL_OFFSET>,
+            DispatcherQueue: DispatcherQueue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirect3D11CaptureFramePool as ::windows::core::Interface>::IID
@@ -159,7 +159,7 @@ impl IDirect3D11CaptureFramePoolStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirect3D11CaptureFramePoolStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDirect3D11CaptureFramePoolStatics, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirect3D11CaptureFramePoolStatics as ::windows::core::Interface>::IID
@@ -187,7 +187,10 @@ impl IDirect3D11CaptureFramePoolStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirect3D11CaptureFramePoolStatics2>, ::windows::core::GetTrustLevel, CreateFreeThreaded::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDirect3D11CaptureFramePoolStatics2, BASE_OFFSET>(),
+            CreateFreeThreaded: CreateFreeThreaded::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirect3D11CaptureFramePoolStatics2 as ::windows::core::Interface>::IID
@@ -215,7 +218,10 @@ impl IGraphicsCaptureAccessStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureAccessStatics>, ::windows::core::GetTrustLevel, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGraphicsCaptureAccessStatics, BASE_OFFSET>(),
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGraphicsCaptureAccessStatics as ::windows::core::Interface>::IID
@@ -272,7 +278,13 @@ impl IGraphicsCaptureItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureItem>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, Size::<Impl, IMPL_OFFSET>, Closed::<Impl, IMPL_OFFSET>, RemoveClosed::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGraphicsCaptureItem, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            Size: Size::<Impl, IMPL_OFFSET>,
+            Closed: Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed: RemoveClosed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGraphicsCaptureItem as ::windows::core::Interface>::IID
@@ -300,7 +312,10 @@ impl IGraphicsCaptureItemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureItemStatics>, ::windows::core::GetTrustLevel, CreateFromVisual::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGraphicsCaptureItemStatics, BASE_OFFSET>(),
+            CreateFromVisual: CreateFromVisual::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGraphicsCaptureItemStatics as ::windows::core::Interface>::IID
@@ -340,7 +355,11 @@ impl IGraphicsCaptureItemStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureItemStatics2>, ::windows::core::GetTrustLevel, TryCreateFromWindowId::<Impl, IMPL_OFFSET>, TryCreateFromDisplayId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGraphicsCaptureItemStatics2, BASE_OFFSET>(),
+            TryCreateFromWindowId: TryCreateFromWindowId::<Impl, IMPL_OFFSET>,
+            TryCreateFromDisplayId: TryCreateFromDisplayId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGraphicsCaptureItemStatics2 as ::windows::core::Interface>::IID
@@ -368,7 +387,10 @@ impl IGraphicsCapturePickerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCapturePicker>, ::windows::core::GetTrustLevel, PickSingleItemAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGraphicsCapturePicker, BASE_OFFSET>(),
+            PickSingleItemAsync: PickSingleItemAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGraphicsCapturePicker as ::windows::core::Interface>::IID
@@ -389,7 +411,10 @@ impl IGraphicsCaptureSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartCapture().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureSession>, ::windows::core::GetTrustLevel, StartCapture::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGraphicsCaptureSession, BASE_OFFSET>(),
+            StartCapture: StartCapture::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGraphicsCaptureSession as ::windows::core::Interface>::IID
@@ -422,7 +447,11 @@ impl IGraphicsCaptureSession2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsCursorCaptureEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureSession2>, ::windows::core::GetTrustLevel, IsCursorCaptureEnabled::<Impl, IMPL_OFFSET>, SetIsCursorCaptureEnabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGraphicsCaptureSession2, BASE_OFFSET>(),
+            IsCursorCaptureEnabled: IsCursorCaptureEnabled::<Impl, IMPL_OFFSET>,
+            SetIsCursorCaptureEnabled: SetIsCursorCaptureEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGraphicsCaptureSession2 as ::windows::core::Interface>::IID
@@ -455,7 +484,11 @@ impl IGraphicsCaptureSession3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsBorderRequired(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureSession3>, ::windows::core::GetTrustLevel, IsBorderRequired::<Impl, IMPL_OFFSET>, SetIsBorderRequired::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGraphicsCaptureSession3, BASE_OFFSET>(),
+            IsBorderRequired: IsBorderRequired::<Impl, IMPL_OFFSET>,
+            SetIsBorderRequired: SetIsBorderRequired::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGraphicsCaptureSession3 as ::windows::core::Interface>::IID
@@ -483,7 +516,10 @@ impl IGraphicsCaptureSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureSessionStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGraphicsCaptureSessionStatics, BASE_OFFSET>(),
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGraphicsCaptureSessionStatics as ::windows::core::Interface>::IID

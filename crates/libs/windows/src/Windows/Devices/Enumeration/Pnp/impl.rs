@@ -49,7 +49,13 @@ impl IPnpObjectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Update(&*(&updateinfo as *const <PnpObjectUpdate as ::windows::core::Abi>::Abi as *const <PnpObjectUpdate as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPnpObject>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>, Update::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPnpObject, BASE_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            Update: Update::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPnpObject as ::windows::core::Interface>::IID
@@ -125,7 +131,14 @@ impl IPnpObjectStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPnpObjectStatics>, ::windows::core::GetTrustLevel, CreateFromIdAsync::<Impl, IMPL_OFFSET>, FindAllAsync::<Impl, IMPL_OFFSET>, FindAllAsyncAqsFilter::<Impl, IMPL_OFFSET>, CreateWatcher::<Impl, IMPL_OFFSET>, CreateWatcherAqsFilter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPnpObjectStatics, BASE_OFFSET>(),
+            CreateFromIdAsync: CreateFromIdAsync::<Impl, IMPL_OFFSET>,
+            FindAllAsync: FindAllAsync::<Impl, IMPL_OFFSET>,
+            FindAllAsyncAqsFilter: FindAllAsyncAqsFilter::<Impl, IMPL_OFFSET>,
+            CreateWatcher: CreateWatcher::<Impl, IMPL_OFFSET>,
+            CreateWatcherAqsFilter: CreateWatcherAqsFilter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPnpObjectStatics as ::windows::core::Interface>::IID
@@ -177,7 +190,12 @@ impl IPnpObjectUpdateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPnpObjectUpdate>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPnpObjectUpdate, BASE_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPnpObjectUpdate as ::windows::core::Interface>::IID
@@ -300,27 +318,22 @@ impl IPnpObjectWatcherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPnpObjectWatcher>,
-            ::windows::core::GetTrustLevel,
-            Added::<Impl, IMPL_OFFSET>,
-            RemoveAdded::<Impl, IMPL_OFFSET>,
-            Updated::<Impl, IMPL_OFFSET>,
-            RemoveUpdated::<Impl, IMPL_OFFSET>,
-            Removed::<Impl, IMPL_OFFSET>,
-            RemoveRemoved::<Impl, IMPL_OFFSET>,
-            EnumerationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
-            Stopped::<Impl, IMPL_OFFSET>,
-            RemoveStopped::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPnpObjectWatcher, BASE_OFFSET>(),
+            Added: Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded: RemoveAdded::<Impl, IMPL_OFFSET>,
+            Updated: Updated::<Impl, IMPL_OFFSET>,
+            RemoveUpdated: RemoveUpdated::<Impl, IMPL_OFFSET>,
+            Removed: Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved: RemoveRemoved::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Stopped: Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped: RemoveStopped::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPnpObjectWatcher as ::windows::core::Interface>::IID

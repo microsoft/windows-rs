@@ -80,20 +80,15 @@ impl IPwmControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPwmController>,
-            ::windows::core::GetTrustLevel,
-            PinCount::<Impl, IMPL_OFFSET>,
-            ActualFrequency::<Impl, IMPL_OFFSET>,
-            SetDesiredFrequency::<Impl, IMPL_OFFSET>,
-            MinFrequency::<Impl, IMPL_OFFSET>,
-            MaxFrequency::<Impl, IMPL_OFFSET>,
-            OpenPin::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPwmController, BASE_OFFSET>(),
+            PinCount: PinCount::<Impl, IMPL_OFFSET>,
+            ActualFrequency: ActualFrequency::<Impl, IMPL_OFFSET>,
+            SetDesiredFrequency: SetDesiredFrequency::<Impl, IMPL_OFFSET>,
+            MinFrequency: MinFrequency::<Impl, IMPL_OFFSET>,
+            MaxFrequency: MaxFrequency::<Impl, IMPL_OFFSET>,
+            OpenPin: OpenPin::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPwmController as ::windows::core::Interface>::IID
@@ -121,7 +116,10 @@ impl IPwmControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPwmControllerStatics>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPwmControllerStatics, BASE_OFFSET>(),
+            GetControllersAsync: GetControllersAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPwmControllerStatics as ::windows::core::Interface>::IID
@@ -149,7 +147,10 @@ impl IPwmControllerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPwmControllerStatics2>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPwmControllerStatics2, BASE_OFFSET>(),
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPwmControllerStatics2 as ::windows::core::Interface>::IID
@@ -201,7 +202,12 @@ impl IPwmControllerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPwmControllerStatics3>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromFriendlyName::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPwmControllerStatics3, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromFriendlyName: GetDeviceSelectorFromFriendlyName::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPwmControllerStatics3 as ::windows::core::Interface>::IID
@@ -285,22 +291,17 @@ impl IPwmPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPwmPin>,
-            ::windows::core::GetTrustLevel,
-            Controller::<Impl, IMPL_OFFSET>,
-            GetActiveDutyCyclePercentage::<Impl, IMPL_OFFSET>,
-            SetActiveDutyCyclePercentage::<Impl, IMPL_OFFSET>,
-            Polarity::<Impl, IMPL_OFFSET>,
-            SetPolarity::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            IsStarted::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPwmPin, BASE_OFFSET>(),
+            Controller: Controller::<Impl, IMPL_OFFSET>,
+            GetActiveDutyCyclePercentage: GetActiveDutyCyclePercentage::<Impl, IMPL_OFFSET>,
+            SetActiveDutyCyclePercentage: SetActiveDutyCyclePercentage::<Impl, IMPL_OFFSET>,
+            Polarity: Polarity::<Impl, IMPL_OFFSET>,
+            SetPolarity: SetPolarity::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            IsStarted: IsStarted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPwmPin as ::windows::core::Interface>::IID

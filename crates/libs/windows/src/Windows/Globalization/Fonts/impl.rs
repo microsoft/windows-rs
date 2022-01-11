@@ -68,7 +68,14 @@ impl ILanguageFontVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageFont>, ::windows::core::GetTrustLevel, FontFamily::<Impl, IMPL_OFFSET>, FontWeight::<Impl, IMPL_OFFSET>, FontStretch::<Impl, IMPL_OFFSET>, FontStyle::<Impl, IMPL_OFFSET>, ScaleFactor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILanguageFont, BASE_OFFSET>(),
+            FontFamily: FontFamily::<Impl, IMPL_OFFSET>,
+            FontWeight: FontWeight::<Impl, IMPL_OFFSET>,
+            FontStretch: FontStretch::<Impl, IMPL_OFFSET>,
+            FontStyle: FontStyle::<Impl, IMPL_OFFSET>,
+            ScaleFactor: ScaleFactor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguageFont as ::windows::core::Interface>::IID
@@ -216,25 +223,20 @@ impl ILanguageFontGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILanguageFontGroup>,
-            ::windows::core::GetTrustLevel,
-            UITextFont::<Impl, IMPL_OFFSET>,
-            UIHeadingFont::<Impl, IMPL_OFFSET>,
-            UITitleFont::<Impl, IMPL_OFFSET>,
-            UICaptionFont::<Impl, IMPL_OFFSET>,
-            UINotificationHeadingFont::<Impl, IMPL_OFFSET>,
-            TraditionalDocumentFont::<Impl, IMPL_OFFSET>,
-            ModernDocumentFont::<Impl, IMPL_OFFSET>,
-            DocumentHeadingFont::<Impl, IMPL_OFFSET>,
-            FixedWidthTextFont::<Impl, IMPL_OFFSET>,
-            DocumentAlternate1Font::<Impl, IMPL_OFFSET>,
-            DocumentAlternate2Font::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILanguageFontGroup, BASE_OFFSET>(),
+            UITextFont: UITextFont::<Impl, IMPL_OFFSET>,
+            UIHeadingFont: UIHeadingFont::<Impl, IMPL_OFFSET>,
+            UITitleFont: UITitleFont::<Impl, IMPL_OFFSET>,
+            UICaptionFont: UICaptionFont::<Impl, IMPL_OFFSET>,
+            UINotificationHeadingFont: UINotificationHeadingFont::<Impl, IMPL_OFFSET>,
+            TraditionalDocumentFont: TraditionalDocumentFont::<Impl, IMPL_OFFSET>,
+            ModernDocumentFont: ModernDocumentFont::<Impl, IMPL_OFFSET>,
+            DocumentHeadingFont: DocumentHeadingFont::<Impl, IMPL_OFFSET>,
+            FixedWidthTextFont: FixedWidthTextFont::<Impl, IMPL_OFFSET>,
+            DocumentAlternate1Font: DocumentAlternate1Font::<Impl, IMPL_OFFSET>,
+            DocumentAlternate2Font: DocumentAlternate2Font::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguageFontGroup as ::windows::core::Interface>::IID
@@ -262,7 +264,10 @@ impl ILanguageFontGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageFontGroupFactory>, ::windows::core::GetTrustLevel, CreateLanguageFontGroup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILanguageFontGroupFactory, BASE_OFFSET>(),
+            CreateLanguageFontGroup: CreateLanguageFontGroup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguageFontGroupFactory as ::windows::core::Interface>::IID

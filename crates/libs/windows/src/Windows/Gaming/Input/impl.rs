@@ -32,7 +32,11 @@ impl IArcadeStickVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IArcadeStick>, ::windows::core::GetTrustLevel, GetButtonLabel::<Impl, IMPL_OFFSET>, GetCurrentReading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IArcadeStick, BASE_OFFSET>(),
+            GetButtonLabel: GetButtonLabel::<Impl, IMPL_OFFSET>,
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IArcadeStick as ::windows::core::Interface>::IID
@@ -94,19 +98,14 @@ impl IArcadeStickStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IArcadeStickStatics>,
-            ::windows::core::GetTrustLevel,
-            ArcadeStickAdded::<Impl, IMPL_OFFSET>,
-            RemoveArcadeStickAdded::<Impl, IMPL_OFFSET>,
-            ArcadeStickRemoved::<Impl, IMPL_OFFSET>,
-            RemoveArcadeStickRemoved::<Impl, IMPL_OFFSET>,
-            ArcadeSticks::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IArcadeStickStatics, BASE_OFFSET>(),
+            ArcadeStickAdded: ArcadeStickAdded::<Impl, IMPL_OFFSET>,
+            RemoveArcadeStickAdded: RemoveArcadeStickAdded::<Impl, IMPL_OFFSET>,
+            ArcadeStickRemoved: ArcadeStickRemoved::<Impl, IMPL_OFFSET>,
+            RemoveArcadeStickRemoved: RemoveArcadeStickRemoved::<Impl, IMPL_OFFSET>,
+            ArcadeSticks: ArcadeSticks::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IArcadeStickStatics as ::windows::core::Interface>::IID
@@ -134,7 +133,10 @@ impl IArcadeStickStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IArcadeStickStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IArcadeStickStatics2, BASE_OFFSET>(),
+            FromGameController: FromGameController::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IArcadeStickStatics2 as ::windows::core::Interface>::IID
@@ -186,7 +188,12 @@ impl IFlightStickVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlightStick>, ::windows::core::GetTrustLevel, HatSwitchKind::<Impl, IMPL_OFFSET>, GetButtonLabel::<Impl, IMPL_OFFSET>, GetCurrentReading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlightStick, BASE_OFFSET>(),
+            HatSwitchKind: HatSwitchKind::<Impl, IMPL_OFFSET>,
+            GetButtonLabel: GetButtonLabel::<Impl, IMPL_OFFSET>,
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlightStick as ::windows::core::Interface>::IID
@@ -260,20 +267,15 @@ impl IFlightStickStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFlightStickStatics>,
-            ::windows::core::GetTrustLevel,
-            FlightStickAdded::<Impl, IMPL_OFFSET>,
-            RemoveFlightStickAdded::<Impl, IMPL_OFFSET>,
-            FlightStickRemoved::<Impl, IMPL_OFFSET>,
-            RemoveFlightStickRemoved::<Impl, IMPL_OFFSET>,
-            FlightSticks::<Impl, IMPL_OFFSET>,
-            FromGameController::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlightStickStatics, BASE_OFFSET>(),
+            FlightStickAdded: FlightStickAdded::<Impl, IMPL_OFFSET>,
+            RemoveFlightStickAdded: RemoveFlightStickAdded::<Impl, IMPL_OFFSET>,
+            FlightStickRemoved: FlightStickRemoved::<Impl, IMPL_OFFSET>,
+            RemoveFlightStickRemoved: RemoveFlightStickRemoved::<Impl, IMPL_OFFSET>,
+            FlightSticks: FlightSticks::<Impl, IMPL_OFFSET>,
+            FromGameController: FromGameController::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlightStickStatics as ::windows::core::Interface>::IID
@@ -376,23 +378,18 @@ impl IGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGameController>,
-            ::windows::core::GetTrustLevel,
-            HeadsetConnected::<Impl, IMPL_OFFSET>,
-            RemoveHeadsetConnected::<Impl, IMPL_OFFSET>,
-            HeadsetDisconnected::<Impl, IMPL_OFFSET>,
-            RemoveHeadsetDisconnected::<Impl, IMPL_OFFSET>,
-            UserChanged::<Impl, IMPL_OFFSET>,
-            RemoveUserChanged::<Impl, IMPL_OFFSET>,
-            Headset::<Impl, IMPL_OFFSET>,
-            IsWireless::<Impl, IMPL_OFFSET>,
-            User::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameController, BASE_OFFSET>(),
+            HeadsetConnected: HeadsetConnected::<Impl, IMPL_OFFSET>,
+            RemoveHeadsetConnected: RemoveHeadsetConnected::<Impl, IMPL_OFFSET>,
+            HeadsetDisconnected: HeadsetDisconnected::<Impl, IMPL_OFFSET>,
+            RemoveHeadsetDisconnected: RemoveHeadsetDisconnected::<Impl, IMPL_OFFSET>,
+            UserChanged: UserChanged::<Impl, IMPL_OFFSET>,
+            RemoveUserChanged: RemoveUserChanged::<Impl, IMPL_OFFSET>,
+            Headset: Headset::<Impl, IMPL_OFFSET>,
+            IsWireless: IsWireless::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameController as ::windows::core::Interface>::IID
@@ -420,7 +417,10 @@ impl IGameControllerBatteryInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameControllerBatteryInfo>, ::windows::core::GetTrustLevel, TryGetBatteryReport::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameControllerBatteryInfo, BASE_OFFSET>(),
+            TryGetBatteryReport: TryGetBatteryReport::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameControllerBatteryInfo as ::windows::core::Interface>::IID
@@ -465,7 +465,12 @@ impl IGamepadVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepad>, ::windows::core::GetTrustLevel, Vibration::<Impl, IMPL_OFFSET>, SetVibration::<Impl, IMPL_OFFSET>, GetCurrentReading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGamepad, BASE_OFFSET>(),
+            Vibration: Vibration::<Impl, IMPL_OFFSET>,
+            SetVibration: SetVibration::<Impl, IMPL_OFFSET>,
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGamepad as ::windows::core::Interface>::IID
@@ -493,7 +498,7 @@ impl IGamepad2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepad2>, ::windows::core::GetTrustLevel, GetButtonLabel::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGamepad2, BASE_OFFSET>(), GetButtonLabel: GetButtonLabel::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGamepad2 as ::windows::core::Interface>::IID
@@ -555,7 +560,14 @@ impl IGamepadStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepadStatics>, ::windows::core::GetTrustLevel, GamepadAdded::<Impl, IMPL_OFFSET>, RemoveGamepadAdded::<Impl, IMPL_OFFSET>, GamepadRemoved::<Impl, IMPL_OFFSET>, RemoveGamepadRemoved::<Impl, IMPL_OFFSET>, Gamepads::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGamepadStatics, BASE_OFFSET>(),
+            GamepadAdded: GamepadAdded::<Impl, IMPL_OFFSET>,
+            RemoveGamepadAdded: RemoveGamepadAdded::<Impl, IMPL_OFFSET>,
+            GamepadRemoved: GamepadRemoved::<Impl, IMPL_OFFSET>,
+            RemoveGamepadRemoved: RemoveGamepadRemoved::<Impl, IMPL_OFFSET>,
+            Gamepads: Gamepads::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGamepadStatics as ::windows::core::Interface>::IID
@@ -583,7 +595,10 @@ impl IGamepadStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepadStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGamepadStatics2, BASE_OFFSET>(),
+            FromGameController: FromGameController::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGamepadStatics2 as ::windows::core::Interface>::IID
@@ -623,7 +638,11 @@ impl IHeadsetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHeadset>, ::windows::core::GetTrustLevel, CaptureDeviceId::<Impl, IMPL_OFFSET>, RenderDeviceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHeadset, BASE_OFFSET>(),
+            CaptureDeviceId: CaptureDeviceId::<Impl, IMPL_OFFSET>,
+            RenderDeviceId: RenderDeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHeadset as ::windows::core::Interface>::IID
@@ -735,22 +754,17 @@ impl IRacingWheelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRacingWheel>,
-            ::windows::core::GetTrustLevel,
-            HasClutch::<Impl, IMPL_OFFSET>,
-            HasHandbrake::<Impl, IMPL_OFFSET>,
-            HasPatternShifter::<Impl, IMPL_OFFSET>,
-            MaxPatternShifterGear::<Impl, IMPL_OFFSET>,
-            MaxWheelAngle::<Impl, IMPL_OFFSET>,
-            WheelMotor::<Impl, IMPL_OFFSET>,
-            GetButtonLabel::<Impl, IMPL_OFFSET>,
-            GetCurrentReading::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRacingWheel, BASE_OFFSET>(),
+            HasClutch: HasClutch::<Impl, IMPL_OFFSET>,
+            HasHandbrake: HasHandbrake::<Impl, IMPL_OFFSET>,
+            HasPatternShifter: HasPatternShifter::<Impl, IMPL_OFFSET>,
+            MaxPatternShifterGear: MaxPatternShifterGear::<Impl, IMPL_OFFSET>,
+            MaxWheelAngle: MaxWheelAngle::<Impl, IMPL_OFFSET>,
+            WheelMotor: WheelMotor::<Impl, IMPL_OFFSET>,
+            GetButtonLabel: GetButtonLabel::<Impl, IMPL_OFFSET>,
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRacingWheel as ::windows::core::Interface>::IID
@@ -812,19 +826,14 @@ impl IRacingWheelStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRacingWheelStatics>,
-            ::windows::core::GetTrustLevel,
-            RacingWheelAdded::<Impl, IMPL_OFFSET>,
-            RemoveRacingWheelAdded::<Impl, IMPL_OFFSET>,
-            RacingWheelRemoved::<Impl, IMPL_OFFSET>,
-            RemoveRacingWheelRemoved::<Impl, IMPL_OFFSET>,
-            RacingWheels::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRacingWheelStatics, BASE_OFFSET>(),
+            RacingWheelAdded: RacingWheelAdded::<Impl, IMPL_OFFSET>,
+            RemoveRacingWheelAdded: RemoveRacingWheelAdded::<Impl, IMPL_OFFSET>,
+            RacingWheelRemoved: RacingWheelRemoved::<Impl, IMPL_OFFSET>,
+            RemoveRacingWheelRemoved: RemoveRacingWheelRemoved::<Impl, IMPL_OFFSET>,
+            RacingWheels: RacingWheels::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRacingWheelStatics as ::windows::core::Interface>::IID
@@ -852,7 +861,10 @@ impl IRacingWheelStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRacingWheelStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRacingWheelStatics2, BASE_OFFSET>(),
+            FromGameController: FromGameController::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRacingWheelStatics2 as ::windows::core::Interface>::IID
@@ -976,23 +988,18 @@ impl IRawGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRawGameController>,
-            ::windows::core::GetTrustLevel,
-            AxisCount::<Impl, IMPL_OFFSET>,
-            ButtonCount::<Impl, IMPL_OFFSET>,
-            ForceFeedbackMotors::<Impl, IMPL_OFFSET>,
-            HardwareProductId::<Impl, IMPL_OFFSET>,
-            HardwareVendorId::<Impl, IMPL_OFFSET>,
-            SwitchCount::<Impl, IMPL_OFFSET>,
-            GetButtonLabel::<Impl, IMPL_OFFSET>,
-            GetCurrentReading::<Impl, IMPL_OFFSET>,
-            GetSwitchKind::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRawGameController, BASE_OFFSET>(),
+            AxisCount: AxisCount::<Impl, IMPL_OFFSET>,
+            ButtonCount: ButtonCount::<Impl, IMPL_OFFSET>,
+            ForceFeedbackMotors: ForceFeedbackMotors::<Impl, IMPL_OFFSET>,
+            HardwareProductId: HardwareProductId::<Impl, IMPL_OFFSET>,
+            HardwareVendorId: HardwareVendorId::<Impl, IMPL_OFFSET>,
+            SwitchCount: SwitchCount::<Impl, IMPL_OFFSET>,
+            GetButtonLabel: GetButtonLabel::<Impl, IMPL_OFFSET>,
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+            GetSwitchKind: GetSwitchKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRawGameController as ::windows::core::Interface>::IID
@@ -1044,7 +1051,12 @@ impl IRawGameController2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRawGameController2>, ::windows::core::GetTrustLevel, SimpleHapticsControllers::<Impl, IMPL_OFFSET>, NonRoamableId::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRawGameController2, BASE_OFFSET>(),
+            SimpleHapticsControllers: SimpleHapticsControllers::<Impl, IMPL_OFFSET>,
+            NonRoamableId: NonRoamableId::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRawGameController2 as ::windows::core::Interface>::IID
@@ -1118,20 +1130,15 @@ impl IRawGameControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRawGameControllerStatics>,
-            ::windows::core::GetTrustLevel,
-            RawGameControllerAdded::<Impl, IMPL_OFFSET>,
-            RemoveRawGameControllerAdded::<Impl, IMPL_OFFSET>,
-            RawGameControllerRemoved::<Impl, IMPL_OFFSET>,
-            RemoveRawGameControllerRemoved::<Impl, IMPL_OFFSET>,
-            RawGameControllers::<Impl, IMPL_OFFSET>,
-            FromGameController::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRawGameControllerStatics, BASE_OFFSET>(),
+            RawGameControllerAdded: RawGameControllerAdded::<Impl, IMPL_OFFSET>,
+            RemoveRawGameControllerAdded: RemoveRawGameControllerAdded::<Impl, IMPL_OFFSET>,
+            RawGameControllerRemoved: RawGameControllerRemoved::<Impl, IMPL_OFFSET>,
+            RemoveRawGameControllerRemoved: RemoveRawGameControllerRemoved::<Impl, IMPL_OFFSET>,
+            RawGameControllers: RawGameControllers::<Impl, IMPL_OFFSET>,
+            FromGameController: FromGameController::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRawGameControllerStatics as ::windows::core::Interface>::IID
@@ -1183,7 +1190,12 @@ impl IUINavigationControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUINavigationController>, ::windows::core::GetTrustLevel, GetCurrentReading::<Impl, IMPL_OFFSET>, GetOptionalButtonLabel::<Impl, IMPL_OFFSET>, GetRequiredButtonLabel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUINavigationController, BASE_OFFSET>(),
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+            GetOptionalButtonLabel: GetOptionalButtonLabel::<Impl, IMPL_OFFSET>,
+            GetRequiredButtonLabel: GetRequiredButtonLabel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUINavigationController as ::windows::core::Interface>::IID
@@ -1245,19 +1257,14 @@ impl IUINavigationControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUINavigationControllerStatics>,
-            ::windows::core::GetTrustLevel,
-            UINavigationControllerAdded::<Impl, IMPL_OFFSET>,
-            RemoveUINavigationControllerAdded::<Impl, IMPL_OFFSET>,
-            UINavigationControllerRemoved::<Impl, IMPL_OFFSET>,
-            RemoveUINavigationControllerRemoved::<Impl, IMPL_OFFSET>,
-            UINavigationControllers::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUINavigationControllerStatics, BASE_OFFSET>(),
+            UINavigationControllerAdded: UINavigationControllerAdded::<Impl, IMPL_OFFSET>,
+            RemoveUINavigationControllerAdded: RemoveUINavigationControllerAdded::<Impl, IMPL_OFFSET>,
+            UINavigationControllerRemoved: UINavigationControllerRemoved::<Impl, IMPL_OFFSET>,
+            RemoveUINavigationControllerRemoved: RemoveUINavigationControllerRemoved::<Impl, IMPL_OFFSET>,
+            UINavigationControllers: UINavigationControllers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUINavigationControllerStatics as ::windows::core::Interface>::IID
@@ -1285,7 +1292,10 @@ impl IUINavigationControllerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUINavigationControllerStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUINavigationControllerStatics2, BASE_OFFSET>(),
+            FromGameController: FromGameController::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUINavigationControllerStatics2 as ::windows::core::Interface>::IID

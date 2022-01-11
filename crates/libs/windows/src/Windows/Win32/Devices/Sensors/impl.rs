@@ -14,7 +14,11 @@ impl ILocationPermissionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetGlobalLocationPermission::<Impl, IMPL_OFFSET>, CheckLocationCapability::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetGlobalLocationPermission: GetGlobalLocationPermission::<Impl, IMPL_OFFSET>,
+            CheckLocationCapability: CheckLocationCapability::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILocationPermissions as ::windows::core::Interface>::IID
@@ -101,26 +105,24 @@ impl ISensorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetID::<Impl, IMPL_OFFSET>,
-            GetCategory::<Impl, IMPL_OFFSET>,
-            GetType::<Impl, IMPL_OFFSET>,
-            GetFriendlyName::<Impl, IMPL_OFFSET>,
-            GetProperty::<Impl, IMPL_OFFSET>,
-            GetProperties::<Impl, IMPL_OFFSET>,
-            GetSupportedDataFields::<Impl, IMPL_OFFSET>,
-            SetProperties::<Impl, IMPL_OFFSET>,
-            SupportsDataField::<Impl, IMPL_OFFSET>,
-            GetState::<Impl, IMPL_OFFSET>,
-            GetData::<Impl, IMPL_OFFSET>,
-            SupportsEvent::<Impl, IMPL_OFFSET>,
-            GetEventInterest::<Impl, IMPL_OFFSET>,
-            SetEventInterest::<Impl, IMPL_OFFSET>,
-            SetEventSink::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetID: GetID::<Impl, IMPL_OFFSET>,
+            GetCategory: GetCategory::<Impl, IMPL_OFFSET>,
+            GetType: GetType::<Impl, IMPL_OFFSET>,
+            GetFriendlyName: GetFriendlyName::<Impl, IMPL_OFFSET>,
+            GetProperty: GetProperty::<Impl, IMPL_OFFSET>,
+            GetProperties: GetProperties::<Impl, IMPL_OFFSET>,
+            GetSupportedDataFields: GetSupportedDataFields::<Impl, IMPL_OFFSET>,
+            SetProperties: SetProperties::<Impl, IMPL_OFFSET>,
+            SupportsDataField: SupportsDataField::<Impl, IMPL_OFFSET>,
+            GetState: GetState::<Impl, IMPL_OFFSET>,
+            GetData: GetData::<Impl, IMPL_OFFSET>,
+            SupportsEvent: SupportsEvent::<Impl, IMPL_OFFSET>,
+            GetEventInterest: GetEventInterest::<Impl, IMPL_OFFSET>,
+            SetEventInterest: SetEventInterest::<Impl, IMPL_OFFSET>,
+            SetEventSink: SetEventSink::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensor as ::windows::core::Interface>::IID
@@ -160,7 +162,15 @@ impl ISensorCollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetAt::<Impl, IMPL_OFFSET>, GetCount::<Impl, IMPL_OFFSET>, Add::<Impl, IMPL_OFFSET>, Remove::<Impl, IMPL_OFFSET>, RemoveByID::<Impl, IMPL_OFFSET>, Clear::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetAt: GetAt::<Impl, IMPL_OFFSET>,
+            GetCount: GetCount::<Impl, IMPL_OFFSET>,
+            Add: Add::<Impl, IMPL_OFFSET>,
+            Remove: Remove::<Impl, IMPL_OFFSET>,
+            RemoveByID: RemoveByID::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensorCollection as ::windows::core::Interface>::IID
@@ -187,7 +197,12 @@ impl ISensorDataReportVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTimestamp::<Impl, IMPL_OFFSET>, GetSensorValue::<Impl, IMPL_OFFSET>, GetSensorValues::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetTimestamp: GetTimestamp::<Impl, IMPL_OFFSET>,
+            GetSensorValue: GetSensorValue::<Impl, IMPL_OFFSET>,
+            GetSensorValues: GetSensorValues::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensorDataReport as ::windows::core::Interface>::IID
@@ -219,7 +234,13 @@ impl ISensorEventsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnStateChanged::<Impl, IMPL_OFFSET>, OnDataUpdated::<Impl, IMPL_OFFSET>, OnEvent::<Impl, IMPL_OFFSET>, OnLeave::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnStateChanged: OnStateChanged::<Impl, IMPL_OFFSET>,
+            OnDataUpdated: OnDataUpdated::<Impl, IMPL_OFFSET>,
+            OnEvent: OnEvent::<Impl, IMPL_OFFSET>,
+            OnLeave: OnLeave::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensorEvents as ::windows::core::Interface>::IID
@@ -256,7 +277,14 @@ impl ISensorManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetSensorsByCategory::<Impl, IMPL_OFFSET>, GetSensorsByType::<Impl, IMPL_OFFSET>, GetSensorByID::<Impl, IMPL_OFFSET>, SetEventSink::<Impl, IMPL_OFFSET>, RequestPermissions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetSensorsByCategory: GetSensorsByCategory::<Impl, IMPL_OFFSET>,
+            GetSensorsByType: GetSensorsByType::<Impl, IMPL_OFFSET>,
+            GetSensorByID: GetSensorByID::<Impl, IMPL_OFFSET>,
+            SetEventSink: SetEventSink::<Impl, IMPL_OFFSET>,
+            RequestPermissions: RequestPermissions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensorManager as ::windows::core::Interface>::IID
@@ -271,7 +299,7 @@ impl ISensorManagerEventsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnSensorEnter::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnSensorEnter: OnSensorEnter::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensorManagerEvents as ::windows::core::Interface>::IID

@@ -12,7 +12,11 @@ impl ID3DBlobVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetBufferPointer::<Impl, IMPL_OFFSET>, GetBufferSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetBufferPointer: GetBufferPointer::<Impl, IMPL_OFFSET>,
+            GetBufferSize: GetBufferSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3DBlob as ::windows::core::Interface>::IID
@@ -32,7 +36,11 @@ impl ID3DDestructionNotifierVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, RegisterDestructionCallback::<Impl, IMPL_OFFSET>, UnregisterDestructionCallback::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            RegisterDestructionCallback: RegisterDestructionCallback::<Impl, IMPL_OFFSET>,
+            UnregisterDestructionCallback: UnregisterDestructionCallback::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3DDestructionNotifier as ::windows::core::Interface>::IID
@@ -54,7 +62,7 @@ impl ID3DIncludeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(Open::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>)
+        Self { Open: Open::<Impl, IMPL_OFFSET>, Close: Close::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3DInclude as ::windows::core::Interface>::IID

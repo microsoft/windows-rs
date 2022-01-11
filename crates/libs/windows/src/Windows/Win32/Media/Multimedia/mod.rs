@@ -3393,25 +3393,25 @@ pub struct IAVIEditStream(::windows::core::IUnknown);
 impl IAVIEditStream {
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
+        (::windows::core::Interface::vtable(self).Cut)(::core::mem::transmute_copy(self), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
+        (::windows::core::Interface::vtable(self).Copy)(::core::mem::transmute_copy(self), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn Paste<'a, Param2: ::windows::core::IntoParam<'a, IAVIStream>>(&self, plpos: *mut i32, pllength: *mut i32, pstream: Param2, lstart: i32, lend: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(plpos), ::core::mem::transmute(pllength), pstream.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lend)).ok()
+        (::windows::core::Interface::vtable(self).Paste)(::core::mem::transmute_copy(self), ::core::mem::transmute(plpos), ::core::mem::transmute(pllength), pstream.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lend)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IAVIStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAVIStream>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAVIStream>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
+        (::windows::core::Interface::vtable(self).SetInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
     }
 }
 impl ::core::convert::From<IAVIEditStream> for ::windows::core::IUnknown {
@@ -3456,49 +3456,49 @@ unsafe impl ::windows::core::Interface for IAVIEditStream {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAVIEditStreamVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpos: *mut i32, pllength: *mut i32, pstream: ::windows::core::RawPtr, lstart: i32, lend: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IAVIEditStreamVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Cut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Paste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpos: *mut i32, pllength: *mut i32, pstream: ::windows::core::RawPtr, lstart: i32, lend: i32) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetInfo: usize,
+}
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 #[repr(transparent)]
 pub struct IAVIFile(::windows::core::IUnknown);
 impl IAVIFile {
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfi), ::core::mem::transmute(lsize)).ok()
+        (::windows::core::Interface::vtable(self).Info)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfi), ::core::mem::transmute(lsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn GetStream(&self, ppstream: *mut ::core::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppstream), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam)).ok()
+        (::windows::core::Interface::vtable(self).GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppstream), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateStream(&self, ppstream: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppstream), ::core::mem::transmute(psi)).ok()
+        (::windows::core::Interface::vtable(self).CreateStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppstream), ::core::mem::transmute(psi)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn WriteData(&self, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata)).ok()
+        (::windows::core::Interface::vtable(self).WriteData)(::core::mem::transmute_copy(self), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn ReadData(&self, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpcbdata)).ok()
+        (::windows::core::Interface::vtable(self).ReadData)(::core::mem::transmute_copy(self), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpcbdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn EndRecord(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).EndRecord)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn DeleteStream(&self, fcctype: u32, lparam: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam)).ok()
+        (::windows::core::Interface::vtable(self).DeleteStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam)).ok()
     }
 }
 impl ::core::convert::From<IAVIFile> for ::windows::core::IUnknown {
@@ -3543,19 +3543,19 @@ unsafe impl ::windows::core::Interface for IAVIFile {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAVIFileVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr, psi: *const AVISTREAMINFOW) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT,
-);
+pub struct IAVIFileVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::HRESULT,
+    pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub CreateStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr, psi: *const AVISTREAMINFOW) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    CreateStream: usize,
+    pub WriteData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::HRESULT,
+    pub ReadData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::core::HRESULT,
+    pub EndRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DeleteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 #[repr(transparent)]
 pub struct IAVIPersistFile(::windows::core::IUnknown);
@@ -3564,37 +3564,37 @@ impl IAVIPersistFile {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszfilename: Param0, dwmode: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszfilename.into_param().abi(), ::core::mem::transmute(dwmode)).ok()
+        (::windows::core::Interface::vtable(self).Load)(::core::mem::transmute_copy(self), pszfilename.into_param().abi(), ::core::mem::transmute(dwmode)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Save<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszfilename: Param0, fremember: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pszfilename.into_param().abi(), fremember.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self), pszfilename.into_param().abi(), fremember.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SaveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pszfilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SaveCompleted)(::core::mem::transmute_copy(self), pszfilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetCurFile(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetCurFile)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn Reserved1(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reserved1)(::core::mem::transmute_copy(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3687,24 +3687,10 @@ unsafe impl ::windows::core::Interface for IAVIPersistFile {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAVIPersistFileVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclassid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: super::super::Foundation::PWSTR, dwmode: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: super::super::Foundation::PWSTR, fremember: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszfilename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IAVIPersistFileVtbl {
+    pub base: IPersistFileVtbl,
+    pub Reserved1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 #[repr(transparent)]
 pub struct IAVIStream(::windows::core::IUnknown);
@@ -3712,49 +3698,49 @@ impl IAVIStream {
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, lparam1: Param0, lparam2: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), lparam1.into_param().abi(), lparam2.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), lparam1.into_param().abi(), lparam2.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(psi), ::core::mem::transmute(lsize)).ok()
+        (::windows::core::Interface::vtable(self).Info)(::core::mem::transmute_copy(self), ::core::mem::transmute(psi), ::core::mem::transmute(lsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn FindSample(&self, lpos: i32, lflags: i32) -> i32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpos), ::core::mem::transmute(lflags)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).FindSample)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpos), ::core::mem::transmute(lflags)))
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn ReadFormat(&self, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpcbformat)).ok()
+        (::windows::core::Interface::vtable(self).ReadFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpcbformat)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn SetFormat(&self, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(cbformat)).ok()
+        (::windows::core::Interface::vtable(self).SetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(cbformat)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(plbytes), ::core::mem::transmute(plsamples)).ok()
+        (::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(plbytes), ::core::mem::transmute(plsamples)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(plsampwritten), ::core::mem::transmute(plbyteswritten)).ok()
+        (::windows::core::Interface::vtable(self).Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(plsampwritten), ::core::mem::transmute(plbyteswritten)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn Delete(&self, lstart: i32, lsamples: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples)).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn ReadData(&self, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(lpcb)).ok()
+        (::windows::core::Interface::vtable(self).ReadData)(::core::mem::transmute_copy(self), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(lpcb)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn WriteData(&self, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(cb)).ok()
+        (::windows::core::Interface::vtable(self).WriteData)(::core::mem::transmute_copy(self), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(cb)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
+        (::windows::core::Interface::vtable(self).SetInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
     }
 }
 impl ::core::convert::From<IAVIStream> for ::windows::core::IUnknown {
@@ -3799,36 +3785,40 @@ unsafe impl ::windows::core::Interface for IAVIStream {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAVIStreamVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32, lflags: i32) -> i32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IAVIStreamVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Create: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Info: usize,
+    pub FindSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32, lflags: i32) -> i32,
+    pub ReadFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::core::HRESULT,
+    pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::HRESULT,
+    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::core::HRESULT,
+    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::core::HRESULT,
+    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32) -> ::windows::core::HRESULT,
+    pub ReadData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::core::HRESULT,
+    pub WriteData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetInfo: usize,
+}
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 #[repr(transparent)]
 pub struct IAVIStreaming(::windows::core::IUnknown);
 impl IAVIStreaming {
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lend), ::core::mem::transmute(lrate)).ok()
+        (::windows::core::Interface::vtable(self).Begin)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lend), ::core::mem::transmute(lrate)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn End(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).End)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IAVIStreaming> for ::windows::core::IUnknown {
@@ -3873,13 +3863,11 @@ unsafe impl ::windows::core::Interface for IAVIStreaming {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAVIStreamingVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IAVIStreamingVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT,
+    pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5119,20 +5107,20 @@ pub struct IGetFrame(::windows::core::IUnknown);
 impl IGetFrame {
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn GetFrame(&self, lpos: i32) -> *mut ::core::ffi::c_void {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpos)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetFrame)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpos)))
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lend), ::core::mem::transmute(lrate)).ok()
+        (::windows::core::Interface::vtable(self).Begin)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lend), ::core::mem::transmute(lrate)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn End(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).End)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(dx), ::core::mem::transmute(dy)).ok()
+        (::windows::core::Interface::vtable(self).SetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(dx), ::core::mem::transmute(dy)).ok()
     }
 }
 impl ::core::convert::From<IGetFrame> for ::windows::core::IUnknown {
@@ -5177,16 +5165,16 @@ unsafe impl ::windows::core::Interface for IGetFrame {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGetFrameVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32) -> *mut ::core::ffi::c_void,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-);
+pub struct IGetFrameVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32) -> *mut ::core::ffi::c_void,
+    pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT,
+    pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    SetFormat: usize,
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Media_Audio'*"]
 #[cfg(feature = "Win32_Media_Audio")]

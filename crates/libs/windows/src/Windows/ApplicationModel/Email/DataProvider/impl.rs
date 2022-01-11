@@ -268,45 +268,40 @@ impl IEmailDataProviderConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEmailDataProviderConnection>,
-            ::windows::core::GetTrustLevel,
-            MailboxSyncRequested::<Impl, IMPL_OFFSET>,
-            RemoveMailboxSyncRequested::<Impl, IMPL_OFFSET>,
-            DownloadMessageRequested::<Impl, IMPL_OFFSET>,
-            RemoveDownloadMessageRequested::<Impl, IMPL_OFFSET>,
-            DownloadAttachmentRequested::<Impl, IMPL_OFFSET>,
-            RemoveDownloadAttachmentRequested::<Impl, IMPL_OFFSET>,
-            CreateFolderRequested::<Impl, IMPL_OFFSET>,
-            RemoveCreateFolderRequested::<Impl, IMPL_OFFSET>,
-            DeleteFolderRequested::<Impl, IMPL_OFFSET>,
-            RemoveDeleteFolderRequested::<Impl, IMPL_OFFSET>,
-            EmptyFolderRequested::<Impl, IMPL_OFFSET>,
-            RemoveEmptyFolderRequested::<Impl, IMPL_OFFSET>,
-            MoveFolderRequested::<Impl, IMPL_OFFSET>,
-            RemoveMoveFolderRequested::<Impl, IMPL_OFFSET>,
-            UpdateMeetingResponseRequested::<Impl, IMPL_OFFSET>,
-            RemoveUpdateMeetingResponseRequested::<Impl, IMPL_OFFSET>,
-            ForwardMeetingRequested::<Impl, IMPL_OFFSET>,
-            RemoveForwardMeetingRequested::<Impl, IMPL_OFFSET>,
-            ProposeNewTimeForMeetingRequested::<Impl, IMPL_OFFSET>,
-            RemoveProposeNewTimeForMeetingRequested::<Impl, IMPL_OFFSET>,
-            SetAutoReplySettingsRequested::<Impl, IMPL_OFFSET>,
-            RemoveSetAutoReplySettingsRequested::<Impl, IMPL_OFFSET>,
-            GetAutoReplySettingsRequested::<Impl, IMPL_OFFSET>,
-            RemoveGetAutoReplySettingsRequested::<Impl, IMPL_OFFSET>,
-            ResolveRecipientsRequested::<Impl, IMPL_OFFSET>,
-            RemoveResolveRecipientsRequested::<Impl, IMPL_OFFSET>,
-            ValidateCertificatesRequested::<Impl, IMPL_OFFSET>,
-            RemoveValidateCertificatesRequested::<Impl, IMPL_OFFSET>,
-            ServerSearchReadBatchRequested::<Impl, IMPL_OFFSET>,
-            RemoveServerSearchReadBatchRequested::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailDataProviderConnection, BASE_OFFSET>(),
+            MailboxSyncRequested: MailboxSyncRequested::<Impl, IMPL_OFFSET>,
+            RemoveMailboxSyncRequested: RemoveMailboxSyncRequested::<Impl, IMPL_OFFSET>,
+            DownloadMessageRequested: DownloadMessageRequested::<Impl, IMPL_OFFSET>,
+            RemoveDownloadMessageRequested: RemoveDownloadMessageRequested::<Impl, IMPL_OFFSET>,
+            DownloadAttachmentRequested: DownloadAttachmentRequested::<Impl, IMPL_OFFSET>,
+            RemoveDownloadAttachmentRequested: RemoveDownloadAttachmentRequested::<Impl, IMPL_OFFSET>,
+            CreateFolderRequested: CreateFolderRequested::<Impl, IMPL_OFFSET>,
+            RemoveCreateFolderRequested: RemoveCreateFolderRequested::<Impl, IMPL_OFFSET>,
+            DeleteFolderRequested: DeleteFolderRequested::<Impl, IMPL_OFFSET>,
+            RemoveDeleteFolderRequested: RemoveDeleteFolderRequested::<Impl, IMPL_OFFSET>,
+            EmptyFolderRequested: EmptyFolderRequested::<Impl, IMPL_OFFSET>,
+            RemoveEmptyFolderRequested: RemoveEmptyFolderRequested::<Impl, IMPL_OFFSET>,
+            MoveFolderRequested: MoveFolderRequested::<Impl, IMPL_OFFSET>,
+            RemoveMoveFolderRequested: RemoveMoveFolderRequested::<Impl, IMPL_OFFSET>,
+            UpdateMeetingResponseRequested: UpdateMeetingResponseRequested::<Impl, IMPL_OFFSET>,
+            RemoveUpdateMeetingResponseRequested: RemoveUpdateMeetingResponseRequested::<Impl, IMPL_OFFSET>,
+            ForwardMeetingRequested: ForwardMeetingRequested::<Impl, IMPL_OFFSET>,
+            RemoveForwardMeetingRequested: RemoveForwardMeetingRequested::<Impl, IMPL_OFFSET>,
+            ProposeNewTimeForMeetingRequested: ProposeNewTimeForMeetingRequested::<Impl, IMPL_OFFSET>,
+            RemoveProposeNewTimeForMeetingRequested: RemoveProposeNewTimeForMeetingRequested::<Impl, IMPL_OFFSET>,
+            SetAutoReplySettingsRequested: SetAutoReplySettingsRequested::<Impl, IMPL_OFFSET>,
+            RemoveSetAutoReplySettingsRequested: RemoveSetAutoReplySettingsRequested::<Impl, IMPL_OFFSET>,
+            GetAutoReplySettingsRequested: GetAutoReplySettingsRequested::<Impl, IMPL_OFFSET>,
+            RemoveGetAutoReplySettingsRequested: RemoveGetAutoReplySettingsRequested::<Impl, IMPL_OFFSET>,
+            ResolveRecipientsRequested: ResolveRecipientsRequested::<Impl, IMPL_OFFSET>,
+            RemoveResolveRecipientsRequested: RemoveResolveRecipientsRequested::<Impl, IMPL_OFFSET>,
+            ValidateCertificatesRequested: ValidateCertificatesRequested::<Impl, IMPL_OFFSET>,
+            RemoveValidateCertificatesRequested: RemoveValidateCertificatesRequested::<Impl, IMPL_OFFSET>,
+            ServerSearchReadBatchRequested: ServerSearchReadBatchRequested::<Impl, IMPL_OFFSET>,
+            RemoveServerSearchReadBatchRequested: RemoveServerSearchReadBatchRequested::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailDataProviderConnection as ::windows::core::Interface>::IID
@@ -334,7 +329,10 @@ impl IEmailDataProviderTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailDataProviderTriggerDetails>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailDataProviderTriggerDetails, BASE_OFFSET>(),
+            Connection: Connection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailDataProviderTriggerDetails as ::windows::core::Interface>::IID
@@ -410,7 +408,14 @@ impl IEmailMailboxCreateFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxCreateFolderRequest>, ::windows::core::GetTrustLevel, EmailMailboxId::<Impl, IMPL_OFFSET>, ParentFolderId::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxCreateFolderRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            ParentFolderId: ParentFolderId::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxCreateFolderRequest as ::windows::core::Interface>::IID
@@ -450,7 +455,11 @@ impl IEmailMailboxCreateFolderRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxCreateFolderRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxCreateFolderRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxCreateFolderRequestEventArgs as ::windows::core::Interface>::IID
@@ -514,7 +523,13 @@ impl IEmailMailboxDeleteFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxDeleteFolderRequest>, ::windows::core::GetTrustLevel, EmailMailboxId::<Impl, IMPL_OFFSET>, EmailFolderId::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxDeleteFolderRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            EmailFolderId: EmailFolderId::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxDeleteFolderRequest as ::windows::core::Interface>::IID
@@ -554,7 +569,11 @@ impl IEmailMailboxDeleteFolderRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxDeleteFolderRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxDeleteFolderRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxDeleteFolderRequestEventArgs as ::windows::core::Interface>::IID
@@ -630,19 +649,14 @@ impl IEmailMailboxDownloadAttachmentRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEmailMailboxDownloadAttachmentRequest>,
-            ::windows::core::GetTrustLevel,
-            EmailMailboxId::<Impl, IMPL_OFFSET>,
-            EmailMessageId::<Impl, IMPL_OFFSET>,
-            EmailAttachmentId::<Impl, IMPL_OFFSET>,
-            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
-            ReportFailedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxDownloadAttachmentRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            EmailMessageId: EmailMessageId::<Impl, IMPL_OFFSET>,
+            EmailAttachmentId: EmailAttachmentId::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxDownloadAttachmentRequest as ::windows::core::Interface>::IID
@@ -682,7 +696,11 @@ impl IEmailMailboxDownloadAttachmentRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxDownloadAttachmentRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxDownloadAttachmentRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxDownloadAttachmentRequestEventArgs as ::windows::core::Interface>::IID
@@ -746,7 +764,13 @@ impl IEmailMailboxDownloadMessageRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxDownloadMessageRequest>, ::windows::core::GetTrustLevel, EmailMailboxId::<Impl, IMPL_OFFSET>, EmailMessageId::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxDownloadMessageRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            EmailMessageId: EmailMessageId::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxDownloadMessageRequest as ::windows::core::Interface>::IID
@@ -786,7 +810,11 @@ impl IEmailMailboxDownloadMessageRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxDownloadMessageRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxDownloadMessageRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxDownloadMessageRequestEventArgs as ::windows::core::Interface>::IID
@@ -850,7 +878,13 @@ impl IEmailMailboxEmptyFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxEmptyFolderRequest>, ::windows::core::GetTrustLevel, EmailMailboxId::<Impl, IMPL_OFFSET>, EmailFolderId::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxEmptyFolderRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            EmailFolderId: EmailFolderId::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxEmptyFolderRequest as ::windows::core::Interface>::IID
@@ -890,7 +924,11 @@ impl IEmailMailboxEmptyFolderRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxEmptyFolderRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxEmptyFolderRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxEmptyFolderRequestEventArgs as ::windows::core::Interface>::IID
@@ -1014,23 +1052,18 @@ impl IEmailMailboxForwardMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEmailMailboxForwardMeetingRequest>,
-            ::windows::core::GetTrustLevel,
-            EmailMailboxId::<Impl, IMPL_OFFSET>,
-            EmailMessageId::<Impl, IMPL_OFFSET>,
-            Recipients::<Impl, IMPL_OFFSET>,
-            Subject::<Impl, IMPL_OFFSET>,
-            ForwardHeaderType::<Impl, IMPL_OFFSET>,
-            ForwardHeader::<Impl, IMPL_OFFSET>,
-            Comment::<Impl, IMPL_OFFSET>,
-            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
-            ReportFailedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxForwardMeetingRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            EmailMessageId: EmailMessageId::<Impl, IMPL_OFFSET>,
+            Recipients: Recipients::<Impl, IMPL_OFFSET>,
+            Subject: Subject::<Impl, IMPL_OFFSET>,
+            ForwardHeaderType: ForwardHeaderType::<Impl, IMPL_OFFSET>,
+            ForwardHeader: ForwardHeader::<Impl, IMPL_OFFSET>,
+            Comment: Comment::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxForwardMeetingRequest as ::windows::core::Interface>::IID
@@ -1070,7 +1103,11 @@ impl IEmailMailboxForwardMeetingRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxForwardMeetingRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxForwardMeetingRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxForwardMeetingRequestEventArgs as ::windows::core::Interface>::IID
@@ -1134,7 +1171,13 @@ impl IEmailMailboxGetAutoReplySettingsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxGetAutoReplySettingsRequest>, ::windows::core::GetTrustLevel, EmailMailboxId::<Impl, IMPL_OFFSET>, RequestedFormat::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxGetAutoReplySettingsRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            RequestedFormat: RequestedFormat::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxGetAutoReplySettingsRequest as ::windows::core::Interface>::IID
@@ -1174,7 +1217,11 @@ impl IEmailMailboxGetAutoReplySettingsRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxGetAutoReplySettingsRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxGetAutoReplySettingsRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxGetAutoReplySettingsRequestEventArgs as ::windows::core::Interface>::IID
@@ -1262,20 +1309,15 @@ impl IEmailMailboxMoveFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEmailMailboxMoveFolderRequest>,
-            ::windows::core::GetTrustLevel,
-            EmailMailboxId::<Impl, IMPL_OFFSET>,
-            EmailFolderId::<Impl, IMPL_OFFSET>,
-            NewParentFolderId::<Impl, IMPL_OFFSET>,
-            NewFolderName::<Impl, IMPL_OFFSET>,
-            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
-            ReportFailedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxMoveFolderRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            EmailFolderId: EmailFolderId::<Impl, IMPL_OFFSET>,
+            NewParentFolderId: NewParentFolderId::<Impl, IMPL_OFFSET>,
+            NewFolderName: NewFolderName::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxMoveFolderRequest as ::windows::core::Interface>::IID
@@ -1315,7 +1357,11 @@ impl IEmailMailboxMoveFolderRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxMoveFolderRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxMoveFolderRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxMoveFolderRequestEventArgs as ::windows::core::Interface>::IID
@@ -1427,22 +1473,17 @@ impl IEmailMailboxProposeNewTimeForMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEmailMailboxProposeNewTimeForMeetingRequest>,
-            ::windows::core::GetTrustLevel,
-            EmailMailboxId::<Impl, IMPL_OFFSET>,
-            EmailMessageId::<Impl, IMPL_OFFSET>,
-            NewStartTime::<Impl, IMPL_OFFSET>,
-            NewDuration::<Impl, IMPL_OFFSET>,
-            Subject::<Impl, IMPL_OFFSET>,
-            Comment::<Impl, IMPL_OFFSET>,
-            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
-            ReportFailedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxProposeNewTimeForMeetingRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            EmailMessageId: EmailMessageId::<Impl, IMPL_OFFSET>,
+            NewStartTime: NewStartTime::<Impl, IMPL_OFFSET>,
+            NewDuration: NewDuration::<Impl, IMPL_OFFSET>,
+            Subject: Subject::<Impl, IMPL_OFFSET>,
+            Comment: Comment::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxProposeNewTimeForMeetingRequest as ::windows::core::Interface>::IID
@@ -1482,7 +1523,11 @@ impl IEmailMailboxProposeNewTimeForMeetingRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxProposeNewTimeForMeetingRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxProposeNewTimeForMeetingRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxProposeNewTimeForMeetingRequestEventArgs as ::windows::core::Interface>::IID
@@ -1546,7 +1591,13 @@ impl IEmailMailboxResolveRecipientsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxResolveRecipientsRequest>, ::windows::core::GetTrustLevel, EmailMailboxId::<Impl, IMPL_OFFSET>, Recipients::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxResolveRecipientsRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            Recipients: Recipients::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxResolveRecipientsRequest as ::windows::core::Interface>::IID
@@ -1586,7 +1637,11 @@ impl IEmailMailboxResolveRecipientsRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxResolveRecipientsRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxResolveRecipientsRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxResolveRecipientsRequestEventArgs as ::windows::core::Interface>::IID
@@ -1698,22 +1753,17 @@ impl IEmailMailboxServerSearchReadBatchRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEmailMailboxServerSearchReadBatchRequest>,
-            ::windows::core::GetTrustLevel,
-            SessionId::<Impl, IMPL_OFFSET>,
-            EmailMailboxId::<Impl, IMPL_OFFSET>,
-            EmailFolderId::<Impl, IMPL_OFFSET>,
-            Options::<Impl, IMPL_OFFSET>,
-            SuggestedBatchSize::<Impl, IMPL_OFFSET>,
-            SaveMessageAsync::<Impl, IMPL_OFFSET>,
-            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
-            ReportFailedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxServerSearchReadBatchRequest, BASE_OFFSET>(),
+            SessionId: SessionId::<Impl, IMPL_OFFSET>,
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            EmailFolderId: EmailFolderId::<Impl, IMPL_OFFSET>,
+            Options: Options::<Impl, IMPL_OFFSET>,
+            SuggestedBatchSize: SuggestedBatchSize::<Impl, IMPL_OFFSET>,
+            SaveMessageAsync: SaveMessageAsync::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxServerSearchReadBatchRequest as ::windows::core::Interface>::IID
@@ -1753,7 +1803,11 @@ impl IEmailMailboxServerSearchReadBatchRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxServerSearchReadBatchRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxServerSearchReadBatchRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxServerSearchReadBatchRequestEventArgs as ::windows::core::Interface>::IID
@@ -1817,7 +1871,13 @@ impl IEmailMailboxSetAutoReplySettingsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxSetAutoReplySettingsRequest>, ::windows::core::GetTrustLevel, EmailMailboxId::<Impl, IMPL_OFFSET>, AutoReplySettings::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxSetAutoReplySettingsRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            AutoReplySettings: AutoReplySettings::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxSetAutoReplySettingsRequest as ::windows::core::Interface>::IID
@@ -1857,7 +1917,11 @@ impl IEmailMailboxSetAutoReplySettingsRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxSetAutoReplySettingsRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxSetAutoReplySettingsRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxSetAutoReplySettingsRequestEventArgs as ::windows::core::Interface>::IID
@@ -1909,7 +1973,12 @@ impl IEmailMailboxSyncManagerSyncRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxSyncManagerSyncRequest>, ::windows::core::GetTrustLevel, EmailMailboxId::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxSyncManagerSyncRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxSyncManagerSyncRequest as ::windows::core::Interface>::IID
@@ -1949,7 +2018,11 @@ impl IEmailMailboxSyncManagerSyncRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxSyncManagerSyncRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxSyncManagerSyncRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxSyncManagerSyncRequestEventArgs as ::windows::core::Interface>::IID
@@ -2061,22 +2134,17 @@ impl IEmailMailboxUpdateMeetingResponseRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEmailMailboxUpdateMeetingResponseRequest>,
-            ::windows::core::GetTrustLevel,
-            EmailMailboxId::<Impl, IMPL_OFFSET>,
-            EmailMessageId::<Impl, IMPL_OFFSET>,
-            Response::<Impl, IMPL_OFFSET>,
-            Subject::<Impl, IMPL_OFFSET>,
-            Comment::<Impl, IMPL_OFFSET>,
-            SendUpdate::<Impl, IMPL_OFFSET>,
-            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
-            ReportFailedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxUpdateMeetingResponseRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            EmailMessageId: EmailMessageId::<Impl, IMPL_OFFSET>,
+            Response: Response::<Impl, IMPL_OFFSET>,
+            Subject: Subject::<Impl, IMPL_OFFSET>,
+            Comment: Comment::<Impl, IMPL_OFFSET>,
+            SendUpdate: SendUpdate::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxUpdateMeetingResponseRequest as ::windows::core::Interface>::IID
@@ -2116,7 +2184,11 @@ impl IEmailMailboxUpdateMeetingResponseRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxUpdateMeetingResponseRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxUpdateMeetingResponseRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxUpdateMeetingResponseRequestEventArgs as ::windows::core::Interface>::IID
@@ -2180,7 +2252,13 @@ impl IEmailMailboxValidateCertificatesRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxValidateCertificatesRequest>, ::windows::core::GetTrustLevel, EmailMailboxId::<Impl, IMPL_OFFSET>, Certificates::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxValidateCertificatesRequest, BASE_OFFSET>(),
+            EmailMailboxId: EmailMailboxId::<Impl, IMPL_OFFSET>,
+            Certificates: Certificates::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxValidateCertificatesRequest as ::windows::core::Interface>::IID
@@ -2220,7 +2298,11 @@ impl IEmailMailboxValidateCertificatesRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxValidateCertificatesRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailMailboxValidateCertificatesRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailMailboxValidateCertificatesRequestEventArgs as ::windows::core::Interface>::IID

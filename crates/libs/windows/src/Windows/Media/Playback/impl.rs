@@ -81,23 +81,18 @@ impl IBackgroundMediaPlayerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Shutdown().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBackgroundMediaPlayerStatics>,
-            ::windows::core::GetTrustLevel,
-            Current::<Impl, IMPL_OFFSET>,
-            MessageReceivedFromBackground::<Impl, IMPL_OFFSET>,
-            RemoveMessageReceivedFromBackground::<Impl, IMPL_OFFSET>,
-            MessageReceivedFromForeground::<Impl, IMPL_OFFSET>,
-            RemoveMessageReceivedFromForeground::<Impl, IMPL_OFFSET>,
-            SendMessageToBackground::<Impl, IMPL_OFFSET>,
-            SendMessageToForeground::<Impl, IMPL_OFFSET>,
-            IsMediaPlaying::<Impl, IMPL_OFFSET>,
-            Shutdown::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundMediaPlayerStatics, BASE_OFFSET>(),
+            Current: Current::<Impl, IMPL_OFFSET>,
+            MessageReceivedFromBackground: MessageReceivedFromBackground::<Impl, IMPL_OFFSET>,
+            RemoveMessageReceivedFromBackground: RemoveMessageReceivedFromBackground::<Impl, IMPL_OFFSET>,
+            MessageReceivedFromForeground: MessageReceivedFromForeground::<Impl, IMPL_OFFSET>,
+            RemoveMessageReceivedFromForeground: RemoveMessageReceivedFromForeground::<Impl, IMPL_OFFSET>,
+            SendMessageToBackground: SendMessageToBackground::<Impl, IMPL_OFFSET>,
+            SendMessageToForeground: SendMessageToForeground::<Impl, IMPL_OFFSET>,
+            IsMediaPlaying: IsMediaPlaying::<Impl, IMPL_OFFSET>,
+            Shutdown: Shutdown::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundMediaPlayerStatics as ::windows::core::Interface>::IID
@@ -137,7 +132,11 @@ impl ICurrentMediaPlaybackItemChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrentMediaPlaybackItemChangedEventArgs>, ::windows::core::GetTrustLevel, NewItem::<Impl, IMPL_OFFSET>, OldItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrentMediaPlaybackItemChangedEventArgs, BASE_OFFSET>(),
+            NewItem: NewItem::<Impl, IMPL_OFFSET>,
+            OldItem: OldItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrentMediaPlaybackItemChangedEventArgs as ::windows::core::Interface>::IID
@@ -165,7 +164,10 @@ impl ICurrentMediaPlaybackItemChangedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrentMediaPlaybackItemChangedEventArgs2>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrentMediaPlaybackItemChangedEventArgs2, BASE_OFFSET>(),
+            Reason: Reason::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrentMediaPlaybackItemChangedEventArgs2 as ::windows::core::Interface>::IID
@@ -246,20 +248,15 @@ impl IMediaBreakVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCanStart(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaBreak>,
-            ::windows::core::GetTrustLevel,
-            PlaybackList::<Impl, IMPL_OFFSET>,
-            PresentationPosition::<Impl, IMPL_OFFSET>,
-            InsertionMethod::<Impl, IMPL_OFFSET>,
-            CustomProperties::<Impl, IMPL_OFFSET>,
-            CanStart::<Impl, IMPL_OFFSET>,
-            SetCanStart::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaBreak, BASE_OFFSET>(),
+            PlaybackList: PlaybackList::<Impl, IMPL_OFFSET>,
+            PresentationPosition: PresentationPosition::<Impl, IMPL_OFFSET>,
+            InsertionMethod: InsertionMethod::<Impl, IMPL_OFFSET>,
+            CustomProperties: CustomProperties::<Impl, IMPL_OFFSET>,
+            CanStart: CanStart::<Impl, IMPL_OFFSET>,
+            SetCanStart: SetCanStart::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaBreak as ::windows::core::Interface>::IID
@@ -287,7 +284,7 @@ impl IMediaBreakEndedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaBreakEndedEventArgs>, ::windows::core::GetTrustLevel, MediaBreak::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaBreakEndedEventArgs, BASE_OFFSET>(), MediaBreak: MediaBreak::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaBreakEndedEventArgs as ::windows::core::Interface>::IID
@@ -327,7 +324,11 @@ impl IMediaBreakFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaBreakFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithPresentationPosition::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaBreakFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithPresentationPosition: CreateWithPresentationPosition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaBreakFactory as ::windows::core::Interface>::IID
@@ -445,26 +446,21 @@ impl IMediaBreakManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SkipCurrentBreak().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaBreakManager>,
-            ::windows::core::GetTrustLevel,
-            BreaksSeekedOver::<Impl, IMPL_OFFSET>,
-            RemoveBreaksSeekedOver::<Impl, IMPL_OFFSET>,
-            BreakStarted::<Impl, IMPL_OFFSET>,
-            RemoveBreakStarted::<Impl, IMPL_OFFSET>,
-            BreakEnded::<Impl, IMPL_OFFSET>,
-            RemoveBreakEnded::<Impl, IMPL_OFFSET>,
-            BreakSkipped::<Impl, IMPL_OFFSET>,
-            RemoveBreakSkipped::<Impl, IMPL_OFFSET>,
-            CurrentBreak::<Impl, IMPL_OFFSET>,
-            PlaybackSession::<Impl, IMPL_OFFSET>,
-            PlayBreak::<Impl, IMPL_OFFSET>,
-            SkipCurrentBreak::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaBreakManager, BASE_OFFSET>(),
+            BreaksSeekedOver: BreaksSeekedOver::<Impl, IMPL_OFFSET>,
+            RemoveBreaksSeekedOver: RemoveBreaksSeekedOver::<Impl, IMPL_OFFSET>,
+            BreakStarted: BreakStarted::<Impl, IMPL_OFFSET>,
+            RemoveBreakStarted: RemoveBreakStarted::<Impl, IMPL_OFFSET>,
+            BreakEnded: BreakEnded::<Impl, IMPL_OFFSET>,
+            RemoveBreakEnded: RemoveBreakEnded::<Impl, IMPL_OFFSET>,
+            BreakSkipped: BreakSkipped::<Impl, IMPL_OFFSET>,
+            RemoveBreakSkipped: RemoveBreakSkipped::<Impl, IMPL_OFFSET>,
+            CurrentBreak: CurrentBreak::<Impl, IMPL_OFFSET>,
+            PlaybackSession: PlaybackSession::<Impl, IMPL_OFFSET>,
+            PlayBreak: PlayBreak::<Impl, IMPL_OFFSET>,
+            SkipCurrentBreak: SkipCurrentBreak::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaBreakManager as ::windows::core::Interface>::IID
@@ -565,24 +561,19 @@ impl IMediaBreakScheduleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaBreakSchedule>,
-            ::windows::core::GetTrustLevel,
-            ScheduleChanged::<Impl, IMPL_OFFSET>,
-            RemoveScheduleChanged::<Impl, IMPL_OFFSET>,
-            InsertMidrollBreak::<Impl, IMPL_OFFSET>,
-            RemoveMidrollBreak::<Impl, IMPL_OFFSET>,
-            MidrollBreaks::<Impl, IMPL_OFFSET>,
-            SetPrerollBreak::<Impl, IMPL_OFFSET>,
-            PrerollBreak::<Impl, IMPL_OFFSET>,
-            SetPostrollBreak::<Impl, IMPL_OFFSET>,
-            PostrollBreak::<Impl, IMPL_OFFSET>,
-            PlaybackItem::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaBreakSchedule, BASE_OFFSET>(),
+            ScheduleChanged: ScheduleChanged::<Impl, IMPL_OFFSET>,
+            RemoveScheduleChanged: RemoveScheduleChanged::<Impl, IMPL_OFFSET>,
+            InsertMidrollBreak: InsertMidrollBreak::<Impl, IMPL_OFFSET>,
+            RemoveMidrollBreak: RemoveMidrollBreak::<Impl, IMPL_OFFSET>,
+            MidrollBreaks: MidrollBreaks::<Impl, IMPL_OFFSET>,
+            SetPrerollBreak: SetPrerollBreak::<Impl, IMPL_OFFSET>,
+            PrerollBreak: PrerollBreak::<Impl, IMPL_OFFSET>,
+            SetPostrollBreak: SetPostrollBreak::<Impl, IMPL_OFFSET>,
+            PostrollBreak: PostrollBreak::<Impl, IMPL_OFFSET>,
+            PlaybackItem: PlaybackItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaBreakSchedule as ::windows::core::Interface>::IID
@@ -634,7 +625,12 @@ impl IMediaBreakSeekedOverEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaBreakSeekedOverEventArgs>, ::windows::core::GetTrustLevel, SeekedOverBreaks::<Impl, IMPL_OFFSET>, OldPosition::<Impl, IMPL_OFFSET>, NewPosition::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaBreakSeekedOverEventArgs, BASE_OFFSET>(),
+            SeekedOverBreaks: SeekedOverBreaks::<Impl, IMPL_OFFSET>,
+            OldPosition: OldPosition::<Impl, IMPL_OFFSET>,
+            NewPosition: NewPosition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaBreakSeekedOverEventArgs as ::windows::core::Interface>::IID
@@ -662,7 +658,10 @@ impl IMediaBreakSkippedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaBreakSkippedEventArgs>, ::windows::core::GetTrustLevel, MediaBreak::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaBreakSkippedEventArgs, BASE_OFFSET>(),
+            MediaBreak: MediaBreak::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaBreakSkippedEventArgs as ::windows::core::Interface>::IID
@@ -690,7 +689,10 @@ impl IMediaBreakStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaBreakStartedEventArgs>, ::windows::core::GetTrustLevel, MediaBreak::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaBreakStartedEventArgs, BASE_OFFSET>(),
+            MediaBreak: MediaBreak::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaBreakStartedEventArgs as ::windows::core::Interface>::IID
@@ -723,7 +725,11 @@ impl IMediaEnginePlaybackSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlaybackSource(&*(&source as *const <IMediaPlaybackSource as ::windows::core::Abi>::Abi as *const <IMediaPlaybackSource as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaEnginePlaybackSource>, ::windows::core::GetTrustLevel, CurrentItem::<Impl, IMPL_OFFSET>, SetPlaybackSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEnginePlaybackSource, BASE_OFFSET>(),
+            CurrentItem: CurrentItem::<Impl, IMPL_OFFSET>,
+            SetPlaybackSource: SetPlaybackSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEnginePlaybackSource as ::windows::core::Interface>::IID
@@ -802,21 +808,16 @@ impl IMediaItemDisplayPropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearAll().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaItemDisplayProperties>,
-            ::windows::core::GetTrustLevel,
-            Type::<Impl, IMPL_OFFSET>,
-            SetType::<Impl, IMPL_OFFSET>,
-            MusicProperties::<Impl, IMPL_OFFSET>,
-            VideoProperties::<Impl, IMPL_OFFSET>,
-            Thumbnail::<Impl, IMPL_OFFSET>,
-            SetThumbnail::<Impl, IMPL_OFFSET>,
-            ClearAll::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaItemDisplayProperties, BASE_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            SetType: SetType::<Impl, IMPL_OFFSET>,
+            MusicProperties: MusicProperties::<Impl, IMPL_OFFSET>,
+            VideoProperties: VideoProperties::<Impl, IMPL_OFFSET>,
+            Thumbnail: Thumbnail::<Impl, IMPL_OFFSET>,
+            SetThumbnail: SetThumbnail::<Impl, IMPL_OFFSET>,
+            ClearAll: ClearAll::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaItemDisplayProperties as ::windows::core::Interface>::IID
@@ -1151,47 +1152,42 @@ impl IMediaPlaybackCommandManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRateReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaPlaybackCommandManager>,
-            ::windows::core::GetTrustLevel,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            SetIsEnabled::<Impl, IMPL_OFFSET>,
-            MediaPlayer::<Impl, IMPL_OFFSET>,
-            PlayBehavior::<Impl, IMPL_OFFSET>,
-            PauseBehavior::<Impl, IMPL_OFFSET>,
-            NextBehavior::<Impl, IMPL_OFFSET>,
-            PreviousBehavior::<Impl, IMPL_OFFSET>,
-            FastForwardBehavior::<Impl, IMPL_OFFSET>,
-            RewindBehavior::<Impl, IMPL_OFFSET>,
-            ShuffleBehavior::<Impl, IMPL_OFFSET>,
-            AutoRepeatModeBehavior::<Impl, IMPL_OFFSET>,
-            PositionBehavior::<Impl, IMPL_OFFSET>,
-            RateBehavior::<Impl, IMPL_OFFSET>,
-            PlayReceived::<Impl, IMPL_OFFSET>,
-            RemovePlayReceived::<Impl, IMPL_OFFSET>,
-            PauseReceived::<Impl, IMPL_OFFSET>,
-            RemovePauseReceived::<Impl, IMPL_OFFSET>,
-            NextReceived::<Impl, IMPL_OFFSET>,
-            RemoveNextReceived::<Impl, IMPL_OFFSET>,
-            PreviousReceived::<Impl, IMPL_OFFSET>,
-            RemovePreviousReceived::<Impl, IMPL_OFFSET>,
-            FastForwardReceived::<Impl, IMPL_OFFSET>,
-            RemoveFastForwardReceived::<Impl, IMPL_OFFSET>,
-            RewindReceived::<Impl, IMPL_OFFSET>,
-            RemoveRewindReceived::<Impl, IMPL_OFFSET>,
-            ShuffleReceived::<Impl, IMPL_OFFSET>,
-            RemoveShuffleReceived::<Impl, IMPL_OFFSET>,
-            AutoRepeatModeReceived::<Impl, IMPL_OFFSET>,
-            RemoveAutoRepeatModeReceived::<Impl, IMPL_OFFSET>,
-            PositionReceived::<Impl, IMPL_OFFSET>,
-            RemovePositionReceived::<Impl, IMPL_OFFSET>,
-            RateReceived::<Impl, IMPL_OFFSET>,
-            RemoveRateReceived::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackCommandManager, BASE_OFFSET>(),
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled: SetIsEnabled::<Impl, IMPL_OFFSET>,
+            MediaPlayer: MediaPlayer::<Impl, IMPL_OFFSET>,
+            PlayBehavior: PlayBehavior::<Impl, IMPL_OFFSET>,
+            PauseBehavior: PauseBehavior::<Impl, IMPL_OFFSET>,
+            NextBehavior: NextBehavior::<Impl, IMPL_OFFSET>,
+            PreviousBehavior: PreviousBehavior::<Impl, IMPL_OFFSET>,
+            FastForwardBehavior: FastForwardBehavior::<Impl, IMPL_OFFSET>,
+            RewindBehavior: RewindBehavior::<Impl, IMPL_OFFSET>,
+            ShuffleBehavior: ShuffleBehavior::<Impl, IMPL_OFFSET>,
+            AutoRepeatModeBehavior: AutoRepeatModeBehavior::<Impl, IMPL_OFFSET>,
+            PositionBehavior: PositionBehavior::<Impl, IMPL_OFFSET>,
+            RateBehavior: RateBehavior::<Impl, IMPL_OFFSET>,
+            PlayReceived: PlayReceived::<Impl, IMPL_OFFSET>,
+            RemovePlayReceived: RemovePlayReceived::<Impl, IMPL_OFFSET>,
+            PauseReceived: PauseReceived::<Impl, IMPL_OFFSET>,
+            RemovePauseReceived: RemovePauseReceived::<Impl, IMPL_OFFSET>,
+            NextReceived: NextReceived::<Impl, IMPL_OFFSET>,
+            RemoveNextReceived: RemoveNextReceived::<Impl, IMPL_OFFSET>,
+            PreviousReceived: PreviousReceived::<Impl, IMPL_OFFSET>,
+            RemovePreviousReceived: RemovePreviousReceived::<Impl, IMPL_OFFSET>,
+            FastForwardReceived: FastForwardReceived::<Impl, IMPL_OFFSET>,
+            RemoveFastForwardReceived: RemoveFastForwardReceived::<Impl, IMPL_OFFSET>,
+            RewindReceived: RewindReceived::<Impl, IMPL_OFFSET>,
+            RemoveRewindReceived: RemoveRewindReceived::<Impl, IMPL_OFFSET>,
+            ShuffleReceived: ShuffleReceived::<Impl, IMPL_OFFSET>,
+            RemoveShuffleReceived: RemoveShuffleReceived::<Impl, IMPL_OFFSET>,
+            AutoRepeatModeReceived: AutoRepeatModeReceived::<Impl, IMPL_OFFSET>,
+            RemoveAutoRepeatModeReceived: RemoveAutoRepeatModeReceived::<Impl, IMPL_OFFSET>,
+            PositionReceived: PositionReceived::<Impl, IMPL_OFFSET>,
+            RemovePositionReceived: RemovePositionReceived::<Impl, IMPL_OFFSET>,
+            RateReceived: RateReceived::<Impl, IMPL_OFFSET>,
+            RemoveRateReceived: RemoveRateReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackCommandManager as ::windows::core::Interface>::IID
@@ -1248,7 +1244,13 @@ impl IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, AutoRepeatMode::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            AutoRepeatMode: AutoRepeatMode::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs as ::windows::core::Interface>::IID
@@ -1322,20 +1324,15 @@ impl IMediaPlaybackCommandManagerCommandBehaviorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsEnabledChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaPlaybackCommandManagerCommandBehavior>,
-            ::windows::core::GetTrustLevel,
-            CommandManager::<Impl, IMPL_OFFSET>,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            EnablingRule::<Impl, IMPL_OFFSET>,
-            SetEnablingRule::<Impl, IMPL_OFFSET>,
-            IsEnabledChanged::<Impl, IMPL_OFFSET>,
-            RemoveIsEnabledChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackCommandManagerCommandBehavior, BASE_OFFSET>(),
+            CommandManager: CommandManager::<Impl, IMPL_OFFSET>,
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            EnablingRule: EnablingRule::<Impl, IMPL_OFFSET>,
+            SetEnablingRule: SetEnablingRule::<Impl, IMPL_OFFSET>,
+            IsEnabledChanged: IsEnabledChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsEnabledChanged: RemoveIsEnabledChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackCommandManagerCommandBehavior as ::windows::core::Interface>::IID
@@ -1380,7 +1377,12 @@ impl IMediaPlaybackCommandManagerFastForwardReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackCommandManagerFastForwardReceivedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackCommandManagerFastForwardReceivedEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackCommandManagerFastForwardReceivedEventArgs as ::windows::core::Interface>::IID
@@ -1425,7 +1427,12 @@ impl IMediaPlaybackCommandManagerNextReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackCommandManagerNextReceivedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackCommandManagerNextReceivedEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackCommandManagerNextReceivedEventArgs as ::windows::core::Interface>::IID
@@ -1470,7 +1477,12 @@ impl IMediaPlaybackCommandManagerPauseReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackCommandManagerPauseReceivedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackCommandManagerPauseReceivedEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackCommandManagerPauseReceivedEventArgs as ::windows::core::Interface>::IID
@@ -1515,7 +1527,12 @@ impl IMediaPlaybackCommandManagerPlayReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackCommandManagerPlayReceivedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackCommandManagerPlayReceivedEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackCommandManagerPlayReceivedEventArgs as ::windows::core::Interface>::IID
@@ -1572,7 +1589,13 @@ impl IMediaPlaybackCommandManagerPositionReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackCommandManagerPositionReceivedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackCommandManagerPositionReceivedEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackCommandManagerPositionReceivedEventArgs as ::windows::core::Interface>::IID
@@ -1617,7 +1640,12 @@ impl IMediaPlaybackCommandManagerPreviousReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackCommandManagerPreviousReceivedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackCommandManagerPreviousReceivedEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackCommandManagerPreviousReceivedEventArgs as ::windows::core::Interface>::IID
@@ -1674,7 +1702,13 @@ impl IMediaPlaybackCommandManagerRateReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackCommandManagerRateReceivedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, PlaybackRate::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackCommandManagerRateReceivedEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            PlaybackRate: PlaybackRate::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackCommandManagerRateReceivedEventArgs as ::windows::core::Interface>::IID
@@ -1719,7 +1753,12 @@ impl IMediaPlaybackCommandManagerRewindReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackCommandManagerRewindReceivedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackCommandManagerRewindReceivedEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackCommandManagerRewindReceivedEventArgs as ::windows::core::Interface>::IID
@@ -1776,7 +1815,13 @@ impl IMediaPlaybackCommandManagerShuffleReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackCommandManagerShuffleReceivedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, IsShuffleRequested::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackCommandManagerShuffleReceivedEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            IsShuffleRequested: IsShuffleRequested::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackCommandManagerShuffleReceivedEventArgs as ::windows::core::Interface>::IID
@@ -1891,24 +1936,19 @@ impl IMediaPlaybackItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaPlaybackItem>,
-            ::windows::core::GetTrustLevel,
-            AudioTracksChanged::<Impl, IMPL_OFFSET>,
-            RemoveAudioTracksChanged::<Impl, IMPL_OFFSET>,
-            VideoTracksChanged::<Impl, IMPL_OFFSET>,
-            RemoveVideoTracksChanged::<Impl, IMPL_OFFSET>,
-            TimedMetadataTracksChanged::<Impl, IMPL_OFFSET>,
-            RemoveTimedMetadataTracksChanged::<Impl, IMPL_OFFSET>,
-            Source::<Impl, IMPL_OFFSET>,
-            AudioTracks::<Impl, IMPL_OFFSET>,
-            VideoTracks::<Impl, IMPL_OFFSET>,
-            TimedMetadataTracks::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackItem, BASE_OFFSET>(),
+            AudioTracksChanged: AudioTracksChanged::<Impl, IMPL_OFFSET>,
+            RemoveAudioTracksChanged: RemoveAudioTracksChanged::<Impl, IMPL_OFFSET>,
+            VideoTracksChanged: VideoTracksChanged::<Impl, IMPL_OFFSET>,
+            RemoveVideoTracksChanged: RemoveVideoTracksChanged::<Impl, IMPL_OFFSET>,
+            TimedMetadataTracksChanged: TimedMetadataTracksChanged::<Impl, IMPL_OFFSET>,
+            RemoveTimedMetadataTracksChanged: RemoveTimedMetadataTracksChanged::<Impl, IMPL_OFFSET>,
+            Source: Source::<Impl, IMPL_OFFSET>,
+            AudioTracks: AudioTracks::<Impl, IMPL_OFFSET>,
+            VideoTracks: VideoTracks::<Impl, IMPL_OFFSET>,
+            TimedMetadataTracks: TimedMetadataTracks::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackItem as ::windows::core::Interface>::IID
@@ -1994,21 +2034,16 @@ impl IMediaPlaybackItem2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ApplyDisplayProperties(&*(&value as *const <MediaItemDisplayProperties as ::windows::core::Abi>::Abi as *const <MediaItemDisplayProperties as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaPlaybackItem2>,
-            ::windows::core::GetTrustLevel,
-            BreakSchedule::<Impl, IMPL_OFFSET>,
-            StartTime::<Impl, IMPL_OFFSET>,
-            DurationLimit::<Impl, IMPL_OFFSET>,
-            CanSkip::<Impl, IMPL_OFFSET>,
-            SetCanSkip::<Impl, IMPL_OFFSET>,
-            GetDisplayProperties::<Impl, IMPL_OFFSET>,
-            ApplyDisplayProperties::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackItem2, BASE_OFFSET>(),
+            BreakSchedule: BreakSchedule::<Impl, IMPL_OFFSET>,
+            StartTime: StartTime::<Impl, IMPL_OFFSET>,
+            DurationLimit: DurationLimit::<Impl, IMPL_OFFSET>,
+            CanSkip: CanSkip::<Impl, IMPL_OFFSET>,
+            SetCanSkip: SetCanSkip::<Impl, IMPL_OFFSET>,
+            GetDisplayProperties: GetDisplayProperties::<Impl, IMPL_OFFSET>,
+            ApplyDisplayProperties: ApplyDisplayProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackItem2 as ::windows::core::Interface>::IID
@@ -2070,19 +2105,14 @@ impl IMediaPlaybackItem3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutoLoadedDisplayProperties(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaPlaybackItem3>,
-            ::windows::core::GetTrustLevel,
-            IsDisabledInPlaybackList::<Impl, IMPL_OFFSET>,
-            SetIsDisabledInPlaybackList::<Impl, IMPL_OFFSET>,
-            TotalDownloadProgress::<Impl, IMPL_OFFSET>,
-            AutoLoadedDisplayProperties::<Impl, IMPL_OFFSET>,
-            SetAutoLoadedDisplayProperties::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackItem3, BASE_OFFSET>(),
+            IsDisabledInPlaybackList: IsDisabledInPlaybackList::<Impl, IMPL_OFFSET>,
+            SetIsDisabledInPlaybackList: SetIsDisabledInPlaybackList::<Impl, IMPL_OFFSET>,
+            TotalDownloadProgress: TotalDownloadProgress::<Impl, IMPL_OFFSET>,
+            AutoLoadedDisplayProperties: AutoLoadedDisplayProperties::<Impl, IMPL_OFFSET>,
+            SetAutoLoadedDisplayProperties: SetAutoLoadedDisplayProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackItem3 as ::windows::core::Interface>::IID
@@ -2122,7 +2152,11 @@ impl IMediaPlaybackItemErrorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackItemError>, ::windows::core::GetTrustLevel, ErrorCode::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackItemError, BASE_OFFSET>(),
+            ErrorCode: ErrorCode::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackItemError as ::windows::core::Interface>::IID
@@ -2150,7 +2184,7 @@ impl IMediaPlaybackItemFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackItemFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackItemFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackItemFactory as ::windows::core::Interface>::IID
@@ -2194,7 +2228,11 @@ impl IMediaPlaybackItemFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackItemFactory2>, ::windows::core::GetTrustLevel, CreateWithStartTime::<Impl, IMPL_OFFSET>, CreateWithStartTimeAndDurationLimit::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackItemFactory2, BASE_OFFSET>(),
+            CreateWithStartTime: CreateWithStartTime::<Impl, IMPL_OFFSET>,
+            CreateWithStartTimeAndDurationLimit: CreateWithStartTimeAndDurationLimit::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackItemFactory2 as ::windows::core::Interface>::IID
@@ -2234,7 +2272,11 @@ impl IMediaPlaybackItemFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackItemFailedEventArgs>, ::windows::core::GetTrustLevel, Item::<Impl, IMPL_OFFSET>, Error::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackItemFailedEventArgs, BASE_OFFSET>(),
+            Item: Item::<Impl, IMPL_OFFSET>,
+            Error: Error::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackItemFailedEventArgs as ::windows::core::Interface>::IID
@@ -2262,7 +2304,7 @@ impl IMediaPlaybackItemOpenedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackItemOpenedEventArgs>, ::windows::core::GetTrustLevel, Item::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackItemOpenedEventArgs, BASE_OFFSET>(), Item: Item::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackItemOpenedEventArgs as ::windows::core::Interface>::IID
@@ -2290,7 +2332,10 @@ impl IMediaPlaybackItemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackItemStatics>, ::windows::core::GetTrustLevel, FindFromMediaSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackItemStatics, BASE_OFFSET>(),
+            FindFromMediaSource: FindFromMediaSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackItemStatics as ::windows::core::Interface>::IID
@@ -2463,30 +2508,25 @@ impl IMediaPlaybackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaPlaybackList>,
-            ::windows::core::GetTrustLevel,
-            ItemFailed::<Impl, IMPL_OFFSET>,
-            RemoveItemFailed::<Impl, IMPL_OFFSET>,
-            CurrentItemChanged::<Impl, IMPL_OFFSET>,
-            RemoveCurrentItemChanged::<Impl, IMPL_OFFSET>,
-            ItemOpened::<Impl, IMPL_OFFSET>,
-            RemoveItemOpened::<Impl, IMPL_OFFSET>,
-            Items::<Impl, IMPL_OFFSET>,
-            AutoRepeatEnabled::<Impl, IMPL_OFFSET>,
-            SetAutoRepeatEnabled::<Impl, IMPL_OFFSET>,
-            ShuffleEnabled::<Impl, IMPL_OFFSET>,
-            SetShuffleEnabled::<Impl, IMPL_OFFSET>,
-            CurrentItem::<Impl, IMPL_OFFSET>,
-            CurrentItemIndex::<Impl, IMPL_OFFSET>,
-            MoveNext::<Impl, IMPL_OFFSET>,
-            MovePrevious::<Impl, IMPL_OFFSET>,
-            MoveTo::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackList, BASE_OFFSET>(),
+            ItemFailed: ItemFailed::<Impl, IMPL_OFFSET>,
+            RemoveItemFailed: RemoveItemFailed::<Impl, IMPL_OFFSET>,
+            CurrentItemChanged: CurrentItemChanged::<Impl, IMPL_OFFSET>,
+            RemoveCurrentItemChanged: RemoveCurrentItemChanged::<Impl, IMPL_OFFSET>,
+            ItemOpened: ItemOpened::<Impl, IMPL_OFFSET>,
+            RemoveItemOpened: RemoveItemOpened::<Impl, IMPL_OFFSET>,
+            Items: Items::<Impl, IMPL_OFFSET>,
+            AutoRepeatEnabled: AutoRepeatEnabled::<Impl, IMPL_OFFSET>,
+            SetAutoRepeatEnabled: SetAutoRepeatEnabled::<Impl, IMPL_OFFSET>,
+            ShuffleEnabled: ShuffleEnabled::<Impl, IMPL_OFFSET>,
+            SetShuffleEnabled: SetShuffleEnabled::<Impl, IMPL_OFFSET>,
+            CurrentItem: CurrentItem::<Impl, IMPL_OFFSET>,
+            CurrentItemIndex: CurrentItemIndex::<Impl, IMPL_OFFSET>,
+            MoveNext: MoveNext::<Impl, IMPL_OFFSET>,
+            MovePrevious: MovePrevious::<Impl, IMPL_OFFSET>,
+            MoveTo: MoveTo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackList as ::windows::core::Interface>::IID
@@ -2553,20 +2593,15 @@ impl IMediaPlaybackList2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShuffledItems(&*(&value as *const <super::super::Foundation::Collections::IIterable<MediaPlaybackItem> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<MediaPlaybackItem> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaPlaybackList2>,
-            ::windows::core::GetTrustLevel,
-            MaxPrefetchTime::<Impl, IMPL_OFFSET>,
-            SetMaxPrefetchTime::<Impl, IMPL_OFFSET>,
-            StartingItem::<Impl, IMPL_OFFSET>,
-            SetStartingItem::<Impl, IMPL_OFFSET>,
-            ShuffledItems::<Impl, IMPL_OFFSET>,
-            SetShuffledItems::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackList2, BASE_OFFSET>(),
+            MaxPrefetchTime: MaxPrefetchTime::<Impl, IMPL_OFFSET>,
+            SetMaxPrefetchTime: SetMaxPrefetchTime::<Impl, IMPL_OFFSET>,
+            StartingItem: StartingItem::<Impl, IMPL_OFFSET>,
+            SetStartingItem: SetStartingItem::<Impl, IMPL_OFFSET>,
+            ShuffledItems: ShuffledItems::<Impl, IMPL_OFFSET>,
+            SetShuffledItems: SetShuffledItems::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackList2 as ::windows::core::Interface>::IID
@@ -2599,7 +2634,11 @@ impl IMediaPlaybackList3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxPlayedItemsToKeepOpen(&*(&value as *const <super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackList3>, ::windows::core::GetTrustLevel, MaxPlayedItemsToKeepOpen::<Impl, IMPL_OFFSET>, SetMaxPlayedItemsToKeepOpen::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackList3, BASE_OFFSET>(),
+            MaxPlayedItemsToKeepOpen: MaxPlayedItemsToKeepOpen::<Impl, IMPL_OFFSET>,
+            SetMaxPlayedItemsToKeepOpen: SetMaxPlayedItemsToKeepOpen::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackList3 as ::windows::core::Interface>::IID
@@ -2973,52 +3012,47 @@ impl IMediaPlaybackSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStereoscopicVideoPackingMode(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaPlaybackSession>,
-            ::windows::core::GetTrustLevel,
-            PlaybackStateChanged::<Impl, IMPL_OFFSET>,
-            RemovePlaybackStateChanged::<Impl, IMPL_OFFSET>,
-            PlaybackRateChanged::<Impl, IMPL_OFFSET>,
-            RemovePlaybackRateChanged::<Impl, IMPL_OFFSET>,
-            SeekCompleted::<Impl, IMPL_OFFSET>,
-            RemoveSeekCompleted::<Impl, IMPL_OFFSET>,
-            BufferingStarted::<Impl, IMPL_OFFSET>,
-            RemoveBufferingStarted::<Impl, IMPL_OFFSET>,
-            BufferingEnded::<Impl, IMPL_OFFSET>,
-            RemoveBufferingEnded::<Impl, IMPL_OFFSET>,
-            BufferingProgressChanged::<Impl, IMPL_OFFSET>,
-            RemoveBufferingProgressChanged::<Impl, IMPL_OFFSET>,
-            DownloadProgressChanged::<Impl, IMPL_OFFSET>,
-            RemoveDownloadProgressChanged::<Impl, IMPL_OFFSET>,
-            NaturalDurationChanged::<Impl, IMPL_OFFSET>,
-            RemoveNaturalDurationChanged::<Impl, IMPL_OFFSET>,
-            PositionChanged::<Impl, IMPL_OFFSET>,
-            RemovePositionChanged::<Impl, IMPL_OFFSET>,
-            NaturalVideoSizeChanged::<Impl, IMPL_OFFSET>,
-            RemoveNaturalVideoSizeChanged::<Impl, IMPL_OFFSET>,
-            MediaPlayer::<Impl, IMPL_OFFSET>,
-            NaturalDuration::<Impl, IMPL_OFFSET>,
-            Position::<Impl, IMPL_OFFSET>,
-            SetPosition::<Impl, IMPL_OFFSET>,
-            PlaybackState::<Impl, IMPL_OFFSET>,
-            CanSeek::<Impl, IMPL_OFFSET>,
-            CanPause::<Impl, IMPL_OFFSET>,
-            IsProtected::<Impl, IMPL_OFFSET>,
-            PlaybackRate::<Impl, IMPL_OFFSET>,
-            SetPlaybackRate::<Impl, IMPL_OFFSET>,
-            BufferingProgress::<Impl, IMPL_OFFSET>,
-            DownloadProgress::<Impl, IMPL_OFFSET>,
-            NaturalVideoHeight::<Impl, IMPL_OFFSET>,
-            NaturalVideoWidth::<Impl, IMPL_OFFSET>,
-            NormalizedSourceRect::<Impl, IMPL_OFFSET>,
-            SetNormalizedSourceRect::<Impl, IMPL_OFFSET>,
-            StereoscopicVideoPackingMode::<Impl, IMPL_OFFSET>,
-            SetStereoscopicVideoPackingMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackSession, BASE_OFFSET>(),
+            PlaybackStateChanged: PlaybackStateChanged::<Impl, IMPL_OFFSET>,
+            RemovePlaybackStateChanged: RemovePlaybackStateChanged::<Impl, IMPL_OFFSET>,
+            PlaybackRateChanged: PlaybackRateChanged::<Impl, IMPL_OFFSET>,
+            RemovePlaybackRateChanged: RemovePlaybackRateChanged::<Impl, IMPL_OFFSET>,
+            SeekCompleted: SeekCompleted::<Impl, IMPL_OFFSET>,
+            RemoveSeekCompleted: RemoveSeekCompleted::<Impl, IMPL_OFFSET>,
+            BufferingStarted: BufferingStarted::<Impl, IMPL_OFFSET>,
+            RemoveBufferingStarted: RemoveBufferingStarted::<Impl, IMPL_OFFSET>,
+            BufferingEnded: BufferingEnded::<Impl, IMPL_OFFSET>,
+            RemoveBufferingEnded: RemoveBufferingEnded::<Impl, IMPL_OFFSET>,
+            BufferingProgressChanged: BufferingProgressChanged::<Impl, IMPL_OFFSET>,
+            RemoveBufferingProgressChanged: RemoveBufferingProgressChanged::<Impl, IMPL_OFFSET>,
+            DownloadProgressChanged: DownloadProgressChanged::<Impl, IMPL_OFFSET>,
+            RemoveDownloadProgressChanged: RemoveDownloadProgressChanged::<Impl, IMPL_OFFSET>,
+            NaturalDurationChanged: NaturalDurationChanged::<Impl, IMPL_OFFSET>,
+            RemoveNaturalDurationChanged: RemoveNaturalDurationChanged::<Impl, IMPL_OFFSET>,
+            PositionChanged: PositionChanged::<Impl, IMPL_OFFSET>,
+            RemovePositionChanged: RemovePositionChanged::<Impl, IMPL_OFFSET>,
+            NaturalVideoSizeChanged: NaturalVideoSizeChanged::<Impl, IMPL_OFFSET>,
+            RemoveNaturalVideoSizeChanged: RemoveNaturalVideoSizeChanged::<Impl, IMPL_OFFSET>,
+            MediaPlayer: MediaPlayer::<Impl, IMPL_OFFSET>,
+            NaturalDuration: NaturalDuration::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            SetPosition: SetPosition::<Impl, IMPL_OFFSET>,
+            PlaybackState: PlaybackState::<Impl, IMPL_OFFSET>,
+            CanSeek: CanSeek::<Impl, IMPL_OFFSET>,
+            CanPause: CanPause::<Impl, IMPL_OFFSET>,
+            IsProtected: IsProtected::<Impl, IMPL_OFFSET>,
+            PlaybackRate: PlaybackRate::<Impl, IMPL_OFFSET>,
+            SetPlaybackRate: SetPlaybackRate::<Impl, IMPL_OFFSET>,
+            BufferingProgress: BufferingProgress::<Impl, IMPL_OFFSET>,
+            DownloadProgress: DownloadProgress::<Impl, IMPL_OFFSET>,
+            NaturalVideoHeight: NaturalVideoHeight::<Impl, IMPL_OFFSET>,
+            NaturalVideoWidth: NaturalVideoWidth::<Impl, IMPL_OFFSET>,
+            NormalizedSourceRect: NormalizedSourceRect::<Impl, IMPL_OFFSET>,
+            SetNormalizedSourceRect: SetNormalizedSourceRect::<Impl, IMPL_OFFSET>,
+            StereoscopicVideoPackingMode: StereoscopicVideoPackingMode::<Impl, IMPL_OFFSET>,
+            SetStereoscopicVideoPackingMode: SetStereoscopicVideoPackingMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackSession as ::windows::core::Interface>::IID
@@ -3179,29 +3213,24 @@ impl IMediaPlaybackSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaPlaybackSession2>,
-            ::windows::core::GetTrustLevel,
-            BufferedRangesChanged::<Impl, IMPL_OFFSET>,
-            RemoveBufferedRangesChanged::<Impl, IMPL_OFFSET>,
-            PlayedRangesChanged::<Impl, IMPL_OFFSET>,
-            RemovePlayedRangesChanged::<Impl, IMPL_OFFSET>,
-            SeekableRangesChanged::<Impl, IMPL_OFFSET>,
-            RemoveSeekableRangesChanged::<Impl, IMPL_OFFSET>,
-            SupportedPlaybackRatesChanged::<Impl, IMPL_OFFSET>,
-            RemoveSupportedPlaybackRatesChanged::<Impl, IMPL_OFFSET>,
-            SphericalVideoProjection::<Impl, IMPL_OFFSET>,
-            IsMirroring::<Impl, IMPL_OFFSET>,
-            SetIsMirroring::<Impl, IMPL_OFFSET>,
-            GetBufferedRanges::<Impl, IMPL_OFFSET>,
-            GetPlayedRanges::<Impl, IMPL_OFFSET>,
-            GetSeekableRanges::<Impl, IMPL_OFFSET>,
-            IsSupportedPlaybackRateRange::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackSession2, BASE_OFFSET>(),
+            BufferedRangesChanged: BufferedRangesChanged::<Impl, IMPL_OFFSET>,
+            RemoveBufferedRangesChanged: RemoveBufferedRangesChanged::<Impl, IMPL_OFFSET>,
+            PlayedRangesChanged: PlayedRangesChanged::<Impl, IMPL_OFFSET>,
+            RemovePlayedRangesChanged: RemovePlayedRangesChanged::<Impl, IMPL_OFFSET>,
+            SeekableRangesChanged: SeekableRangesChanged::<Impl, IMPL_OFFSET>,
+            RemoveSeekableRangesChanged: RemoveSeekableRangesChanged::<Impl, IMPL_OFFSET>,
+            SupportedPlaybackRatesChanged: SupportedPlaybackRatesChanged::<Impl, IMPL_OFFSET>,
+            RemoveSupportedPlaybackRatesChanged: RemoveSupportedPlaybackRatesChanged::<Impl, IMPL_OFFSET>,
+            SphericalVideoProjection: SphericalVideoProjection::<Impl, IMPL_OFFSET>,
+            IsMirroring: IsMirroring::<Impl, IMPL_OFFSET>,
+            SetIsMirroring: SetIsMirroring::<Impl, IMPL_OFFSET>,
+            GetBufferedRanges: GetBufferedRanges::<Impl, IMPL_OFFSET>,
+            GetPlayedRanges: GetPlayedRanges::<Impl, IMPL_OFFSET>,
+            GetSeekableRanges: GetSeekableRanges::<Impl, IMPL_OFFSET>,
+            IsSupportedPlaybackRateRange: IsSupportedPlaybackRateRange::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackSession2 as ::windows::core::Interface>::IID
@@ -3246,7 +3275,12 @@ impl IMediaPlaybackSession3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackSession3>, ::windows::core::GetTrustLevel, PlaybackRotation::<Impl, IMPL_OFFSET>, SetPlaybackRotation::<Impl, IMPL_OFFSET>, GetOutputDegradationPolicyState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackSession3, BASE_OFFSET>(),
+            PlaybackRotation: PlaybackRotation::<Impl, IMPL_OFFSET>,
+            SetPlaybackRotation: SetPlaybackRotation::<Impl, IMPL_OFFSET>,
+            GetOutputDegradationPolicyState: GetOutputDegradationPolicyState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackSession3 as ::windows::core::Interface>::IID
@@ -3274,7 +3308,10 @@ impl IMediaPlaybackSessionBufferingStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackSessionBufferingStartedEventArgs>, ::windows::core::GetTrustLevel, IsPlaybackInterruption::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackSessionBufferingStartedEventArgs, BASE_OFFSET>(),
+            IsPlaybackInterruption: IsPlaybackInterruption::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackSessionBufferingStartedEventArgs as ::windows::core::Interface>::IID
@@ -3302,7 +3339,10 @@ impl IMediaPlaybackSessionOutputDegradationPolicyStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackSessionOutputDegradationPolicyState>, ::windows::core::GetTrustLevel, VideoConstrictionReason::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackSessionOutputDegradationPolicyState, BASE_OFFSET>(),
+            VideoConstrictionReason: VideoConstrictionReason::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackSessionOutputDegradationPolicyState as ::windows::core::Interface>::IID
@@ -3314,7 +3354,7 @@ impl ::windows::core::RuntimeName for IMediaPlaybackSource {
 }
 impl IMediaPlaybackSourceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSourceVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackSource>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackSource, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackSource as ::windows::core::Interface>::IID
@@ -3415,24 +3455,19 @@ impl IMediaPlaybackSphericalVideoProjectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProjectionMode(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaPlaybackSphericalVideoProjection>,
-            ::windows::core::GetTrustLevel,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            SetIsEnabled::<Impl, IMPL_OFFSET>,
-            FrameFormat::<Impl, IMPL_OFFSET>,
-            SetFrameFormat::<Impl, IMPL_OFFSET>,
-            HorizontalFieldOfViewInDegrees::<Impl, IMPL_OFFSET>,
-            SetHorizontalFieldOfViewInDegrees::<Impl, IMPL_OFFSET>,
-            ViewOrientation::<Impl, IMPL_OFFSET>,
-            SetViewOrientation::<Impl, IMPL_OFFSET>,
-            ProjectionMode::<Impl, IMPL_OFFSET>,
-            SetProjectionMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackSphericalVideoProjection, BASE_OFFSET>(),
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled: SetIsEnabled::<Impl, IMPL_OFFSET>,
+            FrameFormat: FrameFormat::<Impl, IMPL_OFFSET>,
+            SetFrameFormat: SetFrameFormat::<Impl, IMPL_OFFSET>,
+            HorizontalFieldOfViewInDegrees: HorizontalFieldOfViewInDegrees::<Impl, IMPL_OFFSET>,
+            SetHorizontalFieldOfViewInDegrees: SetHorizontalFieldOfViewInDegrees::<Impl, IMPL_OFFSET>,
+            ViewOrientation: ViewOrientation::<Impl, IMPL_OFFSET>,
+            SetViewOrientation: SetViewOrientation::<Impl, IMPL_OFFSET>,
+            ProjectionMode: ProjectionMode::<Impl, IMPL_OFFSET>,
+            SetProjectionMode: SetProjectionMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackSphericalVideoProjection as ::windows::core::Interface>::IID
@@ -3482,7 +3517,13 @@ impl IMediaPlaybackTimedMetadataTrackListVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPresentationMode(index, value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlaybackTimedMetadataTrackList>, ::windows::core::GetTrustLevel, PresentationModeChanged::<Impl, IMPL_OFFSET>, RemovePresentationModeChanged::<Impl, IMPL_OFFSET>, GetPresentationMode::<Impl, IMPL_OFFSET>, SetPresentationMode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackTimedMetadataTrackList, BASE_OFFSET>(),
+            PresentationModeChanged: PresentationModeChanged::<Impl, IMPL_OFFSET>,
+            RemovePresentationModeChanged: RemovePresentationModeChanged::<Impl, IMPL_OFFSET>,
+            GetPresentationMode: GetPresentationMode::<Impl, IMPL_OFFSET>,
+            SetPresentationMode: SetPresentationMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackTimedMetadataTrackList as ::windows::core::Interface>::IID
@@ -3869,56 +3910,51 @@ impl IMediaPlayerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUriSource(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaPlayer>,
-            ::windows::core::GetTrustLevel,
-            AutoPlay::<Impl, IMPL_OFFSET>,
-            SetAutoPlay::<Impl, IMPL_OFFSET>,
-            NaturalDuration::<Impl, IMPL_OFFSET>,
-            Position::<Impl, IMPL_OFFSET>,
-            SetPosition::<Impl, IMPL_OFFSET>,
-            BufferingProgress::<Impl, IMPL_OFFSET>,
-            CurrentState::<Impl, IMPL_OFFSET>,
-            CanSeek::<Impl, IMPL_OFFSET>,
-            CanPause::<Impl, IMPL_OFFSET>,
-            IsLoopingEnabled::<Impl, IMPL_OFFSET>,
-            SetIsLoopingEnabled::<Impl, IMPL_OFFSET>,
-            IsProtected::<Impl, IMPL_OFFSET>,
-            IsMuted::<Impl, IMPL_OFFSET>,
-            SetIsMuted::<Impl, IMPL_OFFSET>,
-            PlaybackRate::<Impl, IMPL_OFFSET>,
-            SetPlaybackRate::<Impl, IMPL_OFFSET>,
-            Volume::<Impl, IMPL_OFFSET>,
-            SetVolume::<Impl, IMPL_OFFSET>,
-            PlaybackMediaMarkers::<Impl, IMPL_OFFSET>,
-            MediaOpened::<Impl, IMPL_OFFSET>,
-            RemoveMediaOpened::<Impl, IMPL_OFFSET>,
-            MediaEnded::<Impl, IMPL_OFFSET>,
-            RemoveMediaEnded::<Impl, IMPL_OFFSET>,
-            MediaFailed::<Impl, IMPL_OFFSET>,
-            RemoveMediaFailed::<Impl, IMPL_OFFSET>,
-            CurrentStateChanged::<Impl, IMPL_OFFSET>,
-            RemoveCurrentStateChanged::<Impl, IMPL_OFFSET>,
-            PlaybackMediaMarkerReached::<Impl, IMPL_OFFSET>,
-            RemovePlaybackMediaMarkerReached::<Impl, IMPL_OFFSET>,
-            MediaPlayerRateChanged::<Impl, IMPL_OFFSET>,
-            RemoveMediaPlayerRateChanged::<Impl, IMPL_OFFSET>,
-            VolumeChanged::<Impl, IMPL_OFFSET>,
-            RemoveVolumeChanged::<Impl, IMPL_OFFSET>,
-            SeekCompleted::<Impl, IMPL_OFFSET>,
-            RemoveSeekCompleted::<Impl, IMPL_OFFSET>,
-            BufferingStarted::<Impl, IMPL_OFFSET>,
-            RemoveBufferingStarted::<Impl, IMPL_OFFSET>,
-            BufferingEnded::<Impl, IMPL_OFFSET>,
-            RemoveBufferingEnded::<Impl, IMPL_OFFSET>,
-            Play::<Impl, IMPL_OFFSET>,
-            Pause::<Impl, IMPL_OFFSET>,
-            SetUriSource::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayer, BASE_OFFSET>(),
+            AutoPlay: AutoPlay::<Impl, IMPL_OFFSET>,
+            SetAutoPlay: SetAutoPlay::<Impl, IMPL_OFFSET>,
+            NaturalDuration: NaturalDuration::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            SetPosition: SetPosition::<Impl, IMPL_OFFSET>,
+            BufferingProgress: BufferingProgress::<Impl, IMPL_OFFSET>,
+            CurrentState: CurrentState::<Impl, IMPL_OFFSET>,
+            CanSeek: CanSeek::<Impl, IMPL_OFFSET>,
+            CanPause: CanPause::<Impl, IMPL_OFFSET>,
+            IsLoopingEnabled: IsLoopingEnabled::<Impl, IMPL_OFFSET>,
+            SetIsLoopingEnabled: SetIsLoopingEnabled::<Impl, IMPL_OFFSET>,
+            IsProtected: IsProtected::<Impl, IMPL_OFFSET>,
+            IsMuted: IsMuted::<Impl, IMPL_OFFSET>,
+            SetIsMuted: SetIsMuted::<Impl, IMPL_OFFSET>,
+            PlaybackRate: PlaybackRate::<Impl, IMPL_OFFSET>,
+            SetPlaybackRate: SetPlaybackRate::<Impl, IMPL_OFFSET>,
+            Volume: Volume::<Impl, IMPL_OFFSET>,
+            SetVolume: SetVolume::<Impl, IMPL_OFFSET>,
+            PlaybackMediaMarkers: PlaybackMediaMarkers::<Impl, IMPL_OFFSET>,
+            MediaOpened: MediaOpened::<Impl, IMPL_OFFSET>,
+            RemoveMediaOpened: RemoveMediaOpened::<Impl, IMPL_OFFSET>,
+            MediaEnded: MediaEnded::<Impl, IMPL_OFFSET>,
+            RemoveMediaEnded: RemoveMediaEnded::<Impl, IMPL_OFFSET>,
+            MediaFailed: MediaFailed::<Impl, IMPL_OFFSET>,
+            RemoveMediaFailed: RemoveMediaFailed::<Impl, IMPL_OFFSET>,
+            CurrentStateChanged: CurrentStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveCurrentStateChanged: RemoveCurrentStateChanged::<Impl, IMPL_OFFSET>,
+            PlaybackMediaMarkerReached: PlaybackMediaMarkerReached::<Impl, IMPL_OFFSET>,
+            RemovePlaybackMediaMarkerReached: RemovePlaybackMediaMarkerReached::<Impl, IMPL_OFFSET>,
+            MediaPlayerRateChanged: MediaPlayerRateChanged::<Impl, IMPL_OFFSET>,
+            RemoveMediaPlayerRateChanged: RemoveMediaPlayerRateChanged::<Impl, IMPL_OFFSET>,
+            VolumeChanged: VolumeChanged::<Impl, IMPL_OFFSET>,
+            RemoveVolumeChanged: RemoveVolumeChanged::<Impl, IMPL_OFFSET>,
+            SeekCompleted: SeekCompleted::<Impl, IMPL_OFFSET>,
+            RemoveSeekCompleted: RemoveSeekCompleted::<Impl, IMPL_OFFSET>,
+            BufferingStarted: BufferingStarted::<Impl, IMPL_OFFSET>,
+            RemoveBufferingStarted: RemoveBufferingStarted::<Impl, IMPL_OFFSET>,
+            BufferingEnded: BufferingEnded::<Impl, IMPL_OFFSET>,
+            RemoveBufferingEnded: RemoveBufferingEnded::<Impl, IMPL_OFFSET>,
+            Play: Play::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            SetUriSource: SetUriSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayer as ::windows::core::Interface>::IID
@@ -3980,7 +4016,14 @@ impl IMediaPlayer2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioDeviceType(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayer2>, ::windows::core::GetTrustLevel, SystemMediaTransportControls::<Impl, IMPL_OFFSET>, AudioCategory::<Impl, IMPL_OFFSET>, SetAudioCategory::<Impl, IMPL_OFFSET>, AudioDeviceType::<Impl, IMPL_OFFSET>, SetAudioDeviceType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayer2, BASE_OFFSET>(),
+            SystemMediaTransportControls: SystemMediaTransportControls::<Impl, IMPL_OFFSET>,
+            AudioCategory: AudioCategory::<Impl, IMPL_OFFSET>,
+            SetAudioCategory: SetAudioCategory::<Impl, IMPL_OFFSET>,
+            AudioDeviceType: AudioDeviceType::<Impl, IMPL_OFFSET>,
+            SetAudioDeviceType: SetAudioDeviceType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayer2 as ::windows::core::Interface>::IID
@@ -4190,36 +4233,31 @@ impl IMediaPlayer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaPlayer3>,
-            ::windows::core::GetTrustLevel,
-            IsMutedChanged::<Impl, IMPL_OFFSET>,
-            RemoveIsMutedChanged::<Impl, IMPL_OFFSET>,
-            SourceChanged::<Impl, IMPL_OFFSET>,
-            RemoveSourceChanged::<Impl, IMPL_OFFSET>,
-            AudioBalance::<Impl, IMPL_OFFSET>,
-            SetAudioBalance::<Impl, IMPL_OFFSET>,
-            RealTimePlayback::<Impl, IMPL_OFFSET>,
-            SetRealTimePlayback::<Impl, IMPL_OFFSET>,
-            StereoscopicVideoRenderMode::<Impl, IMPL_OFFSET>,
-            SetStereoscopicVideoRenderMode::<Impl, IMPL_OFFSET>,
-            BreakManager::<Impl, IMPL_OFFSET>,
-            CommandManager::<Impl, IMPL_OFFSET>,
-            AudioDevice::<Impl, IMPL_OFFSET>,
-            SetAudioDevice::<Impl, IMPL_OFFSET>,
-            TimelineController::<Impl, IMPL_OFFSET>,
-            SetTimelineController::<Impl, IMPL_OFFSET>,
-            TimelineControllerPositionOffset::<Impl, IMPL_OFFSET>,
-            SetTimelineControllerPositionOffset::<Impl, IMPL_OFFSET>,
-            PlaybackSession::<Impl, IMPL_OFFSET>,
-            StepForwardOneFrame::<Impl, IMPL_OFFSET>,
-            StepBackwardOneFrame::<Impl, IMPL_OFFSET>,
-            GetAsCastingSource::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayer3, BASE_OFFSET>(),
+            IsMutedChanged: IsMutedChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsMutedChanged: RemoveIsMutedChanged::<Impl, IMPL_OFFSET>,
+            SourceChanged: SourceChanged::<Impl, IMPL_OFFSET>,
+            RemoveSourceChanged: RemoveSourceChanged::<Impl, IMPL_OFFSET>,
+            AudioBalance: AudioBalance::<Impl, IMPL_OFFSET>,
+            SetAudioBalance: SetAudioBalance::<Impl, IMPL_OFFSET>,
+            RealTimePlayback: RealTimePlayback::<Impl, IMPL_OFFSET>,
+            SetRealTimePlayback: SetRealTimePlayback::<Impl, IMPL_OFFSET>,
+            StereoscopicVideoRenderMode: StereoscopicVideoRenderMode::<Impl, IMPL_OFFSET>,
+            SetStereoscopicVideoRenderMode: SetStereoscopicVideoRenderMode::<Impl, IMPL_OFFSET>,
+            BreakManager: BreakManager::<Impl, IMPL_OFFSET>,
+            CommandManager: CommandManager::<Impl, IMPL_OFFSET>,
+            AudioDevice: AudioDevice::<Impl, IMPL_OFFSET>,
+            SetAudioDevice: SetAudioDevice::<Impl, IMPL_OFFSET>,
+            TimelineController: TimelineController::<Impl, IMPL_OFFSET>,
+            SetTimelineController: SetTimelineController::<Impl, IMPL_OFFSET>,
+            TimelineControllerPositionOffset: TimelineControllerPositionOffset::<Impl, IMPL_OFFSET>,
+            SetTimelineControllerPositionOffset: SetTimelineControllerPositionOffset::<Impl, IMPL_OFFSET>,
+            PlaybackSession: PlaybackSession::<Impl, IMPL_OFFSET>,
+            StepForwardOneFrame: StepForwardOneFrame::<Impl, IMPL_OFFSET>,
+            StepBackwardOneFrame: StepBackwardOneFrame::<Impl, IMPL_OFFSET>,
+            GetAsCastingSource: GetAsCastingSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayer3 as ::windows::core::Interface>::IID
@@ -4252,7 +4290,11 @@ impl IMediaPlayer4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayer4>, ::windows::core::GetTrustLevel, SetSurfaceSize::<Impl, IMPL_OFFSET>, GetSurface::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayer4, BASE_OFFSET>(),
+            SetSurfaceSize: SetSurfaceSize::<Impl, IMPL_OFFSET>,
+            GetSurface: GetSurface::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayer4 as ::windows::core::Interface>::IID
@@ -4322,21 +4364,16 @@ impl IMediaPlayer5Vtbl {
                 )
                 .into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaPlayer5>,
-            ::windows::core::GetTrustLevel,
-            VideoFrameAvailable::<Impl, IMPL_OFFSET>,
-            RemoveVideoFrameAvailable::<Impl, IMPL_OFFSET>,
-            IsVideoFrameServerEnabled::<Impl, IMPL_OFFSET>,
-            SetIsVideoFrameServerEnabled::<Impl, IMPL_OFFSET>,
-            CopyFrameToVideoSurface::<Impl, IMPL_OFFSET>,
-            CopyFrameToVideoSurfaceWithTargetRectangle::<Impl, IMPL_OFFSET>,
-            CopyFrameToStereoscopicVideoSurfaces::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayer5, BASE_OFFSET>(),
+            VideoFrameAvailable: VideoFrameAvailable::<Impl, IMPL_OFFSET>,
+            RemoveVideoFrameAvailable: RemoveVideoFrameAvailable::<Impl, IMPL_OFFSET>,
+            IsVideoFrameServerEnabled: IsVideoFrameServerEnabled::<Impl, IMPL_OFFSET>,
+            SetIsVideoFrameServerEnabled: SetIsVideoFrameServerEnabled::<Impl, IMPL_OFFSET>,
+            CopyFrameToVideoSurface: CopyFrameToVideoSurface::<Impl, IMPL_OFFSET>,
+            CopyFrameToVideoSurfaceWithTargetRectangle: CopyFrameToVideoSurfaceWithTargetRectangle::<Impl, IMPL_OFFSET>,
+            CopyFrameToStereoscopicVideoSurfaces: CopyFrameToStereoscopicVideoSurfaces::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayer5 as ::windows::core::Interface>::IID
@@ -4393,7 +4430,13 @@ impl IMediaPlayer6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayer6>, ::windows::core::GetTrustLevel, SubtitleFrameChanged::<Impl, IMPL_OFFSET>, RemoveSubtitleFrameChanged::<Impl, IMPL_OFFSET>, RenderSubtitlesToSurface::<Impl, IMPL_OFFSET>, RenderSubtitlesToSurfaceWithTargetRectangle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayer6, BASE_OFFSET>(),
+            SubtitleFrameChanged: SubtitleFrameChanged::<Impl, IMPL_OFFSET>,
+            RemoveSubtitleFrameChanged: RemoveSubtitleFrameChanged::<Impl, IMPL_OFFSET>,
+            RenderSubtitlesToSurface: RenderSubtitlesToSurface::<Impl, IMPL_OFFSET>,
+            RenderSubtitlesToSurfaceWithTargetRectangle: RenderSubtitlesToSurfaceWithTargetRectangle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayer6 as ::windows::core::Interface>::IID
@@ -4421,7 +4464,10 @@ impl IMediaPlayer7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayer7>, ::windows::core::GetTrustLevel, AudioStateMonitor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayer7, BASE_OFFSET>(),
+            AudioStateMonitor: AudioStateMonitor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayer7 as ::windows::core::Interface>::IID
@@ -4449,7 +4495,7 @@ impl IMediaPlayerDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayerDataReceivedEventArgs>, ::windows::core::GetTrustLevel, Data::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayerDataReceivedEventArgs, BASE_OFFSET>(), Data: Data::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayerDataReceivedEventArgs as ::windows::core::Interface>::IID
@@ -4475,7 +4521,11 @@ impl IMediaPlayerEffectsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAllEffects().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayerEffects>, ::windows::core::GetTrustLevel, AddAudioEffect::<Impl, IMPL_OFFSET>, RemoveAllEffects::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayerEffects, BASE_OFFSET>(),
+            AddAudioEffect: AddAudioEffect::<Impl, IMPL_OFFSET>,
+            RemoveAllEffects: RemoveAllEffects::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayerEffects as ::windows::core::Interface>::IID
@@ -4496,7 +4546,10 @@ impl IMediaPlayerEffects2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddVideoEffect(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), effectoptional, &*(&effectconfiguration as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayerEffects2>, ::windows::core::GetTrustLevel, AddVideoEffect::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayerEffects2, BASE_OFFSET>(),
+            AddVideoEffect: AddVideoEffect::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayerEffects2 as ::windows::core::Interface>::IID
@@ -4548,7 +4601,12 @@ impl IMediaPlayerFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayerFailedEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, IMPL_OFFSET>, ExtendedErrorCode::<Impl, IMPL_OFFSET>, ErrorMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayerFailedEventArgs, BASE_OFFSET>(),
+            Error: Error::<Impl, IMPL_OFFSET>,
+            ExtendedErrorCode: ExtendedErrorCode::<Impl, IMPL_OFFSET>,
+            ErrorMessage: ErrorMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayerFailedEventArgs as ::windows::core::Interface>::IID
@@ -4576,7 +4634,7 @@ impl IMediaPlayerRateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayerRateChangedEventArgs>, ::windows::core::GetTrustLevel, NewRate::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayerRateChangedEventArgs, BASE_OFFSET>(), NewRate: NewRate::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayerRateChangedEventArgs as ::windows::core::Interface>::IID
@@ -4624,7 +4682,14 @@ impl IMediaPlayerSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMediaSource(&*(&source as *const <super::Core::IMediaSource as ::windows::core::Abi>::Abi as *const <super::Core::IMediaSource as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayerSource>, ::windows::core::GetTrustLevel, ProtectionManager::<Impl, IMPL_OFFSET>, SetProtectionManager::<Impl, IMPL_OFFSET>, SetFileSource::<Impl, IMPL_OFFSET>, SetStreamSource::<Impl, IMPL_OFFSET>, SetMediaSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayerSource, BASE_OFFSET>(),
+            ProtectionManager: ProtectionManager::<Impl, IMPL_OFFSET>,
+            SetProtectionManager: SetProtectionManager::<Impl, IMPL_OFFSET>,
+            SetFileSource: SetFileSource::<Impl, IMPL_OFFSET>,
+            SetStreamSource: SetStreamSource::<Impl, IMPL_OFFSET>,
+            SetMediaSource: SetMediaSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayerSource as ::windows::core::Interface>::IID
@@ -4657,7 +4722,11 @@ impl IMediaPlayerSource2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSource(&*(&value as *const <IMediaPlaybackSource as ::windows::core::Abi>::Abi as *const <IMediaPlaybackSource as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayerSource2>, ::windows::core::GetTrustLevel, Source::<Impl, IMPL_OFFSET>, SetSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayerSource2, BASE_OFFSET>(),
+            Source: Source::<Impl, IMPL_OFFSET>,
+            SetSource: SetSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayerSource2 as ::windows::core::Interface>::IID
@@ -4709,7 +4778,12 @@ impl IMediaPlayerSurfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayerSurface>, ::windows::core::GetTrustLevel, CompositionSurface::<Impl, IMPL_OFFSET>, Compositor::<Impl, IMPL_OFFSET>, MediaPlayer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayerSurface, BASE_OFFSET>(),
+            CompositionSurface: CompositionSurface::<Impl, IMPL_OFFSET>,
+            Compositor: Compositor::<Impl, IMPL_OFFSET>,
+            MediaPlayer: MediaPlayer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayerSurface as ::windows::core::Interface>::IID
@@ -4761,7 +4835,12 @@ impl IPlaybackMediaMarkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaybackMediaMarker>, ::windows::core::GetTrustLevel, Time::<Impl, IMPL_OFFSET>, MediaMarkerType::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlaybackMediaMarker, BASE_OFFSET>(),
+            Time: Time::<Impl, IMPL_OFFSET>,
+            MediaMarkerType: MediaMarkerType::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlaybackMediaMarker as ::windows::core::Interface>::IID
@@ -4805,7 +4884,11 @@ impl IPlaybackMediaMarkerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaybackMediaMarkerFactory>, ::windows::core::GetTrustLevel, CreateFromTime::<Impl, IMPL_OFFSET>, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlaybackMediaMarkerFactory, BASE_OFFSET>(),
+            CreateFromTime: CreateFromTime::<Impl, IMPL_OFFSET>,
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlaybackMediaMarkerFactory as ::windows::core::Interface>::IID
@@ -4833,7 +4916,10 @@ impl IPlaybackMediaMarkerReachedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaybackMediaMarkerReachedEventArgs>, ::windows::core::GetTrustLevel, PlaybackMediaMarker::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlaybackMediaMarkerReachedEventArgs, BASE_OFFSET>(),
+            PlaybackMediaMarker: PlaybackMediaMarker::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlaybackMediaMarkerReachedEventArgs as ::windows::core::Interface>::IID
@@ -4871,7 +4957,12 @@ impl IPlaybackMediaMarkerSequenceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaybackMediaMarkerSequence>, ::windows::core::GetTrustLevel, Size::<Impl, IMPL_OFFSET>, Insert::<Impl, IMPL_OFFSET>, Clear::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlaybackMediaMarkerSequence, BASE_OFFSET>(),
+            Size: Size::<Impl, IMPL_OFFSET>,
+            Insert: Insert::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlaybackMediaMarkerSequence as ::windows::core::Interface>::IID
@@ -4923,7 +5014,12 @@ impl ITimedMetadataPresentationModeChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedMetadataPresentationModeChangedEventArgs>, ::windows::core::GetTrustLevel, Track::<Impl, IMPL_OFFSET>, OldPresentationMode::<Impl, IMPL_OFFSET>, NewPresentationMode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataPresentationModeChangedEventArgs, BASE_OFFSET>(),
+            Track: Track::<Impl, IMPL_OFFSET>,
+            OldPresentationMode: OldPresentationMode::<Impl, IMPL_OFFSET>,
+            NewPresentationMode: NewPresentationMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedMetadataPresentationModeChangedEventArgs as ::windows::core::Interface>::IID

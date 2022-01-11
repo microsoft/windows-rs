@@ -261,38 +261,33 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IActivationSignalDetectionConfiguration>,
-            ::windows::core::GetTrustLevel,
-            SignalId::<Impl, IMPL_OFFSET>,
-            ModelId::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            IsActive::<Impl, IMPL_OFFSET>,
-            SetEnabled::<Impl, IMPL_OFFSET>,
-            SetEnabledAsync::<Impl, IMPL_OFFSET>,
-            AvailabilityInfo::<Impl, IMPL_OFFSET>,
-            AvailabilityChanged::<Impl, IMPL_OFFSET>,
-            RemoveAvailabilityChanged::<Impl, IMPL_OFFSET>,
-            SetModelData::<Impl, IMPL_OFFSET>,
-            SetModelDataAsync::<Impl, IMPL_OFFSET>,
-            GetModelDataType::<Impl, IMPL_OFFSET>,
-            GetModelDataTypeAsync::<Impl, IMPL_OFFSET>,
-            GetModelData::<Impl, IMPL_OFFSET>,
-            GetModelDataAsync::<Impl, IMPL_OFFSET>,
-            ClearModelData::<Impl, IMPL_OFFSET>,
-            ClearModelDataAsync::<Impl, IMPL_OFFSET>,
-            TrainingStepsCompleted::<Impl, IMPL_OFFSET>,
-            TrainingStepsRemaining::<Impl, IMPL_OFFSET>,
-            TrainingDataFormat::<Impl, IMPL_OFFSET>,
-            ApplyTrainingData::<Impl, IMPL_OFFSET>,
-            ApplyTrainingDataAsync::<Impl, IMPL_OFFSET>,
-            ClearTrainingData::<Impl, IMPL_OFFSET>,
-            ClearTrainingDataAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivationSignalDetectionConfiguration, BASE_OFFSET>(),
+            SignalId: SignalId::<Impl, IMPL_OFFSET>,
+            ModelId: ModelId::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            IsActive: IsActive::<Impl, IMPL_OFFSET>,
+            SetEnabled: SetEnabled::<Impl, IMPL_OFFSET>,
+            SetEnabledAsync: SetEnabledAsync::<Impl, IMPL_OFFSET>,
+            AvailabilityInfo: AvailabilityInfo::<Impl, IMPL_OFFSET>,
+            AvailabilityChanged: AvailabilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailabilityChanged: RemoveAvailabilityChanged::<Impl, IMPL_OFFSET>,
+            SetModelData: SetModelData::<Impl, IMPL_OFFSET>,
+            SetModelDataAsync: SetModelDataAsync::<Impl, IMPL_OFFSET>,
+            GetModelDataType: GetModelDataType::<Impl, IMPL_OFFSET>,
+            GetModelDataTypeAsync: GetModelDataTypeAsync::<Impl, IMPL_OFFSET>,
+            GetModelData: GetModelData::<Impl, IMPL_OFFSET>,
+            GetModelDataAsync: GetModelDataAsync::<Impl, IMPL_OFFSET>,
+            ClearModelData: ClearModelData::<Impl, IMPL_OFFSET>,
+            ClearModelDataAsync: ClearModelDataAsync::<Impl, IMPL_OFFSET>,
+            TrainingStepsCompleted: TrainingStepsCompleted::<Impl, IMPL_OFFSET>,
+            TrainingStepsRemaining: TrainingStepsRemaining::<Impl, IMPL_OFFSET>,
+            TrainingDataFormat: TrainingDataFormat::<Impl, IMPL_OFFSET>,
+            ApplyTrainingData: ApplyTrainingData::<Impl, IMPL_OFFSET>,
+            ApplyTrainingDataAsync: ApplyTrainingDataAsync::<Impl, IMPL_OFFSET>,
+            ClearTrainingData: ClearTrainingData::<Impl, IMPL_OFFSET>,
+            ClearTrainingDataAsync: ClearTrainingDataAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivationSignalDetectionConfiguration as ::windows::core::Interface>::IID
@@ -368,19 +363,14 @@ impl IActivationSignalDetectionConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IActivationSignalDetectionConfiguration2>,
-            ::windows::core::GetTrustLevel,
-            SetModelDataWithResult::<Impl, IMPL_OFFSET>,
-            SetModelDataWithResultAsync::<Impl, IMPL_OFFSET>,
-            SetEnabledWithResultAsync::<Impl, IMPL_OFFSET>,
-            SetEnabledWithResult::<Impl, IMPL_OFFSET>,
-            TrainingStepCompletionMaxAllowedTime::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivationSignalDetectionConfiguration2, BASE_OFFSET>(),
+            SetModelDataWithResult: SetModelDataWithResult::<Impl, IMPL_OFFSET>,
+            SetModelDataWithResultAsync: SetModelDataWithResultAsync::<Impl, IMPL_OFFSET>,
+            SetEnabledWithResultAsync: SetEnabledWithResultAsync::<Impl, IMPL_OFFSET>,
+            SetEnabledWithResult: SetEnabledWithResult::<Impl, IMPL_OFFSET>,
+            TrainingStepCompletionMaxAllowedTime: TrainingStepCompletionMaxAllowedTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivationSignalDetectionConfiguration2 as ::windows::core::Interface>::IID
@@ -420,7 +410,11 @@ impl IActivationSignalDetectionConfigurationCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivationSignalDetectionConfigurationCreationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Configuration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivationSignalDetectionConfigurationCreationResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivationSignalDetectionConfigurationCreationResult as ::windows::core::Interface>::IID
@@ -624,30 +618,25 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IActivationSignalDetector>,
-            ::windows::core::GetTrustLevel,
-            ProviderId::<Impl, IMPL_OFFSET>,
-            Kind::<Impl, IMPL_OFFSET>,
-            CanCreateConfigurations::<Impl, IMPL_OFFSET>,
-            SupportedModelDataTypes::<Impl, IMPL_OFFSET>,
-            SupportedTrainingDataFormats::<Impl, IMPL_OFFSET>,
-            SupportedPowerStates::<Impl, IMPL_OFFSET>,
-            GetSupportedModelIdsForSignalId::<Impl, IMPL_OFFSET>,
-            GetSupportedModelIdsForSignalIdAsync::<Impl, IMPL_OFFSET>,
-            CreateConfiguration::<Impl, IMPL_OFFSET>,
-            CreateConfigurationAsync::<Impl, IMPL_OFFSET>,
-            GetConfigurations::<Impl, IMPL_OFFSET>,
-            GetConfigurationsAsync::<Impl, IMPL_OFFSET>,
-            GetConfiguration::<Impl, IMPL_OFFSET>,
-            GetConfigurationAsync::<Impl, IMPL_OFFSET>,
-            RemoveConfiguration::<Impl, IMPL_OFFSET>,
-            RemoveConfigurationAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivationSignalDetector, BASE_OFFSET>(),
+            ProviderId: ProviderId::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            CanCreateConfigurations: CanCreateConfigurations::<Impl, IMPL_OFFSET>,
+            SupportedModelDataTypes: SupportedModelDataTypes::<Impl, IMPL_OFFSET>,
+            SupportedTrainingDataFormats: SupportedTrainingDataFormats::<Impl, IMPL_OFFSET>,
+            SupportedPowerStates: SupportedPowerStates::<Impl, IMPL_OFFSET>,
+            GetSupportedModelIdsForSignalId: GetSupportedModelIdsForSignalId::<Impl, IMPL_OFFSET>,
+            GetSupportedModelIdsForSignalIdAsync: GetSupportedModelIdsForSignalIdAsync::<Impl, IMPL_OFFSET>,
+            CreateConfiguration: CreateConfiguration::<Impl, IMPL_OFFSET>,
+            CreateConfigurationAsync: CreateConfigurationAsync::<Impl, IMPL_OFFSET>,
+            GetConfigurations: GetConfigurations::<Impl, IMPL_OFFSET>,
+            GetConfigurationsAsync: GetConfigurationsAsync::<Impl, IMPL_OFFSET>,
+            GetConfiguration: GetConfiguration::<Impl, IMPL_OFFSET>,
+            GetConfigurationAsync: GetConfigurationAsync::<Impl, IMPL_OFFSET>,
+            RemoveConfiguration: RemoveConfiguration::<Impl, IMPL_OFFSET>,
+            RemoveConfigurationAsync: RemoveConfigurationAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivationSignalDetector as ::windows::core::Interface>::IID
@@ -755,21 +744,16 @@ impl IActivationSignalDetector2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IActivationSignalDetector2>,
-            ::windows::core::GetTrustLevel,
-            GetAvailableModelIdsForSignalIdAsync::<Impl, IMPL_OFFSET>,
-            GetAvailableModelIdsForSignalId::<Impl, IMPL_OFFSET>,
-            CreateConfigurationWithResultAsync::<Impl, IMPL_OFFSET>,
-            CreateConfigurationWithResult::<Impl, IMPL_OFFSET>,
-            RemoveConfigurationWithResultAsync::<Impl, IMPL_OFFSET>,
-            RemoveConfigurationWithResult::<Impl, IMPL_OFFSET>,
-            DetectorId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivationSignalDetector2, BASE_OFFSET>(),
+            GetAvailableModelIdsForSignalIdAsync: GetAvailableModelIdsForSignalIdAsync::<Impl, IMPL_OFFSET>,
+            GetAvailableModelIdsForSignalId: GetAvailableModelIdsForSignalId::<Impl, IMPL_OFFSET>,
+            CreateConfigurationWithResultAsync: CreateConfigurationWithResultAsync::<Impl, IMPL_OFFSET>,
+            CreateConfigurationWithResult: CreateConfigurationWithResult::<Impl, IMPL_OFFSET>,
+            RemoveConfigurationWithResultAsync: RemoveConfigurationWithResultAsync::<Impl, IMPL_OFFSET>,
+            RemoveConfigurationWithResult: RemoveConfigurationWithResult::<Impl, IMPL_OFFSET>,
+            DetectorId: DetectorId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivationSignalDetector2 as ::windows::core::Interface>::IID
@@ -833,18 +817,13 @@ impl IConversationalAgentDetectorManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IConversationalAgentDetectorManager>,
-            ::windows::core::GetTrustLevel,
-            GetAllActivationSignalDetectors::<Impl, IMPL_OFFSET>,
-            GetAllActivationSignalDetectorsAsync::<Impl, IMPL_OFFSET>,
-            GetActivationSignalDetectors::<Impl, IMPL_OFFSET>,
-            GetActivationSignalDetectorsAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConversationalAgentDetectorManager, BASE_OFFSET>(),
+            GetAllActivationSignalDetectors: GetAllActivationSignalDetectors::<Impl, IMPL_OFFSET>,
+            GetAllActivationSignalDetectorsAsync: GetAllActivationSignalDetectorsAsync::<Impl, IMPL_OFFSET>,
+            GetActivationSignalDetectors: GetActivationSignalDetectors::<Impl, IMPL_OFFSET>,
+            GetActivationSignalDetectorsAsync: GetActivationSignalDetectorsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConversationalAgentDetectorManager as ::windows::core::Interface>::IID
@@ -884,7 +863,11 @@ impl IConversationalAgentDetectorManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentDetectorManager2>, ::windows::core::GetTrustLevel, GetActivationSignalDetectorFromId::<Impl, IMPL_OFFSET>, GetActivationSignalDetectorFromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConversationalAgentDetectorManager2, BASE_OFFSET>(),
+            GetActivationSignalDetectorFromId: GetActivationSignalDetectorFromId::<Impl, IMPL_OFFSET>,
+            GetActivationSignalDetectorFromIdAsync: GetActivationSignalDetectorFromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConversationalAgentDetectorManager2 as ::windows::core::Interface>::IID
@@ -912,7 +895,10 @@ impl IConversationalAgentDetectorManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentDetectorManagerStatics>, ::windows::core::GetTrustLevel, Default::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConversationalAgentDetectorManagerStatics, BASE_OFFSET>(),
+            Default: Default::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConversationalAgentDetectorManagerStatics as ::windows::core::Interface>::IID
@@ -1315,48 +1301,43 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IConversationalAgentSession>,
-            ::windows::core::GetTrustLevel,
-            SessionInterrupted::<Impl, IMPL_OFFSET>,
-            RemoveSessionInterrupted::<Impl, IMPL_OFFSET>,
-            SignalDetected::<Impl, IMPL_OFFSET>,
-            RemoveSignalDetected::<Impl, IMPL_OFFSET>,
-            SystemStateChanged::<Impl, IMPL_OFFSET>,
-            RemoveSystemStateChanged::<Impl, IMPL_OFFSET>,
-            AgentState::<Impl, IMPL_OFFSET>,
-            Signal::<Impl, IMPL_OFFSET>,
-            IsIndicatorLightAvailable::<Impl, IMPL_OFFSET>,
-            IsScreenAvailable::<Impl, IMPL_OFFSET>,
-            IsUserAuthenticated::<Impl, IMPL_OFFSET>,
-            IsVoiceActivationAvailable::<Impl, IMPL_OFFSET>,
-            IsInterruptible::<Impl, IMPL_OFFSET>,
-            IsInterrupted::<Impl, IMPL_OFFSET>,
-            RequestInterruptibleAsync::<Impl, IMPL_OFFSET>,
-            RequestInterruptible::<Impl, IMPL_OFFSET>,
-            RequestAgentStateChangeAsync::<Impl, IMPL_OFFSET>,
-            RequestAgentStateChange::<Impl, IMPL_OFFSET>,
-            RequestForegroundActivationAsync::<Impl, IMPL_OFFSET>,
-            RequestForegroundActivation::<Impl, IMPL_OFFSET>,
-            GetAudioClientAsync::<Impl, IMPL_OFFSET>,
-            GetAudioClient::<Impl, IMPL_OFFSET>,
-            CreateAudioDeviceInputNodeAsync::<Impl, IMPL_OFFSET>,
-            CreateAudioDeviceInputNode::<Impl, IMPL_OFFSET>,
-            GetAudioCaptureDeviceIdAsync::<Impl, IMPL_OFFSET>,
-            GetAudioCaptureDeviceId::<Impl, IMPL_OFFSET>,
-            GetAudioRenderDeviceIdAsync::<Impl, IMPL_OFFSET>,
-            GetAudioRenderDeviceId::<Impl, IMPL_OFFSET>,
-            GetSignalModelIdAsync::<Impl, IMPL_OFFSET>,
-            GetSignalModelId::<Impl, IMPL_OFFSET>,
-            SetSignalModelIdAsync::<Impl, IMPL_OFFSET>,
-            SetSignalModelId::<Impl, IMPL_OFFSET>,
-            GetSupportedSignalModelIdsAsync::<Impl, IMPL_OFFSET>,
-            GetSupportedSignalModelIds::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConversationalAgentSession, BASE_OFFSET>(),
+            SessionInterrupted: SessionInterrupted::<Impl, IMPL_OFFSET>,
+            RemoveSessionInterrupted: RemoveSessionInterrupted::<Impl, IMPL_OFFSET>,
+            SignalDetected: SignalDetected::<Impl, IMPL_OFFSET>,
+            RemoveSignalDetected: RemoveSignalDetected::<Impl, IMPL_OFFSET>,
+            SystemStateChanged: SystemStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveSystemStateChanged: RemoveSystemStateChanged::<Impl, IMPL_OFFSET>,
+            AgentState: AgentState::<Impl, IMPL_OFFSET>,
+            Signal: Signal::<Impl, IMPL_OFFSET>,
+            IsIndicatorLightAvailable: IsIndicatorLightAvailable::<Impl, IMPL_OFFSET>,
+            IsScreenAvailable: IsScreenAvailable::<Impl, IMPL_OFFSET>,
+            IsUserAuthenticated: IsUserAuthenticated::<Impl, IMPL_OFFSET>,
+            IsVoiceActivationAvailable: IsVoiceActivationAvailable::<Impl, IMPL_OFFSET>,
+            IsInterruptible: IsInterruptible::<Impl, IMPL_OFFSET>,
+            IsInterrupted: IsInterrupted::<Impl, IMPL_OFFSET>,
+            RequestInterruptibleAsync: RequestInterruptibleAsync::<Impl, IMPL_OFFSET>,
+            RequestInterruptible: RequestInterruptible::<Impl, IMPL_OFFSET>,
+            RequestAgentStateChangeAsync: RequestAgentStateChangeAsync::<Impl, IMPL_OFFSET>,
+            RequestAgentStateChange: RequestAgentStateChange::<Impl, IMPL_OFFSET>,
+            RequestForegroundActivationAsync: RequestForegroundActivationAsync::<Impl, IMPL_OFFSET>,
+            RequestForegroundActivation: RequestForegroundActivation::<Impl, IMPL_OFFSET>,
+            GetAudioClientAsync: GetAudioClientAsync::<Impl, IMPL_OFFSET>,
+            GetAudioClient: GetAudioClient::<Impl, IMPL_OFFSET>,
+            CreateAudioDeviceInputNodeAsync: CreateAudioDeviceInputNodeAsync::<Impl, IMPL_OFFSET>,
+            CreateAudioDeviceInputNode: CreateAudioDeviceInputNode::<Impl, IMPL_OFFSET>,
+            GetAudioCaptureDeviceIdAsync: GetAudioCaptureDeviceIdAsync::<Impl, IMPL_OFFSET>,
+            GetAudioCaptureDeviceId: GetAudioCaptureDeviceId::<Impl, IMPL_OFFSET>,
+            GetAudioRenderDeviceIdAsync: GetAudioRenderDeviceIdAsync::<Impl, IMPL_OFFSET>,
+            GetAudioRenderDeviceId: GetAudioRenderDeviceId::<Impl, IMPL_OFFSET>,
+            GetSignalModelIdAsync: GetSignalModelIdAsync::<Impl, IMPL_OFFSET>,
+            GetSignalModelId: GetSignalModelId::<Impl, IMPL_OFFSET>,
+            SetSignalModelIdAsync: SetSignalModelIdAsync::<Impl, IMPL_OFFSET>,
+            SetSignalModelId: SetSignalModelId::<Impl, IMPL_OFFSET>,
+            GetSupportedSignalModelIdsAsync: GetSupportedSignalModelIdsAsync::<Impl, IMPL_OFFSET>,
+            GetSupportedSignalModelIds: GetSupportedSignalModelIds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConversationalAgentSession as ::windows::core::Interface>::IID
@@ -1437,20 +1418,15 @@ impl IConversationalAgentSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IConversationalAgentSession2>,
-            ::windows::core::GetTrustLevel,
-            RequestActivationAsync::<Impl, IMPL_OFFSET>,
-            RequestActivation::<Impl, IMPL_OFFSET>,
-            SetSupportLockScreenActivationAsync::<Impl, IMPL_OFFSET>,
-            SetSupportLockScreenActivation::<Impl, IMPL_OFFSET>,
-            GetMissingPrerequisites::<Impl, IMPL_OFFSET>,
-            GetMissingPrerequisitesAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConversationalAgentSession2, BASE_OFFSET>(),
+            RequestActivationAsync: RequestActivationAsync::<Impl, IMPL_OFFSET>,
+            RequestActivation: RequestActivation::<Impl, IMPL_OFFSET>,
+            SetSupportLockScreenActivationAsync: SetSupportLockScreenActivationAsync::<Impl, IMPL_OFFSET>,
+            SetSupportLockScreenActivation: SetSupportLockScreenActivation::<Impl, IMPL_OFFSET>,
+            GetMissingPrerequisites: GetMissingPrerequisites::<Impl, IMPL_OFFSET>,
+            GetMissingPrerequisitesAsync: GetMissingPrerequisitesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConversationalAgentSession2 as ::windows::core::Interface>::IID
@@ -1465,7 +1441,7 @@ impl ::windows::core::RuntimeName for IConversationalAgentSessionInterruptedEven
 #[cfg(feature = "implement_exclusive")]
 impl IConversationalAgentSessionInterruptedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSessionInterruptedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSessionInterruptedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSessionInterruptedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IConversationalAgentSessionInterruptedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConversationalAgentSessionInterruptedEventArgs as ::windows::core::Interface>::IID
@@ -1505,7 +1481,11 @@ impl IConversationalAgentSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSessionStatics>, ::windows::core::GetTrustLevel, GetCurrentSessionAsync::<Impl, IMPL_OFFSET>, GetCurrentSessionSync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConversationalAgentSessionStatics, BASE_OFFSET>(),
+            GetCurrentSessionAsync: GetCurrentSessionAsync::<Impl, IMPL_OFFSET>,
+            GetCurrentSessionSync: GetCurrentSessionSync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConversationalAgentSessionStatics as ::windows::core::Interface>::IID
@@ -1623,26 +1603,21 @@ impl IConversationalAgentSignalVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignalEnd(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IConversationalAgentSignal>,
-            ::windows::core::GetTrustLevel,
-            IsSignalVerificationRequired::<Impl, IMPL_OFFSET>,
-            SetIsSignalVerificationRequired::<Impl, IMPL_OFFSET>,
-            SignalId::<Impl, IMPL_OFFSET>,
-            SetSignalId::<Impl, IMPL_OFFSET>,
-            SignalName::<Impl, IMPL_OFFSET>,
-            SetSignalName::<Impl, IMPL_OFFSET>,
-            SignalContext::<Impl, IMPL_OFFSET>,
-            SetSignalContext::<Impl, IMPL_OFFSET>,
-            SignalStart::<Impl, IMPL_OFFSET>,
-            SetSignalStart::<Impl, IMPL_OFFSET>,
-            SignalEnd::<Impl, IMPL_OFFSET>,
-            SetSignalEnd::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConversationalAgentSignal, BASE_OFFSET>(),
+            IsSignalVerificationRequired: IsSignalVerificationRequired::<Impl, IMPL_OFFSET>,
+            SetIsSignalVerificationRequired: SetIsSignalVerificationRequired::<Impl, IMPL_OFFSET>,
+            SignalId: SignalId::<Impl, IMPL_OFFSET>,
+            SetSignalId: SetSignalId::<Impl, IMPL_OFFSET>,
+            SignalName: SignalName::<Impl, IMPL_OFFSET>,
+            SetSignalName: SetSignalName::<Impl, IMPL_OFFSET>,
+            SignalContext: SignalContext::<Impl, IMPL_OFFSET>,
+            SetSignalContext: SetSignalContext::<Impl, IMPL_OFFSET>,
+            SignalStart: SignalStart::<Impl, IMPL_OFFSET>,
+            SetSignalStart: SetSignalStart::<Impl, IMPL_OFFSET>,
+            SignalEnd: SignalEnd::<Impl, IMPL_OFFSET>,
+            SetSignalEnd: SetSignalEnd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConversationalAgentSignal as ::windows::core::Interface>::IID
@@ -1682,7 +1657,11 @@ impl IConversationalAgentSignal2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSignal2>, ::windows::core::GetTrustLevel, DetectorId::<Impl, IMPL_OFFSET>, DetectorKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConversationalAgentSignal2, BASE_OFFSET>(),
+            DetectorId: DetectorId::<Impl, IMPL_OFFSET>,
+            DetectorKind: DetectorKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConversationalAgentSignal2 as ::windows::core::Interface>::IID
@@ -1697,7 +1676,7 @@ impl ::windows::core::RuntimeName for IConversationalAgentSignalDetectedEventArg
 #[cfg(feature = "implement_exclusive")]
 impl IConversationalAgentSignalDetectedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSignalDetectedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSignalDetectedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSignalDetectedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IConversationalAgentSignalDetectedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConversationalAgentSignalDetectedEventArgs as ::windows::core::Interface>::IID
@@ -1725,7 +1704,10 @@ impl IConversationalAgentSystemStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSystemStateChangedEventArgs>, ::windows::core::GetTrustLevel, SystemStateChangeType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConversationalAgentSystemStateChangedEventArgs, BASE_OFFSET>(),
+            SystemStateChangeType: SystemStateChangeType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConversationalAgentSystemStateChangedEventArgs as ::windows::core::Interface>::IID
@@ -1753,7 +1735,10 @@ impl IDetectionConfigurationAvailabilityChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDetectionConfigurationAvailabilityChangedEventArgs>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDetectionConfigurationAvailabilityChangedEventArgs, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDetectionConfigurationAvailabilityChangedEventArgs as ::windows::core::Interface>::IID
@@ -1817,7 +1802,13 @@ impl IDetectionConfigurationAvailabilityInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDetectionConfigurationAvailabilityInfo>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, IMPL_OFFSET>, HasSystemResourceAccess::<Impl, IMPL_OFFSET>, HasPermission::<Impl, IMPL_OFFSET>, HasLockScreenPermission::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDetectionConfigurationAvailabilityInfo, BASE_OFFSET>(),
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            HasSystemResourceAccess: HasSystemResourceAccess::<Impl, IMPL_OFFSET>,
+            HasPermission: HasPermission::<Impl, IMPL_OFFSET>,
+            HasLockScreenPermission: HasLockScreenPermission::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDetectionConfigurationAvailabilityInfo as ::windows::core::Interface>::IID
@@ -1845,7 +1836,10 @@ impl IDetectionConfigurationAvailabilityInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDetectionConfigurationAvailabilityInfo2>, ::windows::core::GetTrustLevel, UnavailableSystemResources::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDetectionConfigurationAvailabilityInfo2, BASE_OFFSET>(),
+            UnavailableSystemResources: UnavailableSystemResources::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDetectionConfigurationAvailabilityInfo2 as ::windows::core::Interface>::IID

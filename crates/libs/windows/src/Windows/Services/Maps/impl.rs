@@ -32,7 +32,11 @@ impl IEnhancedWaypointVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnhancedWaypoint>, ::windows::core::GetTrustLevel, Point::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEnhancedWaypoint, BASE_OFFSET>(),
+            Point: Point::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnhancedWaypoint as ::windows::core::Interface>::IID
@@ -60,7 +64,7 @@ impl IEnhancedWaypointFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnhancedWaypointFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IEnhancedWaypointFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnhancedWaypointFactory as ::windows::core::Interface>::IID
@@ -100,7 +104,11 @@ impl IManeuverWarningVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManeuverWarning>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, Severity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IManeuverWarning, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            Severity: Severity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IManeuverWarning as ::windows::core::Interface>::IID
@@ -296,29 +304,24 @@ impl IMapAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMapAddress>,
-            ::windows::core::GetTrustLevel,
-            BuildingName::<Impl, IMPL_OFFSET>,
-            BuildingFloor::<Impl, IMPL_OFFSET>,
-            BuildingRoom::<Impl, IMPL_OFFSET>,
-            BuildingWing::<Impl, IMPL_OFFSET>,
-            StreetNumber::<Impl, IMPL_OFFSET>,
-            Street::<Impl, IMPL_OFFSET>,
-            Neighborhood::<Impl, IMPL_OFFSET>,
-            District::<Impl, IMPL_OFFSET>,
-            Town::<Impl, IMPL_OFFSET>,
-            Region::<Impl, IMPL_OFFSET>,
-            RegionCode::<Impl, IMPL_OFFSET>,
-            Country::<Impl, IMPL_OFFSET>,
-            CountryCode::<Impl, IMPL_OFFSET>,
-            PostCode::<Impl, IMPL_OFFSET>,
-            Continent::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapAddress, BASE_OFFSET>(),
+            BuildingName: BuildingName::<Impl, IMPL_OFFSET>,
+            BuildingFloor: BuildingFloor::<Impl, IMPL_OFFSET>,
+            BuildingRoom: BuildingRoom::<Impl, IMPL_OFFSET>,
+            BuildingWing: BuildingWing::<Impl, IMPL_OFFSET>,
+            StreetNumber: StreetNumber::<Impl, IMPL_OFFSET>,
+            Street: Street::<Impl, IMPL_OFFSET>,
+            Neighborhood: Neighborhood::<Impl, IMPL_OFFSET>,
+            District: District::<Impl, IMPL_OFFSET>,
+            Town: Town::<Impl, IMPL_OFFSET>,
+            Region: Region::<Impl, IMPL_OFFSET>,
+            RegionCode: RegionCode::<Impl, IMPL_OFFSET>,
+            Country: Country::<Impl, IMPL_OFFSET>,
+            CountryCode: CountryCode::<Impl, IMPL_OFFSET>,
+            PostCode: PostCode::<Impl, IMPL_OFFSET>,
+            Continent: Continent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapAddress as ::windows::core::Interface>::IID
@@ -346,7 +349,7 @@ impl IMapAddress2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapAddress2>, ::windows::core::GetTrustLevel, FormattedAddress::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMapAddress2, BASE_OFFSET>(), FormattedAddress: FormattedAddress::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapAddress2 as ::windows::core::Interface>::IID
@@ -410,7 +413,13 @@ impl IMapLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapLocation>, ::windows::core::GetTrustLevel, Point::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, Address::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapLocation, BASE_OFFSET>(),
+            Point: Point::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            Address: Address::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapLocation as ::windows::core::Interface>::IID
@@ -450,7 +459,11 @@ impl IMapLocationFinderResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapLocationFinderResult>, ::windows::core::GetTrustLevel, Locations::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapLocationFinderResult, BASE_OFFSET>(),
+            Locations: Locations::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapLocationFinderResult as ::windows::core::Interface>::IID
@@ -502,7 +515,12 @@ impl IMapLocationFinderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapLocationFinderStatics>, ::windows::core::GetTrustLevel, FindLocationsAtAsync::<Impl, IMPL_OFFSET>, FindLocationsAsync::<Impl, IMPL_OFFSET>, FindLocationsWithMaxCountAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapLocationFinderStatics, BASE_OFFSET>(),
+            FindLocationsAtAsync: FindLocationsAtAsync::<Impl, IMPL_OFFSET>,
+            FindLocationsAsync: FindLocationsAsync::<Impl, IMPL_OFFSET>,
+            FindLocationsWithMaxCountAsync: FindLocationsWithMaxCountAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapLocationFinderStatics as ::windows::core::Interface>::IID
@@ -530,7 +548,10 @@ impl IMapLocationFinderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapLocationFinderStatics2>, ::windows::core::GetTrustLevel, FindLocationsAtWithAccuracyAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapLocationFinderStatics2, BASE_OFFSET>(),
+            FindLocationsAtWithAccuracyAsync: FindLocationsAtWithAccuracyAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapLocationFinderStatics2 as ::windows::core::Interface>::IID
@@ -556,7 +577,11 @@ impl IMapManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowMapsUpdateUI().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapManagerStatics>, ::windows::core::GetTrustLevel, ShowDownloadedMapsUI::<Impl, IMPL_OFFSET>, ShowMapsUpdateUI::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapManagerStatics, BASE_OFFSET>(),
+            ShowDownloadedMapsUI: ShowDownloadedMapsUI::<Impl, IMPL_OFFSET>,
+            ShowMapsUpdateUI: ShowMapsUpdateUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapManagerStatics as ::windows::core::Interface>::IID
@@ -644,7 +669,15 @@ impl IMapRouteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRoute>, ::windows::core::GetTrustLevel, BoundingBox::<Impl, IMPL_OFFSET>, LengthInMeters::<Impl, IMPL_OFFSET>, EstimatedDuration::<Impl, IMPL_OFFSET>, Path::<Impl, IMPL_OFFSET>, Legs::<Impl, IMPL_OFFSET>, IsTrafficBased::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRoute, BASE_OFFSET>(),
+            BoundingBox: BoundingBox::<Impl, IMPL_OFFSET>,
+            LengthInMeters: LengthInMeters::<Impl, IMPL_OFFSET>,
+            EstimatedDuration: EstimatedDuration::<Impl, IMPL_OFFSET>,
+            Path: Path::<Impl, IMPL_OFFSET>,
+            Legs: Legs::<Impl, IMPL_OFFSET>,
+            IsTrafficBased: IsTrafficBased::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRoute as ::windows::core::Interface>::IID
@@ -684,7 +717,11 @@ impl IMapRoute2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRoute2>, ::windows::core::GetTrustLevel, ViolatedRestrictions::<Impl, IMPL_OFFSET>, HasBlockedRoads::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRoute2, BASE_OFFSET>(),
+            ViolatedRestrictions: ViolatedRestrictions::<Impl, IMPL_OFFSET>,
+            HasBlockedRoads: HasBlockedRoads::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRoute2 as ::windows::core::Interface>::IID
@@ -724,7 +761,11 @@ impl IMapRoute3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRoute3>, ::windows::core::GetTrustLevel, DurationWithoutTraffic::<Impl, IMPL_OFFSET>, TrafficCongestion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRoute3, BASE_OFFSET>(),
+            DurationWithoutTraffic: DurationWithoutTraffic::<Impl, IMPL_OFFSET>,
+            TrafficCongestion: TrafficCongestion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRoute3 as ::windows::core::Interface>::IID
@@ -752,7 +793,7 @@ impl IMapRoute4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRoute4>, ::windows::core::GetTrustLevel, IsScenic::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRoute4, BASE_OFFSET>(), IsScenic: IsScenic::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRoute4 as ::windows::core::Interface>::IID
@@ -836,22 +877,17 @@ impl IMapRouteDrivingOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRouteRestrictions(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMapRouteDrivingOptions>,
-            ::windows::core::GetTrustLevel,
-            MaxAlternateRouteCount::<Impl, IMPL_OFFSET>,
-            SetMaxAlternateRouteCount::<Impl, IMPL_OFFSET>,
-            InitialHeading::<Impl, IMPL_OFFSET>,
-            SetInitialHeading::<Impl, IMPL_OFFSET>,
-            RouteOptimization::<Impl, IMPL_OFFSET>,
-            SetRouteOptimization::<Impl, IMPL_OFFSET>,
-            RouteRestrictions::<Impl, IMPL_OFFSET>,
-            SetRouteRestrictions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRouteDrivingOptions, BASE_OFFSET>(),
+            MaxAlternateRouteCount: MaxAlternateRouteCount::<Impl, IMPL_OFFSET>,
+            SetMaxAlternateRouteCount: SetMaxAlternateRouteCount::<Impl, IMPL_OFFSET>,
+            InitialHeading: InitialHeading::<Impl, IMPL_OFFSET>,
+            SetInitialHeading: SetInitialHeading::<Impl, IMPL_OFFSET>,
+            RouteOptimization: RouteOptimization::<Impl, IMPL_OFFSET>,
+            SetRouteOptimization: SetRouteOptimization::<Impl, IMPL_OFFSET>,
+            RouteRestrictions: RouteRestrictions::<Impl, IMPL_OFFSET>,
+            SetRouteRestrictions: SetRouteRestrictions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRouteDrivingOptions as ::windows::core::Interface>::IID
@@ -884,7 +920,11 @@ impl IMapRouteDrivingOptions2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDepartureTime(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRouteDrivingOptions2>, ::windows::core::GetTrustLevel, DepartureTime::<Impl, IMPL_OFFSET>, SetDepartureTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRouteDrivingOptions2, BASE_OFFSET>(),
+            DepartureTime: DepartureTime::<Impl, IMPL_OFFSET>,
+            SetDepartureTime: SetDepartureTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRouteDrivingOptions2 as ::windows::core::Interface>::IID
@@ -924,7 +964,11 @@ impl IMapRouteFinderResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRouteFinderResult>, ::windows::core::GetTrustLevel, Route::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRouteFinderResult, BASE_OFFSET>(),
+            Route: Route::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRouteFinderResult as ::windows::core::Interface>::IID
@@ -952,7 +996,10 @@ impl IMapRouteFinderResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRouteFinderResult2>, ::windows::core::GetTrustLevel, AlternateRoutes::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRouteFinderResult2, BASE_OFFSET>(),
+            AlternateRoutes: AlternateRoutes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRouteFinderResult2 as ::windows::core::Interface>::IID
@@ -1088,24 +1135,19 @@ impl IMapRouteFinderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMapRouteFinderStatics>,
-            ::windows::core::GetTrustLevel,
-            GetDrivingRouteAsync::<Impl, IMPL_OFFSET>,
-            GetDrivingRouteWithOptimizationAsync::<Impl, IMPL_OFFSET>,
-            GetDrivingRouteWithOptimizationAndRestrictionsAsync::<Impl, IMPL_OFFSET>,
-            GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync::<Impl, IMPL_OFFSET>,
-            GetDrivingRouteFromWaypointsAsync::<Impl, IMPL_OFFSET>,
-            GetDrivingRouteFromWaypointsAndOptimizationAsync::<Impl, IMPL_OFFSET>,
-            GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync::<Impl, IMPL_OFFSET>,
-            GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync::<Impl, IMPL_OFFSET>,
-            GetWalkingRouteAsync::<Impl, IMPL_OFFSET>,
-            GetWalkingRouteFromWaypointsAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRouteFinderStatics, BASE_OFFSET>(),
+            GetDrivingRouteAsync: GetDrivingRouteAsync::<Impl, IMPL_OFFSET>,
+            GetDrivingRouteWithOptimizationAsync: GetDrivingRouteWithOptimizationAsync::<Impl, IMPL_OFFSET>,
+            GetDrivingRouteWithOptimizationAndRestrictionsAsync: GetDrivingRouteWithOptimizationAndRestrictionsAsync::<Impl, IMPL_OFFSET>,
+            GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync: GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync::<Impl, IMPL_OFFSET>,
+            GetDrivingRouteFromWaypointsAsync: GetDrivingRouteFromWaypointsAsync::<Impl, IMPL_OFFSET>,
+            GetDrivingRouteFromWaypointsAndOptimizationAsync: GetDrivingRouteFromWaypointsAndOptimizationAsync::<Impl, IMPL_OFFSET>,
+            GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync: GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync::<Impl, IMPL_OFFSET>,
+            GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync: GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync::<Impl, IMPL_OFFSET>,
+            GetWalkingRouteAsync: GetWalkingRouteAsync::<Impl, IMPL_OFFSET>,
+            GetWalkingRouteFromWaypointsAsync: GetWalkingRouteFromWaypointsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRouteFinderStatics as ::windows::core::Interface>::IID
@@ -1137,7 +1179,10 @@ impl IMapRouteFinderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRouteFinderStatics2>, ::windows::core::GetTrustLevel, GetDrivingRouteWithOptionsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRouteFinderStatics2, BASE_OFFSET>(),
+            GetDrivingRouteWithOptionsAsync: GetDrivingRouteWithOptionsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRouteFinderStatics2 as ::windows::core::Interface>::IID
@@ -1177,7 +1222,11 @@ impl IMapRouteFinderStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRouteFinderStatics3>, ::windows::core::GetTrustLevel, GetDrivingRouteFromEnhancedWaypointsAsync::<Impl, IMPL_OFFSET>, GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRouteFinderStatics3, BASE_OFFSET>(),
+            GetDrivingRouteFromEnhancedWaypointsAsync: GetDrivingRouteFromEnhancedWaypointsAsync::<Impl, IMPL_OFFSET>,
+            GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync: GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRouteFinderStatics3 as ::windows::core::Interface>::IID
@@ -1253,7 +1302,14 @@ impl IMapRouteLegVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRouteLeg>, ::windows::core::GetTrustLevel, BoundingBox::<Impl, IMPL_OFFSET>, Path::<Impl, IMPL_OFFSET>, LengthInMeters::<Impl, IMPL_OFFSET>, EstimatedDuration::<Impl, IMPL_OFFSET>, Maneuvers::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRouteLeg, BASE_OFFSET>(),
+            BoundingBox: BoundingBox::<Impl, IMPL_OFFSET>,
+            Path: Path::<Impl, IMPL_OFFSET>,
+            LengthInMeters: LengthInMeters::<Impl, IMPL_OFFSET>,
+            EstimatedDuration: EstimatedDuration::<Impl, IMPL_OFFSET>,
+            Maneuvers: Maneuvers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRouteLeg as ::windows::core::Interface>::IID
@@ -1293,7 +1349,11 @@ impl IMapRouteLeg2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRouteLeg2>, ::windows::core::GetTrustLevel, DurationWithoutTraffic::<Impl, IMPL_OFFSET>, TrafficCongestion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRouteLeg2, BASE_OFFSET>(),
+            DurationWithoutTraffic: DurationWithoutTraffic::<Impl, IMPL_OFFSET>,
+            TrafficCongestion: TrafficCongestion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRouteLeg2 as ::windows::core::Interface>::IID
@@ -1381,20 +1441,15 @@ impl IMapRouteManeuverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMapRouteManeuver>,
-            ::windows::core::GetTrustLevel,
-            StartingPoint::<Impl, IMPL_OFFSET>,
-            LengthInMeters::<Impl, IMPL_OFFSET>,
-            InstructionText::<Impl, IMPL_OFFSET>,
-            Kind::<Impl, IMPL_OFFSET>,
-            ExitNumber::<Impl, IMPL_OFFSET>,
-            ManeuverNotices::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRouteManeuver, BASE_OFFSET>(),
+            StartingPoint: StartingPoint::<Impl, IMPL_OFFSET>,
+            LengthInMeters: LengthInMeters::<Impl, IMPL_OFFSET>,
+            InstructionText: InstructionText::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            ExitNumber: ExitNumber::<Impl, IMPL_OFFSET>,
+            ManeuverNotices: ManeuverNotices::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRouteManeuver as ::windows::core::Interface>::IID
@@ -1446,7 +1501,12 @@ impl IMapRouteManeuver2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRouteManeuver2>, ::windows::core::GetTrustLevel, StartHeading::<Impl, IMPL_OFFSET>, EndHeading::<Impl, IMPL_OFFSET>, StreetName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRouteManeuver2, BASE_OFFSET>(),
+            StartHeading: StartHeading::<Impl, IMPL_OFFSET>,
+            EndHeading: EndHeading::<Impl, IMPL_OFFSET>,
+            StreetName: StreetName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRouteManeuver2 as ::windows::core::Interface>::IID
@@ -1474,7 +1534,7 @@ impl IMapRouteManeuver3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRouteManeuver3>, ::windows::core::GetTrustLevel, Warnings::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMapRouteManeuver3, BASE_OFFSET>(), Warnings: Warnings::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapRouteManeuver3 as ::windows::core::Interface>::IID
@@ -1507,7 +1567,11 @@ impl IMapServiceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapServiceStatics>, ::windows::core::GetTrustLevel, SetServiceToken::<Impl, IMPL_OFFSET>, ServiceToken::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapServiceStatics, BASE_OFFSET>(),
+            SetServiceToken: SetServiceToken::<Impl, IMPL_OFFSET>,
+            ServiceToken: ServiceToken::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapServiceStatics as ::windows::core::Interface>::IID
@@ -1535,7 +1599,10 @@ impl IMapServiceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapServiceStatics2>, ::windows::core::GetTrustLevel, WorldViewRegionCode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapServiceStatics2, BASE_OFFSET>(),
+            WorldViewRegionCode: WorldViewRegionCode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapServiceStatics2 as ::windows::core::Interface>::IID
@@ -1563,7 +1630,10 @@ impl IMapServiceStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapServiceStatics3>, ::windows::core::GetTrustLevel, DataAttributions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapServiceStatics3, BASE_OFFSET>(),
+            DataAttributions: DataAttributions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapServiceStatics3 as ::windows::core::Interface>::IID
@@ -1596,7 +1666,11 @@ impl IMapServiceStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapServiceStatics4>, ::windows::core::GetTrustLevel, SetDataUsagePreference::<Impl, IMPL_OFFSET>, DataUsagePreference::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapServiceStatics4, BASE_OFFSET>(),
+            SetDataUsagePreference: SetDataUsagePreference::<Impl, IMPL_OFFSET>,
+            DataUsagePreference: DataUsagePreference::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapServiceStatics4 as ::windows::core::Interface>::IID
@@ -1670,7 +1744,15 @@ impl IPlaceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaceInfo>, ::windows::core::GetTrustLevel, Show::<Impl, IMPL_OFFSET>, ShowWithPreferredPlacement::<Impl, IMPL_OFFSET>, Identifier::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, DisplayAddress::<Impl, IMPL_OFFSET>, Geoshape::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlaceInfo, BASE_OFFSET>(),
+            Show: Show::<Impl, IMPL_OFFSET>,
+            ShowWithPreferredPlacement: ShowWithPreferredPlacement::<Impl, IMPL_OFFSET>,
+            Identifier: Identifier::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            DisplayAddress: DisplayAddress::<Impl, IMPL_OFFSET>,
+            Geoshape: Geoshape::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlaceInfo as ::windows::core::Interface>::IID
@@ -1720,7 +1802,13 @@ impl IPlaceInfoCreateOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaceInfoCreateOptions>, ::windows::core::GetTrustLevel, SetDisplayName::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, SetDisplayAddress::<Impl, IMPL_OFFSET>, DisplayAddress::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlaceInfoCreateOptions, BASE_OFFSET>(),
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayAddress: SetDisplayAddress::<Impl, IMPL_OFFSET>,
+            DisplayAddress: DisplayAddress::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlaceInfoCreateOptions as ::windows::core::Interface>::IID
@@ -1812,20 +1900,15 @@ impl IPlaceInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPlaceInfoStatics>,
-            ::windows::core::GetTrustLevel,
-            Create::<Impl, IMPL_OFFSET>,
-            CreateWithGeopointAndOptions::<Impl, IMPL_OFFSET>,
-            CreateFromIdentifier::<Impl, IMPL_OFFSET>,
-            CreateFromIdentifierWithOptions::<Impl, IMPL_OFFSET>,
-            CreateFromMapLocation::<Impl, IMPL_OFFSET>,
-            IsShowSupported::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlaceInfoStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithGeopointAndOptions: CreateWithGeopointAndOptions::<Impl, IMPL_OFFSET>,
+            CreateFromIdentifier: CreateFromIdentifier::<Impl, IMPL_OFFSET>,
+            CreateFromIdentifierWithOptions: CreateFromIdentifierWithOptions::<Impl, IMPL_OFFSET>,
+            CreateFromMapLocation: CreateFromMapLocation::<Impl, IMPL_OFFSET>,
+            IsShowSupported: IsShowSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlaceInfoStatics as ::windows::core::Interface>::IID
@@ -1865,7 +1948,11 @@ impl IPlaceInfoStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaceInfoStatics2>, ::windows::core::GetTrustLevel, CreateFromAddress::<Impl, IMPL_OFFSET>, CreateFromAddressWithName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlaceInfoStatics2, BASE_OFFSET>(),
+            CreateFromAddress: CreateFromAddress::<Impl, IMPL_OFFSET>,
+            CreateFromAddressWithName: CreateFromAddressWithName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlaceInfoStatics2 as ::windows::core::Interface>::IID

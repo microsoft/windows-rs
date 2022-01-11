@@ -20,7 +20,10 @@ impl IConnectionRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionRequestedEventArgs>, ::windows::core::GetTrustLevel, PeerInformation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectionRequestedEventArgs, BASE_OFFSET>(),
+            PeerInformation: PeerInformation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectionRequestedEventArgs as ::windows::core::Interface>::IID
@@ -201,33 +204,28 @@ impl IPeerFinderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPeerFinderStatics>,
-            ::windows::core::GetTrustLevel,
-            AllowBluetooth::<Impl, IMPL_OFFSET>,
-            SetAllowBluetooth::<Impl, IMPL_OFFSET>,
-            AllowInfrastructure::<Impl, IMPL_OFFSET>,
-            SetAllowInfrastructure::<Impl, IMPL_OFFSET>,
-            AllowWiFiDirect::<Impl, IMPL_OFFSET>,
-            SetAllowWiFiDirect::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            SetDisplayName::<Impl, IMPL_OFFSET>,
-            SupportedDiscoveryTypes::<Impl, IMPL_OFFSET>,
-            AlternateIdentities::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            StartWithMessage::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            TriggeredConnectionStateChanged::<Impl, IMPL_OFFSET>,
-            RemoveTriggeredConnectionStateChanged::<Impl, IMPL_OFFSET>,
-            ConnectionRequested::<Impl, IMPL_OFFSET>,
-            RemoveConnectionRequested::<Impl, IMPL_OFFSET>,
-            FindAllPeersAsync::<Impl, IMPL_OFFSET>,
-            ConnectAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPeerFinderStatics, BASE_OFFSET>(),
+            AllowBluetooth: AllowBluetooth::<Impl, IMPL_OFFSET>,
+            SetAllowBluetooth: SetAllowBluetooth::<Impl, IMPL_OFFSET>,
+            AllowInfrastructure: AllowInfrastructure::<Impl, IMPL_OFFSET>,
+            SetAllowInfrastructure: SetAllowInfrastructure::<Impl, IMPL_OFFSET>,
+            AllowWiFiDirect: AllowWiFiDirect::<Impl, IMPL_OFFSET>,
+            SetAllowWiFiDirect: SetAllowWiFiDirect::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            SupportedDiscoveryTypes: SupportedDiscoveryTypes::<Impl, IMPL_OFFSET>,
+            AlternateIdentities: AlternateIdentities::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            StartWithMessage: StartWithMessage::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            TriggeredConnectionStateChanged: TriggeredConnectionStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveTriggeredConnectionStateChanged: RemoveTriggeredConnectionStateChanged::<Impl, IMPL_OFFSET>,
+            ConnectionRequested: ConnectionRequested::<Impl, IMPL_OFFSET>,
+            RemoveConnectionRequested: RemoveConnectionRequested::<Impl, IMPL_OFFSET>,
+            FindAllPeersAsync: FindAllPeersAsync::<Impl, IMPL_OFFSET>,
+            ConnectAsync: ConnectAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPeerFinderStatics as ::windows::core::Interface>::IID
@@ -289,7 +287,14 @@ impl IPeerFinderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeerFinderStatics2>, ::windows::core::GetTrustLevel, Role::<Impl, IMPL_OFFSET>, SetRole::<Impl, IMPL_OFFSET>, DiscoveryData::<Impl, IMPL_OFFSET>, SetDiscoveryData::<Impl, IMPL_OFFSET>, CreateWatcher::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPeerFinderStatics2, BASE_OFFSET>(),
+            Role: Role::<Impl, IMPL_OFFSET>,
+            SetRole: SetRole::<Impl, IMPL_OFFSET>,
+            DiscoveryData: DiscoveryData::<Impl, IMPL_OFFSET>,
+            SetDiscoveryData: SetDiscoveryData::<Impl, IMPL_OFFSET>,
+            CreateWatcher: CreateWatcher::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPeerFinderStatics2 as ::windows::core::Interface>::IID
@@ -317,7 +322,7 @@ impl IPeerInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeerInformation>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPeerInformation, BASE_OFFSET>(), DisplayName: DisplayName::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPeerInformation as ::windows::core::Interface>::IID
@@ -357,7 +362,11 @@ impl IPeerInformation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeerInformation3>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, DiscoveryData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPeerInformation3, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DiscoveryData: DiscoveryData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPeerInformation3 as ::windows::core::Interface>::IID
@@ -397,7 +406,11 @@ impl IPeerInformationWithHostAndServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeerInformationWithHostAndService>, ::windows::core::GetTrustLevel, HostName::<Impl, IMPL_OFFSET>, ServiceName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPeerInformationWithHostAndService, BASE_OFFSET>(),
+            HostName: HostName::<Impl, IMPL_OFFSET>,
+            ServiceName: ServiceName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPeerInformationWithHostAndService as ::windows::core::Interface>::IID
@@ -520,27 +533,22 @@ impl IPeerWatcherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPeerWatcher>,
-            ::windows::core::GetTrustLevel,
-            Added::<Impl, IMPL_OFFSET>,
-            RemoveAdded::<Impl, IMPL_OFFSET>,
-            Removed::<Impl, IMPL_OFFSET>,
-            RemoveRemoved::<Impl, IMPL_OFFSET>,
-            Updated::<Impl, IMPL_OFFSET>,
-            RemoveUpdated::<Impl, IMPL_OFFSET>,
-            EnumerationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
-            Stopped::<Impl, IMPL_OFFSET>,
-            RemoveStopped::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPeerWatcher, BASE_OFFSET>(),
+            Added: Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded: RemoveAdded::<Impl, IMPL_OFFSET>,
+            Removed: Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved: RemoveRemoved::<Impl, IMPL_OFFSET>,
+            Updated: Updated::<Impl, IMPL_OFFSET>,
+            RemoveUpdated: RemoveUpdated::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Stopped: Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped: RemoveStopped::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPeerWatcher as ::windows::core::Interface>::IID
@@ -728,30 +736,25 @@ impl IProximityDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProximityDevice>,
-            ::windows::core::GetTrustLevel,
-            SubscribeForMessage::<Impl, IMPL_OFFSET>,
-            PublishMessage::<Impl, IMPL_OFFSET>,
-            PublishMessageWithCallback::<Impl, IMPL_OFFSET>,
-            PublishBinaryMessage::<Impl, IMPL_OFFSET>,
-            PublishBinaryMessageWithCallback::<Impl, IMPL_OFFSET>,
-            PublishUriMessage::<Impl, IMPL_OFFSET>,
-            PublishUriMessageWithCallback::<Impl, IMPL_OFFSET>,
-            StopSubscribingForMessage::<Impl, IMPL_OFFSET>,
-            StopPublishingMessage::<Impl, IMPL_OFFSET>,
-            DeviceArrived::<Impl, IMPL_OFFSET>,
-            RemoveDeviceArrived::<Impl, IMPL_OFFSET>,
-            DeviceDeparted::<Impl, IMPL_OFFSET>,
-            RemoveDeviceDeparted::<Impl, IMPL_OFFSET>,
-            MaxMessageBytes::<Impl, IMPL_OFFSET>,
-            BitsPerSecond::<Impl, IMPL_OFFSET>,
-            DeviceId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProximityDevice, BASE_OFFSET>(),
+            SubscribeForMessage: SubscribeForMessage::<Impl, IMPL_OFFSET>,
+            PublishMessage: PublishMessage::<Impl, IMPL_OFFSET>,
+            PublishMessageWithCallback: PublishMessageWithCallback::<Impl, IMPL_OFFSET>,
+            PublishBinaryMessage: PublishBinaryMessage::<Impl, IMPL_OFFSET>,
+            PublishBinaryMessageWithCallback: PublishBinaryMessageWithCallback::<Impl, IMPL_OFFSET>,
+            PublishUriMessage: PublishUriMessage::<Impl, IMPL_OFFSET>,
+            PublishUriMessageWithCallback: PublishUriMessageWithCallback::<Impl, IMPL_OFFSET>,
+            StopSubscribingForMessage: StopSubscribingForMessage::<Impl, IMPL_OFFSET>,
+            StopPublishingMessage: StopPublishingMessage::<Impl, IMPL_OFFSET>,
+            DeviceArrived: DeviceArrived::<Impl, IMPL_OFFSET>,
+            RemoveDeviceArrived: RemoveDeviceArrived::<Impl, IMPL_OFFSET>,
+            DeviceDeparted: DeviceDeparted::<Impl, IMPL_OFFSET>,
+            RemoveDeviceDeparted: RemoveDeviceDeparted::<Impl, IMPL_OFFSET>,
+            MaxMessageBytes: MaxMessageBytes::<Impl, IMPL_OFFSET>,
+            BitsPerSecond: BitsPerSecond::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProximityDevice as ::windows::core::Interface>::IID
@@ -803,7 +806,12 @@ impl IProximityDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProximityDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDefault::<Impl, IMPL_OFFSET>, FromId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProximityDeviceStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            FromId: FromId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProximityDeviceStatics as ::windows::core::Interface>::IID
@@ -867,7 +875,13 @@ impl IProximityMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProximityMessage>, ::windows::core::GetTrustLevel, MessageType::<Impl, IMPL_OFFSET>, SubscriptionId::<Impl, IMPL_OFFSET>, Data::<Impl, IMPL_OFFSET>, DataAsString::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProximityMessage, BASE_OFFSET>(),
+            MessageType: MessageType::<Impl, IMPL_OFFSET>,
+            SubscriptionId: SubscriptionId::<Impl, IMPL_OFFSET>,
+            Data: Data::<Impl, IMPL_OFFSET>,
+            DataAsString: DataAsString::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProximityMessage as ::windows::core::Interface>::IID
@@ -919,7 +933,12 @@ impl ITriggeredConnectionStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITriggeredConnectionStateChangedEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, Socket::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITriggeredConnectionStateChangedEventArgs, BASE_OFFSET>(),
+            State: State::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Socket: Socket::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITriggeredConnectionStateChangedEventArgs as ::windows::core::Interface>::IID

@@ -76,22 +76,17 @@ impl IAudioEncodingPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAudioEncodingProperties>,
-            ::windows::core::GetTrustLevel,
-            SetBitrate::<Impl, IMPL_OFFSET>,
-            Bitrate::<Impl, IMPL_OFFSET>,
-            SetChannelCount::<Impl, IMPL_OFFSET>,
-            ChannelCount::<Impl, IMPL_OFFSET>,
-            SetSampleRate::<Impl, IMPL_OFFSET>,
-            SampleRate::<Impl, IMPL_OFFSET>,
-            SetBitsPerSample::<Impl, IMPL_OFFSET>,
-            BitsPerSample::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioEncodingProperties, BASE_OFFSET>(),
+            SetBitrate: SetBitrate::<Impl, IMPL_OFFSET>,
+            Bitrate: Bitrate::<Impl, IMPL_OFFSET>,
+            SetChannelCount: SetChannelCount::<Impl, IMPL_OFFSET>,
+            ChannelCount: ChannelCount::<Impl, IMPL_OFFSET>,
+            SetSampleRate: SetSampleRate::<Impl, IMPL_OFFSET>,
+            SampleRate: SampleRate::<Impl, IMPL_OFFSET>,
+            SetBitsPerSample: SetBitsPerSample::<Impl, IMPL_OFFSET>,
+            BitsPerSample: BitsPerSample::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEncodingProperties as ::windows::core::Interface>::IID
@@ -119,7 +114,7 @@ impl IAudioEncodingProperties2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioEncodingProperties2>, ::windows::core::GetTrustLevel, IsSpatial::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioEncodingProperties2, BASE_OFFSET>(), IsSpatial: IsSpatial::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEncodingProperties2 as ::windows::core::Interface>::IID
@@ -147,7 +142,7 @@ impl IAudioEncodingProperties3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioEncodingProperties3>, ::windows::core::GetTrustLevel, Copy::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioEncodingProperties3, BASE_OFFSET>(), Copy: Copy::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEncodingProperties3 as ::windows::core::Interface>::IID
@@ -223,7 +218,14 @@ impl IAudioEncodingPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioEncodingPropertiesStatics>, ::windows::core::GetTrustLevel, CreateAac::<Impl, IMPL_OFFSET>, CreateAacAdts::<Impl, IMPL_OFFSET>, CreateMp3::<Impl, IMPL_OFFSET>, CreatePcm::<Impl, IMPL_OFFSET>, CreateWma::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioEncodingPropertiesStatics, BASE_OFFSET>(),
+            CreateAac: CreateAac::<Impl, IMPL_OFFSET>,
+            CreateAacAdts: CreateAacAdts::<Impl, IMPL_OFFSET>,
+            CreateMp3: CreateMp3::<Impl, IMPL_OFFSET>,
+            CreatePcm: CreatePcm::<Impl, IMPL_OFFSET>,
+            CreateWma: CreateWma::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEncodingPropertiesStatics as ::windows::core::Interface>::IID
@@ -263,7 +265,11 @@ impl IAudioEncodingPropertiesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioEncodingPropertiesStatics2>, ::windows::core::GetTrustLevel, CreateAlac::<Impl, IMPL_OFFSET>, CreateFlac::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioEncodingPropertiesStatics2, BASE_OFFSET>(),
+            CreateAlac: CreateAlac::<Impl, IMPL_OFFSET>,
+            CreateFlac: CreateFlac::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEncodingPropertiesStatics2 as ::windows::core::Interface>::IID
@@ -289,7 +295,11 @@ impl IAudioEncodingPropertiesWithFormatUserDataVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetFormatUserData(::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size).as_array()).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioEncodingPropertiesWithFormatUserData>, ::windows::core::GetTrustLevel, SetFormatUserData::<Impl, IMPL_OFFSET>, GetFormatUserData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioEncodingPropertiesWithFormatUserData, BASE_OFFSET>(),
+            SetFormatUserData: SetFormatUserData::<Impl, IMPL_OFFSET>,
+            GetFormatUserData: GetFormatUserData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEncodingPropertiesWithFormatUserData as ::windows::core::Interface>::IID
@@ -304,7 +314,7 @@ impl ::windows::core::RuntimeName for IContainerEncodingProperties {
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContainerEncodingPropertiesVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContainerEncodingPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContainerEncodingPropertiesVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContainerEncodingProperties>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContainerEncodingProperties, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContainerEncodingProperties as ::windows::core::Interface>::IID
@@ -332,7 +342,7 @@ impl IContainerEncodingProperties2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContainerEncodingProperties2>, ::windows::core::GetTrustLevel, Copy::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContainerEncodingProperties2, BASE_OFFSET>(), Copy: Copy::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContainerEncodingProperties2 as ::windows::core::Interface>::IID
@@ -468,24 +478,19 @@ impl IH264ProfileIdsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IH264ProfileIdsStatics>,
-            ::windows::core::GetTrustLevel,
-            ConstrainedBaseline::<Impl, IMPL_OFFSET>,
-            Baseline::<Impl, IMPL_OFFSET>,
-            Extended::<Impl, IMPL_OFFSET>,
-            Main::<Impl, IMPL_OFFSET>,
-            High::<Impl, IMPL_OFFSET>,
-            High10::<Impl, IMPL_OFFSET>,
-            High422::<Impl, IMPL_OFFSET>,
-            High444::<Impl, IMPL_OFFSET>,
-            StereoHigh::<Impl, IMPL_OFFSET>,
-            MultiviewHigh::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IH264ProfileIdsStatics, BASE_OFFSET>(),
+            ConstrainedBaseline: ConstrainedBaseline::<Impl, IMPL_OFFSET>,
+            Baseline: Baseline::<Impl, IMPL_OFFSET>,
+            Extended: Extended::<Impl, IMPL_OFFSET>,
+            Main: Main::<Impl, IMPL_OFFSET>,
+            High: High::<Impl, IMPL_OFFSET>,
+            High10: High10::<Impl, IMPL_OFFSET>,
+            High422: High422::<Impl, IMPL_OFFSET>,
+            High444: High444::<Impl, IMPL_OFFSET>,
+            StereoHigh: StereoHigh::<Impl, IMPL_OFFSET>,
+            MultiviewHigh: MultiviewHigh::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IH264ProfileIdsStatics as ::windows::core::Interface>::IID
@@ -535,7 +540,13 @@ impl IImageEncodingPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageEncodingProperties>, ::windows::core::GetTrustLevel, SetWidth::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>, SetHeight::<Impl, IMPL_OFFSET>, Height::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageEncodingProperties, BASE_OFFSET>(),
+            SetWidth: SetWidth::<Impl, IMPL_OFFSET>,
+            Width: Width::<Impl, IMPL_OFFSET>,
+            SetHeight: SetHeight::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageEncodingProperties as ::windows::core::Interface>::IID
@@ -563,7 +574,7 @@ impl IImageEncodingProperties2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageEncodingProperties2>, ::windows::core::GetTrustLevel, Copy::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IImageEncodingProperties2, BASE_OFFSET>(), Copy: Copy::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageEncodingProperties2 as ::windows::core::Interface>::IID
@@ -615,7 +626,12 @@ impl IImageEncodingPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageEncodingPropertiesStatics>, ::windows::core::GetTrustLevel, CreateJpeg::<Impl, IMPL_OFFSET>, CreatePng::<Impl, IMPL_OFFSET>, CreateJpegXR::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageEncodingPropertiesStatics, BASE_OFFSET>(),
+            CreateJpeg: CreateJpeg::<Impl, IMPL_OFFSET>,
+            CreatePng: CreatePng::<Impl, IMPL_OFFSET>,
+            CreateJpegXR: CreateJpegXR::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageEncodingPropertiesStatics as ::windows::core::Interface>::IID
@@ -655,7 +671,11 @@ impl IImageEncodingPropertiesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageEncodingPropertiesStatics2>, ::windows::core::GetTrustLevel, CreateUncompressed::<Impl, IMPL_OFFSET>, CreateBmp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageEncodingPropertiesStatics2, BASE_OFFSET>(),
+            CreateUncompressed: CreateUncompressed::<Impl, IMPL_OFFSET>,
+            CreateBmp: CreateBmp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageEncodingPropertiesStatics2 as ::windows::core::Interface>::IID
@@ -683,7 +703,10 @@ impl IImageEncodingPropertiesStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageEncodingPropertiesStatics3>, ::windows::core::GetTrustLevel, CreateHeif::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageEncodingPropertiesStatics3, BASE_OFFSET>(),
+            CreateHeif: CreateHeif::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageEncodingPropertiesStatics3 as ::windows::core::Interface>::IID
@@ -750,7 +773,15 @@ impl IMediaEncodingProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaEncodingProfile>, ::windows::core::GetTrustLevel, SetAudio::<Impl, IMPL_OFFSET>, Audio::<Impl, IMPL_OFFSET>, SetVideo::<Impl, IMPL_OFFSET>, Video::<Impl, IMPL_OFFSET>, SetContainer::<Impl, IMPL_OFFSET>, Container::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingProfile, BASE_OFFSET>(),
+            SetAudio: SetAudio::<Impl, IMPL_OFFSET>,
+            Audio: Audio::<Impl, IMPL_OFFSET>,
+            SetVideo: SetVideo::<Impl, IMPL_OFFSET>,
+            Video: Video::<Impl, IMPL_OFFSET>,
+            SetContainer: SetContainer::<Impl, IMPL_OFFSET>,
+            Container: Container::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEncodingProfile as ::windows::core::Interface>::IID
@@ -800,7 +831,13 @@ impl IMediaEncodingProfile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaEncodingProfile2>, ::windows::core::GetTrustLevel, SetAudioTracks::<Impl, IMPL_OFFSET>, GetAudioTracks::<Impl, IMPL_OFFSET>, SetVideoTracks::<Impl, IMPL_OFFSET>, GetVideoTracks::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingProfile2, BASE_OFFSET>(),
+            SetAudioTracks: SetAudioTracks::<Impl, IMPL_OFFSET>,
+            GetAudioTracks: GetAudioTracks::<Impl, IMPL_OFFSET>,
+            SetVideoTracks: SetVideoTracks::<Impl, IMPL_OFFSET>,
+            GetVideoTracks: GetVideoTracks::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEncodingProfile2 as ::windows::core::Interface>::IID
@@ -833,7 +870,11 @@ impl IMediaEncodingProfile3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaEncodingProfile3>, ::windows::core::GetTrustLevel, SetTimedMetadataTracks::<Impl, IMPL_OFFSET>, GetTimedMetadataTracks::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingProfile3, BASE_OFFSET>(),
+            SetTimedMetadataTracks: SetTimedMetadataTracks::<Impl, IMPL_OFFSET>,
+            GetTimedMetadataTracks: GetTimedMetadataTracks::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEncodingProfile3 as ::windows::core::Interface>::IID
@@ -933,21 +974,16 @@ impl IMediaEncodingProfileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaEncodingProfileStatics>,
-            ::windows::core::GetTrustLevel,
-            CreateM4a::<Impl, IMPL_OFFSET>,
-            CreateMp3::<Impl, IMPL_OFFSET>,
-            CreateWma::<Impl, IMPL_OFFSET>,
-            CreateMp4::<Impl, IMPL_OFFSET>,
-            CreateWmv::<Impl, IMPL_OFFSET>,
-            CreateFromFileAsync::<Impl, IMPL_OFFSET>,
-            CreateFromStreamAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingProfileStatics, BASE_OFFSET>(),
+            CreateM4a: CreateM4a::<Impl, IMPL_OFFSET>,
+            CreateMp3: CreateMp3::<Impl, IMPL_OFFSET>,
+            CreateWma: CreateWma::<Impl, IMPL_OFFSET>,
+            CreateMp4: CreateMp4::<Impl, IMPL_OFFSET>,
+            CreateWmv: CreateWmv::<Impl, IMPL_OFFSET>,
+            CreateFromFileAsync: CreateFromFileAsync::<Impl, IMPL_OFFSET>,
+            CreateFromStreamAsync: CreateFromStreamAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEncodingProfileStatics as ::windows::core::Interface>::IID
@@ -987,7 +1023,11 @@ impl IMediaEncodingProfileStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaEncodingProfileStatics2>, ::windows::core::GetTrustLevel, CreateWav::<Impl, IMPL_OFFSET>, CreateAvi::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingProfileStatics2, BASE_OFFSET>(),
+            CreateWav: CreateWav::<Impl, IMPL_OFFSET>,
+            CreateAvi: CreateAvi::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEncodingProfileStatics2 as ::windows::core::Interface>::IID
@@ -1039,7 +1079,12 @@ impl IMediaEncodingProfileStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaEncodingProfileStatics3>, ::windows::core::GetTrustLevel, CreateAlac::<Impl, IMPL_OFFSET>, CreateFlac::<Impl, IMPL_OFFSET>, CreateHevc::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingProfileStatics3, BASE_OFFSET>(),
+            CreateAlac: CreateAlac::<Impl, IMPL_OFFSET>,
+            CreateFlac: CreateFlac::<Impl, IMPL_OFFSET>,
+            CreateHevc: CreateHevc::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEncodingProfileStatics3 as ::windows::core::Interface>::IID
@@ -1096,7 +1141,13 @@ impl IMediaEncodingPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaEncodingProperties>, ::windows::core::GetTrustLevel, Properties::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>, SetSubtype::<Impl, IMPL_OFFSET>, Subtype::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingProperties, BASE_OFFSET>(),
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+            SetSubtype: SetSubtype::<Impl, IMPL_OFFSET>,
+            Subtype: Subtype::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEncodingProperties as ::windows::core::Interface>::IID
@@ -1592,54 +1643,49 @@ impl IMediaEncodingSubtypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaEncodingSubtypesStatics>,
-            ::windows::core::GetTrustLevel,
-            Aac::<Impl, IMPL_OFFSET>,
-            AacAdts::<Impl, IMPL_OFFSET>,
-            Ac3::<Impl, IMPL_OFFSET>,
-            AmrNb::<Impl, IMPL_OFFSET>,
-            AmrWb::<Impl, IMPL_OFFSET>,
-            Argb32::<Impl, IMPL_OFFSET>,
-            Asf::<Impl, IMPL_OFFSET>,
-            Avi::<Impl, IMPL_OFFSET>,
-            Bgra8::<Impl, IMPL_OFFSET>,
-            Bmp::<Impl, IMPL_OFFSET>,
-            Eac3::<Impl, IMPL_OFFSET>,
-            Float::<Impl, IMPL_OFFSET>,
-            Gif::<Impl, IMPL_OFFSET>,
-            H263::<Impl, IMPL_OFFSET>,
-            H264::<Impl, IMPL_OFFSET>,
-            H264Es::<Impl, IMPL_OFFSET>,
-            Hevc::<Impl, IMPL_OFFSET>,
-            HevcEs::<Impl, IMPL_OFFSET>,
-            Iyuv::<Impl, IMPL_OFFSET>,
-            Jpeg::<Impl, IMPL_OFFSET>,
-            JpegXr::<Impl, IMPL_OFFSET>,
-            Mjpg::<Impl, IMPL_OFFSET>,
-            Mpeg::<Impl, IMPL_OFFSET>,
-            Mpeg1::<Impl, IMPL_OFFSET>,
-            Mpeg2::<Impl, IMPL_OFFSET>,
-            Mp3::<Impl, IMPL_OFFSET>,
-            Mpeg4::<Impl, IMPL_OFFSET>,
-            Nv12::<Impl, IMPL_OFFSET>,
-            Pcm::<Impl, IMPL_OFFSET>,
-            Png::<Impl, IMPL_OFFSET>,
-            Rgb24::<Impl, IMPL_OFFSET>,
-            Rgb32::<Impl, IMPL_OFFSET>,
-            Tiff::<Impl, IMPL_OFFSET>,
-            Wave::<Impl, IMPL_OFFSET>,
-            Wma8::<Impl, IMPL_OFFSET>,
-            Wma9::<Impl, IMPL_OFFSET>,
-            Wmv3::<Impl, IMPL_OFFSET>,
-            Wvc1::<Impl, IMPL_OFFSET>,
-            Yuy2::<Impl, IMPL_OFFSET>,
-            Yv12::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingSubtypesStatics, BASE_OFFSET>(),
+            Aac: Aac::<Impl, IMPL_OFFSET>,
+            AacAdts: AacAdts::<Impl, IMPL_OFFSET>,
+            Ac3: Ac3::<Impl, IMPL_OFFSET>,
+            AmrNb: AmrNb::<Impl, IMPL_OFFSET>,
+            AmrWb: AmrWb::<Impl, IMPL_OFFSET>,
+            Argb32: Argb32::<Impl, IMPL_OFFSET>,
+            Asf: Asf::<Impl, IMPL_OFFSET>,
+            Avi: Avi::<Impl, IMPL_OFFSET>,
+            Bgra8: Bgra8::<Impl, IMPL_OFFSET>,
+            Bmp: Bmp::<Impl, IMPL_OFFSET>,
+            Eac3: Eac3::<Impl, IMPL_OFFSET>,
+            Float: Float::<Impl, IMPL_OFFSET>,
+            Gif: Gif::<Impl, IMPL_OFFSET>,
+            H263: H263::<Impl, IMPL_OFFSET>,
+            H264: H264::<Impl, IMPL_OFFSET>,
+            H264Es: H264Es::<Impl, IMPL_OFFSET>,
+            Hevc: Hevc::<Impl, IMPL_OFFSET>,
+            HevcEs: HevcEs::<Impl, IMPL_OFFSET>,
+            Iyuv: Iyuv::<Impl, IMPL_OFFSET>,
+            Jpeg: Jpeg::<Impl, IMPL_OFFSET>,
+            JpegXr: JpegXr::<Impl, IMPL_OFFSET>,
+            Mjpg: Mjpg::<Impl, IMPL_OFFSET>,
+            Mpeg: Mpeg::<Impl, IMPL_OFFSET>,
+            Mpeg1: Mpeg1::<Impl, IMPL_OFFSET>,
+            Mpeg2: Mpeg2::<Impl, IMPL_OFFSET>,
+            Mp3: Mp3::<Impl, IMPL_OFFSET>,
+            Mpeg4: Mpeg4::<Impl, IMPL_OFFSET>,
+            Nv12: Nv12::<Impl, IMPL_OFFSET>,
+            Pcm: Pcm::<Impl, IMPL_OFFSET>,
+            Png: Png::<Impl, IMPL_OFFSET>,
+            Rgb24: Rgb24::<Impl, IMPL_OFFSET>,
+            Rgb32: Rgb32::<Impl, IMPL_OFFSET>,
+            Tiff: Tiff::<Impl, IMPL_OFFSET>,
+            Wave: Wave::<Impl, IMPL_OFFSET>,
+            Wma8: Wma8::<Impl, IMPL_OFFSET>,
+            Wma9: Wma9::<Impl, IMPL_OFFSET>,
+            Wmv3: Wmv3::<Impl, IMPL_OFFSET>,
+            Wvc1: Wvc1::<Impl, IMPL_OFFSET>,
+            Yuy2: Yuy2::<Impl, IMPL_OFFSET>,
+            Yv12: Yv12::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEncodingSubtypesStatics as ::windows::core::Interface>::IID
@@ -1703,7 +1749,13 @@ impl IMediaEncodingSubtypesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaEncodingSubtypesStatics2>, ::windows::core::GetTrustLevel, Vp9::<Impl, IMPL_OFFSET>, L8::<Impl, IMPL_OFFSET>, L16::<Impl, IMPL_OFFSET>, D16::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingSubtypesStatics2, BASE_OFFSET>(),
+            Vp9: Vp9::<Impl, IMPL_OFFSET>,
+            L8: L8::<Impl, IMPL_OFFSET>,
+            L16: L16::<Impl, IMPL_OFFSET>,
+            D16: D16::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEncodingSubtypesStatics2 as ::windows::core::Interface>::IID
@@ -1743,7 +1795,11 @@ impl IMediaEncodingSubtypesStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaEncodingSubtypesStatics3>, ::windows::core::GetTrustLevel, Alac::<Impl, IMPL_OFFSET>, Flac::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingSubtypesStatics3, BASE_OFFSET>(),
+            Alac: Alac::<Impl, IMPL_OFFSET>,
+            Flac: Flac::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEncodingSubtypesStatics3 as ::windows::core::Interface>::IID
@@ -1771,7 +1827,7 @@ impl IMediaEncodingSubtypesStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaEncodingSubtypesStatics4>, ::windows::core::GetTrustLevel, P010::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingSubtypesStatics4, BASE_OFFSET>(), P010: P010::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEncodingSubtypesStatics4 as ::windows::core::Interface>::IID
@@ -1799,7 +1855,7 @@ impl IMediaEncodingSubtypesStatics5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaEncodingSubtypesStatics5>, ::windows::core::GetTrustLevel, Heif::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingSubtypesStatics5, BASE_OFFSET>(), Heif: Heif::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEncodingSubtypesStatics5 as ::windows::core::Interface>::IID
@@ -1863,7 +1919,13 @@ impl IMediaEncodingSubtypesStatics6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaEncodingSubtypesStatics6>, ::windows::core::GetTrustLevel, Pgs::<Impl, IMPL_OFFSET>, Srt::<Impl, IMPL_OFFSET>, Ssa::<Impl, IMPL_OFFSET>, VobSub::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingSubtypesStatics6, BASE_OFFSET>(),
+            Pgs: Pgs::<Impl, IMPL_OFFSET>,
+            Srt: Srt::<Impl, IMPL_OFFSET>,
+            Ssa: Ssa::<Impl, IMPL_OFFSET>,
+            VobSub: VobSub::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaEncodingSubtypesStatics6 as ::windows::core::Interface>::IID
@@ -1913,7 +1975,13 @@ impl IMediaRatioVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaRatio>, ::windows::core::GetTrustLevel, SetNumerator::<Impl, IMPL_OFFSET>, Numerator::<Impl, IMPL_OFFSET>, SetDenominator::<Impl, IMPL_OFFSET>, Denominator::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaRatio, BASE_OFFSET>(),
+            SetNumerator: SetNumerator::<Impl, IMPL_OFFSET>,
+            Numerator: Numerator::<Impl, IMPL_OFFSET>,
+            SetDenominator: SetDenominator::<Impl, IMPL_OFFSET>,
+            Denominator: Denominator::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaRatio as ::windows::core::Interface>::IID
@@ -1989,7 +2057,14 @@ impl IMpeg2ProfileIdsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMpeg2ProfileIdsStatics>, ::windows::core::GetTrustLevel, Simple::<Impl, IMPL_OFFSET>, Main::<Impl, IMPL_OFFSET>, SignalNoiseRatioScalable::<Impl, IMPL_OFFSET>, SpatiallyScalable::<Impl, IMPL_OFFSET>, High::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMpeg2ProfileIdsStatics, BASE_OFFSET>(),
+            Simple: Simple::<Impl, IMPL_OFFSET>,
+            Main: Main::<Impl, IMPL_OFFSET>,
+            SignalNoiseRatioScalable: SignalNoiseRatioScalable::<Impl, IMPL_OFFSET>,
+            SpatiallyScalable: SpatiallyScalable::<Impl, IMPL_OFFSET>,
+            High: High::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMpeg2ProfileIdsStatics as ::windows::core::Interface>::IID
@@ -2027,7 +2102,12 @@ impl ITimedMetadataEncodingPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedMetadataEncodingProperties>, ::windows::core::GetTrustLevel, SetFormatUserData::<Impl, IMPL_OFFSET>, GetFormatUserData::<Impl, IMPL_OFFSET>, Copy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataEncodingProperties, BASE_OFFSET>(),
+            SetFormatUserData: SetFormatUserData::<Impl, IMPL_OFFSET>,
+            GetFormatUserData: GetFormatUserData::<Impl, IMPL_OFFSET>,
+            Copy: Copy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedMetadataEncodingProperties as ::windows::core::Interface>::IID
@@ -2091,7 +2171,13 @@ impl ITimedMetadataEncodingPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimedMetadataEncodingPropertiesStatics>, ::windows::core::GetTrustLevel, CreatePgs::<Impl, IMPL_OFFSET>, CreateSrt::<Impl, IMPL_OFFSET>, CreateSsa::<Impl, IMPL_OFFSET>, CreateVobSub::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataEncodingPropertiesStatics, BASE_OFFSET>(),
+            CreatePgs: CreatePgs::<Impl, IMPL_OFFSET>,
+            CreateSrt: CreateSrt::<Impl, IMPL_OFFSET>,
+            CreateSsa: CreateSsa::<Impl, IMPL_OFFSET>,
+            CreateVobSub: CreateVobSub::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimedMetadataEncodingPropertiesStatics as ::windows::core::Interface>::IID
@@ -2182,22 +2268,17 @@ impl IVideoEncodingPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVideoEncodingProperties>,
-            ::windows::core::GetTrustLevel,
-            SetBitrate::<Impl, IMPL_OFFSET>,
-            Bitrate::<Impl, IMPL_OFFSET>,
-            SetWidth::<Impl, IMPL_OFFSET>,
-            Width::<Impl, IMPL_OFFSET>,
-            SetHeight::<Impl, IMPL_OFFSET>,
-            Height::<Impl, IMPL_OFFSET>,
-            FrameRate::<Impl, IMPL_OFFSET>,
-            PixelAspectRatio::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoEncodingProperties, BASE_OFFSET>(),
+            SetBitrate: SetBitrate::<Impl, IMPL_OFFSET>,
+            Bitrate: Bitrate::<Impl, IMPL_OFFSET>,
+            SetWidth: SetWidth::<Impl, IMPL_OFFSET>,
+            Width: Width::<Impl, IMPL_OFFSET>,
+            SetHeight: SetHeight::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+            FrameRate: FrameRate::<Impl, IMPL_OFFSET>,
+            PixelAspectRatio: PixelAspectRatio::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoEncodingProperties as ::windows::core::Interface>::IID
@@ -2240,7 +2321,13 @@ impl IVideoEncodingProperties2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoEncodingProperties2>, ::windows::core::GetTrustLevel, SetFormatUserData::<Impl, IMPL_OFFSET>, GetFormatUserData::<Impl, IMPL_OFFSET>, SetProfileId::<Impl, IMPL_OFFSET>, ProfileId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoEncodingProperties2, BASE_OFFSET>(),
+            SetFormatUserData: SetFormatUserData::<Impl, IMPL_OFFSET>,
+            GetFormatUserData: GetFormatUserData::<Impl, IMPL_OFFSET>,
+            SetProfileId: SetProfileId::<Impl, IMPL_OFFSET>,
+            ProfileId: ProfileId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoEncodingProperties2 as ::windows::core::Interface>::IID
@@ -2268,7 +2355,10 @@ impl IVideoEncodingProperties3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoEncodingProperties3>, ::windows::core::GetTrustLevel, StereoscopicVideoPackingMode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoEncodingProperties3, BASE_OFFSET>(),
+            StereoscopicVideoPackingMode: StereoscopicVideoPackingMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoEncodingProperties3 as ::windows::core::Interface>::IID
@@ -2296,7 +2386,10 @@ impl IVideoEncodingProperties4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoEncodingProperties4>, ::windows::core::GetTrustLevel, SphericalVideoFrameFormat::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoEncodingProperties4, BASE_OFFSET>(),
+            SphericalVideoFrameFormat: SphericalVideoFrameFormat::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoEncodingProperties4 as ::windows::core::Interface>::IID
@@ -2324,7 +2417,7 @@ impl IVideoEncodingProperties5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoEncodingProperties5>, ::windows::core::GetTrustLevel, Copy::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoEncodingProperties5, BASE_OFFSET>(), Copy: Copy::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoEncodingProperties5 as ::windows::core::Interface>::IID
@@ -2376,7 +2469,12 @@ impl IVideoEncodingPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoEncodingPropertiesStatics>, ::windows::core::GetTrustLevel, CreateH264::<Impl, IMPL_OFFSET>, CreateMpeg2::<Impl, IMPL_OFFSET>, CreateUncompressed::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoEncodingPropertiesStatics, BASE_OFFSET>(),
+            CreateH264: CreateH264::<Impl, IMPL_OFFSET>,
+            CreateMpeg2: CreateMpeg2::<Impl, IMPL_OFFSET>,
+            CreateUncompressed: CreateUncompressed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoEncodingPropertiesStatics as ::windows::core::Interface>::IID
@@ -2404,7 +2502,10 @@ impl IVideoEncodingPropertiesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoEncodingPropertiesStatics2>, ::windows::core::GetTrustLevel, CreateHevc::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoEncodingPropertiesStatics2, BASE_OFFSET>(),
+            CreateHevc: CreateHevc::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoEncodingPropertiesStatics2 as ::windows::core::Interface>::IID

@@ -224,32 +224,27 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAsymmetricAlgorithmNamesStatics>,
-            ::windows::core::GetTrustLevel,
-            RsaPkcs1::<Impl, IMPL_OFFSET>,
-            RsaOaepSha1::<Impl, IMPL_OFFSET>,
-            RsaOaepSha256::<Impl, IMPL_OFFSET>,
-            RsaOaepSha384::<Impl, IMPL_OFFSET>,
-            RsaOaepSha512::<Impl, IMPL_OFFSET>,
-            EcdsaP256Sha256::<Impl, IMPL_OFFSET>,
-            EcdsaP384Sha384::<Impl, IMPL_OFFSET>,
-            EcdsaP521Sha512::<Impl, IMPL_OFFSET>,
-            DsaSha1::<Impl, IMPL_OFFSET>,
-            DsaSha256::<Impl, IMPL_OFFSET>,
-            RsaSignPkcs1Sha1::<Impl, IMPL_OFFSET>,
-            RsaSignPkcs1Sha256::<Impl, IMPL_OFFSET>,
-            RsaSignPkcs1Sha384::<Impl, IMPL_OFFSET>,
-            RsaSignPkcs1Sha512::<Impl, IMPL_OFFSET>,
-            RsaSignPssSha1::<Impl, IMPL_OFFSET>,
-            RsaSignPssSha256::<Impl, IMPL_OFFSET>,
-            RsaSignPssSha384::<Impl, IMPL_OFFSET>,
-            RsaSignPssSha512::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsymmetricAlgorithmNamesStatics, BASE_OFFSET>(),
+            RsaPkcs1: RsaPkcs1::<Impl, IMPL_OFFSET>,
+            RsaOaepSha1: RsaOaepSha1::<Impl, IMPL_OFFSET>,
+            RsaOaepSha256: RsaOaepSha256::<Impl, IMPL_OFFSET>,
+            RsaOaepSha384: RsaOaepSha384::<Impl, IMPL_OFFSET>,
+            RsaOaepSha512: RsaOaepSha512::<Impl, IMPL_OFFSET>,
+            EcdsaP256Sha256: EcdsaP256Sha256::<Impl, IMPL_OFFSET>,
+            EcdsaP384Sha384: EcdsaP384Sha384::<Impl, IMPL_OFFSET>,
+            EcdsaP521Sha512: EcdsaP521Sha512::<Impl, IMPL_OFFSET>,
+            DsaSha1: DsaSha1::<Impl, IMPL_OFFSET>,
+            DsaSha256: DsaSha256::<Impl, IMPL_OFFSET>,
+            RsaSignPkcs1Sha1: RsaSignPkcs1Sha1::<Impl, IMPL_OFFSET>,
+            RsaSignPkcs1Sha256: RsaSignPkcs1Sha256::<Impl, IMPL_OFFSET>,
+            RsaSignPkcs1Sha384: RsaSignPkcs1Sha384::<Impl, IMPL_OFFSET>,
+            RsaSignPkcs1Sha512: RsaSignPkcs1Sha512::<Impl, IMPL_OFFSET>,
+            RsaSignPssSha1: RsaSignPssSha1::<Impl, IMPL_OFFSET>,
+            RsaSignPssSha256: RsaSignPssSha256::<Impl, IMPL_OFFSET>,
+            RsaSignPssSha384: RsaSignPssSha384::<Impl, IMPL_OFFSET>,
+            RsaSignPssSha512: RsaSignPssSha512::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAsymmetricAlgorithmNamesStatics as ::windows::core::Interface>::IID
@@ -301,7 +296,12 @@ impl IAsymmetricAlgorithmNamesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsymmetricAlgorithmNamesStatics2>, ::windows::core::GetTrustLevel, EcdsaSha256::<Impl, IMPL_OFFSET>, EcdsaSha384::<Impl, IMPL_OFFSET>, EcdsaSha512::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsymmetricAlgorithmNamesStatics2, BASE_OFFSET>(),
+            EcdsaSha256: EcdsaSha256::<Impl, IMPL_OFFSET>,
+            EcdsaSha384: EcdsaSha384::<Impl, IMPL_OFFSET>,
+            EcdsaSha512: EcdsaSha512::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAsymmetricAlgorithmNamesStatics2 as ::windows::core::Interface>::IID
@@ -389,20 +389,15 @@ impl IAsymmetricKeyAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAsymmetricKeyAlgorithmProvider>,
-            ::windows::core::GetTrustLevel,
-            AlgorithmName::<Impl, IMPL_OFFSET>,
-            CreateKeyPair::<Impl, IMPL_OFFSET>,
-            ImportDefaultPrivateKeyBlob::<Impl, IMPL_OFFSET>,
-            ImportKeyPairWithBlobType::<Impl, IMPL_OFFSET>,
-            ImportDefaultPublicKeyBlob::<Impl, IMPL_OFFSET>,
-            ImportPublicKeyWithBlobType::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsymmetricKeyAlgorithmProvider, BASE_OFFSET>(),
+            AlgorithmName: AlgorithmName::<Impl, IMPL_OFFSET>,
+            CreateKeyPair: CreateKeyPair::<Impl, IMPL_OFFSET>,
+            ImportDefaultPrivateKeyBlob: ImportDefaultPrivateKeyBlob::<Impl, IMPL_OFFSET>,
+            ImportKeyPairWithBlobType: ImportKeyPairWithBlobType::<Impl, IMPL_OFFSET>,
+            ImportDefaultPublicKeyBlob: ImportDefaultPublicKeyBlob::<Impl, IMPL_OFFSET>,
+            ImportPublicKeyWithBlobType: ImportPublicKeyWithBlobType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAsymmetricKeyAlgorithmProvider as ::windows::core::Interface>::IID
@@ -442,7 +437,11 @@ impl IAsymmetricKeyAlgorithmProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsymmetricKeyAlgorithmProvider2>, ::windows::core::GetTrustLevel, CreateKeyPairWithCurveName::<Impl, IMPL_OFFSET>, CreateKeyPairWithCurveParameters::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsymmetricKeyAlgorithmProvider2, BASE_OFFSET>(),
+            CreateKeyPairWithCurveName: CreateKeyPairWithCurveName::<Impl, IMPL_OFFSET>,
+            CreateKeyPairWithCurveParameters: CreateKeyPairWithCurveParameters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAsymmetricKeyAlgorithmProvider2 as ::windows::core::Interface>::IID
@@ -470,7 +469,10 @@ impl IAsymmetricKeyAlgorithmProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsymmetricKeyAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsymmetricKeyAlgorithmProviderStatics, BASE_OFFSET>(),
+            OpenAlgorithm: OpenAlgorithm::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAsymmetricKeyAlgorithmProviderStatics as ::windows::core::Interface>::IID
@@ -593,21 +595,16 @@ impl ICryptographicEngineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICryptographicEngineStatics>,
-            ::windows::core::GetTrustLevel,
-            Encrypt::<Impl, IMPL_OFFSET>,
-            Decrypt::<Impl, IMPL_OFFSET>,
-            EncryptAndAuthenticate::<Impl, IMPL_OFFSET>,
-            DecryptAndAuthenticate::<Impl, IMPL_OFFSET>,
-            Sign::<Impl, IMPL_OFFSET>,
-            VerifySignature::<Impl, IMPL_OFFSET>,
-            DeriveKeyMaterial::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICryptographicEngineStatics, BASE_OFFSET>(),
+            Encrypt: Encrypt::<Impl, IMPL_OFFSET>,
+            Decrypt: Decrypt::<Impl, IMPL_OFFSET>,
+            EncryptAndAuthenticate: EncryptAndAuthenticate::<Impl, IMPL_OFFSET>,
+            DecryptAndAuthenticate: DecryptAndAuthenticate::<Impl, IMPL_OFFSET>,
+            Sign: Sign::<Impl, IMPL_OFFSET>,
+            VerifySignature: VerifySignature::<Impl, IMPL_OFFSET>,
+            DeriveKeyMaterial: DeriveKeyMaterial::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICryptographicEngineStatics as ::windows::core::Interface>::IID
@@ -691,19 +688,14 @@ impl ICryptographicEngineStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICryptographicEngineStatics2>,
-            ::windows::core::GetTrustLevel,
-            SignHashedData::<Impl, IMPL_OFFSET>,
-            VerifySignatureWithHashInput::<Impl, IMPL_OFFSET>,
-            DecryptAsync::<Impl, IMPL_OFFSET>,
-            SignAsync::<Impl, IMPL_OFFSET>,
-            SignHashedDataAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICryptographicEngineStatics2, BASE_OFFSET>(),
+            SignHashedData: SignHashedData::<Impl, IMPL_OFFSET>,
+            VerifySignatureWithHashInput: VerifySignatureWithHashInput::<Impl, IMPL_OFFSET>,
+            DecryptAsync: DecryptAsync::<Impl, IMPL_OFFSET>,
+            SignAsync: SignAsync::<Impl, IMPL_OFFSET>,
+            SignHashedDataAsync: SignHashedDataAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICryptographicEngineStatics2 as ::windows::core::Interface>::IID
@@ -779,19 +771,14 @@ impl ICryptographicKeyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICryptographicKey>,
-            ::windows::core::GetTrustLevel,
-            KeySize::<Impl, IMPL_OFFSET>,
-            ExportDefaultPrivateKeyBlobType::<Impl, IMPL_OFFSET>,
-            ExportPrivateKeyWithBlobType::<Impl, IMPL_OFFSET>,
-            ExportDefaultPublicKeyBlobType::<Impl, IMPL_OFFSET>,
-            ExportPublicKeyWithBlobType::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICryptographicKey, BASE_OFFSET>(),
+            KeySize: KeySize::<Impl, IMPL_OFFSET>,
+            ExportDefaultPrivateKeyBlobType: ExportDefaultPrivateKeyBlobType::<Impl, IMPL_OFFSET>,
+            ExportPrivateKeyWithBlobType: ExportPrivateKeyWithBlobType::<Impl, IMPL_OFFSET>,
+            ExportDefaultPublicKeyBlobType: ExportDefaultPublicKeyBlobType::<Impl, IMPL_OFFSET>,
+            ExportPublicKeyWithBlobType: ExportPublicKeyWithBlobType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICryptographicKey as ::windows::core::Interface>::IID
@@ -1359,60 +1346,55 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEccCurveNamesStatics>,
-            ::windows::core::GetTrustLevel,
-            BrainpoolP160r1::<Impl, IMPL_OFFSET>,
-            BrainpoolP160t1::<Impl, IMPL_OFFSET>,
-            BrainpoolP192r1::<Impl, IMPL_OFFSET>,
-            BrainpoolP192t1::<Impl, IMPL_OFFSET>,
-            BrainpoolP224r1::<Impl, IMPL_OFFSET>,
-            BrainpoolP224t1::<Impl, IMPL_OFFSET>,
-            BrainpoolP256r1::<Impl, IMPL_OFFSET>,
-            BrainpoolP256t1::<Impl, IMPL_OFFSET>,
-            BrainpoolP320r1::<Impl, IMPL_OFFSET>,
-            BrainpoolP320t1::<Impl, IMPL_OFFSET>,
-            BrainpoolP384r1::<Impl, IMPL_OFFSET>,
-            BrainpoolP384t1::<Impl, IMPL_OFFSET>,
-            BrainpoolP512r1::<Impl, IMPL_OFFSET>,
-            BrainpoolP512t1::<Impl, IMPL_OFFSET>,
-            Curve25519::<Impl, IMPL_OFFSET>,
-            Ec192wapi::<Impl, IMPL_OFFSET>,
-            NistP192::<Impl, IMPL_OFFSET>,
-            NistP224::<Impl, IMPL_OFFSET>,
-            NistP256::<Impl, IMPL_OFFSET>,
-            NistP384::<Impl, IMPL_OFFSET>,
-            NistP521::<Impl, IMPL_OFFSET>,
-            NumsP256t1::<Impl, IMPL_OFFSET>,
-            NumsP384t1::<Impl, IMPL_OFFSET>,
-            NumsP512t1::<Impl, IMPL_OFFSET>,
-            SecP160k1::<Impl, IMPL_OFFSET>,
-            SecP160r1::<Impl, IMPL_OFFSET>,
-            SecP160r2::<Impl, IMPL_OFFSET>,
-            SecP192k1::<Impl, IMPL_OFFSET>,
-            SecP192r1::<Impl, IMPL_OFFSET>,
-            SecP224k1::<Impl, IMPL_OFFSET>,
-            SecP224r1::<Impl, IMPL_OFFSET>,
-            SecP256k1::<Impl, IMPL_OFFSET>,
-            SecP256r1::<Impl, IMPL_OFFSET>,
-            SecP384r1::<Impl, IMPL_OFFSET>,
-            SecP521r1::<Impl, IMPL_OFFSET>,
-            Wtls7::<Impl, IMPL_OFFSET>,
-            Wtls9::<Impl, IMPL_OFFSET>,
-            Wtls12::<Impl, IMPL_OFFSET>,
-            X962P192v1::<Impl, IMPL_OFFSET>,
-            X962P192v2::<Impl, IMPL_OFFSET>,
-            X962P192v3::<Impl, IMPL_OFFSET>,
-            X962P239v1::<Impl, IMPL_OFFSET>,
-            X962P239v2::<Impl, IMPL_OFFSET>,
-            X962P239v3::<Impl, IMPL_OFFSET>,
-            X962P256v1::<Impl, IMPL_OFFSET>,
-            AllEccCurveNames::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEccCurveNamesStatics, BASE_OFFSET>(),
+            BrainpoolP160r1: BrainpoolP160r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP160t1: BrainpoolP160t1::<Impl, IMPL_OFFSET>,
+            BrainpoolP192r1: BrainpoolP192r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP192t1: BrainpoolP192t1::<Impl, IMPL_OFFSET>,
+            BrainpoolP224r1: BrainpoolP224r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP224t1: BrainpoolP224t1::<Impl, IMPL_OFFSET>,
+            BrainpoolP256r1: BrainpoolP256r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP256t1: BrainpoolP256t1::<Impl, IMPL_OFFSET>,
+            BrainpoolP320r1: BrainpoolP320r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP320t1: BrainpoolP320t1::<Impl, IMPL_OFFSET>,
+            BrainpoolP384r1: BrainpoolP384r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP384t1: BrainpoolP384t1::<Impl, IMPL_OFFSET>,
+            BrainpoolP512r1: BrainpoolP512r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP512t1: BrainpoolP512t1::<Impl, IMPL_OFFSET>,
+            Curve25519: Curve25519::<Impl, IMPL_OFFSET>,
+            Ec192wapi: Ec192wapi::<Impl, IMPL_OFFSET>,
+            NistP192: NistP192::<Impl, IMPL_OFFSET>,
+            NistP224: NistP224::<Impl, IMPL_OFFSET>,
+            NistP256: NistP256::<Impl, IMPL_OFFSET>,
+            NistP384: NistP384::<Impl, IMPL_OFFSET>,
+            NistP521: NistP521::<Impl, IMPL_OFFSET>,
+            NumsP256t1: NumsP256t1::<Impl, IMPL_OFFSET>,
+            NumsP384t1: NumsP384t1::<Impl, IMPL_OFFSET>,
+            NumsP512t1: NumsP512t1::<Impl, IMPL_OFFSET>,
+            SecP160k1: SecP160k1::<Impl, IMPL_OFFSET>,
+            SecP160r1: SecP160r1::<Impl, IMPL_OFFSET>,
+            SecP160r2: SecP160r2::<Impl, IMPL_OFFSET>,
+            SecP192k1: SecP192k1::<Impl, IMPL_OFFSET>,
+            SecP192r1: SecP192r1::<Impl, IMPL_OFFSET>,
+            SecP224k1: SecP224k1::<Impl, IMPL_OFFSET>,
+            SecP224r1: SecP224r1::<Impl, IMPL_OFFSET>,
+            SecP256k1: SecP256k1::<Impl, IMPL_OFFSET>,
+            SecP256r1: SecP256r1::<Impl, IMPL_OFFSET>,
+            SecP384r1: SecP384r1::<Impl, IMPL_OFFSET>,
+            SecP521r1: SecP521r1::<Impl, IMPL_OFFSET>,
+            Wtls7: Wtls7::<Impl, IMPL_OFFSET>,
+            Wtls9: Wtls9::<Impl, IMPL_OFFSET>,
+            Wtls12: Wtls12::<Impl, IMPL_OFFSET>,
+            X962P192v1: X962P192v1::<Impl, IMPL_OFFSET>,
+            X962P192v2: X962P192v2::<Impl, IMPL_OFFSET>,
+            X962P192v3: X962P192v3::<Impl, IMPL_OFFSET>,
+            X962P239v1: X962P239v1::<Impl, IMPL_OFFSET>,
+            X962P239v2: X962P239v2::<Impl, IMPL_OFFSET>,
+            X962P239v3: X962P239v3::<Impl, IMPL_OFFSET>,
+            X962P256v1: X962P256v1::<Impl, IMPL_OFFSET>,
+            AllEccCurveNames: AllEccCurveNames::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEccCurveNamesStatics as ::windows::core::Interface>::IID
@@ -1452,7 +1434,11 @@ impl IEncryptedAndAuthenticatedDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEncryptedAndAuthenticatedData>, ::windows::core::GetTrustLevel, EncryptedData::<Impl, IMPL_OFFSET>, AuthenticationTag::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEncryptedAndAuthenticatedData, BASE_OFFSET>(),
+            EncryptedData: EncryptedData::<Impl, IMPL_OFFSET>,
+            AuthenticationTag: AuthenticationTag::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEncryptedAndAuthenticatedData as ::windows::core::Interface>::IID
@@ -1528,7 +1514,14 @@ impl IHashAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHashAlgorithmNamesStatics>, ::windows::core::GetTrustLevel, Md5::<Impl, IMPL_OFFSET>, Sha1::<Impl, IMPL_OFFSET>, Sha256::<Impl, IMPL_OFFSET>, Sha384::<Impl, IMPL_OFFSET>, Sha512::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHashAlgorithmNamesStatics, BASE_OFFSET>(),
+            Md5: Md5::<Impl, IMPL_OFFSET>,
+            Sha1: Sha1::<Impl, IMPL_OFFSET>,
+            Sha256: Sha256::<Impl, IMPL_OFFSET>,
+            Sha384: Sha384::<Impl, IMPL_OFFSET>,
+            Sha512: Sha512::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHashAlgorithmNamesStatics as ::windows::core::Interface>::IID
@@ -1592,7 +1585,13 @@ impl IHashAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHashAlgorithmProvider>, ::windows::core::GetTrustLevel, AlgorithmName::<Impl, IMPL_OFFSET>, HashLength::<Impl, IMPL_OFFSET>, HashData::<Impl, IMPL_OFFSET>, CreateHash::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHashAlgorithmProvider, BASE_OFFSET>(),
+            AlgorithmName: AlgorithmName::<Impl, IMPL_OFFSET>,
+            HashLength: HashLength::<Impl, IMPL_OFFSET>,
+            HashData: HashData::<Impl, IMPL_OFFSET>,
+            CreateHash: CreateHash::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHashAlgorithmProvider as ::windows::core::Interface>::IID
@@ -1620,7 +1619,10 @@ impl IHashAlgorithmProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHashAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHashAlgorithmProviderStatics, BASE_OFFSET>(),
+            OpenAlgorithm: OpenAlgorithm::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHashAlgorithmProviderStatics as ::windows::core::Interface>::IID
@@ -1653,7 +1655,11 @@ impl IHashComputationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHashComputation>, ::windows::core::GetTrustLevel, Append::<Impl, IMPL_OFFSET>, GetValueAndReset::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHashComputation, BASE_OFFSET>(),
+            Append: Append::<Impl, IMPL_OFFSET>,
+            GetValueAndReset: GetValueAndReset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHashComputation as ::windows::core::Interface>::IID
@@ -1849,29 +1855,24 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IKeyDerivationAlgorithmNamesStatics>,
-            ::windows::core::GetTrustLevel,
-            Pbkdf2Md5::<Impl, IMPL_OFFSET>,
-            Pbkdf2Sha1::<Impl, IMPL_OFFSET>,
-            Pbkdf2Sha256::<Impl, IMPL_OFFSET>,
-            Pbkdf2Sha384::<Impl, IMPL_OFFSET>,
-            Pbkdf2Sha512::<Impl, IMPL_OFFSET>,
-            Sp800108CtrHmacMd5::<Impl, IMPL_OFFSET>,
-            Sp800108CtrHmacSha1::<Impl, IMPL_OFFSET>,
-            Sp800108CtrHmacSha256::<Impl, IMPL_OFFSET>,
-            Sp800108CtrHmacSha384::<Impl, IMPL_OFFSET>,
-            Sp800108CtrHmacSha512::<Impl, IMPL_OFFSET>,
-            Sp80056aConcatMd5::<Impl, IMPL_OFFSET>,
-            Sp80056aConcatSha1::<Impl, IMPL_OFFSET>,
-            Sp80056aConcatSha256::<Impl, IMPL_OFFSET>,
-            Sp80056aConcatSha384::<Impl, IMPL_OFFSET>,
-            Sp80056aConcatSha512::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyDerivationAlgorithmNamesStatics, BASE_OFFSET>(),
+            Pbkdf2Md5: Pbkdf2Md5::<Impl, IMPL_OFFSET>,
+            Pbkdf2Sha1: Pbkdf2Sha1::<Impl, IMPL_OFFSET>,
+            Pbkdf2Sha256: Pbkdf2Sha256::<Impl, IMPL_OFFSET>,
+            Pbkdf2Sha384: Pbkdf2Sha384::<Impl, IMPL_OFFSET>,
+            Pbkdf2Sha512: Pbkdf2Sha512::<Impl, IMPL_OFFSET>,
+            Sp800108CtrHmacMd5: Sp800108CtrHmacMd5::<Impl, IMPL_OFFSET>,
+            Sp800108CtrHmacSha1: Sp800108CtrHmacSha1::<Impl, IMPL_OFFSET>,
+            Sp800108CtrHmacSha256: Sp800108CtrHmacSha256::<Impl, IMPL_OFFSET>,
+            Sp800108CtrHmacSha384: Sp800108CtrHmacSha384::<Impl, IMPL_OFFSET>,
+            Sp800108CtrHmacSha512: Sp800108CtrHmacSha512::<Impl, IMPL_OFFSET>,
+            Sp80056aConcatMd5: Sp80056aConcatMd5::<Impl, IMPL_OFFSET>,
+            Sp80056aConcatSha1: Sp80056aConcatSha1::<Impl, IMPL_OFFSET>,
+            Sp80056aConcatSha256: Sp80056aConcatSha256::<Impl, IMPL_OFFSET>,
+            Sp80056aConcatSha384: Sp80056aConcatSha384::<Impl, IMPL_OFFSET>,
+            Sp80056aConcatSha512: Sp80056aConcatSha512::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyDerivationAlgorithmNamesStatics as ::windows::core::Interface>::IID
@@ -1947,7 +1948,14 @@ impl IKeyDerivationAlgorithmNamesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationAlgorithmNamesStatics2>, ::windows::core::GetTrustLevel, CapiKdfMd5::<Impl, IMPL_OFFSET>, CapiKdfSha1::<Impl, IMPL_OFFSET>, CapiKdfSha256::<Impl, IMPL_OFFSET>, CapiKdfSha384::<Impl, IMPL_OFFSET>, CapiKdfSha512::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyDerivationAlgorithmNamesStatics2, BASE_OFFSET>(),
+            CapiKdfMd5: CapiKdfMd5::<Impl, IMPL_OFFSET>,
+            CapiKdfSha1: CapiKdfSha1::<Impl, IMPL_OFFSET>,
+            CapiKdfSha256: CapiKdfSha256::<Impl, IMPL_OFFSET>,
+            CapiKdfSha384: CapiKdfSha384::<Impl, IMPL_OFFSET>,
+            CapiKdfSha512: CapiKdfSha512::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyDerivationAlgorithmNamesStatics2 as ::windows::core::Interface>::IID
@@ -1987,7 +1995,11 @@ impl IKeyDerivationAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationAlgorithmProvider>, ::windows::core::GetTrustLevel, AlgorithmName::<Impl, IMPL_OFFSET>, CreateKey::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyDerivationAlgorithmProvider, BASE_OFFSET>(),
+            AlgorithmName: AlgorithmName::<Impl, IMPL_OFFSET>,
+            CreateKey: CreateKey::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyDerivationAlgorithmProvider as ::windows::core::Interface>::IID
@@ -2015,7 +2027,10 @@ impl IKeyDerivationAlgorithmProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyDerivationAlgorithmProviderStatics, BASE_OFFSET>(),
+            OpenAlgorithm: OpenAlgorithm::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyDerivationAlgorithmProviderStatics as ::windows::core::Interface>::IID
@@ -2060,7 +2075,12 @@ impl IKeyDerivationParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationParameters>, ::windows::core::GetTrustLevel, KdfGenericBinary::<Impl, IMPL_OFFSET>, SetKdfGenericBinary::<Impl, IMPL_OFFSET>, IterationCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyDerivationParameters, BASE_OFFSET>(),
+            KdfGenericBinary: KdfGenericBinary::<Impl, IMPL_OFFSET>,
+            SetKdfGenericBinary: SetKdfGenericBinary::<Impl, IMPL_OFFSET>,
+            IterationCount: IterationCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyDerivationParameters as ::windows::core::Interface>::IID
@@ -2093,7 +2113,11 @@ impl IKeyDerivationParameters2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCapi1KdfTargetAlgorithm(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationParameters2>, ::windows::core::GetTrustLevel, Capi1KdfTargetAlgorithm::<Impl, IMPL_OFFSET>, SetCapi1KdfTargetAlgorithm::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyDerivationParameters2, BASE_OFFSET>(),
+            Capi1KdfTargetAlgorithm: Capi1KdfTargetAlgorithm::<Impl, IMPL_OFFSET>,
+            SetCapi1KdfTargetAlgorithm: SetCapi1KdfTargetAlgorithm::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyDerivationParameters2 as ::windows::core::Interface>::IID
@@ -2151,7 +2175,12 @@ impl IKeyDerivationParametersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationParametersStatics>, ::windows::core::GetTrustLevel, BuildForPbkdf2::<Impl, IMPL_OFFSET>, BuildForSP800108::<Impl, IMPL_OFFSET>, BuildForSP80056a::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyDerivationParametersStatics, BASE_OFFSET>(),
+            BuildForPbkdf2: BuildForPbkdf2::<Impl, IMPL_OFFSET>,
+            BuildForSP800108: BuildForSP800108::<Impl, IMPL_OFFSET>,
+            BuildForSP80056a: BuildForSP80056a::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyDerivationParametersStatics as ::windows::core::Interface>::IID
@@ -2179,7 +2208,10 @@ impl IKeyDerivationParametersStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationParametersStatics2>, ::windows::core::GetTrustLevel, BuildForCapi1Kdf::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyDerivationParametersStatics2, BASE_OFFSET>(),
+            BuildForCapi1Kdf: BuildForCapi1Kdf::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyDerivationParametersStatics2 as ::windows::core::Interface>::IID
@@ -2267,7 +2299,15 @@ impl IMacAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMacAlgorithmNamesStatics>, ::windows::core::GetTrustLevel, HmacMd5::<Impl, IMPL_OFFSET>, HmacSha1::<Impl, IMPL_OFFSET>, HmacSha256::<Impl, IMPL_OFFSET>, HmacSha384::<Impl, IMPL_OFFSET>, HmacSha512::<Impl, IMPL_OFFSET>, AesCmac::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMacAlgorithmNamesStatics, BASE_OFFSET>(),
+            HmacMd5: HmacMd5::<Impl, IMPL_OFFSET>,
+            HmacSha1: HmacSha1::<Impl, IMPL_OFFSET>,
+            HmacSha256: HmacSha256::<Impl, IMPL_OFFSET>,
+            HmacSha384: HmacSha384::<Impl, IMPL_OFFSET>,
+            HmacSha512: HmacSha512::<Impl, IMPL_OFFSET>,
+            AesCmac: AesCmac::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMacAlgorithmNamesStatics as ::windows::core::Interface>::IID
@@ -2319,7 +2359,12 @@ impl IMacAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMacAlgorithmProvider>, ::windows::core::GetTrustLevel, AlgorithmName::<Impl, IMPL_OFFSET>, MacLength::<Impl, IMPL_OFFSET>, CreateKey::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMacAlgorithmProvider, BASE_OFFSET>(),
+            AlgorithmName: AlgorithmName::<Impl, IMPL_OFFSET>,
+            MacLength: MacLength::<Impl, IMPL_OFFSET>,
+            CreateKey: CreateKey::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMacAlgorithmProvider as ::windows::core::Interface>::IID
@@ -2347,7 +2392,7 @@ impl IMacAlgorithmProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMacAlgorithmProvider2>, ::windows::core::GetTrustLevel, CreateHash::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMacAlgorithmProvider2, BASE_OFFSET>(), CreateHash: CreateHash::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMacAlgorithmProvider2 as ::windows::core::Interface>::IID
@@ -2375,7 +2420,10 @@ impl IMacAlgorithmProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMacAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMacAlgorithmProviderStatics, BASE_OFFSET>(),
+            OpenAlgorithm: OpenAlgorithm::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMacAlgorithmProviderStatics as ::windows::core::Interface>::IID
@@ -2415,7 +2463,11 @@ impl IPersistedKeyProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPersistedKeyProviderStatics>, ::windows::core::GetTrustLevel, OpenKeyPairFromCertificateAsync::<Impl, IMPL_OFFSET>, OpenPublicKeyFromCertificate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPersistedKeyProviderStatics, BASE_OFFSET>(),
+            OpenKeyPairFromCertificateAsync: OpenKeyPairFromCertificateAsync::<Impl, IMPL_OFFSET>,
+            OpenPublicKeyFromCertificate: OpenPublicKeyFromCertificate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPersistedKeyProviderStatics as ::windows::core::Interface>::IID
@@ -2659,33 +2711,28 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISymmetricAlgorithmNamesStatics>,
-            ::windows::core::GetTrustLevel,
-            DesCbc::<Impl, IMPL_OFFSET>,
-            DesEcb::<Impl, IMPL_OFFSET>,
-            TripleDesCbc::<Impl, IMPL_OFFSET>,
-            TripleDesEcb::<Impl, IMPL_OFFSET>,
-            Rc2Cbc::<Impl, IMPL_OFFSET>,
-            Rc2Ecb::<Impl, IMPL_OFFSET>,
-            AesCbc::<Impl, IMPL_OFFSET>,
-            AesEcb::<Impl, IMPL_OFFSET>,
-            AesGcm::<Impl, IMPL_OFFSET>,
-            AesCcm::<Impl, IMPL_OFFSET>,
-            AesCbcPkcs7::<Impl, IMPL_OFFSET>,
-            AesEcbPkcs7::<Impl, IMPL_OFFSET>,
-            DesCbcPkcs7::<Impl, IMPL_OFFSET>,
-            DesEcbPkcs7::<Impl, IMPL_OFFSET>,
-            TripleDesCbcPkcs7::<Impl, IMPL_OFFSET>,
-            TripleDesEcbPkcs7::<Impl, IMPL_OFFSET>,
-            Rc2CbcPkcs7::<Impl, IMPL_OFFSET>,
-            Rc2EcbPkcs7::<Impl, IMPL_OFFSET>,
-            Rc4::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISymmetricAlgorithmNamesStatics, BASE_OFFSET>(),
+            DesCbc: DesCbc::<Impl, IMPL_OFFSET>,
+            DesEcb: DesEcb::<Impl, IMPL_OFFSET>,
+            TripleDesCbc: TripleDesCbc::<Impl, IMPL_OFFSET>,
+            TripleDesEcb: TripleDesEcb::<Impl, IMPL_OFFSET>,
+            Rc2Cbc: Rc2Cbc::<Impl, IMPL_OFFSET>,
+            Rc2Ecb: Rc2Ecb::<Impl, IMPL_OFFSET>,
+            AesCbc: AesCbc::<Impl, IMPL_OFFSET>,
+            AesEcb: AesEcb::<Impl, IMPL_OFFSET>,
+            AesGcm: AesGcm::<Impl, IMPL_OFFSET>,
+            AesCcm: AesCcm::<Impl, IMPL_OFFSET>,
+            AesCbcPkcs7: AesCbcPkcs7::<Impl, IMPL_OFFSET>,
+            AesEcbPkcs7: AesEcbPkcs7::<Impl, IMPL_OFFSET>,
+            DesCbcPkcs7: DesCbcPkcs7::<Impl, IMPL_OFFSET>,
+            DesEcbPkcs7: DesEcbPkcs7::<Impl, IMPL_OFFSET>,
+            TripleDesCbcPkcs7: TripleDesCbcPkcs7::<Impl, IMPL_OFFSET>,
+            TripleDesEcbPkcs7: TripleDesEcbPkcs7::<Impl, IMPL_OFFSET>,
+            Rc2CbcPkcs7: Rc2CbcPkcs7::<Impl, IMPL_OFFSET>,
+            Rc2EcbPkcs7: Rc2EcbPkcs7::<Impl, IMPL_OFFSET>,
+            Rc4: Rc4::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISymmetricAlgorithmNamesStatics as ::windows::core::Interface>::IID
@@ -2737,7 +2784,12 @@ impl ISymmetricKeyAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISymmetricKeyAlgorithmProvider>, ::windows::core::GetTrustLevel, AlgorithmName::<Impl, IMPL_OFFSET>, BlockLength::<Impl, IMPL_OFFSET>, CreateSymmetricKey::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISymmetricKeyAlgorithmProvider, BASE_OFFSET>(),
+            AlgorithmName: AlgorithmName::<Impl, IMPL_OFFSET>,
+            BlockLength: BlockLength::<Impl, IMPL_OFFSET>,
+            CreateSymmetricKey: CreateSymmetricKey::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISymmetricKeyAlgorithmProvider as ::windows::core::Interface>::IID
@@ -2765,7 +2817,10 @@ impl ISymmetricKeyAlgorithmProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISymmetricKeyAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISymmetricKeyAlgorithmProviderStatics, BASE_OFFSET>(),
+            OpenAlgorithm: OpenAlgorithm::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISymmetricKeyAlgorithmProviderStatics as ::windows::core::Interface>::IID

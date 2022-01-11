@@ -19,7 +19,12 @@ impl IDirect3DDevice9On12Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetD3D12Device::<Impl, IMPL_OFFSET>, UnwrapUnderlyingResource::<Impl, IMPL_OFFSET>, ReturnUnderlyingResource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetD3D12Device: GetD3D12Device::<Impl, IMPL_OFFSET>,
+            UnwrapUnderlyingResource: UnwrapUnderlyingResource::<Impl, IMPL_OFFSET>,
+            ReturnUnderlyingResource: ReturnUnderlyingResource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirect3DDevice9On12 as ::windows::core::Interface>::IID

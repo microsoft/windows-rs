@@ -54,7 +54,14 @@ impl IPushNotificationChannelVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePushNotificationReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannel>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, ExpirationTime::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>, PushNotificationReceived::<Impl, IMPL_OFFSET>, RemovePushNotificationReceived::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPushNotificationChannel, BASE_OFFSET>(),
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            ExpirationTime: ExpirationTime::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+            PushNotificationReceived: PushNotificationReceived::<Impl, IMPL_OFFSET>,
+            RemovePushNotificationReceived: RemovePushNotificationReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPushNotificationChannel as ::windows::core::Interface>::IID
@@ -118,18 +125,13 @@ impl IPushNotificationChannelManagerForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerForUser>,
-            ::windows::core::GetTrustLevel,
-            CreatePushNotificationChannelForApplicationAsync::<Impl, IMPL_OFFSET>,
-            CreatePushNotificationChannelForApplicationAsyncWithId::<Impl, IMPL_OFFSET>,
-            CreatePushNotificationChannelForSecondaryTileAsync::<Impl, IMPL_OFFSET>,
-            User::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPushNotificationChannelManagerForUser, BASE_OFFSET>(),
+            CreatePushNotificationChannelForApplicationAsync: CreatePushNotificationChannelForApplicationAsync::<Impl, IMPL_OFFSET>,
+            CreatePushNotificationChannelForApplicationAsyncWithId: CreatePushNotificationChannelForApplicationAsyncWithId::<Impl, IMPL_OFFSET>,
+            CreatePushNotificationChannelForSecondaryTileAsync: CreatePushNotificationChannelForSecondaryTileAsync::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPushNotificationChannelManagerForUser as ::windows::core::Interface>::IID
@@ -173,16 +175,11 @@ impl IPushNotificationChannelManagerForUser2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerForUser2>,
-            ::windows::core::GetTrustLevel,
-            CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync::<Impl, IMPL_OFFSET>,
-            CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPushNotificationChannelManagerForUser2, BASE_OFFSET>(),
+            CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync: CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync::<Impl, IMPL_OFFSET>,
+            CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId: CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPushNotificationChannelManagerForUser2 as ::windows::core::Interface>::IID
@@ -234,17 +231,12 @@ impl IPushNotificationChannelManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            CreatePushNotificationChannelForApplicationAsync::<Impl, IMPL_OFFSET>,
-            CreatePushNotificationChannelForApplicationAsyncWithId::<Impl, IMPL_OFFSET>,
-            CreatePushNotificationChannelForSecondaryTileAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPushNotificationChannelManagerStatics, BASE_OFFSET>(),
+            CreatePushNotificationChannelForApplicationAsync: CreatePushNotificationChannelForApplicationAsync::<Impl, IMPL_OFFSET>,
+            CreatePushNotificationChannelForApplicationAsyncWithId: CreatePushNotificationChannelForApplicationAsyncWithId::<Impl, IMPL_OFFSET>,
+            CreatePushNotificationChannelForSecondaryTileAsync: CreatePushNotificationChannelForSecondaryTileAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPushNotificationChannelManagerStatics as ::windows::core::Interface>::IID
@@ -272,7 +264,10 @@ impl IPushNotificationChannelManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPushNotificationChannelManagerStatics2, BASE_OFFSET>(),
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPushNotificationChannelManagerStatics2 as ::windows::core::Interface>::IID
@@ -300,7 +295,10 @@ impl IPushNotificationChannelManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerStatics3>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPushNotificationChannelManagerStatics3, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPushNotificationChannelManagerStatics3 as ::windows::core::Interface>::IID
@@ -333,7 +331,11 @@ impl IPushNotificationChannelManagerStatics4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChannelsRevoked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerStatics4>, ::windows::core::GetTrustLevel, ChannelsRevoked::<Impl, IMPL_OFFSET>, RemoveChannelsRevoked::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPushNotificationChannelManagerStatics4, BASE_OFFSET>(),
+            ChannelsRevoked: ChannelsRevoked::<Impl, IMPL_OFFSET>,
+            RemoveChannelsRevoked: RemoveChannelsRevoked::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPushNotificationChannelManagerStatics4 as ::windows::core::Interface>::IID
@@ -348,7 +350,7 @@ impl ::windows::core::RuntimeName for IPushNotificationChannelsRevokedEventArgs 
 #[cfg(feature = "implement_exclusive")]
 impl IPushNotificationChannelsRevokedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelsRevokedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPushNotificationChannelsRevokedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannelsRevokedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPushNotificationChannelsRevokedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPushNotificationChannelsRevokedEventArgs as ::windows::core::Interface>::IID
@@ -441,21 +443,16 @@ impl IPushNotificationReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPushNotificationReceivedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            SetCancel::<Impl, IMPL_OFFSET>,
-            Cancel::<Impl, IMPL_OFFSET>,
-            NotificationType::<Impl, IMPL_OFFSET>,
-            ToastNotification::<Impl, IMPL_OFFSET>,
-            TileNotification::<Impl, IMPL_OFFSET>,
-            BadgeNotification::<Impl, IMPL_OFFSET>,
-            RawNotification::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPushNotificationReceivedEventArgs, BASE_OFFSET>(),
+            SetCancel: SetCancel::<Impl, IMPL_OFFSET>,
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+            NotificationType: NotificationType::<Impl, IMPL_OFFSET>,
+            ToastNotification: ToastNotification::<Impl, IMPL_OFFSET>,
+            TileNotification: TileNotification::<Impl, IMPL_OFFSET>,
+            BadgeNotification: BadgeNotification::<Impl, IMPL_OFFSET>,
+            RawNotification: RawNotification::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPushNotificationReceivedEventArgs as ::windows::core::Interface>::IID
@@ -483,7 +480,7 @@ impl IRawNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRawNotification>, ::windows::core::GetTrustLevel, Content::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRawNotification, BASE_OFFSET>(), Content: Content::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRawNotification as ::windows::core::Interface>::IID
@@ -523,7 +520,11 @@ impl IRawNotification2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRawNotification2>, ::windows::core::GetTrustLevel, Headers::<Impl, IMPL_OFFSET>, ChannelId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRawNotification2, BASE_OFFSET>(),
+            Headers: Headers::<Impl, IMPL_OFFSET>,
+            ChannelId: ChannelId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRawNotification2 as ::windows::core::Interface>::IID
@@ -551,7 +552,7 @@ impl IRawNotification3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRawNotification3>, ::windows::core::GetTrustLevel, ContentBytes::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRawNotification3, BASE_OFFSET>(), ContentBytes: ContentBytes::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRawNotification3 as ::windows::core::Interface>::IID

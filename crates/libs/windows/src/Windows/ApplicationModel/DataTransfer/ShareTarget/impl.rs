@@ -83,22 +83,17 @@ impl IQuickLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IQuickLink>,
-            ::windows::core::GetTrustLevel,
-            Title::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            Thumbnail::<Impl, IMPL_OFFSET>,
-            SetThumbnail::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            SetId::<Impl, IMPL_OFFSET>,
-            SupportedDataFormats::<Impl, IMPL_OFFSET>,
-            SupportedFileTypes::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IQuickLink, BASE_OFFSET>(),
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            Thumbnail: Thumbnail::<Impl, IMPL_OFFSET>,
+            SetThumbnail: SetThumbnail::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            SupportedDataFormats: SupportedDataFormats::<Impl, IMPL_OFFSET>,
+            SupportedFileTypes: SupportedFileTypes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IQuickLink as ::windows::core::Interface>::IID
@@ -173,23 +168,18 @@ impl IShareOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportError(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IShareOperation>,
-            ::windows::core::GetTrustLevel,
-            Data::<Impl, IMPL_OFFSET>,
-            QuickLinkId::<Impl, IMPL_OFFSET>,
-            RemoveThisQuickLink::<Impl, IMPL_OFFSET>,
-            ReportStarted::<Impl, IMPL_OFFSET>,
-            ReportDataRetrieved::<Impl, IMPL_OFFSET>,
-            ReportSubmittedBackgroundTask::<Impl, IMPL_OFFSET>,
-            ReportCompletedWithQuickLink::<Impl, IMPL_OFFSET>,
-            ReportCompleted::<Impl, IMPL_OFFSET>,
-            ReportError::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IShareOperation, BASE_OFFSET>(),
+            Data: Data::<Impl, IMPL_OFFSET>,
+            QuickLinkId: QuickLinkId::<Impl, IMPL_OFFSET>,
+            RemoveThisQuickLink: RemoveThisQuickLink::<Impl, IMPL_OFFSET>,
+            ReportStarted: ReportStarted::<Impl, IMPL_OFFSET>,
+            ReportDataRetrieved: ReportDataRetrieved::<Impl, IMPL_OFFSET>,
+            ReportSubmittedBackgroundTask: ReportSubmittedBackgroundTask::<Impl, IMPL_OFFSET>,
+            ReportCompletedWithQuickLink: ReportCompletedWithQuickLink::<Impl, IMPL_OFFSET>,
+            ReportCompleted: ReportCompleted::<Impl, IMPL_OFFSET>,
+            ReportError: ReportError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IShareOperation as ::windows::core::Interface>::IID
@@ -210,7 +200,7 @@ impl IShareOperation2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissUI().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShareOperation2>, ::windows::core::GetTrustLevel, DismissUI::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IShareOperation2, BASE_OFFSET>(), DismissUI: DismissUI::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IShareOperation2 as ::windows::core::Interface>::IID
@@ -238,7 +228,7 @@ impl IShareOperation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShareOperation3>, ::windows::core::GetTrustLevel, Contacts::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IShareOperation3, BASE_OFFSET>(), Contacts: Contacts::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IShareOperation3 as ::windows::core::Interface>::IID

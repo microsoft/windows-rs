@@ -13,7 +13,10 @@ impl ICachedFileUpdaterStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUpdateInformation(&*(&file as *const <super::IStorageFile as ::windows::core::Abi>::Abi as *const <super::IStorageFile as ::windows::core::DefaultType>::DefaultType), &*(&contentid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), readmode, writemode, options).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICachedFileUpdaterStatics>, ::windows::core::GetTrustLevel, SetUpdateInformation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICachedFileUpdaterStatics, BASE_OFFSET>(),
+            SetUpdateInformation: SetUpdateInformation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICachedFileUpdaterStatics as ::windows::core::Interface>::IID
@@ -104,22 +107,17 @@ impl ICachedFileUpdaterUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICachedFileUpdaterUI>,
-            ::windows::core::GetTrustLevel,
-            Title::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            UpdateTarget::<Impl, IMPL_OFFSET>,
-            FileUpdateRequested::<Impl, IMPL_OFFSET>,
-            RemoveFileUpdateRequested::<Impl, IMPL_OFFSET>,
-            UIRequested::<Impl, IMPL_OFFSET>,
-            RemoveUIRequested::<Impl, IMPL_OFFSET>,
-            UIStatus::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICachedFileUpdaterUI, BASE_OFFSET>(),
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            UpdateTarget: UpdateTarget::<Impl, IMPL_OFFSET>,
+            FileUpdateRequested: FileUpdateRequested::<Impl, IMPL_OFFSET>,
+            RemoveFileUpdateRequested: RemoveFileUpdateRequested::<Impl, IMPL_OFFSET>,
+            UIRequested: UIRequested::<Impl, IMPL_OFFSET>,
+            RemoveUIRequested: RemoveUIRequested::<Impl, IMPL_OFFSET>,
+            UIStatus: UIStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICachedFileUpdaterUI as ::windows::core::Interface>::IID
@@ -159,7 +157,11 @@ impl ICachedFileUpdaterUI2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICachedFileUpdaterUI2>, ::windows::core::GetTrustLevel, UpdateRequest::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICachedFileUpdaterUI2, BASE_OFFSET>(),
+            UpdateRequest: UpdateRequest::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICachedFileUpdaterUI2 as ::windows::core::Interface>::IID
@@ -233,7 +235,15 @@ impl IFileUpdateRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateLocalFile(&*(&value as *const <super::IStorageFile as ::windows::core::Abi>::Abi as *const <super::IStorageFile as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileUpdateRequest>, ::windows::core::GetTrustLevel, ContentId::<Impl, IMPL_OFFSET>, File::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, SetStatus::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>, UpdateLocalFile::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileUpdateRequest, BASE_OFFSET>(),
+            ContentId: ContentId::<Impl, IMPL_OFFSET>,
+            File: File::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            SetStatus: SetStatus::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            UpdateLocalFile: UpdateLocalFile::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileUpdateRequest as ::windows::core::Interface>::IID
@@ -266,7 +276,11 @@ impl IFileUpdateRequest2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUserInputNeededMessage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileUpdateRequest2>, ::windows::core::GetTrustLevel, UserInputNeededMessage::<Impl, IMPL_OFFSET>, SetUserInputNeededMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileUpdateRequest2, BASE_OFFSET>(),
+            UserInputNeededMessage: UserInputNeededMessage::<Impl, IMPL_OFFSET>,
+            SetUserInputNeededMessage: SetUserInputNeededMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileUpdateRequest2 as ::windows::core::Interface>::IID
@@ -287,7 +301,7 @@ impl IFileUpdateRequestDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileUpdateRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFileUpdateRequestDeferral, BASE_OFFSET>(), Complete: Complete::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileUpdateRequestDeferral as ::windows::core::Interface>::IID
@@ -315,7 +329,7 @@ impl IFileUpdateRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileUpdateRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFileUpdateRequestedEventArgs, BASE_OFFSET>(), Request: Request::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileUpdateRequestedEventArgs as ::windows::core::Interface>::IID
@@ -435,25 +449,20 @@ impl IStorageProviderErrorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInformationalLink(&*(&value as *const <StorageProviderErrorCommand as ::windows::core::Abi>::Abi as *const <StorageProviderErrorCommand as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStorageProviderError>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            Message::<Impl, IMPL_OFFSET>,
-            FilePath::<Impl, IMPL_OFFSET>,
-            SetFilePath::<Impl, IMPL_OFFSET>,
-            PrimaryAction::<Impl, IMPL_OFFSET>,
-            SetPrimaryAction::<Impl, IMPL_OFFSET>,
-            SecondaryAction::<Impl, IMPL_OFFSET>,
-            SetSecondaryAction::<Impl, IMPL_OFFSET>,
-            InformationalLink::<Impl, IMPL_OFFSET>,
-            SetInformationalLink::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderError, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Message: Message::<Impl, IMPL_OFFSET>,
+            FilePath: FilePath::<Impl, IMPL_OFFSET>,
+            SetFilePath: SetFilePath::<Impl, IMPL_OFFSET>,
+            PrimaryAction: PrimaryAction::<Impl, IMPL_OFFSET>,
+            SetPrimaryAction: SetPrimaryAction::<Impl, IMPL_OFFSET>,
+            SecondaryAction: SecondaryAction::<Impl, IMPL_OFFSET>,
+            SetSecondaryAction: SetSecondaryAction::<Impl, IMPL_OFFSET>,
+            InformationalLink: InformationalLink::<Impl, IMPL_OFFSET>,
+            SetInformationalLink: SetInformationalLink::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderError as ::windows::core::Interface>::IID
@@ -493,7 +502,11 @@ impl IStorageProviderErrorCommandVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderErrorCommand>, ::windows::core::GetTrustLevel, Label::<Impl, IMPL_OFFSET>, ActionUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderErrorCommand, BASE_OFFSET>(),
+            Label: Label::<Impl, IMPL_OFFSET>,
+            ActionUri: ActionUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderErrorCommand as ::windows::core::Interface>::IID
@@ -521,7 +534,10 @@ impl IStorageProviderErrorCommandFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderErrorCommandFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderErrorCommandFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderErrorCommandFactory as ::windows::core::Interface>::IID
@@ -549,7 +565,10 @@ impl IStorageProviderErrorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderErrorFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderErrorFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderErrorFactory as ::windows::core::Interface>::IID
@@ -589,7 +608,11 @@ impl IStorageProviderFileTypeInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderFileTypeInfo>, ::windows::core::GetTrustLevel, FileExtension::<Impl, IMPL_OFFSET>, IconResource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderFileTypeInfo, BASE_OFFSET>(),
+            FileExtension: FileExtension::<Impl, IMPL_OFFSET>,
+            IconResource: IconResource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderFileTypeInfo as ::windows::core::Interface>::IID
@@ -617,7 +640,10 @@ impl IStorageProviderFileTypeInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderFileTypeInfoFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderFileTypeInfoFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderFileTypeInfoFactory as ::windows::core::Interface>::IID
@@ -684,20 +710,15 @@ impl IStorageProviderGetContentInfoForPathResultVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStorageProviderGetContentInfoForPathResult>,
-            ::windows::core::GetTrustLevel,
-            Status::<Impl, IMPL_OFFSET>,
-            SetStatus::<Impl, IMPL_OFFSET>,
-            ContentUri::<Impl, IMPL_OFFSET>,
-            SetContentUri::<Impl, IMPL_OFFSET>,
-            ContentId::<Impl, IMPL_OFFSET>,
-            SetContentId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderGetContentInfoForPathResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            SetStatus: SetStatus::<Impl, IMPL_OFFSET>,
+            ContentUri: ContentUri::<Impl, IMPL_OFFSET>,
+            SetContentUri: SetContentUri::<Impl, IMPL_OFFSET>,
+            ContentId: ContentId::<Impl, IMPL_OFFSET>,
+            SetContentId: SetContentId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderGetContentInfoForPathResult as ::windows::core::Interface>::IID
@@ -747,7 +768,13 @@ impl IStorageProviderGetPathForContentUriResultVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPath(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderGetPathForContentUriResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, SetStatus::<Impl, IMPL_OFFSET>, Path::<Impl, IMPL_OFFSET>, SetPath::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderGetPathForContentUriResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            SetStatus: SetStatus::<Impl, IMPL_OFFSET>,
+            Path: Path::<Impl, IMPL_OFFSET>,
+            SetPath: SetPath::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderGetPathForContentUriResult as ::windows::core::Interface>::IID
@@ -772,7 +799,10 @@ impl IStorageProviderHandlerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderHandlerFactory>, ::windows::core::GetTrustLevel, GetStatusSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderHandlerFactory, BASE_OFFSET>(),
+            GetStatusSource: GetStatusSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderHandlerFactory as ::windows::core::Interface>::IID
@@ -800,7 +830,10 @@ impl IStorageProviderItemPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderItemPropertiesStatics>, ::windows::core::GetTrustLevel, SetAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderItemPropertiesStatics, BASE_OFFSET>(),
+            SetAsync: SetAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderItemPropertiesStatics as ::windows::core::Interface>::IID
@@ -867,7 +900,15 @@ impl IStorageProviderItemPropertyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderItemProperty>, ::windows::core::GetTrustLevel, SetId::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetIconResource::<Impl, IMPL_OFFSET>, IconResource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderItemProperty, BASE_OFFSET>(),
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetIconResource: SetIconResource::<Impl, IMPL_OFFSET>,
+            IconResource: IconResource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderItemProperty as ::windows::core::Interface>::IID
@@ -917,7 +958,13 @@ impl IStorageProviderItemPropertyDefinitionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayNameResource(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderItemPropertyDefinition>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, SetId::<Impl, IMPL_OFFSET>, DisplayNameResource::<Impl, IMPL_OFFSET>, SetDisplayNameResource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderItemPropertyDefinition, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            DisplayNameResource: DisplayNameResource::<Impl, IMPL_OFFSET>,
+            SetDisplayNameResource: SetDisplayNameResource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderItemPropertyDefinition as ::windows::core::Interface>::IID
@@ -945,7 +992,10 @@ impl IStorageProviderItemPropertySourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderItemPropertySource>, ::windows::core::GetTrustLevel, GetItemProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderItemPropertySource, BASE_OFFSET>(),
+            GetItemProperties: GetItemProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderItemPropertySource as ::windows::core::Interface>::IID
@@ -970,7 +1020,10 @@ impl IStorageProviderPropertyCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderPropertyCapabilities>, ::windows::core::GetTrustLevel, IsPropertySupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderPropertyCapabilities, BASE_OFFSET>(),
+            IsPropertySupported: IsPropertySupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderPropertyCapabilities as ::windows::core::Interface>::IID
@@ -1022,7 +1075,12 @@ impl IStorageProviderStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderStatus>, ::windows::core::GetTrustLevel, Message::<Impl, IMPL_OFFSET>, State::<Impl, IMPL_OFFSET>, ErrorMessages::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderStatus, BASE_OFFSET>(),
+            Message: Message::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            ErrorMessages: ErrorMessages::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderStatus as ::windows::core::Interface>::IID
@@ -1062,7 +1120,11 @@ impl IStorageProviderStatusFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderStatusFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>, CreateInstance2::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderStatusFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+            CreateInstance2: CreateInstance2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderStatusFactory as ::windows::core::Interface>::IID
@@ -1107,7 +1169,12 @@ impl IStorageProviderStatusSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderStatusSource>, ::windows::core::GetTrustLevel, GetStatus::<Impl, IMPL_OFFSET>, Changed::<Impl, IMPL_OFFSET>, RemoveChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderStatusSource, BASE_OFFSET>(),
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            Changed: Changed::<Impl, IMPL_OFFSET>,
+            RemoveChanged: RemoveChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderStatusSource as ::windows::core::Interface>::IID
@@ -1390,45 +1457,40 @@ impl IStorageProviderSyncRootInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRecycleBinUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStorageProviderSyncRootInfo>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            SetId::<Impl, IMPL_OFFSET>,
-            Context::<Impl, IMPL_OFFSET>,
-            SetContext::<Impl, IMPL_OFFSET>,
-            Path::<Impl, IMPL_OFFSET>,
-            SetPath::<Impl, IMPL_OFFSET>,
-            DisplayNameResource::<Impl, IMPL_OFFSET>,
-            SetDisplayNameResource::<Impl, IMPL_OFFSET>,
-            IconResource::<Impl, IMPL_OFFSET>,
-            SetIconResource::<Impl, IMPL_OFFSET>,
-            HydrationPolicy::<Impl, IMPL_OFFSET>,
-            SetHydrationPolicy::<Impl, IMPL_OFFSET>,
-            HydrationPolicyModifier::<Impl, IMPL_OFFSET>,
-            SetHydrationPolicyModifier::<Impl, IMPL_OFFSET>,
-            PopulationPolicy::<Impl, IMPL_OFFSET>,
-            SetPopulationPolicy::<Impl, IMPL_OFFSET>,
-            InSyncPolicy::<Impl, IMPL_OFFSET>,
-            SetInSyncPolicy::<Impl, IMPL_OFFSET>,
-            HardlinkPolicy::<Impl, IMPL_OFFSET>,
-            SetHardlinkPolicy::<Impl, IMPL_OFFSET>,
-            ShowSiblingsAsGroup::<Impl, IMPL_OFFSET>,
-            SetShowSiblingsAsGroup::<Impl, IMPL_OFFSET>,
-            Version::<Impl, IMPL_OFFSET>,
-            SetVersion::<Impl, IMPL_OFFSET>,
-            ProtectionMode::<Impl, IMPL_OFFSET>,
-            SetProtectionMode::<Impl, IMPL_OFFSET>,
-            AllowPinning::<Impl, IMPL_OFFSET>,
-            SetAllowPinning::<Impl, IMPL_OFFSET>,
-            StorageProviderItemPropertyDefinitions::<Impl, IMPL_OFFSET>,
-            RecycleBinUri::<Impl, IMPL_OFFSET>,
-            SetRecycleBinUri::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderSyncRootInfo, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            Context: Context::<Impl, IMPL_OFFSET>,
+            SetContext: SetContext::<Impl, IMPL_OFFSET>,
+            Path: Path::<Impl, IMPL_OFFSET>,
+            SetPath: SetPath::<Impl, IMPL_OFFSET>,
+            DisplayNameResource: DisplayNameResource::<Impl, IMPL_OFFSET>,
+            SetDisplayNameResource: SetDisplayNameResource::<Impl, IMPL_OFFSET>,
+            IconResource: IconResource::<Impl, IMPL_OFFSET>,
+            SetIconResource: SetIconResource::<Impl, IMPL_OFFSET>,
+            HydrationPolicy: HydrationPolicy::<Impl, IMPL_OFFSET>,
+            SetHydrationPolicy: SetHydrationPolicy::<Impl, IMPL_OFFSET>,
+            HydrationPolicyModifier: HydrationPolicyModifier::<Impl, IMPL_OFFSET>,
+            SetHydrationPolicyModifier: SetHydrationPolicyModifier::<Impl, IMPL_OFFSET>,
+            PopulationPolicy: PopulationPolicy::<Impl, IMPL_OFFSET>,
+            SetPopulationPolicy: SetPopulationPolicy::<Impl, IMPL_OFFSET>,
+            InSyncPolicy: InSyncPolicy::<Impl, IMPL_OFFSET>,
+            SetInSyncPolicy: SetInSyncPolicy::<Impl, IMPL_OFFSET>,
+            HardlinkPolicy: HardlinkPolicy::<Impl, IMPL_OFFSET>,
+            SetHardlinkPolicy: SetHardlinkPolicy::<Impl, IMPL_OFFSET>,
+            ShowSiblingsAsGroup: ShowSiblingsAsGroup::<Impl, IMPL_OFFSET>,
+            SetShowSiblingsAsGroup: SetShowSiblingsAsGroup::<Impl, IMPL_OFFSET>,
+            Version: Version::<Impl, IMPL_OFFSET>,
+            SetVersion: SetVersion::<Impl, IMPL_OFFSET>,
+            ProtectionMode: ProtectionMode::<Impl, IMPL_OFFSET>,
+            SetProtectionMode: SetProtectionMode::<Impl, IMPL_OFFSET>,
+            AllowPinning: AllowPinning::<Impl, IMPL_OFFSET>,
+            SetAllowPinning: SetAllowPinning::<Impl, IMPL_OFFSET>,
+            StorageProviderItemPropertyDefinitions: StorageProviderItemPropertyDefinitions::<Impl, IMPL_OFFSET>,
+            RecycleBinUri: RecycleBinUri::<Impl, IMPL_OFFSET>,
+            SetRecycleBinUri: SetRecycleBinUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderSyncRootInfo as ::windows::core::Interface>::IID
@@ -1461,7 +1523,11 @@ impl IStorageProviderSyncRootInfo2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProviderId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderSyncRootInfo2>, ::windows::core::GetTrustLevel, ProviderId::<Impl, IMPL_OFFSET>, SetProviderId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderSyncRootInfo2, BASE_OFFSET>(),
+            ProviderId: ProviderId::<Impl, IMPL_OFFSET>,
+            SetProviderId: SetProviderId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderSyncRootInfo2 as ::windows::core::Interface>::IID
@@ -1489,7 +1555,10 @@ impl IStorageProviderSyncRootInfo3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderSyncRootInfo3>, ::windows::core::GetTrustLevel, FallbackFileTypeInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderSyncRootInfo3, BASE_OFFSET>(),
+            FallbackFileTypeInfo: FallbackFileTypeInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderSyncRootInfo3 as ::windows::core::Interface>::IID
@@ -1551,19 +1620,14 @@ impl IStorageProviderSyncRootManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStorageProviderSyncRootManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            Register::<Impl, IMPL_OFFSET>,
-            Unregister::<Impl, IMPL_OFFSET>,
-            GetSyncRootInformationForFolder::<Impl, IMPL_OFFSET>,
-            GetSyncRootInformationForId::<Impl, IMPL_OFFSET>,
-            GetCurrentSyncRoots::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderSyncRootManagerStatics, BASE_OFFSET>(),
+            Register: Register::<Impl, IMPL_OFFSET>,
+            Unregister: Unregister::<Impl, IMPL_OFFSET>,
+            GetSyncRootInformationForFolder: GetSyncRootInformationForFolder::<Impl, IMPL_OFFSET>,
+            GetSyncRootInformationForId: GetSyncRootInformationForId::<Impl, IMPL_OFFSET>,
+            GetCurrentSyncRoots: GetCurrentSyncRoots::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderSyncRootManagerStatics as ::windows::core::Interface>::IID
@@ -1591,7 +1655,10 @@ impl IStorageProviderSyncRootManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderSyncRootManagerStatics2>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderSyncRootManagerStatics2, BASE_OFFSET>(),
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderSyncRootManagerStatics2 as ::windows::core::Interface>::IID
@@ -1614,7 +1681,11 @@ impl IStorageProviderUriSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetContentInfoForPath(&*(&path as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&result as *const <StorageProviderGetContentInfoForPathResult as ::windows::core::Abi>::Abi as *const <StorageProviderGetContentInfoForPathResult as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageProviderUriSource>, ::windows::core::GetTrustLevel, GetPathForContentUri::<Impl, IMPL_OFFSET>, GetContentInfoForPath::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderUriSource, BASE_OFFSET>(),
+            GetPathForContentUri: GetPathForContentUri::<Impl, IMPL_OFFSET>,
+            GetContentInfoForPath: GetContentInfoForPath::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageProviderUriSource as ::windows::core::Interface>::IID

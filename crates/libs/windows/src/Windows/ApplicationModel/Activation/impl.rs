@@ -41,7 +41,12 @@ impl IActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivatedEventArgs>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, PreviousExecutionState::<Impl, IMPL_OFFSET>, SplashScreen::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivatedEventArgs, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            PreviousExecutionState: PreviousExecutionState::<Impl, IMPL_OFFSET>,
+            SplashScreen: SplashScreen::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivatedEventArgs as ::windows::core::Interface>::IID
@@ -69,7 +74,7 @@ impl IActivatedEventArgsWithUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivatedEventArgsWithUser>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IActivatedEventArgsWithUser, BASE_OFFSET>(), User: User::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivatedEventArgsWithUser as ::windows::core::Interface>::IID
@@ -94,7 +99,10 @@ impl IApplicationViewActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewActivatedEventArgs>, ::windows::core::GetTrustLevel, CurrentlyShownApplicationViewId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewActivatedEventArgs, BASE_OFFSET>(),
+            CurrentlyShownApplicationViewId: CurrentlyShownApplicationViewId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewActivatedEventArgs as ::windows::core::Interface>::IID
@@ -119,7 +127,10 @@ impl IAppointmentsProviderActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentsProviderActivatedEventArgs>, ::windows::core::GetTrustLevel, Verb::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderActivatedEventArgs, BASE_OFFSET>(),
+            Verb: Verb::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentsProviderActivatedEventArgs as ::windows::core::Interface>::IID
@@ -147,7 +158,10 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentsProviderAddAppointmentActivatedEventArgs>, ::windows::core::GetTrustLevel, AddAppointmentOperation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderAddAppointmentActivatedEventArgs, BASE_OFFSET>(),
+            AddAppointmentOperation: AddAppointmentOperation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentsProviderAddAppointmentActivatedEventArgs as ::windows::core::Interface>::IID
@@ -175,7 +189,10 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentsProviderRemoveAppointmentActivatedEventArgs>, ::windows::core::GetTrustLevel, RemoveAppointmentOperation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderRemoveAppointmentActivatedEventArgs, BASE_OFFSET>(),
+            RemoveAppointmentOperation: RemoveAppointmentOperation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentsProviderRemoveAppointmentActivatedEventArgs as ::windows::core::Interface>::IID
@@ -203,7 +220,10 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentsProviderReplaceAppointmentActivatedEventArgs>, ::windows::core::GetTrustLevel, ReplaceAppointmentOperation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderReplaceAppointmentActivatedEventArgs, BASE_OFFSET>(),
+            ReplaceAppointmentOperation: ReplaceAppointmentOperation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentsProviderReplaceAppointmentActivatedEventArgs as ::windows::core::Interface>::IID
@@ -255,7 +275,12 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>, ::windows::core::GetTrustLevel, InstanceStartDate::<Impl, IMPL_OFFSET>, LocalId::<Impl, IMPL_OFFSET>, RoamingId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, BASE_OFFSET>(),
+            InstanceStartDate: InstanceStartDate::<Impl, IMPL_OFFSET>,
+            LocalId: LocalId::<Impl, IMPL_OFFSET>,
+            RoamingId: RoamingId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as ::windows::core::Interface>::IID
@@ -295,7 +320,11 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentsProviderShowTimeFrameActivatedEventArgs>, ::windows::core::GetTrustLevel, TimeToShow::<Impl, IMPL_OFFSET>, Duration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderShowTimeFrameActivatedEventArgs, BASE_OFFSET>(),
+            TimeToShow: TimeToShow::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentsProviderShowTimeFrameActivatedEventArgs as ::windows::core::Interface>::IID
@@ -323,7 +352,10 @@ impl IBackgroundActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundActivatedEventArgs>, ::windows::core::GetTrustLevel, TaskInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundActivatedEventArgs, BASE_OFFSET>(),
+            TaskInstance: TaskInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundActivatedEventArgs as ::windows::core::Interface>::IID
@@ -348,7 +380,10 @@ impl IBarcodeScannerPreviewActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerPreviewActivatedEventArgs>, ::windows::core::GetTrustLevel, ConnectionId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerPreviewActivatedEventArgs, BASE_OFFSET>(),
+            ConnectionId: ConnectionId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerPreviewActivatedEventArgs as ::windows::core::Interface>::IID
@@ -376,7 +411,10 @@ impl ICachedFileUpdaterActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICachedFileUpdaterActivatedEventArgs>, ::windows::core::GetTrustLevel, CachedFileUpdaterUI::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICachedFileUpdaterActivatedEventArgs, BASE_OFFSET>(),
+            CachedFileUpdaterUI: CachedFileUpdaterUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICachedFileUpdaterActivatedEventArgs as ::windows::core::Interface>::IID
@@ -413,7 +451,11 @@ impl ICameraSettingsActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICameraSettingsActivatedEventArgs>, ::windows::core::GetTrustLevel, VideoDeviceController::<Impl, IMPL_OFFSET>, VideoDeviceExtension::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICameraSettingsActivatedEventArgs, BASE_OFFSET>(),
+            VideoDeviceController: VideoDeviceController::<Impl, IMPL_OFFSET>,
+            VideoDeviceExtension: VideoDeviceExtension::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICameraSettingsActivatedEventArgs as ::windows::core::Interface>::IID
@@ -438,7 +480,10 @@ impl ICommandLineActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommandLineActivatedEventArgs>, ::windows::core::GetTrustLevel, Operation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommandLineActivatedEventArgs, BASE_OFFSET>(),
+            Operation: Operation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommandLineActivatedEventArgs as ::windows::core::Interface>::IID
@@ -507,7 +552,14 @@ impl ICommandLineActivationOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommandLineActivationOperation>, ::windows::core::GetTrustLevel, Arguments::<Impl, IMPL_OFFSET>, CurrentDirectoryPath::<Impl, IMPL_OFFSET>, SetExitCode::<Impl, IMPL_OFFSET>, ExitCode::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommandLineActivationOperation, BASE_OFFSET>(),
+            Arguments: Arguments::<Impl, IMPL_OFFSET>,
+            CurrentDirectoryPath: CurrentDirectoryPath::<Impl, IMPL_OFFSET>,
+            SetExitCode: SetExitCode::<Impl, IMPL_OFFSET>,
+            ExitCode: ExitCode::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommandLineActivationOperation as ::windows::core::Interface>::IID
@@ -532,7 +584,7 @@ impl IContactActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactActivatedEventArgs>, ::windows::core::GetTrustLevel, Verb::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContactActivatedEventArgs, BASE_OFFSET>(), Verb: Verb::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactActivatedEventArgs as ::windows::core::Interface>::IID
@@ -584,7 +636,12 @@ impl IContactCallActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactCallActivatedEventArgs>, ::windows::core::GetTrustLevel, ServiceId::<Impl, IMPL_OFFSET>, ServiceUserId::<Impl, IMPL_OFFSET>, Contact::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactCallActivatedEventArgs, BASE_OFFSET>(),
+            ServiceId: ServiceId::<Impl, IMPL_OFFSET>,
+            ServiceUserId: ServiceUserId::<Impl, IMPL_OFFSET>,
+            Contact: Contact::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactCallActivatedEventArgs as ::windows::core::Interface>::IID
@@ -624,7 +681,11 @@ impl IContactMapActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactMapActivatedEventArgs>, ::windows::core::GetTrustLevel, Address::<Impl, IMPL_OFFSET>, Contact::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactMapActivatedEventArgs, BASE_OFFSET>(),
+            Address: Address::<Impl, IMPL_OFFSET>,
+            Contact: Contact::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactMapActivatedEventArgs as ::windows::core::Interface>::IID
@@ -676,7 +737,12 @@ impl IContactMessageActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactMessageActivatedEventArgs>, ::windows::core::GetTrustLevel, ServiceId::<Impl, IMPL_OFFSET>, ServiceUserId::<Impl, IMPL_OFFSET>, Contact::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactMessageActivatedEventArgs, BASE_OFFSET>(),
+            ServiceId: ServiceId::<Impl, IMPL_OFFSET>,
+            ServiceUserId: ServiceUserId::<Impl, IMPL_OFFSET>,
+            Contact: Contact::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactMessageActivatedEventArgs as ::windows::core::Interface>::IID
@@ -716,7 +782,11 @@ impl IContactPanelActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPanelActivatedEventArgs>, ::windows::core::GetTrustLevel, ContactPanel::<Impl, IMPL_OFFSET>, Contact::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactPanelActivatedEventArgs, BASE_OFFSET>(),
+            ContactPanel: ContactPanel::<Impl, IMPL_OFFSET>,
+            Contact: Contact::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactPanelActivatedEventArgs as ::windows::core::Interface>::IID
@@ -744,7 +814,10 @@ impl IContactPickerActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPickerActivatedEventArgs>, ::windows::core::GetTrustLevel, ContactPickerUI::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactPickerActivatedEventArgs, BASE_OFFSET>(),
+            ContactPickerUI: ContactPickerUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactPickerActivatedEventArgs as ::windows::core::Interface>::IID
@@ -796,7 +869,12 @@ impl IContactPostActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPostActivatedEventArgs>, ::windows::core::GetTrustLevel, ServiceId::<Impl, IMPL_OFFSET>, ServiceUserId::<Impl, IMPL_OFFSET>, Contact::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactPostActivatedEventArgs, BASE_OFFSET>(),
+            ServiceId: ServiceId::<Impl, IMPL_OFFSET>,
+            ServiceUserId: ServiceUserId::<Impl, IMPL_OFFSET>,
+            Contact: Contact::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactPostActivatedEventArgs as ::windows::core::Interface>::IID
@@ -848,7 +926,12 @@ impl IContactVideoCallActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactVideoCallActivatedEventArgs>, ::windows::core::GetTrustLevel, ServiceId::<Impl, IMPL_OFFSET>, ServiceUserId::<Impl, IMPL_OFFSET>, Contact::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactVideoCallActivatedEventArgs, BASE_OFFSET>(),
+            ServiceId: ServiceId::<Impl, IMPL_OFFSET>,
+            ServiceUserId: ServiceUserId::<Impl, IMPL_OFFSET>,
+            Contact: Contact::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactVideoCallActivatedEventArgs as ::windows::core::Interface>::IID
@@ -873,7 +956,7 @@ impl IContactsProviderActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactsProviderActivatedEventArgs>, ::windows::core::GetTrustLevel, Verb::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContactsProviderActivatedEventArgs, BASE_OFFSET>(), Verb: Verb::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactsProviderActivatedEventArgs as ::windows::core::Interface>::IID
@@ -901,7 +984,10 @@ impl IContinuationActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContinuationActivatedEventArgs>, ::windows::core::GetTrustLevel, ContinuationData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContinuationActivatedEventArgs, BASE_OFFSET>(),
+            ContinuationData: ContinuationData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContinuationActivatedEventArgs as ::windows::core::Interface>::IID
@@ -938,7 +1024,11 @@ impl IDeviceActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceActivatedEventArgs>, ::windows::core::GetTrustLevel, DeviceInformationId::<Impl, IMPL_OFFSET>, Verb::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceActivatedEventArgs, BASE_OFFSET>(),
+            DeviceInformationId: DeviceInformationId::<Impl, IMPL_OFFSET>,
+            Verb: Verb::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceActivatedEventArgs as ::windows::core::Interface>::IID
@@ -966,7 +1056,10 @@ impl IDevicePairingActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePairingActivatedEventArgs>, ::windows::core::GetTrustLevel, DeviceInformation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePairingActivatedEventArgs, BASE_OFFSET>(),
+            DeviceInformation: DeviceInformation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePairingActivatedEventArgs as ::windows::core::Interface>::IID
@@ -991,7 +1084,7 @@ impl IDialReceiverActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDialReceiverActivatedEventArgs>, ::windows::core::GetTrustLevel, AppName::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDialReceiverActivatedEventArgs, BASE_OFFSET>(), AppName: AppName::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDialReceiverActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1031,7 +1124,11 @@ impl IFileActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileActivatedEventArgs>, ::windows::core::GetTrustLevel, Files::<Impl, IMPL_OFFSET>, Verb::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileActivatedEventArgs, BASE_OFFSET>(),
+            Files: Files::<Impl, IMPL_OFFSET>,
+            Verb: Verb::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1056,7 +1153,10 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyNameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileActivatedEventArgsWithCallerPackageFamilyName>, ::windows::core::GetTrustLevel, CallerPackageFamilyName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileActivatedEventArgsWithCallerPackageFamilyName, BASE_OFFSET>(),
+            CallerPackageFamilyName: CallerPackageFamilyName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileActivatedEventArgsWithCallerPackageFamilyName as ::windows::core::Interface>::IID
@@ -1084,7 +1184,10 @@ impl IFileActivatedEventArgsWithNeighboringFilesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileActivatedEventArgsWithNeighboringFiles>, ::windows::core::GetTrustLevel, NeighboringFilesQuery::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileActivatedEventArgsWithNeighboringFiles, BASE_OFFSET>(),
+            NeighboringFilesQuery: NeighboringFilesQuery::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileActivatedEventArgsWithNeighboringFiles as ::windows::core::Interface>::IID
@@ -1112,7 +1215,10 @@ impl IFileOpenPickerActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPickerActivatedEventArgs>, ::windows::core::GetTrustLevel, FileOpenPickerUI::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPickerActivatedEventArgs, BASE_OFFSET>(),
+            FileOpenPickerUI: FileOpenPickerUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileOpenPickerActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1137,7 +1243,10 @@ impl IFileOpenPickerActivatedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPickerActivatedEventArgs2>, ::windows::core::GetTrustLevel, CallerPackageFamilyName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPickerActivatedEventArgs2, BASE_OFFSET>(),
+            CallerPackageFamilyName: CallerPackageFamilyName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileOpenPickerActivatedEventArgs2 as ::windows::core::Interface>::IID
@@ -1165,7 +1274,7 @@ impl IFileOpenPickerContinuationEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPickerContinuationEventArgs>, ::windows::core::GetTrustLevel, Files::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPickerContinuationEventArgs, BASE_OFFSET>(), Files: Files::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileOpenPickerContinuationEventArgs as ::windows::core::Interface>::IID
@@ -1193,7 +1302,10 @@ impl IFileSavePickerActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePickerActivatedEventArgs>, ::windows::core::GetTrustLevel, FileSavePickerUI::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePickerActivatedEventArgs, BASE_OFFSET>(),
+            FileSavePickerUI: FileSavePickerUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileSavePickerActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1230,7 +1342,11 @@ impl IFileSavePickerActivatedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePickerActivatedEventArgs2>, ::windows::core::GetTrustLevel, CallerPackageFamilyName::<Impl, IMPL_OFFSET>, EnterpriseId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePickerActivatedEventArgs2, BASE_OFFSET>(),
+            CallerPackageFamilyName: CallerPackageFamilyName::<Impl, IMPL_OFFSET>,
+            EnterpriseId: EnterpriseId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileSavePickerActivatedEventArgs2 as ::windows::core::Interface>::IID
@@ -1258,7 +1374,7 @@ impl IFileSavePickerContinuationEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePickerContinuationEventArgs>, ::windows::core::GetTrustLevel, File::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePickerContinuationEventArgs, BASE_OFFSET>(), File: File::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileSavePickerContinuationEventArgs as ::windows::core::Interface>::IID
@@ -1286,7 +1402,7 @@ impl IFolderPickerContinuationEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFolderPickerContinuationEventArgs>, ::windows::core::GetTrustLevel, Folder::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFolderPickerContinuationEventArgs, BASE_OFFSET>(), Folder: Folder::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFolderPickerContinuationEventArgs as ::windows::core::Interface>::IID
@@ -1323,7 +1439,11 @@ impl ILaunchActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILaunchActivatedEventArgs>, ::windows::core::GetTrustLevel, Arguments::<Impl, IMPL_OFFSET>, TileId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILaunchActivatedEventArgs, BASE_OFFSET>(),
+            Arguments: Arguments::<Impl, IMPL_OFFSET>,
+            TileId: TileId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILaunchActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1348,7 +1468,10 @@ impl ILaunchActivatedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILaunchActivatedEventArgs2>, ::windows::core::GetTrustLevel, TileActivatedInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILaunchActivatedEventArgs2, BASE_OFFSET>(),
+            TileActivatedInfo: TileActivatedInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILaunchActivatedEventArgs2 as ::windows::core::Interface>::IID
@@ -1373,7 +1496,7 @@ impl ILockScreenActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenActivatedEventArgs>, ::windows::core::GetTrustLevel, Info::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenActivatedEventArgs, BASE_OFFSET>(), Info: Info::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockScreenActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1401,7 +1524,7 @@ impl ILockScreenCallActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenCallActivatedEventArgs>, ::windows::core::GetTrustLevel, CallUI::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenCallActivatedEventArgs, BASE_OFFSET>(), CallUI: CallUI::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockScreenCallActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1426,7 +1549,7 @@ impl IPhoneCallActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallActivatedEventArgs>, ::windows::core::GetTrustLevel, LineId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallActivatedEventArgs, BASE_OFFSET>(), LineId: LineId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1451,7 +1574,10 @@ impl IPickerReturnedActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPickerReturnedActivatedEventArgs>, ::windows::core::GetTrustLevel, PickerOperationId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPickerReturnedActivatedEventArgs, BASE_OFFSET>(),
+            PickerOperationId: PickerOperationId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPickerReturnedActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1476,7 +1602,10 @@ impl IPrelaunchActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrelaunchActivatedEventArgs>, ::windows::core::GetTrustLevel, PrelaunchActivated::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrelaunchActivatedEventArgs, BASE_OFFSET>(),
+            PrelaunchActivated: PrelaunchActivated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrelaunchActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1504,7 +1633,10 @@ impl IPrint3DWorkflowActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DWorkflowActivatedEventArgs>, ::windows::core::GetTrustLevel, Workflow::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrint3DWorkflowActivatedEventArgs, BASE_OFFSET>(),
+            Workflow: Workflow::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrint3DWorkflowActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1532,7 +1664,10 @@ impl IPrintTaskSettingsActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskSettingsActivatedEventArgs>, ::windows::core::GetTrustLevel, Configuration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTaskSettingsActivatedEventArgs, BASE_OFFSET>(),
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintTaskSettingsActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1560,7 +1695,7 @@ impl IProtocolActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtocolActivatedEventArgs>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IProtocolActivatedEventArgs, BASE_OFFSET>(), Uri: Uri::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtocolActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1600,7 +1735,11 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>, ::windows::core::GetTrustLevel, CallerPackageFamilyName::<Impl, IMPL_OFFSET>, Data::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, BASE_OFFSET>(),
+            CallerPackageFamilyName: CallerPackageFamilyName::<Impl, IMPL_OFFSET>,
+            Data: Data::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData as ::windows::core::Interface>::IID
@@ -1628,7 +1767,10 @@ impl IProtocolForResultsActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtocolForResultsActivatedEventArgs>, ::windows::core::GetTrustLevel, ProtocolForResultsOperation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtocolForResultsActivatedEventArgs, BASE_OFFSET>(),
+            ProtocolForResultsOperation: ProtocolForResultsOperation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtocolForResultsActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1653,7 +1795,10 @@ impl IRestrictedLaunchActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRestrictedLaunchActivatedEventArgs>, ::windows::core::GetTrustLevel, SharedContext::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRestrictedLaunchActivatedEventArgs, BASE_OFFSET>(),
+            SharedContext: SharedContext::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRestrictedLaunchActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1690,7 +1835,11 @@ impl ISearchActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchActivatedEventArgs>, ::windows::core::GetTrustLevel, QueryText::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchActivatedEventArgs, BASE_OFFSET>(),
+            QueryText: QueryText::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1718,7 +1867,10 @@ impl ISearchActivatedEventArgsWithLinguisticDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchActivatedEventArgsWithLinguisticDetails>, ::windows::core::GetTrustLevel, LinguisticDetails::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchActivatedEventArgsWithLinguisticDetails, BASE_OFFSET>(),
+            LinguisticDetails: LinguisticDetails::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchActivatedEventArgsWithLinguisticDetails as ::windows::core::Interface>::IID
@@ -1746,7 +1898,10 @@ impl IShareTargetActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShareTargetActivatedEventArgs>, ::windows::core::GetTrustLevel, ShareOperation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IShareTargetActivatedEventArgs, BASE_OFFSET>(),
+            ShareOperation: ShareOperation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IShareTargetActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1791,7 +1946,12 @@ impl ISplashScreenVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDismissed(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISplashScreen>, ::windows::core::GetTrustLevel, ImageLocation::<Impl, IMPL_OFFSET>, Dismissed::<Impl, IMPL_OFFSET>, RemoveDismissed::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISplashScreen, BASE_OFFSET>(),
+            ImageLocation: ImageLocation::<Impl, IMPL_OFFSET>,
+            Dismissed: Dismissed::<Impl, IMPL_OFFSET>,
+            RemoveDismissed: RemoveDismissed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISplashScreen as ::windows::core::Interface>::IID
@@ -1816,7 +1976,7 @@ impl IStartupTaskActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStartupTaskActivatedEventArgs>, ::windows::core::GetTrustLevel, TaskId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IStartupTaskActivatedEventArgs, BASE_OFFSET>(), TaskId: TaskId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStartupTaskActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1844,7 +2004,10 @@ impl ITileActivatedInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileActivatedInfo>, ::windows::core::GetTrustLevel, RecentlyShownNotifications::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITileActivatedInfo, BASE_OFFSET>(),
+            RecentlyShownNotifications: RecentlyShownNotifications::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITileActivatedInfo as ::windows::core::Interface>::IID
@@ -1884,7 +2047,11 @@ impl IToastNotificationActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationActivatedEventArgs>, ::windows::core::GetTrustLevel, Argument::<Impl, IMPL_OFFSET>, UserInput::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationActivatedEventArgs, BASE_OFFSET>(),
+            Argument: Argument::<Impl, IMPL_OFFSET>,
+            UserInput: UserInput::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1912,7 +2079,10 @@ impl IUserDataAccountProviderActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountProviderActivatedEventArgs>, ::windows::core::GetTrustLevel, Operation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountProviderActivatedEventArgs, BASE_OFFSET>(),
+            Operation: Operation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataAccountProviderActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1940,7 +2110,7 @@ impl IViewSwitcherProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IViewSwitcherProvider>, ::windows::core::GetTrustLevel, ViewSwitcher::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IViewSwitcherProvider, BASE_OFFSET>(), ViewSwitcher: ViewSwitcher::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IViewSwitcherProvider as ::windows::core::Interface>::IID
@@ -1968,7 +2138,7 @@ impl IVoiceCommandActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandActivatedEventArgs>, ::windows::core::GetTrustLevel, Result::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandActivatedEventArgs, BASE_OFFSET>(), Result: Result::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandActivatedEventArgs as ::windows::core::Interface>::IID
@@ -2020,7 +2190,12 @@ impl IWalletActionActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletActionActivatedEventArgs>, ::windows::core::GetTrustLevel, ItemId::<Impl, IMPL_OFFSET>, ActionKind::<Impl, IMPL_OFFSET>, ActionId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletActionActivatedEventArgs, BASE_OFFSET>(),
+            ItemId: ItemId::<Impl, IMPL_OFFSET>,
+            ActionKind: ActionKind::<Impl, IMPL_OFFSET>,
+            ActionId: ActionId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWalletActionActivatedEventArgs as ::windows::core::Interface>::IID
@@ -2048,7 +2223,10 @@ impl IWebAccountProviderActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderActivatedEventArgs>, ::windows::core::GetTrustLevel, Operation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderActivatedEventArgs, BASE_OFFSET>(),
+            Operation: Operation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderActivatedEventArgs as ::windows::core::Interface>::IID
@@ -2076,7 +2254,10 @@ impl IWebAuthenticationBrokerContinuationEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAuthenticationBrokerContinuationEventArgs>, ::windows::core::GetTrustLevel, WebAuthenticationResult::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAuthenticationBrokerContinuationEventArgs, BASE_OFFSET>(),
+            WebAuthenticationResult: WebAuthenticationResult::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAuthenticationBrokerContinuationEventArgs as ::windows::core::Interface>::IID

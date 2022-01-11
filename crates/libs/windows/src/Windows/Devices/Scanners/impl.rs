@@ -116,23 +116,18 @@ impl IImageScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IImageScanner>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            DefaultScanSource::<Impl, IMPL_OFFSET>,
-            IsScanSourceSupported::<Impl, IMPL_OFFSET>,
-            FlatbedConfiguration::<Impl, IMPL_OFFSET>,
-            FeederConfiguration::<Impl, IMPL_OFFSET>,
-            AutoConfiguration::<Impl, IMPL_OFFSET>,
-            IsPreviewSupported::<Impl, IMPL_OFFSET>,
-            ScanPreviewToStreamAsync::<Impl, IMPL_OFFSET>,
-            ScanFilesToFolderAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageScanner, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            DefaultScanSource: DefaultScanSource::<Impl, IMPL_OFFSET>,
+            IsScanSourceSupported: IsScanSourceSupported::<Impl, IMPL_OFFSET>,
+            FlatbedConfiguration: FlatbedConfiguration::<Impl, IMPL_OFFSET>,
+            FeederConfiguration: FeederConfiguration::<Impl, IMPL_OFFSET>,
+            AutoConfiguration: AutoConfiguration::<Impl, IMPL_OFFSET>,
+            IsPreviewSupported: IsPreviewSupported::<Impl, IMPL_OFFSET>,
+            ScanPreviewToStreamAsync: ScanPreviewToStreamAsync::<Impl, IMPL_OFFSET>,
+            ScanFilesToFolderAsync: ScanFilesToFolderAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageScanner as ::windows::core::Interface>::IID
@@ -310,31 +305,26 @@ impl IImageScannerFeederConfigurationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScanAhead(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IImageScannerFeederConfiguration>,
-            ::windows::core::GetTrustLevel,
-            CanAutoDetectPageSize::<Impl, IMPL_OFFSET>,
-            AutoDetectPageSize::<Impl, IMPL_OFFSET>,
-            SetAutoDetectPageSize::<Impl, IMPL_OFFSET>,
-            PageSize::<Impl, IMPL_OFFSET>,
-            SetPageSize::<Impl, IMPL_OFFSET>,
-            PageOrientation::<Impl, IMPL_OFFSET>,
-            SetPageOrientation::<Impl, IMPL_OFFSET>,
-            PageSizeDimensions::<Impl, IMPL_OFFSET>,
-            IsPageSizeSupported::<Impl, IMPL_OFFSET>,
-            MaxNumberOfPages::<Impl, IMPL_OFFSET>,
-            SetMaxNumberOfPages::<Impl, IMPL_OFFSET>,
-            CanScanDuplex::<Impl, IMPL_OFFSET>,
-            Duplex::<Impl, IMPL_OFFSET>,
-            SetDuplex::<Impl, IMPL_OFFSET>,
-            CanScanAhead::<Impl, IMPL_OFFSET>,
-            ScanAhead::<Impl, IMPL_OFFSET>,
-            SetScanAhead::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageScannerFeederConfiguration, BASE_OFFSET>(),
+            CanAutoDetectPageSize: CanAutoDetectPageSize::<Impl, IMPL_OFFSET>,
+            AutoDetectPageSize: AutoDetectPageSize::<Impl, IMPL_OFFSET>,
+            SetAutoDetectPageSize: SetAutoDetectPageSize::<Impl, IMPL_OFFSET>,
+            PageSize: PageSize::<Impl, IMPL_OFFSET>,
+            SetPageSize: SetPageSize::<Impl, IMPL_OFFSET>,
+            PageOrientation: PageOrientation::<Impl, IMPL_OFFSET>,
+            SetPageOrientation: SetPageOrientation::<Impl, IMPL_OFFSET>,
+            PageSizeDimensions: PageSizeDimensions::<Impl, IMPL_OFFSET>,
+            IsPageSizeSupported: IsPageSizeSupported::<Impl, IMPL_OFFSET>,
+            MaxNumberOfPages: MaxNumberOfPages::<Impl, IMPL_OFFSET>,
+            SetMaxNumberOfPages: SetMaxNumberOfPages::<Impl, IMPL_OFFSET>,
+            CanScanDuplex: CanScanDuplex::<Impl, IMPL_OFFSET>,
+            Duplex: Duplex::<Impl, IMPL_OFFSET>,
+            SetDuplex: SetDuplex::<Impl, IMPL_OFFSET>,
+            CanScanAhead: CanScanAhead::<Impl, IMPL_OFFSET>,
+            ScanAhead: ScanAhead::<Impl, IMPL_OFFSET>,
+            SetScanAhead: SetScanAhead::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageScannerFeederConfiguration as ::windows::core::Interface>::IID
@@ -388,7 +378,13 @@ impl IImageScannerFormatConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageScannerFormatConfiguration>, ::windows::core::GetTrustLevel, DefaultFormat::<Impl, IMPL_OFFSET>, Format::<Impl, IMPL_OFFSET>, SetFormat::<Impl, IMPL_OFFSET>, IsFormatSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageScannerFormatConfiguration, BASE_OFFSET>(),
+            DefaultFormat: DefaultFormat::<Impl, IMPL_OFFSET>,
+            Format: Format::<Impl, IMPL_OFFSET>,
+            SetFormat: SetFormat::<Impl, IMPL_OFFSET>,
+            IsFormatSupported: IsFormatSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageScannerFormatConfiguration as ::windows::core::Interface>::IID
@@ -428,7 +424,11 @@ impl IImageScannerPreviewResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageScannerPreviewResult>, ::windows::core::GetTrustLevel, Succeeded::<Impl, IMPL_OFFSET>, Format::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageScannerPreviewResult, BASE_OFFSET>(),
+            Succeeded: Succeeded::<Impl, IMPL_OFFSET>,
+            Format: Format::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageScannerPreviewResult as ::windows::core::Interface>::IID
@@ -456,7 +456,10 @@ impl IImageScannerScanResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageScannerScanResult>, ::windows::core::GetTrustLevel, ScannedFiles::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageScannerScanResult, BASE_OFFSET>(),
+            ScannedFiles: ScannedFiles::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageScannerScanResult as ::windows::core::Interface>::IID
@@ -778,43 +781,38 @@ impl IImageScannerSourceConfigurationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContrast(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IImageScannerSourceConfiguration>,
-            ::windows::core::GetTrustLevel,
-            MinScanArea::<Impl, IMPL_OFFSET>,
-            MaxScanArea::<Impl, IMPL_OFFSET>,
-            SelectedScanRegion::<Impl, IMPL_OFFSET>,
-            SetSelectedScanRegion::<Impl, IMPL_OFFSET>,
-            AutoCroppingMode::<Impl, IMPL_OFFSET>,
-            SetAutoCroppingMode::<Impl, IMPL_OFFSET>,
-            IsAutoCroppingModeSupported::<Impl, IMPL_OFFSET>,
-            MinResolution::<Impl, IMPL_OFFSET>,
-            MaxResolution::<Impl, IMPL_OFFSET>,
-            OpticalResolution::<Impl, IMPL_OFFSET>,
-            DesiredResolution::<Impl, IMPL_OFFSET>,
-            SetDesiredResolution::<Impl, IMPL_OFFSET>,
-            ActualResolution::<Impl, IMPL_OFFSET>,
-            DefaultColorMode::<Impl, IMPL_OFFSET>,
-            ColorMode::<Impl, IMPL_OFFSET>,
-            SetColorMode::<Impl, IMPL_OFFSET>,
-            IsColorModeSupported::<Impl, IMPL_OFFSET>,
-            MinBrightness::<Impl, IMPL_OFFSET>,
-            MaxBrightness::<Impl, IMPL_OFFSET>,
-            BrightnessStep::<Impl, IMPL_OFFSET>,
-            DefaultBrightness::<Impl, IMPL_OFFSET>,
-            Brightness::<Impl, IMPL_OFFSET>,
-            SetBrightness::<Impl, IMPL_OFFSET>,
-            MinContrast::<Impl, IMPL_OFFSET>,
-            MaxContrast::<Impl, IMPL_OFFSET>,
-            ContrastStep::<Impl, IMPL_OFFSET>,
-            DefaultContrast::<Impl, IMPL_OFFSET>,
-            Contrast::<Impl, IMPL_OFFSET>,
-            SetContrast::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageScannerSourceConfiguration, BASE_OFFSET>(),
+            MinScanArea: MinScanArea::<Impl, IMPL_OFFSET>,
+            MaxScanArea: MaxScanArea::<Impl, IMPL_OFFSET>,
+            SelectedScanRegion: SelectedScanRegion::<Impl, IMPL_OFFSET>,
+            SetSelectedScanRegion: SetSelectedScanRegion::<Impl, IMPL_OFFSET>,
+            AutoCroppingMode: AutoCroppingMode::<Impl, IMPL_OFFSET>,
+            SetAutoCroppingMode: SetAutoCroppingMode::<Impl, IMPL_OFFSET>,
+            IsAutoCroppingModeSupported: IsAutoCroppingModeSupported::<Impl, IMPL_OFFSET>,
+            MinResolution: MinResolution::<Impl, IMPL_OFFSET>,
+            MaxResolution: MaxResolution::<Impl, IMPL_OFFSET>,
+            OpticalResolution: OpticalResolution::<Impl, IMPL_OFFSET>,
+            DesiredResolution: DesiredResolution::<Impl, IMPL_OFFSET>,
+            SetDesiredResolution: SetDesiredResolution::<Impl, IMPL_OFFSET>,
+            ActualResolution: ActualResolution::<Impl, IMPL_OFFSET>,
+            DefaultColorMode: DefaultColorMode::<Impl, IMPL_OFFSET>,
+            ColorMode: ColorMode::<Impl, IMPL_OFFSET>,
+            SetColorMode: SetColorMode::<Impl, IMPL_OFFSET>,
+            IsColorModeSupported: IsColorModeSupported::<Impl, IMPL_OFFSET>,
+            MinBrightness: MinBrightness::<Impl, IMPL_OFFSET>,
+            MaxBrightness: MaxBrightness::<Impl, IMPL_OFFSET>,
+            BrightnessStep: BrightnessStep::<Impl, IMPL_OFFSET>,
+            DefaultBrightness: DefaultBrightness::<Impl, IMPL_OFFSET>,
+            Brightness: Brightness::<Impl, IMPL_OFFSET>,
+            SetBrightness: SetBrightness::<Impl, IMPL_OFFSET>,
+            MinContrast: MinContrast::<Impl, IMPL_OFFSET>,
+            MaxContrast: MaxContrast::<Impl, IMPL_OFFSET>,
+            ContrastStep: ContrastStep::<Impl, IMPL_OFFSET>,
+            DefaultContrast: DefaultContrast::<Impl, IMPL_OFFSET>,
+            Contrast: Contrast::<Impl, IMPL_OFFSET>,
+            SetContrast: SetContrast::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageScannerSourceConfiguration as ::windows::core::Interface>::IID
@@ -854,7 +852,11 @@ impl IImageScannerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageScannerStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageScannerStatics, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageScannerStatics as ::windows::core::Interface>::IID

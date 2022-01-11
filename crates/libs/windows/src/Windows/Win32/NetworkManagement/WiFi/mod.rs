@@ -9917,44 +9917,44 @@ pub struct IDot11AdHocInterface(::windows::core::IUnknown);
 impl IDot11AdHocInterface {
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetDeviceSignature(&self, psignature: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(psignature)).ok()
+        (::windows::core::Interface::vtable(self).GetDeviceSignature)(::core::mem::transmute_copy(self), ::core::mem::transmute(psignature)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn IsDot11d(&self, pf11d: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pf11d)).ok()
+        (::windows::core::Interface::vtable(self).IsDot11d)(::core::mem::transmute_copy(self), ::core::mem::transmute(pf11d)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn IsAdHocCapable(&self, pfadhoccapable: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfadhoccapable)).ok()
+        (::windows::core::Interface::vtable(self).IsAdHocCapable)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfadhoccapable)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn IsRadioOn(&self, pfisradioon: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfisradioon)).ok()
+        (::windows::core::Interface::vtable(self).IsRadioOn)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfisradioon)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetActiveNetwork(&self) -> ::windows::core::Result<IDot11AdHocNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDot11AdHocNetwork>(result__)
+        (::windows::core::Interface::vtable(self).GetActiveNetwork)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDot11AdHocNetwork>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetIEnumSecuritySettings(&self) -> ::windows::core::Result<IEnumDot11AdHocSecuritySettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocSecuritySettings>(result__)
+        (::windows::core::Interface::vtable(self).GetIEnumSecuritySettings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocSecuritySettings>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetIEnumDot11AdHocNetworks(&self, pfilterguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumDot11AdHocNetworks> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilterguid), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocNetworks>(result__)
+        (::windows::core::Interface::vtable(self).GetIEnumDot11AdHocNetworks)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilterguid), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocNetworks>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetStatus(&self, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstate)).ok()
+        (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstate)).ok()
     }
 }
 impl ::core::convert::From<IDot11AdHocInterface> for ::windows::core::IUnknown {
@@ -9999,28 +9999,28 @@ unsafe impl ::windows::core::Interface for IDot11AdHocInterface {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocInterfaceVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psignature: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pf11d: *mut u8) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfadhoccapable: *mut u8) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisradioon: *mut u8) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnetwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilterguid: *const ::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
-);
+pub struct IDot11AdHocInterfaceVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetDeviceSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psignature: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetFriendlyName: usize,
+    pub IsDot11d: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pf11d: *mut u8) -> ::windows::core::HRESULT,
+    pub IsAdHocCapable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfadhoccapable: *mut u8) -> ::windows::core::HRESULT,
+    pub IsRadioOn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisradioon: *mut u8) -> ::windows::core::HRESULT,
+    pub GetActiveNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnetwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetIEnumSecuritySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetIEnumDot11AdHocNetworks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilterguid: *const ::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 #[repr(transparent)]
 pub struct IDot11AdHocInterfaceNotificationSink(::windows::core::IUnknown);
 impl IDot11AdHocInterfaceNotificationSink {
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn OnConnectionStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(estatus)).ok()
+        (::windows::core::Interface::vtable(self).OnConnectionStatusChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(estatus)).ok()
     }
 }
 impl ::core::convert::From<IDot11AdHocInterfaceNotificationSink> for ::windows::core::IUnknown {
@@ -10065,7 +10065,10 @@ unsafe impl ::windows::core::Interface for IDot11AdHocInterfaceNotificationSink 
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocInterfaceNotificationSinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT);
+pub struct IDot11AdHocInterfaceNotificationSinkVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub OnConnectionStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 #[repr(transparent)]
 pub struct IDot11AdHocManager(::windows::core::IUnknown);
@@ -10074,27 +10077,27 @@ impl IDot11AdHocManager {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateNetwork<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IDot11AdHocInterface>, Param4: ::windows::core::IntoParam<'a, IDot11AdHocSecuritySettings>>(&self, name: Param0, password: Param1, geographicalid: i32, pinterface: Param3, psecurity: Param4, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), name.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(geographicalid), pinterface.into_param().abi(), psecurity.into_param().abi(), ::core::mem::transmute(pcontextguid), ::core::mem::transmute(&mut result__)).from_abi::<IDot11AdHocNetwork>(result__)
+        (::windows::core::Interface::vtable(self).CreateNetwork)(::core::mem::transmute_copy(self), name.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(geographicalid), pinterface.into_param().abi(), psecurity.into_param().abi(), ::core::mem::transmute(pcontextguid), ::core::mem::transmute(&mut result__)).from_abi::<IDot11AdHocNetwork>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CommitCreatedNetwork<'a, Param0: ::windows::core::IntoParam<'a, IDot11AdHocNetwork>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(&self, piadhoc: Param0, fsaveprofile: Param1, fmakesavedprofileuserspecific: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), piadhoc.into_param().abi(), fsaveprofile.into_param().abi(), fmakesavedprofileuserspecific.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).CommitCreatedNetwork)(::core::mem::transmute_copy(self), piadhoc.into_param().abi(), fsaveprofile.into_param().abi(), fmakesavedprofileuserspecific.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetIEnumDot11AdHocNetworks(&self, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumDot11AdHocNetworks> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcontextguid), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocNetworks>(result__)
+        (::windows::core::Interface::vtable(self).GetIEnumDot11AdHocNetworks)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcontextguid), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocNetworks>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetIEnumDot11AdHocInterfaces(&self) -> ::windows::core::Result<IEnumDot11AdHocInterfaces> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocInterfaces>(result__)
+        (::windows::core::Interface::vtable(self).GetIEnumDot11AdHocInterfaces)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocInterfaces>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetNetwork(&self, networksignature: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(networksignature), ::core::mem::transmute(&mut result__)).from_abi::<IDot11AdHocNetwork>(result__)
+        (::windows::core::Interface::vtable(self).GetNetwork)(::core::mem::transmute_copy(self), ::core::mem::transmute(networksignature), ::core::mem::transmute(&mut result__)).from_abi::<IDot11AdHocNetwork>(result__)
     }
 }
 impl ::core::convert::From<IDot11AdHocManager> for ::windows::core::IUnknown {
@@ -10139,37 +10142,39 @@ unsafe impl ::windows::core::Interface for IDot11AdHocManager {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocManagerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, geographicalid: i32, pinterface: ::windows::core::RawPtr, psecurity: ::windows::core::RawPtr, pcontextguid: *const ::windows::core::GUID, piadhoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piadhoc: ::windows::core::RawPtr, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontextguid: *const ::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networksignature: *const ::windows::core::GUID, pnetwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDot11AdHocManagerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub CreateNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, geographicalid: i32, pinterface: ::windows::core::RawPtr, psecurity: ::windows::core::RawPtr, pcontextguid: *const ::windows::core::GUID, piadhoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    CreateNetwork: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub CommitCreatedNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piadhoc: ::windows::core::RawPtr, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    CommitCreatedNetwork: usize,
+    pub GetIEnumDot11AdHocNetworks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontextguid: *const ::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetIEnumDot11AdHocInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networksignature: *const ::windows::core::GUID, pnetwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 #[repr(transparent)]
 pub struct IDot11AdHocManagerNotificationSink(::windows::core::IUnknown);
 impl IDot11AdHocManagerNotificationSink {
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn OnNetworkAdd<'a, Param0: ::windows::core::IntoParam<'a, IDot11AdHocNetwork>>(&self, piadhocnetwork: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), piadhocnetwork.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnNetworkAdd)(::core::mem::transmute_copy(self), piadhocnetwork.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn OnNetworkRemove(&self, signature: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(signature)).ok()
+        (::windows::core::Interface::vtable(self).OnNetworkRemove)(::core::mem::transmute_copy(self), ::core::mem::transmute(signature)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn OnInterfaceAdd<'a, Param0: ::windows::core::IntoParam<'a, IDot11AdHocInterface>>(&self, piadhocinterface: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), piadhocinterface.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnInterfaceAdd)(::core::mem::transmute_copy(self), piadhocinterface.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn OnInterfaceRemove(&self, signature: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(signature)).ok()
+        (::windows::core::Interface::vtable(self).OnInterfaceRemove)(::core::mem::transmute_copy(self), ::core::mem::transmute(signature)).ok()
     }
 }
 impl ::core::convert::From<IDot11AdHocManagerNotificationSink> for ::windows::core::IUnknown {
@@ -10214,73 +10219,71 @@ unsafe impl ::windows::core::Interface for IDot11AdHocManagerNotificationSink {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocManagerNotificationSinkVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piadhocnetwork: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signature: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piadhocinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signature: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-);
+pub struct IDot11AdHocManagerNotificationSinkVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub OnNetworkAdd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piadhocnetwork: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub OnNetworkRemove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signature: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub OnInterfaceAdd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piadhocinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub OnInterfaceRemove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signature: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 #[repr(transparent)]
 pub struct IDot11AdHocNetwork(::windows::core::IUnknown);
 impl IDot11AdHocNetwork {
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetStatus(&self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(estatus)).ok()
+        (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(estatus)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSSID(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetSSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn HasProfile(&self, pf11d: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pf11d)).ok()
+        (::windows::core::Interface::vtable(self).HasProfile)(::core::mem::transmute_copy(self), ::core::mem::transmute(pf11d)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProfileName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetProfileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn DeleteProfile(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DeleteProfile)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetSignalQuality(&self, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pustrengthvalue), ::core::mem::transmute(pustrengthmax)).ok()
+        (::windows::core::Interface::vtable(self).GetSignalQuality)(::core::mem::transmute_copy(self), ::core::mem::transmute(pustrengthvalue), ::core::mem::transmute(pustrengthmax)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetSecuritySetting(&self) -> ::windows::core::Result<IDot11AdHocSecuritySettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDot11AdHocSecuritySettings>(result__)
+        (::windows::core::Interface::vtable(self).GetSecuritySetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDot11AdHocSecuritySettings>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetContextGuid(&self, pcontextguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcontextguid)).ok()
+        (::windows::core::Interface::vtable(self).GetContextGuid)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcontextguid)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetSignature(&self, psignature: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(psignature)).ok()
+        (::windows::core::Interface::vtable(self).GetSignature)(::core::mem::transmute_copy(self), ::core::mem::transmute(psignature)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetInterface(&self) -> ::windows::core::Result<IDot11AdHocInterface> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDot11AdHocInterface>(result__)
+        (::windows::core::Interface::vtable(self).GetInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDot11AdHocInterface>(result__)
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Connect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(&self, passphrase: Param0, geographicalid: i32, fsaveprofile: Param2, fmakesavedprofileuserspecific: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), passphrase.into_param().abi(), ::core::mem::transmute(geographicalid), fsaveprofile.into_param().abi(), fmakesavedprofileuserspecific.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Connect)(::core::mem::transmute_copy(self), passphrase.into_param().abi(), ::core::mem::transmute(geographicalid), fsaveprofile.into_param().abi(), fmakesavedprofileuserspecific.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Disconnect)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IDot11AdHocNetwork> for ::windows::core::IUnknown {
@@ -10325,37 +10328,41 @@ unsafe impl ::windows::core::Interface for IDot11AdHocNetwork {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocNetworkVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszwssid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pf11d: *mut u8) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszwprofilename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padhocsecuritysetting: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontextguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psignature: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padhocinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, passphrase: super::super::Foundation::PWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IDot11AdHocNetworkVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetSSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszwssid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetSSID: usize,
+    pub HasProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pf11d: *mut u8) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetProfileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszwprofilename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetProfileName: usize,
+    pub DeleteProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetSignalQuality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> ::windows::core::HRESULT,
+    pub GetSecuritySetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padhocsecuritysetting: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetContextGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontextguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub GetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psignature: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub GetInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padhocinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, passphrase: super::super::Foundation::PWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Connect: usize,
+    pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 #[repr(transparent)]
 pub struct IDot11AdHocNetworkNotificationSink(::windows::core::IUnknown);
 impl IDot11AdHocNetworkNotificationSink {
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn OnStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(estatus)).ok()
+        (::windows::core::Interface::vtable(self).OnStatusChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(estatus)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn OnConnectFail(&self, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(efailreason)).ok()
+        (::windows::core::Interface::vtable(self).OnConnectFail)(::core::mem::transmute_copy(self), ::core::mem::transmute(efailreason)).ok()
     }
 }
 impl ::core::convert::From<IDot11AdHocNetworkNotificationSink> for ::windows::core::IUnknown {
@@ -10400,24 +10407,22 @@ unsafe impl ::windows::core::Interface for IDot11AdHocNetworkNotificationSink {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocNetworkNotificationSinkVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows::core::HRESULT,
-);
+pub struct IDot11AdHocNetworkNotificationSinkVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub OnStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
+    pub OnConnectFail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 #[repr(transparent)]
 pub struct IDot11AdHocSecuritySettings(::windows::core::IUnknown);
 impl IDot11AdHocSecuritySettings {
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetDot11AuthAlgorithm(&self, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pauth)).ok()
+        (::windows::core::Interface::vtable(self).GetDot11AuthAlgorithm)(::core::mem::transmute_copy(self), ::core::mem::transmute(pauth)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn GetDot11CipherAlgorithm(&self, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcipher)).ok()
+        (::windows::core::Interface::vtable(self).GetDot11CipherAlgorithm)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcipher)).ok()
     }
 }
 impl ::core::convert::From<IDot11AdHocSecuritySettings> for ::windows::core::IUnknown {
@@ -10462,33 +10467,31 @@ unsafe impl ::windows::core::Interface for IDot11AdHocSecuritySettings {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocSecuritySettingsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows::core::HRESULT,
-);
+pub struct IDot11AdHocSecuritySettingsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetDot11AuthAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows::core::HRESULT,
+    pub GetDot11CipherAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 #[repr(transparent)]
 pub struct IEnumDot11AdHocInterfaces(::windows::core::IUnknown);
 impl IEnumDot11AdHocInterfaces {
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocInterface>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumDot11AdHocInterfaces> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocInterfaces>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocInterfaces>(result__)
     }
 }
 impl ::core::convert::From<IEnumDot11AdHocInterfaces> for ::windows::core::IUnknown {
@@ -10533,35 +10536,33 @@ unsafe impl ::windows::core::Interface for IEnumDot11AdHocInterfaces {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumDot11AdHocInterfacesVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IEnumDot11AdHocInterfacesVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 #[repr(transparent)]
 pub struct IEnumDot11AdHocNetworks(::windows::core::IUnknown);
 impl IEnumDot11AdHocNetworks {
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocNetwork>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumDot11AdHocNetworks> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocNetworks>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocNetworks>(result__)
     }
 }
 impl ::core::convert::From<IEnumDot11AdHocNetworks> for ::windows::core::IUnknown {
@@ -10606,35 +10607,33 @@ unsafe impl ::windows::core::Interface for IEnumDot11AdHocNetworks {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumDot11AdHocNetworksVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IEnumDot11AdHocNetworksVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 #[repr(transparent)]
 pub struct IEnumDot11AdHocSecuritySettings(::windows::core::IUnknown);
 impl IEnumDot11AdHocSecuritySettings {
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocSecuritySettings>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumDot11AdHocSecuritySettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocSecuritySettings>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDot11AdHocSecuritySettings>(result__)
     }
 }
 impl ::core::convert::From<IEnumDot11AdHocSecuritySettings> for ::windows::core::IUnknown {
@@ -10679,15 +10678,13 @@ unsafe impl ::windows::core::Interface for IEnumDot11AdHocSecuritySettings {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumDot11AdHocSecuritySettingsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IEnumDot11AdHocSecuritySettingsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const L2_NOTIFICATION_CODE_GROUP_SIZE: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]

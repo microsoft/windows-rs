@@ -42,7 +42,13 @@ impl IDevicePortalConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRequestReceived(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalConnection>, ::windows::core::GetTrustLevel, Closed::<Impl, IMPL_OFFSET>, RemoveClosed::<Impl, IMPL_OFFSET>, RequestReceived::<Impl, IMPL_OFFSET>, RemoveRequestReceived::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePortalConnection, BASE_OFFSET>(),
+            Closed: Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed: RemoveClosed::<Impl, IMPL_OFFSET>,
+            RequestReceived: RequestReceived::<Impl, IMPL_OFFSET>,
+            RemoveRequestReceived: RemoveRequestReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePortalConnection as ::windows::core::Interface>::IID
@@ -70,7 +76,10 @@ impl IDevicePortalConnectionClosedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalConnectionClosedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePortalConnectionClosedEventArgs, BASE_OFFSET>(),
+            Reason: Reason::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePortalConnectionClosedEventArgs as ::windows::core::Interface>::IID
@@ -110,7 +119,11 @@ impl IDevicePortalConnectionRequestReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalConnectionRequestReceivedEventArgs>, ::windows::core::GetTrustLevel, RequestMessage::<Impl, IMPL_OFFSET>, ResponseMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePortalConnectionRequestReceivedEventArgs, BASE_OFFSET>(),
+            RequestMessage: RequestMessage::<Impl, IMPL_OFFSET>,
+            ResponseMessage: ResponseMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePortalConnectionRequestReceivedEventArgs as ::windows::core::Interface>::IID
@@ -138,7 +151,10 @@ impl IDevicePortalConnectionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalConnectionStatics>, ::windows::core::GetTrustLevel, GetForAppServiceConnection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePortalConnectionStatics, BASE_OFFSET>(),
+            GetForAppServiceConnection: GetForAppServiceConnection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePortalConnectionStatics as ::windows::core::Interface>::IID
@@ -214,19 +230,14 @@ impl IDevicePortalWebSocketConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDevicePortalWebSocketConnection>,
-            ::windows::core::GetTrustLevel,
-            GetServerMessageWebSocketForRequest::<Impl, IMPL_OFFSET>,
-            GetServerMessageWebSocketForRequest2::<Impl, IMPL_OFFSET>,
-            GetServerMessageWebSocketForRequest3::<Impl, IMPL_OFFSET>,
-            GetServerStreamWebSocketForRequest::<Impl, IMPL_OFFSET>,
-            GetServerStreamWebSocketForRequest2::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePortalWebSocketConnection, BASE_OFFSET>(),
+            GetServerMessageWebSocketForRequest: GetServerMessageWebSocketForRequest::<Impl, IMPL_OFFSET>,
+            GetServerMessageWebSocketForRequest2: GetServerMessageWebSocketForRequest2::<Impl, IMPL_OFFSET>,
+            GetServerMessageWebSocketForRequest3: GetServerMessageWebSocketForRequest3::<Impl, IMPL_OFFSET>,
+            GetServerStreamWebSocketForRequest: GetServerStreamWebSocketForRequest::<Impl, IMPL_OFFSET>,
+            GetServerStreamWebSocketForRequest2: GetServerStreamWebSocketForRequest2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePortalWebSocketConnection as ::windows::core::Interface>::IID
@@ -278,7 +289,12 @@ impl IDevicePortalWebSocketConnectionRequestReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>, ::windows::core::GetTrustLevel, IsWebSocketUpgradeRequest::<Impl, IMPL_OFFSET>, WebSocketProtocolsRequested::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePortalWebSocketConnectionRequestReceivedEventArgs, BASE_OFFSET>(),
+            IsWebSocketUpgradeRequest: IsWebSocketUpgradeRequest::<Impl, IMPL_OFFSET>,
+            WebSocketProtocolsRequested: WebSocketProtocolsRequested::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePortalWebSocketConnectionRequestReceivedEventArgs as ::windows::core::Interface>::IID

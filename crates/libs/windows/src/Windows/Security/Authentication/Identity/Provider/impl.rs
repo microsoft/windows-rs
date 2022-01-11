@@ -80,20 +80,15 @@ impl ISecondaryAuthenticationFactorAuthenticationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthentication>,
-            ::windows::core::GetTrustLevel,
-            ServiceAuthenticationHmac::<Impl, IMPL_OFFSET>,
-            SessionNonce::<Impl, IMPL_OFFSET>,
-            DeviceNonce::<Impl, IMPL_OFFSET>,
-            DeviceConfigurationData::<Impl, IMPL_OFFSET>,
-            FinishAuthenticationAsync::<Impl, IMPL_OFFSET>,
-            AbortAuthenticationAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISecondaryAuthenticationFactorAuthentication, BASE_OFFSET>(),
+            ServiceAuthenticationHmac: ServiceAuthenticationHmac::<Impl, IMPL_OFFSET>,
+            SessionNonce: SessionNonce::<Impl, IMPL_OFFSET>,
+            DeviceNonce: DeviceNonce::<Impl, IMPL_OFFSET>,
+            DeviceConfigurationData: DeviceConfigurationData::<Impl, IMPL_OFFSET>,
+            FinishAuthenticationAsync: FinishAuthenticationAsync::<Impl, IMPL_OFFSET>,
+            AbortAuthenticationAsync: AbortAuthenticationAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecondaryAuthenticationFactorAuthentication as ::windows::core::Interface>::IID
@@ -133,7 +128,11 @@ impl ISecondaryAuthenticationFactorAuthenticationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Authentication::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISecondaryAuthenticationFactorAuthenticationResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Authentication: Authentication::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecondaryAuthenticationFactorAuthenticationResult as ::windows::core::Interface>::IID
@@ -161,7 +160,10 @@ impl ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs>, ::windows::core::GetTrustLevel, StageInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs, BASE_OFFSET>(),
+            StageInfo: StageInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs as ::windows::core::Interface>::IID
@@ -213,7 +215,12 @@ impl ISecondaryAuthenticationFactorAuthenticationStageInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationStageInfo>, ::windows::core::GetTrustLevel, Stage::<Impl, IMPL_OFFSET>, Scenario::<Impl, IMPL_OFFSET>, DeviceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISecondaryAuthenticationFactorAuthenticationStageInfo, BASE_OFFSET>(),
+            Stage: Stage::<Impl, IMPL_OFFSET>,
+            Scenario: Scenario::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecondaryAuthenticationFactorAuthenticationStageInfo as ::windows::core::Interface>::IID
@@ -282,19 +289,14 @@ impl ISecondaryAuthenticationFactorAuthenticationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationStatics>,
-            ::windows::core::GetTrustLevel,
-            ShowNotificationMessageAsync::<Impl, IMPL_OFFSET>,
-            StartAuthenticationAsync::<Impl, IMPL_OFFSET>,
-            AuthenticationStageChanged::<Impl, IMPL_OFFSET>,
-            RemoveAuthenticationStageChanged::<Impl, IMPL_OFFSET>,
-            GetAuthenticationStageInfoAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISecondaryAuthenticationFactorAuthenticationStatics, BASE_OFFSET>(),
+            ShowNotificationMessageAsync: ShowNotificationMessageAsync::<Impl, IMPL_OFFSET>,
+            StartAuthenticationAsync: StartAuthenticationAsync::<Impl, IMPL_OFFSET>,
+            AuthenticationStageChanged: AuthenticationStageChanged::<Impl, IMPL_OFFSET>,
+            RemoveAuthenticationStageChanged: RemoveAuthenticationStageChanged::<Impl, IMPL_OFFSET>,
+            GetAuthenticationStageInfoAsync: GetAuthenticationStageInfoAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecondaryAuthenticationFactorAuthenticationStatics as ::windows::core::Interface>::IID
@@ -365,18 +367,13 @@ impl ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsVt
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics>,
-            ::windows::core::GetTrustLevel,
-            RegisterDevicePresenceMonitoringAsync::<Impl, IMPL_OFFSET>,
-            RegisterDevicePresenceMonitoringWithNewDeviceAsync::<Impl, IMPL_OFFSET>,
-            UnregisterDevicePresenceMonitoringAsync::<Impl, IMPL_OFFSET>,
-            IsDevicePresenceMonitoringSupported::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics, BASE_OFFSET>(),
+            RegisterDevicePresenceMonitoringAsync: RegisterDevicePresenceMonitoringAsync::<Impl, IMPL_OFFSET>,
+            RegisterDevicePresenceMonitoringWithNewDeviceAsync: RegisterDevicePresenceMonitoringWithNewDeviceAsync::<Impl, IMPL_OFFSET>,
+            UnregisterDevicePresenceMonitoringAsync: UnregisterDevicePresenceMonitoringAsync::<Impl, IMPL_OFFSET>,
+            IsDevicePresenceMonitoringSupported: IsDevicePresenceMonitoringSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics as ::windows::core::Interface>::IID
@@ -440,7 +437,13 @@ impl ISecondaryAuthenticationFactorInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorInfo>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, DeviceFriendlyName::<Impl, IMPL_OFFSET>, DeviceModelNumber::<Impl, IMPL_OFFSET>, DeviceConfigurationData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISecondaryAuthenticationFactorInfo, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            DeviceFriendlyName: DeviceFriendlyName::<Impl, IMPL_OFFSET>,
+            DeviceModelNumber: DeviceModelNumber::<Impl, IMPL_OFFSET>,
+            DeviceConfigurationData: DeviceConfigurationData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecondaryAuthenticationFactorInfo as ::windows::core::Interface>::IID
@@ -492,7 +495,12 @@ impl ISecondaryAuthenticationFactorInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorInfo2>, ::windows::core::GetTrustLevel, PresenceMonitoringMode::<Impl, IMPL_OFFSET>, UpdateDevicePresenceAsync::<Impl, IMPL_OFFSET>, IsAuthenticationSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISecondaryAuthenticationFactorInfo2, BASE_OFFSET>(),
+            PresenceMonitoringMode: PresenceMonitoringMode::<Impl, IMPL_OFFSET>,
+            UpdateDevicePresenceAsync: UpdateDevicePresenceAsync::<Impl, IMPL_OFFSET>,
+            IsAuthenticationSupported: IsAuthenticationSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecondaryAuthenticationFactorInfo2 as ::windows::core::Interface>::IID
@@ -532,7 +540,11 @@ impl ISecondaryAuthenticationFactorRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorRegistration>, ::windows::core::GetTrustLevel, FinishRegisteringDeviceAsync::<Impl, IMPL_OFFSET>, AbortRegisteringDeviceAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISecondaryAuthenticationFactorRegistration, BASE_OFFSET>(),
+            FinishRegisteringDeviceAsync: FinishRegisteringDeviceAsync::<Impl, IMPL_OFFSET>,
+            AbortRegisteringDeviceAsync: AbortRegisteringDeviceAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecondaryAuthenticationFactorRegistration as ::windows::core::Interface>::IID
@@ -572,7 +584,11 @@ impl ISecondaryAuthenticationFactorRegistrationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorRegistrationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Registration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISecondaryAuthenticationFactorRegistrationResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Registration: Registration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecondaryAuthenticationFactorRegistrationResult as ::windows::core::Interface>::IID
@@ -643,18 +659,13 @@ impl ISecondaryAuthenticationFactorRegistrationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorRegistrationStatics>,
-            ::windows::core::GetTrustLevel,
-            RequestStartRegisteringDeviceAsync::<Impl, IMPL_OFFSET>,
-            FindAllRegisteredDeviceInfoAsync::<Impl, IMPL_OFFSET>,
-            UnregisterDeviceAsync::<Impl, IMPL_OFFSET>,
-            UpdateDeviceConfigurationDataAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISecondaryAuthenticationFactorRegistrationStatics, BASE_OFFSET>(),
+            RequestStartRegisteringDeviceAsync: RequestStartRegisteringDeviceAsync::<Impl, IMPL_OFFSET>,
+            FindAllRegisteredDeviceInfoAsync: FindAllRegisteredDeviceInfoAsync::<Impl, IMPL_OFFSET>,
+            UnregisterDeviceAsync: UnregisterDeviceAsync::<Impl, IMPL_OFFSET>,
+            UpdateDeviceConfigurationDataAsync: UpdateDeviceConfigurationDataAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecondaryAuthenticationFactorRegistrationStatics as ::windows::core::Interface>::IID

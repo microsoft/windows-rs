@@ -32,7 +32,11 @@ impl IRadialControllerIndependentInputSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerIndependentInputSource>, ::windows::core::GetTrustLevel, Controller::<Impl, IMPL_OFFSET>, Dispatcher::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerIndependentInputSource, BASE_OFFSET>(),
+            Controller: Controller::<Impl, IMPL_OFFSET>,
+            Dispatcher: Dispatcher::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRadialControllerIndependentInputSource as ::windows::core::Interface>::IID
@@ -60,7 +64,10 @@ impl IRadialControllerIndependentInputSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerIndependentInputSource2>, ::windows::core::GetTrustLevel, DispatcherQueue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerIndependentInputSource2, BASE_OFFSET>(),
+            DispatcherQueue: DispatcherQueue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRadialControllerIndependentInputSource2 as ::windows::core::Interface>::IID
@@ -88,7 +95,10 @@ impl IRadialControllerIndependentInputSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerIndependentInputSourceStatics>, ::windows::core::GetTrustLevel, CreateForView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerIndependentInputSourceStatics, BASE_OFFSET>(),
+            CreateForView: CreateForView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRadialControllerIndependentInputSourceStatics as ::windows::core::Interface>::IID

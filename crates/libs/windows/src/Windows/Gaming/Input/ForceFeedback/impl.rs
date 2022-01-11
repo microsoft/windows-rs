@@ -25,7 +25,11 @@ impl IConditionForceEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetParameters(&*(&direction as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConditionForceEffect>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, SetParameters::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConditionForceEffect, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            SetParameters: SetParameters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConditionForceEffect as ::windows::core::Interface>::IID
@@ -53,7 +57,10 @@ impl IConditionForceEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConditionForceEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConditionForceEffectFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConditionForceEffectFactory as ::windows::core::Interface>::IID
@@ -91,7 +98,11 @@ impl IConstantForceEffectVtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConstantForceEffect>, ::windows::core::GetTrustLevel, SetParameters::<Impl, IMPL_OFFSET>, SetParametersWithEnvelope::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConstantForceEffect, BASE_OFFSET>(),
+            SetParameters: SetParameters::<Impl, IMPL_OFFSET>,
+            SetParametersWithEnvelope: SetParametersWithEnvelope::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConstantForceEffect as ::windows::core::Interface>::IID
@@ -143,7 +154,14 @@ impl IForceFeedbackEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IForceFeedbackEffect>, ::windows::core::GetTrustLevel, Gain::<Impl, IMPL_OFFSET>, SetGain::<Impl, IMPL_OFFSET>, State::<Impl, IMPL_OFFSET>, Start::<Impl, IMPL_OFFSET>, Stop::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IForceFeedbackEffect, BASE_OFFSET>(),
+            Gain: Gain::<Impl, IMPL_OFFSET>,
+            SetGain: SetGain::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IForceFeedbackEffect as ::windows::core::Interface>::IID
@@ -287,27 +305,22 @@ impl IForceFeedbackMotorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IForceFeedbackMotor>,
-            ::windows::core::GetTrustLevel,
-            AreEffectsPaused::<Impl, IMPL_OFFSET>,
-            MasterGain::<Impl, IMPL_OFFSET>,
-            SetMasterGain::<Impl, IMPL_OFFSET>,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            SupportedAxes::<Impl, IMPL_OFFSET>,
-            LoadEffectAsync::<Impl, IMPL_OFFSET>,
-            PauseAllEffects::<Impl, IMPL_OFFSET>,
-            ResumeAllEffects::<Impl, IMPL_OFFSET>,
-            StopAllEffects::<Impl, IMPL_OFFSET>,
-            TryDisableAsync::<Impl, IMPL_OFFSET>,
-            TryEnableAsync::<Impl, IMPL_OFFSET>,
-            TryResetAsync::<Impl, IMPL_OFFSET>,
-            TryUnloadEffectAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IForceFeedbackMotor, BASE_OFFSET>(),
+            AreEffectsPaused: AreEffectsPaused::<Impl, IMPL_OFFSET>,
+            MasterGain: MasterGain::<Impl, IMPL_OFFSET>,
+            SetMasterGain: SetMasterGain::<Impl, IMPL_OFFSET>,
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            SupportedAxes: SupportedAxes::<Impl, IMPL_OFFSET>,
+            LoadEffectAsync: LoadEffectAsync::<Impl, IMPL_OFFSET>,
+            PauseAllEffects: PauseAllEffects::<Impl, IMPL_OFFSET>,
+            ResumeAllEffects: ResumeAllEffects::<Impl, IMPL_OFFSET>,
+            StopAllEffects: StopAllEffects::<Impl, IMPL_OFFSET>,
+            TryDisableAsync: TryDisableAsync::<Impl, IMPL_OFFSET>,
+            TryEnableAsync: TryEnableAsync::<Impl, IMPL_OFFSET>,
+            TryResetAsync: TryResetAsync::<Impl, IMPL_OFFSET>,
+            TryUnloadEffectAsync: TryUnloadEffectAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IForceFeedbackMotor as ::windows::core::Interface>::IID
@@ -360,7 +373,12 @@ impl IPeriodicForceEffectVtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeriodicForceEffect>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, SetParameters::<Impl, IMPL_OFFSET>, SetParametersWithEnvelope::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPeriodicForceEffect, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            SetParameters: SetParameters::<Impl, IMPL_OFFSET>,
+            SetParametersWithEnvelope: SetParametersWithEnvelope::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPeriodicForceEffect as ::windows::core::Interface>::IID
@@ -388,7 +406,10 @@ impl IPeriodicForceEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeriodicForceEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPeriodicForceEffectFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPeriodicForceEffectFactory as ::windows::core::Interface>::IID
@@ -433,7 +454,11 @@ impl IRampForceEffectVtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRampForceEffect>, ::windows::core::GetTrustLevel, SetParameters::<Impl, IMPL_OFFSET>, SetParametersWithEnvelope::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRampForceEffect, BASE_OFFSET>(),
+            SetParameters: SetParameters::<Impl, IMPL_OFFSET>,
+            SetParametersWithEnvelope: SetParametersWithEnvelope::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRampForceEffect as ::windows::core::Interface>::IID

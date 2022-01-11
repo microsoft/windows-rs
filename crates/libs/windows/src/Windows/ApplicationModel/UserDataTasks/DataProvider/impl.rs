@@ -98,25 +98,20 @@ impl IUserDataTaskDataProviderConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserDataTaskDataProviderConnection>,
-            ::windows::core::GetTrustLevel,
-            CreateOrUpdateTaskRequested::<Impl, IMPL_OFFSET>,
-            RemoveCreateOrUpdateTaskRequested::<Impl, IMPL_OFFSET>,
-            SyncRequested::<Impl, IMPL_OFFSET>,
-            RemoveSyncRequested::<Impl, IMPL_OFFSET>,
-            SkipOccurrenceRequested::<Impl, IMPL_OFFSET>,
-            RemoveSkipOccurrenceRequested::<Impl, IMPL_OFFSET>,
-            CompleteTaskRequested::<Impl, IMPL_OFFSET>,
-            RemoveCompleteTaskRequested::<Impl, IMPL_OFFSET>,
-            DeleteTaskRequested::<Impl, IMPL_OFFSET>,
-            RemoveDeleteTaskRequested::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskDataProviderConnection, BASE_OFFSET>(),
+            CreateOrUpdateTaskRequested: CreateOrUpdateTaskRequested::<Impl, IMPL_OFFSET>,
+            RemoveCreateOrUpdateTaskRequested: RemoveCreateOrUpdateTaskRequested::<Impl, IMPL_OFFSET>,
+            SyncRequested: SyncRequested::<Impl, IMPL_OFFSET>,
+            RemoveSyncRequested: RemoveSyncRequested::<Impl, IMPL_OFFSET>,
+            SkipOccurrenceRequested: SkipOccurrenceRequested::<Impl, IMPL_OFFSET>,
+            RemoveSkipOccurrenceRequested: RemoveSkipOccurrenceRequested::<Impl, IMPL_OFFSET>,
+            CompleteTaskRequested: CompleteTaskRequested::<Impl, IMPL_OFFSET>,
+            RemoveCompleteTaskRequested: RemoveCompleteTaskRequested::<Impl, IMPL_OFFSET>,
+            DeleteTaskRequested: DeleteTaskRequested::<Impl, IMPL_OFFSET>,
+            RemoveDeleteTaskRequested: RemoveDeleteTaskRequested::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskDataProviderConnection as ::windows::core::Interface>::IID
@@ -144,7 +139,10 @@ impl IUserDataTaskDataProviderTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskDataProviderTriggerDetails>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskDataProviderTriggerDetails, BASE_OFFSET>(),
+            Connection: Connection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskDataProviderTriggerDetails as ::windows::core::Interface>::IID
@@ -208,7 +206,13 @@ impl IUserDataTaskListCompleteTaskRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskListCompleteTaskRequest>, ::windows::core::GetTrustLevel, TaskListId::<Impl, IMPL_OFFSET>, TaskId::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskListCompleteTaskRequest, BASE_OFFSET>(),
+            TaskListId: TaskListId::<Impl, IMPL_OFFSET>,
+            TaskId: TaskId::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskListCompleteTaskRequest as ::windows::core::Interface>::IID
@@ -248,7 +252,11 @@ impl IUserDataTaskListCompleteTaskRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskListCompleteTaskRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskListCompleteTaskRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskListCompleteTaskRequestEventArgs as ::windows::core::Interface>::IID
@@ -312,7 +320,13 @@ impl IUserDataTaskListCreateOrUpdateTaskRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskListCreateOrUpdateTaskRequest>, ::windows::core::GetTrustLevel, TaskListId::<Impl, IMPL_OFFSET>, Task::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskListCreateOrUpdateTaskRequest, BASE_OFFSET>(),
+            TaskListId: TaskListId::<Impl, IMPL_OFFSET>,
+            Task: Task::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskListCreateOrUpdateTaskRequest as ::windows::core::Interface>::IID
@@ -352,7 +366,11 @@ impl IUserDataTaskListCreateOrUpdateTaskRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskListCreateOrUpdateTaskRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskListCreateOrUpdateTaskRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskListCreateOrUpdateTaskRequestEventArgs as ::windows::core::Interface>::IID
@@ -416,7 +434,13 @@ impl IUserDataTaskListDeleteTaskRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskListDeleteTaskRequest>, ::windows::core::GetTrustLevel, TaskListId::<Impl, IMPL_OFFSET>, TaskId::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskListDeleteTaskRequest, BASE_OFFSET>(),
+            TaskListId: TaskListId::<Impl, IMPL_OFFSET>,
+            TaskId: TaskId::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskListDeleteTaskRequest as ::windows::core::Interface>::IID
@@ -456,7 +480,11 @@ impl IUserDataTaskListDeleteTaskRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskListDeleteTaskRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskListDeleteTaskRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskListDeleteTaskRequestEventArgs as ::windows::core::Interface>::IID
@@ -520,7 +548,13 @@ impl IUserDataTaskListSkipOccurrenceRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskListSkipOccurrenceRequest>, ::windows::core::GetTrustLevel, TaskListId::<Impl, IMPL_OFFSET>, TaskId::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskListSkipOccurrenceRequest, BASE_OFFSET>(),
+            TaskListId: TaskListId::<Impl, IMPL_OFFSET>,
+            TaskId: TaskId::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskListSkipOccurrenceRequest as ::windows::core::Interface>::IID
@@ -560,7 +594,11 @@ impl IUserDataTaskListSkipOccurrenceRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskListSkipOccurrenceRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskListSkipOccurrenceRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskListSkipOccurrenceRequestEventArgs as ::windows::core::Interface>::IID
@@ -612,7 +650,12 @@ impl IUserDataTaskListSyncManagerSyncRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskListSyncManagerSyncRequest>, ::windows::core::GetTrustLevel, TaskListId::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskListSyncManagerSyncRequest, BASE_OFFSET>(),
+            TaskListId: TaskListId::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskListSyncManagerSyncRequest as ::windows::core::Interface>::IID
@@ -652,7 +695,11 @@ impl IUserDataTaskListSyncManagerSyncRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskListSyncManagerSyncRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataTaskListSyncManagerSyncRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserDataTaskListSyncManagerSyncRequestEventArgs as ::windows::core::Interface>::IID

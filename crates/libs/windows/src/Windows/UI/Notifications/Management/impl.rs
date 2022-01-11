@@ -83,22 +83,17 @@ impl IUserNotificationListenerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveNotification(notificationid).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserNotificationListener>,
-            ::windows::core::GetTrustLevel,
-            RequestAccessAsync::<Impl, IMPL_OFFSET>,
-            GetAccessStatus::<Impl, IMPL_OFFSET>,
-            NotificationChanged::<Impl, IMPL_OFFSET>,
-            RemoveNotificationChanged::<Impl, IMPL_OFFSET>,
-            GetNotificationsAsync::<Impl, IMPL_OFFSET>,
-            GetNotification::<Impl, IMPL_OFFSET>,
-            ClearNotifications::<Impl, IMPL_OFFSET>,
-            RemoveNotification::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserNotificationListener, BASE_OFFSET>(),
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            GetAccessStatus: GetAccessStatus::<Impl, IMPL_OFFSET>,
+            NotificationChanged: NotificationChanged::<Impl, IMPL_OFFSET>,
+            RemoveNotificationChanged: RemoveNotificationChanged::<Impl, IMPL_OFFSET>,
+            GetNotificationsAsync: GetNotificationsAsync::<Impl, IMPL_OFFSET>,
+            GetNotification: GetNotification::<Impl, IMPL_OFFSET>,
+            ClearNotifications: ClearNotifications::<Impl, IMPL_OFFSET>,
+            RemoveNotification: RemoveNotification::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserNotificationListener as ::windows::core::Interface>::IID
@@ -126,7 +121,7 @@ impl IUserNotificationListenerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserNotificationListenerStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUserNotificationListenerStatics, BASE_OFFSET>(), Current: Current::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserNotificationListenerStatics as ::windows::core::Interface>::IID

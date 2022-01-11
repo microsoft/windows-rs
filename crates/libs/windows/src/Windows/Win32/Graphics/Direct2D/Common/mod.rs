@@ -1015,31 +1015,31 @@ pub struct ID2D1SimplifiedGeometrySink(::windows::core::IUnknown);
 impl ID2D1SimplifiedGeometrySink {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode))
+        (::windows::core::Interface::vtable(self).SetFillMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT) {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexflags))
+        (::windows::core::Interface::vtable(self).SetSegmentFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexflags))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn BeginFigure<'a, Param0: ::windows::core::IntoParam<'a, D2D_POINT_2F>>(&self, startpoint: Param0, figurebegin: D2D1_FIGURE_BEGIN) {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), startpoint.into_param().abi(), ::core::mem::transmute(figurebegin))
+        (::windows::core::Interface::vtable(self).BeginFigure)(::core::mem::transmute_copy(self), startpoint.into_param().abi(), ::core::mem::transmute(figurebegin))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn AddLines(&self, points: *const D2D_POINT_2F, pointscount: u32) {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(points), ::core::mem::transmute(pointscount))
+        (::windows::core::Interface::vtable(self).AddLines)(::core::mem::transmute_copy(self), ::core::mem::transmute(points), ::core::mem::transmute(pointscount))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn AddBeziers(&self, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32) {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(beziers), ::core::mem::transmute(bezierscount))
+        (::windows::core::Interface::vtable(self).AddBeziers)(::core::mem::transmute_copy(self), ::core::mem::transmute(beziers), ::core::mem::transmute(bezierscount))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(figureend))
+        (::windows::core::Interface::vtable(self).EndFigure)(::core::mem::transmute_copy(self), ::core::mem::transmute(figureend))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<ID2D1SimplifiedGeometrySink> for ::windows::core::IUnknown {
@@ -1084,17 +1084,15 @@ unsafe impl ::windows::core::Interface for ID2D1SimplifiedGeometrySink {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID2D1SimplifiedGeometrySinkVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fillmode: D2D1_FILL_MODE),
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vertexflags: D2D1_PATH_SEGMENT),
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN),
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: *const D2D_POINT_2F, pointscount: u32),
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32),
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, figureend: D2D1_FIGURE_END),
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct ID2D1SimplifiedGeometrySinkVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub SetFillMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fillmode: D2D1_FILL_MODE),
+    pub SetSegmentFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vertexflags: D2D1_PATH_SEGMENT),
+    pub BeginFigure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN),
+    pub AddLines: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: *const D2D_POINT_2F, pointscount: u32),
+    pub AddBeziers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32),
+    pub EndFigure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, figureend: D2D1_FIGURE_END),
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

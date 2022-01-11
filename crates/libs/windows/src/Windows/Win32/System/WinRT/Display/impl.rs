@@ -14,7 +14,11 @@ impl IDisplayDeviceInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CreateSharedHandle::<Impl, IMPL_OFFSET>, OpenSharedHandle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateSharedHandle: CreateSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandle: OpenSharedHandle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayDeviceInterop as ::windows::core::Interface>::IID
@@ -36,7 +40,11 @@ impl IDisplayPathInteropVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CreateSourcePresentationHandle::<Impl, IMPL_OFFSET>, GetSourceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateSourcePresentationHandle: CreateSourcePresentationHandle::<Impl, IMPL_OFFSET>,
+            GetSourceId: GetSourceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayPathInterop as ::windows::core::Interface>::IID

@@ -184,29 +184,24 @@ impl ICertificateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICertificate>,
-            ::windows::core::GetTrustLevel,
-            BuildChainAsync::<Impl, IMPL_OFFSET>,
-            BuildChainWithParametersAsync::<Impl, IMPL_OFFSET>,
-            SerialNumber::<Impl, IMPL_OFFSET>,
-            GetHashValue::<Impl, IMPL_OFFSET>,
-            GetHashValueWithAlgorithm::<Impl, IMPL_OFFSET>,
-            GetCertificateBlob::<Impl, IMPL_OFFSET>,
-            Subject::<Impl, IMPL_OFFSET>,
-            Issuer::<Impl, IMPL_OFFSET>,
-            HasPrivateKey::<Impl, IMPL_OFFSET>,
-            IsStronglyProtected::<Impl, IMPL_OFFSET>,
-            ValidFrom::<Impl, IMPL_OFFSET>,
-            ValidTo::<Impl, IMPL_OFFSET>,
-            EnhancedKeyUsages::<Impl, IMPL_OFFSET>,
-            SetFriendlyName::<Impl, IMPL_OFFSET>,
-            FriendlyName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificate, BASE_OFFSET>(),
+            BuildChainAsync: BuildChainAsync::<Impl, IMPL_OFFSET>,
+            BuildChainWithParametersAsync: BuildChainWithParametersAsync::<Impl, IMPL_OFFSET>,
+            SerialNumber: SerialNumber::<Impl, IMPL_OFFSET>,
+            GetHashValue: GetHashValue::<Impl, IMPL_OFFSET>,
+            GetHashValueWithAlgorithm: GetHashValueWithAlgorithm::<Impl, IMPL_OFFSET>,
+            GetCertificateBlob: GetCertificateBlob::<Impl, IMPL_OFFSET>,
+            Subject: Subject::<Impl, IMPL_OFFSET>,
+            Issuer: Issuer::<Impl, IMPL_OFFSET>,
+            HasPrivateKey: HasPrivateKey::<Impl, IMPL_OFFSET>,
+            IsStronglyProtected: IsStronglyProtected::<Impl, IMPL_OFFSET>,
+            ValidFrom: ValidFrom::<Impl, IMPL_OFFSET>,
+            ValidTo: ValidTo::<Impl, IMPL_OFFSET>,
+            EnhancedKeyUsages: EnhancedKeyUsages::<Impl, IMPL_OFFSET>,
+            SetFriendlyName: SetFriendlyName::<Impl, IMPL_OFFSET>,
+            FriendlyName: FriendlyName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificate as ::windows::core::Interface>::IID
@@ -294,20 +289,15 @@ impl ICertificate2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICertificate2>,
-            ::windows::core::GetTrustLevel,
-            IsSecurityDeviceBound::<Impl, IMPL_OFFSET>,
-            KeyUsages::<Impl, IMPL_OFFSET>,
-            KeyAlgorithmName::<Impl, IMPL_OFFSET>,
-            SignatureAlgorithmName::<Impl, IMPL_OFFSET>,
-            SignatureHashAlgorithmName::<Impl, IMPL_OFFSET>,
-            SubjectAlternativeName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificate2, BASE_OFFSET>(),
+            IsSecurityDeviceBound: IsSecurityDeviceBound::<Impl, IMPL_OFFSET>,
+            KeyUsages: KeyUsages::<Impl, IMPL_OFFSET>,
+            KeyAlgorithmName: KeyAlgorithmName::<Impl, IMPL_OFFSET>,
+            SignatureAlgorithmName: SignatureAlgorithmName::<Impl, IMPL_OFFSET>,
+            SignatureHashAlgorithmName: SignatureHashAlgorithmName::<Impl, IMPL_OFFSET>,
+            SubjectAlternativeName: SubjectAlternativeName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificate2 as ::windows::core::Interface>::IID
@@ -359,7 +349,12 @@ impl ICertificate3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICertificate3>, ::windows::core::GetTrustLevel, IsPerUser::<Impl, IMPL_OFFSET>, StoreName::<Impl, IMPL_OFFSET>, KeyStorageProviderName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificate3, BASE_OFFSET>(),
+            IsPerUser: IsPerUser::<Impl, IMPL_OFFSET>,
+            StoreName: StoreName::<Impl, IMPL_OFFSET>,
+            KeyStorageProviderName: KeyStorageProviderName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificate3 as ::windows::core::Interface>::IID
@@ -411,7 +406,12 @@ impl ICertificateChainVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICertificateChain>, ::windows::core::GetTrustLevel, Validate::<Impl, IMPL_OFFSET>, ValidateWithParameters::<Impl, IMPL_OFFSET>, GetCertificates::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateChain, BASE_OFFSET>(),
+            Validate: Validate::<Impl, IMPL_OFFSET>,
+            ValidateWithParameters: ValidateWithParameters::<Impl, IMPL_OFFSET>,
+            GetCertificates: GetCertificates::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateChain as ::windows::core::Interface>::IID
@@ -470,7 +470,12 @@ impl ICertificateEnrollmentManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICertificateEnrollmentManagerStatics>, ::windows::core::GetTrustLevel, CreateRequestAsync::<Impl, IMPL_OFFSET>, InstallCertificateAsync::<Impl, IMPL_OFFSET>, ImportPfxDataAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateEnrollmentManagerStatics, BASE_OFFSET>(),
+            CreateRequestAsync: CreateRequestAsync::<Impl, IMPL_OFFSET>,
+            InstallCertificateAsync: InstallCertificateAsync::<Impl, IMPL_OFFSET>,
+            ImportPfxDataAsync: ImportPfxDataAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateEnrollmentManagerStatics as ::windows::core::Interface>::IID
@@ -518,7 +523,11 @@ impl ICertificateEnrollmentManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICertificateEnrollmentManagerStatics2>, ::windows::core::GetTrustLevel, UserCertificateEnrollmentManager::<Impl, IMPL_OFFSET>, ImportPfxDataToKspAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateEnrollmentManagerStatics2, BASE_OFFSET>(),
+            UserCertificateEnrollmentManager: UserCertificateEnrollmentManager::<Impl, IMPL_OFFSET>,
+            ImportPfxDataToKspAsync: ImportPfxDataToKspAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateEnrollmentManagerStatics2 as ::windows::core::Interface>::IID
@@ -550,7 +559,10 @@ impl ICertificateEnrollmentManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICertificateEnrollmentManagerStatics3>, ::windows::core::GetTrustLevel, ImportPfxDataToKspWithParametersAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateEnrollmentManagerStatics3, BASE_OFFSET>(),
+            ImportPfxDataToKspWithParametersAsync: ImportPfxDataToKspWithParametersAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateEnrollmentManagerStatics3 as ::windows::core::Interface>::IID
@@ -623,21 +635,16 @@ impl ICertificateExtensionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICertificateExtension>,
-            ::windows::core::GetTrustLevel,
-            ObjectId::<Impl, IMPL_OFFSET>,
-            SetObjectId::<Impl, IMPL_OFFSET>,
-            IsCritical::<Impl, IMPL_OFFSET>,
-            SetIsCritical::<Impl, IMPL_OFFSET>,
-            EncodeValue::<Impl, IMPL_OFFSET>,
-            Value::<Impl, IMPL_OFFSET>,
-            SetValue::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateExtension, BASE_OFFSET>(),
+            ObjectId: ObjectId::<Impl, IMPL_OFFSET>,
+            SetObjectId: SetObjectId::<Impl, IMPL_OFFSET>,
+            IsCritical: IsCritical::<Impl, IMPL_OFFSET>,
+            SetIsCritical: SetIsCritical::<Impl, IMPL_OFFSET>,
+            EncodeValue: EncodeValue::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateExtension as ::windows::core::Interface>::IID
@@ -665,7 +672,10 @@ impl ICertificateFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICertificateFactory>, ::windows::core::GetTrustLevel, CreateCertificate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateFactory, BASE_OFFSET>(),
+            CreateCertificate: CreateCertificate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateFactory as ::windows::core::Interface>::IID
@@ -817,30 +827,25 @@ impl ICertificateKeyUsagesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDigitalSignature(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICertificateKeyUsages>,
-            ::windows::core::GetTrustLevel,
-            EncipherOnly::<Impl, IMPL_OFFSET>,
-            SetEncipherOnly::<Impl, IMPL_OFFSET>,
-            CrlSign::<Impl, IMPL_OFFSET>,
-            SetCrlSign::<Impl, IMPL_OFFSET>,
-            KeyCertificateSign::<Impl, IMPL_OFFSET>,
-            SetKeyCertificateSign::<Impl, IMPL_OFFSET>,
-            KeyAgreement::<Impl, IMPL_OFFSET>,
-            SetKeyAgreement::<Impl, IMPL_OFFSET>,
-            DataEncipherment::<Impl, IMPL_OFFSET>,
-            SetDataEncipherment::<Impl, IMPL_OFFSET>,
-            KeyEncipherment::<Impl, IMPL_OFFSET>,
-            SetKeyEncipherment::<Impl, IMPL_OFFSET>,
-            NonRepudiation::<Impl, IMPL_OFFSET>,
-            SetNonRepudiation::<Impl, IMPL_OFFSET>,
-            DigitalSignature::<Impl, IMPL_OFFSET>,
-            SetDigitalSignature::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateKeyUsages, BASE_OFFSET>(),
+            EncipherOnly: EncipherOnly::<Impl, IMPL_OFFSET>,
+            SetEncipherOnly: SetEncipherOnly::<Impl, IMPL_OFFSET>,
+            CrlSign: CrlSign::<Impl, IMPL_OFFSET>,
+            SetCrlSign: SetCrlSign::<Impl, IMPL_OFFSET>,
+            KeyCertificateSign: KeyCertificateSign::<Impl, IMPL_OFFSET>,
+            SetKeyCertificateSign: SetKeyCertificateSign::<Impl, IMPL_OFFSET>,
+            KeyAgreement: KeyAgreement::<Impl, IMPL_OFFSET>,
+            SetKeyAgreement: SetKeyAgreement::<Impl, IMPL_OFFSET>,
+            DataEncipherment: DataEncipherment::<Impl, IMPL_OFFSET>,
+            SetDataEncipherment: SetDataEncipherment::<Impl, IMPL_OFFSET>,
+            KeyEncipherment: KeyEncipherment::<Impl, IMPL_OFFSET>,
+            SetKeyEncipherment: SetKeyEncipherment::<Impl, IMPL_OFFSET>,
+            NonRepudiation: NonRepudiation::<Impl, IMPL_OFFSET>,
+            SetNonRepudiation: SetNonRepudiation::<Impl, IMPL_OFFSET>,
+            DigitalSignature: DigitalSignature::<Impl, IMPL_OFFSET>,
+            SetDigitalSignature: SetDigitalSignature::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateKeyUsages as ::windows::core::Interface>::IID
@@ -937,23 +942,18 @@ impl ICertificateQueryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHardwareOnly(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICertificateQuery>,
-            ::windows::core::GetTrustLevel,
-            EnhancedKeyUsages::<Impl, IMPL_OFFSET>,
-            IssuerName::<Impl, IMPL_OFFSET>,
-            SetIssuerName::<Impl, IMPL_OFFSET>,
-            FriendlyName::<Impl, IMPL_OFFSET>,
-            SetFriendlyName::<Impl, IMPL_OFFSET>,
-            Thumbprint::<Impl, IMPL_OFFSET>,
-            SetThumbprint::<Impl, IMPL_OFFSET>,
-            HardwareOnly::<Impl, IMPL_OFFSET>,
-            SetHardwareOnly::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateQuery, BASE_OFFSET>(),
+            EnhancedKeyUsages: EnhancedKeyUsages::<Impl, IMPL_OFFSET>,
+            IssuerName: IssuerName::<Impl, IMPL_OFFSET>,
+            SetIssuerName: SetIssuerName::<Impl, IMPL_OFFSET>,
+            FriendlyName: FriendlyName::<Impl, IMPL_OFFSET>,
+            SetFriendlyName: SetFriendlyName::<Impl, IMPL_OFFSET>,
+            Thumbprint: Thumbprint::<Impl, IMPL_OFFSET>,
+            SetThumbprint: SetThumbprint::<Impl, IMPL_OFFSET>,
+            HardwareOnly: HardwareOnly::<Impl, IMPL_OFFSET>,
+            SetHardwareOnly: SetHardwareOnly::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateQuery as ::windows::core::Interface>::IID
@@ -1020,20 +1020,15 @@ impl ICertificateQuery2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStoreName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICertificateQuery2>,
-            ::windows::core::GetTrustLevel,
-            IncludeDuplicates::<Impl, IMPL_OFFSET>,
-            SetIncludeDuplicates::<Impl, IMPL_OFFSET>,
-            IncludeExpiredCertificates::<Impl, IMPL_OFFSET>,
-            SetIncludeExpiredCertificates::<Impl, IMPL_OFFSET>,
-            StoreName::<Impl, IMPL_OFFSET>,
-            SetStoreName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateQuery2, BASE_OFFSET>(),
+            IncludeDuplicates: IncludeDuplicates::<Impl, IMPL_OFFSET>,
+            SetIncludeDuplicates: SetIncludeDuplicates::<Impl, IMPL_OFFSET>,
+            IncludeExpiredCertificates: IncludeExpiredCertificates::<Impl, IMPL_OFFSET>,
+            SetIncludeExpiredCertificates: SetIncludeExpiredCertificates::<Impl, IMPL_OFFSET>,
+            StoreName: StoreName::<Impl, IMPL_OFFSET>,
+            SetStoreName: SetStoreName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateQuery2 as ::windows::core::Interface>::IID
@@ -1202,32 +1197,27 @@ impl ICertificateRequestPropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeyStorageProviderName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICertificateRequestProperties>,
-            ::windows::core::GetTrustLevel,
-            Subject::<Impl, IMPL_OFFSET>,
-            SetSubject::<Impl, IMPL_OFFSET>,
-            KeyAlgorithmName::<Impl, IMPL_OFFSET>,
-            SetKeyAlgorithmName::<Impl, IMPL_OFFSET>,
-            KeySize::<Impl, IMPL_OFFSET>,
-            SetKeySize::<Impl, IMPL_OFFSET>,
-            FriendlyName::<Impl, IMPL_OFFSET>,
-            SetFriendlyName::<Impl, IMPL_OFFSET>,
-            HashAlgorithmName::<Impl, IMPL_OFFSET>,
-            SetHashAlgorithmName::<Impl, IMPL_OFFSET>,
-            Exportable::<Impl, IMPL_OFFSET>,
-            SetExportable::<Impl, IMPL_OFFSET>,
-            KeyUsages::<Impl, IMPL_OFFSET>,
-            SetKeyUsages::<Impl, IMPL_OFFSET>,
-            KeyProtectionLevel::<Impl, IMPL_OFFSET>,
-            SetKeyProtectionLevel::<Impl, IMPL_OFFSET>,
-            KeyStorageProviderName::<Impl, IMPL_OFFSET>,
-            SetKeyStorageProviderName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateRequestProperties, BASE_OFFSET>(),
+            Subject: Subject::<Impl, IMPL_OFFSET>,
+            SetSubject: SetSubject::<Impl, IMPL_OFFSET>,
+            KeyAlgorithmName: KeyAlgorithmName::<Impl, IMPL_OFFSET>,
+            SetKeyAlgorithmName: SetKeyAlgorithmName::<Impl, IMPL_OFFSET>,
+            KeySize: KeySize::<Impl, IMPL_OFFSET>,
+            SetKeySize: SetKeySize::<Impl, IMPL_OFFSET>,
+            FriendlyName: FriendlyName::<Impl, IMPL_OFFSET>,
+            SetFriendlyName: SetFriendlyName::<Impl, IMPL_OFFSET>,
+            HashAlgorithmName: HashAlgorithmName::<Impl, IMPL_OFFSET>,
+            SetHashAlgorithmName: SetHashAlgorithmName::<Impl, IMPL_OFFSET>,
+            Exportable: Exportable::<Impl, IMPL_OFFSET>,
+            SetExportable: SetExportable::<Impl, IMPL_OFFSET>,
+            KeyUsages: KeyUsages::<Impl, IMPL_OFFSET>,
+            SetKeyUsages: SetKeyUsages::<Impl, IMPL_OFFSET>,
+            KeyProtectionLevel: KeyProtectionLevel::<Impl, IMPL_OFFSET>,
+            SetKeyProtectionLevel: SetKeyProtectionLevel::<Impl, IMPL_OFFSET>,
+            KeyStorageProviderName: KeyStorageProviderName::<Impl, IMPL_OFFSET>,
+            SetKeyStorageProviderName: SetKeyStorageProviderName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateRequestProperties as ::windows::core::Interface>::IID
@@ -1294,20 +1284,15 @@ impl ICertificateRequestProperties2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAttestationCredentialCertificate(&*(&value as *const <Certificate as ::windows::core::Abi>::Abi as *const <Certificate as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICertificateRequestProperties2>,
-            ::windows::core::GetTrustLevel,
-            SmartcardReaderName::<Impl, IMPL_OFFSET>,
-            SetSmartcardReaderName::<Impl, IMPL_OFFSET>,
-            SigningCertificate::<Impl, IMPL_OFFSET>,
-            SetSigningCertificate::<Impl, IMPL_OFFSET>,
-            AttestationCredentialCertificate::<Impl, IMPL_OFFSET>,
-            SetAttestationCredentialCertificate::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateRequestProperties2, BASE_OFFSET>(),
+            SmartcardReaderName: SmartcardReaderName::<Impl, IMPL_OFFSET>,
+            SetSmartcardReaderName: SetSmartcardReaderName::<Impl, IMPL_OFFSET>,
+            SigningCertificate: SigningCertificate::<Impl, IMPL_OFFSET>,
+            SetSigningCertificate: SetSigningCertificate::<Impl, IMPL_OFFSET>,
+            AttestationCredentialCertificate: AttestationCredentialCertificate::<Impl, IMPL_OFFSET>,
+            SetAttestationCredentialCertificate: SetAttestationCredentialCertificate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateRequestProperties2 as ::windows::core::Interface>::IID
@@ -1409,24 +1394,19 @@ impl ICertificateRequestProperties3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUseExistingKey(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICertificateRequestProperties3>,
-            ::windows::core::GetTrustLevel,
-            CurveName::<Impl, IMPL_OFFSET>,
-            SetCurveName::<Impl, IMPL_OFFSET>,
-            CurveParameters::<Impl, IMPL_OFFSET>,
-            SetCurveParameters::<Impl, IMPL_OFFSET>,
-            ContainerNamePrefix::<Impl, IMPL_OFFSET>,
-            SetContainerNamePrefix::<Impl, IMPL_OFFSET>,
-            ContainerName::<Impl, IMPL_OFFSET>,
-            SetContainerName::<Impl, IMPL_OFFSET>,
-            UseExistingKey::<Impl, IMPL_OFFSET>,
-            SetUseExistingKey::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateRequestProperties3, BASE_OFFSET>(),
+            CurveName: CurveName::<Impl, IMPL_OFFSET>,
+            SetCurveName: SetCurveName::<Impl, IMPL_OFFSET>,
+            CurveParameters: CurveParameters::<Impl, IMPL_OFFSET>,
+            SetCurveParameters: SetCurveParameters::<Impl, IMPL_OFFSET>,
+            ContainerNamePrefix: ContainerNamePrefix::<Impl, IMPL_OFFSET>,
+            SetContainerNamePrefix: SetContainerNamePrefix::<Impl, IMPL_OFFSET>,
+            ContainerName: ContainerName::<Impl, IMPL_OFFSET>,
+            SetContainerName: SetContainerName::<Impl, IMPL_OFFSET>,
+            UseExistingKey: UseExistingKey::<Impl, IMPL_OFFSET>,
+            SetUseExistingKey: SetUseExistingKey::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateRequestProperties3 as ::windows::core::Interface>::IID
@@ -1478,7 +1458,12 @@ impl ICertificateRequestProperties4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICertificateRequestProperties4>, ::windows::core::GetTrustLevel, SuppressedDefaults::<Impl, IMPL_OFFSET>, SubjectAlternativeName::<Impl, IMPL_OFFSET>, Extensions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateRequestProperties4, BASE_OFFSET>(),
+            SuppressedDefaults: SuppressedDefaults::<Impl, IMPL_OFFSET>,
+            SubjectAlternativeName: SubjectAlternativeName::<Impl, IMPL_OFFSET>,
+            Extensions: Extensions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateRequestProperties4 as ::windows::core::Interface>::IID
@@ -1504,7 +1489,11 @@ impl ICertificateStoreVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Delete(&*(&certificate as *const <Certificate as ::windows::core::Abi>::Abi as *const <Certificate as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICertificateStore>, ::windows::core::GetTrustLevel, Add::<Impl, IMPL_OFFSET>, Delete::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateStore, BASE_OFFSET>(),
+            Add: Add::<Impl, IMPL_OFFSET>,
+            Delete: Delete::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateStore as ::windows::core::Interface>::IID
@@ -1532,7 +1521,7 @@ impl ICertificateStore2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICertificateStore2>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateStore2, BASE_OFFSET>(), Name: Name::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateStore2 as ::windows::core::Interface>::IID
@@ -1608,19 +1597,14 @@ impl ICertificateStoresStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICertificateStoresStatics>,
-            ::windows::core::GetTrustLevel,
-            FindAllAsync::<Impl, IMPL_OFFSET>,
-            FindAllWithQueryAsync::<Impl, IMPL_OFFSET>,
-            TrustedRootCertificationAuthorities::<Impl, IMPL_OFFSET>,
-            IntermediateCertificationAuthorities::<Impl, IMPL_OFFSET>,
-            GetStoreByName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateStoresStatics, BASE_OFFSET>(),
+            FindAllAsync: FindAllAsync::<Impl, IMPL_OFFSET>,
+            FindAllWithQueryAsync: FindAllWithQueryAsync::<Impl, IMPL_OFFSET>,
+            TrustedRootCertificationAuthorities: TrustedRootCertificationAuthorities::<Impl, IMPL_OFFSET>,
+            IntermediateCertificationAuthorities: IntermediateCertificationAuthorities::<Impl, IMPL_OFFSET>,
+            GetStoreByName: GetStoreByName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateStoresStatics as ::windows::core::Interface>::IID
@@ -1648,7 +1632,10 @@ impl ICertificateStoresStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICertificateStoresStatics2>, ::windows::core::GetTrustLevel, GetUserStoreByName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICertificateStoresStatics2, BASE_OFFSET>(),
+            GetUserStoreByName: GetUserStoreByName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificateStoresStatics2 as ::windows::core::Interface>::IID
@@ -1773,26 +1760,21 @@ impl IChainBuildingParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChainBuildingParameters>,
-            ::windows::core::GetTrustLevel,
-            EnhancedKeyUsages::<Impl, IMPL_OFFSET>,
-            ValidationTimestamp::<Impl, IMPL_OFFSET>,
-            SetValidationTimestamp::<Impl, IMPL_OFFSET>,
-            RevocationCheckEnabled::<Impl, IMPL_OFFSET>,
-            SetRevocationCheckEnabled::<Impl, IMPL_OFFSET>,
-            NetworkRetrievalEnabled::<Impl, IMPL_OFFSET>,
-            SetNetworkRetrievalEnabled::<Impl, IMPL_OFFSET>,
-            AuthorityInformationAccessEnabled::<Impl, IMPL_OFFSET>,
-            SetAuthorityInformationAccessEnabled::<Impl, IMPL_OFFSET>,
-            CurrentTimeValidationEnabled::<Impl, IMPL_OFFSET>,
-            SetCurrentTimeValidationEnabled::<Impl, IMPL_OFFSET>,
-            ExclusiveTrustRoots::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChainBuildingParameters, BASE_OFFSET>(),
+            EnhancedKeyUsages: EnhancedKeyUsages::<Impl, IMPL_OFFSET>,
+            ValidationTimestamp: ValidationTimestamp::<Impl, IMPL_OFFSET>,
+            SetValidationTimestamp: SetValidationTimestamp::<Impl, IMPL_OFFSET>,
+            RevocationCheckEnabled: RevocationCheckEnabled::<Impl, IMPL_OFFSET>,
+            SetRevocationCheckEnabled: SetRevocationCheckEnabled::<Impl, IMPL_OFFSET>,
+            NetworkRetrievalEnabled: NetworkRetrievalEnabled::<Impl, IMPL_OFFSET>,
+            SetNetworkRetrievalEnabled: SetNetworkRetrievalEnabled::<Impl, IMPL_OFFSET>,
+            AuthorityInformationAccessEnabled: AuthorityInformationAccessEnabled::<Impl, IMPL_OFFSET>,
+            SetAuthorityInformationAccessEnabled: SetAuthorityInformationAccessEnabled::<Impl, IMPL_OFFSET>,
+            CurrentTimeValidationEnabled: CurrentTimeValidationEnabled::<Impl, IMPL_OFFSET>,
+            SetCurrentTimeValidationEnabled: SetCurrentTimeValidationEnabled::<Impl, IMPL_OFFSET>,
+            ExclusiveTrustRoots: ExclusiveTrustRoots::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChainBuildingParameters as ::windows::core::Interface>::IID
@@ -1842,7 +1824,13 @@ impl IChainValidationParametersVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetServerDnsName(&*(&value as *const <super::super::super::Networking::HostName as ::windows::core::Abi>::Abi as *const <super::super::super::Networking::HostName as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChainValidationParameters>, ::windows::core::GetTrustLevel, CertificateChainPolicy::<Impl, IMPL_OFFSET>, SetCertificateChainPolicy::<Impl, IMPL_OFFSET>, ServerDnsName::<Impl, IMPL_OFFSET>, SetServerDnsName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChainValidationParameters, BASE_OFFSET>(),
+            CertificateChainPolicy: CertificateChainPolicy::<Impl, IMPL_OFFSET>,
+            SetCertificateChainPolicy: SetCertificateChainPolicy::<Impl, IMPL_OFFSET>,
+            ServerDnsName: ServerDnsName::<Impl, IMPL_OFFSET>,
+            SetServerDnsName: SetServerDnsName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChainValidationParameters as ::windows::core::Interface>::IID
@@ -1907,7 +1895,13 @@ impl ICmsAttachedSignatureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICmsAttachedSignature>, ::windows::core::GetTrustLevel, Certificates::<Impl, IMPL_OFFSET>, Content::<Impl, IMPL_OFFSET>, Signers::<Impl, IMPL_OFFSET>, VerifySignature::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICmsAttachedSignature, BASE_OFFSET>(),
+            Certificates: Certificates::<Impl, IMPL_OFFSET>,
+            Content: Content::<Impl, IMPL_OFFSET>,
+            Signers: Signers::<Impl, IMPL_OFFSET>,
+            VerifySignature: VerifySignature::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICmsAttachedSignature as ::windows::core::Interface>::IID
@@ -1935,7 +1929,10 @@ impl ICmsAttachedSignatureFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICmsAttachedSignatureFactory>, ::windows::core::GetTrustLevel, CreateCmsAttachedSignature::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICmsAttachedSignatureFactory, BASE_OFFSET>(),
+            CreateCmsAttachedSignature: CreateCmsAttachedSignature::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICmsAttachedSignatureFactory as ::windows::core::Interface>::IID
@@ -1967,7 +1964,10 @@ impl ICmsAttachedSignatureStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICmsAttachedSignatureStatics>, ::windows::core::GetTrustLevel, GenerateSignatureAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICmsAttachedSignatureStatics, BASE_OFFSET>(),
+            GenerateSignatureAsync: GenerateSignatureAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICmsAttachedSignatureStatics as ::windows::core::Interface>::IID
@@ -2019,7 +2019,12 @@ impl ICmsDetachedSignatureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICmsDetachedSignature>, ::windows::core::GetTrustLevel, Certificates::<Impl, IMPL_OFFSET>, Signers::<Impl, IMPL_OFFSET>, VerifySignatureAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICmsDetachedSignature, BASE_OFFSET>(),
+            Certificates: Certificates::<Impl, IMPL_OFFSET>,
+            Signers: Signers::<Impl, IMPL_OFFSET>,
+            VerifySignatureAsync: VerifySignatureAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICmsDetachedSignature as ::windows::core::Interface>::IID
@@ -2047,7 +2052,10 @@ impl ICmsDetachedSignatureFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICmsDetachedSignatureFactory>, ::windows::core::GetTrustLevel, CreateCmsDetachedSignature::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICmsDetachedSignatureFactory, BASE_OFFSET>(),
+            CreateCmsDetachedSignature: CreateCmsDetachedSignature::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICmsDetachedSignatureFactory as ::windows::core::Interface>::IID
@@ -2079,7 +2087,10 @@ impl ICmsDetachedSignatureStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICmsDetachedSignatureStatics>, ::windows::core::GetTrustLevel, GenerateSignatureAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICmsDetachedSignatureStatics, BASE_OFFSET>(),
+            GenerateSignatureAsync: GenerateSignatureAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICmsDetachedSignatureStatics as ::windows::core::Interface>::IID
@@ -2141,7 +2152,14 @@ impl ICmsSignerInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICmsSignerInfo>, ::windows::core::GetTrustLevel, Certificate::<Impl, IMPL_OFFSET>, SetCertificate::<Impl, IMPL_OFFSET>, HashAlgorithmName::<Impl, IMPL_OFFSET>, SetHashAlgorithmName::<Impl, IMPL_OFFSET>, TimestampInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICmsSignerInfo, BASE_OFFSET>(),
+            Certificate: Certificate::<Impl, IMPL_OFFSET>,
+            SetCertificate: SetCertificate::<Impl, IMPL_OFFSET>,
+            HashAlgorithmName: HashAlgorithmName::<Impl, IMPL_OFFSET>,
+            SetHashAlgorithmName: SetHashAlgorithmName::<Impl, IMPL_OFFSET>,
+            TimestampInfo: TimestampInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICmsSignerInfo as ::windows::core::Interface>::IID
@@ -2193,7 +2211,12 @@ impl ICmsTimestampInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICmsTimestampInfo>, ::windows::core::GetTrustLevel, SigningCertificate::<Impl, IMPL_OFFSET>, Certificates::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICmsTimestampInfo, BASE_OFFSET>(),
+            SigningCertificate: SigningCertificate::<Impl, IMPL_OFFSET>,
+            Certificates: Certificates::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICmsTimestampInfo as ::windows::core::Interface>::IID
@@ -2305,22 +2328,17 @@ impl IKeyAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IKeyAlgorithmNamesStatics>,
-            ::windows::core::GetTrustLevel,
-            Rsa::<Impl, IMPL_OFFSET>,
-            Dsa::<Impl, IMPL_OFFSET>,
-            Ecdh256::<Impl, IMPL_OFFSET>,
-            Ecdh384::<Impl, IMPL_OFFSET>,
-            Ecdh521::<Impl, IMPL_OFFSET>,
-            Ecdsa256::<Impl, IMPL_OFFSET>,
-            Ecdsa384::<Impl, IMPL_OFFSET>,
-            Ecdsa521::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyAlgorithmNamesStatics, BASE_OFFSET>(),
+            Rsa: Rsa::<Impl, IMPL_OFFSET>,
+            Dsa: Dsa::<Impl, IMPL_OFFSET>,
+            Ecdh256: Ecdh256::<Impl, IMPL_OFFSET>,
+            Ecdh384: Ecdh384::<Impl, IMPL_OFFSET>,
+            Ecdh521: Ecdh521::<Impl, IMPL_OFFSET>,
+            Ecdsa256: Ecdsa256::<Impl, IMPL_OFFSET>,
+            Ecdsa384: Ecdsa384::<Impl, IMPL_OFFSET>,
+            Ecdsa521: Ecdsa521::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyAlgorithmNamesStatics as ::windows::core::Interface>::IID
@@ -2360,7 +2378,11 @@ impl IKeyAlgorithmNamesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyAlgorithmNamesStatics2>, ::windows::core::GetTrustLevel, Ecdsa::<Impl, IMPL_OFFSET>, Ecdh::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyAlgorithmNamesStatics2, BASE_OFFSET>(),
+            Ecdsa: Ecdsa::<Impl, IMPL_OFFSET>,
+            Ecdh: Ecdh::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyAlgorithmNamesStatics2 as ::windows::core::Interface>::IID
@@ -2400,7 +2422,11 @@ impl IKeyAttestationHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyAttestationHelperStatics>, ::windows::core::GetTrustLevel, DecryptTpmAttestationCredentialAsync::<Impl, IMPL_OFFSET>, GetTpmAttestationCredentialId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyAttestationHelperStatics, BASE_OFFSET>(),
+            DecryptTpmAttestationCredentialAsync: DecryptTpmAttestationCredentialAsync::<Impl, IMPL_OFFSET>,
+            GetTpmAttestationCredentialId: GetTpmAttestationCredentialId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyAttestationHelperStatics as ::windows::core::Interface>::IID
@@ -2428,7 +2454,10 @@ impl IKeyAttestationHelperStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyAttestationHelperStatics2>, ::windows::core::GetTrustLevel, DecryptTpmAttestationCredentialWithContainerNameAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyAttestationHelperStatics2, BASE_OFFSET>(),
+            DecryptTpmAttestationCredentialWithContainerNameAsync: DecryptTpmAttestationCredentialWithContainerNameAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyAttestationHelperStatics2 as ::windows::core::Interface>::IID
@@ -2480,7 +2509,12 @@ impl IKeyStorageProviderNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyStorageProviderNamesStatics>, ::windows::core::GetTrustLevel, SoftwareKeyStorageProvider::<Impl, IMPL_OFFSET>, SmartcardKeyStorageProvider::<Impl, IMPL_OFFSET>, PlatformKeyStorageProvider::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyStorageProviderNamesStatics, BASE_OFFSET>(),
+            SoftwareKeyStorageProvider: SoftwareKeyStorageProvider::<Impl, IMPL_OFFSET>,
+            SmartcardKeyStorageProvider: SmartcardKeyStorageProvider::<Impl, IMPL_OFFSET>,
+            PlatformKeyStorageProvider: PlatformKeyStorageProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyStorageProviderNamesStatics as ::windows::core::Interface>::IID
@@ -2508,7 +2542,10 @@ impl IKeyStorageProviderNamesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyStorageProviderNamesStatics2>, ::windows::core::GetTrustLevel, PassportKeyStorageProvider::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyStorageProviderNamesStatics2, BASE_OFFSET>(),
+            PassportKeyStorageProvider: PassportKeyStorageProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyStorageProviderNamesStatics2 as ::windows::core::Interface>::IID
@@ -2643,28 +2680,23 @@ impl IPfxImportParametersVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReaderName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPfxImportParameters>,
-            ::windows::core::GetTrustLevel,
-            Exportable::<Impl, IMPL_OFFSET>,
-            SetExportable::<Impl, IMPL_OFFSET>,
-            KeyProtectionLevel::<Impl, IMPL_OFFSET>,
-            SetKeyProtectionLevel::<Impl, IMPL_OFFSET>,
-            InstallOptions::<Impl, IMPL_OFFSET>,
-            SetInstallOptions::<Impl, IMPL_OFFSET>,
-            FriendlyName::<Impl, IMPL_OFFSET>,
-            SetFriendlyName::<Impl, IMPL_OFFSET>,
-            KeyStorageProviderName::<Impl, IMPL_OFFSET>,
-            SetKeyStorageProviderName::<Impl, IMPL_OFFSET>,
-            ContainerNamePrefix::<Impl, IMPL_OFFSET>,
-            SetContainerNamePrefix::<Impl, IMPL_OFFSET>,
-            ReaderName::<Impl, IMPL_OFFSET>,
-            SetReaderName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPfxImportParameters, BASE_OFFSET>(),
+            Exportable: Exportable::<Impl, IMPL_OFFSET>,
+            SetExportable: SetExportable::<Impl, IMPL_OFFSET>,
+            KeyProtectionLevel: KeyProtectionLevel::<Impl, IMPL_OFFSET>,
+            SetKeyProtectionLevel: SetKeyProtectionLevel::<Impl, IMPL_OFFSET>,
+            InstallOptions: InstallOptions::<Impl, IMPL_OFFSET>,
+            SetInstallOptions: SetInstallOptions::<Impl, IMPL_OFFSET>,
+            FriendlyName: FriendlyName::<Impl, IMPL_OFFSET>,
+            SetFriendlyName: SetFriendlyName::<Impl, IMPL_OFFSET>,
+            KeyStorageProviderName: KeyStorageProviderName::<Impl, IMPL_OFFSET>,
+            SetKeyStorageProviderName: SetKeyStorageProviderName::<Impl, IMPL_OFFSET>,
+            ContainerNamePrefix: ContainerNamePrefix::<Impl, IMPL_OFFSET>,
+            SetContainerNamePrefix: SetContainerNamePrefix::<Impl, IMPL_OFFSET>,
+            ReaderName: ReaderName::<Impl, IMPL_OFFSET>,
+            SetReaderName: SetReaderName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPfxImportParameters as ::windows::core::Interface>::IID
@@ -2716,7 +2748,12 @@ impl IStandardCertificateStoreNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStandardCertificateStoreNamesStatics>, ::windows::core::GetTrustLevel, Personal::<Impl, IMPL_OFFSET>, TrustedRootCertificationAuthorities::<Impl, IMPL_OFFSET>, IntermediateCertificationAuthorities::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStandardCertificateStoreNamesStatics, BASE_OFFSET>(),
+            Personal: Personal::<Impl, IMPL_OFFSET>,
+            TrustedRootCertificationAuthorities: TrustedRootCertificationAuthorities::<Impl, IMPL_OFFSET>,
+            IntermediateCertificationAuthorities: IntermediateCertificationAuthorities::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStandardCertificateStoreNamesStatics as ::windows::core::Interface>::IID
@@ -2804,7 +2841,15 @@ impl ISubjectAlternativeNameInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISubjectAlternativeNameInfo>, ::windows::core::GetTrustLevel, EmailName::<Impl, IMPL_OFFSET>, IPAddress::<Impl, IMPL_OFFSET>, Url::<Impl, IMPL_OFFSET>, DnsName::<Impl, IMPL_OFFSET>, DistinguishedName::<Impl, IMPL_OFFSET>, PrincipalName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISubjectAlternativeNameInfo, BASE_OFFSET>(),
+            EmailName: EmailName::<Impl, IMPL_OFFSET>,
+            IPAddress: IPAddress::<Impl, IMPL_OFFSET>,
+            Url: Url::<Impl, IMPL_OFFSET>,
+            DnsName: DnsName::<Impl, IMPL_OFFSET>,
+            DistinguishedName: DistinguishedName::<Impl, IMPL_OFFSET>,
+            PrincipalName: PrincipalName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISubjectAlternativeNameInfo as ::windows::core::Interface>::IID
@@ -2904,21 +2949,16 @@ impl ISubjectAlternativeNameInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISubjectAlternativeNameInfo2>,
-            ::windows::core::GetTrustLevel,
-            EmailNames::<Impl, IMPL_OFFSET>,
-            IPAddresses::<Impl, IMPL_OFFSET>,
-            Urls::<Impl, IMPL_OFFSET>,
-            DnsNames::<Impl, IMPL_OFFSET>,
-            DistinguishedNames::<Impl, IMPL_OFFSET>,
-            PrincipalNames::<Impl, IMPL_OFFSET>,
-            Extension::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISubjectAlternativeNameInfo2, BASE_OFFSET>(),
+            EmailNames: EmailNames::<Impl, IMPL_OFFSET>,
+            IPAddresses: IPAddresses::<Impl, IMPL_OFFSET>,
+            Urls: Urls::<Impl, IMPL_OFFSET>,
+            DnsNames: DnsNames::<Impl, IMPL_OFFSET>,
+            DistinguishedNames: DistinguishedNames::<Impl, IMPL_OFFSET>,
+            PrincipalNames: PrincipalNames::<Impl, IMPL_OFFSET>,
+            Extension: Extension::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISubjectAlternativeNameInfo2 as ::windows::core::Interface>::IID
@@ -2997,7 +3037,13 @@ impl IUserCertificateEnrollmentManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserCertificateEnrollmentManager>, ::windows::core::GetTrustLevel, CreateRequestAsync::<Impl, IMPL_OFFSET>, InstallCertificateAsync::<Impl, IMPL_OFFSET>, ImportPfxDataAsync::<Impl, IMPL_OFFSET>, ImportPfxDataToKspAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserCertificateEnrollmentManager, BASE_OFFSET>(),
+            CreateRequestAsync: CreateRequestAsync::<Impl, IMPL_OFFSET>,
+            InstallCertificateAsync: InstallCertificateAsync::<Impl, IMPL_OFFSET>,
+            ImportPfxDataAsync: ImportPfxDataAsync::<Impl, IMPL_OFFSET>,
+            ImportPfxDataToKspAsync: ImportPfxDataToKspAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserCertificateEnrollmentManager as ::windows::core::Interface>::IID
@@ -3029,7 +3075,10 @@ impl IUserCertificateEnrollmentManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserCertificateEnrollmentManager2>, ::windows::core::GetTrustLevel, ImportPfxDataToKspWithParametersAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserCertificateEnrollmentManager2, BASE_OFFSET>(),
+            ImportPfxDataToKspWithParametersAsync: ImportPfxDataToKspWithParametersAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserCertificateEnrollmentManager2 as ::windows::core::Interface>::IID
@@ -3081,7 +3130,12 @@ impl IUserCertificateStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserCertificateStore>, ::windows::core::GetTrustLevel, RequestAddAsync::<Impl, IMPL_OFFSET>, RequestDeleteAsync::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserCertificateStore, BASE_OFFSET>(),
+            RequestAddAsync: RequestAddAsync::<Impl, IMPL_OFFSET>,
+            RequestDeleteAsync: RequestDeleteAsync::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserCertificateStore as ::windows::core::Interface>::IID

@@ -217,32 +217,27 @@ impl IDateTimeFormatterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDateTimeFormatter>,
-            ::windows::core::GetTrustLevel,
-            Languages::<Impl, IMPL_OFFSET>,
-            GeographicRegion::<Impl, IMPL_OFFSET>,
-            Calendar::<Impl, IMPL_OFFSET>,
-            Clock::<Impl, IMPL_OFFSET>,
-            NumeralSystem::<Impl, IMPL_OFFSET>,
-            SetNumeralSystem::<Impl, IMPL_OFFSET>,
-            Patterns::<Impl, IMPL_OFFSET>,
-            Template::<Impl, IMPL_OFFSET>,
-            Format::<Impl, IMPL_OFFSET>,
-            IncludeYear::<Impl, IMPL_OFFSET>,
-            IncludeMonth::<Impl, IMPL_OFFSET>,
-            IncludeDayOfWeek::<Impl, IMPL_OFFSET>,
-            IncludeDay::<Impl, IMPL_OFFSET>,
-            IncludeHour::<Impl, IMPL_OFFSET>,
-            IncludeMinute::<Impl, IMPL_OFFSET>,
-            IncludeSecond::<Impl, IMPL_OFFSET>,
-            ResolvedLanguage::<Impl, IMPL_OFFSET>,
-            ResolvedGeographicRegion::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDateTimeFormatter, BASE_OFFSET>(),
+            Languages: Languages::<Impl, IMPL_OFFSET>,
+            GeographicRegion: GeographicRegion::<Impl, IMPL_OFFSET>,
+            Calendar: Calendar::<Impl, IMPL_OFFSET>,
+            Clock: Clock::<Impl, IMPL_OFFSET>,
+            NumeralSystem: NumeralSystem::<Impl, IMPL_OFFSET>,
+            SetNumeralSystem: SetNumeralSystem::<Impl, IMPL_OFFSET>,
+            Patterns: Patterns::<Impl, IMPL_OFFSET>,
+            Template: Template::<Impl, IMPL_OFFSET>,
+            Format: Format::<Impl, IMPL_OFFSET>,
+            IncludeYear: IncludeYear::<Impl, IMPL_OFFSET>,
+            IncludeMonth: IncludeMonth::<Impl, IMPL_OFFSET>,
+            IncludeDayOfWeek: IncludeDayOfWeek::<Impl, IMPL_OFFSET>,
+            IncludeDay: IncludeDay::<Impl, IMPL_OFFSET>,
+            IncludeHour: IncludeHour::<Impl, IMPL_OFFSET>,
+            IncludeMinute: IncludeMinute::<Impl, IMPL_OFFSET>,
+            IncludeSecond: IncludeSecond::<Impl, IMPL_OFFSET>,
+            ResolvedLanguage: ResolvedLanguage::<Impl, IMPL_OFFSET>,
+            ResolvedGeographicRegion: ResolvedGeographicRegion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDateTimeFormatter as ::windows::core::Interface>::IID
@@ -270,7 +265,10 @@ impl IDateTimeFormatter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDateTimeFormatter2>, ::windows::core::GetTrustLevel, FormatUsingTimeZone::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDateTimeFormatter2, BASE_OFFSET>(),
+            FormatUsingTimeZone: FormatUsingTimeZone::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDateTimeFormatter2 as ::windows::core::Interface>::IID
@@ -388,21 +386,16 @@ impl IDateTimeFormatterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDateTimeFormatterFactory>,
-            ::windows::core::GetTrustLevel,
-            CreateDateTimeFormatter::<Impl, IMPL_OFFSET>,
-            CreateDateTimeFormatterLanguages::<Impl, IMPL_OFFSET>,
-            CreateDateTimeFormatterContext::<Impl, IMPL_OFFSET>,
-            CreateDateTimeFormatterDate::<Impl, IMPL_OFFSET>,
-            CreateDateTimeFormatterTime::<Impl, IMPL_OFFSET>,
-            CreateDateTimeFormatterDateTimeLanguages::<Impl, IMPL_OFFSET>,
-            CreateDateTimeFormatterDateTimeContext::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDateTimeFormatterFactory, BASE_OFFSET>(),
+            CreateDateTimeFormatter: CreateDateTimeFormatter::<Impl, IMPL_OFFSET>,
+            CreateDateTimeFormatterLanguages: CreateDateTimeFormatterLanguages::<Impl, IMPL_OFFSET>,
+            CreateDateTimeFormatterContext: CreateDateTimeFormatterContext::<Impl, IMPL_OFFSET>,
+            CreateDateTimeFormatterDate: CreateDateTimeFormatterDate::<Impl, IMPL_OFFSET>,
+            CreateDateTimeFormatterTime: CreateDateTimeFormatterTime::<Impl, IMPL_OFFSET>,
+            CreateDateTimeFormatterDateTimeLanguages: CreateDateTimeFormatterDateTimeLanguages::<Impl, IMPL_OFFSET>,
+            CreateDateTimeFormatterDateTimeContext: CreateDateTimeFormatterDateTimeContext::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDateTimeFormatterFactory as ::windows::core::Interface>::IID
@@ -466,7 +459,13 @@ impl IDateTimeFormatterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDateTimeFormatterStatics>, ::windows::core::GetTrustLevel, LongDate::<Impl, IMPL_OFFSET>, LongTime::<Impl, IMPL_OFFSET>, ShortDate::<Impl, IMPL_OFFSET>, ShortTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDateTimeFormatterStatics, BASE_OFFSET>(),
+            LongDate: LongDate::<Impl, IMPL_OFFSET>,
+            LongTime: LongTime::<Impl, IMPL_OFFSET>,
+            ShortDate: ShortDate::<Impl, IMPL_OFFSET>,
+            ShortTime: ShortTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDateTimeFormatterStatics as ::windows::core::Interface>::IID

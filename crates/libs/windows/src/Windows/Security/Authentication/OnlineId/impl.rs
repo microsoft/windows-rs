@@ -85,21 +85,16 @@ impl IOnlineIdAuthenticatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IOnlineIdAuthenticator>,
-            ::windows::core::GetTrustLevel,
-            AuthenticateUserAsync::<Impl, IMPL_OFFSET>,
-            AuthenticateUserAsyncAdvanced::<Impl, IMPL_OFFSET>,
-            SignOutUserAsync::<Impl, IMPL_OFFSET>,
-            SetApplicationId::<Impl, IMPL_OFFSET>,
-            ApplicationId::<Impl, IMPL_OFFSET>,
-            CanSignOut::<Impl, IMPL_OFFSET>,
-            AuthenticatedSafeCustomerId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOnlineIdAuthenticator, BASE_OFFSET>(),
+            AuthenticateUserAsync: AuthenticateUserAsync::<Impl, IMPL_OFFSET>,
+            AuthenticateUserAsyncAdvanced: AuthenticateUserAsyncAdvanced::<Impl, IMPL_OFFSET>,
+            SignOutUserAsync: SignOutUserAsync::<Impl, IMPL_OFFSET>,
+            SetApplicationId: SetApplicationId::<Impl, IMPL_OFFSET>,
+            ApplicationId: ApplicationId::<Impl, IMPL_OFFSET>,
+            CanSignOut: CanSignOut::<Impl, IMPL_OFFSET>,
+            AuthenticatedSafeCustomerId: AuthenticatedSafeCustomerId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOnlineIdAuthenticator as ::windows::core::Interface>::IID
@@ -151,7 +146,12 @@ impl IOnlineIdServiceTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicket>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, Request::<Impl, IMPL_OFFSET>, ErrorCode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOnlineIdServiceTicket, BASE_OFFSET>(),
+            Value: Value::<Impl, IMPL_OFFSET>,
+            Request: Request::<Impl, IMPL_OFFSET>,
+            ErrorCode: ErrorCode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOnlineIdServiceTicket as ::windows::core::Interface>::IID
@@ -191,7 +191,11 @@ impl IOnlineIdServiceTicketRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicketRequest>, ::windows::core::GetTrustLevel, Service::<Impl, IMPL_OFFSET>, Policy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOnlineIdServiceTicketRequest, BASE_OFFSET>(),
+            Service: Service::<Impl, IMPL_OFFSET>,
+            Policy: Policy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOnlineIdServiceTicketRequest as ::windows::core::Interface>::IID
@@ -231,7 +235,11 @@ impl IOnlineIdServiceTicketRequestFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicketRequestFactory>, ::windows::core::GetTrustLevel, CreateOnlineIdServiceTicketRequest::<Impl, IMPL_OFFSET>, CreateOnlineIdServiceTicketRequestAdvanced::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOnlineIdServiceTicketRequestFactory, BASE_OFFSET>(),
+            CreateOnlineIdServiceTicketRequest: CreateOnlineIdServiceTicketRequest::<Impl, IMPL_OFFSET>,
+            CreateOnlineIdServiceTicketRequestAdvanced: CreateOnlineIdServiceTicketRequestAdvanced::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOnlineIdServiceTicketRequestFactory as ::windows::core::Interface>::IID
@@ -288,7 +296,13 @@ impl IOnlineIdSystemAuthenticatorForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemAuthenticatorForUser>, ::windows::core::GetTrustLevel, GetTicketAsync::<Impl, IMPL_OFFSET>, SetApplicationId::<Impl, IMPL_OFFSET>, ApplicationId::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOnlineIdSystemAuthenticatorForUser, BASE_OFFSET>(),
+            GetTicketAsync: GetTicketAsync::<Impl, IMPL_OFFSET>,
+            SetApplicationId: SetApplicationId::<Impl, IMPL_OFFSET>,
+            ApplicationId: ApplicationId::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOnlineIdSystemAuthenticatorForUser as ::windows::core::Interface>::IID
@@ -328,7 +342,11 @@ impl IOnlineIdSystemAuthenticatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemAuthenticatorStatics>, ::windows::core::GetTrustLevel, Default::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOnlineIdSystemAuthenticatorStatics, BASE_OFFSET>(),
+            Default: Default::<Impl, IMPL_OFFSET>,
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOnlineIdSystemAuthenticatorStatics as ::windows::core::Interface>::IID
@@ -368,7 +386,11 @@ impl IOnlineIdSystemIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemIdentity>, ::windows::core::GetTrustLevel, Ticket::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOnlineIdSystemIdentity, BASE_OFFSET>(),
+            Ticket: Ticket::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOnlineIdSystemIdentity as ::windows::core::Interface>::IID
@@ -420,7 +442,12 @@ impl IOnlineIdSystemTicketResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemTicketResult>, ::windows::core::GetTrustLevel, Identity::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOnlineIdSystemTicketResult, BASE_OFFSET>(),
+            Identity: Identity::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOnlineIdSystemTicketResult as ::windows::core::Interface>::IID
@@ -532,22 +559,17 @@ impl IUserIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserIdentity>,
-            ::windows::core::GetTrustLevel,
-            Tickets::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            SafeCustomerId::<Impl, IMPL_OFFSET>,
-            SignInName::<Impl, IMPL_OFFSET>,
-            FirstName::<Impl, IMPL_OFFSET>,
-            LastName::<Impl, IMPL_OFFSET>,
-            IsBetaAccount::<Impl, IMPL_OFFSET>,
-            IsConfirmedPC::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserIdentity, BASE_OFFSET>(),
+            Tickets: Tickets::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SafeCustomerId: SafeCustomerId::<Impl, IMPL_OFFSET>,
+            SignInName: SignInName::<Impl, IMPL_OFFSET>,
+            FirstName: FirstName::<Impl, IMPL_OFFSET>,
+            LastName: LastName::<Impl, IMPL_OFFSET>,
+            IsBetaAccount: IsBetaAccount::<Impl, IMPL_OFFSET>,
+            IsConfirmedPC: IsConfirmedPC::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserIdentity as ::windows::core::Interface>::IID

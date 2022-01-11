@@ -7,7 +7,7 @@ impl ::windows::core::RuntimeName for IAnnotationPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IAnnotationPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnnotationPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnnotationPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAnnotationPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAnnotationPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAnnotationPatternIdentifiers as ::windows::core::Interface>::IID
@@ -83,19 +83,14 @@ impl IAnnotationPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAnnotationPatternIdentifiersStatics>,
-            ::windows::core::GetTrustLevel,
-            AnnotationTypeIdProperty::<Impl, IMPL_OFFSET>,
-            AnnotationTypeNameProperty::<Impl, IMPL_OFFSET>,
-            AuthorProperty::<Impl, IMPL_OFFSET>,
-            DateTimeProperty::<Impl, IMPL_OFFSET>,
-            TargetProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAnnotationPatternIdentifiersStatics, BASE_OFFSET>(),
+            AnnotationTypeIdProperty: AnnotationTypeIdProperty::<Impl, IMPL_OFFSET>,
+            AnnotationTypeNameProperty: AnnotationTypeNameProperty::<Impl, IMPL_OFFSET>,
+            AuthorProperty: AuthorProperty::<Impl, IMPL_OFFSET>,
+            DateTimeProperty: DateTimeProperty::<Impl, IMPL_OFFSET>,
+            TargetProperty: TargetProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAnnotationPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -145,7 +140,13 @@ impl IAutomationAnnotationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetElement(&*(&value as *const <super::UIElement as ::windows::core::Abi>::Abi as *const <super::UIElement as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationAnnotation>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, SetType::<Impl, IMPL_OFFSET>, Element::<Impl, IMPL_OFFSET>, SetElement::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationAnnotation, BASE_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            SetType: SetType::<Impl, IMPL_OFFSET>,
+            Element: Element::<Impl, IMPL_OFFSET>,
+            SetElement: SetElement::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationAnnotation as ::windows::core::Interface>::IID
@@ -185,7 +186,11 @@ impl IAutomationAnnotationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationAnnotationFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>, CreateWithElementParameter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationAnnotationFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+            CreateWithElementParameter: CreateWithElementParameter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationAnnotationFactory as ::windows::core::Interface>::IID
@@ -225,7 +230,11 @@ impl IAutomationAnnotationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationAnnotationStatics>, ::windows::core::GetTrustLevel, TypeProperty::<Impl, IMPL_OFFSET>, ElementProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationAnnotationStatics, BASE_OFFSET>(),
+            TypeProperty: TypeProperty::<Impl, IMPL_OFFSET>,
+            ElementProperty: ElementProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationAnnotationStatics as ::windows::core::Interface>::IID
@@ -240,7 +249,7 @@ impl ::windows::core::RuntimeName for IAutomationElementIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationElementIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationElementIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationElementIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationElementIdentifiers as ::windows::core::Interface>::IID
@@ -532,37 +541,32 @@ impl IAutomationElementIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics>,
-            ::windows::core::GetTrustLevel,
-            AcceleratorKeyProperty::<Impl, IMPL_OFFSET>,
-            AccessKeyProperty::<Impl, IMPL_OFFSET>,
-            AutomationIdProperty::<Impl, IMPL_OFFSET>,
-            BoundingRectangleProperty::<Impl, IMPL_OFFSET>,
-            ClassNameProperty::<Impl, IMPL_OFFSET>,
-            ClickablePointProperty::<Impl, IMPL_OFFSET>,
-            ControlTypeProperty::<Impl, IMPL_OFFSET>,
-            HasKeyboardFocusProperty::<Impl, IMPL_OFFSET>,
-            HelpTextProperty::<Impl, IMPL_OFFSET>,
-            IsContentElementProperty::<Impl, IMPL_OFFSET>,
-            IsControlElementProperty::<Impl, IMPL_OFFSET>,
-            IsEnabledProperty::<Impl, IMPL_OFFSET>,
-            IsKeyboardFocusableProperty::<Impl, IMPL_OFFSET>,
-            IsOffscreenProperty::<Impl, IMPL_OFFSET>,
-            IsPasswordProperty::<Impl, IMPL_OFFSET>,
-            IsRequiredForFormProperty::<Impl, IMPL_OFFSET>,
-            ItemStatusProperty::<Impl, IMPL_OFFSET>,
-            ItemTypeProperty::<Impl, IMPL_OFFSET>,
-            LabeledByProperty::<Impl, IMPL_OFFSET>,
-            LocalizedControlTypeProperty::<Impl, IMPL_OFFSET>,
-            NameProperty::<Impl, IMPL_OFFSET>,
-            OrientationProperty::<Impl, IMPL_OFFSET>,
-            LiveSettingProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationElementIdentifiersStatics, BASE_OFFSET>(),
+            AcceleratorKeyProperty: AcceleratorKeyProperty::<Impl, IMPL_OFFSET>,
+            AccessKeyProperty: AccessKeyProperty::<Impl, IMPL_OFFSET>,
+            AutomationIdProperty: AutomationIdProperty::<Impl, IMPL_OFFSET>,
+            BoundingRectangleProperty: BoundingRectangleProperty::<Impl, IMPL_OFFSET>,
+            ClassNameProperty: ClassNameProperty::<Impl, IMPL_OFFSET>,
+            ClickablePointProperty: ClickablePointProperty::<Impl, IMPL_OFFSET>,
+            ControlTypeProperty: ControlTypeProperty::<Impl, IMPL_OFFSET>,
+            HasKeyboardFocusProperty: HasKeyboardFocusProperty::<Impl, IMPL_OFFSET>,
+            HelpTextProperty: HelpTextProperty::<Impl, IMPL_OFFSET>,
+            IsContentElementProperty: IsContentElementProperty::<Impl, IMPL_OFFSET>,
+            IsControlElementProperty: IsControlElementProperty::<Impl, IMPL_OFFSET>,
+            IsEnabledProperty: IsEnabledProperty::<Impl, IMPL_OFFSET>,
+            IsKeyboardFocusableProperty: IsKeyboardFocusableProperty::<Impl, IMPL_OFFSET>,
+            IsOffscreenProperty: IsOffscreenProperty::<Impl, IMPL_OFFSET>,
+            IsPasswordProperty: IsPasswordProperty::<Impl, IMPL_OFFSET>,
+            IsRequiredForFormProperty: IsRequiredForFormProperty::<Impl, IMPL_OFFSET>,
+            ItemStatusProperty: ItemStatusProperty::<Impl, IMPL_OFFSET>,
+            ItemTypeProperty: ItemTypeProperty::<Impl, IMPL_OFFSET>,
+            LabeledByProperty: LabeledByProperty::<Impl, IMPL_OFFSET>,
+            LocalizedControlTypeProperty: LocalizedControlTypeProperty::<Impl, IMPL_OFFSET>,
+            NameProperty: NameProperty::<Impl, IMPL_OFFSET>,
+            OrientationProperty: OrientationProperty::<Impl, IMPL_OFFSET>,
+            LiveSettingProperty: LiveSettingProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationElementIdentifiersStatics as ::windows::core::Interface>::IID
@@ -590,7 +594,10 @@ impl IAutomationElementIdentifiersStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics2>, ::windows::core::GetTrustLevel, ControlledPeersProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationElementIdentifiersStatics2, BASE_OFFSET>(),
+            ControlledPeersProperty: ControlledPeersProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationElementIdentifiersStatics2 as ::windows::core::Interface>::IID
@@ -654,7 +661,13 @@ impl IAutomationElementIdentifiersStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics3>, ::windows::core::GetTrustLevel, PositionInSetProperty::<Impl, IMPL_OFFSET>, SizeOfSetProperty::<Impl, IMPL_OFFSET>, LevelProperty::<Impl, IMPL_OFFSET>, AnnotationsProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationElementIdentifiersStatics3, BASE_OFFSET>(),
+            PositionInSetProperty: PositionInSetProperty::<Impl, IMPL_OFFSET>,
+            SizeOfSetProperty: SizeOfSetProperty::<Impl, IMPL_OFFSET>,
+            LevelProperty: LevelProperty::<Impl, IMPL_OFFSET>,
+            AnnotationsProperty: AnnotationsProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationElementIdentifiersStatics3 as ::windows::core::Interface>::IID
@@ -694,7 +707,11 @@ impl IAutomationElementIdentifiersStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics4>, ::windows::core::GetTrustLevel, LandmarkTypeProperty::<Impl, IMPL_OFFSET>, LocalizedLandmarkTypeProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationElementIdentifiersStatics4, BASE_OFFSET>(),
+            LandmarkTypeProperty: LandmarkTypeProperty::<Impl, IMPL_OFFSET>,
+            LocalizedLandmarkTypeProperty: LocalizedLandmarkTypeProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationElementIdentifiersStatics4 as ::windows::core::Interface>::IID
@@ -782,20 +799,15 @@ impl IAutomationElementIdentifiersStatics5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics5>,
-            ::windows::core::GetTrustLevel,
-            IsPeripheralProperty::<Impl, IMPL_OFFSET>,
-            IsDataValidForFormProperty::<Impl, IMPL_OFFSET>,
-            FullDescriptionProperty::<Impl, IMPL_OFFSET>,
-            DescribedByProperty::<Impl, IMPL_OFFSET>,
-            FlowsToProperty::<Impl, IMPL_OFFSET>,
-            FlowsFromProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationElementIdentifiersStatics5, BASE_OFFSET>(),
+            IsPeripheralProperty: IsPeripheralProperty::<Impl, IMPL_OFFSET>,
+            IsDataValidForFormProperty: IsDataValidForFormProperty::<Impl, IMPL_OFFSET>,
+            FullDescriptionProperty: FullDescriptionProperty::<Impl, IMPL_OFFSET>,
+            DescribedByProperty: DescribedByProperty::<Impl, IMPL_OFFSET>,
+            FlowsToProperty: FlowsToProperty::<Impl, IMPL_OFFSET>,
+            FlowsFromProperty: FlowsFromProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationElementIdentifiersStatics5 as ::windows::core::Interface>::IID
@@ -823,7 +835,10 @@ impl IAutomationElementIdentifiersStatics6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics6>, ::windows::core::GetTrustLevel, CultureProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationElementIdentifiersStatics6, BASE_OFFSET>(),
+            CultureProperty: CultureProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationElementIdentifiersStatics6 as ::windows::core::Interface>::IID
@@ -851,7 +866,10 @@ impl IAutomationElementIdentifiersStatics7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics7>, ::windows::core::GetTrustLevel, HeadingLevelProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationElementIdentifiersStatics7, BASE_OFFSET>(),
+            HeadingLevelProperty: HeadingLevelProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationElementIdentifiersStatics7 as ::windows::core::Interface>::IID
@@ -879,7 +897,10 @@ impl IAutomationElementIdentifiersStatics8Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics8>, ::windows::core::GetTrustLevel, IsDialogProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationElementIdentifiersStatics8, BASE_OFFSET>(),
+            IsDialogProperty: IsDialogProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationElementIdentifiersStatics8 as ::windows::core::Interface>::IID
@@ -894,7 +915,7 @@ impl ::windows::core::RuntimeName for IAutomationProperties {
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationPropertiesVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPropertiesVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationProperties>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationProperties, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationProperties as ::windows::core::Interface>::IID
@@ -1200,44 +1221,39 @@ impl IAutomationPropertiesStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLiveSetting(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics>,
-            ::windows::core::GetTrustLevel,
-            AcceleratorKeyProperty::<Impl, IMPL_OFFSET>,
-            GetAcceleratorKey::<Impl, IMPL_OFFSET>,
-            SetAcceleratorKey::<Impl, IMPL_OFFSET>,
-            AccessKeyProperty::<Impl, IMPL_OFFSET>,
-            GetAccessKey::<Impl, IMPL_OFFSET>,
-            SetAccessKey::<Impl, IMPL_OFFSET>,
-            AutomationIdProperty::<Impl, IMPL_OFFSET>,
-            GetAutomationId::<Impl, IMPL_OFFSET>,
-            SetAutomationId::<Impl, IMPL_OFFSET>,
-            HelpTextProperty::<Impl, IMPL_OFFSET>,
-            GetHelpText::<Impl, IMPL_OFFSET>,
-            SetHelpText::<Impl, IMPL_OFFSET>,
-            IsRequiredForFormProperty::<Impl, IMPL_OFFSET>,
-            GetIsRequiredForForm::<Impl, IMPL_OFFSET>,
-            SetIsRequiredForForm::<Impl, IMPL_OFFSET>,
-            ItemStatusProperty::<Impl, IMPL_OFFSET>,
-            GetItemStatus::<Impl, IMPL_OFFSET>,
-            SetItemStatus::<Impl, IMPL_OFFSET>,
-            ItemTypeProperty::<Impl, IMPL_OFFSET>,
-            GetItemType::<Impl, IMPL_OFFSET>,
-            SetItemType::<Impl, IMPL_OFFSET>,
-            LabeledByProperty::<Impl, IMPL_OFFSET>,
-            GetLabeledBy::<Impl, IMPL_OFFSET>,
-            SetLabeledBy::<Impl, IMPL_OFFSET>,
-            NameProperty::<Impl, IMPL_OFFSET>,
-            GetName::<Impl, IMPL_OFFSET>,
-            SetName::<Impl, IMPL_OFFSET>,
-            LiveSettingProperty::<Impl, IMPL_OFFSET>,
-            GetLiveSetting::<Impl, IMPL_OFFSET>,
-            SetLiveSetting::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPropertiesStatics, BASE_OFFSET>(),
+            AcceleratorKeyProperty: AcceleratorKeyProperty::<Impl, IMPL_OFFSET>,
+            GetAcceleratorKey: GetAcceleratorKey::<Impl, IMPL_OFFSET>,
+            SetAcceleratorKey: SetAcceleratorKey::<Impl, IMPL_OFFSET>,
+            AccessKeyProperty: AccessKeyProperty::<Impl, IMPL_OFFSET>,
+            GetAccessKey: GetAccessKey::<Impl, IMPL_OFFSET>,
+            SetAccessKey: SetAccessKey::<Impl, IMPL_OFFSET>,
+            AutomationIdProperty: AutomationIdProperty::<Impl, IMPL_OFFSET>,
+            GetAutomationId: GetAutomationId::<Impl, IMPL_OFFSET>,
+            SetAutomationId: SetAutomationId::<Impl, IMPL_OFFSET>,
+            HelpTextProperty: HelpTextProperty::<Impl, IMPL_OFFSET>,
+            GetHelpText: GetHelpText::<Impl, IMPL_OFFSET>,
+            SetHelpText: SetHelpText::<Impl, IMPL_OFFSET>,
+            IsRequiredForFormProperty: IsRequiredForFormProperty::<Impl, IMPL_OFFSET>,
+            GetIsRequiredForForm: GetIsRequiredForForm::<Impl, IMPL_OFFSET>,
+            SetIsRequiredForForm: SetIsRequiredForForm::<Impl, IMPL_OFFSET>,
+            ItemStatusProperty: ItemStatusProperty::<Impl, IMPL_OFFSET>,
+            GetItemStatus: GetItemStatus::<Impl, IMPL_OFFSET>,
+            SetItemStatus: SetItemStatus::<Impl, IMPL_OFFSET>,
+            ItemTypeProperty: ItemTypeProperty::<Impl, IMPL_OFFSET>,
+            GetItemType: GetItemType::<Impl, IMPL_OFFSET>,
+            SetItemType: SetItemType::<Impl, IMPL_OFFSET>,
+            LabeledByProperty: LabeledByProperty::<Impl, IMPL_OFFSET>,
+            GetLabeledBy: GetLabeledBy::<Impl, IMPL_OFFSET>,
+            SetLabeledBy: SetLabeledBy::<Impl, IMPL_OFFSET>,
+            NameProperty: NameProperty::<Impl, IMPL_OFFSET>,
+            GetName: GetName::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            LiveSettingProperty: LiveSettingProperty::<Impl, IMPL_OFFSET>,
+            GetLiveSetting: GetLiveSetting::<Impl, IMPL_OFFSET>,
+            SetLiveSetting: SetLiveSetting::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPropertiesStatics as ::windows::core::Interface>::IID
@@ -1306,19 +1322,14 @@ impl IAutomationPropertiesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics2>,
-            ::windows::core::GetTrustLevel,
-            AccessibilityViewProperty::<Impl, IMPL_OFFSET>,
-            GetAccessibilityView::<Impl, IMPL_OFFSET>,
-            SetAccessibilityView::<Impl, IMPL_OFFSET>,
-            ControlledPeersProperty::<Impl, IMPL_OFFSET>,
-            GetControlledPeers::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPropertiesStatics2, BASE_OFFSET>(),
+            AccessibilityViewProperty: AccessibilityViewProperty::<Impl, IMPL_OFFSET>,
+            GetAccessibilityView: GetAccessibilityView::<Impl, IMPL_OFFSET>,
+            SetAccessibilityView: SetAccessibilityView::<Impl, IMPL_OFFSET>,
+            ControlledPeersProperty: ControlledPeersProperty::<Impl, IMPL_OFFSET>,
+            GetControlledPeers: GetControlledPeers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPropertiesStatics2 as ::windows::core::Interface>::IID
@@ -1445,25 +1456,20 @@ impl IAutomationPropertiesStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics3>,
-            ::windows::core::GetTrustLevel,
-            PositionInSetProperty::<Impl, IMPL_OFFSET>,
-            GetPositionInSet::<Impl, IMPL_OFFSET>,
-            SetPositionInSet::<Impl, IMPL_OFFSET>,
-            SizeOfSetProperty::<Impl, IMPL_OFFSET>,
-            GetSizeOfSet::<Impl, IMPL_OFFSET>,
-            SetSizeOfSet::<Impl, IMPL_OFFSET>,
-            LevelProperty::<Impl, IMPL_OFFSET>,
-            GetLevel::<Impl, IMPL_OFFSET>,
-            SetLevel::<Impl, IMPL_OFFSET>,
-            AnnotationsProperty::<Impl, IMPL_OFFSET>,
-            GetAnnotations::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPropertiesStatics3, BASE_OFFSET>(),
+            PositionInSetProperty: PositionInSetProperty::<Impl, IMPL_OFFSET>,
+            GetPositionInSet: GetPositionInSet::<Impl, IMPL_OFFSET>,
+            SetPositionInSet: SetPositionInSet::<Impl, IMPL_OFFSET>,
+            SizeOfSetProperty: SizeOfSetProperty::<Impl, IMPL_OFFSET>,
+            GetSizeOfSet: GetSizeOfSet::<Impl, IMPL_OFFSET>,
+            SetSizeOfSet: SetSizeOfSet::<Impl, IMPL_OFFSET>,
+            LevelProperty: LevelProperty::<Impl, IMPL_OFFSET>,
+            GetLevel: GetLevel::<Impl, IMPL_OFFSET>,
+            SetLevel: SetLevel::<Impl, IMPL_OFFSET>,
+            AnnotationsProperty: AnnotationsProperty::<Impl, IMPL_OFFSET>,
+            GetAnnotations: GetAnnotations::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPropertiesStatics3 as ::windows::core::Interface>::IID
@@ -1537,20 +1543,15 @@ impl IAutomationPropertiesStatics4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLocalizedLandmarkType(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics4>,
-            ::windows::core::GetTrustLevel,
-            LandmarkTypeProperty::<Impl, IMPL_OFFSET>,
-            GetLandmarkType::<Impl, IMPL_OFFSET>,
-            SetLandmarkType::<Impl, IMPL_OFFSET>,
-            LocalizedLandmarkTypeProperty::<Impl, IMPL_OFFSET>,
-            GetLocalizedLandmarkType::<Impl, IMPL_OFFSET>,
-            SetLocalizedLandmarkType::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPropertiesStatics4, BASE_OFFSET>(),
+            LandmarkTypeProperty: LandmarkTypeProperty::<Impl, IMPL_OFFSET>,
+            GetLandmarkType: GetLandmarkType::<Impl, IMPL_OFFSET>,
+            SetLandmarkType: SetLandmarkType::<Impl, IMPL_OFFSET>,
+            LocalizedLandmarkTypeProperty: LocalizedLandmarkTypeProperty::<Impl, IMPL_OFFSET>,
+            GetLocalizedLandmarkType: GetLocalizedLandmarkType::<Impl, IMPL_OFFSET>,
+            SetLocalizedLandmarkType: SetLocalizedLandmarkType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPropertiesStatics4 as ::windows::core::Interface>::IID
@@ -1754,32 +1755,27 @@ impl IAutomationPropertiesStatics5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics5>,
-            ::windows::core::GetTrustLevel,
-            IsPeripheralProperty::<Impl, IMPL_OFFSET>,
-            GetIsPeripheral::<Impl, IMPL_OFFSET>,
-            SetIsPeripheral::<Impl, IMPL_OFFSET>,
-            IsDataValidForFormProperty::<Impl, IMPL_OFFSET>,
-            GetIsDataValidForForm::<Impl, IMPL_OFFSET>,
-            SetIsDataValidForForm::<Impl, IMPL_OFFSET>,
-            FullDescriptionProperty::<Impl, IMPL_OFFSET>,
-            GetFullDescription::<Impl, IMPL_OFFSET>,
-            SetFullDescription::<Impl, IMPL_OFFSET>,
-            LocalizedControlTypeProperty::<Impl, IMPL_OFFSET>,
-            GetLocalizedControlType::<Impl, IMPL_OFFSET>,
-            SetLocalizedControlType::<Impl, IMPL_OFFSET>,
-            DescribedByProperty::<Impl, IMPL_OFFSET>,
-            GetDescribedBy::<Impl, IMPL_OFFSET>,
-            FlowsToProperty::<Impl, IMPL_OFFSET>,
-            GetFlowsTo::<Impl, IMPL_OFFSET>,
-            FlowsFromProperty::<Impl, IMPL_OFFSET>,
-            GetFlowsFrom::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPropertiesStatics5, BASE_OFFSET>(),
+            IsPeripheralProperty: IsPeripheralProperty::<Impl, IMPL_OFFSET>,
+            GetIsPeripheral: GetIsPeripheral::<Impl, IMPL_OFFSET>,
+            SetIsPeripheral: SetIsPeripheral::<Impl, IMPL_OFFSET>,
+            IsDataValidForFormProperty: IsDataValidForFormProperty::<Impl, IMPL_OFFSET>,
+            GetIsDataValidForForm: GetIsDataValidForForm::<Impl, IMPL_OFFSET>,
+            SetIsDataValidForForm: SetIsDataValidForForm::<Impl, IMPL_OFFSET>,
+            FullDescriptionProperty: FullDescriptionProperty::<Impl, IMPL_OFFSET>,
+            GetFullDescription: GetFullDescription::<Impl, IMPL_OFFSET>,
+            SetFullDescription: SetFullDescription::<Impl, IMPL_OFFSET>,
+            LocalizedControlTypeProperty: LocalizedControlTypeProperty::<Impl, IMPL_OFFSET>,
+            GetLocalizedControlType: GetLocalizedControlType::<Impl, IMPL_OFFSET>,
+            SetLocalizedControlType: SetLocalizedControlType::<Impl, IMPL_OFFSET>,
+            DescribedByProperty: DescribedByProperty::<Impl, IMPL_OFFSET>,
+            GetDescribedBy: GetDescribedBy::<Impl, IMPL_OFFSET>,
+            FlowsToProperty: FlowsToProperty::<Impl, IMPL_OFFSET>,
+            GetFlowsTo: GetFlowsTo::<Impl, IMPL_OFFSET>,
+            FlowsFromProperty: FlowsFromProperty::<Impl, IMPL_OFFSET>,
+            GetFlowsFrom: GetFlowsFrom::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPropertiesStatics5 as ::windows::core::Interface>::IID
@@ -1824,7 +1820,12 @@ impl IAutomationPropertiesStatics6Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCulture(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics6>, ::windows::core::GetTrustLevel, CultureProperty::<Impl, IMPL_OFFSET>, GetCulture::<Impl, IMPL_OFFSET>, SetCulture::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPropertiesStatics6, BASE_OFFSET>(),
+            CultureProperty: CultureProperty::<Impl, IMPL_OFFSET>,
+            GetCulture: GetCulture::<Impl, IMPL_OFFSET>,
+            SetCulture: SetCulture::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPropertiesStatics6 as ::windows::core::Interface>::IID
@@ -1869,7 +1870,12 @@ impl IAutomationPropertiesStatics7Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHeadingLevel(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics7>, ::windows::core::GetTrustLevel, HeadingLevelProperty::<Impl, IMPL_OFFSET>, GetHeadingLevel::<Impl, IMPL_OFFSET>, SetHeadingLevel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPropertiesStatics7, BASE_OFFSET>(),
+            HeadingLevelProperty: HeadingLevelProperty::<Impl, IMPL_OFFSET>,
+            GetHeadingLevel: GetHeadingLevel::<Impl, IMPL_OFFSET>,
+            SetHeadingLevel: SetHeadingLevel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPropertiesStatics7 as ::windows::core::Interface>::IID
@@ -1914,7 +1920,12 @@ impl IAutomationPropertiesStatics8Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsDialog(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics8>, ::windows::core::GetTrustLevel, IsDialogProperty::<Impl, IMPL_OFFSET>, GetIsDialog::<Impl, IMPL_OFFSET>, SetIsDialog::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPropertiesStatics8, BASE_OFFSET>(),
+            IsDialogProperty: IsDialogProperty::<Impl, IMPL_OFFSET>,
+            GetIsDialog: GetIsDialog::<Impl, IMPL_OFFSET>,
+            SetIsDialog: SetIsDialog::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPropertiesStatics8 as ::windows::core::Interface>::IID
@@ -1959,7 +1970,12 @@ impl IAutomationPropertiesStatics9Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutomationControlType(&*(&element as *const <super::UIElement as ::windows::core::Abi>::Abi as *const <super::UIElement as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics9>, ::windows::core::GetTrustLevel, AutomationControlTypeProperty::<Impl, IMPL_OFFSET>, GetAutomationControlType::<Impl, IMPL_OFFSET>, SetAutomationControlType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPropertiesStatics9, BASE_OFFSET>(),
+            AutomationControlTypeProperty: AutomationControlTypeProperty::<Impl, IMPL_OFFSET>,
+            GetAutomationControlType: GetAutomationControlType::<Impl, IMPL_OFFSET>,
+            SetAutomationControlType: SetAutomationControlType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPropertiesStatics9 as ::windows::core::Interface>::IID
@@ -1974,7 +1990,7 @@ impl ::windows::core::RuntimeName for IAutomationProperty {
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationPropertyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPropertyVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationProperty>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationProperty, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationProperty as ::windows::core::Interface>::IID
@@ -1989,7 +2005,7 @@ impl ::windows::core::RuntimeName for IDockPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IDockPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDockPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDockPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDockPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDockPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDockPatternIdentifiers as ::windows::core::Interface>::IID
@@ -2017,7 +2033,10 @@ impl IDockPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDockPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, DockPositionProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDockPatternIdentifiersStatics, BASE_OFFSET>(),
+            DockPositionProperty: DockPositionProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDockPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -2032,7 +2051,7 @@ impl ::windows::core::RuntimeName for IDragPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IDragPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDragPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDragPatternIdentifiers as ::windows::core::Interface>::IID
@@ -2096,7 +2115,13 @@ impl IDragPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, DropEffectProperty::<Impl, IMPL_OFFSET>, DropEffectsProperty::<Impl, IMPL_OFFSET>, GrabbedItemsProperty::<Impl, IMPL_OFFSET>, IsGrabbedProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDragPatternIdentifiersStatics, BASE_OFFSET>(),
+            DropEffectProperty: DropEffectProperty::<Impl, IMPL_OFFSET>,
+            DropEffectsProperty: DropEffectsProperty::<Impl, IMPL_OFFSET>,
+            GrabbedItemsProperty: GrabbedItemsProperty::<Impl, IMPL_OFFSET>,
+            IsGrabbedProperty: IsGrabbedProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDragPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -2111,7 +2136,7 @@ impl ::windows::core::RuntimeName for IDropTargetPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IDropTargetPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropTargetPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDropTargetPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDropTargetPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDropTargetPatternIdentifiers as ::windows::core::Interface>::IID
@@ -2151,7 +2176,11 @@ impl IDropTargetPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDropTargetPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, DropTargetEffectProperty::<Impl, IMPL_OFFSET>, DropTargetEffectsProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDropTargetPatternIdentifiersStatics, BASE_OFFSET>(),
+            DropTargetEffectProperty: DropTargetEffectProperty::<Impl, IMPL_OFFSET>,
+            DropTargetEffectsProperty: DropTargetEffectsProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDropTargetPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -2166,7 +2195,7 @@ impl ::windows::core::RuntimeName for IExpandCollapsePatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IExpandCollapsePatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpandCollapsePatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExpandCollapsePatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExpandCollapsePatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IExpandCollapsePatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IExpandCollapsePatternIdentifiers as ::windows::core::Interface>::IID
@@ -2194,7 +2223,10 @@ impl IExpandCollapsePatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExpandCollapsePatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ExpandCollapseStateProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IExpandCollapsePatternIdentifiersStatics, BASE_OFFSET>(),
+            ExpandCollapseStateProperty: ExpandCollapseStateProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IExpandCollapsePatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -2209,7 +2241,7 @@ impl ::windows::core::RuntimeName for IGridItemPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IGridItemPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridItemPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridItemPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridItemPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGridItemPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridItemPatternIdentifiers as ::windows::core::Interface>::IID
@@ -2285,19 +2317,14 @@ impl IGridItemPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGridItemPatternIdentifiersStatics>,
-            ::windows::core::GetTrustLevel,
-            ColumnProperty::<Impl, IMPL_OFFSET>,
-            ColumnSpanProperty::<Impl, IMPL_OFFSET>,
-            ContainingGridProperty::<Impl, IMPL_OFFSET>,
-            RowProperty::<Impl, IMPL_OFFSET>,
-            RowSpanProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGridItemPatternIdentifiersStatics, BASE_OFFSET>(),
+            ColumnProperty: ColumnProperty::<Impl, IMPL_OFFSET>,
+            ColumnSpanProperty: ColumnSpanProperty::<Impl, IMPL_OFFSET>,
+            ContainingGridProperty: ContainingGridProperty::<Impl, IMPL_OFFSET>,
+            RowProperty: RowProperty::<Impl, IMPL_OFFSET>,
+            RowSpanProperty: RowSpanProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridItemPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -2312,7 +2339,7 @@ impl ::windows::core::RuntimeName for IGridPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IGridPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGridPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridPatternIdentifiers as ::windows::core::Interface>::IID
@@ -2352,7 +2379,11 @@ impl IGridPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ColumnCountProperty::<Impl, IMPL_OFFSET>, RowCountProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGridPatternIdentifiersStatics, BASE_OFFSET>(),
+            ColumnCountProperty: ColumnCountProperty::<Impl, IMPL_OFFSET>,
+            RowCountProperty: RowCountProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -2367,7 +2398,7 @@ impl ::windows::core::RuntimeName for IMultipleViewPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IMultipleViewPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultipleViewPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMultipleViewPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMultipleViewPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMultipleViewPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMultipleViewPatternIdentifiers as ::windows::core::Interface>::IID
@@ -2407,7 +2438,11 @@ impl IMultipleViewPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMultipleViewPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, CurrentViewProperty::<Impl, IMPL_OFFSET>, SupportedViewsProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMultipleViewPatternIdentifiersStatics, BASE_OFFSET>(),
+            CurrentViewProperty: CurrentViewProperty::<Impl, IMPL_OFFSET>,
+            SupportedViewsProperty: SupportedViewsProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMultipleViewPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -2422,7 +2457,7 @@ impl ::windows::core::RuntimeName for IRangeValuePatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IRangeValuePatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRangeValuePatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRangeValuePatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRangeValuePatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRangeValuePatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRangeValuePatternIdentifiers as ::windows::core::Interface>::IID
@@ -2510,20 +2545,15 @@ impl IRangeValuePatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRangeValuePatternIdentifiersStatics>,
-            ::windows::core::GetTrustLevel,
-            IsReadOnlyProperty::<Impl, IMPL_OFFSET>,
-            LargeChangeProperty::<Impl, IMPL_OFFSET>,
-            MaximumProperty::<Impl, IMPL_OFFSET>,
-            MinimumProperty::<Impl, IMPL_OFFSET>,
-            SmallChangeProperty::<Impl, IMPL_OFFSET>,
-            ValueProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRangeValuePatternIdentifiersStatics, BASE_OFFSET>(),
+            IsReadOnlyProperty: IsReadOnlyProperty::<Impl, IMPL_OFFSET>,
+            LargeChangeProperty: LargeChangeProperty::<Impl, IMPL_OFFSET>,
+            MaximumProperty: MaximumProperty::<Impl, IMPL_OFFSET>,
+            MinimumProperty: MinimumProperty::<Impl, IMPL_OFFSET>,
+            SmallChangeProperty: SmallChangeProperty::<Impl, IMPL_OFFSET>,
+            ValueProperty: ValueProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRangeValuePatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -2538,7 +2568,7 @@ impl ::windows::core::RuntimeName for IScrollPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IScrollPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScrollPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScrollPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScrollPatternIdentifiers as ::windows::core::Interface>::IID
@@ -2638,21 +2668,16 @@ impl IScrollPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IScrollPatternIdentifiersStatics>,
-            ::windows::core::GetTrustLevel,
-            HorizontallyScrollableProperty::<Impl, IMPL_OFFSET>,
-            HorizontalScrollPercentProperty::<Impl, IMPL_OFFSET>,
-            HorizontalViewSizeProperty::<Impl, IMPL_OFFSET>,
-            NoScroll::<Impl, IMPL_OFFSET>,
-            VerticallyScrollableProperty::<Impl, IMPL_OFFSET>,
-            VerticalScrollPercentProperty::<Impl, IMPL_OFFSET>,
-            VerticalViewSizeProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollPatternIdentifiersStatics, BASE_OFFSET>(),
+            HorizontallyScrollableProperty: HorizontallyScrollableProperty::<Impl, IMPL_OFFSET>,
+            HorizontalScrollPercentProperty: HorizontalScrollPercentProperty::<Impl, IMPL_OFFSET>,
+            HorizontalViewSizeProperty: HorizontalViewSizeProperty::<Impl, IMPL_OFFSET>,
+            NoScroll: NoScroll::<Impl, IMPL_OFFSET>,
+            VerticallyScrollableProperty: VerticallyScrollableProperty::<Impl, IMPL_OFFSET>,
+            VerticalScrollPercentProperty: VerticalScrollPercentProperty::<Impl, IMPL_OFFSET>,
+            VerticalViewSizeProperty: VerticalViewSizeProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScrollPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -2667,7 +2692,7 @@ impl ::windows::core::RuntimeName for ISelectionItemPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl ISelectionItemPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionItemPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionItemPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionItemPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectionItemPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectionItemPatternIdentifiers as ::windows::core::Interface>::IID
@@ -2707,7 +2732,11 @@ impl ISelectionItemPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionItemPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, IsSelectedProperty::<Impl, IMPL_OFFSET>, SelectionContainerProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectionItemPatternIdentifiersStatics, BASE_OFFSET>(),
+            IsSelectedProperty: IsSelectedProperty::<Impl, IMPL_OFFSET>,
+            SelectionContainerProperty: SelectionContainerProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectionItemPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -2722,7 +2751,7 @@ impl ::windows::core::RuntimeName for ISelectionPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl ISelectionPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectionPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectionPatternIdentifiers as ::windows::core::Interface>::IID
@@ -2774,7 +2803,12 @@ impl ISelectionPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, CanSelectMultipleProperty::<Impl, IMPL_OFFSET>, IsSelectionRequiredProperty::<Impl, IMPL_OFFSET>, SelectionProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectionPatternIdentifiersStatics, BASE_OFFSET>(),
+            CanSelectMultipleProperty: CanSelectMultipleProperty::<Impl, IMPL_OFFSET>,
+            IsSelectionRequiredProperty: IsSelectionRequiredProperty::<Impl, IMPL_OFFSET>,
+            SelectionProperty: SelectionProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectionPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -2789,7 +2823,7 @@ impl ::windows::core::RuntimeName for ISpreadsheetItemPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl ISpreadsheetItemPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetItemPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpreadsheetItemPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpreadsheetItemPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpreadsheetItemPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpreadsheetItemPatternIdentifiers as ::windows::core::Interface>::IID
@@ -2817,7 +2851,10 @@ impl ISpreadsheetItemPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpreadsheetItemPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, FormulaProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpreadsheetItemPatternIdentifiersStatics, BASE_OFFSET>(),
+            FormulaProperty: FormulaProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpreadsheetItemPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -2832,7 +2869,7 @@ impl ::windows::core::RuntimeName for IStylesPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IStylesPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStylesPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStylesPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStylesPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IStylesPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStylesPatternIdentifiers as ::windows::core::Interface>::IID
@@ -2932,21 +2969,16 @@ impl IStylesPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStylesPatternIdentifiersStatics>,
-            ::windows::core::GetTrustLevel,
-            ExtendedPropertiesProperty::<Impl, IMPL_OFFSET>,
-            FillColorProperty::<Impl, IMPL_OFFSET>,
-            FillPatternColorProperty::<Impl, IMPL_OFFSET>,
-            FillPatternStyleProperty::<Impl, IMPL_OFFSET>,
-            ShapeProperty::<Impl, IMPL_OFFSET>,
-            StyleIdProperty::<Impl, IMPL_OFFSET>,
-            StyleNameProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStylesPatternIdentifiersStatics, BASE_OFFSET>(),
+            ExtendedPropertiesProperty: ExtendedPropertiesProperty::<Impl, IMPL_OFFSET>,
+            FillColorProperty: FillColorProperty::<Impl, IMPL_OFFSET>,
+            FillPatternColorProperty: FillPatternColorProperty::<Impl, IMPL_OFFSET>,
+            FillPatternStyleProperty: FillPatternStyleProperty::<Impl, IMPL_OFFSET>,
+            ShapeProperty: ShapeProperty::<Impl, IMPL_OFFSET>,
+            StyleIdProperty: StyleIdProperty::<Impl, IMPL_OFFSET>,
+            StyleNameProperty: StyleNameProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStylesPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -2961,7 +2993,7 @@ impl ::windows::core::RuntimeName for ITableItemPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl ITableItemPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableItemPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITableItemPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITableItemPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITableItemPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITableItemPatternIdentifiers as ::windows::core::Interface>::IID
@@ -3001,7 +3033,11 @@ impl ITableItemPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITableItemPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ColumnHeaderItemsProperty::<Impl, IMPL_OFFSET>, RowHeaderItemsProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITableItemPatternIdentifiersStatics, BASE_OFFSET>(),
+            ColumnHeaderItemsProperty: ColumnHeaderItemsProperty::<Impl, IMPL_OFFSET>,
+            RowHeaderItemsProperty: RowHeaderItemsProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITableItemPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -3016,7 +3052,7 @@ impl ::windows::core::RuntimeName for ITablePatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl ITablePatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITablePatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITablePatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITablePatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITablePatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITablePatternIdentifiers as ::windows::core::Interface>::IID
@@ -3068,7 +3104,12 @@ impl ITablePatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITablePatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ColumnHeadersProperty::<Impl, IMPL_OFFSET>, RowHeadersProperty::<Impl, IMPL_OFFSET>, RowOrColumnMajorProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITablePatternIdentifiersStatics, BASE_OFFSET>(),
+            ColumnHeadersProperty: ColumnHeadersProperty::<Impl, IMPL_OFFSET>,
+            RowHeadersProperty: RowHeadersProperty::<Impl, IMPL_OFFSET>,
+            RowOrColumnMajorProperty: RowOrColumnMajorProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITablePatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -3083,7 +3124,7 @@ impl ::windows::core::RuntimeName for ITogglePatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl ITogglePatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITogglePatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITogglePatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITogglePatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITogglePatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITogglePatternIdentifiers as ::windows::core::Interface>::IID
@@ -3111,7 +3152,10 @@ impl ITogglePatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITogglePatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ToggleStateProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITogglePatternIdentifiersStatics, BASE_OFFSET>(),
+            ToggleStateProperty: ToggleStateProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITogglePatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -3126,7 +3170,7 @@ impl ::windows::core::RuntimeName for ITransformPattern2Identifiers {
 #[cfg(feature = "implement_exclusive")]
 impl ITransformPattern2IdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformPattern2IdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransformPattern2IdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformPattern2Identifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITransformPattern2Identifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITransformPattern2Identifiers as ::windows::core::Interface>::IID
@@ -3190,7 +3234,13 @@ impl ITransformPattern2IdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformPattern2IdentifiersStatics>, ::windows::core::GetTrustLevel, CanZoomProperty::<Impl, IMPL_OFFSET>, ZoomLevelProperty::<Impl, IMPL_OFFSET>, MaxZoomProperty::<Impl, IMPL_OFFSET>, MinZoomProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITransformPattern2IdentifiersStatics, BASE_OFFSET>(),
+            CanZoomProperty: CanZoomProperty::<Impl, IMPL_OFFSET>,
+            ZoomLevelProperty: ZoomLevelProperty::<Impl, IMPL_OFFSET>,
+            MaxZoomProperty: MaxZoomProperty::<Impl, IMPL_OFFSET>,
+            MinZoomProperty: MinZoomProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITransformPattern2IdentifiersStatics as ::windows::core::Interface>::IID
@@ -3205,7 +3255,7 @@ impl ::windows::core::RuntimeName for ITransformPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl ITransformPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransformPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITransformPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITransformPatternIdentifiers as ::windows::core::Interface>::IID
@@ -3257,7 +3307,12 @@ impl ITransformPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, CanMoveProperty::<Impl, IMPL_OFFSET>, CanResizeProperty::<Impl, IMPL_OFFSET>, CanRotateProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITransformPatternIdentifiersStatics, BASE_OFFSET>(),
+            CanMoveProperty: CanMoveProperty::<Impl, IMPL_OFFSET>,
+            CanResizeProperty: CanResizeProperty::<Impl, IMPL_OFFSET>,
+            CanRotateProperty: CanRotateProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITransformPatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -3272,7 +3327,7 @@ impl ::windows::core::RuntimeName for IValuePatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IValuePatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValuePatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IValuePatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IValuePatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IValuePatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IValuePatternIdentifiers as ::windows::core::Interface>::IID
@@ -3312,7 +3367,11 @@ impl IValuePatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IValuePatternIdentifiersStatics>, ::windows::core::GetTrustLevel, IsReadOnlyProperty::<Impl, IMPL_OFFSET>, ValueProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IValuePatternIdentifiersStatics, BASE_OFFSET>(),
+            IsReadOnlyProperty: IsReadOnlyProperty::<Impl, IMPL_OFFSET>,
+            ValueProperty: ValueProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IValuePatternIdentifiersStatics as ::windows::core::Interface>::IID
@@ -3327,7 +3386,7 @@ impl ::windows::core::RuntimeName for IWindowPatternIdentifiers {
 #[cfg(feature = "implement_exclusive")]
 impl IWindowPatternIdentifiersVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowPatternIdentifiers>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWindowPatternIdentifiers, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowPatternIdentifiers as ::windows::core::Interface>::IID
@@ -3415,20 +3474,15 @@ impl IWindowPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWindowPatternIdentifiersStatics>,
-            ::windows::core::GetTrustLevel,
-            CanMaximizeProperty::<Impl, IMPL_OFFSET>,
-            CanMinimizeProperty::<Impl, IMPL_OFFSET>,
-            IsModalProperty::<Impl, IMPL_OFFSET>,
-            IsTopmostProperty::<Impl, IMPL_OFFSET>,
-            WindowInteractionStateProperty::<Impl, IMPL_OFFSET>,
-            WindowVisualStateProperty::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWindowPatternIdentifiersStatics, BASE_OFFSET>(),
+            CanMaximizeProperty: CanMaximizeProperty::<Impl, IMPL_OFFSET>,
+            CanMinimizeProperty: CanMinimizeProperty::<Impl, IMPL_OFFSET>,
+            IsModalProperty: IsModalProperty::<Impl, IMPL_OFFSET>,
+            IsTopmostProperty: IsTopmostProperty::<Impl, IMPL_OFFSET>,
+            WindowInteractionStateProperty: WindowInteractionStateProperty::<Impl, IMPL_OFFSET>,
+            WindowVisualStateProperty: WindowVisualStateProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowPatternIdentifiersStatics as ::windows::core::Interface>::IID

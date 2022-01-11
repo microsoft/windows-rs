@@ -9,7 +9,7 @@ impl IDedupBackupSupportVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, RestoreFiles::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), RestoreFiles: RestoreFiles::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDedupBackupSupport as ::windows::core::Interface>::IID
@@ -41,7 +41,13 @@ impl IDedupChunkLibraryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, InitializeForPushBuffers::<Impl, IMPL_OFFSET>, Uninitialize::<Impl, IMPL_OFFSET>, SetParameter::<Impl, IMPL_OFFSET>, StartChunking::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            InitializeForPushBuffers: InitializeForPushBuffers::<Impl, IMPL_OFFSET>,
+            Uninitialize: Uninitialize::<Impl, IMPL_OFFSET>,
+            SetParameter: SetParameter::<Impl, IMPL_OFFSET>,
+            StartChunking: StartChunking::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDedupChunkLibrary as ::windows::core::Interface>::IID
@@ -113,23 +119,21 @@ impl IDedupDataPortVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetStatus::<Impl, IMPL_OFFSET>,
-            LookupChunks::<Impl, IMPL_OFFSET>,
-            InsertChunks::<Impl, IMPL_OFFSET>,
-            InsertChunksWithStream::<Impl, IMPL_OFFSET>,
-            CommitStreams::<Impl, IMPL_OFFSET>,
-            CommitStreamsWithStream::<Impl, IMPL_OFFSET>,
-            GetStreams::<Impl, IMPL_OFFSET>,
-            GetStreamsResults::<Impl, IMPL_OFFSET>,
-            GetChunks::<Impl, IMPL_OFFSET>,
-            GetChunksResults::<Impl, IMPL_OFFSET>,
-            GetRequestStatus::<Impl, IMPL_OFFSET>,
-            GetRequestResults::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            LookupChunks: LookupChunks::<Impl, IMPL_OFFSET>,
+            InsertChunks: InsertChunks::<Impl, IMPL_OFFSET>,
+            InsertChunksWithStream: InsertChunksWithStream::<Impl, IMPL_OFFSET>,
+            CommitStreams: CommitStreams::<Impl, IMPL_OFFSET>,
+            CommitStreamsWithStream: CommitStreamsWithStream::<Impl, IMPL_OFFSET>,
+            GetStreams: GetStreams::<Impl, IMPL_OFFSET>,
+            GetStreamsResults: GetStreamsResults::<Impl, IMPL_OFFSET>,
+            GetChunks: GetChunks::<Impl, IMPL_OFFSET>,
+            GetChunksResults: GetChunksResults::<Impl, IMPL_OFFSET>,
+            GetRequestStatus: GetRequestStatus::<Impl, IMPL_OFFSET>,
+            GetRequestResults: GetRequestResults::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDedupDataPort as ::windows::core::Interface>::IID
@@ -156,7 +160,12 @@ impl IDedupDataPortManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetConfiguration::<Impl, IMPL_OFFSET>, GetVolumeStatus::<Impl, IMPL_OFFSET>, GetVolumeDataPort::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetConfiguration: GetConfiguration::<Impl, IMPL_OFFSET>,
+            GetVolumeStatus: GetVolumeStatus::<Impl, IMPL_OFFSET>,
+            GetVolumeDataPort: GetVolumeDataPort::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDedupDataPortManager as ::windows::core::Interface>::IID
@@ -186,7 +195,13 @@ impl IDedupIterateChunksHash32Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, PushBuffer::<Impl, IMPL_OFFSET>, Next::<Impl, IMPL_OFFSET>, Drain::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            PushBuffer: PushBuffer::<Impl, IMPL_OFFSET>,
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Drain: Drain::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDedupIterateChunksHash32 as ::windows::core::Interface>::IID
@@ -213,7 +228,12 @@ impl IDedupReadFileCallbackVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ReadBackupFile::<Impl, IMPL_OFFSET>, OrderContainersRestore::<Impl, IMPL_OFFSET>, PreviewContainerRead::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ReadBackupFile: ReadBackupFile::<Impl, IMPL_OFFSET>,
+            OrderContainersRestore: OrderContainersRestore::<Impl, IMPL_OFFSET>,
+            PreviewContainerRead: PreviewContainerRead::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDedupReadFileCallback as ::windows::core::Interface>::IID

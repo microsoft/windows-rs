@@ -202,36 +202,31 @@ impl ISmsAppMessageVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBinaryBody(&*(&value as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmsAppMessage>,
-            ::windows::core::GetTrustLevel,
-            Timestamp::<Impl, IMPL_OFFSET>,
-            To::<Impl, IMPL_OFFSET>,
-            SetTo::<Impl, IMPL_OFFSET>,
-            From::<Impl, IMPL_OFFSET>,
-            Body::<Impl, IMPL_OFFSET>,
-            SetBody::<Impl, IMPL_OFFSET>,
-            CallbackNumber::<Impl, IMPL_OFFSET>,
-            SetCallbackNumber::<Impl, IMPL_OFFSET>,
-            IsDeliveryNotificationEnabled::<Impl, IMPL_OFFSET>,
-            SetIsDeliveryNotificationEnabled::<Impl, IMPL_OFFSET>,
-            RetryAttemptCount::<Impl, IMPL_OFFSET>,
-            SetRetryAttemptCount::<Impl, IMPL_OFFSET>,
-            Encoding::<Impl, IMPL_OFFSET>,
-            SetEncoding::<Impl, IMPL_OFFSET>,
-            PortNumber::<Impl, IMPL_OFFSET>,
-            SetPortNumber::<Impl, IMPL_OFFSET>,
-            TeleserviceId::<Impl, IMPL_OFFSET>,
-            SetTeleserviceId::<Impl, IMPL_OFFSET>,
-            ProtocolId::<Impl, IMPL_OFFSET>,
-            SetProtocolId::<Impl, IMPL_OFFSET>,
-            BinaryBody::<Impl, IMPL_OFFSET>,
-            SetBinaryBody::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsAppMessage, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            To: To::<Impl, IMPL_OFFSET>,
+            SetTo: SetTo::<Impl, IMPL_OFFSET>,
+            From: From::<Impl, IMPL_OFFSET>,
+            Body: Body::<Impl, IMPL_OFFSET>,
+            SetBody: SetBody::<Impl, IMPL_OFFSET>,
+            CallbackNumber: CallbackNumber::<Impl, IMPL_OFFSET>,
+            SetCallbackNumber: SetCallbackNumber::<Impl, IMPL_OFFSET>,
+            IsDeliveryNotificationEnabled: IsDeliveryNotificationEnabled::<Impl, IMPL_OFFSET>,
+            SetIsDeliveryNotificationEnabled: SetIsDeliveryNotificationEnabled::<Impl, IMPL_OFFSET>,
+            RetryAttemptCount: RetryAttemptCount::<Impl, IMPL_OFFSET>,
+            SetRetryAttemptCount: SetRetryAttemptCount::<Impl, IMPL_OFFSET>,
+            Encoding: Encoding::<Impl, IMPL_OFFSET>,
+            SetEncoding: SetEncoding::<Impl, IMPL_OFFSET>,
+            PortNumber: PortNumber::<Impl, IMPL_OFFSET>,
+            SetPortNumber: SetPortNumber::<Impl, IMPL_OFFSET>,
+            TeleserviceId: TeleserviceId::<Impl, IMPL_OFFSET>,
+            SetTeleserviceId: SetTeleserviceId::<Impl, IMPL_OFFSET>,
+            ProtocolId: ProtocolId::<Impl, IMPL_OFFSET>,
+            SetProtocolId: SetProtocolId::<Impl, IMPL_OFFSET>,
+            BinaryBody: BinaryBody::<Impl, IMPL_OFFSET>,
+            SetBinaryBody: SetBinaryBody::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsAppMessage as ::windows::core::Interface>::IID
@@ -282,7 +277,13 @@ impl ISmsBinaryMessageVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetData(::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsBinaryMessage>, ::windows::core::GetTrustLevel, Format::<Impl, IMPL_OFFSET>, SetFormat::<Impl, IMPL_OFFSET>, GetData::<Impl, IMPL_OFFSET>, SetData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsBinaryMessage, BASE_OFFSET>(),
+            Format: Format::<Impl, IMPL_OFFSET>,
+            SetFormat: SetFormat::<Impl, IMPL_OFFSET>,
+            GetData: GetData::<Impl, IMPL_OFFSET>,
+            SetData: SetData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsBinaryMessage as ::windows::core::Interface>::IID
@@ -418,24 +419,19 @@ impl ISmsBroadcastMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmsBroadcastMessage>,
-            ::windows::core::GetTrustLevel,
-            Timestamp::<Impl, IMPL_OFFSET>,
-            To::<Impl, IMPL_OFFSET>,
-            Body::<Impl, IMPL_OFFSET>,
-            Channel::<Impl, IMPL_OFFSET>,
-            GeographicalScope::<Impl, IMPL_OFFSET>,
-            MessageCode::<Impl, IMPL_OFFSET>,
-            UpdateNumber::<Impl, IMPL_OFFSET>,
-            BroadcastType::<Impl, IMPL_OFFSET>,
-            IsEmergencyAlert::<Impl, IMPL_OFFSET>,
-            IsUserPopupRequested::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsBroadcastMessage, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            To: To::<Impl, IMPL_OFFSET>,
+            Body: Body::<Impl, IMPL_OFFSET>,
+            Channel: Channel::<Impl, IMPL_OFFSET>,
+            GeographicalScope: GeographicalScope::<Impl, IMPL_OFFSET>,
+            MessageCode: MessageCode::<Impl, IMPL_OFFSET>,
+            UpdateNumber: UpdateNumber::<Impl, IMPL_OFFSET>,
+            BroadcastType: BroadcastType::<Impl, IMPL_OFFSET>,
+            IsEmergencyAlert: IsEmergencyAlert::<Impl, IMPL_OFFSET>,
+            IsUserPopupRequested: IsUserPopupRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsBroadcastMessage as ::windows::core::Interface>::IID
@@ -557,24 +553,19 @@ impl ISmsDeviceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSmsDeviceStatusChanged(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmsDevice>,
-            ::windows::core::GetTrustLevel,
-            SendMessageAsync::<Impl, IMPL_OFFSET>,
-            CalculateLength::<Impl, IMPL_OFFSET>,
-            AccountPhoneNumber::<Impl, IMPL_OFFSET>,
-            CellularClass::<Impl, IMPL_OFFSET>,
-            MessageStore::<Impl, IMPL_OFFSET>,
-            DeviceStatus::<Impl, IMPL_OFFSET>,
-            SmsMessageReceived::<Impl, IMPL_OFFSET>,
-            RemoveSmsMessageReceived::<Impl, IMPL_OFFSET>,
-            SmsDeviceStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveSmsDeviceStatusChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsDevice, BASE_OFFSET>(),
+            SendMessageAsync: SendMessageAsync::<Impl, IMPL_OFFSET>,
+            CalculateLength: CalculateLength::<Impl, IMPL_OFFSET>,
+            AccountPhoneNumber: AccountPhoneNumber::<Impl, IMPL_OFFSET>,
+            CellularClass: CellularClass::<Impl, IMPL_OFFSET>,
+            MessageStore: MessageStore::<Impl, IMPL_OFFSET>,
+            DeviceStatus: DeviceStatus::<Impl, IMPL_OFFSET>,
+            SmsMessageReceived: SmsMessageReceived::<Impl, IMPL_OFFSET>,
+            RemoveSmsMessageReceived: RemoveSmsMessageReceived::<Impl, IMPL_OFFSET>,
+            SmsDeviceStatusChanged: SmsDeviceStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveSmsDeviceStatusChanged: RemoveSmsDeviceStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsDevice as ::windows::core::Interface>::IID
@@ -708,25 +699,20 @@ impl ISmsDevice2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDeviceStatusChanged(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmsDevice2>,
-            ::windows::core::GetTrustLevel,
-            SmscAddress::<Impl, IMPL_OFFSET>,
-            SetSmscAddress::<Impl, IMPL_OFFSET>,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            ParentDeviceId::<Impl, IMPL_OFFSET>,
-            AccountPhoneNumber::<Impl, IMPL_OFFSET>,
-            CellularClass::<Impl, IMPL_OFFSET>,
-            DeviceStatus::<Impl, IMPL_OFFSET>,
-            CalculateLength::<Impl, IMPL_OFFSET>,
-            SendMessageAndGetResultAsync::<Impl, IMPL_OFFSET>,
-            DeviceStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveDeviceStatusChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsDevice2, BASE_OFFSET>(),
+            SmscAddress: SmscAddress::<Impl, IMPL_OFFSET>,
+            SetSmscAddress: SetSmscAddress::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            ParentDeviceId: ParentDeviceId::<Impl, IMPL_OFFSET>,
+            AccountPhoneNumber: AccountPhoneNumber::<Impl, IMPL_OFFSET>,
+            CellularClass: CellularClass::<Impl, IMPL_OFFSET>,
+            DeviceStatus: DeviceStatus::<Impl, IMPL_OFFSET>,
+            CalculateLength: CalculateLength::<Impl, IMPL_OFFSET>,
+            SendMessageAndGetResultAsync: SendMessageAndGetResultAsync::<Impl, IMPL_OFFSET>,
+            DeviceStatusChanged: DeviceStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveDeviceStatusChanged: RemoveDeviceStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsDevice2 as ::windows::core::Interface>::IID
@@ -790,7 +776,13 @@ impl ISmsDevice2StaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsDevice2Statics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromId::<Impl, IMPL_OFFSET>, GetDefault::<Impl, IMPL_OFFSET>, FromParentId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsDevice2Statics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromId: FromId::<Impl, IMPL_OFFSET>,
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            FromParentId: FromParentId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsDevice2Statics as ::windows::core::Interface>::IID
@@ -866,7 +858,14 @@ impl ISmsDeviceMessageStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsDeviceMessageStore>, ::windows::core::GetTrustLevel, DeleteMessageAsync::<Impl, IMPL_OFFSET>, DeleteMessagesAsync::<Impl, IMPL_OFFSET>, GetMessageAsync::<Impl, IMPL_OFFSET>, GetMessagesAsync::<Impl, IMPL_OFFSET>, MaxMessages::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsDeviceMessageStore, BASE_OFFSET>(),
+            DeleteMessageAsync: DeleteMessageAsync::<Impl, IMPL_OFFSET>,
+            DeleteMessagesAsync: DeleteMessagesAsync::<Impl, IMPL_OFFSET>,
+            GetMessageAsync: GetMessageAsync::<Impl, IMPL_OFFSET>,
+            GetMessagesAsync: GetMessagesAsync::<Impl, IMPL_OFFSET>,
+            MaxMessages: MaxMessages::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsDeviceMessageStore as ::windows::core::Interface>::IID
@@ -918,7 +917,12 @@ impl ISmsDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsDeviceStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsDeviceStatics as ::windows::core::Interface>::IID
@@ -946,7 +950,10 @@ impl ISmsDeviceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsDeviceStatics2>, ::windows::core::GetTrustLevel, FromNetworkAccountIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsDeviceStatics2, BASE_OFFSET>(),
+            FromNetworkAccountIdAsync: FromNetworkAccountIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsDeviceStatics2 as ::windows::core::Interface>::IID
@@ -1123,28 +1130,23 @@ impl ISmsFilterRuleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmsFilterRule>,
-            ::windows::core::GetTrustLevel,
-            MessageType::<Impl, IMPL_OFFSET>,
-            ImsiPrefixes::<Impl, IMPL_OFFSET>,
-            DeviceIds::<Impl, IMPL_OFFSET>,
-            SenderNumbers::<Impl, IMPL_OFFSET>,
-            TextMessagePrefixes::<Impl, IMPL_OFFSET>,
-            PortNumbers::<Impl, IMPL_OFFSET>,
-            CellularClass::<Impl, IMPL_OFFSET>,
-            SetCellularClass::<Impl, IMPL_OFFSET>,
-            ProtocolIds::<Impl, IMPL_OFFSET>,
-            TeleserviceIds::<Impl, IMPL_OFFSET>,
-            WapApplicationIds::<Impl, IMPL_OFFSET>,
-            WapContentTypes::<Impl, IMPL_OFFSET>,
-            BroadcastTypes::<Impl, IMPL_OFFSET>,
-            BroadcastChannels::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsFilterRule, BASE_OFFSET>(),
+            MessageType: MessageType::<Impl, IMPL_OFFSET>,
+            ImsiPrefixes: ImsiPrefixes::<Impl, IMPL_OFFSET>,
+            DeviceIds: DeviceIds::<Impl, IMPL_OFFSET>,
+            SenderNumbers: SenderNumbers::<Impl, IMPL_OFFSET>,
+            TextMessagePrefixes: TextMessagePrefixes::<Impl, IMPL_OFFSET>,
+            PortNumbers: PortNumbers::<Impl, IMPL_OFFSET>,
+            CellularClass: CellularClass::<Impl, IMPL_OFFSET>,
+            SetCellularClass: SetCellularClass::<Impl, IMPL_OFFSET>,
+            ProtocolIds: ProtocolIds::<Impl, IMPL_OFFSET>,
+            TeleserviceIds: TeleserviceIds::<Impl, IMPL_OFFSET>,
+            WapApplicationIds: WapApplicationIds::<Impl, IMPL_OFFSET>,
+            WapContentTypes: WapContentTypes::<Impl, IMPL_OFFSET>,
+            BroadcastTypes: BroadcastTypes::<Impl, IMPL_OFFSET>,
+            BroadcastChannels: BroadcastChannels::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsFilterRule as ::windows::core::Interface>::IID
@@ -1172,7 +1174,10 @@ impl ISmsFilterRuleFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsFilterRuleFactory>, ::windows::core::GetTrustLevel, CreateFilterRule::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsFilterRuleFactory, BASE_OFFSET>(),
+            CreateFilterRule: CreateFilterRule::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsFilterRuleFactory as ::windows::core::Interface>::IID
@@ -1212,7 +1217,11 @@ impl ISmsFilterRulesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsFilterRules>, ::windows::core::GetTrustLevel, ActionType::<Impl, IMPL_OFFSET>, Rules::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsFilterRules, BASE_OFFSET>(),
+            ActionType: ActionType::<Impl, IMPL_OFFSET>,
+            Rules: Rules::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsFilterRules as ::windows::core::Interface>::IID
@@ -1240,7 +1249,10 @@ impl ISmsFilterRulesFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsFilterRulesFactory>, ::windows::core::GetTrustLevel, CreateFilterRules::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsFilterRulesFactory, BASE_OFFSET>(),
+            CreateFilterRules: CreateFilterRules::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsFilterRulesFactory as ::windows::core::Interface>::IID
@@ -1277,7 +1289,11 @@ impl ISmsMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessage>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, MessageClass::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsMessage, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            MessageClass: MessageClass::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsMessage as ::windows::core::Interface>::IID
@@ -1350,7 +1366,14 @@ impl ISmsMessageBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageBase>, ::windows::core::GetTrustLevel, MessageType::<Impl, IMPL_OFFSET>, DeviceId::<Impl, IMPL_OFFSET>, CellularClass::<Impl, IMPL_OFFSET>, MessageClass::<Impl, IMPL_OFFSET>, SimIccId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsMessageBase, BASE_OFFSET>(),
+            MessageType: MessageType::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            CellularClass: CellularClass::<Impl, IMPL_OFFSET>,
+            MessageClass: MessageClass::<Impl, IMPL_OFFSET>,
+            SimIccId: SimIccId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsMessageBase as ::windows::core::Interface>::IID
@@ -1390,7 +1413,11 @@ impl ISmsMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageReceivedEventArgs>, ::windows::core::GetTrustLevel, TextMessage::<Impl, IMPL_OFFSET>, BinaryMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsMessageReceivedEventArgs, BASE_OFFSET>(),
+            TextMessage: TextMessage::<Impl, IMPL_OFFSET>,
+            BinaryMessage: BinaryMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsMessageReceivedEventArgs as ::windows::core::Interface>::IID
@@ -1500,23 +1527,18 @@ impl ISmsMessageReceivedTriggerDetailsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Accept().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmsMessageReceivedTriggerDetails>,
-            ::windows::core::GetTrustLevel,
-            MessageType::<Impl, IMPL_OFFSET>,
-            TextMessage::<Impl, IMPL_OFFSET>,
-            WapMessage::<Impl, IMPL_OFFSET>,
-            AppMessage::<Impl, IMPL_OFFSET>,
-            BroadcastMessage::<Impl, IMPL_OFFSET>,
-            VoicemailMessage::<Impl, IMPL_OFFSET>,
-            StatusMessage::<Impl, IMPL_OFFSET>,
-            Drop::<Impl, IMPL_OFFSET>,
-            Accept::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsMessageReceivedTriggerDetails, BASE_OFFSET>(),
+            MessageType: MessageType::<Impl, IMPL_OFFSET>,
+            TextMessage: TextMessage::<Impl, IMPL_OFFSET>,
+            WapMessage: WapMessage::<Impl, IMPL_OFFSET>,
+            AppMessage: AppMessage::<Impl, IMPL_OFFSET>,
+            BroadcastMessage: BroadcastMessage::<Impl, IMPL_OFFSET>,
+            VoicemailMessage: VoicemailMessage::<Impl, IMPL_OFFSET>,
+            StatusMessage: StatusMessage::<Impl, IMPL_OFFSET>,
+            Drop: Drop::<Impl, IMPL_OFFSET>,
+            Accept: Accept::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsMessageReceivedTriggerDetails as ::windows::core::Interface>::IID
@@ -1566,7 +1588,13 @@ impl ISmsMessageRegistrationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageReceived(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageRegistration>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Unregister::<Impl, IMPL_OFFSET>, MessageReceived::<Impl, IMPL_OFFSET>, RemoveMessageReceived::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsMessageRegistration, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Unregister: Unregister::<Impl, IMPL_OFFSET>,
+            MessageReceived: MessageReceived::<Impl, IMPL_OFFSET>,
+            RemoveMessageReceived: RemoveMessageReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsMessageRegistration as ::windows::core::Interface>::IID
@@ -1606,7 +1634,11 @@ impl ISmsMessageRegistrationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageRegistrationStatics>, ::windows::core::GetTrustLevel, AllRegistrations::<Impl, IMPL_OFFSET>, Register::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsMessageRegistrationStatics, BASE_OFFSET>(),
+            AllRegistrations: AllRegistrations::<Impl, IMPL_OFFSET>,
+            Register: Register::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsMessageRegistrationStatics as ::windows::core::Interface>::IID
@@ -1646,7 +1678,11 @@ impl ISmsReceivedEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsReceivedEventDetails>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, MessageIndex::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsReceivedEventDetails, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            MessageIndex: MessageIndex::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsReceivedEventDetails as ::windows::core::Interface>::IID
@@ -1686,7 +1722,11 @@ impl ISmsReceivedEventDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsReceivedEventDetails2>, ::windows::core::GetTrustLevel, MessageClass::<Impl, IMPL_OFFSET>, BinaryMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsReceivedEventDetails2, BASE_OFFSET>(),
+            MessageClass: MessageClass::<Impl, IMPL_OFFSET>,
+            BinaryMessage: BinaryMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsReceivedEventDetails2 as ::windows::core::Interface>::IID
@@ -1786,21 +1826,16 @@ impl ISmsSendMessageResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmsSendMessageResult>,
-            ::windows::core::GetTrustLevel,
-            IsSuccessful::<Impl, IMPL_OFFSET>,
-            MessageReferenceNumbers::<Impl, IMPL_OFFSET>,
-            CellularClass::<Impl, IMPL_OFFSET>,
-            ModemErrorCode::<Impl, IMPL_OFFSET>,
-            IsErrorTransient::<Impl, IMPL_OFFSET>,
-            NetworkCauseCode::<Impl, IMPL_OFFSET>,
-            TransportFailureCause::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsSendMessageResult, BASE_OFFSET>(),
+            IsSuccessful: IsSuccessful::<Impl, IMPL_OFFSET>,
+            MessageReferenceNumbers: MessageReferenceNumbers::<Impl, IMPL_OFFSET>,
+            CellularClass: CellularClass::<Impl, IMPL_OFFSET>,
+            ModemErrorCode: ModemErrorCode::<Impl, IMPL_OFFSET>,
+            IsErrorTransient: IsErrorTransient::<Impl, IMPL_OFFSET>,
+            NetworkCauseCode: NetworkCauseCode::<Impl, IMPL_OFFSET>,
+            TransportFailureCause: TransportFailureCause::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsSendMessageResult as ::windows::core::Interface>::IID
@@ -1900,21 +1935,16 @@ impl ISmsStatusMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmsStatusMessage>,
-            ::windows::core::GetTrustLevel,
-            To::<Impl, IMPL_OFFSET>,
-            From::<Impl, IMPL_OFFSET>,
-            Body::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            MessageReferenceNumber::<Impl, IMPL_OFFSET>,
-            ServiceCenterTimestamp::<Impl, IMPL_OFFSET>,
-            DischargeTime::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsStatusMessage, BASE_OFFSET>(),
+            To: To::<Impl, IMPL_OFFSET>,
+            From: From::<Impl, IMPL_OFFSET>,
+            Body: Body::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            MessageReferenceNumber: MessageReferenceNumber::<Impl, IMPL_OFFSET>,
+            ServiceCenterTimestamp: ServiceCenterTimestamp::<Impl, IMPL_OFFSET>,
+            DischargeTime: DischargeTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsStatusMessage as ::windows::core::Interface>::IID
@@ -2058,27 +2088,22 @@ impl ISmsTextMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmsTextMessage>,
-            ::windows::core::GetTrustLevel,
-            Timestamp::<Impl, IMPL_OFFSET>,
-            PartReferenceId::<Impl, IMPL_OFFSET>,
-            PartNumber::<Impl, IMPL_OFFSET>,
-            PartCount::<Impl, IMPL_OFFSET>,
-            To::<Impl, IMPL_OFFSET>,
-            SetTo::<Impl, IMPL_OFFSET>,
-            From::<Impl, IMPL_OFFSET>,
-            SetFrom::<Impl, IMPL_OFFSET>,
-            Body::<Impl, IMPL_OFFSET>,
-            SetBody::<Impl, IMPL_OFFSET>,
-            Encoding::<Impl, IMPL_OFFSET>,
-            SetEncoding::<Impl, IMPL_OFFSET>,
-            ToBinaryMessages::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsTextMessage, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            PartReferenceId: PartReferenceId::<Impl, IMPL_OFFSET>,
+            PartNumber: PartNumber::<Impl, IMPL_OFFSET>,
+            PartCount: PartCount::<Impl, IMPL_OFFSET>,
+            To: To::<Impl, IMPL_OFFSET>,
+            SetTo: SetTo::<Impl, IMPL_OFFSET>,
+            From: From::<Impl, IMPL_OFFSET>,
+            SetFrom: SetFrom::<Impl, IMPL_OFFSET>,
+            Body: Body::<Impl, IMPL_OFFSET>,
+            SetBody: SetBody::<Impl, IMPL_OFFSET>,
+            Encoding: Encoding::<Impl, IMPL_OFFSET>,
+            SetEncoding: SetEncoding::<Impl, IMPL_OFFSET>,
+            ToBinaryMessages: ToBinaryMessages::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsTextMessage as ::windows::core::Interface>::IID
@@ -2244,30 +2269,25 @@ impl ISmsTextMessage2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmsTextMessage2>,
-            ::windows::core::GetTrustLevel,
-            Timestamp::<Impl, IMPL_OFFSET>,
-            To::<Impl, IMPL_OFFSET>,
-            SetTo::<Impl, IMPL_OFFSET>,
-            From::<Impl, IMPL_OFFSET>,
-            Body::<Impl, IMPL_OFFSET>,
-            SetBody::<Impl, IMPL_OFFSET>,
-            Encoding::<Impl, IMPL_OFFSET>,
-            SetEncoding::<Impl, IMPL_OFFSET>,
-            CallbackNumber::<Impl, IMPL_OFFSET>,
-            SetCallbackNumber::<Impl, IMPL_OFFSET>,
-            IsDeliveryNotificationEnabled::<Impl, IMPL_OFFSET>,
-            SetIsDeliveryNotificationEnabled::<Impl, IMPL_OFFSET>,
-            RetryAttemptCount::<Impl, IMPL_OFFSET>,
-            SetRetryAttemptCount::<Impl, IMPL_OFFSET>,
-            TeleserviceId::<Impl, IMPL_OFFSET>,
-            ProtocolId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsTextMessage2, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            To: To::<Impl, IMPL_OFFSET>,
+            SetTo: SetTo::<Impl, IMPL_OFFSET>,
+            From: From::<Impl, IMPL_OFFSET>,
+            Body: Body::<Impl, IMPL_OFFSET>,
+            SetBody: SetBody::<Impl, IMPL_OFFSET>,
+            Encoding: Encoding::<Impl, IMPL_OFFSET>,
+            SetEncoding: SetEncoding::<Impl, IMPL_OFFSET>,
+            CallbackNumber: CallbackNumber::<Impl, IMPL_OFFSET>,
+            SetCallbackNumber: SetCallbackNumber::<Impl, IMPL_OFFSET>,
+            IsDeliveryNotificationEnabled: IsDeliveryNotificationEnabled::<Impl, IMPL_OFFSET>,
+            SetIsDeliveryNotificationEnabled: SetIsDeliveryNotificationEnabled::<Impl, IMPL_OFFSET>,
+            RetryAttemptCount: RetryAttemptCount::<Impl, IMPL_OFFSET>,
+            SetRetryAttemptCount: SetRetryAttemptCount::<Impl, IMPL_OFFSET>,
+            TeleserviceId: TeleserviceId::<Impl, IMPL_OFFSET>,
+            ProtocolId: ProtocolId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsTextMessage2 as ::windows::core::Interface>::IID
@@ -2307,7 +2327,11 @@ impl ISmsTextMessageStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsTextMessageStatics>, ::windows::core::GetTrustLevel, FromBinaryMessage::<Impl, IMPL_OFFSET>, FromBinaryData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsTextMessageStatics, BASE_OFFSET>(),
+            FromBinaryMessage: FromBinaryMessage::<Impl, IMPL_OFFSET>,
+            FromBinaryData: FromBinaryData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsTextMessageStatics as ::windows::core::Interface>::IID
@@ -2371,7 +2395,13 @@ impl ISmsVoicemailMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsVoicemailMessage>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, To::<Impl, IMPL_OFFSET>, Body::<Impl, IMPL_OFFSET>, MessageCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsVoicemailMessage, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            To: To::<Impl, IMPL_OFFSET>,
+            Body: Body::<Impl, IMPL_OFFSET>,
+            MessageCount: MessageCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsVoicemailMessage as ::windows::core::Interface>::IID
@@ -2471,21 +2501,16 @@ impl ISmsWapMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISmsWapMessage>,
-            ::windows::core::GetTrustLevel,
-            Timestamp::<Impl, IMPL_OFFSET>,
-            To::<Impl, IMPL_OFFSET>,
-            From::<Impl, IMPL_OFFSET>,
-            ApplicationId::<Impl, IMPL_OFFSET>,
-            ContentType::<Impl, IMPL_OFFSET>,
-            BinaryBody::<Impl, IMPL_OFFSET>,
-            Headers::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsWapMessage, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            To: To::<Impl, IMPL_OFFSET>,
+            From: From::<Impl, IMPL_OFFSET>,
+            ApplicationId: ApplicationId::<Impl, IMPL_OFFSET>,
+            ContentType: ContentType::<Impl, IMPL_OFFSET>,
+            BinaryBody: BinaryBody::<Impl, IMPL_OFFSET>,
+            Headers: Headers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsWapMessage as ::windows::core::Interface>::IID

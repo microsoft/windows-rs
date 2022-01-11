@@ -69,22 +69,17 @@ impl IHttpDiagnosticProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRequestResponseCompleted(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpDiagnosticProvider>,
-            ::windows::core::GetTrustLevel,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            RequestSent::<Impl, IMPL_OFFSET>,
-            RemoveRequestSent::<Impl, IMPL_OFFSET>,
-            ResponseReceived::<Impl, IMPL_OFFSET>,
-            RemoveResponseReceived::<Impl, IMPL_OFFSET>,
-            RequestResponseCompleted::<Impl, IMPL_OFFSET>,
-            RemoveRequestResponseCompleted::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpDiagnosticProvider, BASE_OFFSET>(),
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            RequestSent: RequestSent::<Impl, IMPL_OFFSET>,
+            RemoveRequestSent: RemoveRequestSent::<Impl, IMPL_OFFSET>,
+            ResponseReceived: ResponseReceived::<Impl, IMPL_OFFSET>,
+            RemoveResponseReceived: RemoveResponseReceived::<Impl, IMPL_OFFSET>,
+            RequestResponseCompleted: RequestResponseCompleted::<Impl, IMPL_OFFSET>,
+            RemoveRequestResponseCompleted: RemoveRequestResponseCompleted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpDiagnosticProvider as ::windows::core::Interface>::IID
@@ -184,21 +179,16 @@ impl IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpDiagnosticProviderRequestResponseCompletedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            ActivityId::<Impl, IMPL_OFFSET>,
-            Timestamps::<Impl, IMPL_OFFSET>,
-            RequestedUri::<Impl, IMPL_OFFSET>,
-            ProcessId::<Impl, IMPL_OFFSET>,
-            ThreadId::<Impl, IMPL_OFFSET>,
-            Initiator::<Impl, IMPL_OFFSET>,
-            SourceLocations::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpDiagnosticProviderRequestResponseCompletedEventArgs, BASE_OFFSET>(),
+            ActivityId: ActivityId::<Impl, IMPL_OFFSET>,
+            Timestamps: Timestamps::<Impl, IMPL_OFFSET>,
+            RequestedUri: RequestedUri::<Impl, IMPL_OFFSET>,
+            ProcessId: ProcessId::<Impl, IMPL_OFFSET>,
+            ThreadId: ThreadId::<Impl, IMPL_OFFSET>,
+            Initiator: Initiator::<Impl, IMPL_OFFSET>,
+            SourceLocations: SourceLocations::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpDiagnosticProviderRequestResponseCompletedEventArgs as ::windows::core::Interface>::IID
@@ -322,23 +312,18 @@ impl IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpDiagnosticProviderRequestResponseTimestamps>,
-            ::windows::core::GetTrustLevel,
-            CacheCheckedTimestamp::<Impl, IMPL_OFFSET>,
-            ConnectionInitiatedTimestamp::<Impl, IMPL_OFFSET>,
-            NameResolvedTimestamp::<Impl, IMPL_OFFSET>,
-            SslNegotiatedTimestamp::<Impl, IMPL_OFFSET>,
-            ConnectionCompletedTimestamp::<Impl, IMPL_OFFSET>,
-            RequestSentTimestamp::<Impl, IMPL_OFFSET>,
-            RequestCompletedTimestamp::<Impl, IMPL_OFFSET>,
-            ResponseReceivedTimestamp::<Impl, IMPL_OFFSET>,
-            ResponseCompletedTimestamp::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpDiagnosticProviderRequestResponseTimestamps, BASE_OFFSET>(),
+            CacheCheckedTimestamp: CacheCheckedTimestamp::<Impl, IMPL_OFFSET>,
+            ConnectionInitiatedTimestamp: ConnectionInitiatedTimestamp::<Impl, IMPL_OFFSET>,
+            NameResolvedTimestamp: NameResolvedTimestamp::<Impl, IMPL_OFFSET>,
+            SslNegotiatedTimestamp: SslNegotiatedTimestamp::<Impl, IMPL_OFFSET>,
+            ConnectionCompletedTimestamp: ConnectionCompletedTimestamp::<Impl, IMPL_OFFSET>,
+            RequestSentTimestamp: RequestSentTimestamp::<Impl, IMPL_OFFSET>,
+            RequestCompletedTimestamp: RequestCompletedTimestamp::<Impl, IMPL_OFFSET>,
+            ResponseReceivedTimestamp: ResponseReceivedTimestamp::<Impl, IMPL_OFFSET>,
+            ResponseCompletedTimestamp: ResponseCompletedTimestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpDiagnosticProviderRequestResponseTimestamps as ::windows::core::Interface>::IID
@@ -438,21 +423,16 @@ impl IHttpDiagnosticProviderRequestSentEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpDiagnosticProviderRequestSentEventArgs>,
-            ::windows::core::GetTrustLevel,
-            Timestamp::<Impl, IMPL_OFFSET>,
-            ActivityId::<Impl, IMPL_OFFSET>,
-            Message::<Impl, IMPL_OFFSET>,
-            ProcessId::<Impl, IMPL_OFFSET>,
-            ThreadId::<Impl, IMPL_OFFSET>,
-            Initiator::<Impl, IMPL_OFFSET>,
-            SourceLocations::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpDiagnosticProviderRequestSentEventArgs, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            ActivityId: ActivityId::<Impl, IMPL_OFFSET>,
+            Message: Message::<Impl, IMPL_OFFSET>,
+            ProcessId: ProcessId::<Impl, IMPL_OFFSET>,
+            ThreadId: ThreadId::<Impl, IMPL_OFFSET>,
+            Initiator: Initiator::<Impl, IMPL_OFFSET>,
+            SourceLocations: SourceLocations::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpDiagnosticProviderRequestSentEventArgs as ::windows::core::Interface>::IID
@@ -504,7 +484,12 @@ impl IHttpDiagnosticProviderResponseReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpDiagnosticProviderResponseReceivedEventArgs>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, ActivityId::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpDiagnosticProviderResponseReceivedEventArgs, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            ActivityId: ActivityId::<Impl, IMPL_OFFSET>,
+            Message: Message::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpDiagnosticProviderResponseReceivedEventArgs as ::windows::core::Interface>::IID
@@ -532,7 +517,10 @@ impl IHttpDiagnosticProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpDiagnosticProviderStatics>, ::windows::core::GetTrustLevel, CreateFromProcessDiagnosticInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpDiagnosticProviderStatics, BASE_OFFSET>(),
+            CreateFromProcessDiagnosticInfo: CreateFromProcessDiagnosticInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpDiagnosticProviderStatics as ::windows::core::Interface>::IID
@@ -584,7 +572,12 @@ impl IHttpDiagnosticSourceLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpDiagnosticSourceLocation>, ::windows::core::GetTrustLevel, SourceUri::<Impl, IMPL_OFFSET>, LineNumber::<Impl, IMPL_OFFSET>, ColumnNumber::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpDiagnosticSourceLocation, BASE_OFFSET>(),
+            SourceUri: SourceUri::<Impl, IMPL_OFFSET>,
+            LineNumber: LineNumber::<Impl, IMPL_OFFSET>,
+            ColumnNumber: ColumnNumber::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpDiagnosticSourceLocation as ::windows::core::Interface>::IID

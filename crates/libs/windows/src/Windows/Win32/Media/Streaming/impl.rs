@@ -104,31 +104,29 @@ impl IMFDeviceTransformVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            InitializeTransform::<Impl, IMPL_OFFSET>,
-            GetInputAvailableType::<Impl, IMPL_OFFSET>,
-            GetInputCurrentType::<Impl, IMPL_OFFSET>,
-            GetInputStreamAttributes::<Impl, IMPL_OFFSET>,
-            GetOutputAvailableType::<Impl, IMPL_OFFSET>,
-            GetOutputCurrentType::<Impl, IMPL_OFFSET>,
-            GetOutputStreamAttributes::<Impl, IMPL_OFFSET>,
-            GetStreamCount::<Impl, IMPL_OFFSET>,
-            GetStreamIDs::<Impl, IMPL_OFFSET>,
-            ProcessEvent::<Impl, IMPL_OFFSET>,
-            ProcessInput::<Impl, IMPL_OFFSET>,
-            ProcessMessage::<Impl, IMPL_OFFSET>,
-            ProcessOutput::<Impl, IMPL_OFFSET>,
-            SetInputStreamState::<Impl, IMPL_OFFSET>,
-            GetInputStreamState::<Impl, IMPL_OFFSET>,
-            SetOutputStreamState::<Impl, IMPL_OFFSET>,
-            GetOutputStreamState::<Impl, IMPL_OFFSET>,
-            GetInputStreamPreferredState::<Impl, IMPL_OFFSET>,
-            FlushInputStream::<Impl, IMPL_OFFSET>,
-            FlushOutputStream::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            InitializeTransform: InitializeTransform::<Impl, IMPL_OFFSET>,
+            GetInputAvailableType: GetInputAvailableType::<Impl, IMPL_OFFSET>,
+            GetInputCurrentType: GetInputCurrentType::<Impl, IMPL_OFFSET>,
+            GetInputStreamAttributes: GetInputStreamAttributes::<Impl, IMPL_OFFSET>,
+            GetOutputAvailableType: GetOutputAvailableType::<Impl, IMPL_OFFSET>,
+            GetOutputCurrentType: GetOutputCurrentType::<Impl, IMPL_OFFSET>,
+            GetOutputStreamAttributes: GetOutputStreamAttributes::<Impl, IMPL_OFFSET>,
+            GetStreamCount: GetStreamCount::<Impl, IMPL_OFFSET>,
+            GetStreamIDs: GetStreamIDs::<Impl, IMPL_OFFSET>,
+            ProcessEvent: ProcessEvent::<Impl, IMPL_OFFSET>,
+            ProcessInput: ProcessInput::<Impl, IMPL_OFFSET>,
+            ProcessMessage: ProcessMessage::<Impl, IMPL_OFFSET>,
+            ProcessOutput: ProcessOutput::<Impl, IMPL_OFFSET>,
+            SetInputStreamState: SetInputStreamState::<Impl, IMPL_OFFSET>,
+            GetInputStreamState: GetInputStreamState::<Impl, IMPL_OFFSET>,
+            SetOutputStreamState: SetOutputStreamState::<Impl, IMPL_OFFSET>,
+            GetOutputStreamState: GetOutputStreamState::<Impl, IMPL_OFFSET>,
+            GetInputStreamPreferredState: GetInputStreamPreferredState::<Impl, IMPL_OFFSET>,
+            FlushInputStream: FlushInputStream::<Impl, IMPL_OFFSET>,
+            FlushOutputStream: FlushOutputStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMFDeviceTransform as ::windows::core::Interface>::IID
@@ -145,7 +143,7 @@ impl IMFDeviceTransformCallbackVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnBufferSent::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnBufferSent: OnBufferSent::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMFDeviceTransformCallback as ::windows::core::Interface>::IID

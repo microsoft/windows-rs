@@ -4253,13 +4253,13 @@ impl IDialBranding {
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwzconnectoid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwzconnectoid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pwzconnectoid.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self, dwindex: u32) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP> {
         let mut result__: super::super::Graphics::Gdi::HBITMAP = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
+        (::windows::core::Interface::vtable(self).GetBitmap)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
     }
 }
 impl ::core::convert::From<IDialBranding> for ::windows::core::IUnknown {
@@ -4304,15 +4304,17 @@ unsafe impl ::windows::core::Interface for IDialBranding {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialBrandingVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-);
+pub struct IDialBrandingVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Initialize: usize,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub GetBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    GetBitmap: usize,
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 #[repr(transparent)]
 pub struct IDialEngine(::windows::core::IUnknown);
@@ -4320,35 +4322,35 @@ impl IDialEngine {
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IDialEventSink>>(&self, pwzconnectoid: Param0, pides: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwzconnectoid.into_param().abi(), pides.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pwzconnectoid.into_param().abi(), pides.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwzproperty: Param0, pwzvalue: Param1, dwbufsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi(), ::core::mem::transmute(dwbufsize)).ok()
+        (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi(), ::core::mem::transmute(dwbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwzproperty: Param0, pwzvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetProperty)(::core::mem::transmute_copy(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
     pub unsafe fn Dial(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Dial)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
     pub unsafe fn HangUp(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).HangUp)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
     pub unsafe fn GetConnectedState(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetConnectedState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
     pub unsafe fn GetConnectHandle(&self) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).GetConnectHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
 }
 impl ::core::convert::From<IDialEngine> for ::windows::core::IUnknown {
@@ -4393,28 +4395,32 @@ unsafe impl ::windows::core::Interface for IDialEngine {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialEngineVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: super::super::Foundation::PWSTR, pides: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR, dwbufsize: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwhandle: *mut usize) -> ::windows::core::HRESULT,
-);
+pub struct IDialEngineVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: super::super::Foundation::PWSTR, pides: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Initialize: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR, dwbufsize: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetProperty: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetProperty: usize,
+    pub Dial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub HangUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetConnectedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT,
+    pub GetConnectHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwhandle: *mut usize) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 #[repr(transparent)]
 pub struct IDialEventSink(::windows::core::IUnknown);
 impl IDialEventSink {
     #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
     pub unsafe fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwevent), ::core::mem::transmute(dwstatus)).ok()
+        (::windows::core::Interface::vtable(self).OnEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwevent), ::core::mem::transmute(dwstatus)).ok()
     }
 }
 impl ::core::convert::From<IDialEventSink> for ::windows::core::IUnknown {
@@ -4459,7 +4465,10 @@ unsafe impl ::windows::core::Interface for IDialEventSink {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialEventSinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwevent: u32, dwstatus: u32) -> ::windows::core::HRESULT);
+pub struct IDialEventSinkVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwevent: u32, dwstatus: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const IMMUTABLE_CACHE_ENTRY: u32 = 524288u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -7070,7 +7079,7 @@ impl IProofOfPossessionCookieInfoManager {
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCookieInfoForUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uri: Param0, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), uri.into_param().abi(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
+        (::windows::core::Interface::vtable(self).GetCookieInfoForUri)(::core::mem::transmute_copy(self), uri.into_param().abi(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
     }
 }
 impl ::core::convert::From<IProofOfPossessionCookieInfoManager> for ::windows::core::IUnknown {
@@ -7115,13 +7124,13 @@ unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProofOfPossessionCookieInfoManagerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IProofOfPossessionCookieInfoManagerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetCookieInfoForUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetCookieInfoForUri: usize,
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 #[repr(transparent)]
 pub struct IProofOfPossessionCookieInfoManager2(::windows::core::IUnknown);
@@ -7129,7 +7138,7 @@ impl IProofOfPossessionCookieInfoManager2 {
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCookieInfoWithUriForAccount<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, webaccount: Param0, uri: Param1, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), webaccount.into_param().abi(), uri.into_param().abi(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
+        (::windows::core::Interface::vtable(self).GetCookieInfoWithUriForAccount)(::core::mem::transmute_copy(self), webaccount.into_param().abi(), uri.into_param().abi(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
     }
 }
 impl ::core::convert::From<IProofOfPossessionCookieInfoManager2> for ::windows::core::IUnknown {
@@ -7174,13 +7183,13 @@ unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager2 
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProofOfPossessionCookieInfoManager2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IProofOfPossessionCookieInfoManager2Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetCookieInfoWithUriForAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetCookieInfoWithUriForAccount: usize,
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const IRF_ASYNC: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]

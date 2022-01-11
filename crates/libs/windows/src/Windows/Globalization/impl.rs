@@ -49,7 +49,13 @@ impl IApplicationLanguagesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationLanguagesStatics>, ::windows::core::GetTrustLevel, PrimaryLanguageOverride::<Impl, IMPL_OFFSET>, SetPrimaryLanguageOverride::<Impl, IMPL_OFFSET>, Languages::<Impl, IMPL_OFFSET>, ManifestLanguages::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationLanguagesStatics, BASE_OFFSET>(),
+            PrimaryLanguageOverride: PrimaryLanguageOverride::<Impl, IMPL_OFFSET>,
+            SetPrimaryLanguageOverride: SetPrimaryLanguageOverride::<Impl, IMPL_OFFSET>,
+            Languages: Languages::<Impl, IMPL_OFFSET>,
+            ManifestLanguages: ManifestLanguages::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationLanguagesStatics as ::windows::core::Interface>::IID
@@ -77,7 +83,10 @@ impl IApplicationLanguagesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationLanguagesStatics2>, ::windows::core::GetTrustLevel, GetLanguagesForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationLanguagesStatics2, BASE_OFFSET>(),
+            GetLanguagesForUser: GetLanguagesForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationLanguagesStatics2 as ::windows::core::Interface>::IID
@@ -1080,112 +1089,107 @@ impl ICalendarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICalendar>,
-            ::windows::core::GetTrustLevel,
-            Clone::<Impl, IMPL_OFFSET>,
-            SetToMin::<Impl, IMPL_OFFSET>,
-            SetToMax::<Impl, IMPL_OFFSET>,
-            Languages::<Impl, IMPL_OFFSET>,
-            NumeralSystem::<Impl, IMPL_OFFSET>,
-            SetNumeralSystem::<Impl, IMPL_OFFSET>,
-            GetCalendarSystem::<Impl, IMPL_OFFSET>,
-            ChangeCalendarSystem::<Impl, IMPL_OFFSET>,
-            GetClock::<Impl, IMPL_OFFSET>,
-            ChangeClock::<Impl, IMPL_OFFSET>,
-            GetDateTime::<Impl, IMPL_OFFSET>,
-            SetDateTime::<Impl, IMPL_OFFSET>,
-            SetToNow::<Impl, IMPL_OFFSET>,
-            FirstEra::<Impl, IMPL_OFFSET>,
-            LastEra::<Impl, IMPL_OFFSET>,
-            NumberOfEras::<Impl, IMPL_OFFSET>,
-            Era::<Impl, IMPL_OFFSET>,
-            SetEra::<Impl, IMPL_OFFSET>,
-            AddEras::<Impl, IMPL_OFFSET>,
-            EraAsFullString::<Impl, IMPL_OFFSET>,
-            EraAsString::<Impl, IMPL_OFFSET>,
-            FirstYearInThisEra::<Impl, IMPL_OFFSET>,
-            LastYearInThisEra::<Impl, IMPL_OFFSET>,
-            NumberOfYearsInThisEra::<Impl, IMPL_OFFSET>,
-            Year::<Impl, IMPL_OFFSET>,
-            SetYear::<Impl, IMPL_OFFSET>,
-            AddYears::<Impl, IMPL_OFFSET>,
-            YearAsString::<Impl, IMPL_OFFSET>,
-            YearAsTruncatedString::<Impl, IMPL_OFFSET>,
-            YearAsPaddedString::<Impl, IMPL_OFFSET>,
-            FirstMonthInThisYear::<Impl, IMPL_OFFSET>,
-            LastMonthInThisYear::<Impl, IMPL_OFFSET>,
-            NumberOfMonthsInThisYear::<Impl, IMPL_OFFSET>,
-            Month::<Impl, IMPL_OFFSET>,
-            SetMonth::<Impl, IMPL_OFFSET>,
-            AddMonths::<Impl, IMPL_OFFSET>,
-            MonthAsFullString::<Impl, IMPL_OFFSET>,
-            MonthAsString::<Impl, IMPL_OFFSET>,
-            MonthAsFullSoloString::<Impl, IMPL_OFFSET>,
-            MonthAsSoloString::<Impl, IMPL_OFFSET>,
-            MonthAsNumericString::<Impl, IMPL_OFFSET>,
-            MonthAsPaddedNumericString::<Impl, IMPL_OFFSET>,
-            AddWeeks::<Impl, IMPL_OFFSET>,
-            FirstDayInThisMonth::<Impl, IMPL_OFFSET>,
-            LastDayInThisMonth::<Impl, IMPL_OFFSET>,
-            NumberOfDaysInThisMonth::<Impl, IMPL_OFFSET>,
-            Day::<Impl, IMPL_OFFSET>,
-            SetDay::<Impl, IMPL_OFFSET>,
-            AddDays::<Impl, IMPL_OFFSET>,
-            DayAsString::<Impl, IMPL_OFFSET>,
-            DayAsPaddedString::<Impl, IMPL_OFFSET>,
-            DayOfWeek::<Impl, IMPL_OFFSET>,
-            DayOfWeekAsFullString::<Impl, IMPL_OFFSET>,
-            DayOfWeekAsString::<Impl, IMPL_OFFSET>,
-            DayOfWeekAsFullSoloString::<Impl, IMPL_OFFSET>,
-            DayOfWeekAsSoloString::<Impl, IMPL_OFFSET>,
-            FirstPeriodInThisDay::<Impl, IMPL_OFFSET>,
-            LastPeriodInThisDay::<Impl, IMPL_OFFSET>,
-            NumberOfPeriodsInThisDay::<Impl, IMPL_OFFSET>,
-            Period::<Impl, IMPL_OFFSET>,
-            SetPeriod::<Impl, IMPL_OFFSET>,
-            AddPeriods::<Impl, IMPL_OFFSET>,
-            PeriodAsFullString::<Impl, IMPL_OFFSET>,
-            PeriodAsString::<Impl, IMPL_OFFSET>,
-            FirstHourInThisPeriod::<Impl, IMPL_OFFSET>,
-            LastHourInThisPeriod::<Impl, IMPL_OFFSET>,
-            NumberOfHoursInThisPeriod::<Impl, IMPL_OFFSET>,
-            Hour::<Impl, IMPL_OFFSET>,
-            SetHour::<Impl, IMPL_OFFSET>,
-            AddHours::<Impl, IMPL_OFFSET>,
-            HourAsString::<Impl, IMPL_OFFSET>,
-            HourAsPaddedString::<Impl, IMPL_OFFSET>,
-            Minute::<Impl, IMPL_OFFSET>,
-            SetMinute::<Impl, IMPL_OFFSET>,
-            AddMinutes::<Impl, IMPL_OFFSET>,
-            MinuteAsString::<Impl, IMPL_OFFSET>,
-            MinuteAsPaddedString::<Impl, IMPL_OFFSET>,
-            Second::<Impl, IMPL_OFFSET>,
-            SetSecond::<Impl, IMPL_OFFSET>,
-            AddSeconds::<Impl, IMPL_OFFSET>,
-            SecondAsString::<Impl, IMPL_OFFSET>,
-            SecondAsPaddedString::<Impl, IMPL_OFFSET>,
-            Nanosecond::<Impl, IMPL_OFFSET>,
-            SetNanosecond::<Impl, IMPL_OFFSET>,
-            AddNanoseconds::<Impl, IMPL_OFFSET>,
-            NanosecondAsString::<Impl, IMPL_OFFSET>,
-            NanosecondAsPaddedString::<Impl, IMPL_OFFSET>,
-            Compare::<Impl, IMPL_OFFSET>,
-            CompareDateTime::<Impl, IMPL_OFFSET>,
-            CopyTo::<Impl, IMPL_OFFSET>,
-            FirstMinuteInThisHour::<Impl, IMPL_OFFSET>,
-            LastMinuteInThisHour::<Impl, IMPL_OFFSET>,
-            NumberOfMinutesInThisHour::<Impl, IMPL_OFFSET>,
-            FirstSecondInThisMinute::<Impl, IMPL_OFFSET>,
-            LastSecondInThisMinute::<Impl, IMPL_OFFSET>,
-            NumberOfSecondsInThisMinute::<Impl, IMPL_OFFSET>,
-            ResolvedLanguage::<Impl, IMPL_OFFSET>,
-            IsDaylightSavingTime::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICalendar, BASE_OFFSET>(),
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            SetToMin: SetToMin::<Impl, IMPL_OFFSET>,
+            SetToMax: SetToMax::<Impl, IMPL_OFFSET>,
+            Languages: Languages::<Impl, IMPL_OFFSET>,
+            NumeralSystem: NumeralSystem::<Impl, IMPL_OFFSET>,
+            SetNumeralSystem: SetNumeralSystem::<Impl, IMPL_OFFSET>,
+            GetCalendarSystem: GetCalendarSystem::<Impl, IMPL_OFFSET>,
+            ChangeCalendarSystem: ChangeCalendarSystem::<Impl, IMPL_OFFSET>,
+            GetClock: GetClock::<Impl, IMPL_OFFSET>,
+            ChangeClock: ChangeClock::<Impl, IMPL_OFFSET>,
+            GetDateTime: GetDateTime::<Impl, IMPL_OFFSET>,
+            SetDateTime: SetDateTime::<Impl, IMPL_OFFSET>,
+            SetToNow: SetToNow::<Impl, IMPL_OFFSET>,
+            FirstEra: FirstEra::<Impl, IMPL_OFFSET>,
+            LastEra: LastEra::<Impl, IMPL_OFFSET>,
+            NumberOfEras: NumberOfEras::<Impl, IMPL_OFFSET>,
+            Era: Era::<Impl, IMPL_OFFSET>,
+            SetEra: SetEra::<Impl, IMPL_OFFSET>,
+            AddEras: AddEras::<Impl, IMPL_OFFSET>,
+            EraAsFullString: EraAsFullString::<Impl, IMPL_OFFSET>,
+            EraAsString: EraAsString::<Impl, IMPL_OFFSET>,
+            FirstYearInThisEra: FirstYearInThisEra::<Impl, IMPL_OFFSET>,
+            LastYearInThisEra: LastYearInThisEra::<Impl, IMPL_OFFSET>,
+            NumberOfYearsInThisEra: NumberOfYearsInThisEra::<Impl, IMPL_OFFSET>,
+            Year: Year::<Impl, IMPL_OFFSET>,
+            SetYear: SetYear::<Impl, IMPL_OFFSET>,
+            AddYears: AddYears::<Impl, IMPL_OFFSET>,
+            YearAsString: YearAsString::<Impl, IMPL_OFFSET>,
+            YearAsTruncatedString: YearAsTruncatedString::<Impl, IMPL_OFFSET>,
+            YearAsPaddedString: YearAsPaddedString::<Impl, IMPL_OFFSET>,
+            FirstMonthInThisYear: FirstMonthInThisYear::<Impl, IMPL_OFFSET>,
+            LastMonthInThisYear: LastMonthInThisYear::<Impl, IMPL_OFFSET>,
+            NumberOfMonthsInThisYear: NumberOfMonthsInThisYear::<Impl, IMPL_OFFSET>,
+            Month: Month::<Impl, IMPL_OFFSET>,
+            SetMonth: SetMonth::<Impl, IMPL_OFFSET>,
+            AddMonths: AddMonths::<Impl, IMPL_OFFSET>,
+            MonthAsFullString: MonthAsFullString::<Impl, IMPL_OFFSET>,
+            MonthAsString: MonthAsString::<Impl, IMPL_OFFSET>,
+            MonthAsFullSoloString: MonthAsFullSoloString::<Impl, IMPL_OFFSET>,
+            MonthAsSoloString: MonthAsSoloString::<Impl, IMPL_OFFSET>,
+            MonthAsNumericString: MonthAsNumericString::<Impl, IMPL_OFFSET>,
+            MonthAsPaddedNumericString: MonthAsPaddedNumericString::<Impl, IMPL_OFFSET>,
+            AddWeeks: AddWeeks::<Impl, IMPL_OFFSET>,
+            FirstDayInThisMonth: FirstDayInThisMonth::<Impl, IMPL_OFFSET>,
+            LastDayInThisMonth: LastDayInThisMonth::<Impl, IMPL_OFFSET>,
+            NumberOfDaysInThisMonth: NumberOfDaysInThisMonth::<Impl, IMPL_OFFSET>,
+            Day: Day::<Impl, IMPL_OFFSET>,
+            SetDay: SetDay::<Impl, IMPL_OFFSET>,
+            AddDays: AddDays::<Impl, IMPL_OFFSET>,
+            DayAsString: DayAsString::<Impl, IMPL_OFFSET>,
+            DayAsPaddedString: DayAsPaddedString::<Impl, IMPL_OFFSET>,
+            DayOfWeek: DayOfWeek::<Impl, IMPL_OFFSET>,
+            DayOfWeekAsFullString: DayOfWeekAsFullString::<Impl, IMPL_OFFSET>,
+            DayOfWeekAsString: DayOfWeekAsString::<Impl, IMPL_OFFSET>,
+            DayOfWeekAsFullSoloString: DayOfWeekAsFullSoloString::<Impl, IMPL_OFFSET>,
+            DayOfWeekAsSoloString: DayOfWeekAsSoloString::<Impl, IMPL_OFFSET>,
+            FirstPeriodInThisDay: FirstPeriodInThisDay::<Impl, IMPL_OFFSET>,
+            LastPeriodInThisDay: LastPeriodInThisDay::<Impl, IMPL_OFFSET>,
+            NumberOfPeriodsInThisDay: NumberOfPeriodsInThisDay::<Impl, IMPL_OFFSET>,
+            Period: Period::<Impl, IMPL_OFFSET>,
+            SetPeriod: SetPeriod::<Impl, IMPL_OFFSET>,
+            AddPeriods: AddPeriods::<Impl, IMPL_OFFSET>,
+            PeriodAsFullString: PeriodAsFullString::<Impl, IMPL_OFFSET>,
+            PeriodAsString: PeriodAsString::<Impl, IMPL_OFFSET>,
+            FirstHourInThisPeriod: FirstHourInThisPeriod::<Impl, IMPL_OFFSET>,
+            LastHourInThisPeriod: LastHourInThisPeriod::<Impl, IMPL_OFFSET>,
+            NumberOfHoursInThisPeriod: NumberOfHoursInThisPeriod::<Impl, IMPL_OFFSET>,
+            Hour: Hour::<Impl, IMPL_OFFSET>,
+            SetHour: SetHour::<Impl, IMPL_OFFSET>,
+            AddHours: AddHours::<Impl, IMPL_OFFSET>,
+            HourAsString: HourAsString::<Impl, IMPL_OFFSET>,
+            HourAsPaddedString: HourAsPaddedString::<Impl, IMPL_OFFSET>,
+            Minute: Minute::<Impl, IMPL_OFFSET>,
+            SetMinute: SetMinute::<Impl, IMPL_OFFSET>,
+            AddMinutes: AddMinutes::<Impl, IMPL_OFFSET>,
+            MinuteAsString: MinuteAsString::<Impl, IMPL_OFFSET>,
+            MinuteAsPaddedString: MinuteAsPaddedString::<Impl, IMPL_OFFSET>,
+            Second: Second::<Impl, IMPL_OFFSET>,
+            SetSecond: SetSecond::<Impl, IMPL_OFFSET>,
+            AddSeconds: AddSeconds::<Impl, IMPL_OFFSET>,
+            SecondAsString: SecondAsString::<Impl, IMPL_OFFSET>,
+            SecondAsPaddedString: SecondAsPaddedString::<Impl, IMPL_OFFSET>,
+            Nanosecond: Nanosecond::<Impl, IMPL_OFFSET>,
+            SetNanosecond: SetNanosecond::<Impl, IMPL_OFFSET>,
+            AddNanoseconds: AddNanoseconds::<Impl, IMPL_OFFSET>,
+            NanosecondAsString: NanosecondAsString::<Impl, IMPL_OFFSET>,
+            NanosecondAsPaddedString: NanosecondAsPaddedString::<Impl, IMPL_OFFSET>,
+            Compare: Compare::<Impl, IMPL_OFFSET>,
+            CompareDateTime: CompareDateTime::<Impl, IMPL_OFFSET>,
+            CopyTo: CopyTo::<Impl, IMPL_OFFSET>,
+            FirstMinuteInThisHour: FirstMinuteInThisHour::<Impl, IMPL_OFFSET>,
+            LastMinuteInThisHour: LastMinuteInThisHour::<Impl, IMPL_OFFSET>,
+            NumberOfMinutesInThisHour: NumberOfMinutesInThisHour::<Impl, IMPL_OFFSET>,
+            FirstSecondInThisMinute: FirstSecondInThisMinute::<Impl, IMPL_OFFSET>,
+            LastSecondInThisMinute: LastSecondInThisMinute::<Impl, IMPL_OFFSET>,
+            NumberOfSecondsInThisMinute: NumberOfSecondsInThisMinute::<Impl, IMPL_OFFSET>,
+            ResolvedLanguage: ResolvedLanguage::<Impl, IMPL_OFFSET>,
+            IsDaylightSavingTime: IsDaylightSavingTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICalendar as ::windows::core::Interface>::IID
@@ -1229,7 +1233,11 @@ impl ICalendarFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarFactory>, ::windows::core::GetTrustLevel, CreateCalendarDefaultCalendarAndClock::<Impl, IMPL_OFFSET>, CreateCalendar::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICalendarFactory, BASE_OFFSET>(),
+            CreateCalendarDefaultCalendarAndClock: CreateCalendarDefaultCalendarAndClock::<Impl, IMPL_OFFSET>,
+            CreateCalendar: CreateCalendar::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICalendarFactory as ::windows::core::Interface>::IID
@@ -1262,7 +1270,10 @@ impl ICalendarFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarFactory2>, ::windows::core::GetTrustLevel, CreateCalendarWithTimeZone::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICalendarFactory2, BASE_OFFSET>(),
+            CreateCalendarWithTimeZone: CreateCalendarWithTimeZone::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICalendarFactory2 as ::windows::core::Interface>::IID
@@ -1386,23 +1397,18 @@ impl ICalendarIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICalendarIdentifiersStatics>,
-            ::windows::core::GetTrustLevel,
-            Gregorian::<Impl, IMPL_OFFSET>,
-            Hebrew::<Impl, IMPL_OFFSET>,
-            Hijri::<Impl, IMPL_OFFSET>,
-            Japanese::<Impl, IMPL_OFFSET>,
-            Julian::<Impl, IMPL_OFFSET>,
-            Korean::<Impl, IMPL_OFFSET>,
-            Taiwan::<Impl, IMPL_OFFSET>,
-            Thai::<Impl, IMPL_OFFSET>,
-            UmAlQura::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICalendarIdentifiersStatics, BASE_OFFSET>(),
+            Gregorian: Gregorian::<Impl, IMPL_OFFSET>,
+            Hebrew: Hebrew::<Impl, IMPL_OFFSET>,
+            Hijri: Hijri::<Impl, IMPL_OFFSET>,
+            Japanese: Japanese::<Impl, IMPL_OFFSET>,
+            Julian: Julian::<Impl, IMPL_OFFSET>,
+            Korean: Korean::<Impl, IMPL_OFFSET>,
+            Taiwan: Taiwan::<Impl, IMPL_OFFSET>,
+            Thai: Thai::<Impl, IMPL_OFFSET>,
+            UmAlQura: UmAlQura::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICalendarIdentifiersStatics as ::windows::core::Interface>::IID
@@ -1430,7 +1436,7 @@ impl ICalendarIdentifiersStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarIdentifiersStatics2>, ::windows::core::GetTrustLevel, Persian::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICalendarIdentifiersStatics2, BASE_OFFSET>(), Persian: Persian::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICalendarIdentifiersStatics2 as ::windows::core::Interface>::IID
@@ -1506,7 +1512,14 @@ impl ICalendarIdentifiersStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarIdentifiersStatics3>, ::windows::core::GetTrustLevel, ChineseLunar::<Impl, IMPL_OFFSET>, JapaneseLunar::<Impl, IMPL_OFFSET>, KoreanLunar::<Impl, IMPL_OFFSET>, TaiwanLunar::<Impl, IMPL_OFFSET>, VietnameseLunar::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICalendarIdentifiersStatics3, BASE_OFFSET>(),
+            ChineseLunar: ChineseLunar::<Impl, IMPL_OFFSET>,
+            JapaneseLunar: JapaneseLunar::<Impl, IMPL_OFFSET>,
+            KoreanLunar: KoreanLunar::<Impl, IMPL_OFFSET>,
+            TaiwanLunar: TaiwanLunar::<Impl, IMPL_OFFSET>,
+            VietnameseLunar: VietnameseLunar::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICalendarIdentifiersStatics3 as ::windows::core::Interface>::IID
@@ -1546,7 +1559,11 @@ impl IClockIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClockIdentifiersStatics>, ::windows::core::GetTrustLevel, TwelveHour::<Impl, IMPL_OFFSET>, TwentyFourHour::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IClockIdentifiersStatics, BASE_OFFSET>(),
+            TwelveHour: TwelveHour::<Impl, IMPL_OFFSET>,
+            TwentyFourHour: TwentyFourHour::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IClockIdentifiersStatics as ::windows::core::Interface>::IID
@@ -1586,7 +1603,11 @@ impl ICurrencyAmountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyAmount>, ::windows::core::GetTrustLevel, Amount::<Impl, IMPL_OFFSET>, Currency::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrencyAmount, BASE_OFFSET>(),
+            Amount: Amount::<Impl, IMPL_OFFSET>,
+            Currency: Currency::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrencyAmount as ::windows::core::Interface>::IID
@@ -1614,7 +1635,7 @@ impl ICurrencyAmountFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyAmountFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrencyAmountFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrencyAmountFactory as ::windows::core::Interface>::IID
@@ -3514,171 +3535,166 @@ impl ICurrencyIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICurrencyIdentifiersStatics>,
-            ::windows::core::GetTrustLevel,
-            AED::<Impl, IMPL_OFFSET>,
-            AFN::<Impl, IMPL_OFFSET>,
-            ALL::<Impl, IMPL_OFFSET>,
-            AMD::<Impl, IMPL_OFFSET>,
-            ANG::<Impl, IMPL_OFFSET>,
-            AOA::<Impl, IMPL_OFFSET>,
-            ARS::<Impl, IMPL_OFFSET>,
-            AUD::<Impl, IMPL_OFFSET>,
-            AWG::<Impl, IMPL_OFFSET>,
-            AZN::<Impl, IMPL_OFFSET>,
-            BAM::<Impl, IMPL_OFFSET>,
-            BBD::<Impl, IMPL_OFFSET>,
-            BDT::<Impl, IMPL_OFFSET>,
-            BGN::<Impl, IMPL_OFFSET>,
-            BHD::<Impl, IMPL_OFFSET>,
-            BIF::<Impl, IMPL_OFFSET>,
-            BMD::<Impl, IMPL_OFFSET>,
-            BND::<Impl, IMPL_OFFSET>,
-            BOB::<Impl, IMPL_OFFSET>,
-            BRL::<Impl, IMPL_OFFSET>,
-            BSD::<Impl, IMPL_OFFSET>,
-            BTN::<Impl, IMPL_OFFSET>,
-            BWP::<Impl, IMPL_OFFSET>,
-            BYR::<Impl, IMPL_OFFSET>,
-            BZD::<Impl, IMPL_OFFSET>,
-            CAD::<Impl, IMPL_OFFSET>,
-            CDF::<Impl, IMPL_OFFSET>,
-            CHF::<Impl, IMPL_OFFSET>,
-            CLP::<Impl, IMPL_OFFSET>,
-            CNY::<Impl, IMPL_OFFSET>,
-            COP::<Impl, IMPL_OFFSET>,
-            CRC::<Impl, IMPL_OFFSET>,
-            CUP::<Impl, IMPL_OFFSET>,
-            CVE::<Impl, IMPL_OFFSET>,
-            CZK::<Impl, IMPL_OFFSET>,
-            DJF::<Impl, IMPL_OFFSET>,
-            DKK::<Impl, IMPL_OFFSET>,
-            DOP::<Impl, IMPL_OFFSET>,
-            DZD::<Impl, IMPL_OFFSET>,
-            EGP::<Impl, IMPL_OFFSET>,
-            ERN::<Impl, IMPL_OFFSET>,
-            ETB::<Impl, IMPL_OFFSET>,
-            EUR::<Impl, IMPL_OFFSET>,
-            FJD::<Impl, IMPL_OFFSET>,
-            FKP::<Impl, IMPL_OFFSET>,
-            GBP::<Impl, IMPL_OFFSET>,
-            GEL::<Impl, IMPL_OFFSET>,
-            GHS::<Impl, IMPL_OFFSET>,
-            GIP::<Impl, IMPL_OFFSET>,
-            GMD::<Impl, IMPL_OFFSET>,
-            GNF::<Impl, IMPL_OFFSET>,
-            GTQ::<Impl, IMPL_OFFSET>,
-            GYD::<Impl, IMPL_OFFSET>,
-            HKD::<Impl, IMPL_OFFSET>,
-            HNL::<Impl, IMPL_OFFSET>,
-            HRK::<Impl, IMPL_OFFSET>,
-            HTG::<Impl, IMPL_OFFSET>,
-            HUF::<Impl, IMPL_OFFSET>,
-            IDR::<Impl, IMPL_OFFSET>,
-            ILS::<Impl, IMPL_OFFSET>,
-            INR::<Impl, IMPL_OFFSET>,
-            IQD::<Impl, IMPL_OFFSET>,
-            IRR::<Impl, IMPL_OFFSET>,
-            ISK::<Impl, IMPL_OFFSET>,
-            JMD::<Impl, IMPL_OFFSET>,
-            JOD::<Impl, IMPL_OFFSET>,
-            JPY::<Impl, IMPL_OFFSET>,
-            KES::<Impl, IMPL_OFFSET>,
-            KGS::<Impl, IMPL_OFFSET>,
-            KHR::<Impl, IMPL_OFFSET>,
-            KMF::<Impl, IMPL_OFFSET>,
-            KPW::<Impl, IMPL_OFFSET>,
-            KRW::<Impl, IMPL_OFFSET>,
-            KWD::<Impl, IMPL_OFFSET>,
-            KYD::<Impl, IMPL_OFFSET>,
-            KZT::<Impl, IMPL_OFFSET>,
-            LAK::<Impl, IMPL_OFFSET>,
-            LBP::<Impl, IMPL_OFFSET>,
-            LKR::<Impl, IMPL_OFFSET>,
-            LRD::<Impl, IMPL_OFFSET>,
-            LSL::<Impl, IMPL_OFFSET>,
-            LTL::<Impl, IMPL_OFFSET>,
-            LVL::<Impl, IMPL_OFFSET>,
-            LYD::<Impl, IMPL_OFFSET>,
-            MAD::<Impl, IMPL_OFFSET>,
-            MDL::<Impl, IMPL_OFFSET>,
-            MGA::<Impl, IMPL_OFFSET>,
-            MKD::<Impl, IMPL_OFFSET>,
-            MMK::<Impl, IMPL_OFFSET>,
-            MNT::<Impl, IMPL_OFFSET>,
-            MOP::<Impl, IMPL_OFFSET>,
-            MRO::<Impl, IMPL_OFFSET>,
-            MUR::<Impl, IMPL_OFFSET>,
-            MVR::<Impl, IMPL_OFFSET>,
-            MWK::<Impl, IMPL_OFFSET>,
-            MXN::<Impl, IMPL_OFFSET>,
-            MYR::<Impl, IMPL_OFFSET>,
-            MZN::<Impl, IMPL_OFFSET>,
-            NAD::<Impl, IMPL_OFFSET>,
-            NGN::<Impl, IMPL_OFFSET>,
-            NIO::<Impl, IMPL_OFFSET>,
-            NOK::<Impl, IMPL_OFFSET>,
-            NPR::<Impl, IMPL_OFFSET>,
-            NZD::<Impl, IMPL_OFFSET>,
-            OMR::<Impl, IMPL_OFFSET>,
-            PAB::<Impl, IMPL_OFFSET>,
-            PEN::<Impl, IMPL_OFFSET>,
-            PGK::<Impl, IMPL_OFFSET>,
-            PHP::<Impl, IMPL_OFFSET>,
-            PKR::<Impl, IMPL_OFFSET>,
-            PLN::<Impl, IMPL_OFFSET>,
-            PYG::<Impl, IMPL_OFFSET>,
-            QAR::<Impl, IMPL_OFFSET>,
-            RON::<Impl, IMPL_OFFSET>,
-            RSD::<Impl, IMPL_OFFSET>,
-            RUB::<Impl, IMPL_OFFSET>,
-            RWF::<Impl, IMPL_OFFSET>,
-            SAR::<Impl, IMPL_OFFSET>,
-            SBD::<Impl, IMPL_OFFSET>,
-            SCR::<Impl, IMPL_OFFSET>,
-            SDG::<Impl, IMPL_OFFSET>,
-            SEK::<Impl, IMPL_OFFSET>,
-            SGD::<Impl, IMPL_OFFSET>,
-            SHP::<Impl, IMPL_OFFSET>,
-            SLL::<Impl, IMPL_OFFSET>,
-            SOS::<Impl, IMPL_OFFSET>,
-            SRD::<Impl, IMPL_OFFSET>,
-            STD::<Impl, IMPL_OFFSET>,
-            SYP::<Impl, IMPL_OFFSET>,
-            SZL::<Impl, IMPL_OFFSET>,
-            THB::<Impl, IMPL_OFFSET>,
-            TJS::<Impl, IMPL_OFFSET>,
-            TMT::<Impl, IMPL_OFFSET>,
-            TND::<Impl, IMPL_OFFSET>,
-            TOP::<Impl, IMPL_OFFSET>,
-            TRY::<Impl, IMPL_OFFSET>,
-            TTD::<Impl, IMPL_OFFSET>,
-            TWD::<Impl, IMPL_OFFSET>,
-            TZS::<Impl, IMPL_OFFSET>,
-            UAH::<Impl, IMPL_OFFSET>,
-            UGX::<Impl, IMPL_OFFSET>,
-            USD::<Impl, IMPL_OFFSET>,
-            UYU::<Impl, IMPL_OFFSET>,
-            UZS::<Impl, IMPL_OFFSET>,
-            VEF::<Impl, IMPL_OFFSET>,
-            VND::<Impl, IMPL_OFFSET>,
-            VUV::<Impl, IMPL_OFFSET>,
-            WST::<Impl, IMPL_OFFSET>,
-            XAF::<Impl, IMPL_OFFSET>,
-            XCD::<Impl, IMPL_OFFSET>,
-            XOF::<Impl, IMPL_OFFSET>,
-            XPF::<Impl, IMPL_OFFSET>,
-            XXX::<Impl, IMPL_OFFSET>,
-            YER::<Impl, IMPL_OFFSET>,
-            ZAR::<Impl, IMPL_OFFSET>,
-            ZMW::<Impl, IMPL_OFFSET>,
-            ZWL::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrencyIdentifiersStatics, BASE_OFFSET>(),
+            AED: AED::<Impl, IMPL_OFFSET>,
+            AFN: AFN::<Impl, IMPL_OFFSET>,
+            ALL: ALL::<Impl, IMPL_OFFSET>,
+            AMD: AMD::<Impl, IMPL_OFFSET>,
+            ANG: ANG::<Impl, IMPL_OFFSET>,
+            AOA: AOA::<Impl, IMPL_OFFSET>,
+            ARS: ARS::<Impl, IMPL_OFFSET>,
+            AUD: AUD::<Impl, IMPL_OFFSET>,
+            AWG: AWG::<Impl, IMPL_OFFSET>,
+            AZN: AZN::<Impl, IMPL_OFFSET>,
+            BAM: BAM::<Impl, IMPL_OFFSET>,
+            BBD: BBD::<Impl, IMPL_OFFSET>,
+            BDT: BDT::<Impl, IMPL_OFFSET>,
+            BGN: BGN::<Impl, IMPL_OFFSET>,
+            BHD: BHD::<Impl, IMPL_OFFSET>,
+            BIF: BIF::<Impl, IMPL_OFFSET>,
+            BMD: BMD::<Impl, IMPL_OFFSET>,
+            BND: BND::<Impl, IMPL_OFFSET>,
+            BOB: BOB::<Impl, IMPL_OFFSET>,
+            BRL: BRL::<Impl, IMPL_OFFSET>,
+            BSD: BSD::<Impl, IMPL_OFFSET>,
+            BTN: BTN::<Impl, IMPL_OFFSET>,
+            BWP: BWP::<Impl, IMPL_OFFSET>,
+            BYR: BYR::<Impl, IMPL_OFFSET>,
+            BZD: BZD::<Impl, IMPL_OFFSET>,
+            CAD: CAD::<Impl, IMPL_OFFSET>,
+            CDF: CDF::<Impl, IMPL_OFFSET>,
+            CHF: CHF::<Impl, IMPL_OFFSET>,
+            CLP: CLP::<Impl, IMPL_OFFSET>,
+            CNY: CNY::<Impl, IMPL_OFFSET>,
+            COP: COP::<Impl, IMPL_OFFSET>,
+            CRC: CRC::<Impl, IMPL_OFFSET>,
+            CUP: CUP::<Impl, IMPL_OFFSET>,
+            CVE: CVE::<Impl, IMPL_OFFSET>,
+            CZK: CZK::<Impl, IMPL_OFFSET>,
+            DJF: DJF::<Impl, IMPL_OFFSET>,
+            DKK: DKK::<Impl, IMPL_OFFSET>,
+            DOP: DOP::<Impl, IMPL_OFFSET>,
+            DZD: DZD::<Impl, IMPL_OFFSET>,
+            EGP: EGP::<Impl, IMPL_OFFSET>,
+            ERN: ERN::<Impl, IMPL_OFFSET>,
+            ETB: ETB::<Impl, IMPL_OFFSET>,
+            EUR: EUR::<Impl, IMPL_OFFSET>,
+            FJD: FJD::<Impl, IMPL_OFFSET>,
+            FKP: FKP::<Impl, IMPL_OFFSET>,
+            GBP: GBP::<Impl, IMPL_OFFSET>,
+            GEL: GEL::<Impl, IMPL_OFFSET>,
+            GHS: GHS::<Impl, IMPL_OFFSET>,
+            GIP: GIP::<Impl, IMPL_OFFSET>,
+            GMD: GMD::<Impl, IMPL_OFFSET>,
+            GNF: GNF::<Impl, IMPL_OFFSET>,
+            GTQ: GTQ::<Impl, IMPL_OFFSET>,
+            GYD: GYD::<Impl, IMPL_OFFSET>,
+            HKD: HKD::<Impl, IMPL_OFFSET>,
+            HNL: HNL::<Impl, IMPL_OFFSET>,
+            HRK: HRK::<Impl, IMPL_OFFSET>,
+            HTG: HTG::<Impl, IMPL_OFFSET>,
+            HUF: HUF::<Impl, IMPL_OFFSET>,
+            IDR: IDR::<Impl, IMPL_OFFSET>,
+            ILS: ILS::<Impl, IMPL_OFFSET>,
+            INR: INR::<Impl, IMPL_OFFSET>,
+            IQD: IQD::<Impl, IMPL_OFFSET>,
+            IRR: IRR::<Impl, IMPL_OFFSET>,
+            ISK: ISK::<Impl, IMPL_OFFSET>,
+            JMD: JMD::<Impl, IMPL_OFFSET>,
+            JOD: JOD::<Impl, IMPL_OFFSET>,
+            JPY: JPY::<Impl, IMPL_OFFSET>,
+            KES: KES::<Impl, IMPL_OFFSET>,
+            KGS: KGS::<Impl, IMPL_OFFSET>,
+            KHR: KHR::<Impl, IMPL_OFFSET>,
+            KMF: KMF::<Impl, IMPL_OFFSET>,
+            KPW: KPW::<Impl, IMPL_OFFSET>,
+            KRW: KRW::<Impl, IMPL_OFFSET>,
+            KWD: KWD::<Impl, IMPL_OFFSET>,
+            KYD: KYD::<Impl, IMPL_OFFSET>,
+            KZT: KZT::<Impl, IMPL_OFFSET>,
+            LAK: LAK::<Impl, IMPL_OFFSET>,
+            LBP: LBP::<Impl, IMPL_OFFSET>,
+            LKR: LKR::<Impl, IMPL_OFFSET>,
+            LRD: LRD::<Impl, IMPL_OFFSET>,
+            LSL: LSL::<Impl, IMPL_OFFSET>,
+            LTL: LTL::<Impl, IMPL_OFFSET>,
+            LVL: LVL::<Impl, IMPL_OFFSET>,
+            LYD: LYD::<Impl, IMPL_OFFSET>,
+            MAD: MAD::<Impl, IMPL_OFFSET>,
+            MDL: MDL::<Impl, IMPL_OFFSET>,
+            MGA: MGA::<Impl, IMPL_OFFSET>,
+            MKD: MKD::<Impl, IMPL_OFFSET>,
+            MMK: MMK::<Impl, IMPL_OFFSET>,
+            MNT: MNT::<Impl, IMPL_OFFSET>,
+            MOP: MOP::<Impl, IMPL_OFFSET>,
+            MRO: MRO::<Impl, IMPL_OFFSET>,
+            MUR: MUR::<Impl, IMPL_OFFSET>,
+            MVR: MVR::<Impl, IMPL_OFFSET>,
+            MWK: MWK::<Impl, IMPL_OFFSET>,
+            MXN: MXN::<Impl, IMPL_OFFSET>,
+            MYR: MYR::<Impl, IMPL_OFFSET>,
+            MZN: MZN::<Impl, IMPL_OFFSET>,
+            NAD: NAD::<Impl, IMPL_OFFSET>,
+            NGN: NGN::<Impl, IMPL_OFFSET>,
+            NIO: NIO::<Impl, IMPL_OFFSET>,
+            NOK: NOK::<Impl, IMPL_OFFSET>,
+            NPR: NPR::<Impl, IMPL_OFFSET>,
+            NZD: NZD::<Impl, IMPL_OFFSET>,
+            OMR: OMR::<Impl, IMPL_OFFSET>,
+            PAB: PAB::<Impl, IMPL_OFFSET>,
+            PEN: PEN::<Impl, IMPL_OFFSET>,
+            PGK: PGK::<Impl, IMPL_OFFSET>,
+            PHP: PHP::<Impl, IMPL_OFFSET>,
+            PKR: PKR::<Impl, IMPL_OFFSET>,
+            PLN: PLN::<Impl, IMPL_OFFSET>,
+            PYG: PYG::<Impl, IMPL_OFFSET>,
+            QAR: QAR::<Impl, IMPL_OFFSET>,
+            RON: RON::<Impl, IMPL_OFFSET>,
+            RSD: RSD::<Impl, IMPL_OFFSET>,
+            RUB: RUB::<Impl, IMPL_OFFSET>,
+            RWF: RWF::<Impl, IMPL_OFFSET>,
+            SAR: SAR::<Impl, IMPL_OFFSET>,
+            SBD: SBD::<Impl, IMPL_OFFSET>,
+            SCR: SCR::<Impl, IMPL_OFFSET>,
+            SDG: SDG::<Impl, IMPL_OFFSET>,
+            SEK: SEK::<Impl, IMPL_OFFSET>,
+            SGD: SGD::<Impl, IMPL_OFFSET>,
+            SHP: SHP::<Impl, IMPL_OFFSET>,
+            SLL: SLL::<Impl, IMPL_OFFSET>,
+            SOS: SOS::<Impl, IMPL_OFFSET>,
+            SRD: SRD::<Impl, IMPL_OFFSET>,
+            STD: STD::<Impl, IMPL_OFFSET>,
+            SYP: SYP::<Impl, IMPL_OFFSET>,
+            SZL: SZL::<Impl, IMPL_OFFSET>,
+            THB: THB::<Impl, IMPL_OFFSET>,
+            TJS: TJS::<Impl, IMPL_OFFSET>,
+            TMT: TMT::<Impl, IMPL_OFFSET>,
+            TND: TND::<Impl, IMPL_OFFSET>,
+            TOP: TOP::<Impl, IMPL_OFFSET>,
+            TRY: TRY::<Impl, IMPL_OFFSET>,
+            TTD: TTD::<Impl, IMPL_OFFSET>,
+            TWD: TWD::<Impl, IMPL_OFFSET>,
+            TZS: TZS::<Impl, IMPL_OFFSET>,
+            UAH: UAH::<Impl, IMPL_OFFSET>,
+            UGX: UGX::<Impl, IMPL_OFFSET>,
+            USD: USD::<Impl, IMPL_OFFSET>,
+            UYU: UYU::<Impl, IMPL_OFFSET>,
+            UZS: UZS::<Impl, IMPL_OFFSET>,
+            VEF: VEF::<Impl, IMPL_OFFSET>,
+            VND: VND::<Impl, IMPL_OFFSET>,
+            VUV: VUV::<Impl, IMPL_OFFSET>,
+            WST: WST::<Impl, IMPL_OFFSET>,
+            XAF: XAF::<Impl, IMPL_OFFSET>,
+            XCD: XCD::<Impl, IMPL_OFFSET>,
+            XOF: XOF::<Impl, IMPL_OFFSET>,
+            XPF: XPF::<Impl, IMPL_OFFSET>,
+            XXX: XXX::<Impl, IMPL_OFFSET>,
+            YER: YER::<Impl, IMPL_OFFSET>,
+            ZAR: ZAR::<Impl, IMPL_OFFSET>,
+            ZMW: ZMW::<Impl, IMPL_OFFSET>,
+            ZWL: ZWL::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrencyIdentifiersStatics as ::windows::core::Interface>::IID
@@ -3706,7 +3722,7 @@ impl ICurrencyIdentifiersStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyIdentifiersStatics2>, ::windows::core::GetTrustLevel, BYN::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrencyIdentifiersStatics2, BASE_OFFSET>(), BYN: BYN::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrencyIdentifiersStatics2 as ::windows::core::Interface>::IID
@@ -3770,7 +3786,13 @@ impl ICurrencyIdentifiersStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyIdentifiersStatics3>, ::windows::core::GetTrustLevel, MRU::<Impl, IMPL_OFFSET>, SSP::<Impl, IMPL_OFFSET>, STN::<Impl, IMPL_OFFSET>, VES::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrencyIdentifiersStatics3, BASE_OFFSET>(),
+            MRU: MRU::<Impl, IMPL_OFFSET>,
+            SSP: SSP::<Impl, IMPL_OFFSET>,
+            STN: STN::<Impl, IMPL_OFFSET>,
+            VES: VES::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrencyIdentifiersStatics3 as ::windows::core::Interface>::IID
@@ -3870,21 +3892,16 @@ impl IGeographicRegionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGeographicRegion>,
-            ::windows::core::GetTrustLevel,
-            Code::<Impl, IMPL_OFFSET>,
-            CodeTwoLetter::<Impl, IMPL_OFFSET>,
-            CodeThreeLetter::<Impl, IMPL_OFFSET>,
-            CodeThreeDigit::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            NativeName::<Impl, IMPL_OFFSET>,
-            CurrenciesInUse::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeographicRegion, BASE_OFFSET>(),
+            Code: Code::<Impl, IMPL_OFFSET>,
+            CodeTwoLetter: CodeTwoLetter::<Impl, IMPL_OFFSET>,
+            CodeThreeLetter: CodeThreeLetter::<Impl, IMPL_OFFSET>,
+            CodeThreeDigit: CodeThreeDigit::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            NativeName: NativeName::<Impl, IMPL_OFFSET>,
+            CurrenciesInUse: CurrenciesInUse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeographicRegion as ::windows::core::Interface>::IID
@@ -3912,7 +3929,10 @@ impl IGeographicRegionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeographicRegionFactory>, ::windows::core::GetTrustLevel, CreateGeographicRegion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeographicRegionFactory, BASE_OFFSET>(),
+            CreateGeographicRegion: CreateGeographicRegion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeographicRegionFactory as ::windows::core::Interface>::IID
@@ -3940,7 +3960,7 @@ impl IGeographicRegionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeographicRegionStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGeographicRegionStatics, BASE_OFFSET>(), IsSupported: IsSupported::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeographicRegionStatics as ::windows::core::Interface>::IID
@@ -3992,7 +4012,12 @@ impl IJapanesePhonemeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJapanesePhoneme>, ::windows::core::GetTrustLevel, DisplayText::<Impl, IMPL_OFFSET>, YomiText::<Impl, IMPL_OFFSET>, IsPhraseStart::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJapanesePhoneme, BASE_OFFSET>(),
+            DisplayText: DisplayText::<Impl, IMPL_OFFSET>,
+            YomiText: YomiText::<Impl, IMPL_OFFSET>,
+            IsPhraseStart: IsPhraseStart::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJapanesePhoneme as ::windows::core::Interface>::IID
@@ -4032,7 +4057,11 @@ impl IJapanesePhoneticAnalyzerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJapanesePhoneticAnalyzerStatics>, ::windows::core::GetTrustLevel, GetWords::<Impl, IMPL_OFFSET>, GetWordsWithMonoRubyOption::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IJapanesePhoneticAnalyzerStatics, BASE_OFFSET>(),
+            GetWords: GetWords::<Impl, IMPL_OFFSET>,
+            GetWordsWithMonoRubyOption: GetWordsWithMonoRubyOption::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJapanesePhoneticAnalyzerStatics as ::windows::core::Interface>::IID
@@ -4096,7 +4125,13 @@ impl ILanguageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguage>, ::windows::core::GetTrustLevel, LanguageTag::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, NativeName::<Impl, IMPL_OFFSET>, Script::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILanguage, BASE_OFFSET>(),
+            LanguageTag: LanguageTag::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            NativeName: NativeName::<Impl, IMPL_OFFSET>,
+            Script: Script::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguage as ::windows::core::Interface>::IID
@@ -4124,7 +4159,7 @@ impl ILanguage2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguage2>, ::windows::core::GetTrustLevel, LayoutDirection::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILanguage2, BASE_OFFSET>(), LayoutDirection: LayoutDirection::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguage2 as ::windows::core::Interface>::IID
@@ -4152,7 +4187,7 @@ impl ILanguage3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguage3>, ::windows::core::GetTrustLevel, AbbreviatedName::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILanguage3, BASE_OFFSET>(), AbbreviatedName: AbbreviatedName::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguage3 as ::windows::core::Interface>::IID
@@ -4180,7 +4215,10 @@ impl ILanguageExtensionSubtagsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageExtensionSubtags>, ::windows::core::GetTrustLevel, GetExtensionSubtags::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILanguageExtensionSubtags, BASE_OFFSET>(),
+            GetExtensionSubtags: GetExtensionSubtags::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguageExtensionSubtags as ::windows::core::Interface>::IID
@@ -4208,7 +4246,7 @@ impl ILanguageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageFactory>, ::windows::core::GetTrustLevel, CreateLanguage::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILanguageFactory, BASE_OFFSET>(), CreateLanguage: CreateLanguage::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguageFactory as ::windows::core::Interface>::IID
@@ -4248,7 +4286,11 @@ impl ILanguageStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageStatics>, ::windows::core::GetTrustLevel, IsWellFormed::<Impl, IMPL_OFFSET>, CurrentInputMethodLanguageTag::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILanguageStatics, BASE_OFFSET>(),
+            IsWellFormed: IsWellFormed::<Impl, IMPL_OFFSET>,
+            CurrentInputMethodLanguageTag: CurrentInputMethodLanguageTag::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguageStatics as ::windows::core::Interface>::IID
@@ -4276,7 +4318,10 @@ impl ILanguageStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageStatics2>, ::windows::core::GetTrustLevel, TrySetInputMethodLanguageTag::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILanguageStatics2, BASE_OFFSET>(),
+            TrySetInputMethodLanguageTag: TrySetInputMethodLanguageTag::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguageStatics2 as ::windows::core::Interface>::IID
@@ -4304,7 +4349,10 @@ impl ILanguageStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageStatics3>, ::windows::core::GetTrustLevel, GetMuiCompatibleLanguageListFromLanguageTags::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILanguageStatics3, BASE_OFFSET>(),
+            GetMuiCompatibleLanguageListFromLanguageTags: GetMuiCompatibleLanguageListFromLanguageTags::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguageStatics3 as ::windows::core::Interface>::IID
@@ -4752,50 +4800,45 @@ impl INumeralSystemIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INumeralSystemIdentifiersStatics>,
-            ::windows::core::GetTrustLevel,
-            Arab::<Impl, IMPL_OFFSET>,
-            ArabExt::<Impl, IMPL_OFFSET>,
-            Bali::<Impl, IMPL_OFFSET>,
-            Beng::<Impl, IMPL_OFFSET>,
-            Cham::<Impl, IMPL_OFFSET>,
-            Deva::<Impl, IMPL_OFFSET>,
-            FullWide::<Impl, IMPL_OFFSET>,
-            Gujr::<Impl, IMPL_OFFSET>,
-            Guru::<Impl, IMPL_OFFSET>,
-            HaniDec::<Impl, IMPL_OFFSET>,
-            Java::<Impl, IMPL_OFFSET>,
-            Kali::<Impl, IMPL_OFFSET>,
-            Khmr::<Impl, IMPL_OFFSET>,
-            Knda::<Impl, IMPL_OFFSET>,
-            Lana::<Impl, IMPL_OFFSET>,
-            LanaTham::<Impl, IMPL_OFFSET>,
-            Laoo::<Impl, IMPL_OFFSET>,
-            Latn::<Impl, IMPL_OFFSET>,
-            Lepc::<Impl, IMPL_OFFSET>,
-            Limb::<Impl, IMPL_OFFSET>,
-            Mlym::<Impl, IMPL_OFFSET>,
-            Mong::<Impl, IMPL_OFFSET>,
-            Mtei::<Impl, IMPL_OFFSET>,
-            Mymr::<Impl, IMPL_OFFSET>,
-            MymrShan::<Impl, IMPL_OFFSET>,
-            Nkoo::<Impl, IMPL_OFFSET>,
-            Olck::<Impl, IMPL_OFFSET>,
-            Orya::<Impl, IMPL_OFFSET>,
-            Saur::<Impl, IMPL_OFFSET>,
-            Sund::<Impl, IMPL_OFFSET>,
-            Talu::<Impl, IMPL_OFFSET>,
-            TamlDec::<Impl, IMPL_OFFSET>,
-            Telu::<Impl, IMPL_OFFSET>,
-            Thai::<Impl, IMPL_OFFSET>,
-            Tibt::<Impl, IMPL_OFFSET>,
-            Vaii::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INumeralSystemIdentifiersStatics, BASE_OFFSET>(),
+            Arab: Arab::<Impl, IMPL_OFFSET>,
+            ArabExt: ArabExt::<Impl, IMPL_OFFSET>,
+            Bali: Bali::<Impl, IMPL_OFFSET>,
+            Beng: Beng::<Impl, IMPL_OFFSET>,
+            Cham: Cham::<Impl, IMPL_OFFSET>,
+            Deva: Deva::<Impl, IMPL_OFFSET>,
+            FullWide: FullWide::<Impl, IMPL_OFFSET>,
+            Gujr: Gujr::<Impl, IMPL_OFFSET>,
+            Guru: Guru::<Impl, IMPL_OFFSET>,
+            HaniDec: HaniDec::<Impl, IMPL_OFFSET>,
+            Java: Java::<Impl, IMPL_OFFSET>,
+            Kali: Kali::<Impl, IMPL_OFFSET>,
+            Khmr: Khmr::<Impl, IMPL_OFFSET>,
+            Knda: Knda::<Impl, IMPL_OFFSET>,
+            Lana: Lana::<Impl, IMPL_OFFSET>,
+            LanaTham: LanaTham::<Impl, IMPL_OFFSET>,
+            Laoo: Laoo::<Impl, IMPL_OFFSET>,
+            Latn: Latn::<Impl, IMPL_OFFSET>,
+            Lepc: Lepc::<Impl, IMPL_OFFSET>,
+            Limb: Limb::<Impl, IMPL_OFFSET>,
+            Mlym: Mlym::<Impl, IMPL_OFFSET>,
+            Mong: Mong::<Impl, IMPL_OFFSET>,
+            Mtei: Mtei::<Impl, IMPL_OFFSET>,
+            Mymr: Mymr::<Impl, IMPL_OFFSET>,
+            MymrShan: MymrShan::<Impl, IMPL_OFFSET>,
+            Nkoo: Nkoo::<Impl, IMPL_OFFSET>,
+            Olck: Olck::<Impl, IMPL_OFFSET>,
+            Orya: Orya::<Impl, IMPL_OFFSET>,
+            Saur: Saur::<Impl, IMPL_OFFSET>,
+            Sund: Sund::<Impl, IMPL_OFFSET>,
+            Talu: Talu::<Impl, IMPL_OFFSET>,
+            TamlDec: TamlDec::<Impl, IMPL_OFFSET>,
+            Telu: Telu::<Impl, IMPL_OFFSET>,
+            Thai: Thai::<Impl, IMPL_OFFSET>,
+            Tibt: Tibt::<Impl, IMPL_OFFSET>,
+            Vaii: Vaii::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INumeralSystemIdentifiersStatics as ::windows::core::Interface>::IID
@@ -4955,26 +4998,21 @@ impl INumeralSystemIdentifiersStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INumeralSystemIdentifiersStatics2>,
-            ::windows::core::GetTrustLevel,
-            Brah::<Impl, IMPL_OFFSET>,
-            Osma::<Impl, IMPL_OFFSET>,
-            MathBold::<Impl, IMPL_OFFSET>,
-            MathDbl::<Impl, IMPL_OFFSET>,
-            MathSans::<Impl, IMPL_OFFSET>,
-            MathSanb::<Impl, IMPL_OFFSET>,
-            MathMono::<Impl, IMPL_OFFSET>,
-            ZmthBold::<Impl, IMPL_OFFSET>,
-            ZmthDbl::<Impl, IMPL_OFFSET>,
-            ZmthSans::<Impl, IMPL_OFFSET>,
-            ZmthSanb::<Impl, IMPL_OFFSET>,
-            ZmthMono::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INumeralSystemIdentifiersStatics2, BASE_OFFSET>(),
+            Brah: Brah::<Impl, IMPL_OFFSET>,
+            Osma: Osma::<Impl, IMPL_OFFSET>,
+            MathBold: MathBold::<Impl, IMPL_OFFSET>,
+            MathDbl: MathDbl::<Impl, IMPL_OFFSET>,
+            MathSans: MathSans::<Impl, IMPL_OFFSET>,
+            MathSanb: MathSanb::<Impl, IMPL_OFFSET>,
+            MathMono: MathMono::<Impl, IMPL_OFFSET>,
+            ZmthBold: ZmthBold::<Impl, IMPL_OFFSET>,
+            ZmthDbl: ZmthDbl::<Impl, IMPL_OFFSET>,
+            ZmthSans: ZmthSans::<Impl, IMPL_OFFSET>,
+            ZmthSanb: ZmthSanb::<Impl, IMPL_OFFSET>,
+            ZmthMono: ZmthMono::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INumeralSystemIdentifiersStatics2 as ::windows::core::Interface>::IID
@@ -5031,7 +5069,13 @@ impl ITimeZoneOnCalendarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimeZoneOnCalendar>, ::windows::core::GetTrustLevel, GetTimeZone::<Impl, IMPL_OFFSET>, ChangeTimeZone::<Impl, IMPL_OFFSET>, TimeZoneAsFullString::<Impl, IMPL_OFFSET>, TimeZoneAsString::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimeZoneOnCalendar, BASE_OFFSET>(),
+            GetTimeZone: GetTimeZone::<Impl, IMPL_OFFSET>,
+            ChangeTimeZone: ChangeTimeZone::<Impl, IMPL_OFFSET>,
+            TimeZoneAsFullString: TimeZoneAsFullString::<Impl, IMPL_OFFSET>,
+            TimeZoneAsString: TimeZoneAsString::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimeZoneOnCalendar as ::windows::core::Interface>::IID

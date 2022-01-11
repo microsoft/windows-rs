@@ -44,7 +44,12 @@ impl IEyesPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEyesPose>, ::windows::core::GetTrustLevel, IsCalibrationValid::<Impl, IMPL_OFFSET>, Gaze::<Impl, IMPL_OFFSET>, UpdateTimestamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEyesPose, BASE_OFFSET>(),
+            IsCalibrationValid: IsCalibrationValid::<Impl, IMPL_OFFSET>,
+            Gaze: Gaze::<Impl, IMPL_OFFSET>,
+            UpdateTimestamp: UpdateTimestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEyesPose as ::windows::core::Interface>::IID
@@ -84,7 +89,11 @@ impl IEyesPoseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEyesPoseStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEyesPoseStatics, BASE_OFFSET>(),
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEyesPoseStatics as ::windows::core::Interface>::IID
@@ -189,22 +198,17 @@ impl IHandMeshObserverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHandMeshObserver>,
-            ::windows::core::GetTrustLevel,
-            Source::<Impl, IMPL_OFFSET>,
-            TriangleIndexCount::<Impl, IMPL_OFFSET>,
-            VertexCount::<Impl, IMPL_OFFSET>,
-            GetTriangleIndices::<Impl, IMPL_OFFSET>,
-            GetVertexStateForPose::<Impl, IMPL_OFFSET>,
-            NeutralPose::<Impl, IMPL_OFFSET>,
-            NeutralPoseVersion::<Impl, IMPL_OFFSET>,
-            ModelId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHandMeshObserver, BASE_OFFSET>(),
+            Source: Source::<Impl, IMPL_OFFSET>,
+            TriangleIndexCount: TriangleIndexCount::<Impl, IMPL_OFFSET>,
+            VertexCount: VertexCount::<Impl, IMPL_OFFSET>,
+            GetTriangleIndices: GetTriangleIndices::<Impl, IMPL_OFFSET>,
+            GetVertexStateForPose: GetVertexStateForPose::<Impl, IMPL_OFFSET>,
+            NeutralPose: NeutralPose::<Impl, IMPL_OFFSET>,
+            NeutralPoseVersion: NeutralPoseVersion::<Impl, IMPL_OFFSET>,
+            ModelId: ModelId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHandMeshObserver as ::windows::core::Interface>::IID
@@ -249,7 +253,12 @@ impl IHandMeshVertexStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHandMeshVertexState>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, IMPL_OFFSET>, GetVertices::<Impl, IMPL_OFFSET>, UpdateTimestamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHandMeshVertexState, BASE_OFFSET>(),
+            CoordinateSystem: CoordinateSystem::<Impl, IMPL_OFFSET>,
+            GetVertices: GetVertices::<Impl, IMPL_OFFSET>,
+            UpdateTimestamp: UpdateTimestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHandMeshVertexState as ::windows::core::Interface>::IID
@@ -306,7 +315,13 @@ impl IHandPoseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetRelativeJoints(::core::slice::from_raw_parts(::core::mem::transmute_copy(&joints), joints_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&referencejoints), referenceJoints_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&jointposes), jointPoses_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHandPose>, ::windows::core::GetTrustLevel, TryGetJoint::<Impl, IMPL_OFFSET>, TryGetJoints::<Impl, IMPL_OFFSET>, GetRelativeJoint::<Impl, IMPL_OFFSET>, GetRelativeJoints::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHandPose, BASE_OFFSET>(),
+            TryGetJoint: TryGetJoint::<Impl, IMPL_OFFSET>,
+            TryGetJoints: TryGetJoints::<Impl, IMPL_OFFSET>,
+            GetRelativeJoint: GetRelativeJoint::<Impl, IMPL_OFFSET>,
+            GetRelativeJoints: GetRelativeJoints::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHandPose as ::windows::core::Interface>::IID
@@ -358,7 +373,12 @@ impl IHeadPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHeadPose>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, ForwardDirection::<Impl, IMPL_OFFSET>, UpDirection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHeadPose, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            ForwardDirection: ForwardDirection::<Impl, IMPL_OFFSET>,
+            UpDirection: UpDirection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHeadPose as ::windows::core::Interface>::IID

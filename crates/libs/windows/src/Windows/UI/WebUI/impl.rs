@@ -13,7 +13,7 @@ impl IActivatedDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivatedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IActivatedDeferral, BASE_OFFSET>(), Complete: Complete::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivatedDeferral as ::windows::core::Interface>::IID
@@ -38,7 +38,10 @@ impl IActivatedEventArgsDeferralVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivatedEventArgsDeferral>, ::windows::core::GetTrustLevel, ActivatedOperation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivatedEventArgsDeferral, BASE_OFFSET>(),
+            ActivatedOperation: ActivatedOperation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivatedEventArgsDeferral as ::windows::core::Interface>::IID
@@ -66,7 +69,7 @@ impl IActivatedOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivatedOperation>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IActivatedOperation, BASE_OFFSET>(), GetDeferral: GetDeferral::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivatedOperation as ::windows::core::Interface>::IID
@@ -242,32 +245,27 @@ impl IHtmlPrintDocumentSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHtmlPrintDocumentSource>,
-            ::windows::core::GetTrustLevel,
-            Content::<Impl, IMPL_OFFSET>,
-            SetContent::<Impl, IMPL_OFFSET>,
-            LeftMargin::<Impl, IMPL_OFFSET>,
-            SetLeftMargin::<Impl, IMPL_OFFSET>,
-            TopMargin::<Impl, IMPL_OFFSET>,
-            SetTopMargin::<Impl, IMPL_OFFSET>,
-            RightMargin::<Impl, IMPL_OFFSET>,
-            SetRightMargin::<Impl, IMPL_OFFSET>,
-            BottomMargin::<Impl, IMPL_OFFSET>,
-            SetBottomMargin::<Impl, IMPL_OFFSET>,
-            EnableHeaderFooter::<Impl, IMPL_OFFSET>,
-            SetEnableHeaderFooter::<Impl, IMPL_OFFSET>,
-            ShrinkToFit::<Impl, IMPL_OFFSET>,
-            SetShrinkToFit::<Impl, IMPL_OFFSET>,
-            PercentScale::<Impl, IMPL_OFFSET>,
-            SetPercentScale::<Impl, IMPL_OFFSET>,
-            PageRange::<Impl, IMPL_OFFSET>,
-            TrySetPageRange::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHtmlPrintDocumentSource, BASE_OFFSET>(),
+            Content: Content::<Impl, IMPL_OFFSET>,
+            SetContent: SetContent::<Impl, IMPL_OFFSET>,
+            LeftMargin: LeftMargin::<Impl, IMPL_OFFSET>,
+            SetLeftMargin: SetLeftMargin::<Impl, IMPL_OFFSET>,
+            TopMargin: TopMargin::<Impl, IMPL_OFFSET>,
+            SetTopMargin: SetTopMargin::<Impl, IMPL_OFFSET>,
+            RightMargin: RightMargin::<Impl, IMPL_OFFSET>,
+            SetRightMargin: SetRightMargin::<Impl, IMPL_OFFSET>,
+            BottomMargin: BottomMargin::<Impl, IMPL_OFFSET>,
+            SetBottomMargin: SetBottomMargin::<Impl, IMPL_OFFSET>,
+            EnableHeaderFooter: EnableHeaderFooter::<Impl, IMPL_OFFSET>,
+            SetEnableHeaderFooter: SetEnableHeaderFooter::<Impl, IMPL_OFFSET>,
+            ShrinkToFit: ShrinkToFit::<Impl, IMPL_OFFSET>,
+            SetShrinkToFit: SetShrinkToFit::<Impl, IMPL_OFFSET>,
+            PercentScale: PercentScale::<Impl, IMPL_OFFSET>,
+            SetPercentScale: SetPercentScale::<Impl, IMPL_OFFSET>,
+            PageRange: PageRange::<Impl, IMPL_OFFSET>,
+            TrySetPageRange: TrySetPageRange::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHtmlPrintDocumentSource as ::windows::core::Interface>::IID
@@ -331,7 +329,13 @@ impl INewWebUIViewCreatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INewWebUIViewCreatedEventArgs>, ::windows::core::GetTrustLevel, WebUIView::<Impl, IMPL_OFFSET>, ActivatedEventArgs::<Impl, IMPL_OFFSET>, HasPendingNavigate::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INewWebUIViewCreatedEventArgs, BASE_OFFSET>(),
+            WebUIView: WebUIView::<Impl, IMPL_OFFSET>,
+            ActivatedEventArgs: ActivatedEventArgs::<Impl, IMPL_OFFSET>,
+            HasPendingNavigate: HasPendingNavigate::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INewWebUIViewCreatedEventArgs as ::windows::core::Interface>::IID
@@ -415,22 +419,17 @@ impl IWebUIActivationStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveNavigated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebUIActivationStatics>,
-            ::windows::core::GetTrustLevel,
-            Activated::<Impl, IMPL_OFFSET>,
-            RemoveActivated::<Impl, IMPL_OFFSET>,
-            Suspending::<Impl, IMPL_OFFSET>,
-            RemoveSuspending::<Impl, IMPL_OFFSET>,
-            Resuming::<Impl, IMPL_OFFSET>,
-            RemoveResuming::<Impl, IMPL_OFFSET>,
-            Navigated::<Impl, IMPL_OFFSET>,
-            RemoveNavigated::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUIActivationStatics, BASE_OFFSET>(),
+            Activated: Activated::<Impl, IMPL_OFFSET>,
+            RemoveActivated: RemoveActivated::<Impl, IMPL_OFFSET>,
+            Suspending: Suspending::<Impl, IMPL_OFFSET>,
+            RemoveSuspending: RemoveSuspending::<Impl, IMPL_OFFSET>,
+            Resuming: Resuming::<Impl, IMPL_OFFSET>,
+            RemoveResuming: RemoveResuming::<Impl, IMPL_OFFSET>,
+            Navigated: Navigated::<Impl, IMPL_OFFSET>,
+            RemoveNavigated: RemoveNavigated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUIActivationStatics as ::windows::core::Interface>::IID
@@ -485,19 +484,14 @@ impl IWebUIActivationStatics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnablePrelaunch(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebUIActivationStatics2>,
-            ::windows::core::GetTrustLevel,
-            LeavingBackground::<Impl, IMPL_OFFSET>,
-            RemoveLeavingBackground::<Impl, IMPL_OFFSET>,
-            EnteredBackground::<Impl, IMPL_OFFSET>,
-            RemoveEnteredBackground::<Impl, IMPL_OFFSET>,
-            EnablePrelaunch::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUIActivationStatics2, BASE_OFFSET>(),
+            LeavingBackground: LeavingBackground::<Impl, IMPL_OFFSET>,
+            RemoveLeavingBackground: RemoveLeavingBackground::<Impl, IMPL_OFFSET>,
+            EnteredBackground: EnteredBackground::<Impl, IMPL_OFFSET>,
+            RemoveEnteredBackground: RemoveEnteredBackground::<Impl, IMPL_OFFSET>,
+            EnablePrelaunch: EnablePrelaunch::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUIActivationStatics2 as ::windows::core::Interface>::IID
@@ -537,7 +531,11 @@ impl IWebUIActivationStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIActivationStatics3>, ::windows::core::GetTrustLevel, RequestRestartAsync::<Impl, IMPL_OFFSET>, RequestRestartForUserAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUIActivationStatics3, BASE_OFFSET>(),
+            RequestRestartAsync: RequestRestartAsync::<Impl, IMPL_OFFSET>,
+            RequestRestartForUserAsync: RequestRestartForUserAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUIActivationStatics3 as ::windows::core::Interface>::IID
@@ -587,7 +585,13 @@ impl IWebUIActivationStatics4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBackgroundActivated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIActivationStatics4>, ::windows::core::GetTrustLevel, NewWebUIViewCreated::<Impl, IMPL_OFFSET>, RemoveNewWebUIViewCreated::<Impl, IMPL_OFFSET>, BackgroundActivated::<Impl, IMPL_OFFSET>, RemoveBackgroundActivated::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUIActivationStatics4, BASE_OFFSET>(),
+            NewWebUIViewCreated: NewWebUIViewCreated::<Impl, IMPL_OFFSET>,
+            RemoveNewWebUIViewCreated: RemoveNewWebUIViewCreated::<Impl, IMPL_OFFSET>,
+            BackgroundActivated: BackgroundActivated::<Impl, IMPL_OFFSET>,
+            RemoveBackgroundActivated: RemoveBackgroundActivated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUIActivationStatics4 as ::windows::core::Interface>::IID
@@ -617,7 +621,11 @@ impl IWebUIBackgroundTaskInstanceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSucceeded(succeeded).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIBackgroundTaskInstance>, ::windows::core::GetTrustLevel, Succeeded::<Impl, IMPL_OFFSET>, SetSucceeded::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUIBackgroundTaskInstance, BASE_OFFSET>(),
+            Succeeded: Succeeded::<Impl, IMPL_OFFSET>,
+            SetSucceeded: SetSucceeded::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUIBackgroundTaskInstance as ::windows::core::Interface>::IID
@@ -645,7 +653,10 @@ impl IWebUIBackgroundTaskInstanceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIBackgroundTaskInstanceStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUIBackgroundTaskInstanceStatics, BASE_OFFSET>(),
+            Current: Current::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUIBackgroundTaskInstanceStatics as ::windows::core::Interface>::IID
@@ -666,7 +677,7 @@ impl IWebUINavigatedDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUINavigatedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUINavigatedDeferral, BASE_OFFSET>(), Complete: Complete::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUINavigatedDeferral as ::windows::core::Interface>::IID
@@ -691,7 +702,10 @@ impl IWebUINavigatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUINavigatedEventArgs>, ::windows::core::GetTrustLevel, NavigatedOperation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUINavigatedEventArgs, BASE_OFFSET>(),
+            NavigatedOperation: NavigatedOperation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUINavigatedEventArgs as ::windows::core::Interface>::IID
@@ -719,7 +733,7 @@ impl IWebUINavigatedOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUINavigatedOperation>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUINavigatedOperation, BASE_OFFSET>(), GetDeferral: GetDeferral::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUINavigatedOperation as ::windows::core::Interface>::IID
@@ -798,21 +812,16 @@ impl IWebUIViewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIgnoreApplicationContentUriRulesNavigationRestrictions(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebUIView>,
-            ::windows::core::GetTrustLevel,
-            ApplicationViewId::<Impl, IMPL_OFFSET>,
-            Closed::<Impl, IMPL_OFFSET>,
-            RemoveClosed::<Impl, IMPL_OFFSET>,
-            Activated::<Impl, IMPL_OFFSET>,
-            RemoveActivated::<Impl, IMPL_OFFSET>,
-            IgnoreApplicationContentUriRulesNavigationRestrictions::<Impl, IMPL_OFFSET>,
-            SetIgnoreApplicationContentUriRulesNavigationRestrictions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUIView, BASE_OFFSET>(),
+            ApplicationViewId: ApplicationViewId::<Impl, IMPL_OFFSET>,
+            Closed: Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed: RemoveClosed::<Impl, IMPL_OFFSET>,
+            Activated: Activated::<Impl, IMPL_OFFSET>,
+            RemoveActivated: RemoveActivated::<Impl, IMPL_OFFSET>,
+            IgnoreApplicationContentUriRulesNavigationRestrictions: IgnoreApplicationContentUriRulesNavigationRestrictions::<Impl, IMPL_OFFSET>,
+            SetIgnoreApplicationContentUriRulesNavigationRestrictions: SetIgnoreApplicationContentUriRulesNavigationRestrictions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUIView as ::windows::core::Interface>::IID
@@ -852,7 +861,11 @@ impl IWebUIViewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIViewStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>, CreateWithUriAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUIViewStatics, BASE_OFFSET>(),
+            CreateAsync: CreateAsync::<Impl, IMPL_OFFSET>,
+            CreateWithUriAsync: CreateWithUriAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUIViewStatics as ::windows::core::Interface>::IID

@@ -34,7 +34,15 @@ impl AsyncIAssociatedIdentityProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Begin_AssociateIdentity::<Impl, IMPL_OFFSET>, Finish_AssociateIdentity::<Impl, IMPL_OFFSET>, Begin_DisassociateIdentity::<Impl, IMPL_OFFSET>, Finish_DisassociateIdentity::<Impl, IMPL_OFFSET>, Begin_ChangeCredential::<Impl, IMPL_OFFSET>, Finish_ChangeCredential::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Begin_AssociateIdentity: Begin_AssociateIdentity::<Impl, IMPL_OFFSET>,
+            Finish_AssociateIdentity: Finish_AssociateIdentity::<Impl, IMPL_OFFSET>,
+            Begin_DisassociateIdentity: Begin_DisassociateIdentity::<Impl, IMPL_OFFSET>,
+            Finish_DisassociateIdentity: Finish_DisassociateIdentity::<Impl, IMPL_OFFSET>,
+            Begin_ChangeCredential: Begin_ChangeCredential::<Impl, IMPL_OFFSET>,
+            Finish_ChangeCredential: Finish_ChangeCredential::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<AsyncIAssociatedIdentityProvider as ::windows::core::Interface>::IID
@@ -96,21 +104,19 @@ impl AsyncIConnectedIdentityProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Begin_ConnectIdentity::<Impl, IMPL_OFFSET>,
-            Finish_ConnectIdentity::<Impl, IMPL_OFFSET>,
-            Begin_DisconnectIdentity::<Impl, IMPL_OFFSET>,
-            Finish_DisconnectIdentity::<Impl, IMPL_OFFSET>,
-            Begin_IsConnected::<Impl, IMPL_OFFSET>,
-            Finish_IsConnected::<Impl, IMPL_OFFSET>,
-            Begin_GetUrl::<Impl, IMPL_OFFSET>,
-            Finish_GetUrl::<Impl, IMPL_OFFSET>,
-            Begin_GetAccountState::<Impl, IMPL_OFFSET>,
-            Finish_GetAccountState::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Begin_ConnectIdentity: Begin_ConnectIdentity::<Impl, IMPL_OFFSET>,
+            Finish_ConnectIdentity: Finish_ConnectIdentity::<Impl, IMPL_OFFSET>,
+            Begin_DisconnectIdentity: Begin_DisconnectIdentity::<Impl, IMPL_OFFSET>,
+            Finish_DisconnectIdentity: Finish_DisconnectIdentity::<Impl, IMPL_OFFSET>,
+            Begin_IsConnected: Begin_IsConnected::<Impl, IMPL_OFFSET>,
+            Finish_IsConnected: Finish_IsConnected::<Impl, IMPL_OFFSET>,
+            Begin_GetUrl: Begin_GetUrl::<Impl, IMPL_OFFSET>,
+            Finish_GetUrl: Finish_GetUrl::<Impl, IMPL_OFFSET>,
+            Begin_GetAccountState: Begin_GetAccountState::<Impl, IMPL_OFFSET>,
+            Finish_GetAccountState: Finish_GetAccountState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<AsyncIConnectedIdentityProvider as ::windows::core::Interface>::IID
@@ -132,7 +138,11 @@ impl AsyncIIdentityAdviseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Begin_IdentityUpdated::<Impl, IMPL_OFFSET>, Finish_IdentityUpdated::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Begin_IdentityUpdated: Begin_IdentityUpdated::<Impl, IMPL_OFFSET>,
+            Finish_IdentityUpdated: Finish_IdentityUpdated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<AsyncIIdentityAdvise as ::windows::core::Interface>::IID
@@ -164,7 +174,13 @@ impl AsyncIIdentityAuthenticationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Begin_SetIdentityCredential::<Impl, IMPL_OFFSET>, Finish_SetIdentityCredential::<Impl, IMPL_OFFSET>, Begin_ValidateIdentityCredential::<Impl, IMPL_OFFSET>, Finish_ValidateIdentityCredential::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Begin_SetIdentityCredential: Begin_SetIdentityCredential::<Impl, IMPL_OFFSET>,
+            Finish_SetIdentityCredential: Finish_SetIdentityCredential::<Impl, IMPL_OFFSET>,
+            Begin_ValidateIdentityCredential: Begin_ValidateIdentityCredential::<Impl, IMPL_OFFSET>,
+            Finish_ValidateIdentityCredential: Finish_ValidateIdentityCredential::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<AsyncIIdentityAuthentication as ::windows::core::Interface>::IID
@@ -256,27 +272,25 @@ impl AsyncIIdentityProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Begin_GetIdentityEnum::<Impl, IMPL_OFFSET>,
-            Finish_GetIdentityEnum::<Impl, IMPL_OFFSET>,
-            Begin_Create::<Impl, IMPL_OFFSET>,
-            Finish_Create::<Impl, IMPL_OFFSET>,
-            Begin_Import::<Impl, IMPL_OFFSET>,
-            Finish_Import::<Impl, IMPL_OFFSET>,
-            Begin_Delete::<Impl, IMPL_OFFSET>,
-            Finish_Delete::<Impl, IMPL_OFFSET>,
-            Begin_FindByUniqueID::<Impl, IMPL_OFFSET>,
-            Finish_FindByUniqueID::<Impl, IMPL_OFFSET>,
-            Begin_GetProviderPropertyStore::<Impl, IMPL_OFFSET>,
-            Finish_GetProviderPropertyStore::<Impl, IMPL_OFFSET>,
-            Begin_Advise::<Impl, IMPL_OFFSET>,
-            Finish_Advise::<Impl, IMPL_OFFSET>,
-            Begin_UnAdvise::<Impl, IMPL_OFFSET>,
-            Finish_UnAdvise::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Begin_GetIdentityEnum: Begin_GetIdentityEnum::<Impl, IMPL_OFFSET>,
+            Finish_GetIdentityEnum: Finish_GetIdentityEnum::<Impl, IMPL_OFFSET>,
+            Begin_Create: Begin_Create::<Impl, IMPL_OFFSET>,
+            Finish_Create: Finish_Create::<Impl, IMPL_OFFSET>,
+            Begin_Import: Begin_Import::<Impl, IMPL_OFFSET>,
+            Finish_Import: Finish_Import::<Impl, IMPL_OFFSET>,
+            Begin_Delete: Begin_Delete::<Impl, IMPL_OFFSET>,
+            Finish_Delete: Finish_Delete::<Impl, IMPL_OFFSET>,
+            Begin_FindByUniqueID: Begin_FindByUniqueID::<Impl, IMPL_OFFSET>,
+            Finish_FindByUniqueID: Finish_FindByUniqueID::<Impl, IMPL_OFFSET>,
+            Begin_GetProviderPropertyStore: Begin_GetProviderPropertyStore::<Impl, IMPL_OFFSET>,
+            Finish_GetProviderPropertyStore: Finish_GetProviderPropertyStore::<Impl, IMPL_OFFSET>,
+            Begin_Advise: Begin_Advise::<Impl, IMPL_OFFSET>,
+            Finish_Advise: Finish_Advise::<Impl, IMPL_OFFSET>,
+            Begin_UnAdvise: Begin_UnAdvise::<Impl, IMPL_OFFSET>,
+            Finish_UnAdvise: Finish_UnAdvise::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<AsyncIIdentityProvider as ::windows::core::Interface>::IID
@@ -348,23 +362,21 @@ impl AsyncIIdentityStoreVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Begin_GetCount::<Impl, IMPL_OFFSET>,
-            Finish_GetCount::<Impl, IMPL_OFFSET>,
-            Begin_GetAt::<Impl, IMPL_OFFSET>,
-            Finish_GetAt::<Impl, IMPL_OFFSET>,
-            Begin_AddToCache::<Impl, IMPL_OFFSET>,
-            Finish_AddToCache::<Impl, IMPL_OFFSET>,
-            Begin_ConvertToSid::<Impl, IMPL_OFFSET>,
-            Finish_ConvertToSid::<Impl, IMPL_OFFSET>,
-            Begin_EnumerateIdentities::<Impl, IMPL_OFFSET>,
-            Finish_EnumerateIdentities::<Impl, IMPL_OFFSET>,
-            Begin_Reset::<Impl, IMPL_OFFSET>,
-            Finish_Reset::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Begin_GetCount: Begin_GetCount::<Impl, IMPL_OFFSET>,
+            Finish_GetCount: Finish_GetCount::<Impl, IMPL_OFFSET>,
+            Begin_GetAt: Begin_GetAt::<Impl, IMPL_OFFSET>,
+            Finish_GetAt: Finish_GetAt::<Impl, IMPL_OFFSET>,
+            Begin_AddToCache: Begin_AddToCache::<Impl, IMPL_OFFSET>,
+            Finish_AddToCache: Finish_AddToCache::<Impl, IMPL_OFFSET>,
+            Begin_ConvertToSid: Begin_ConvertToSid::<Impl, IMPL_OFFSET>,
+            Finish_ConvertToSid: Finish_ConvertToSid::<Impl, IMPL_OFFSET>,
+            Begin_EnumerateIdentities: Begin_EnumerateIdentities::<Impl, IMPL_OFFSET>,
+            Finish_EnumerateIdentities: Finish_EnumerateIdentities::<Impl, IMPL_OFFSET>,
+            Begin_Reset: Begin_Reset::<Impl, IMPL_OFFSET>,
+            Finish_Reset: Finish_Reset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<AsyncIIdentityStore as ::windows::core::Interface>::IID
@@ -396,7 +408,13 @@ impl AsyncIIdentityStoreExVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Begin_CreateConnectedIdentity::<Impl, IMPL_OFFSET>, Finish_CreateConnectedIdentity::<Impl, IMPL_OFFSET>, Begin_DeleteConnectedIdentity::<Impl, IMPL_OFFSET>, Finish_DeleteConnectedIdentity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Begin_CreateConnectedIdentity: Begin_CreateConnectedIdentity::<Impl, IMPL_OFFSET>,
+            Finish_CreateConnectedIdentity: Finish_CreateConnectedIdentity::<Impl, IMPL_OFFSET>,
+            Begin_DeleteConnectedIdentity: Begin_DeleteConnectedIdentity::<Impl, IMPL_OFFSET>,
+            Finish_DeleteConnectedIdentity: Finish_DeleteConnectedIdentity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<AsyncIIdentityStoreEx as ::windows::core::Interface>::IID
@@ -423,7 +441,12 @@ impl IAssociatedIdentityProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, AssociateIdentity::<Impl, IMPL_OFFSET>, DisassociateIdentity::<Impl, IMPL_OFFSET>, ChangeCredential::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AssociateIdentity: AssociateIdentity::<Impl, IMPL_OFFSET>,
+            DisassociateIdentity: DisassociateIdentity::<Impl, IMPL_OFFSET>,
+            ChangeCredential: ChangeCredential::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAssociatedIdentityProvider as ::windows::core::Interface>::IID
@@ -460,7 +483,14 @@ impl IConnectedIdentityProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ConnectIdentity::<Impl, IMPL_OFFSET>, DisconnectIdentity::<Impl, IMPL_OFFSET>, IsConnected::<Impl, IMPL_OFFSET>, GetUrl::<Impl, IMPL_OFFSET>, GetAccountState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ConnectIdentity: ConnectIdentity::<Impl, IMPL_OFFSET>,
+            DisconnectIdentity: DisconnectIdentity::<Impl, IMPL_OFFSET>,
+            IsConnected: IsConnected::<Impl, IMPL_OFFSET>,
+            GetUrl: GetUrl::<Impl, IMPL_OFFSET>,
+            GetAccountState: GetAccountState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectedIdentityProvider as ::windows::core::Interface>::IID
@@ -477,7 +507,7 @@ impl IIdentityAdviseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, IdentityUpdated::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), IdentityUpdated: IdentityUpdated::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIdentityAdvise as ::windows::core::Interface>::IID
@@ -499,7 +529,11 @@ impl IIdentityAuthenticationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetIdentityCredential::<Impl, IMPL_OFFSET>, ValidateIdentityCredential::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetIdentityCredential: SetIdentityCredential::<Impl, IMPL_OFFSET>,
+            ValidateIdentityCredential: ValidateIdentityCredential::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIdentityAuthentication as ::windows::core::Interface>::IID
@@ -551,7 +585,17 @@ impl IIdentityProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetIdentityEnum::<Impl, IMPL_OFFSET>, Create::<Impl, IMPL_OFFSET>, Import::<Impl, IMPL_OFFSET>, Delete::<Impl, IMPL_OFFSET>, FindByUniqueID::<Impl, IMPL_OFFSET>, GetProviderPropertyStore::<Impl, IMPL_OFFSET>, Advise::<Impl, IMPL_OFFSET>, UnAdvise::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetIdentityEnum: GetIdentityEnum::<Impl, IMPL_OFFSET>,
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Import: Import::<Impl, IMPL_OFFSET>,
+            Delete: Delete::<Impl, IMPL_OFFSET>,
+            FindByUniqueID: FindByUniqueID::<Impl, IMPL_OFFSET>,
+            GetProviderPropertyStore: GetProviderPropertyStore::<Impl, IMPL_OFFSET>,
+            Advise: Advise::<Impl, IMPL_OFFSET>,
+            UnAdvise: UnAdvise::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIdentityProvider as ::windows::core::Interface>::IID
@@ -593,7 +637,15 @@ impl IIdentityStoreVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetCount::<Impl, IMPL_OFFSET>, GetAt::<Impl, IMPL_OFFSET>, AddToCache::<Impl, IMPL_OFFSET>, ConvertToSid::<Impl, IMPL_OFFSET>, EnumerateIdentities::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetCount: GetCount::<Impl, IMPL_OFFSET>,
+            GetAt: GetAt::<Impl, IMPL_OFFSET>,
+            AddToCache: AddToCache::<Impl, IMPL_OFFSET>,
+            ConvertToSid: ConvertToSid::<Impl, IMPL_OFFSET>,
+            EnumerateIdentities: EnumerateIdentities::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIdentityStore as ::windows::core::Interface>::IID
@@ -615,7 +667,11 @@ impl IIdentityStoreExVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CreateConnectedIdentity::<Impl, IMPL_OFFSET>, DeleteConnectedIdentity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateConnectedIdentity: CreateConnectedIdentity::<Impl, IMPL_OFFSET>,
+            DeleteConnectedIdentity: DeleteConnectedIdentity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIdentityStoreEx as ::windows::core::Interface>::IID

@@ -164,27 +164,22 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhotoImportDeleteImportedItemsFromSourceResult>,
-            ::windows::core::GetTrustLevel,
-            Session::<Impl, IMPL_OFFSET>,
-            HasSucceeded::<Impl, IMPL_OFFSET>,
-            DeletedItems::<Impl, IMPL_OFFSET>,
-            PhotosCount::<Impl, IMPL_OFFSET>,
-            PhotosSizeInBytes::<Impl, IMPL_OFFSET>,
-            VideosCount::<Impl, IMPL_OFFSET>,
-            VideosSizeInBytes::<Impl, IMPL_OFFSET>,
-            SidecarsCount::<Impl, IMPL_OFFSET>,
-            SidecarsSizeInBytes::<Impl, IMPL_OFFSET>,
-            SiblingsCount::<Impl, IMPL_OFFSET>,
-            SiblingsSizeInBytes::<Impl, IMPL_OFFSET>,
-            TotalCount::<Impl, IMPL_OFFSET>,
-            TotalSizeInBytes::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportDeleteImportedItemsFromSourceResult, BASE_OFFSET>(),
+            Session: Session::<Impl, IMPL_OFFSET>,
+            HasSucceeded: HasSucceeded::<Impl, IMPL_OFFSET>,
+            DeletedItems: DeletedItems::<Impl, IMPL_OFFSET>,
+            PhotosCount: PhotosCount::<Impl, IMPL_OFFSET>,
+            PhotosSizeInBytes: PhotosSizeInBytes::<Impl, IMPL_OFFSET>,
+            VideosCount: VideosCount::<Impl, IMPL_OFFSET>,
+            VideosSizeInBytes: VideosSizeInBytes::<Impl, IMPL_OFFSET>,
+            SidecarsCount: SidecarsCount::<Impl, IMPL_OFFSET>,
+            SidecarsSizeInBytes: SidecarsSizeInBytes::<Impl, IMPL_OFFSET>,
+            SiblingsCount: SiblingsCount::<Impl, IMPL_OFFSET>,
+            SiblingsSizeInBytes: SiblingsSizeInBytes::<Impl, IMPL_OFFSET>,
+            TotalCount: TotalCount::<Impl, IMPL_OFFSET>,
+            TotalSizeInBytes: TotalSizeInBytes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportDeleteImportedItemsFromSourceResult as ::windows::core::Interface>::IID
@@ -561,47 +556,42 @@ impl IPhotoImportFindItemsResultVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemImported(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhotoImportFindItemsResult>,
-            ::windows::core::GetTrustLevel,
-            Session::<Impl, IMPL_OFFSET>,
-            HasSucceeded::<Impl, IMPL_OFFSET>,
-            FoundItems::<Impl, IMPL_OFFSET>,
-            PhotosCount::<Impl, IMPL_OFFSET>,
-            PhotosSizeInBytes::<Impl, IMPL_OFFSET>,
-            VideosCount::<Impl, IMPL_OFFSET>,
-            VideosSizeInBytes::<Impl, IMPL_OFFSET>,
-            SidecarsCount::<Impl, IMPL_OFFSET>,
-            SidecarsSizeInBytes::<Impl, IMPL_OFFSET>,
-            SiblingsCount::<Impl, IMPL_OFFSET>,
-            SiblingsSizeInBytes::<Impl, IMPL_OFFSET>,
-            TotalCount::<Impl, IMPL_OFFSET>,
-            TotalSizeInBytes::<Impl, IMPL_OFFSET>,
-            SelectAll::<Impl, IMPL_OFFSET>,
-            SelectNone::<Impl, IMPL_OFFSET>,
-            SelectNewAsync::<Impl, IMPL_OFFSET>,
-            SetImportMode::<Impl, IMPL_OFFSET>,
-            ImportMode::<Impl, IMPL_OFFSET>,
-            SelectedPhotosCount::<Impl, IMPL_OFFSET>,
-            SelectedPhotosSizeInBytes::<Impl, IMPL_OFFSET>,
-            SelectedVideosCount::<Impl, IMPL_OFFSET>,
-            SelectedVideosSizeInBytes::<Impl, IMPL_OFFSET>,
-            SelectedSidecarsCount::<Impl, IMPL_OFFSET>,
-            SelectedSidecarsSizeInBytes::<Impl, IMPL_OFFSET>,
-            SelectedSiblingsCount::<Impl, IMPL_OFFSET>,
-            SelectedSiblingsSizeInBytes::<Impl, IMPL_OFFSET>,
-            SelectedTotalCount::<Impl, IMPL_OFFSET>,
-            SelectedTotalSizeInBytes::<Impl, IMPL_OFFSET>,
-            SelectionChanged::<Impl, IMPL_OFFSET>,
-            RemoveSelectionChanged::<Impl, IMPL_OFFSET>,
-            ImportItemsAsync::<Impl, IMPL_OFFSET>,
-            ItemImported::<Impl, IMPL_OFFSET>,
-            RemoveItemImported::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportFindItemsResult, BASE_OFFSET>(),
+            Session: Session::<Impl, IMPL_OFFSET>,
+            HasSucceeded: HasSucceeded::<Impl, IMPL_OFFSET>,
+            FoundItems: FoundItems::<Impl, IMPL_OFFSET>,
+            PhotosCount: PhotosCount::<Impl, IMPL_OFFSET>,
+            PhotosSizeInBytes: PhotosSizeInBytes::<Impl, IMPL_OFFSET>,
+            VideosCount: VideosCount::<Impl, IMPL_OFFSET>,
+            VideosSizeInBytes: VideosSizeInBytes::<Impl, IMPL_OFFSET>,
+            SidecarsCount: SidecarsCount::<Impl, IMPL_OFFSET>,
+            SidecarsSizeInBytes: SidecarsSizeInBytes::<Impl, IMPL_OFFSET>,
+            SiblingsCount: SiblingsCount::<Impl, IMPL_OFFSET>,
+            SiblingsSizeInBytes: SiblingsSizeInBytes::<Impl, IMPL_OFFSET>,
+            TotalCount: TotalCount::<Impl, IMPL_OFFSET>,
+            TotalSizeInBytes: TotalSizeInBytes::<Impl, IMPL_OFFSET>,
+            SelectAll: SelectAll::<Impl, IMPL_OFFSET>,
+            SelectNone: SelectNone::<Impl, IMPL_OFFSET>,
+            SelectNewAsync: SelectNewAsync::<Impl, IMPL_OFFSET>,
+            SetImportMode: SetImportMode::<Impl, IMPL_OFFSET>,
+            ImportMode: ImportMode::<Impl, IMPL_OFFSET>,
+            SelectedPhotosCount: SelectedPhotosCount::<Impl, IMPL_OFFSET>,
+            SelectedPhotosSizeInBytes: SelectedPhotosSizeInBytes::<Impl, IMPL_OFFSET>,
+            SelectedVideosCount: SelectedVideosCount::<Impl, IMPL_OFFSET>,
+            SelectedVideosSizeInBytes: SelectedVideosSizeInBytes::<Impl, IMPL_OFFSET>,
+            SelectedSidecarsCount: SelectedSidecarsCount::<Impl, IMPL_OFFSET>,
+            SelectedSidecarsSizeInBytes: SelectedSidecarsSizeInBytes::<Impl, IMPL_OFFSET>,
+            SelectedSiblingsCount: SelectedSiblingsCount::<Impl, IMPL_OFFSET>,
+            SelectedSiblingsSizeInBytes: SelectedSiblingsSizeInBytes::<Impl, IMPL_OFFSET>,
+            SelectedTotalCount: SelectedTotalCount::<Impl, IMPL_OFFSET>,
+            SelectedTotalSizeInBytes: SelectedTotalSizeInBytes::<Impl, IMPL_OFFSET>,
+            SelectionChanged: SelectionChanged::<Impl, IMPL_OFFSET>,
+            RemoveSelectionChanged: RemoveSelectionChanged::<Impl, IMPL_OFFSET>,
+            ImportItemsAsync: ImportItemsAsync::<Impl, IMPL_OFFSET>,
+            ItemImported: ItemImported::<Impl, IMPL_OFFSET>,
+            RemoveItemImported: RemoveItemImported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportFindItemsResult as ::windows::core::Interface>::IID
@@ -622,7 +612,10 @@ impl IPhotoImportFindItemsResult2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddItemsInDateRangeToSelection(&*(&rangestart as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType), &*(&rangelength as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportFindItemsResult2>, ::windows::core::GetTrustLevel, AddItemsInDateRangeToSelection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportFindItemsResult2, BASE_OFFSET>(),
+            AddItemsInDateRangeToSelection: AddItemsInDateRangeToSelection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportFindItemsResult2 as ::windows::core::Interface>::IID
@@ -806,28 +799,23 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhotoImportImportItemsResult>,
-            ::windows::core::GetTrustLevel,
-            Session::<Impl, IMPL_OFFSET>,
-            HasSucceeded::<Impl, IMPL_OFFSET>,
-            ImportedItems::<Impl, IMPL_OFFSET>,
-            PhotosCount::<Impl, IMPL_OFFSET>,
-            PhotosSizeInBytes::<Impl, IMPL_OFFSET>,
-            VideosCount::<Impl, IMPL_OFFSET>,
-            VideosSizeInBytes::<Impl, IMPL_OFFSET>,
-            SidecarsCount::<Impl, IMPL_OFFSET>,
-            SidecarsSizeInBytes::<Impl, IMPL_OFFSET>,
-            SiblingsCount::<Impl, IMPL_OFFSET>,
-            SiblingsSizeInBytes::<Impl, IMPL_OFFSET>,
-            TotalCount::<Impl, IMPL_OFFSET>,
-            TotalSizeInBytes::<Impl, IMPL_OFFSET>,
-            DeleteImportedItemsFromSourceAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportImportItemsResult, BASE_OFFSET>(),
+            Session: Session::<Impl, IMPL_OFFSET>,
+            HasSucceeded: HasSucceeded::<Impl, IMPL_OFFSET>,
+            ImportedItems: ImportedItems::<Impl, IMPL_OFFSET>,
+            PhotosCount: PhotosCount::<Impl, IMPL_OFFSET>,
+            PhotosSizeInBytes: PhotosSizeInBytes::<Impl, IMPL_OFFSET>,
+            VideosCount: VideosCount::<Impl, IMPL_OFFSET>,
+            VideosSizeInBytes: VideosSizeInBytes::<Impl, IMPL_OFFSET>,
+            SidecarsCount: SidecarsCount::<Impl, IMPL_OFFSET>,
+            SidecarsSizeInBytes: SidecarsSizeInBytes::<Impl, IMPL_OFFSET>,
+            SiblingsCount: SiblingsCount::<Impl, IMPL_OFFSET>,
+            SiblingsSizeInBytes: SiblingsSizeInBytes::<Impl, IMPL_OFFSET>,
+            TotalCount: TotalCount::<Impl, IMPL_OFFSET>,
+            TotalSizeInBytes: TotalSizeInBytes::<Impl, IMPL_OFFSET>,
+            DeleteImportedItemsFromSourceAsync: DeleteImportedItemsFromSourceAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportImportItemsResult as ::windows::core::Interface>::IID
@@ -992,27 +980,22 @@ impl IPhotoImportItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhotoImportItem>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            ItemKey::<Impl, IMPL_OFFSET>,
-            ContentType::<Impl, IMPL_OFFSET>,
-            SizeInBytes::<Impl, IMPL_OFFSET>,
-            Date::<Impl, IMPL_OFFSET>,
-            Sibling::<Impl, IMPL_OFFSET>,
-            Sidecars::<Impl, IMPL_OFFSET>,
-            VideoSegments::<Impl, IMPL_OFFSET>,
-            IsSelected::<Impl, IMPL_OFFSET>,
-            SetIsSelected::<Impl, IMPL_OFFSET>,
-            Thumbnail::<Impl, IMPL_OFFSET>,
-            ImportedFileNames::<Impl, IMPL_OFFSET>,
-            DeletedFileNames::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportItem, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            ItemKey: ItemKey::<Impl, IMPL_OFFSET>,
+            ContentType: ContentType::<Impl, IMPL_OFFSET>,
+            SizeInBytes: SizeInBytes::<Impl, IMPL_OFFSET>,
+            Date: Date::<Impl, IMPL_OFFSET>,
+            Sibling: Sibling::<Impl, IMPL_OFFSET>,
+            Sidecars: Sidecars::<Impl, IMPL_OFFSET>,
+            VideoSegments: VideoSegments::<Impl, IMPL_OFFSET>,
+            IsSelected: IsSelected::<Impl, IMPL_OFFSET>,
+            SetIsSelected: SetIsSelected::<Impl, IMPL_OFFSET>,
+            Thumbnail: Thumbnail::<Impl, IMPL_OFFSET>,
+            ImportedFileNames: ImportedFileNames::<Impl, IMPL_OFFSET>,
+            DeletedFileNames: DeletedFileNames::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportItem as ::windows::core::Interface>::IID
@@ -1040,7 +1023,7 @@ impl IPhotoImportItem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportItem2>, ::windows::core::GetTrustLevel, Path::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportItem2, BASE_OFFSET>(), Path: Path::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportItem2 as ::windows::core::Interface>::IID
@@ -1068,7 +1051,10 @@ impl IPhotoImportItemImportedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportItemImportedEventArgs>, ::windows::core::GetTrustLevel, ImportedItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportItemImportedEventArgs, BASE_OFFSET>(),
+            ImportedItem: ImportedItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportItemImportedEventArgs as ::windows::core::Interface>::IID
@@ -1120,7 +1106,12 @@ impl IPhotoImportManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportManagerStatics>, ::windows::core::GetTrustLevel, IsSupportedAsync::<Impl, IMPL_OFFSET>, FindAllSourcesAsync::<Impl, IMPL_OFFSET>, GetPendingOperations::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportManagerStatics, BASE_OFFSET>(),
+            IsSupportedAsync: IsSupportedAsync::<Impl, IMPL_OFFSET>,
+            FindAllSourcesAsync: FindAllSourcesAsync::<Impl, IMPL_OFFSET>,
+            GetPendingOperations: GetPendingOperations::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportManagerStatics as ::windows::core::Interface>::IID
@@ -1196,19 +1187,14 @@ impl IPhotoImportOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhotoImportOperation>,
-            ::windows::core::GetTrustLevel,
-            Stage::<Impl, IMPL_OFFSET>,
-            Session::<Impl, IMPL_OFFSET>,
-            ContinueFindingItemsAsync::<Impl, IMPL_OFFSET>,
-            ContinueImportingItemsAsync::<Impl, IMPL_OFFSET>,
-            ContinueDeletingImportedItemsFromSourceAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportOperation, BASE_OFFSET>(),
+            Stage: Stage::<Impl, IMPL_OFFSET>,
+            Session: Session::<Impl, IMPL_OFFSET>,
+            ContinueFindingItemsAsync: ContinueFindingItemsAsync::<Impl, IMPL_OFFSET>,
+            ContinueImportingItemsAsync: ContinueImportingItemsAsync::<Impl, IMPL_OFFSET>,
+            ContinueDeletingImportedItemsFromSourceAsync: ContinueDeletingImportedItemsFromSourceAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportOperation as ::windows::core::Interface>::IID
@@ -1236,7 +1222,10 @@ impl IPhotoImportSelectionChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportSelectionChangedEventArgs>, ::windows::core::GetTrustLevel, IsSelectionEmpty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportSelectionChangedEventArgs, BASE_OFFSET>(),
+            IsSelectionEmpty: IsSelectionEmpty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportSelectionChangedEventArgs as ::windows::core::Interface>::IID
@@ -1356,25 +1345,20 @@ impl IPhotoImportSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhotoImportSession>,
-            ::windows::core::GetTrustLevel,
-            Source::<Impl, IMPL_OFFSET>,
-            SessionId::<Impl, IMPL_OFFSET>,
-            SetDestinationFolder::<Impl, IMPL_OFFSET>,
-            DestinationFolder::<Impl, IMPL_OFFSET>,
-            SetAppendSessionDateToDestinationFolder::<Impl, IMPL_OFFSET>,
-            AppendSessionDateToDestinationFolder::<Impl, IMPL_OFFSET>,
-            SetSubfolderCreationMode::<Impl, IMPL_OFFSET>,
-            SubfolderCreationMode::<Impl, IMPL_OFFSET>,
-            SetDestinationFileNamePrefix::<Impl, IMPL_OFFSET>,
-            DestinationFileNamePrefix::<Impl, IMPL_OFFSET>,
-            FindItemsAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportSession, BASE_OFFSET>(),
+            Source: Source::<Impl, IMPL_OFFSET>,
+            SessionId: SessionId::<Impl, IMPL_OFFSET>,
+            SetDestinationFolder: SetDestinationFolder::<Impl, IMPL_OFFSET>,
+            DestinationFolder: DestinationFolder::<Impl, IMPL_OFFSET>,
+            SetAppendSessionDateToDestinationFolder: SetAppendSessionDateToDestinationFolder::<Impl, IMPL_OFFSET>,
+            AppendSessionDateToDestinationFolder: AppendSessionDateToDestinationFolder::<Impl, IMPL_OFFSET>,
+            SetSubfolderCreationMode: SetSubfolderCreationMode::<Impl, IMPL_OFFSET>,
+            SubfolderCreationMode: SubfolderCreationMode::<Impl, IMPL_OFFSET>,
+            SetDestinationFileNamePrefix: SetDestinationFileNamePrefix::<Impl, IMPL_OFFSET>,
+            DestinationFileNamePrefix: DestinationFileNamePrefix::<Impl, IMPL_OFFSET>,
+            FindItemsAsync: FindItemsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportSession as ::windows::core::Interface>::IID
@@ -1424,7 +1408,13 @@ impl IPhotoImportSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportSession2>, ::windows::core::GetTrustLevel, SetSubfolderDateFormat::<Impl, IMPL_OFFSET>, SubfolderDateFormat::<Impl, IMPL_OFFSET>, SetRememberDeselectedItems::<Impl, IMPL_OFFSET>, RememberDeselectedItems::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportSession2, BASE_OFFSET>(),
+            SetSubfolderDateFormat: SetSubfolderDateFormat::<Impl, IMPL_OFFSET>,
+            SubfolderDateFormat: SubfolderDateFormat::<Impl, IMPL_OFFSET>,
+            SetRememberDeselectedItems: SetRememberDeselectedItems::<Impl, IMPL_OFFSET>,
+            RememberDeselectedItems: RememberDeselectedItems::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportSession2 as ::windows::core::Interface>::IID
@@ -1476,7 +1466,12 @@ impl IPhotoImportSidecarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportSidecar>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SizeInBytes::<Impl, IMPL_OFFSET>, Date::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportSidecar, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SizeInBytes: SizeInBytes::<Impl, IMPL_OFFSET>,
+            Date: Date::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportSidecar as ::windows::core::Interface>::IID
@@ -1696,31 +1691,26 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhotoImportSource>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            Manufacturer::<Impl, IMPL_OFFSET>,
-            Model::<Impl, IMPL_OFFSET>,
-            SerialNumber::<Impl, IMPL_OFFSET>,
-            ConnectionProtocol::<Impl, IMPL_OFFSET>,
-            ConnectionTransport::<Impl, IMPL_OFFSET>,
-            Type::<Impl, IMPL_OFFSET>,
-            PowerSource::<Impl, IMPL_OFFSET>,
-            BatteryLevelPercent::<Impl, IMPL_OFFSET>,
-            DateTime::<Impl, IMPL_OFFSET>,
-            StorageMedia::<Impl, IMPL_OFFSET>,
-            IsLocked::<Impl, IMPL_OFFSET>,
-            IsMassStorage::<Impl, IMPL_OFFSET>,
-            Thumbnail::<Impl, IMPL_OFFSET>,
-            CreateImportSession::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportSource, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            Manufacturer: Manufacturer::<Impl, IMPL_OFFSET>,
+            Model: Model::<Impl, IMPL_OFFSET>,
+            SerialNumber: SerialNumber::<Impl, IMPL_OFFSET>,
+            ConnectionProtocol: ConnectionProtocol::<Impl, IMPL_OFFSET>,
+            ConnectionTransport: ConnectionTransport::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+            PowerSource: PowerSource::<Impl, IMPL_OFFSET>,
+            BatteryLevelPercent: BatteryLevelPercent::<Impl, IMPL_OFFSET>,
+            DateTime: DateTime::<Impl, IMPL_OFFSET>,
+            StorageMedia: StorageMedia::<Impl, IMPL_OFFSET>,
+            IsLocked: IsLocked::<Impl, IMPL_OFFSET>,
+            IsMassStorage: IsMassStorage::<Impl, IMPL_OFFSET>,
+            Thumbnail: Thumbnail::<Impl, IMPL_OFFSET>,
+            CreateImportSession: CreateImportSession::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportSource as ::windows::core::Interface>::IID
@@ -1760,7 +1750,11 @@ impl IPhotoImportSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportSourceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, FromFolderAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportSourceStatics, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            FromFolderAsync: FromFolderAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportSourceStatics as ::windows::core::Interface>::IID
@@ -1865,22 +1859,17 @@ impl IPhotoImportStorageMediumVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Refresh().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhotoImportStorageMedium>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            SerialNumber::<Impl, IMPL_OFFSET>,
-            StorageMediumType::<Impl, IMPL_OFFSET>,
-            SupportedAccessMode::<Impl, IMPL_OFFSET>,
-            CapacityInBytes::<Impl, IMPL_OFFSET>,
-            AvailableSpaceInBytes::<Impl, IMPL_OFFSET>,
-            Refresh::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportStorageMedium, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            SerialNumber: SerialNumber::<Impl, IMPL_OFFSET>,
+            StorageMediumType: StorageMediumType::<Impl, IMPL_OFFSET>,
+            SupportedAccessMode: SupportedAccessMode::<Impl, IMPL_OFFSET>,
+            CapacityInBytes: CapacityInBytes::<Impl, IMPL_OFFSET>,
+            AvailableSpaceInBytes: AvailableSpaceInBytes::<Impl, IMPL_OFFSET>,
+            Refresh: Refresh::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportStorageMedium as ::windows::core::Interface>::IID
@@ -1956,7 +1945,14 @@ impl IPhotoImportVideoSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportVideoSegment>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SizeInBytes::<Impl, IMPL_OFFSET>, Date::<Impl, IMPL_OFFSET>, Sibling::<Impl, IMPL_OFFSET>, Sidecars::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhotoImportVideoSegment, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SizeInBytes: SizeInBytes::<Impl, IMPL_OFFSET>,
+            Date: Date::<Impl, IMPL_OFFSET>,
+            Sibling: Sibling::<Impl, IMPL_OFFSET>,
+            Sidecars: Sidecars::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoImportVideoSegment as ::windows::core::Interface>::IID

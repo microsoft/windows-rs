@@ -153,29 +153,24 @@ impl IUserActivityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserActivity>,
-            ::windows::core::GetTrustLevel,
-            State::<Impl, IMPL_OFFSET>,
-            ActivityId::<Impl, IMPL_OFFSET>,
-            VisualElements::<Impl, IMPL_OFFSET>,
-            ContentUri::<Impl, IMPL_OFFSET>,
-            SetContentUri::<Impl, IMPL_OFFSET>,
-            ContentType::<Impl, IMPL_OFFSET>,
-            SetContentType::<Impl, IMPL_OFFSET>,
-            FallbackUri::<Impl, IMPL_OFFSET>,
-            SetFallbackUri::<Impl, IMPL_OFFSET>,
-            ActivationUri::<Impl, IMPL_OFFSET>,
-            SetActivationUri::<Impl, IMPL_OFFSET>,
-            ContentInfo::<Impl, IMPL_OFFSET>,
-            SetContentInfo::<Impl, IMPL_OFFSET>,
-            SaveAsync::<Impl, IMPL_OFFSET>,
-            CreateSession::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivity, BASE_OFFSET>(),
+            State: State::<Impl, IMPL_OFFSET>,
+            ActivityId: ActivityId::<Impl, IMPL_OFFSET>,
+            VisualElements: VisualElements::<Impl, IMPL_OFFSET>,
+            ContentUri: ContentUri::<Impl, IMPL_OFFSET>,
+            SetContentUri: SetContentUri::<Impl, IMPL_OFFSET>,
+            ContentType: ContentType::<Impl, IMPL_OFFSET>,
+            SetContentType: SetContentType::<Impl, IMPL_OFFSET>,
+            FallbackUri: FallbackUri::<Impl, IMPL_OFFSET>,
+            SetFallbackUri: SetFallbackUri::<Impl, IMPL_OFFSET>,
+            ActivationUri: ActivationUri::<Impl, IMPL_OFFSET>,
+            SetActivationUri: SetActivationUri::<Impl, IMPL_OFFSET>,
+            ContentInfo: ContentInfo::<Impl, IMPL_OFFSET>,
+            SetContentInfo: SetContentInfo::<Impl, IMPL_OFFSET>,
+            SaveAsync: SaveAsync::<Impl, IMPL_OFFSET>,
+            CreateSession: CreateSession::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivity as ::windows::core::Interface>::IID
@@ -203,7 +198,7 @@ impl IUserActivity2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivity2>, ::windows::core::GetTrustLevel, ToJson::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivity2, BASE_OFFSET>(), ToJson: ToJson::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivity2 as ::windows::core::Interface>::IID
@@ -236,7 +231,11 @@ impl IUserActivity3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsRoamable(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivity3>, ::windows::core::GetTrustLevel, IsRoamable::<Impl, IMPL_OFFSET>, SetIsRoamable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivity3, BASE_OFFSET>(),
+            IsRoamable: IsRoamable::<Impl, IMPL_OFFSET>,
+            SetIsRoamable: SetIsRoamable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivity3 as ::windows::core::Interface>::IID
@@ -303,20 +302,15 @@ impl IUserActivityAttributionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAddImageQuery(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserActivityAttribution>,
-            ::windows::core::GetTrustLevel,
-            IconUri::<Impl, IMPL_OFFSET>,
-            SetIconUri::<Impl, IMPL_OFFSET>,
-            AlternateText::<Impl, IMPL_OFFSET>,
-            SetAlternateText::<Impl, IMPL_OFFSET>,
-            AddImageQuery::<Impl, IMPL_OFFSET>,
-            SetAddImageQuery::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityAttribution, BASE_OFFSET>(),
+            IconUri: IconUri::<Impl, IMPL_OFFSET>,
+            SetIconUri: SetIconUri::<Impl, IMPL_OFFSET>,
+            AlternateText: AlternateText::<Impl, IMPL_OFFSET>,
+            SetAlternateText: SetAlternateText::<Impl, IMPL_OFFSET>,
+            AddImageQuery: AddImageQuery::<Impl, IMPL_OFFSET>,
+            SetAddImageQuery: SetAddImageQuery::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityAttribution as ::windows::core::Interface>::IID
@@ -344,7 +338,10 @@ impl IUserActivityAttributionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityAttributionFactory>, ::windows::core::GetTrustLevel, CreateWithUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityAttributionFactory, BASE_OFFSET>(),
+            CreateWithUri: CreateWithUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityAttributionFactory as ::windows::core::Interface>::IID
@@ -396,7 +393,12 @@ impl IUserActivityChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannel>, ::windows::core::GetTrustLevel, GetOrCreateUserActivityAsync::<Impl, IMPL_OFFSET>, DeleteActivityAsync::<Impl, IMPL_OFFSET>, DeleteAllActivitiesAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityChannel, BASE_OFFSET>(),
+            GetOrCreateUserActivityAsync: GetOrCreateUserActivityAsync::<Impl, IMPL_OFFSET>,
+            DeleteActivityAsync: DeleteActivityAsync::<Impl, IMPL_OFFSET>,
+            DeleteAllActivitiesAsync: DeleteAllActivitiesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityChannel as ::windows::core::Interface>::IID
@@ -436,7 +438,11 @@ impl IUserActivityChannel2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannel2>, ::windows::core::GetTrustLevel, GetRecentUserActivitiesAsync::<Impl, IMPL_OFFSET>, GetSessionHistoryItemsForUserActivityAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityChannel2, BASE_OFFSET>(),
+            GetRecentUserActivitiesAsync: GetRecentUserActivitiesAsync::<Impl, IMPL_OFFSET>,
+            GetSessionHistoryItemsForUserActivityAsync: GetSessionHistoryItemsForUserActivityAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityChannel2 as ::windows::core::Interface>::IID
@@ -464,7 +470,10 @@ impl IUserActivityChannelStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannelStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityChannelStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityChannelStatics as ::windows::core::Interface>::IID
@@ -497,7 +506,11 @@ impl IUserActivityChannelStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannelStatics2>, ::windows::core::GetTrustLevel, DisableAutoSessionCreation::<Impl, IMPL_OFFSET>, TryGetForWebAccount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityChannelStatics2, BASE_OFFSET>(),
+            DisableAutoSessionCreation: DisableAutoSessionCreation::<Impl, IMPL_OFFSET>,
+            TryGetForWebAccount: TryGetForWebAccount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityChannelStatics2 as ::windows::core::Interface>::IID
@@ -525,7 +538,10 @@ impl IUserActivityChannelStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannelStatics3>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityChannelStatics3, BASE_OFFSET>(),
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityChannelStatics3 as ::windows::core::Interface>::IID
@@ -550,7 +566,7 @@ impl IUserActivityContentInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityContentInfo>, ::windows::core::GetTrustLevel, ToJson::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityContentInfo, BASE_OFFSET>(), ToJson: ToJson::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityContentInfo as ::windows::core::Interface>::IID
@@ -578,7 +594,10 @@ impl IUserActivityContentInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityContentInfoStatics>, ::windows::core::GetTrustLevel, FromJson::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityContentInfoStatics, BASE_OFFSET>(),
+            FromJson: FromJson::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityContentInfoStatics as ::windows::core::Interface>::IID
@@ -606,7 +625,10 @@ impl IUserActivityFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityFactory>, ::windows::core::GetTrustLevel, CreateWithActivityId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityFactory, BASE_OFFSET>(),
+            CreateWithActivityId: CreateWithActivityId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityFactory as ::windows::core::Interface>::IID
@@ -627,7 +649,10 @@ impl IUserActivityRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUserActivity(&*(&activity as *const <UserActivity as ::windows::core::Abi>::Abi as *const <UserActivity as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityRequest>, ::windows::core::GetTrustLevel, SetUserActivity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityRequest, BASE_OFFSET>(),
+            SetUserActivity: SetUserActivity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityRequest as ::windows::core::Interface>::IID
@@ -660,7 +685,11 @@ impl IUserActivityRequestManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUserActivityRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityRequestManager>, ::windows::core::GetTrustLevel, UserActivityRequested::<Impl, IMPL_OFFSET>, RemoveUserActivityRequested::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityRequestManager, BASE_OFFSET>(),
+            UserActivityRequested: UserActivityRequested::<Impl, IMPL_OFFSET>,
+            RemoveUserActivityRequested: RemoveUserActivityRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityRequestManager as ::windows::core::Interface>::IID
@@ -688,7 +717,10 @@ impl IUserActivityRequestManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityRequestManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityRequestManagerStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityRequestManagerStatics as ::windows::core::Interface>::IID
@@ -728,7 +760,11 @@ impl IUserActivityRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityRequestedEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityRequestedEventArgs as ::windows::core::Interface>::IID
@@ -756,7 +792,7 @@ impl IUserActivitySessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivitySession>, ::windows::core::GetTrustLevel, ActivityId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivitySession, BASE_OFFSET>(), ActivityId: ActivityId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivitySession as ::windows::core::Interface>::IID
@@ -808,7 +844,12 @@ impl IUserActivitySessionHistoryItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivitySessionHistoryItem>, ::windows::core::GetTrustLevel, UserActivity::<Impl, IMPL_OFFSET>, StartTime::<Impl, IMPL_OFFSET>, EndTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivitySessionHistoryItem, BASE_OFFSET>(),
+            UserActivity: UserActivity::<Impl, IMPL_OFFSET>,
+            StartTime: StartTime::<Impl, IMPL_OFFSET>,
+            EndTime: EndTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivitySessionHistoryItem as ::windows::core::Interface>::IID
@@ -860,7 +901,12 @@ impl IUserActivityStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityStatics>, ::windows::core::GetTrustLevel, TryParseFromJson::<Impl, IMPL_OFFSET>, TryParseFromJsonArray::<Impl, IMPL_OFFSET>, ToJsonArray::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityStatics, BASE_OFFSET>(),
+            TryParseFromJson: TryParseFromJson::<Impl, IMPL_OFFSET>,
+            TryParseFromJsonArray: TryParseFromJsonArray::<Impl, IMPL_OFFSET>,
+            ToJsonArray: ToJsonArray::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityStatics as ::windows::core::Interface>::IID
@@ -961,24 +1007,19 @@ impl IUserActivityVisualElementsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUserActivityVisualElements>,
-            ::windows::core::GetTrustLevel,
-            DisplayText::<Impl, IMPL_OFFSET>,
-            SetDisplayText::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            SetDescription::<Impl, IMPL_OFFSET>,
-            BackgroundColor::<Impl, IMPL_OFFSET>,
-            SetBackgroundColor::<Impl, IMPL_OFFSET>,
-            Attribution::<Impl, IMPL_OFFSET>,
-            SetAttribution::<Impl, IMPL_OFFSET>,
-            SetContent::<Impl, IMPL_OFFSET>,
-            Content::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityVisualElements, BASE_OFFSET>(),
+            DisplayText: DisplayText::<Impl, IMPL_OFFSET>,
+            SetDisplayText: SetDisplayText::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            BackgroundColor: BackgroundColor::<Impl, IMPL_OFFSET>,
+            SetBackgroundColor: SetBackgroundColor::<Impl, IMPL_OFFSET>,
+            Attribution: Attribution::<Impl, IMPL_OFFSET>,
+            SetAttribution: SetAttribution::<Impl, IMPL_OFFSET>,
+            SetContent: SetContent::<Impl, IMPL_OFFSET>,
+            Content: Content::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityVisualElements as ::windows::core::Interface>::IID
@@ -1011,7 +1052,11 @@ impl IUserActivityVisualElements2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAttributionDisplayText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityVisualElements2>, ::windows::core::GetTrustLevel, AttributionDisplayText::<Impl, IMPL_OFFSET>, SetAttributionDisplayText::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityVisualElements2, BASE_OFFSET>(),
+            AttributionDisplayText: AttributionDisplayText::<Impl, IMPL_OFFSET>,
+            SetAttributionDisplayText: SetAttributionDisplayText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserActivityVisualElements2 as ::windows::core::Interface>::IID

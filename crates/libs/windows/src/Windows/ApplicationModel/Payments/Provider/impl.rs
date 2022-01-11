@@ -25,7 +25,11 @@ impl IPaymentAppCanMakePaymentTriggerDetailsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCanMakePaymentResult(&*(&value as *const <super::PaymentCanMakePaymentResult as ::windows::core::Abi>::Abi as *const <super::PaymentCanMakePaymentResult as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentAppCanMakePaymentTriggerDetails>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, ReportCanMakePaymentResult::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPaymentAppCanMakePaymentTriggerDetails, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            ReportCanMakePaymentResult: ReportCanMakePaymentResult::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPaymentAppCanMakePaymentTriggerDetails as ::windows::core::Interface>::IID
@@ -65,7 +69,11 @@ impl IPaymentAppManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentAppManager>, ::windows::core::GetTrustLevel, RegisterAsync::<Impl, IMPL_OFFSET>, UnregisterAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPaymentAppManager, BASE_OFFSET>(),
+            RegisterAsync: RegisterAsync::<Impl, IMPL_OFFSET>,
+            UnregisterAsync: UnregisterAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPaymentAppManager as ::windows::core::Interface>::IID
@@ -93,7 +101,7 @@ impl IPaymentAppManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentAppManagerStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPaymentAppManagerStatics, BASE_OFFSET>(), Current: Current::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPaymentAppManagerStatics as ::windows::core::Interface>::IID
@@ -213,25 +221,20 @@ impl IPaymentTransactionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Reject().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPaymentTransaction>,
-            ::windows::core::GetTrustLevel,
-            PaymentRequest::<Impl, IMPL_OFFSET>,
-            PayerEmail::<Impl, IMPL_OFFSET>,
-            SetPayerEmail::<Impl, IMPL_OFFSET>,
-            PayerName::<Impl, IMPL_OFFSET>,
-            SetPayerName::<Impl, IMPL_OFFSET>,
-            PayerPhoneNumber::<Impl, IMPL_OFFSET>,
-            SetPayerPhoneNumber::<Impl, IMPL_OFFSET>,
-            UpdateShippingAddressAsync::<Impl, IMPL_OFFSET>,
-            UpdateSelectedShippingOptionAsync::<Impl, IMPL_OFFSET>,
-            AcceptAsync::<Impl, IMPL_OFFSET>,
-            Reject::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPaymentTransaction, BASE_OFFSET>(),
+            PaymentRequest: PaymentRequest::<Impl, IMPL_OFFSET>,
+            PayerEmail: PayerEmail::<Impl, IMPL_OFFSET>,
+            SetPayerEmail: SetPayerEmail::<Impl, IMPL_OFFSET>,
+            PayerName: PayerName::<Impl, IMPL_OFFSET>,
+            SetPayerName: SetPayerName::<Impl, IMPL_OFFSET>,
+            PayerPhoneNumber: PayerPhoneNumber::<Impl, IMPL_OFFSET>,
+            SetPayerPhoneNumber: SetPayerPhoneNumber::<Impl, IMPL_OFFSET>,
+            UpdateShippingAddressAsync: UpdateShippingAddressAsync::<Impl, IMPL_OFFSET>,
+            UpdateSelectedShippingOptionAsync: UpdateSelectedShippingOptionAsync::<Impl, IMPL_OFFSET>,
+            AcceptAsync: AcceptAsync::<Impl, IMPL_OFFSET>,
+            Reject: Reject::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPaymentTransaction as ::windows::core::Interface>::IID
@@ -259,7 +262,7 @@ impl IPaymentTransactionAcceptResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentTransactionAcceptResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPaymentTransactionAcceptResult, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPaymentTransactionAcceptResult as ::windows::core::Interface>::IID
@@ -287,7 +290,10 @@ impl IPaymentTransactionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentTransactionStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPaymentTransactionStatics, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPaymentTransactionStatics as ::windows::core::Interface>::IID

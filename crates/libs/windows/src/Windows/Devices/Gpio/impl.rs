@@ -71,21 +71,16 @@ impl IGpioChangeCounterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGpioChangeCounter>,
-            ::windows::core::GetTrustLevel,
-            SetPolarity::<Impl, IMPL_OFFSET>,
-            Polarity::<Impl, IMPL_OFFSET>,
-            IsStarted::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            Read::<Impl, IMPL_OFFSET>,
-            Reset::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioChangeCounter, BASE_OFFSET>(),
+            SetPolarity: SetPolarity::<Impl, IMPL_OFFSET>,
+            Polarity: Polarity::<Impl, IMPL_OFFSET>,
+            IsStarted: IsStarted::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            Read: Read::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioChangeCounter as ::windows::core::Interface>::IID
@@ -113,7 +108,7 @@ impl IGpioChangeCounterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioChangeCounterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioChangeCounterFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioChangeCounterFactory as ::windows::core::Interface>::IID
@@ -269,28 +264,23 @@ impl IGpioChangeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGpioChangeReader>,
-            ::windows::core::GetTrustLevel,
-            Capacity::<Impl, IMPL_OFFSET>,
-            Length::<Impl, IMPL_OFFSET>,
-            IsEmpty::<Impl, IMPL_OFFSET>,
-            IsOverflowed::<Impl, IMPL_OFFSET>,
-            SetPolarity::<Impl, IMPL_OFFSET>,
-            Polarity::<Impl, IMPL_OFFSET>,
-            IsStarted::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            Clear::<Impl, IMPL_OFFSET>,
-            GetNextItem::<Impl, IMPL_OFFSET>,
-            PeekNextItem::<Impl, IMPL_OFFSET>,
-            GetAllItems::<Impl, IMPL_OFFSET>,
-            WaitForItemsAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioChangeReader, BASE_OFFSET>(),
+            Capacity: Capacity::<Impl, IMPL_OFFSET>,
+            Length: Length::<Impl, IMPL_OFFSET>,
+            IsEmpty: IsEmpty::<Impl, IMPL_OFFSET>,
+            IsOverflowed: IsOverflowed::<Impl, IMPL_OFFSET>,
+            SetPolarity: SetPolarity::<Impl, IMPL_OFFSET>,
+            Polarity: Polarity::<Impl, IMPL_OFFSET>,
+            IsStarted: IsStarted::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+            GetNextItem: GetNextItem::<Impl, IMPL_OFFSET>,
+            PeekNextItem: PeekNextItem::<Impl, IMPL_OFFSET>,
+            GetAllItems: GetAllItems::<Impl, IMPL_OFFSET>,
+            WaitForItemsAsync: WaitForItemsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioChangeReader as ::windows::core::Interface>::IID
@@ -330,7 +320,11 @@ impl IGpioChangeReaderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioChangeReaderFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithCapacity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioChangeReaderFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithCapacity: CreateWithCapacity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioChangeReaderFactory as ::windows::core::Interface>::IID
@@ -394,7 +388,13 @@ impl IGpioControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioController>, ::windows::core::GetTrustLevel, PinCount::<Impl, IMPL_OFFSET>, OpenPin::<Impl, IMPL_OFFSET>, OpenPinWithSharingMode::<Impl, IMPL_OFFSET>, TryOpenPin::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioController, BASE_OFFSET>(),
+            PinCount: PinCount::<Impl, IMPL_OFFSET>,
+            OpenPin: OpenPin::<Impl, IMPL_OFFSET>,
+            OpenPinWithSharingMode: OpenPinWithSharingMode::<Impl, IMPL_OFFSET>,
+            TryOpenPin: TryOpenPin::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioController as ::windows::core::Interface>::IID
@@ -422,7 +422,7 @@ impl IGpioControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioControllerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioControllerStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioControllerStatics as ::windows::core::Interface>::IID
@@ -462,7 +462,11 @@ impl IGpioControllerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioControllerStatics2>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioControllerStatics2, BASE_OFFSET>(),
+            GetControllersAsync: GetControllersAsync::<Impl, IMPL_OFFSET>,
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioControllerStatics2 as ::windows::core::Interface>::IID
@@ -582,25 +586,20 @@ impl IGpioPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGpioPin>,
-            ::windows::core::GetTrustLevel,
-            ValueChanged::<Impl, IMPL_OFFSET>,
-            RemoveValueChanged::<Impl, IMPL_OFFSET>,
-            DebounceTimeout::<Impl, IMPL_OFFSET>,
-            SetDebounceTimeout::<Impl, IMPL_OFFSET>,
-            PinNumber::<Impl, IMPL_OFFSET>,
-            SharingMode::<Impl, IMPL_OFFSET>,
-            IsDriveModeSupported::<Impl, IMPL_OFFSET>,
-            GetDriveMode::<Impl, IMPL_OFFSET>,
-            SetDriveMode::<Impl, IMPL_OFFSET>,
-            Write::<Impl, IMPL_OFFSET>,
-            Read::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioPin, BASE_OFFSET>(),
+            ValueChanged: ValueChanged::<Impl, IMPL_OFFSET>,
+            RemoveValueChanged: RemoveValueChanged::<Impl, IMPL_OFFSET>,
+            DebounceTimeout: DebounceTimeout::<Impl, IMPL_OFFSET>,
+            SetDebounceTimeout: SetDebounceTimeout::<Impl, IMPL_OFFSET>,
+            PinNumber: PinNumber::<Impl, IMPL_OFFSET>,
+            SharingMode: SharingMode::<Impl, IMPL_OFFSET>,
+            IsDriveModeSupported: IsDriveModeSupported::<Impl, IMPL_OFFSET>,
+            GetDriveMode: GetDriveMode::<Impl, IMPL_OFFSET>,
+            SetDriveMode: SetDriveMode::<Impl, IMPL_OFFSET>,
+            Write: Write::<Impl, IMPL_OFFSET>,
+            Read: Read::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioPin as ::windows::core::Interface>::IID
@@ -628,7 +627,7 @@ impl IGpioPinValueChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioPinValueChangedEventArgs>, ::windows::core::GetTrustLevel, Edge::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioPinValueChangedEventArgs, BASE_OFFSET>(), Edge: Edge::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioPinValueChangedEventArgs as ::windows::core::Interface>::IID

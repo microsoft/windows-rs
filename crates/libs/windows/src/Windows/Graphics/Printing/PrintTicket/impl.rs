@@ -248,34 +248,29 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintTicketCapabilities>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            XmlNamespace::<Impl, IMPL_OFFSET>,
-            XmlNode::<Impl, IMPL_OFFSET>,
-            DocumentBindingFeature::<Impl, IMPL_OFFSET>,
-            DocumentCollateFeature::<Impl, IMPL_OFFSET>,
-            DocumentDuplexFeature::<Impl, IMPL_OFFSET>,
-            DocumentHolePunchFeature::<Impl, IMPL_OFFSET>,
-            DocumentInputBinFeature::<Impl, IMPL_OFFSET>,
-            DocumentNUpFeature::<Impl, IMPL_OFFSET>,
-            DocumentStapleFeature::<Impl, IMPL_OFFSET>,
-            JobPasscodeFeature::<Impl, IMPL_OFFSET>,
-            PageBorderlessFeature::<Impl, IMPL_OFFSET>,
-            PageMediaSizeFeature::<Impl, IMPL_OFFSET>,
-            PageMediaTypeFeature::<Impl, IMPL_OFFSET>,
-            PageOrientationFeature::<Impl, IMPL_OFFSET>,
-            PageOutputColorFeature::<Impl, IMPL_OFFSET>,
-            PageOutputQualityFeature::<Impl, IMPL_OFFSET>,
-            PageResolutionFeature::<Impl, IMPL_OFFSET>,
-            GetFeature::<Impl, IMPL_OFFSET>,
-            GetParameterDefinition::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTicketCapabilities, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            XmlNamespace: XmlNamespace::<Impl, IMPL_OFFSET>,
+            XmlNode: XmlNode::<Impl, IMPL_OFFSET>,
+            DocumentBindingFeature: DocumentBindingFeature::<Impl, IMPL_OFFSET>,
+            DocumentCollateFeature: DocumentCollateFeature::<Impl, IMPL_OFFSET>,
+            DocumentDuplexFeature: DocumentDuplexFeature::<Impl, IMPL_OFFSET>,
+            DocumentHolePunchFeature: DocumentHolePunchFeature::<Impl, IMPL_OFFSET>,
+            DocumentInputBinFeature: DocumentInputBinFeature::<Impl, IMPL_OFFSET>,
+            DocumentNUpFeature: DocumentNUpFeature::<Impl, IMPL_OFFSET>,
+            DocumentStapleFeature: DocumentStapleFeature::<Impl, IMPL_OFFSET>,
+            JobPasscodeFeature: JobPasscodeFeature::<Impl, IMPL_OFFSET>,
+            PageBorderlessFeature: PageBorderlessFeature::<Impl, IMPL_OFFSET>,
+            PageMediaSizeFeature: PageMediaSizeFeature::<Impl, IMPL_OFFSET>,
+            PageMediaTypeFeature: PageMediaTypeFeature::<Impl, IMPL_OFFSET>,
+            PageOrientationFeature: PageOrientationFeature::<Impl, IMPL_OFFSET>,
+            PageOutputColorFeature: PageOutputColorFeature::<Impl, IMPL_OFFSET>,
+            PageOutputQualityFeature: PageOutputQualityFeature::<Impl, IMPL_OFFSET>,
+            PageResolutionFeature: PageResolutionFeature::<Impl, IMPL_OFFSET>,
+            GetFeature: GetFeature::<Impl, IMPL_OFFSET>,
+            GetParameterDefinition: GetParameterDefinition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintTicketCapabilities as ::windows::core::Interface>::IID
@@ -392,23 +387,18 @@ impl IPrintTicketFeatureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintTicketFeature>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            XmlNamespace::<Impl, IMPL_OFFSET>,
-            XmlNode::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            GetOption::<Impl, IMPL_OFFSET>,
-            Options::<Impl, IMPL_OFFSET>,
-            GetSelectedOption::<Impl, IMPL_OFFSET>,
-            SetSelectedOption::<Impl, IMPL_OFFSET>,
-            SelectionType::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTicketFeature, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            XmlNamespace: XmlNamespace::<Impl, IMPL_OFFSET>,
+            XmlNode: XmlNode::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            GetOption: GetOption::<Impl, IMPL_OFFSET>,
+            Options: Options::<Impl, IMPL_OFFSET>,
+            GetSelectedOption: GetSelectedOption::<Impl, IMPL_OFFSET>,
+            SetSelectedOption: SetSelectedOption::<Impl, IMPL_OFFSET>,
+            SelectionType: SelectionType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintTicketFeature as ::windows::core::Interface>::IID
@@ -520,22 +510,17 @@ impl IPrintTicketOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintTicketOption>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            XmlNamespace::<Impl, IMPL_OFFSET>,
-            XmlNode::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            GetPropertyNode::<Impl, IMPL_OFFSET>,
-            GetScoredPropertyNode::<Impl, IMPL_OFFSET>,
-            GetPropertyValue::<Impl, IMPL_OFFSET>,
-            GetScoredPropertyValue::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTicketOption, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            XmlNamespace: XmlNamespace::<Impl, IMPL_OFFSET>,
+            XmlNode: XmlNode::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            GetPropertyNode: GetPropertyNode::<Impl, IMPL_OFFSET>,
+            GetScoredPropertyNode: GetScoredPropertyNode::<Impl, IMPL_OFFSET>,
+            GetPropertyValue: GetPropertyValue::<Impl, IMPL_OFFSET>,
+            GetScoredPropertyValue: GetScoredPropertyValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintTicketOption as ::windows::core::Interface>::IID
@@ -635,21 +620,16 @@ impl IPrintTicketParameterDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintTicketParameterDefinition>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            XmlNamespace::<Impl, IMPL_OFFSET>,
-            XmlNode::<Impl, IMPL_OFFSET>,
-            DataType::<Impl, IMPL_OFFSET>,
-            UnitType::<Impl, IMPL_OFFSET>,
-            RangeMin::<Impl, IMPL_OFFSET>,
-            RangeMax::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTicketParameterDefinition, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            XmlNamespace: XmlNamespace::<Impl, IMPL_OFFSET>,
+            XmlNode: XmlNode::<Impl, IMPL_OFFSET>,
+            DataType: DataType::<Impl, IMPL_OFFSET>,
+            UnitType: UnitType::<Impl, IMPL_OFFSET>,
+            RangeMin: RangeMin::<Impl, IMPL_OFFSET>,
+            RangeMax: RangeMax::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintTicketParameterDefinition as ::windows::core::Interface>::IID
@@ -718,7 +698,14 @@ impl IPrintTicketParameterInitializerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTicketParameterInitializer>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, XmlNamespace::<Impl, IMPL_OFFSET>, XmlNode::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTicketParameterInitializer, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            XmlNamespace: XmlNamespace::<Impl, IMPL_OFFSET>,
+            XmlNode: XmlNode::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintTicketParameterInitializer as ::windows::core::Interface>::IID
@@ -770,7 +757,12 @@ impl IPrintTicketValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTicketValue>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, GetValueAsInteger::<Impl, IMPL_OFFSET>, GetValueAsString::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTicketValue, BASE_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            GetValueAsInteger: GetValueAsInteger::<Impl, IMPL_OFFSET>,
+            GetValueAsString: GetValueAsString::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintTicketValue as ::windows::core::Interface>::IID
@@ -1102,40 +1094,35 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWorkflowPrintTicket>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            XmlNamespace::<Impl, IMPL_OFFSET>,
-            XmlNode::<Impl, IMPL_OFFSET>,
-            GetCapabilities::<Impl, IMPL_OFFSET>,
-            DocumentBindingFeature::<Impl, IMPL_OFFSET>,
-            DocumentCollateFeature::<Impl, IMPL_OFFSET>,
-            DocumentDuplexFeature::<Impl, IMPL_OFFSET>,
-            DocumentHolePunchFeature::<Impl, IMPL_OFFSET>,
-            DocumentInputBinFeature::<Impl, IMPL_OFFSET>,
-            DocumentNUpFeature::<Impl, IMPL_OFFSET>,
-            DocumentStapleFeature::<Impl, IMPL_OFFSET>,
-            JobPasscodeFeature::<Impl, IMPL_OFFSET>,
-            PageBorderlessFeature::<Impl, IMPL_OFFSET>,
-            PageMediaSizeFeature::<Impl, IMPL_OFFSET>,
-            PageMediaTypeFeature::<Impl, IMPL_OFFSET>,
-            PageOrientationFeature::<Impl, IMPL_OFFSET>,
-            PageOutputColorFeature::<Impl, IMPL_OFFSET>,
-            PageOutputQualityFeature::<Impl, IMPL_OFFSET>,
-            PageResolutionFeature::<Impl, IMPL_OFFSET>,
-            GetFeature::<Impl, IMPL_OFFSET>,
-            NotifyXmlChangedAsync::<Impl, IMPL_OFFSET>,
-            ValidateAsync::<Impl, IMPL_OFFSET>,
-            GetParameterInitializer::<Impl, IMPL_OFFSET>,
-            SetParameterInitializerAsInteger::<Impl, IMPL_OFFSET>,
-            SetParameterInitializerAsString::<Impl, IMPL_OFFSET>,
-            MergeAndValidateTicket::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWorkflowPrintTicket, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            XmlNamespace: XmlNamespace::<Impl, IMPL_OFFSET>,
+            XmlNode: XmlNode::<Impl, IMPL_OFFSET>,
+            GetCapabilities: GetCapabilities::<Impl, IMPL_OFFSET>,
+            DocumentBindingFeature: DocumentBindingFeature::<Impl, IMPL_OFFSET>,
+            DocumentCollateFeature: DocumentCollateFeature::<Impl, IMPL_OFFSET>,
+            DocumentDuplexFeature: DocumentDuplexFeature::<Impl, IMPL_OFFSET>,
+            DocumentHolePunchFeature: DocumentHolePunchFeature::<Impl, IMPL_OFFSET>,
+            DocumentInputBinFeature: DocumentInputBinFeature::<Impl, IMPL_OFFSET>,
+            DocumentNUpFeature: DocumentNUpFeature::<Impl, IMPL_OFFSET>,
+            DocumentStapleFeature: DocumentStapleFeature::<Impl, IMPL_OFFSET>,
+            JobPasscodeFeature: JobPasscodeFeature::<Impl, IMPL_OFFSET>,
+            PageBorderlessFeature: PageBorderlessFeature::<Impl, IMPL_OFFSET>,
+            PageMediaSizeFeature: PageMediaSizeFeature::<Impl, IMPL_OFFSET>,
+            PageMediaTypeFeature: PageMediaTypeFeature::<Impl, IMPL_OFFSET>,
+            PageOrientationFeature: PageOrientationFeature::<Impl, IMPL_OFFSET>,
+            PageOutputColorFeature: PageOutputColorFeature::<Impl, IMPL_OFFSET>,
+            PageOutputQualityFeature: PageOutputQualityFeature::<Impl, IMPL_OFFSET>,
+            PageResolutionFeature: PageResolutionFeature::<Impl, IMPL_OFFSET>,
+            GetFeature: GetFeature::<Impl, IMPL_OFFSET>,
+            NotifyXmlChangedAsync: NotifyXmlChangedAsync::<Impl, IMPL_OFFSET>,
+            ValidateAsync: ValidateAsync::<Impl, IMPL_OFFSET>,
+            GetParameterInitializer: GetParameterInitializer::<Impl, IMPL_OFFSET>,
+            SetParameterInitializerAsInteger: SetParameterInitializerAsInteger::<Impl, IMPL_OFFSET>,
+            SetParameterInitializerAsString: SetParameterInitializerAsString::<Impl, IMPL_OFFSET>,
+            MergeAndValidateTicket: MergeAndValidateTicket::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWorkflowPrintTicket as ::windows::core::Interface>::IID
@@ -1175,7 +1162,11 @@ impl IWorkflowPrintTicketValidationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWorkflowPrintTicketValidationResult>, ::windows::core::GetTrustLevel, Validated::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWorkflowPrintTicketValidationResult, BASE_OFFSET>(),
+            Validated: Validated::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWorkflowPrintTicketValidationResult as ::windows::core::Interface>::IID

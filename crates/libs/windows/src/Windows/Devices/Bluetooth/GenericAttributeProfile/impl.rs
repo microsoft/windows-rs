@@ -186,30 +186,25 @@ impl IGattCharacteristicVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveValueChanged(&*(&valuechangedeventcookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattCharacteristic>,
-            ::windows::core::GetTrustLevel,
-            GetDescriptors::<Impl, IMPL_OFFSET>,
-            CharacteristicProperties::<Impl, IMPL_OFFSET>,
-            ProtectionLevel::<Impl, IMPL_OFFSET>,
-            SetProtectionLevel::<Impl, IMPL_OFFSET>,
-            UserDescription::<Impl, IMPL_OFFSET>,
-            Uuid::<Impl, IMPL_OFFSET>,
-            AttributeHandle::<Impl, IMPL_OFFSET>,
-            PresentationFormats::<Impl, IMPL_OFFSET>,
-            ReadValueAsync::<Impl, IMPL_OFFSET>,
-            ReadValueWithCacheModeAsync::<Impl, IMPL_OFFSET>,
-            WriteValueAsync::<Impl, IMPL_OFFSET>,
-            WriteValueWithOptionAsync::<Impl, IMPL_OFFSET>,
-            ReadClientCharacteristicConfigurationDescriptorAsync::<Impl, IMPL_OFFSET>,
-            WriteClientCharacteristicConfigurationDescriptorAsync::<Impl, IMPL_OFFSET>,
-            ValueChanged::<Impl, IMPL_OFFSET>,
-            RemoveValueChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattCharacteristic, BASE_OFFSET>(),
+            GetDescriptors: GetDescriptors::<Impl, IMPL_OFFSET>,
+            CharacteristicProperties: CharacteristicProperties::<Impl, IMPL_OFFSET>,
+            ProtectionLevel: ProtectionLevel::<Impl, IMPL_OFFSET>,
+            SetProtectionLevel: SetProtectionLevel::<Impl, IMPL_OFFSET>,
+            UserDescription: UserDescription::<Impl, IMPL_OFFSET>,
+            Uuid: Uuid::<Impl, IMPL_OFFSET>,
+            AttributeHandle: AttributeHandle::<Impl, IMPL_OFFSET>,
+            PresentationFormats: PresentationFormats::<Impl, IMPL_OFFSET>,
+            ReadValueAsync: ReadValueAsync::<Impl, IMPL_OFFSET>,
+            ReadValueWithCacheModeAsync: ReadValueWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+            WriteValueAsync: WriteValueAsync::<Impl, IMPL_OFFSET>,
+            WriteValueWithOptionAsync: WriteValueWithOptionAsync::<Impl, IMPL_OFFSET>,
+            ReadClientCharacteristicConfigurationDescriptorAsync: ReadClientCharacteristicConfigurationDescriptorAsync::<Impl, IMPL_OFFSET>,
+            WriteClientCharacteristicConfigurationDescriptorAsync: WriteClientCharacteristicConfigurationDescriptorAsync::<Impl, IMPL_OFFSET>,
+            ValueChanged: ValueChanged::<Impl, IMPL_OFFSET>,
+            RemoveValueChanged: RemoveValueChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattCharacteristic as ::windows::core::Interface>::IID
@@ -249,7 +244,11 @@ impl IGattCharacteristic2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristic2>, ::windows::core::GetTrustLevel, Service::<Impl, IMPL_OFFSET>, GetAllDescriptors::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattCharacteristic2, BASE_OFFSET>(),
+            Service: Service::<Impl, IMPL_OFFSET>,
+            GetAllDescriptors: GetAllDescriptors::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattCharacteristic2 as ::windows::core::Interface>::IID
@@ -349,21 +348,16 @@ impl IGattCharacteristic3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattCharacteristic3>,
-            ::windows::core::GetTrustLevel,
-            GetDescriptorsAsync::<Impl, IMPL_OFFSET>,
-            GetDescriptorsWithCacheModeAsync::<Impl, IMPL_OFFSET>,
-            GetDescriptorsForUuidAsync::<Impl, IMPL_OFFSET>,
-            GetDescriptorsForUuidWithCacheModeAsync::<Impl, IMPL_OFFSET>,
-            WriteValueWithResultAsync::<Impl, IMPL_OFFSET>,
-            WriteValueWithResultAndOptionAsync::<Impl, IMPL_OFFSET>,
-            WriteClientCharacteristicConfigurationDescriptorWithResultAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattCharacteristic3, BASE_OFFSET>(),
+            GetDescriptorsAsync: GetDescriptorsAsync::<Impl, IMPL_OFFSET>,
+            GetDescriptorsWithCacheModeAsync: GetDescriptorsWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+            GetDescriptorsForUuidAsync: GetDescriptorsForUuidAsync::<Impl, IMPL_OFFSET>,
+            GetDescriptorsForUuidWithCacheModeAsync: GetDescriptorsForUuidWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+            WriteValueWithResultAsync: WriteValueWithResultAsync::<Impl, IMPL_OFFSET>,
+            WriteValueWithResultAndOptionAsync: WriteValueWithResultAndOptionAsync::<Impl, IMPL_OFFSET>,
+            WriteClientCharacteristicConfigurationDescriptorWithResultAsync: WriteClientCharacteristicConfigurationDescriptorWithResultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattCharacteristic3 as ::windows::core::Interface>::IID
@@ -391,7 +385,10 @@ impl IGattCharacteristicStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicStatics>, ::windows::core::GetTrustLevel, ConvertShortIdToUuid::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattCharacteristicStatics, BASE_OFFSET>(),
+            ConvertShortIdToUuid: ConvertShortIdToUuid::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattCharacteristicStatics as ::windows::core::Interface>::IID
@@ -659,35 +656,30 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattCharacteristicUuidsStatics>,
-            ::windows::core::GetTrustLevel,
-            BatteryLevel::<Impl, IMPL_OFFSET>,
-            BloodPressureFeature::<Impl, IMPL_OFFSET>,
-            BloodPressureMeasurement::<Impl, IMPL_OFFSET>,
-            BodySensorLocation::<Impl, IMPL_OFFSET>,
-            CscFeature::<Impl, IMPL_OFFSET>,
-            CscMeasurement::<Impl, IMPL_OFFSET>,
-            GlucoseFeature::<Impl, IMPL_OFFSET>,
-            GlucoseMeasurement::<Impl, IMPL_OFFSET>,
-            GlucoseMeasurementContext::<Impl, IMPL_OFFSET>,
-            HeartRateControlPoint::<Impl, IMPL_OFFSET>,
-            HeartRateMeasurement::<Impl, IMPL_OFFSET>,
-            IntermediateCuffPressure::<Impl, IMPL_OFFSET>,
-            IntermediateTemperature::<Impl, IMPL_OFFSET>,
-            MeasurementInterval::<Impl, IMPL_OFFSET>,
-            RecordAccessControlPoint::<Impl, IMPL_OFFSET>,
-            RscFeature::<Impl, IMPL_OFFSET>,
-            RscMeasurement::<Impl, IMPL_OFFSET>,
-            SCControlPoint::<Impl, IMPL_OFFSET>,
-            SensorLocation::<Impl, IMPL_OFFSET>,
-            TemperatureMeasurement::<Impl, IMPL_OFFSET>,
-            TemperatureType::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattCharacteristicUuidsStatics, BASE_OFFSET>(),
+            BatteryLevel: BatteryLevel::<Impl, IMPL_OFFSET>,
+            BloodPressureFeature: BloodPressureFeature::<Impl, IMPL_OFFSET>,
+            BloodPressureMeasurement: BloodPressureMeasurement::<Impl, IMPL_OFFSET>,
+            BodySensorLocation: BodySensorLocation::<Impl, IMPL_OFFSET>,
+            CscFeature: CscFeature::<Impl, IMPL_OFFSET>,
+            CscMeasurement: CscMeasurement::<Impl, IMPL_OFFSET>,
+            GlucoseFeature: GlucoseFeature::<Impl, IMPL_OFFSET>,
+            GlucoseMeasurement: GlucoseMeasurement::<Impl, IMPL_OFFSET>,
+            GlucoseMeasurementContext: GlucoseMeasurementContext::<Impl, IMPL_OFFSET>,
+            HeartRateControlPoint: HeartRateControlPoint::<Impl, IMPL_OFFSET>,
+            HeartRateMeasurement: HeartRateMeasurement::<Impl, IMPL_OFFSET>,
+            IntermediateCuffPressure: IntermediateCuffPressure::<Impl, IMPL_OFFSET>,
+            IntermediateTemperature: IntermediateTemperature::<Impl, IMPL_OFFSET>,
+            MeasurementInterval: MeasurementInterval::<Impl, IMPL_OFFSET>,
+            RecordAccessControlPoint: RecordAccessControlPoint::<Impl, IMPL_OFFSET>,
+            RscFeature: RscFeature::<Impl, IMPL_OFFSET>,
+            RscMeasurement: RscMeasurement::<Impl, IMPL_OFFSET>,
+            SCControlPoint: SCControlPoint::<Impl, IMPL_OFFSET>,
+            SensorLocation: SensorLocation::<Impl, IMPL_OFFSET>,
+            TemperatureMeasurement: TemperatureMeasurement::<Impl, IMPL_OFFSET>,
+            TemperatureType: TemperatureType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattCharacteristicUuidsStatics as ::windows::core::Interface>::IID
@@ -1423,74 +1415,69 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattCharacteristicUuidsStatics2>,
-            ::windows::core::GetTrustLevel,
-            AlertCategoryId::<Impl, IMPL_OFFSET>,
-            AlertCategoryIdBitMask::<Impl, IMPL_OFFSET>,
-            AlertLevel::<Impl, IMPL_OFFSET>,
-            AlertNotificationControlPoint::<Impl, IMPL_OFFSET>,
-            AlertStatus::<Impl, IMPL_OFFSET>,
-            GapAppearance::<Impl, IMPL_OFFSET>,
-            BootKeyboardInputReport::<Impl, IMPL_OFFSET>,
-            BootKeyboardOutputReport::<Impl, IMPL_OFFSET>,
-            BootMouseInputReport::<Impl, IMPL_OFFSET>,
-            CurrentTime::<Impl, IMPL_OFFSET>,
-            CyclingPowerControlPoint::<Impl, IMPL_OFFSET>,
-            CyclingPowerFeature::<Impl, IMPL_OFFSET>,
-            CyclingPowerMeasurement::<Impl, IMPL_OFFSET>,
-            CyclingPowerVector::<Impl, IMPL_OFFSET>,
-            DateTime::<Impl, IMPL_OFFSET>,
-            DayDateTime::<Impl, IMPL_OFFSET>,
-            DayOfWeek::<Impl, IMPL_OFFSET>,
-            GapDeviceName::<Impl, IMPL_OFFSET>,
-            DstOffset::<Impl, IMPL_OFFSET>,
-            ExactTime256::<Impl, IMPL_OFFSET>,
-            FirmwareRevisionString::<Impl, IMPL_OFFSET>,
-            HardwareRevisionString::<Impl, IMPL_OFFSET>,
-            HidControlPoint::<Impl, IMPL_OFFSET>,
-            HidInformation::<Impl, IMPL_OFFSET>,
-            Ieee1107320601RegulatoryCertificationDataList::<Impl, IMPL_OFFSET>,
-            LnControlPoint::<Impl, IMPL_OFFSET>,
-            LnFeature::<Impl, IMPL_OFFSET>,
-            LocalTimeInformation::<Impl, IMPL_OFFSET>,
-            LocationAndSpeed::<Impl, IMPL_OFFSET>,
-            ManufacturerNameString::<Impl, IMPL_OFFSET>,
-            ModelNumberString::<Impl, IMPL_OFFSET>,
-            Navigation::<Impl, IMPL_OFFSET>,
-            NewAlert::<Impl, IMPL_OFFSET>,
-            GapPeripheralPreferredConnectionParameters::<Impl, IMPL_OFFSET>,
-            GapPeripheralPrivacyFlag::<Impl, IMPL_OFFSET>,
-            PnpId::<Impl, IMPL_OFFSET>,
-            PositionQuality::<Impl, IMPL_OFFSET>,
-            ProtocolMode::<Impl, IMPL_OFFSET>,
-            GapReconnectionAddress::<Impl, IMPL_OFFSET>,
-            ReferenceTimeInformation::<Impl, IMPL_OFFSET>,
-            Report::<Impl, IMPL_OFFSET>,
-            ReportMap::<Impl, IMPL_OFFSET>,
-            RingerControlPoint::<Impl, IMPL_OFFSET>,
-            RingerSetting::<Impl, IMPL_OFFSET>,
-            ScanIntervalWindow::<Impl, IMPL_OFFSET>,
-            ScanRefresh::<Impl, IMPL_OFFSET>,
-            SerialNumberString::<Impl, IMPL_OFFSET>,
-            GattServiceChanged::<Impl, IMPL_OFFSET>,
-            SoftwareRevisionString::<Impl, IMPL_OFFSET>,
-            SupportedNewAlertCategory::<Impl, IMPL_OFFSET>,
-            SupportUnreadAlertCategory::<Impl, IMPL_OFFSET>,
-            SystemId::<Impl, IMPL_OFFSET>,
-            TimeAccuracy::<Impl, IMPL_OFFSET>,
-            TimeSource::<Impl, IMPL_OFFSET>,
-            TimeUpdateControlPoint::<Impl, IMPL_OFFSET>,
-            TimeUpdateState::<Impl, IMPL_OFFSET>,
-            TimeWithDst::<Impl, IMPL_OFFSET>,
-            TimeZone::<Impl, IMPL_OFFSET>,
-            TxPowerLevel::<Impl, IMPL_OFFSET>,
-            UnreadAlertStatus::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattCharacteristicUuidsStatics2, BASE_OFFSET>(),
+            AlertCategoryId: AlertCategoryId::<Impl, IMPL_OFFSET>,
+            AlertCategoryIdBitMask: AlertCategoryIdBitMask::<Impl, IMPL_OFFSET>,
+            AlertLevel: AlertLevel::<Impl, IMPL_OFFSET>,
+            AlertNotificationControlPoint: AlertNotificationControlPoint::<Impl, IMPL_OFFSET>,
+            AlertStatus: AlertStatus::<Impl, IMPL_OFFSET>,
+            GapAppearance: GapAppearance::<Impl, IMPL_OFFSET>,
+            BootKeyboardInputReport: BootKeyboardInputReport::<Impl, IMPL_OFFSET>,
+            BootKeyboardOutputReport: BootKeyboardOutputReport::<Impl, IMPL_OFFSET>,
+            BootMouseInputReport: BootMouseInputReport::<Impl, IMPL_OFFSET>,
+            CurrentTime: CurrentTime::<Impl, IMPL_OFFSET>,
+            CyclingPowerControlPoint: CyclingPowerControlPoint::<Impl, IMPL_OFFSET>,
+            CyclingPowerFeature: CyclingPowerFeature::<Impl, IMPL_OFFSET>,
+            CyclingPowerMeasurement: CyclingPowerMeasurement::<Impl, IMPL_OFFSET>,
+            CyclingPowerVector: CyclingPowerVector::<Impl, IMPL_OFFSET>,
+            DateTime: DateTime::<Impl, IMPL_OFFSET>,
+            DayDateTime: DayDateTime::<Impl, IMPL_OFFSET>,
+            DayOfWeek: DayOfWeek::<Impl, IMPL_OFFSET>,
+            GapDeviceName: GapDeviceName::<Impl, IMPL_OFFSET>,
+            DstOffset: DstOffset::<Impl, IMPL_OFFSET>,
+            ExactTime256: ExactTime256::<Impl, IMPL_OFFSET>,
+            FirmwareRevisionString: FirmwareRevisionString::<Impl, IMPL_OFFSET>,
+            HardwareRevisionString: HardwareRevisionString::<Impl, IMPL_OFFSET>,
+            HidControlPoint: HidControlPoint::<Impl, IMPL_OFFSET>,
+            HidInformation: HidInformation::<Impl, IMPL_OFFSET>,
+            Ieee1107320601RegulatoryCertificationDataList: Ieee1107320601RegulatoryCertificationDataList::<Impl, IMPL_OFFSET>,
+            LnControlPoint: LnControlPoint::<Impl, IMPL_OFFSET>,
+            LnFeature: LnFeature::<Impl, IMPL_OFFSET>,
+            LocalTimeInformation: LocalTimeInformation::<Impl, IMPL_OFFSET>,
+            LocationAndSpeed: LocationAndSpeed::<Impl, IMPL_OFFSET>,
+            ManufacturerNameString: ManufacturerNameString::<Impl, IMPL_OFFSET>,
+            ModelNumberString: ModelNumberString::<Impl, IMPL_OFFSET>,
+            Navigation: Navigation::<Impl, IMPL_OFFSET>,
+            NewAlert: NewAlert::<Impl, IMPL_OFFSET>,
+            GapPeripheralPreferredConnectionParameters: GapPeripheralPreferredConnectionParameters::<Impl, IMPL_OFFSET>,
+            GapPeripheralPrivacyFlag: GapPeripheralPrivacyFlag::<Impl, IMPL_OFFSET>,
+            PnpId: PnpId::<Impl, IMPL_OFFSET>,
+            PositionQuality: PositionQuality::<Impl, IMPL_OFFSET>,
+            ProtocolMode: ProtocolMode::<Impl, IMPL_OFFSET>,
+            GapReconnectionAddress: GapReconnectionAddress::<Impl, IMPL_OFFSET>,
+            ReferenceTimeInformation: ReferenceTimeInformation::<Impl, IMPL_OFFSET>,
+            Report: Report::<Impl, IMPL_OFFSET>,
+            ReportMap: ReportMap::<Impl, IMPL_OFFSET>,
+            RingerControlPoint: RingerControlPoint::<Impl, IMPL_OFFSET>,
+            RingerSetting: RingerSetting::<Impl, IMPL_OFFSET>,
+            ScanIntervalWindow: ScanIntervalWindow::<Impl, IMPL_OFFSET>,
+            ScanRefresh: ScanRefresh::<Impl, IMPL_OFFSET>,
+            SerialNumberString: SerialNumberString::<Impl, IMPL_OFFSET>,
+            GattServiceChanged: GattServiceChanged::<Impl, IMPL_OFFSET>,
+            SoftwareRevisionString: SoftwareRevisionString::<Impl, IMPL_OFFSET>,
+            SupportedNewAlertCategory: SupportedNewAlertCategory::<Impl, IMPL_OFFSET>,
+            SupportUnreadAlertCategory: SupportUnreadAlertCategory::<Impl, IMPL_OFFSET>,
+            SystemId: SystemId::<Impl, IMPL_OFFSET>,
+            TimeAccuracy: TimeAccuracy::<Impl, IMPL_OFFSET>,
+            TimeSource: TimeSource::<Impl, IMPL_OFFSET>,
+            TimeUpdateControlPoint: TimeUpdateControlPoint::<Impl, IMPL_OFFSET>,
+            TimeUpdateState: TimeUpdateState::<Impl, IMPL_OFFSET>,
+            TimeWithDst: TimeWithDst::<Impl, IMPL_OFFSET>,
+            TimeZone: TimeZone::<Impl, IMPL_OFFSET>,
+            TxPowerLevel: TxPowerLevel::<Impl, IMPL_OFFSET>,
+            UnreadAlertStatus: UnreadAlertStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattCharacteristicUuidsStatics2 as ::windows::core::Interface>::IID
@@ -1542,7 +1529,12 @@ impl IGattCharacteristicsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicsResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ProtocolError::<Impl, IMPL_OFFSET>, Characteristics::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattCharacteristicsResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ProtocolError: ProtocolError::<Impl, IMPL_OFFSET>,
+            Characteristics: Characteristics::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattCharacteristicsResult as ::windows::core::Interface>::IID
@@ -1594,7 +1586,12 @@ impl IGattClientNotificationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattClientNotificationResult>, ::windows::core::GetTrustLevel, SubscribedClient::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, ProtocolError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattClientNotificationResult, BASE_OFFSET>(),
+            SubscribedClient: SubscribedClient::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ProtocolError: ProtocolError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattClientNotificationResult as ::windows::core::Interface>::IID
@@ -1622,7 +1619,10 @@ impl IGattClientNotificationResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattClientNotificationResult2>, ::windows::core::GetTrustLevel, BytesSent::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattClientNotificationResult2, BASE_OFFSET>(),
+            BytesSent: BytesSent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattClientNotificationResult2 as ::windows::core::Interface>::IID
@@ -1715,21 +1715,16 @@ impl IGattDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattDescriptor>,
-            ::windows::core::GetTrustLevel,
-            ProtectionLevel::<Impl, IMPL_OFFSET>,
-            SetProtectionLevel::<Impl, IMPL_OFFSET>,
-            Uuid::<Impl, IMPL_OFFSET>,
-            AttributeHandle::<Impl, IMPL_OFFSET>,
-            ReadValueAsync::<Impl, IMPL_OFFSET>,
-            ReadValueWithCacheModeAsync::<Impl, IMPL_OFFSET>,
-            WriteValueAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattDescriptor, BASE_OFFSET>(),
+            ProtectionLevel: ProtectionLevel::<Impl, IMPL_OFFSET>,
+            SetProtectionLevel: SetProtectionLevel::<Impl, IMPL_OFFSET>,
+            Uuid: Uuid::<Impl, IMPL_OFFSET>,
+            AttributeHandle: AttributeHandle::<Impl, IMPL_OFFSET>,
+            ReadValueAsync: ReadValueAsync::<Impl, IMPL_OFFSET>,
+            ReadValueWithCacheModeAsync: ReadValueWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+            WriteValueAsync: WriteValueAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattDescriptor as ::windows::core::Interface>::IID
@@ -1757,7 +1752,10 @@ impl IGattDescriptor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattDescriptor2>, ::windows::core::GetTrustLevel, WriteValueWithResultAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattDescriptor2, BASE_OFFSET>(),
+            WriteValueWithResultAsync: WriteValueWithResultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattDescriptor2 as ::windows::core::Interface>::IID
@@ -1785,7 +1783,10 @@ impl IGattDescriptorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattDescriptorStatics>, ::windows::core::GetTrustLevel, ConvertShortIdToUuid::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattDescriptorStatics, BASE_OFFSET>(),
+            ConvertShortIdToUuid: ConvertShortIdToUuid::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattDescriptorStatics as ::windows::core::Interface>::IID
@@ -1873,20 +1874,15 @@ impl IGattDescriptorUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattDescriptorUuidsStatics>,
-            ::windows::core::GetTrustLevel,
-            CharacteristicAggregateFormat::<Impl, IMPL_OFFSET>,
-            CharacteristicExtendedProperties::<Impl, IMPL_OFFSET>,
-            CharacteristicPresentationFormat::<Impl, IMPL_OFFSET>,
-            CharacteristicUserDescription::<Impl, IMPL_OFFSET>,
-            ClientCharacteristicConfiguration::<Impl, IMPL_OFFSET>,
-            ServerCharacteristicConfiguration::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattDescriptorUuidsStatics, BASE_OFFSET>(),
+            CharacteristicAggregateFormat: CharacteristicAggregateFormat::<Impl, IMPL_OFFSET>,
+            CharacteristicExtendedProperties: CharacteristicExtendedProperties::<Impl, IMPL_OFFSET>,
+            CharacteristicPresentationFormat: CharacteristicPresentationFormat::<Impl, IMPL_OFFSET>,
+            CharacteristicUserDescription: CharacteristicUserDescription::<Impl, IMPL_OFFSET>,
+            ClientCharacteristicConfiguration: ClientCharacteristicConfiguration::<Impl, IMPL_OFFSET>,
+            ServerCharacteristicConfiguration: ServerCharacteristicConfiguration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattDescriptorUuidsStatics as ::windows::core::Interface>::IID
@@ -1938,7 +1934,12 @@ impl IGattDescriptorsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattDescriptorsResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ProtocolError::<Impl, IMPL_OFFSET>, Descriptors::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattDescriptorsResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ProtocolError: ProtocolError::<Impl, IMPL_OFFSET>,
+            Descriptors: Descriptors::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattDescriptorsResult as ::windows::core::Interface>::IID
@@ -2014,7 +2015,14 @@ impl IGattDeviceServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattDeviceService>, ::windows::core::GetTrustLevel, GetCharacteristics::<Impl, IMPL_OFFSET>, GetIncludedServices::<Impl, IMPL_OFFSET>, DeviceId::<Impl, IMPL_OFFSET>, Uuid::<Impl, IMPL_OFFSET>, AttributeHandle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattDeviceService, BASE_OFFSET>(),
+            GetCharacteristics: GetCharacteristics::<Impl, IMPL_OFFSET>,
+            GetIncludedServices: GetIncludedServices::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            Uuid: Uuid::<Impl, IMPL_OFFSET>,
+            AttributeHandle: AttributeHandle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattDeviceService as ::windows::core::Interface>::IID
@@ -2078,7 +2086,13 @@ impl IGattDeviceService2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattDeviceService2>, ::windows::core::GetTrustLevel, Device::<Impl, IMPL_OFFSET>, ParentServices::<Impl, IMPL_OFFSET>, GetAllCharacteristics::<Impl, IMPL_OFFSET>, GetAllIncludedServices::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattDeviceService2, BASE_OFFSET>(),
+            Device: Device::<Impl, IMPL_OFFSET>,
+            ParentServices: ParentServices::<Impl, IMPL_OFFSET>,
+            GetAllCharacteristics: GetAllCharacteristics::<Impl, IMPL_OFFSET>,
+            GetAllIncludedServices: GetAllIncludedServices::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattDeviceService2 as ::windows::core::Interface>::IID
@@ -2250,27 +2264,22 @@ impl IGattDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattDeviceService3>,
-            ::windows::core::GetTrustLevel,
-            DeviceAccessInformation::<Impl, IMPL_OFFSET>,
-            Session::<Impl, IMPL_OFFSET>,
-            SharingMode::<Impl, IMPL_OFFSET>,
-            RequestAccessAsync::<Impl, IMPL_OFFSET>,
-            OpenAsync::<Impl, IMPL_OFFSET>,
-            GetCharacteristicsAsync::<Impl, IMPL_OFFSET>,
-            GetCharacteristicsWithCacheModeAsync::<Impl, IMPL_OFFSET>,
-            GetCharacteristicsForUuidAsync::<Impl, IMPL_OFFSET>,
-            GetCharacteristicsForUuidWithCacheModeAsync::<Impl, IMPL_OFFSET>,
-            GetIncludedServicesAsync::<Impl, IMPL_OFFSET>,
-            GetIncludedServicesWithCacheModeAsync::<Impl, IMPL_OFFSET>,
-            GetIncludedServicesForUuidAsync::<Impl, IMPL_OFFSET>,
-            GetIncludedServicesForUuidWithCacheModeAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattDeviceService3, BASE_OFFSET>(),
+            DeviceAccessInformation: DeviceAccessInformation::<Impl, IMPL_OFFSET>,
+            Session: Session::<Impl, IMPL_OFFSET>,
+            SharingMode: SharingMode::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            OpenAsync: OpenAsync::<Impl, IMPL_OFFSET>,
+            GetCharacteristicsAsync: GetCharacteristicsAsync::<Impl, IMPL_OFFSET>,
+            GetCharacteristicsWithCacheModeAsync: GetCharacteristicsWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+            GetCharacteristicsForUuidAsync: GetCharacteristicsForUuidAsync::<Impl, IMPL_OFFSET>,
+            GetCharacteristicsForUuidWithCacheModeAsync: GetCharacteristicsForUuidWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+            GetIncludedServicesAsync: GetIncludedServicesAsync::<Impl, IMPL_OFFSET>,
+            GetIncludedServicesWithCacheModeAsync: GetIncludedServicesWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+            GetIncludedServicesForUuidAsync: GetIncludedServicesForUuidAsync::<Impl, IMPL_OFFSET>,
+            GetIncludedServicesForUuidWithCacheModeAsync: GetIncludedServicesForUuidWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattDeviceService3 as ::windows::core::Interface>::IID
@@ -2334,7 +2343,13 @@ impl IGattDeviceServiceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattDeviceServiceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromUuid::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromShortId::<Impl, IMPL_OFFSET>, ConvertShortIdToUuid::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattDeviceServiceStatics, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromUuid: GetDeviceSelectorFromUuid::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromShortId: GetDeviceSelectorFromShortId::<Impl, IMPL_OFFSET>,
+            ConvertShortIdToUuid: ConvertShortIdToUuid::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattDeviceServiceStatics as ::windows::core::Interface>::IID
@@ -2410,19 +2425,14 @@ impl IGattDeviceServiceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattDeviceServiceStatics2>,
-            ::windows::core::GetTrustLevel,
-            FromIdWithSharingModeAsync::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorForBluetoothDeviceId::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorForBluetoothDeviceIdWithCacheMode::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorForBluetoothDeviceIdAndUuid::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattDeviceServiceStatics2, BASE_OFFSET>(),
+            FromIdWithSharingModeAsync: FromIdWithSharingModeAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorForBluetoothDeviceId: GetDeviceSelectorForBluetoothDeviceId::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorForBluetoothDeviceIdWithCacheMode: GetDeviceSelectorForBluetoothDeviceIdWithCacheMode::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorForBluetoothDeviceIdAndUuid: GetDeviceSelectorForBluetoothDeviceIdAndUuid::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode: GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattDeviceServiceStatics2 as ::windows::core::Interface>::IID
@@ -2474,7 +2484,12 @@ impl IGattDeviceServicesResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattDeviceServicesResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ProtocolError::<Impl, IMPL_OFFSET>, Services::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattDeviceServicesResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ProtocolError: ProtocolError::<Impl, IMPL_OFFSET>,
+            Services: Services::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattDeviceServicesResult as ::windows::core::Interface>::IID
@@ -2685,32 +2700,27 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattLocalCharacteristic>,
-            ::windows::core::GetTrustLevel,
-            Uuid::<Impl, IMPL_OFFSET>,
-            StaticValue::<Impl, IMPL_OFFSET>,
-            CharacteristicProperties::<Impl, IMPL_OFFSET>,
-            ReadProtectionLevel::<Impl, IMPL_OFFSET>,
-            WriteProtectionLevel::<Impl, IMPL_OFFSET>,
-            CreateDescriptorAsync::<Impl, IMPL_OFFSET>,
-            Descriptors::<Impl, IMPL_OFFSET>,
-            UserDescription::<Impl, IMPL_OFFSET>,
-            PresentationFormats::<Impl, IMPL_OFFSET>,
-            SubscribedClients::<Impl, IMPL_OFFSET>,
-            SubscribedClientsChanged::<Impl, IMPL_OFFSET>,
-            RemoveSubscribedClientsChanged::<Impl, IMPL_OFFSET>,
-            ReadRequested::<Impl, IMPL_OFFSET>,
-            RemoveReadRequested::<Impl, IMPL_OFFSET>,
-            WriteRequested::<Impl, IMPL_OFFSET>,
-            RemoveWriteRequested::<Impl, IMPL_OFFSET>,
-            NotifyValueAsync::<Impl, IMPL_OFFSET>,
-            NotifyValueForSubscribedClientAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattLocalCharacteristic, BASE_OFFSET>(),
+            Uuid: Uuid::<Impl, IMPL_OFFSET>,
+            StaticValue: StaticValue::<Impl, IMPL_OFFSET>,
+            CharacteristicProperties: CharacteristicProperties::<Impl, IMPL_OFFSET>,
+            ReadProtectionLevel: ReadProtectionLevel::<Impl, IMPL_OFFSET>,
+            WriteProtectionLevel: WriteProtectionLevel::<Impl, IMPL_OFFSET>,
+            CreateDescriptorAsync: CreateDescriptorAsync::<Impl, IMPL_OFFSET>,
+            Descriptors: Descriptors::<Impl, IMPL_OFFSET>,
+            UserDescription: UserDescription::<Impl, IMPL_OFFSET>,
+            PresentationFormats: PresentationFormats::<Impl, IMPL_OFFSET>,
+            SubscribedClients: SubscribedClients::<Impl, IMPL_OFFSET>,
+            SubscribedClientsChanged: SubscribedClientsChanged::<Impl, IMPL_OFFSET>,
+            RemoveSubscribedClientsChanged: RemoveSubscribedClientsChanged::<Impl, IMPL_OFFSET>,
+            ReadRequested: ReadRequested::<Impl, IMPL_OFFSET>,
+            RemoveReadRequested: RemoveReadRequested::<Impl, IMPL_OFFSET>,
+            WriteRequested: WriteRequested::<Impl, IMPL_OFFSET>,
+            RemoveWriteRequested: RemoveWriteRequested::<Impl, IMPL_OFFSET>,
+            NotifyValueAsync: NotifyValueAsync::<Impl, IMPL_OFFSET>,
+            NotifyValueForSubscribedClientAsync: NotifyValueForSubscribedClientAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattLocalCharacteristic as ::windows::core::Interface>::IID
@@ -2823,25 +2833,20 @@ impl IGattLocalCharacteristicParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattLocalCharacteristicParameters>,
-            ::windows::core::GetTrustLevel,
-            SetStaticValue::<Impl, IMPL_OFFSET>,
-            StaticValue::<Impl, IMPL_OFFSET>,
-            SetCharacteristicProperties::<Impl, IMPL_OFFSET>,
-            CharacteristicProperties::<Impl, IMPL_OFFSET>,
-            SetReadProtectionLevel::<Impl, IMPL_OFFSET>,
-            ReadProtectionLevel::<Impl, IMPL_OFFSET>,
-            SetWriteProtectionLevel::<Impl, IMPL_OFFSET>,
-            WriteProtectionLevel::<Impl, IMPL_OFFSET>,
-            SetUserDescription::<Impl, IMPL_OFFSET>,
-            UserDescription::<Impl, IMPL_OFFSET>,
-            PresentationFormats::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattLocalCharacteristicParameters, BASE_OFFSET>(),
+            SetStaticValue: SetStaticValue::<Impl, IMPL_OFFSET>,
+            StaticValue: StaticValue::<Impl, IMPL_OFFSET>,
+            SetCharacteristicProperties: SetCharacteristicProperties::<Impl, IMPL_OFFSET>,
+            CharacteristicProperties: CharacteristicProperties::<Impl, IMPL_OFFSET>,
+            SetReadProtectionLevel: SetReadProtectionLevel::<Impl, IMPL_OFFSET>,
+            ReadProtectionLevel: ReadProtectionLevel::<Impl, IMPL_OFFSET>,
+            SetWriteProtectionLevel: SetWriteProtectionLevel::<Impl, IMPL_OFFSET>,
+            WriteProtectionLevel: WriteProtectionLevel::<Impl, IMPL_OFFSET>,
+            SetUserDescription: SetUserDescription::<Impl, IMPL_OFFSET>,
+            UserDescription: UserDescription::<Impl, IMPL_OFFSET>,
+            PresentationFormats: PresentationFormats::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattLocalCharacteristicParameters as ::windows::core::Interface>::IID
@@ -2881,7 +2886,11 @@ impl IGattLocalCharacteristicResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattLocalCharacteristicResult>, ::windows::core::GetTrustLevel, Characteristic::<Impl, IMPL_OFFSET>, Error::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattLocalCharacteristicResult, BASE_OFFSET>(),
+            Characteristic: Characteristic::<Impl, IMPL_OFFSET>,
+            Error: Error::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattLocalCharacteristicResult as ::windows::core::Interface>::IID
@@ -2979,22 +2988,17 @@ impl IGattLocalDescriptorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveWriteRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattLocalDescriptor>,
-            ::windows::core::GetTrustLevel,
-            Uuid::<Impl, IMPL_OFFSET>,
-            StaticValue::<Impl, IMPL_OFFSET>,
-            ReadProtectionLevel::<Impl, IMPL_OFFSET>,
-            WriteProtectionLevel::<Impl, IMPL_OFFSET>,
-            ReadRequested::<Impl, IMPL_OFFSET>,
-            RemoveReadRequested::<Impl, IMPL_OFFSET>,
-            WriteRequested::<Impl, IMPL_OFFSET>,
-            RemoveWriteRequested::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattLocalDescriptor, BASE_OFFSET>(),
+            Uuid: Uuid::<Impl, IMPL_OFFSET>,
+            StaticValue: StaticValue::<Impl, IMPL_OFFSET>,
+            ReadProtectionLevel: ReadProtectionLevel::<Impl, IMPL_OFFSET>,
+            WriteProtectionLevel: WriteProtectionLevel::<Impl, IMPL_OFFSET>,
+            ReadRequested: ReadRequested::<Impl, IMPL_OFFSET>,
+            RemoveReadRequested: RemoveReadRequested::<Impl, IMPL_OFFSET>,
+            WriteRequested: WriteRequested::<Impl, IMPL_OFFSET>,
+            RemoveWriteRequested: RemoveWriteRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattLocalDescriptor as ::windows::core::Interface>::IID
@@ -3061,20 +3065,15 @@ impl IGattLocalDescriptorParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattLocalDescriptorParameters>,
-            ::windows::core::GetTrustLevel,
-            SetStaticValue::<Impl, IMPL_OFFSET>,
-            StaticValue::<Impl, IMPL_OFFSET>,
-            SetReadProtectionLevel::<Impl, IMPL_OFFSET>,
-            ReadProtectionLevel::<Impl, IMPL_OFFSET>,
-            SetWriteProtectionLevel::<Impl, IMPL_OFFSET>,
-            WriteProtectionLevel::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattLocalDescriptorParameters, BASE_OFFSET>(),
+            SetStaticValue: SetStaticValue::<Impl, IMPL_OFFSET>,
+            StaticValue: StaticValue::<Impl, IMPL_OFFSET>,
+            SetReadProtectionLevel: SetReadProtectionLevel::<Impl, IMPL_OFFSET>,
+            ReadProtectionLevel: ReadProtectionLevel::<Impl, IMPL_OFFSET>,
+            SetWriteProtectionLevel: SetWriteProtectionLevel::<Impl, IMPL_OFFSET>,
+            WriteProtectionLevel: WriteProtectionLevel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattLocalDescriptorParameters as ::windows::core::Interface>::IID
@@ -3114,7 +3113,11 @@ impl IGattLocalDescriptorResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattLocalDescriptorResult>, ::windows::core::GetTrustLevel, Descriptor::<Impl, IMPL_OFFSET>, Error::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattLocalDescriptorResult, BASE_OFFSET>(),
+            Descriptor: Descriptor::<Impl, IMPL_OFFSET>,
+            Error: Error::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattLocalDescriptorResult as ::windows::core::Interface>::IID
@@ -3166,7 +3169,12 @@ impl IGattLocalServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattLocalService>, ::windows::core::GetTrustLevel, Uuid::<Impl, IMPL_OFFSET>, CreateCharacteristicAsync::<Impl, IMPL_OFFSET>, Characteristics::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattLocalService, BASE_OFFSET>(),
+            Uuid: Uuid::<Impl, IMPL_OFFSET>,
+            CreateCharacteristicAsync: CreateCharacteristicAsync::<Impl, IMPL_OFFSET>,
+            Characteristics: Characteristics::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattLocalService as ::windows::core::Interface>::IID
@@ -3242,7 +3250,14 @@ impl IGattPresentationFormatVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattPresentationFormat>, ::windows::core::GetTrustLevel, FormatType::<Impl, IMPL_OFFSET>, Exponent::<Impl, IMPL_OFFSET>, Unit::<Impl, IMPL_OFFSET>, Namespace::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattPresentationFormat, BASE_OFFSET>(),
+            FormatType: FormatType::<Impl, IMPL_OFFSET>,
+            Exponent: Exponent::<Impl, IMPL_OFFSET>,
+            Unit: Unit::<Impl, IMPL_OFFSET>,
+            Namespace: Namespace::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattPresentationFormat as ::windows::core::Interface>::IID
@@ -3270,7 +3285,10 @@ impl IGattPresentationFormatStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattPresentationFormatStatics>, ::windows::core::GetTrustLevel, BluetoothSigAssignedNumbers::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattPresentationFormatStatics, BASE_OFFSET>(),
+            BluetoothSigAssignedNumbers: BluetoothSigAssignedNumbers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattPresentationFormatStatics as ::windows::core::Interface>::IID
@@ -3298,7 +3316,10 @@ impl IGattPresentationFormatStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattPresentationFormatStatics2>, ::windows::core::GetTrustLevel, FromParts::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattPresentationFormatStatics2, BASE_OFFSET>(),
+            FromParts: FromParts::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattPresentationFormatStatics2 as ::windows::core::Interface>::IID
@@ -3638,41 +3659,36 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattPresentationFormatTypesStatics>,
-            ::windows::core::GetTrustLevel,
-            Boolean::<Impl, IMPL_OFFSET>,
-            Bit2::<Impl, IMPL_OFFSET>,
-            Nibble::<Impl, IMPL_OFFSET>,
-            UInt8::<Impl, IMPL_OFFSET>,
-            UInt12::<Impl, IMPL_OFFSET>,
-            UInt16::<Impl, IMPL_OFFSET>,
-            UInt24::<Impl, IMPL_OFFSET>,
-            UInt32::<Impl, IMPL_OFFSET>,
-            UInt48::<Impl, IMPL_OFFSET>,
-            UInt64::<Impl, IMPL_OFFSET>,
-            UInt128::<Impl, IMPL_OFFSET>,
-            SInt8::<Impl, IMPL_OFFSET>,
-            SInt12::<Impl, IMPL_OFFSET>,
-            SInt16::<Impl, IMPL_OFFSET>,
-            SInt24::<Impl, IMPL_OFFSET>,
-            SInt32::<Impl, IMPL_OFFSET>,
-            SInt48::<Impl, IMPL_OFFSET>,
-            SInt64::<Impl, IMPL_OFFSET>,
-            SInt128::<Impl, IMPL_OFFSET>,
-            Float32::<Impl, IMPL_OFFSET>,
-            Float64::<Impl, IMPL_OFFSET>,
-            SFloat::<Impl, IMPL_OFFSET>,
-            Float::<Impl, IMPL_OFFSET>,
-            DUInt16::<Impl, IMPL_OFFSET>,
-            Utf8::<Impl, IMPL_OFFSET>,
-            Utf16::<Impl, IMPL_OFFSET>,
-            Struct::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattPresentationFormatTypesStatics, BASE_OFFSET>(),
+            Boolean: Boolean::<Impl, IMPL_OFFSET>,
+            Bit2: Bit2::<Impl, IMPL_OFFSET>,
+            Nibble: Nibble::<Impl, IMPL_OFFSET>,
+            UInt8: UInt8::<Impl, IMPL_OFFSET>,
+            UInt12: UInt12::<Impl, IMPL_OFFSET>,
+            UInt16: UInt16::<Impl, IMPL_OFFSET>,
+            UInt24: UInt24::<Impl, IMPL_OFFSET>,
+            UInt32: UInt32::<Impl, IMPL_OFFSET>,
+            UInt48: UInt48::<Impl, IMPL_OFFSET>,
+            UInt64: UInt64::<Impl, IMPL_OFFSET>,
+            UInt128: UInt128::<Impl, IMPL_OFFSET>,
+            SInt8: SInt8::<Impl, IMPL_OFFSET>,
+            SInt12: SInt12::<Impl, IMPL_OFFSET>,
+            SInt16: SInt16::<Impl, IMPL_OFFSET>,
+            SInt24: SInt24::<Impl, IMPL_OFFSET>,
+            SInt32: SInt32::<Impl, IMPL_OFFSET>,
+            SInt48: SInt48::<Impl, IMPL_OFFSET>,
+            SInt64: SInt64::<Impl, IMPL_OFFSET>,
+            SInt128: SInt128::<Impl, IMPL_OFFSET>,
+            Float32: Float32::<Impl, IMPL_OFFSET>,
+            Float64: Float64::<Impl, IMPL_OFFSET>,
+            SFloat: SFloat::<Impl, IMPL_OFFSET>,
+            Float: Float::<Impl, IMPL_OFFSET>,
+            DUInt16: DUInt16::<Impl, IMPL_OFFSET>,
+            Utf8: Utf8::<Impl, IMPL_OFFSET>,
+            Utf16: Utf16::<Impl, IMPL_OFFSET>,
+            Struct: Struct::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattPresentationFormatTypesStatics as ::windows::core::Interface>::IID
@@ -3892,31 +3908,26 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattProtocolErrorStatics>,
-            ::windows::core::GetTrustLevel,
-            InvalidHandle::<Impl, IMPL_OFFSET>,
-            ReadNotPermitted::<Impl, IMPL_OFFSET>,
-            WriteNotPermitted::<Impl, IMPL_OFFSET>,
-            InvalidPdu::<Impl, IMPL_OFFSET>,
-            InsufficientAuthentication::<Impl, IMPL_OFFSET>,
-            RequestNotSupported::<Impl, IMPL_OFFSET>,
-            InvalidOffset::<Impl, IMPL_OFFSET>,
-            InsufficientAuthorization::<Impl, IMPL_OFFSET>,
-            PrepareQueueFull::<Impl, IMPL_OFFSET>,
-            AttributeNotFound::<Impl, IMPL_OFFSET>,
-            AttributeNotLong::<Impl, IMPL_OFFSET>,
-            InsufficientEncryptionKeySize::<Impl, IMPL_OFFSET>,
-            InvalidAttributeValueLength::<Impl, IMPL_OFFSET>,
-            UnlikelyError::<Impl, IMPL_OFFSET>,
-            InsufficientEncryption::<Impl, IMPL_OFFSET>,
-            UnsupportedGroupType::<Impl, IMPL_OFFSET>,
-            InsufficientResources::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattProtocolErrorStatics, BASE_OFFSET>(),
+            InvalidHandle: InvalidHandle::<Impl, IMPL_OFFSET>,
+            ReadNotPermitted: ReadNotPermitted::<Impl, IMPL_OFFSET>,
+            WriteNotPermitted: WriteNotPermitted::<Impl, IMPL_OFFSET>,
+            InvalidPdu: InvalidPdu::<Impl, IMPL_OFFSET>,
+            InsufficientAuthentication: InsufficientAuthentication::<Impl, IMPL_OFFSET>,
+            RequestNotSupported: RequestNotSupported::<Impl, IMPL_OFFSET>,
+            InvalidOffset: InvalidOffset::<Impl, IMPL_OFFSET>,
+            InsufficientAuthorization: InsufficientAuthorization::<Impl, IMPL_OFFSET>,
+            PrepareQueueFull: PrepareQueueFull::<Impl, IMPL_OFFSET>,
+            AttributeNotFound: AttributeNotFound::<Impl, IMPL_OFFSET>,
+            AttributeNotLong: AttributeNotLong::<Impl, IMPL_OFFSET>,
+            InsufficientEncryptionKeySize: InsufficientEncryptionKeySize::<Impl, IMPL_OFFSET>,
+            InvalidAttributeValueLength: InvalidAttributeValueLength::<Impl, IMPL_OFFSET>,
+            UnlikelyError: UnlikelyError::<Impl, IMPL_OFFSET>,
+            InsufficientEncryption: InsufficientEncryption::<Impl, IMPL_OFFSET>,
+            UnsupportedGroupType: UnsupportedGroupType::<Impl, IMPL_OFFSET>,
+            InsufficientResources: InsufficientResources::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattProtocolErrorStatics as ::windows::core::Interface>::IID
@@ -3956,7 +3967,11 @@ impl IGattReadClientCharacteristicConfigurationDescriptorResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattReadClientCharacteristicConfigurationDescriptorResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ClientCharacteristicConfigurationDescriptor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattReadClientCharacteristicConfigurationDescriptorResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ClientCharacteristicConfigurationDescriptor: ClientCharacteristicConfigurationDescriptor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattReadClientCharacteristicConfigurationDescriptorResult as ::windows::core::Interface>::IID
@@ -3984,7 +3999,10 @@ impl IGattReadClientCharacteristicConfigurationDescriptorResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattReadClientCharacteristicConfigurationDescriptorResult2>, ::windows::core::GetTrustLevel, ProtocolError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattReadClientCharacteristicConfigurationDescriptorResult2, BASE_OFFSET>(),
+            ProtocolError: ProtocolError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattReadClientCharacteristicConfigurationDescriptorResult2 as ::windows::core::Interface>::IID
@@ -4063,21 +4081,16 @@ impl IGattReadRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RespondWithProtocolError(protocolerror).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattReadRequest>,
-            ::windows::core::GetTrustLevel,
-            Offset::<Impl, IMPL_OFFSET>,
-            Length::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            StateChanged::<Impl, IMPL_OFFSET>,
-            RemoveStateChanged::<Impl, IMPL_OFFSET>,
-            RespondWithValue::<Impl, IMPL_OFFSET>,
-            RespondWithProtocolError::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattReadRequest, BASE_OFFSET>(),
+            Offset: Offset::<Impl, IMPL_OFFSET>,
+            Length: Length::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            StateChanged: StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged: RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            RespondWithValue: RespondWithValue::<Impl, IMPL_OFFSET>,
+            RespondWithProtocolError: RespondWithProtocolError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattReadRequest as ::windows::core::Interface>::IID
@@ -4129,7 +4142,12 @@ impl IGattReadRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattReadRequestedEventArgs>, ::windows::core::GetTrustLevel, Session::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>, GetRequestAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattReadRequestedEventArgs, BASE_OFFSET>(),
+            Session: Session::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            GetRequestAsync: GetRequestAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattReadRequestedEventArgs as ::windows::core::Interface>::IID
@@ -4169,7 +4187,11 @@ impl IGattReadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattReadResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattReadResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattReadResult as ::windows::core::Interface>::IID
@@ -4197,7 +4219,7 @@ impl IGattReadResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattReadResult2>, ::windows::core::GetTrustLevel, ProtocolError::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGattReadResult2, BASE_OFFSET>(), ProtocolError: ProtocolError::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattReadResult2 as ::windows::core::Interface>::IID
@@ -4230,7 +4252,11 @@ impl IGattReliableWriteTransactionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattReliableWriteTransaction>, ::windows::core::GetTrustLevel, WriteValue::<Impl, IMPL_OFFSET>, CommitAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattReliableWriteTransaction, BASE_OFFSET>(),
+            WriteValue: WriteValue::<Impl, IMPL_OFFSET>,
+            CommitAsync: CommitAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattReliableWriteTransaction as ::windows::core::Interface>::IID
@@ -4258,7 +4284,10 @@ impl IGattReliableWriteTransaction2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattReliableWriteTransaction2>, ::windows::core::GetTrustLevel, CommitWithResultAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattReliableWriteTransaction2, BASE_OFFSET>(),
+            CommitWithResultAsync: CommitWithResultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattReliableWriteTransaction2 as ::windows::core::Interface>::IID
@@ -4298,7 +4327,11 @@ impl IGattRequestStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattRequestStateChangedEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>, Error::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattRequestStateChangedEventArgs, BASE_OFFSET>(),
+            State: State::<Impl, IMPL_OFFSET>,
+            Error: Error::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattRequestStateChangedEventArgs as ::windows::core::Interface>::IID
@@ -4370,21 +4403,16 @@ impl IGattServiceProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopAdvertising().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattServiceProvider>,
-            ::windows::core::GetTrustLevel,
-            Service::<Impl, IMPL_OFFSET>,
-            AdvertisementStatus::<Impl, IMPL_OFFSET>,
-            AdvertisementStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveAdvertisementStatusChanged::<Impl, IMPL_OFFSET>,
-            StartAdvertising::<Impl, IMPL_OFFSET>,
-            StartAdvertisingWithParameters::<Impl, IMPL_OFFSET>,
-            StopAdvertising::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattServiceProvider, BASE_OFFSET>(),
+            Service: Service::<Impl, IMPL_OFFSET>,
+            AdvertisementStatus: AdvertisementStatus::<Impl, IMPL_OFFSET>,
+            AdvertisementStatusChanged: AdvertisementStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveAdvertisementStatusChanged: RemoveAdvertisementStatusChanged::<Impl, IMPL_OFFSET>,
+            StartAdvertising: StartAdvertising::<Impl, IMPL_OFFSET>,
+            StartAdvertisingWithParameters: StartAdvertisingWithParameters::<Impl, IMPL_OFFSET>,
+            StopAdvertising: StopAdvertising::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattServiceProvider as ::windows::core::Interface>::IID
@@ -4424,7 +4452,11 @@ impl IGattServiceProviderAdvertisementStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderAdvertisementStatusChangedEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattServiceProviderAdvertisementStatusChangedEventArgs, BASE_OFFSET>(),
+            Error: Error::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattServiceProviderAdvertisementStatusChangedEventArgs as ::windows::core::Interface>::IID
@@ -4474,7 +4506,13 @@ impl IGattServiceProviderAdvertisingParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderAdvertisingParameters>, ::windows::core::GetTrustLevel, SetIsConnectable::<Impl, IMPL_OFFSET>, IsConnectable::<Impl, IMPL_OFFSET>, SetIsDiscoverable::<Impl, IMPL_OFFSET>, IsDiscoverable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattServiceProviderAdvertisingParameters, BASE_OFFSET>(),
+            SetIsConnectable: SetIsConnectable::<Impl, IMPL_OFFSET>,
+            IsConnectable: IsConnectable::<Impl, IMPL_OFFSET>,
+            SetIsDiscoverable: SetIsDiscoverable::<Impl, IMPL_OFFSET>,
+            IsDiscoverable: IsDiscoverable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattServiceProviderAdvertisingParameters as ::windows::core::Interface>::IID
@@ -4507,7 +4545,11 @@ impl IGattServiceProviderAdvertisingParameters2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderAdvertisingParameters2>, ::windows::core::GetTrustLevel, SetServiceData::<Impl, IMPL_OFFSET>, ServiceData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattServiceProviderAdvertisingParameters2, BASE_OFFSET>(),
+            SetServiceData: SetServiceData::<Impl, IMPL_OFFSET>,
+            ServiceData: ServiceData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattServiceProviderAdvertisingParameters2 as ::windows::core::Interface>::IID
@@ -4547,7 +4589,11 @@ impl IGattServiceProviderResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderResult>, ::windows::core::GetTrustLevel, Error::<Impl, IMPL_OFFSET>, ServiceProvider::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattServiceProviderResult, BASE_OFFSET>(),
+            Error: Error::<Impl, IMPL_OFFSET>,
+            ServiceProvider: ServiceProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattServiceProviderResult as ::windows::core::Interface>::IID
@@ -4575,7 +4621,10 @@ impl IGattServiceProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattServiceProviderStatics, BASE_OFFSET>(),
+            CreateAsync: CreateAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattServiceProviderStatics as ::windows::core::Interface>::IID
@@ -4699,23 +4748,18 @@ impl IGattServiceUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattServiceUuidsStatics>,
-            ::windows::core::GetTrustLevel,
-            Battery::<Impl, IMPL_OFFSET>,
-            BloodPressure::<Impl, IMPL_OFFSET>,
-            CyclingSpeedAndCadence::<Impl, IMPL_OFFSET>,
-            GenericAccess::<Impl, IMPL_OFFSET>,
-            GenericAttribute::<Impl, IMPL_OFFSET>,
-            Glucose::<Impl, IMPL_OFFSET>,
-            HealthThermometer::<Impl, IMPL_OFFSET>,
-            HeartRate::<Impl, IMPL_OFFSET>,
-            RunningSpeedAndCadence::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattServiceUuidsStatics, BASE_OFFSET>(),
+            Battery: Battery::<Impl, IMPL_OFFSET>,
+            BloodPressure: BloodPressure::<Impl, IMPL_OFFSET>,
+            CyclingSpeedAndCadence: CyclingSpeedAndCadence::<Impl, IMPL_OFFSET>,
+            GenericAccess: GenericAccess::<Impl, IMPL_OFFSET>,
+            GenericAttribute: GenericAttribute::<Impl, IMPL_OFFSET>,
+            Glucose: Glucose::<Impl, IMPL_OFFSET>,
+            HealthThermometer: HealthThermometer::<Impl, IMPL_OFFSET>,
+            HeartRate: HeartRate::<Impl, IMPL_OFFSET>,
+            RunningSpeedAndCadence: RunningSpeedAndCadence::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattServiceUuidsStatics as ::windows::core::Interface>::IID
@@ -4887,27 +4931,22 @@ impl IGattServiceUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattServiceUuidsStatics2>,
-            ::windows::core::GetTrustLevel,
-            AlertNotification::<Impl, IMPL_OFFSET>,
-            CurrentTime::<Impl, IMPL_OFFSET>,
-            CyclingPower::<Impl, IMPL_OFFSET>,
-            DeviceInformation::<Impl, IMPL_OFFSET>,
-            HumanInterfaceDevice::<Impl, IMPL_OFFSET>,
-            ImmediateAlert::<Impl, IMPL_OFFSET>,
-            LinkLoss::<Impl, IMPL_OFFSET>,
-            LocationAndNavigation::<Impl, IMPL_OFFSET>,
-            NextDstChange::<Impl, IMPL_OFFSET>,
-            PhoneAlertStatus::<Impl, IMPL_OFFSET>,
-            ReferenceTimeUpdate::<Impl, IMPL_OFFSET>,
-            ScanParameters::<Impl, IMPL_OFFSET>,
-            TxPower::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattServiceUuidsStatics2, BASE_OFFSET>(),
+            AlertNotification: AlertNotification::<Impl, IMPL_OFFSET>,
+            CurrentTime: CurrentTime::<Impl, IMPL_OFFSET>,
+            CyclingPower: CyclingPower::<Impl, IMPL_OFFSET>,
+            DeviceInformation: DeviceInformation::<Impl, IMPL_OFFSET>,
+            HumanInterfaceDevice: HumanInterfaceDevice::<Impl, IMPL_OFFSET>,
+            ImmediateAlert: ImmediateAlert::<Impl, IMPL_OFFSET>,
+            LinkLoss: LinkLoss::<Impl, IMPL_OFFSET>,
+            LocationAndNavigation: LocationAndNavigation::<Impl, IMPL_OFFSET>,
+            NextDstChange: NextDstChange::<Impl, IMPL_OFFSET>,
+            PhoneAlertStatus: PhoneAlertStatus::<Impl, IMPL_OFFSET>,
+            ReferenceTimeUpdate: ReferenceTimeUpdate::<Impl, IMPL_OFFSET>,
+            ScanParameters: ScanParameters::<Impl, IMPL_OFFSET>,
+            TxPower: TxPower::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattServiceUuidsStatics2 as ::windows::core::Interface>::IID
@@ -5022,24 +5061,19 @@ impl IGattSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSessionStatusChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattSession>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            CanMaintainConnection::<Impl, IMPL_OFFSET>,
-            SetMaintainConnection::<Impl, IMPL_OFFSET>,
-            MaintainConnection::<Impl, IMPL_OFFSET>,
-            MaxPduSize::<Impl, IMPL_OFFSET>,
-            SessionStatus::<Impl, IMPL_OFFSET>,
-            MaxPduSizeChanged::<Impl, IMPL_OFFSET>,
-            RemoveMaxPduSizeChanged::<Impl, IMPL_OFFSET>,
-            SessionStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveSessionStatusChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattSession, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            CanMaintainConnection: CanMaintainConnection::<Impl, IMPL_OFFSET>,
+            SetMaintainConnection: SetMaintainConnection::<Impl, IMPL_OFFSET>,
+            MaintainConnection: MaintainConnection::<Impl, IMPL_OFFSET>,
+            MaxPduSize: MaxPduSize::<Impl, IMPL_OFFSET>,
+            SessionStatus: SessionStatus::<Impl, IMPL_OFFSET>,
+            MaxPduSizeChanged: MaxPduSizeChanged::<Impl, IMPL_OFFSET>,
+            RemoveMaxPduSizeChanged: RemoveMaxPduSizeChanged::<Impl, IMPL_OFFSET>,
+            SessionStatusChanged: SessionStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveSessionStatusChanged: RemoveSessionStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattSession as ::windows::core::Interface>::IID
@@ -5067,7 +5101,10 @@ impl IGattSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattSessionStatics>, ::windows::core::GetTrustLevel, FromDeviceIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattSessionStatics, BASE_OFFSET>(),
+            FromDeviceIdAsync: FromDeviceIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattSessionStatics as ::windows::core::Interface>::IID
@@ -5107,7 +5144,11 @@ impl IGattSessionStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattSessionStatusChangedEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattSessionStatusChangedEventArgs, BASE_OFFSET>(),
+            Error: Error::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattSessionStatusChangedEventArgs as ::windows::core::Interface>::IID
@@ -5164,7 +5205,13 @@ impl IGattSubscribedClientVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMaxNotificationSizeChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattSubscribedClient>, ::windows::core::GetTrustLevel, Session::<Impl, IMPL_OFFSET>, MaxNotificationSize::<Impl, IMPL_OFFSET>, MaxNotificationSizeChanged::<Impl, IMPL_OFFSET>, RemoveMaxNotificationSizeChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattSubscribedClient, BASE_OFFSET>(),
+            Session: Session::<Impl, IMPL_OFFSET>,
+            MaxNotificationSize: MaxNotificationSize::<Impl, IMPL_OFFSET>,
+            MaxNotificationSizeChanged: MaxNotificationSizeChanged::<Impl, IMPL_OFFSET>,
+            RemoveMaxNotificationSizeChanged: RemoveMaxNotificationSizeChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattSubscribedClient as ::windows::core::Interface>::IID
@@ -5204,7 +5251,11 @@ impl IGattValueChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattValueChangedEventArgs>, ::windows::core::GetTrustLevel, CharacteristicValue::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattValueChangedEventArgs, BASE_OFFSET>(),
+            CharacteristicValue: CharacteristicValue::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattValueChangedEventArgs as ::windows::core::Interface>::IID
@@ -5295,22 +5346,17 @@ impl IGattWriteRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RespondWithProtocolError(protocolerror).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGattWriteRequest>,
-            ::windows::core::GetTrustLevel,
-            Value::<Impl, IMPL_OFFSET>,
-            Offset::<Impl, IMPL_OFFSET>,
-            Option::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            StateChanged::<Impl, IMPL_OFFSET>,
-            RemoveStateChanged::<Impl, IMPL_OFFSET>,
-            Respond::<Impl, IMPL_OFFSET>,
-            RespondWithProtocolError::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattWriteRequest, BASE_OFFSET>(),
+            Value: Value::<Impl, IMPL_OFFSET>,
+            Offset: Offset::<Impl, IMPL_OFFSET>,
+            Option: Option::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            StateChanged: StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged: RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            Respond: Respond::<Impl, IMPL_OFFSET>,
+            RespondWithProtocolError: RespondWithProtocolError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattWriteRequest as ::windows::core::Interface>::IID
@@ -5362,7 +5408,12 @@ impl IGattWriteRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattWriteRequestedEventArgs>, ::windows::core::GetTrustLevel, Session::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>, GetRequestAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattWriteRequestedEventArgs, BASE_OFFSET>(),
+            Session: Session::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            GetRequestAsync: GetRequestAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattWriteRequestedEventArgs as ::windows::core::Interface>::IID
@@ -5402,7 +5453,11 @@ impl IGattWriteResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattWriteResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ProtocolError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattWriteResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ProtocolError: ProtocolError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattWriteResult as ::windows::core::Interface>::IID

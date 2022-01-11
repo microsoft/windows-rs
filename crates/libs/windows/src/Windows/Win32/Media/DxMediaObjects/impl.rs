@@ -17,7 +17,12 @@ impl IDMOQualityControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetNow::<Impl, IMPL_OFFSET>, SetStatus::<Impl, IMPL_OFFSET>, GetStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetNow: SetNow::<Impl, IMPL_OFFSET>,
+            SetStatus: SetStatus::<Impl, IMPL_OFFSET>,
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDMOQualityControl as ::windows::core::Interface>::IID
@@ -47,7 +52,13 @@ impl IDMOVideoOutputOptimizationsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, QueryOperationModePreferences::<Impl, IMPL_OFFSET>, SetOperationMode::<Impl, IMPL_OFFSET>, GetCurrentOperationMode::<Impl, IMPL_OFFSET>, GetCurrentSampleRequirements::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            QueryOperationModePreferences: QueryOperationModePreferences::<Impl, IMPL_OFFSET>,
+            SetOperationMode: SetOperationMode::<Impl, IMPL_OFFSET>,
+            GetCurrentOperationMode: GetCurrentOperationMode::<Impl, IMPL_OFFSET>,
+            GetCurrentSampleRequirements: GetCurrentSampleRequirements::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDMOVideoOutputOptimizations as ::windows::core::Interface>::IID
@@ -79,7 +90,13 @@ impl IEnumDMOVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Next::<Impl, IMPL_OFFSET>, Skip::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>, Clone::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnumDMO as ::windows::core::Interface>::IID
@@ -104,7 +121,12 @@ impl IMediaBufferVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetLength::<Impl, IMPL_OFFSET>, GetMaxLength::<Impl, IMPL_OFFSET>, GetBufferAndLength::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetLength: SetLength::<Impl, IMPL_OFFSET>,
+            GetMaxLength: GetMaxLength::<Impl, IMPL_OFFSET>,
+            GetBufferAndLength: GetBufferAndLength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaBuffer as ::windows::core::Interface>::IID
@@ -221,32 +243,30 @@ impl IMediaObjectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            GetStreamCount::<Impl, IMPL_OFFSET>,
-            GetInputStreamInfo::<Impl, IMPL_OFFSET>,
-            GetOutputStreamInfo::<Impl, IMPL_OFFSET>,
-            GetInputType::<Impl, IMPL_OFFSET>,
-            GetOutputType::<Impl, IMPL_OFFSET>,
-            SetInputType::<Impl, IMPL_OFFSET>,
-            SetOutputType::<Impl, IMPL_OFFSET>,
-            GetInputCurrentType::<Impl, IMPL_OFFSET>,
-            GetOutputCurrentType::<Impl, IMPL_OFFSET>,
-            GetInputSizeInfo::<Impl, IMPL_OFFSET>,
-            GetOutputSizeInfo::<Impl, IMPL_OFFSET>,
-            GetInputMaxLatency::<Impl, IMPL_OFFSET>,
-            SetInputMaxLatency::<Impl, IMPL_OFFSET>,
-            Flush::<Impl, IMPL_OFFSET>,
-            Discontinuity::<Impl, IMPL_OFFSET>,
-            AllocateStreamingResources::<Impl, IMPL_OFFSET>,
-            FreeStreamingResources::<Impl, IMPL_OFFSET>,
-            GetInputStatus::<Impl, IMPL_OFFSET>,
-            ProcessInput::<Impl, IMPL_OFFSET>,
-            ProcessOutput::<Impl, IMPL_OFFSET>,
-            Lock::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetStreamCount: GetStreamCount::<Impl, IMPL_OFFSET>,
+            GetInputStreamInfo: GetInputStreamInfo::<Impl, IMPL_OFFSET>,
+            GetOutputStreamInfo: GetOutputStreamInfo::<Impl, IMPL_OFFSET>,
+            GetInputType: GetInputType::<Impl, IMPL_OFFSET>,
+            GetOutputType: GetOutputType::<Impl, IMPL_OFFSET>,
+            SetInputType: SetInputType::<Impl, IMPL_OFFSET>,
+            SetOutputType: SetOutputType::<Impl, IMPL_OFFSET>,
+            GetInputCurrentType: GetInputCurrentType::<Impl, IMPL_OFFSET>,
+            GetOutputCurrentType: GetOutputCurrentType::<Impl, IMPL_OFFSET>,
+            GetInputSizeInfo: GetInputSizeInfo::<Impl, IMPL_OFFSET>,
+            GetOutputSizeInfo: GetOutputSizeInfo::<Impl, IMPL_OFFSET>,
+            GetInputMaxLatency: GetInputMaxLatency::<Impl, IMPL_OFFSET>,
+            SetInputMaxLatency: SetInputMaxLatency::<Impl, IMPL_OFFSET>,
+            Flush: Flush::<Impl, IMPL_OFFSET>,
+            Discontinuity: Discontinuity::<Impl, IMPL_OFFSET>,
+            AllocateStreamingResources: AllocateStreamingResources::<Impl, IMPL_OFFSET>,
+            FreeStreamingResources: FreeStreamingResources::<Impl, IMPL_OFFSET>,
+            GetInputStatus: GetInputStatus::<Impl, IMPL_OFFSET>,
+            ProcessInput: ProcessInput::<Impl, IMPL_OFFSET>,
+            ProcessOutput: ProcessOutput::<Impl, IMPL_OFFSET>,
+            Lock: Lock::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaObject as ::windows::core::Interface>::IID
@@ -271,7 +291,12 @@ impl IMediaObjectInPlaceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Process::<Impl, IMPL_OFFSET>, Clone::<Impl, IMPL_OFFSET>, GetLatency::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Process: Process::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            GetLatency: GetLatency::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaObjectInPlace as ::windows::core::Interface>::IID

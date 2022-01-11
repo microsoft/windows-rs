@@ -44,7 +44,12 @@ impl IContentRestrictionsBrowsePolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentRestrictionsBrowsePolicy>, ::windows::core::GetTrustLevel, GeographicRegion::<Impl, IMPL_OFFSET>, MaxBrowsableAgeRating::<Impl, IMPL_OFFSET>, PreferredAgeRating::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContentRestrictionsBrowsePolicy, BASE_OFFSET>(),
+            GeographicRegion: GeographicRegion::<Impl, IMPL_OFFSET>,
+            MaxBrowsableAgeRating: MaxBrowsableAgeRating::<Impl, IMPL_OFFSET>,
+            PreferredAgeRating: PreferredAgeRating::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContentRestrictionsBrowsePolicy as ::windows::core::Interface>::IID
@@ -145,24 +150,19 @@ impl IRatedContentDescriptionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRatings(&*(&value as *const <super::super::Foundation::Collections::IVector<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVector<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRatedContentDescription>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            SetId::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            Image::<Impl, IMPL_OFFSET>,
-            SetImage::<Impl, IMPL_OFFSET>,
-            Category::<Impl, IMPL_OFFSET>,
-            SetCategory::<Impl, IMPL_OFFSET>,
-            Ratings::<Impl, IMPL_OFFSET>,
-            SetRatings::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRatedContentDescription, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            Image: Image::<Impl, IMPL_OFFSET>,
+            SetImage: SetImage::<Impl, IMPL_OFFSET>,
+            Category: Category::<Impl, IMPL_OFFSET>,
+            SetCategory: SetCategory::<Impl, IMPL_OFFSET>,
+            Ratings: Ratings::<Impl, IMPL_OFFSET>,
+            SetRatings: SetRatings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRatedContentDescription as ::windows::core::Interface>::IID
@@ -190,7 +190,7 @@ impl IRatedContentDescriptionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRatedContentDescriptionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRatedContentDescriptionFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRatedContentDescriptionFactory as ::windows::core::Interface>::IID
@@ -259,19 +259,14 @@ impl IRatedContentRestrictionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRestrictionsChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRatedContentRestrictions>,
-            ::windows::core::GetTrustLevel,
-            GetBrowsePolicyAsync::<Impl, IMPL_OFFSET>,
-            GetRestrictionLevelAsync::<Impl, IMPL_OFFSET>,
-            RequestContentAccessAsync::<Impl, IMPL_OFFSET>,
-            RestrictionsChanged::<Impl, IMPL_OFFSET>,
-            RemoveRestrictionsChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRatedContentRestrictions, BASE_OFFSET>(),
+            GetBrowsePolicyAsync: GetBrowsePolicyAsync::<Impl, IMPL_OFFSET>,
+            GetRestrictionLevelAsync: GetRestrictionLevelAsync::<Impl, IMPL_OFFSET>,
+            RequestContentAccessAsync: RequestContentAccessAsync::<Impl, IMPL_OFFSET>,
+            RestrictionsChanged: RestrictionsChanged::<Impl, IMPL_OFFSET>,
+            RemoveRestrictionsChanged: RemoveRestrictionsChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRatedContentRestrictions as ::windows::core::Interface>::IID
@@ -299,7 +294,10 @@ impl IRatedContentRestrictionsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRatedContentRestrictionsFactory>, ::windows::core::GetTrustLevel, CreateWithMaxAgeRating::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRatedContentRestrictionsFactory, BASE_OFFSET>(),
+            CreateWithMaxAgeRating: CreateWithMaxAgeRating::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRatedContentRestrictionsFactory as ::windows::core::Interface>::IID

@@ -19,7 +19,12 @@ impl IXMLGraphBuilderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, BuildFromXML::<Impl, IMPL_OFFSET>, SaveToXML::<Impl, IMPL_OFFSET>, BuildFromXMLFile::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            BuildFromXML: BuildFromXML::<Impl, IMPL_OFFSET>,
+            SaveToXML: SaveToXML::<Impl, IMPL_OFFSET>,
+            BuildFromXMLFile: BuildFromXMLFile::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLGraphBuilder as ::windows::core::Interface>::IID

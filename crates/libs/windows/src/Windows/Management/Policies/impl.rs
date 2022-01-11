@@ -157,27 +157,22 @@ impl INamedPolicyDataVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INamedPolicyData>,
-            ::windows::core::GetTrustLevel,
-            Area::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            Kind::<Impl, IMPL_OFFSET>,
-            IsManaged::<Impl, IMPL_OFFSET>,
-            IsUserPolicy::<Impl, IMPL_OFFSET>,
-            User::<Impl, IMPL_OFFSET>,
-            GetBoolean::<Impl, IMPL_OFFSET>,
-            GetBinary::<Impl, IMPL_OFFSET>,
-            GetInt32::<Impl, IMPL_OFFSET>,
-            GetInt64::<Impl, IMPL_OFFSET>,
-            GetString::<Impl, IMPL_OFFSET>,
-            Changed::<Impl, IMPL_OFFSET>,
-            RemoveChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INamedPolicyData, BASE_OFFSET>(),
+            Area: Area::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            IsManaged: IsManaged::<Impl, IMPL_OFFSET>,
+            IsUserPolicy: IsUserPolicy::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+            GetBoolean: GetBoolean::<Impl, IMPL_OFFSET>,
+            GetBinary: GetBinary::<Impl, IMPL_OFFSET>,
+            GetInt32: GetInt32::<Impl, IMPL_OFFSET>,
+            GetInt64: GetInt64::<Impl, IMPL_OFFSET>,
+            GetString: GetString::<Impl, IMPL_OFFSET>,
+            Changed: Changed::<Impl, IMPL_OFFSET>,
+            RemoveChanged: RemoveChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INamedPolicyData as ::windows::core::Interface>::IID
@@ -217,7 +212,11 @@ impl INamedPolicyStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INamedPolicyStatics>, ::windows::core::GetTrustLevel, GetPolicyFromPath::<Impl, IMPL_OFFSET>, GetPolicyFromPathForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INamedPolicyStatics, BASE_OFFSET>(),
+            GetPolicyFromPath: GetPolicyFromPath::<Impl, IMPL_OFFSET>,
+            GetPolicyFromPathForUser: GetPolicyFromPathForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INamedPolicyStatics as ::windows::core::Interface>::IID

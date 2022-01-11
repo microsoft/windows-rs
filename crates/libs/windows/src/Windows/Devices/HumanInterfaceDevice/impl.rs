@@ -73,7 +73,15 @@ impl IHidBooleanControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidBooleanControl>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, UsagePage::<Impl, IMPL_OFFSET>, UsageId::<Impl, IMPL_OFFSET>, IsActive::<Impl, IMPL_OFFSET>, SetIsActive::<Impl, IMPL_OFFSET>, ControlDescription::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidBooleanControl, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            UsagePage: UsagePage::<Impl, IMPL_OFFSET>,
+            UsageId: UsageId::<Impl, IMPL_OFFSET>,
+            IsActive: IsActive::<Impl, IMPL_OFFSET>,
+            SetIsActive: SetIsActive::<Impl, IMPL_OFFSET>,
+            ControlDescription: ControlDescription::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidBooleanControl as ::windows::core::Interface>::IID
@@ -161,7 +169,15 @@ impl IHidBooleanControlDescriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidBooleanControlDescription>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, ReportId::<Impl, IMPL_OFFSET>, ReportType::<Impl, IMPL_OFFSET>, UsagePage::<Impl, IMPL_OFFSET>, UsageId::<Impl, IMPL_OFFSET>, ParentCollections::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidBooleanControlDescription, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            ReportId: ReportId::<Impl, IMPL_OFFSET>,
+            ReportType: ReportType::<Impl, IMPL_OFFSET>,
+            UsagePage: UsagePage::<Impl, IMPL_OFFSET>,
+            UsageId: UsageId::<Impl, IMPL_OFFSET>,
+            ParentCollections: ParentCollections::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidBooleanControlDescription as ::windows::core::Interface>::IID
@@ -189,7 +205,10 @@ impl IHidBooleanControlDescription2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidBooleanControlDescription2>, ::windows::core::GetTrustLevel, IsAbsolute::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidBooleanControlDescription2, BASE_OFFSET>(),
+            IsAbsolute: IsAbsolute::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidBooleanControlDescription2 as ::windows::core::Interface>::IID
@@ -253,7 +272,13 @@ impl IHidCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidCollection>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>, UsagePage::<Impl, IMPL_OFFSET>, UsageId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidCollection, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+            UsagePage: UsagePage::<Impl, IMPL_OFFSET>,
+            UsageId: UsageId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidCollection as ::windows::core::Interface>::IID
@@ -490,33 +515,28 @@ impl IHidDeviceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveInputReportReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHidDevice>,
-            ::windows::core::GetTrustLevel,
-            VendorId::<Impl, IMPL_OFFSET>,
-            ProductId::<Impl, IMPL_OFFSET>,
-            Version::<Impl, IMPL_OFFSET>,
-            UsagePage::<Impl, IMPL_OFFSET>,
-            UsageId::<Impl, IMPL_OFFSET>,
-            GetInputReportAsync::<Impl, IMPL_OFFSET>,
-            GetInputReportByIdAsync::<Impl, IMPL_OFFSET>,
-            GetFeatureReportAsync::<Impl, IMPL_OFFSET>,
-            GetFeatureReportByIdAsync::<Impl, IMPL_OFFSET>,
-            CreateOutputReport::<Impl, IMPL_OFFSET>,
-            CreateOutputReportById::<Impl, IMPL_OFFSET>,
-            CreateFeatureReport::<Impl, IMPL_OFFSET>,
-            CreateFeatureReportById::<Impl, IMPL_OFFSET>,
-            SendOutputReportAsync::<Impl, IMPL_OFFSET>,
-            SendFeatureReportAsync::<Impl, IMPL_OFFSET>,
-            GetBooleanControlDescriptions::<Impl, IMPL_OFFSET>,
-            GetNumericControlDescriptions::<Impl, IMPL_OFFSET>,
-            InputReportReceived::<Impl, IMPL_OFFSET>,
-            RemoveInputReportReceived::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidDevice, BASE_OFFSET>(),
+            VendorId: VendorId::<Impl, IMPL_OFFSET>,
+            ProductId: ProductId::<Impl, IMPL_OFFSET>,
+            Version: Version::<Impl, IMPL_OFFSET>,
+            UsagePage: UsagePage::<Impl, IMPL_OFFSET>,
+            UsageId: UsageId::<Impl, IMPL_OFFSET>,
+            GetInputReportAsync: GetInputReportAsync::<Impl, IMPL_OFFSET>,
+            GetInputReportByIdAsync: GetInputReportByIdAsync::<Impl, IMPL_OFFSET>,
+            GetFeatureReportAsync: GetFeatureReportAsync::<Impl, IMPL_OFFSET>,
+            GetFeatureReportByIdAsync: GetFeatureReportByIdAsync::<Impl, IMPL_OFFSET>,
+            CreateOutputReport: CreateOutputReport::<Impl, IMPL_OFFSET>,
+            CreateOutputReportById: CreateOutputReportById::<Impl, IMPL_OFFSET>,
+            CreateFeatureReport: CreateFeatureReport::<Impl, IMPL_OFFSET>,
+            CreateFeatureReportById: CreateFeatureReportById::<Impl, IMPL_OFFSET>,
+            SendOutputReportAsync: SendOutputReportAsync::<Impl, IMPL_OFFSET>,
+            SendFeatureReportAsync: SendFeatureReportAsync::<Impl, IMPL_OFFSET>,
+            GetBooleanControlDescriptions: GetBooleanControlDescriptions::<Impl, IMPL_OFFSET>,
+            GetNumericControlDescriptions: GetNumericControlDescriptions::<Impl, IMPL_OFFSET>,
+            InputReportReceived: InputReportReceived::<Impl, IMPL_OFFSET>,
+            RemoveInputReportReceived: RemoveInputReportReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidDevice as ::windows::core::Interface>::IID
@@ -568,7 +588,12 @@ impl IHidDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorVidPid::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidDeviceStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorVidPid: GetDeviceSelectorVidPid::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidDeviceStatics as ::windows::core::Interface>::IID
@@ -661,21 +686,16 @@ impl IHidFeatureReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHidFeatureReport>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            Data::<Impl, IMPL_OFFSET>,
-            SetData::<Impl, IMPL_OFFSET>,
-            GetBooleanControl::<Impl, IMPL_OFFSET>,
-            GetBooleanControlByDescription::<Impl, IMPL_OFFSET>,
-            GetNumericControl::<Impl, IMPL_OFFSET>,
-            GetNumericControlByDescription::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidFeatureReport, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Data: Data::<Impl, IMPL_OFFSET>,
+            SetData: SetData::<Impl, IMPL_OFFSET>,
+            GetBooleanControl: GetBooleanControl::<Impl, IMPL_OFFSET>,
+            GetBooleanControlByDescription: GetBooleanControlByDescription::<Impl, IMPL_OFFSET>,
+            GetNumericControl: GetNumericControl::<Impl, IMPL_OFFSET>,
+            GetNumericControlByDescription: GetNumericControlByDescription::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidFeatureReport as ::windows::core::Interface>::IID
@@ -787,22 +807,17 @@ impl IHidInputReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHidInputReport>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            Data::<Impl, IMPL_OFFSET>,
-            ActivatedBooleanControls::<Impl, IMPL_OFFSET>,
-            TransitionedBooleanControls::<Impl, IMPL_OFFSET>,
-            GetBooleanControl::<Impl, IMPL_OFFSET>,
-            GetBooleanControlByDescription::<Impl, IMPL_OFFSET>,
-            GetNumericControl::<Impl, IMPL_OFFSET>,
-            GetNumericControlByDescription::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidInputReport, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Data: Data::<Impl, IMPL_OFFSET>,
+            ActivatedBooleanControls: ActivatedBooleanControls::<Impl, IMPL_OFFSET>,
+            TransitionedBooleanControls: TransitionedBooleanControls::<Impl, IMPL_OFFSET>,
+            GetBooleanControl: GetBooleanControl::<Impl, IMPL_OFFSET>,
+            GetBooleanControlByDescription: GetBooleanControlByDescription::<Impl, IMPL_OFFSET>,
+            GetNumericControl: GetNumericControl::<Impl, IMPL_OFFSET>,
+            GetNumericControlByDescription: GetNumericControlByDescription::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidInputReport as ::windows::core::Interface>::IID
@@ -830,7 +845,7 @@ impl IHidInputReportReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidInputReportReceivedEventArgs>, ::windows::core::GetTrustLevel, Report::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHidInputReportReceivedEventArgs, BASE_OFFSET>(), Report: Report::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidInputReportReceivedEventArgs as ::windows::core::Interface>::IID
@@ -940,23 +955,18 @@ impl IHidNumericControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHidNumericControl>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            IsGrouped::<Impl, IMPL_OFFSET>,
-            UsagePage::<Impl, IMPL_OFFSET>,
-            UsageId::<Impl, IMPL_OFFSET>,
-            Value::<Impl, IMPL_OFFSET>,
-            SetValue::<Impl, IMPL_OFFSET>,
-            ScaledValue::<Impl, IMPL_OFFSET>,
-            SetScaledValue::<Impl, IMPL_OFFSET>,
-            ControlDescription::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidNumericControl, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            IsGrouped: IsGrouped::<Impl, IMPL_OFFSET>,
+            UsagePage: UsagePage::<Impl, IMPL_OFFSET>,
+            UsageId: UsageId::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+            ScaledValue: ScaledValue::<Impl, IMPL_OFFSET>,
+            SetScaledValue: SetScaledValue::<Impl, IMPL_OFFSET>,
+            ControlDescription: ControlDescription::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidNumericControl as ::windows::core::Interface>::IID
@@ -1164,30 +1174,25 @@ impl IHidNumericControlDescriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHidNumericControlDescription>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            ReportId::<Impl, IMPL_OFFSET>,
-            ReportType::<Impl, IMPL_OFFSET>,
-            ReportSize::<Impl, IMPL_OFFSET>,
-            ReportCount::<Impl, IMPL_OFFSET>,
-            UsagePage::<Impl, IMPL_OFFSET>,
-            UsageId::<Impl, IMPL_OFFSET>,
-            LogicalMinimum::<Impl, IMPL_OFFSET>,
-            LogicalMaximum::<Impl, IMPL_OFFSET>,
-            PhysicalMinimum::<Impl, IMPL_OFFSET>,
-            PhysicalMaximum::<Impl, IMPL_OFFSET>,
-            UnitExponent::<Impl, IMPL_OFFSET>,
-            Unit::<Impl, IMPL_OFFSET>,
-            IsAbsolute::<Impl, IMPL_OFFSET>,
-            HasNull::<Impl, IMPL_OFFSET>,
-            ParentCollections::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidNumericControlDescription, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            ReportId: ReportId::<Impl, IMPL_OFFSET>,
+            ReportType: ReportType::<Impl, IMPL_OFFSET>,
+            ReportSize: ReportSize::<Impl, IMPL_OFFSET>,
+            ReportCount: ReportCount::<Impl, IMPL_OFFSET>,
+            UsagePage: UsagePage::<Impl, IMPL_OFFSET>,
+            UsageId: UsageId::<Impl, IMPL_OFFSET>,
+            LogicalMinimum: LogicalMinimum::<Impl, IMPL_OFFSET>,
+            LogicalMaximum: LogicalMaximum::<Impl, IMPL_OFFSET>,
+            PhysicalMinimum: PhysicalMinimum::<Impl, IMPL_OFFSET>,
+            PhysicalMaximum: PhysicalMaximum::<Impl, IMPL_OFFSET>,
+            UnitExponent: UnitExponent::<Impl, IMPL_OFFSET>,
+            Unit: Unit::<Impl, IMPL_OFFSET>,
+            IsAbsolute: IsAbsolute::<Impl, IMPL_OFFSET>,
+            HasNull: HasNull::<Impl, IMPL_OFFSET>,
+            ParentCollections: ParentCollections::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidNumericControlDescription as ::windows::core::Interface>::IID
@@ -1280,21 +1285,16 @@ impl IHidOutputReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHidOutputReport>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            Data::<Impl, IMPL_OFFSET>,
-            SetData::<Impl, IMPL_OFFSET>,
-            GetBooleanControl::<Impl, IMPL_OFFSET>,
-            GetBooleanControlByDescription::<Impl, IMPL_OFFSET>,
-            GetNumericControl::<Impl, IMPL_OFFSET>,
-            GetNumericControlByDescription::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidOutputReport, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Data: Data::<Impl, IMPL_OFFSET>,
+            SetData: SetData::<Impl, IMPL_OFFSET>,
+            GetBooleanControl: GetBooleanControl::<Impl, IMPL_OFFSET>,
+            GetBooleanControlByDescription: GetBooleanControlByDescription::<Impl, IMPL_OFFSET>,
+            GetNumericControl: GetNumericControl::<Impl, IMPL_OFFSET>,
+            GetNumericControlByDescription: GetNumericControlByDescription::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidOutputReport as ::windows::core::Interface>::IID

@@ -68,19 +68,14 @@ impl IChatCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChatCapabilities>,
-            ::windows::core::GetTrustLevel,
-            IsOnline::<Impl, IMPL_OFFSET>,
-            IsChatCapable::<Impl, IMPL_OFFSET>,
-            IsFileTransferCapable::<Impl, IMPL_OFFSET>,
-            IsGeoLocationPushCapable::<Impl, IMPL_OFFSET>,
-            IsIntegratedMessagingCapable::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatCapabilities, BASE_OFFSET>(),
+            IsOnline: IsOnline::<Impl, IMPL_OFFSET>,
+            IsChatCapable: IsChatCapable::<Impl, IMPL_OFFSET>,
+            IsFileTransferCapable: IsFileTransferCapable::<Impl, IMPL_OFFSET>,
+            IsGeoLocationPushCapable: IsGeoLocationPushCapable::<Impl, IMPL_OFFSET>,
+            IsIntegratedMessagingCapable: IsIntegratedMessagingCapable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatCapabilities as ::windows::core::Interface>::IID
@@ -120,7 +115,11 @@ impl IChatCapabilitiesManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatCapabilitiesManagerStatics>, ::windows::core::GetTrustLevel, GetCachedCapabilitiesAsync::<Impl, IMPL_OFFSET>, GetCapabilitiesFromNetworkAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatCapabilitiesManagerStatics, BASE_OFFSET>(),
+            GetCachedCapabilitiesAsync: GetCachedCapabilitiesAsync::<Impl, IMPL_OFFSET>,
+            GetCapabilitiesFromNetworkAsync: GetCapabilitiesFromNetworkAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatCapabilitiesManagerStatics as ::windows::core::Interface>::IID
@@ -160,7 +159,11 @@ impl IChatCapabilitiesManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatCapabilitiesManagerStatics2>, ::windows::core::GetTrustLevel, GetCachedCapabilitiesForTransportAsync::<Impl, IMPL_OFFSET>, GetCapabilitiesFromNetworkForTransportAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatCapabilitiesManagerStatics2, BASE_OFFSET>(),
+            GetCachedCapabilitiesForTransportAsync: GetCachedCapabilitiesForTransportAsync::<Impl, IMPL_OFFSET>,
+            GetCapabilitiesFromNetworkForTransportAsync: GetCapabilitiesFromNetworkForTransportAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatCapabilitiesManagerStatics2 as ::windows::core::Interface>::IID
@@ -357,32 +360,27 @@ impl IChatConversationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemoteParticipantComposingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChatConversation>,
-            ::windows::core::GetTrustLevel,
-            HasUnreadMessages::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            Subject::<Impl, IMPL_OFFSET>,
-            SetSubject::<Impl, IMPL_OFFSET>,
-            IsConversationMuted::<Impl, IMPL_OFFSET>,
-            SetIsConversationMuted::<Impl, IMPL_OFFSET>,
-            MostRecentMessageId::<Impl, IMPL_OFFSET>,
-            Participants::<Impl, IMPL_OFFSET>,
-            ThreadingInfo::<Impl, IMPL_OFFSET>,
-            DeleteAsync::<Impl, IMPL_OFFSET>,
-            GetMessageReader::<Impl, IMPL_OFFSET>,
-            MarkAllMessagesAsReadAsync::<Impl, IMPL_OFFSET>,
-            MarkMessagesAsReadAsync::<Impl, IMPL_OFFSET>,
-            SaveAsync::<Impl, IMPL_OFFSET>,
-            NotifyLocalParticipantComposing::<Impl, IMPL_OFFSET>,
-            NotifyRemoteParticipantComposing::<Impl, IMPL_OFFSET>,
-            RemoteParticipantComposingChanged::<Impl, IMPL_OFFSET>,
-            RemoveRemoteParticipantComposingChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatConversation, BASE_OFFSET>(),
+            HasUnreadMessages: HasUnreadMessages::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Subject: Subject::<Impl, IMPL_OFFSET>,
+            SetSubject: SetSubject::<Impl, IMPL_OFFSET>,
+            IsConversationMuted: IsConversationMuted::<Impl, IMPL_OFFSET>,
+            SetIsConversationMuted: SetIsConversationMuted::<Impl, IMPL_OFFSET>,
+            MostRecentMessageId: MostRecentMessageId::<Impl, IMPL_OFFSET>,
+            Participants: Participants::<Impl, IMPL_OFFSET>,
+            ThreadingInfo: ThreadingInfo::<Impl, IMPL_OFFSET>,
+            DeleteAsync: DeleteAsync::<Impl, IMPL_OFFSET>,
+            GetMessageReader: GetMessageReader::<Impl, IMPL_OFFSET>,
+            MarkAllMessagesAsReadAsync: MarkAllMessagesAsReadAsync::<Impl, IMPL_OFFSET>,
+            MarkMessagesAsReadAsync: MarkMessagesAsReadAsync::<Impl, IMPL_OFFSET>,
+            SaveAsync: SaveAsync::<Impl, IMPL_OFFSET>,
+            NotifyLocalParticipantComposing: NotifyLocalParticipantComposing::<Impl, IMPL_OFFSET>,
+            NotifyRemoteParticipantComposing: NotifyRemoteParticipantComposing::<Impl, IMPL_OFFSET>,
+            RemoteParticipantComposingChanged: RemoteParticipantComposingChanged::<Impl, IMPL_OFFSET>,
+            RemoveRemoteParticipantComposingChanged: RemoveRemoteParticipantComposingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatConversation as ::windows::core::Interface>::IID
@@ -415,7 +413,11 @@ impl IChatConversation2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCanModifyParticipants(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatConversation2>, ::windows::core::GetTrustLevel, CanModifyParticipants::<Impl, IMPL_OFFSET>, SetCanModifyParticipants::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatConversation2, BASE_OFFSET>(),
+            CanModifyParticipants: CanModifyParticipants::<Impl, IMPL_OFFSET>,
+            SetCanModifyParticipants: SetCanModifyParticipants::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatConversation2 as ::windows::core::Interface>::IID
@@ -455,7 +457,11 @@ impl IChatConversationReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatConversationReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, IMPL_OFFSET>, ReadBatchWithCountAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatConversationReader, BASE_OFFSET>(),
+            ReadBatchAsync: ReadBatchAsync::<Impl, IMPL_OFFSET>,
+            ReadBatchWithCountAsync: ReadBatchWithCountAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatConversationReader as ::windows::core::Interface>::IID
@@ -551,23 +557,18 @@ impl IChatConversationThreadingInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKind(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChatConversationThreadingInfo>,
-            ::windows::core::GetTrustLevel,
-            ContactId::<Impl, IMPL_OFFSET>,
-            SetContactId::<Impl, IMPL_OFFSET>,
-            Custom::<Impl, IMPL_OFFSET>,
-            SetCustom::<Impl, IMPL_OFFSET>,
-            ConversationId::<Impl, IMPL_OFFSET>,
-            SetConversationId::<Impl, IMPL_OFFSET>,
-            Participants::<Impl, IMPL_OFFSET>,
-            Kind::<Impl, IMPL_OFFSET>,
-            SetKind::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatConversationThreadingInfo, BASE_OFFSET>(),
+            ContactId: ContactId::<Impl, IMPL_OFFSET>,
+            SetContactId: SetContactId::<Impl, IMPL_OFFSET>,
+            Custom: Custom::<Impl, IMPL_OFFSET>,
+            SetCustom: SetCustom::<Impl, IMPL_OFFSET>,
+            ConversationId: ConversationId::<Impl, IMPL_OFFSET>,
+            SetConversationId: SetConversationId::<Impl, IMPL_OFFSET>,
+            Participants: Participants::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            SetKind: SetKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatConversationThreadingInfo as ::windows::core::Interface>::IID
@@ -592,7 +593,7 @@ impl IChatItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatItem>, ::windows::core::GetTrustLevel, ItemKind::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IChatItem, BASE_OFFSET>(), ItemKind: ItemKind::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatItem as ::windows::core::Interface>::IID
@@ -798,31 +799,26 @@ impl IChatMessageVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransportId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChatMessage>,
-            ::windows::core::GetTrustLevel,
-            Attachments::<Impl, IMPL_OFFSET>,
-            Body::<Impl, IMPL_OFFSET>,
-            SetBody::<Impl, IMPL_OFFSET>,
-            From::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            IsForwardingDisabled::<Impl, IMPL_OFFSET>,
-            IsIncoming::<Impl, IMPL_OFFSET>,
-            IsRead::<Impl, IMPL_OFFSET>,
-            LocalTimestamp::<Impl, IMPL_OFFSET>,
-            NetworkTimestamp::<Impl, IMPL_OFFSET>,
-            Recipients::<Impl, IMPL_OFFSET>,
-            RecipientSendStatuses::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Subject::<Impl, IMPL_OFFSET>,
-            TransportFriendlyName::<Impl, IMPL_OFFSET>,
-            TransportId::<Impl, IMPL_OFFSET>,
-            SetTransportId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessage, BASE_OFFSET>(),
+            Attachments: Attachments::<Impl, IMPL_OFFSET>,
+            Body: Body::<Impl, IMPL_OFFSET>,
+            SetBody: SetBody::<Impl, IMPL_OFFSET>,
+            From: From::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            IsForwardingDisabled: IsForwardingDisabled::<Impl, IMPL_OFFSET>,
+            IsIncoming: IsIncoming::<Impl, IMPL_OFFSET>,
+            IsRead: IsRead::<Impl, IMPL_OFFSET>,
+            LocalTimestamp: LocalTimestamp::<Impl, IMPL_OFFSET>,
+            NetworkTimestamp: NetworkTimestamp::<Impl, IMPL_OFFSET>,
+            Recipients: Recipients::<Impl, IMPL_OFFSET>,
+            RecipientSendStatuses: RecipientSendStatuses::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Subject: Subject::<Impl, IMPL_OFFSET>,
+            TransportFriendlyName: TransportFriendlyName::<Impl, IMPL_OFFSET>,
+            TransportId: TransportId::<Impl, IMPL_OFFSET>,
+            SetTransportId: SetTransportId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessage as ::windows::core::Interface>::IID
@@ -1055,42 +1051,37 @@ impl IChatMessage2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChatMessage2>,
-            ::windows::core::GetTrustLevel,
-            EstimatedDownloadSize::<Impl, IMPL_OFFSET>,
-            SetEstimatedDownloadSize::<Impl, IMPL_OFFSET>,
-            SetFrom::<Impl, IMPL_OFFSET>,
-            IsAutoReply::<Impl, IMPL_OFFSET>,
-            SetIsAutoReply::<Impl, IMPL_OFFSET>,
-            SetIsForwardingDisabled::<Impl, IMPL_OFFSET>,
-            IsReplyDisabled::<Impl, IMPL_OFFSET>,
-            SetIsIncoming::<Impl, IMPL_OFFSET>,
-            SetIsRead::<Impl, IMPL_OFFSET>,
-            IsSeen::<Impl, IMPL_OFFSET>,
-            SetIsSeen::<Impl, IMPL_OFFSET>,
-            IsSimMessage::<Impl, IMPL_OFFSET>,
-            SetLocalTimestamp::<Impl, IMPL_OFFSET>,
-            MessageKind::<Impl, IMPL_OFFSET>,
-            SetMessageKind::<Impl, IMPL_OFFSET>,
-            MessageOperatorKind::<Impl, IMPL_OFFSET>,
-            SetMessageOperatorKind::<Impl, IMPL_OFFSET>,
-            SetNetworkTimestamp::<Impl, IMPL_OFFSET>,
-            IsReceivedDuringQuietHours::<Impl, IMPL_OFFSET>,
-            SetIsReceivedDuringQuietHours::<Impl, IMPL_OFFSET>,
-            SetRemoteId::<Impl, IMPL_OFFSET>,
-            SetStatus::<Impl, IMPL_OFFSET>,
-            SetSubject::<Impl, IMPL_OFFSET>,
-            ShouldSuppressNotification::<Impl, IMPL_OFFSET>,
-            SetShouldSuppressNotification::<Impl, IMPL_OFFSET>,
-            ThreadingInfo::<Impl, IMPL_OFFSET>,
-            SetThreadingInfo::<Impl, IMPL_OFFSET>,
-            RecipientsDeliveryInfos::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessage2, BASE_OFFSET>(),
+            EstimatedDownloadSize: EstimatedDownloadSize::<Impl, IMPL_OFFSET>,
+            SetEstimatedDownloadSize: SetEstimatedDownloadSize::<Impl, IMPL_OFFSET>,
+            SetFrom: SetFrom::<Impl, IMPL_OFFSET>,
+            IsAutoReply: IsAutoReply::<Impl, IMPL_OFFSET>,
+            SetIsAutoReply: SetIsAutoReply::<Impl, IMPL_OFFSET>,
+            SetIsForwardingDisabled: SetIsForwardingDisabled::<Impl, IMPL_OFFSET>,
+            IsReplyDisabled: IsReplyDisabled::<Impl, IMPL_OFFSET>,
+            SetIsIncoming: SetIsIncoming::<Impl, IMPL_OFFSET>,
+            SetIsRead: SetIsRead::<Impl, IMPL_OFFSET>,
+            IsSeen: IsSeen::<Impl, IMPL_OFFSET>,
+            SetIsSeen: SetIsSeen::<Impl, IMPL_OFFSET>,
+            IsSimMessage: IsSimMessage::<Impl, IMPL_OFFSET>,
+            SetLocalTimestamp: SetLocalTimestamp::<Impl, IMPL_OFFSET>,
+            MessageKind: MessageKind::<Impl, IMPL_OFFSET>,
+            SetMessageKind: SetMessageKind::<Impl, IMPL_OFFSET>,
+            MessageOperatorKind: MessageOperatorKind::<Impl, IMPL_OFFSET>,
+            SetMessageOperatorKind: SetMessageOperatorKind::<Impl, IMPL_OFFSET>,
+            SetNetworkTimestamp: SetNetworkTimestamp::<Impl, IMPL_OFFSET>,
+            IsReceivedDuringQuietHours: IsReceivedDuringQuietHours::<Impl, IMPL_OFFSET>,
+            SetIsReceivedDuringQuietHours: SetIsReceivedDuringQuietHours::<Impl, IMPL_OFFSET>,
+            SetRemoteId: SetRemoteId::<Impl, IMPL_OFFSET>,
+            SetStatus: SetStatus::<Impl, IMPL_OFFSET>,
+            SetSubject: SetSubject::<Impl, IMPL_OFFSET>,
+            ShouldSuppressNotification: ShouldSuppressNotification::<Impl, IMPL_OFFSET>,
+            SetShouldSuppressNotification: SetShouldSuppressNotification::<Impl, IMPL_OFFSET>,
+            ThreadingInfo: ThreadingInfo::<Impl, IMPL_OFFSET>,
+            SetThreadingInfo: SetThreadingInfo::<Impl, IMPL_OFFSET>,
+            RecipientsDeliveryInfos: RecipientsDeliveryInfos::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessage2 as ::windows::core::Interface>::IID
@@ -1118,7 +1109,7 @@ impl IChatMessage3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessage3>, ::windows::core::GetTrustLevel, RemoteId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessage3, BASE_OFFSET>(), RemoteId: RemoteId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessage3 as ::windows::core::Interface>::IID
@@ -1151,7 +1142,11 @@ impl IChatMessage4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSyncId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessage4>, ::windows::core::GetTrustLevel, SyncId::<Impl, IMPL_OFFSET>, SetSyncId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessage4, BASE_OFFSET>(),
+            SyncId: SyncId::<Impl, IMPL_OFFSET>,
+            SetSyncId: SetSyncId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessage4 as ::windows::core::Interface>::IID
@@ -1235,22 +1230,17 @@ impl IChatMessageAttachmentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChatMessageAttachment>,
-            ::windows::core::GetTrustLevel,
-            DataStreamReference::<Impl, IMPL_OFFSET>,
-            SetDataStreamReference::<Impl, IMPL_OFFSET>,
-            GroupId::<Impl, IMPL_OFFSET>,
-            SetGroupId::<Impl, IMPL_OFFSET>,
-            MimeType::<Impl, IMPL_OFFSET>,
-            SetMimeType::<Impl, IMPL_OFFSET>,
-            Text::<Impl, IMPL_OFFSET>,
-            SetText::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageAttachment, BASE_OFFSET>(),
+            DataStreamReference: DataStreamReference::<Impl, IMPL_OFFSET>,
+            SetDataStreamReference: SetDataStreamReference::<Impl, IMPL_OFFSET>,
+            GroupId: GroupId::<Impl, IMPL_OFFSET>,
+            SetGroupId: SetGroupId::<Impl, IMPL_OFFSET>,
+            MimeType: MimeType::<Impl, IMPL_OFFSET>,
+            SetMimeType: SetMimeType::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+            SetText: SetText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageAttachment as ::windows::core::Interface>::IID
@@ -1317,20 +1307,15 @@ impl IChatMessageAttachment2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOriginalFileName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChatMessageAttachment2>,
-            ::windows::core::GetTrustLevel,
-            Thumbnail::<Impl, IMPL_OFFSET>,
-            SetThumbnail::<Impl, IMPL_OFFSET>,
-            TransferProgress::<Impl, IMPL_OFFSET>,
-            SetTransferProgress::<Impl, IMPL_OFFSET>,
-            OriginalFileName::<Impl, IMPL_OFFSET>,
-            SetOriginalFileName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageAttachment2, BASE_OFFSET>(),
+            Thumbnail: Thumbnail::<Impl, IMPL_OFFSET>,
+            SetThumbnail: SetThumbnail::<Impl, IMPL_OFFSET>,
+            TransferProgress: TransferProgress::<Impl, IMPL_OFFSET>,
+            SetTransferProgress: SetTransferProgress::<Impl, IMPL_OFFSET>,
+            OriginalFileName: OriginalFileName::<Impl, IMPL_OFFSET>,
+            SetOriginalFileName: SetOriginalFileName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageAttachment2 as ::windows::core::Interface>::IID
@@ -1358,7 +1343,10 @@ impl IChatMessageAttachmentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageAttachmentFactory>, ::windows::core::GetTrustLevel, CreateChatMessageAttachment::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageAttachmentFactory, BASE_OFFSET>(),
+            CreateChatMessageAttachment: CreateChatMessageAttachment::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageAttachmentFactory as ::windows::core::Interface>::IID
@@ -1386,7 +1374,10 @@ impl IChatMessageBlockingStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageBlockingStatic>, ::windows::core::GetTrustLevel, MarkMessageAsBlockedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageBlockingStatic, BASE_OFFSET>(),
+            MarkMessageAsBlockedAsync: MarkMessageAsBlockedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageBlockingStatic as ::windows::core::Interface>::IID
@@ -1426,7 +1417,11 @@ impl IChatMessageChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChange>, ::windows::core::GetTrustLevel, ChangeType::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageChange, BASE_OFFSET>(),
+            ChangeType: ChangeType::<Impl, IMPL_OFFSET>,
+            Message: Message::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageChange as ::windows::core::Interface>::IID
@@ -1464,7 +1459,12 @@ impl IChatMessageChangeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChangeReader>, ::windows::core::GetTrustLevel, AcceptChanges::<Impl, IMPL_OFFSET>, AcceptChangesThrough::<Impl, IMPL_OFFSET>, ReadBatchAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageChangeReader, BASE_OFFSET>(),
+            AcceptChanges: AcceptChanges::<Impl, IMPL_OFFSET>,
+            AcceptChangesThrough: AcceptChangesThrough::<Impl, IMPL_OFFSET>,
+            ReadBatchAsync: ReadBatchAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageChangeReader as ::windows::core::Interface>::IID
@@ -1502,7 +1502,12 @@ impl IChatMessageChangeTrackerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Reset().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChangeTracker>, ::windows::core::GetTrustLevel, Enable::<Impl, IMPL_OFFSET>, GetChangeReader::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageChangeTracker, BASE_OFFSET>(),
+            Enable: Enable::<Impl, IMPL_OFFSET>,
+            GetChangeReader: GetChangeReader::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageChangeTracker as ::windows::core::Interface>::IID
@@ -1523,7 +1528,7 @@ impl IChatMessageChangedDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChangedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageChangedDeferral, BASE_OFFSET>(), Complete: Complete::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageChangedDeferral as ::windows::core::Interface>::IID
@@ -1551,7 +1556,10 @@ impl IChatMessageChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageChangedEventArgs, BASE_OFFSET>(),
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageChangedEventArgs as ::windows::core::Interface>::IID
@@ -1591,7 +1599,11 @@ impl IChatMessageManager2StaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageManager2Statics>, ::windows::core::GetTrustLevel, RegisterTransportAsync::<Impl, IMPL_OFFSET>, GetTransportAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageManager2Statics, BASE_OFFSET>(),
+            RegisterTransportAsync: RegisterTransportAsync::<Impl, IMPL_OFFSET>,
+            GetTransportAsync: GetTransportAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageManager2Statics as ::windows::core::Interface>::IID
@@ -1648,7 +1660,13 @@ impl IChatMessageManagerStaticVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowSmsSettings().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageManagerStatic>, ::windows::core::GetTrustLevel, GetTransportsAsync::<Impl, IMPL_OFFSET>, RequestStoreAsync::<Impl, IMPL_OFFSET>, ShowComposeSmsMessageAsync::<Impl, IMPL_OFFSET>, ShowSmsSettings::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageManagerStatic, BASE_OFFSET>(),
+            GetTransportsAsync: GetTransportsAsync::<Impl, IMPL_OFFSET>,
+            RequestStoreAsync: RequestStoreAsync::<Impl, IMPL_OFFSET>,
+            ShowComposeSmsMessageAsync: ShowComposeSmsMessageAsync::<Impl, IMPL_OFFSET>,
+            ShowSmsSettings: ShowSmsSettings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageManagerStatic as ::windows::core::Interface>::IID
@@ -1676,7 +1694,10 @@ impl IChatMessageManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageManagerStatics3>, ::windows::core::GetTrustLevel, RequestSyncManagerAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageManagerStatics3, BASE_OFFSET>(),
+            RequestSyncManagerAsync: RequestSyncManagerAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageManagerStatics3 as ::windows::core::Interface>::IID
@@ -1704,7 +1725,10 @@ impl IChatMessageNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageNotificationTriggerDetails>, ::windows::core::GetTrustLevel, ChatMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageNotificationTriggerDetails, BASE_OFFSET>(),
+            ChatMessage: ChatMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageNotificationTriggerDetails as ::windows::core::Interface>::IID
@@ -1768,7 +1792,13 @@ impl IChatMessageNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, ShouldDisplayToast::<Impl, IMPL_OFFSET>, ShouldUpdateDetailText::<Impl, IMPL_OFFSET>, ShouldUpdateBadge::<Impl, IMPL_OFFSET>, ShouldUpdateActionCenter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageNotificationTriggerDetails2, BASE_OFFSET>(),
+            ShouldDisplayToast: ShouldDisplayToast::<Impl, IMPL_OFFSET>,
+            ShouldUpdateDetailText: ShouldUpdateDetailText::<Impl, IMPL_OFFSET>,
+            ShouldUpdateBadge: ShouldUpdateBadge::<Impl, IMPL_OFFSET>,
+            ShouldUpdateActionCenter: ShouldUpdateActionCenter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageNotificationTriggerDetails2 as ::windows::core::Interface>::IID
@@ -1796,7 +1826,7 @@ impl IChatMessageReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageReader, BASE_OFFSET>(), ReadBatchAsync: ReadBatchAsync::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageReader as ::windows::core::Interface>::IID
@@ -1824,7 +1854,10 @@ impl IChatMessageReader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageReader2>, ::windows::core::GetTrustLevel, ReadBatchWithCountAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageReader2, BASE_OFFSET>(),
+            ReadBatchWithCountAsync: ReadBatchWithCountAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageReader2 as ::windows::core::Interface>::IID
@@ -1977,26 +2010,21 @@ impl IChatMessageStoreVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageChanged(&*(&value as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChatMessageStore>,
-            ::windows::core::GetTrustLevel,
-            ChangeTracker::<Impl, IMPL_OFFSET>,
-            DeleteMessageAsync::<Impl, IMPL_OFFSET>,
-            DownloadMessageAsync::<Impl, IMPL_OFFSET>,
-            GetMessageAsync::<Impl, IMPL_OFFSET>,
-            GetMessageReader1::<Impl, IMPL_OFFSET>,
-            GetMessageReader2::<Impl, IMPL_OFFSET>,
-            MarkMessageReadAsync::<Impl, IMPL_OFFSET>,
-            RetrySendMessageAsync::<Impl, IMPL_OFFSET>,
-            SendMessageAsync::<Impl, IMPL_OFFSET>,
-            ValidateMessage::<Impl, IMPL_OFFSET>,
-            MessageChanged::<Impl, IMPL_OFFSET>,
-            RemoveMessageChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageStore, BASE_OFFSET>(),
+            ChangeTracker: ChangeTracker::<Impl, IMPL_OFFSET>,
+            DeleteMessageAsync: DeleteMessageAsync::<Impl, IMPL_OFFSET>,
+            DownloadMessageAsync: DownloadMessageAsync::<Impl, IMPL_OFFSET>,
+            GetMessageAsync: GetMessageAsync::<Impl, IMPL_OFFSET>,
+            GetMessageReader1: GetMessageReader1::<Impl, IMPL_OFFSET>,
+            GetMessageReader2: GetMessageReader2::<Impl, IMPL_OFFSET>,
+            MarkMessageReadAsync: MarkMessageReadAsync::<Impl, IMPL_OFFSET>,
+            RetrySendMessageAsync: RetrySendMessageAsync::<Impl, IMPL_OFFSET>,
+            SendMessageAsync: SendMessageAsync::<Impl, IMPL_OFFSET>,
+            ValidateMessage: ValidateMessage::<Impl, IMPL_OFFSET>,
+            MessageChanged: MessageChanged::<Impl, IMPL_OFFSET>,
+            RemoveMessageChanged: RemoveMessageChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageStore as ::windows::core::Interface>::IID
@@ -2209,31 +2237,26 @@ impl IChatMessageStore2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStoreChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChatMessageStore2>,
-            ::windows::core::GetTrustLevel,
-            ForwardMessageAsync::<Impl, IMPL_OFFSET>,
-            GetConversationAsync::<Impl, IMPL_OFFSET>,
-            GetConversationForTransportsAsync::<Impl, IMPL_OFFSET>,
-            GetConversationFromThreadingInfoAsync::<Impl, IMPL_OFFSET>,
-            GetConversationReader::<Impl, IMPL_OFFSET>,
-            GetConversationForTransportsReader::<Impl, IMPL_OFFSET>,
-            GetMessageByRemoteIdAsync::<Impl, IMPL_OFFSET>,
-            GetUnseenCountAsync::<Impl, IMPL_OFFSET>,
-            GetUnseenCountForTransportsReaderAsync::<Impl, IMPL_OFFSET>,
-            MarkAsSeenAsync::<Impl, IMPL_OFFSET>,
-            MarkAsSeenForTransportsAsync::<Impl, IMPL_OFFSET>,
-            GetSearchReader::<Impl, IMPL_OFFSET>,
-            SaveMessageAsync::<Impl, IMPL_OFFSET>,
-            TryCancelDownloadMessageAsync::<Impl, IMPL_OFFSET>,
-            TryCancelSendMessageAsync::<Impl, IMPL_OFFSET>,
-            StoreChanged::<Impl, IMPL_OFFSET>,
-            RemoveStoreChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageStore2, BASE_OFFSET>(),
+            ForwardMessageAsync: ForwardMessageAsync::<Impl, IMPL_OFFSET>,
+            GetConversationAsync: GetConversationAsync::<Impl, IMPL_OFFSET>,
+            GetConversationForTransportsAsync: GetConversationForTransportsAsync::<Impl, IMPL_OFFSET>,
+            GetConversationFromThreadingInfoAsync: GetConversationFromThreadingInfoAsync::<Impl, IMPL_OFFSET>,
+            GetConversationReader: GetConversationReader::<Impl, IMPL_OFFSET>,
+            GetConversationForTransportsReader: GetConversationForTransportsReader::<Impl, IMPL_OFFSET>,
+            GetMessageByRemoteIdAsync: GetMessageByRemoteIdAsync::<Impl, IMPL_OFFSET>,
+            GetUnseenCountAsync: GetUnseenCountAsync::<Impl, IMPL_OFFSET>,
+            GetUnseenCountForTransportsReaderAsync: GetUnseenCountForTransportsReaderAsync::<Impl, IMPL_OFFSET>,
+            MarkAsSeenAsync: MarkAsSeenAsync::<Impl, IMPL_OFFSET>,
+            MarkAsSeenForTransportsAsync: MarkAsSeenForTransportsAsync::<Impl, IMPL_OFFSET>,
+            GetSearchReader: GetSearchReader::<Impl, IMPL_OFFSET>,
+            SaveMessageAsync: SaveMessageAsync::<Impl, IMPL_OFFSET>,
+            TryCancelDownloadMessageAsync: TryCancelDownloadMessageAsync::<Impl, IMPL_OFFSET>,
+            TryCancelSendMessageAsync: TryCancelSendMessageAsync::<Impl, IMPL_OFFSET>,
+            StoreChanged: StoreChanged::<Impl, IMPL_OFFSET>,
+            RemoveStoreChanged: RemoveStoreChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageStore2 as ::windows::core::Interface>::IID
@@ -2261,7 +2284,10 @@ impl IChatMessageStore3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageStore3>, ::windows::core::GetTrustLevel, GetMessageBySyncIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageStore3, BASE_OFFSET>(),
+            GetMessageBySyncIdAsync: GetMessageBySyncIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageStore3 as ::windows::core::Interface>::IID
@@ -2301,7 +2327,11 @@ impl IChatMessageStoreChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageStoreChangedEventArgs>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageStoreChangedEventArgs, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageStoreChangedEventArgs as ::windows::core::Interface>::IID
@@ -2377,19 +2407,14 @@ impl IChatMessageTransportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChatMessageTransport>,
-            ::windows::core::GetTrustLevel,
-            IsAppSetAsNotificationProvider::<Impl, IMPL_OFFSET>,
-            IsActive::<Impl, IMPL_OFFSET>,
-            TransportFriendlyName::<Impl, IMPL_OFFSET>,
-            TransportId::<Impl, IMPL_OFFSET>,
-            RequestSetAsNotificationProviderAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageTransport, BASE_OFFSET>(),
+            IsAppSetAsNotificationProvider: IsAppSetAsNotificationProvider::<Impl, IMPL_OFFSET>,
+            IsActive: IsActive::<Impl, IMPL_OFFSET>,
+            TransportFriendlyName: TransportFriendlyName::<Impl, IMPL_OFFSET>,
+            TransportId: TransportId::<Impl, IMPL_OFFSET>,
+            RequestSetAsNotificationProviderAsync: RequestSetAsNotificationProviderAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageTransport as ::windows::core::Interface>::IID
@@ -2429,7 +2454,11 @@ impl IChatMessageTransport2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageTransport2>, ::windows::core::GetTrustLevel, Configuration::<Impl, IMPL_OFFSET>, TransportKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageTransport2, BASE_OFFSET>(),
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+            TransportKind: TransportKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageTransport2 as ::windows::core::Interface>::IID
@@ -2505,19 +2534,14 @@ impl IChatMessageTransportConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChatMessageTransportConfiguration>,
-            ::windows::core::GetTrustLevel,
-            MaxAttachmentCount::<Impl, IMPL_OFFSET>,
-            MaxMessageSizeInKilobytes::<Impl, IMPL_OFFSET>,
-            MaxRecipientCount::<Impl, IMPL_OFFSET>,
-            SupportedVideoFormat::<Impl, IMPL_OFFSET>,
-            ExtendedProperties::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageTransportConfiguration, BASE_OFFSET>(),
+            MaxAttachmentCount: MaxAttachmentCount::<Impl, IMPL_OFFSET>,
+            MaxMessageSizeInKilobytes: MaxMessageSizeInKilobytes::<Impl, IMPL_OFFSET>,
+            MaxRecipientCount: MaxRecipientCount::<Impl, IMPL_OFFSET>,
+            SupportedVideoFormat: SupportedVideoFormat::<Impl, IMPL_OFFSET>,
+            ExtendedProperties: ExtendedProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageTransportConfiguration as ::windows::core::Interface>::IID
@@ -2581,7 +2605,13 @@ impl IChatMessageValidationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageValidationResult>, ::windows::core::GetTrustLevel, MaxPartCount::<Impl, IMPL_OFFSET>, PartCount::<Impl, IMPL_OFFSET>, RemainingCharacterCountInPart::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageValidationResult, BASE_OFFSET>(),
+            MaxPartCount: MaxPartCount::<Impl, IMPL_OFFSET>,
+            PartCount: PartCount::<Impl, IMPL_OFFSET>,
+            RemainingCharacterCountInPart: RemainingCharacterCountInPart::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageValidationResult as ::windows::core::Interface>::IID
@@ -2614,7 +2644,11 @@ impl IChatQueryOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSearchString(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatQueryOptions>, ::windows::core::GetTrustLevel, SearchString::<Impl, IMPL_OFFSET>, SetSearchString::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatQueryOptions, BASE_OFFSET>(),
+            SearchString: SearchString::<Impl, IMPL_OFFSET>,
+            SetSearchString: SetSearchString::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatQueryOptions as ::windows::core::Interface>::IID
@@ -2741,25 +2775,20 @@ impl IChatRecipientDeliveryInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChatRecipientDeliveryInfo>,
-            ::windows::core::GetTrustLevel,
-            TransportAddress::<Impl, IMPL_OFFSET>,
-            SetTransportAddress::<Impl, IMPL_OFFSET>,
-            DeliveryTime::<Impl, IMPL_OFFSET>,
-            SetDeliveryTime::<Impl, IMPL_OFFSET>,
-            ReadTime::<Impl, IMPL_OFFSET>,
-            SetReadTime::<Impl, IMPL_OFFSET>,
-            TransportErrorCodeCategory::<Impl, IMPL_OFFSET>,
-            TransportInterpretedErrorCode::<Impl, IMPL_OFFSET>,
-            TransportErrorCode::<Impl, IMPL_OFFSET>,
-            IsErrorPermanent::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatRecipientDeliveryInfo, BASE_OFFSET>(),
+            TransportAddress: TransportAddress::<Impl, IMPL_OFFSET>,
+            SetTransportAddress: SetTransportAddress::<Impl, IMPL_OFFSET>,
+            DeliveryTime: DeliveryTime::<Impl, IMPL_OFFSET>,
+            SetDeliveryTime: SetDeliveryTime::<Impl, IMPL_OFFSET>,
+            ReadTime: ReadTime::<Impl, IMPL_OFFSET>,
+            SetReadTime: SetReadTime::<Impl, IMPL_OFFSET>,
+            TransportErrorCodeCategory: TransportErrorCodeCategory::<Impl, IMPL_OFFSET>,
+            TransportInterpretedErrorCode: TransportInterpretedErrorCode::<Impl, IMPL_OFFSET>,
+            TransportErrorCode: TransportErrorCode::<Impl, IMPL_OFFSET>,
+            IsErrorPermanent: IsErrorPermanent::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatRecipientDeliveryInfo as ::windows::core::Interface>::IID
@@ -2799,7 +2828,11 @@ impl IChatSearchReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatSearchReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, IMPL_OFFSET>, ReadBatchWithCountAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatSearchReader, BASE_OFFSET>(),
+            ReadBatchAsync: ReadBatchAsync::<Impl, IMPL_OFFSET>,
+            ReadBatchWithCountAsync: ReadBatchWithCountAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatSearchReader as ::windows::core::Interface>::IID
@@ -2849,7 +2882,13 @@ impl IChatSyncConfigurationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRestoreHistorySpan(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatSyncConfiguration>, ::windows::core::GetTrustLevel, IsSyncEnabled::<Impl, IMPL_OFFSET>, SetIsSyncEnabled::<Impl, IMPL_OFFSET>, RestoreHistorySpan::<Impl, IMPL_OFFSET>, SetRestoreHistorySpan::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatSyncConfiguration, BASE_OFFSET>(),
+            IsSyncEnabled: IsSyncEnabled::<Impl, IMPL_OFFSET>,
+            SetIsSyncEnabled: SetIsSyncEnabled::<Impl, IMPL_OFFSET>,
+            RestoreHistorySpan: RestoreHistorySpan::<Impl, IMPL_OFFSET>,
+            SetRestoreHistorySpan: SetRestoreHistorySpan::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatSyncConfiguration as ::windows::core::Interface>::IID
@@ -2930,20 +2969,15 @@ impl IChatSyncManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IChatSyncManager>,
-            ::windows::core::GetTrustLevel,
-            Configuration::<Impl, IMPL_OFFSET>,
-            AssociateAccountAsync::<Impl, IMPL_OFFSET>,
-            UnassociateAccountAsync::<Impl, IMPL_OFFSET>,
-            IsAccountAssociated::<Impl, IMPL_OFFSET>,
-            StartSync::<Impl, IMPL_OFFSET>,
-            SetConfigurationAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IChatSyncManager, BASE_OFFSET>(),
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+            AssociateAccountAsync: AssociateAccountAsync::<Impl, IMPL_OFFSET>,
+            UnassociateAccountAsync: UnassociateAccountAsync::<Impl, IMPL_OFFSET>,
+            IsAccountAssociated: IsAccountAssociated::<Impl, IMPL_OFFSET>,
+            StartSync: StartSync::<Impl, IMPL_OFFSET>,
+            SetConfigurationAsync: SetConfigurationAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatSyncManager as ::windows::core::Interface>::IID
@@ -3043,21 +3077,16 @@ impl IRcsEndUserMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRcsEndUserMessage>,
-            ::windows::core::GetTrustLevel,
-            TransportId::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            Text::<Impl, IMPL_OFFSET>,
-            IsPinRequired::<Impl, IMPL_OFFSET>,
-            Actions::<Impl, IMPL_OFFSET>,
-            SendResponseAsync::<Impl, IMPL_OFFSET>,
-            SendResponseWithPinAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRcsEndUserMessage, BASE_OFFSET>(),
+            TransportId: TransportId::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+            IsPinRequired: IsPinRequired::<Impl, IMPL_OFFSET>,
+            Actions: Actions::<Impl, IMPL_OFFSET>,
+            SendResponseAsync: SendResponseAsync::<Impl, IMPL_OFFSET>,
+            SendResponseWithPinAsync: SendResponseWithPinAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRcsEndUserMessage as ::windows::core::Interface>::IID
@@ -3085,7 +3114,7 @@ impl IRcsEndUserMessageActionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageAction>, ::windows::core::GetTrustLevel, Label::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRcsEndUserMessageAction, BASE_OFFSET>(), Label: Label::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRcsEndUserMessageAction as ::windows::core::Interface>::IID
@@ -3125,7 +3154,11 @@ impl IRcsEndUserMessageAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageAvailableEventArgs>, ::windows::core::GetTrustLevel, IsMessageAvailable::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRcsEndUserMessageAvailableEventArgs, BASE_OFFSET>(),
+            IsMessageAvailable: IsMessageAvailable::<Impl, IMPL_OFFSET>,
+            Message: Message::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRcsEndUserMessageAvailableEventArgs as ::windows::core::Interface>::IID
@@ -3165,7 +3198,11 @@ impl IRcsEndUserMessageAvailableTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageAvailableTriggerDetails>, ::windows::core::GetTrustLevel, Title::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRcsEndUserMessageAvailableTriggerDetails, BASE_OFFSET>(),
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRcsEndUserMessageAvailableTriggerDetails as ::windows::core::Interface>::IID
@@ -3198,7 +3235,11 @@ impl IRcsEndUserMessageManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageAvailableChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageManager>, ::windows::core::GetTrustLevel, MessageAvailableChanged::<Impl, IMPL_OFFSET>, RemoveMessageAvailableChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRcsEndUserMessageManager, BASE_OFFSET>(),
+            MessageAvailableChanged: MessageAvailableChanged::<Impl, IMPL_OFFSET>,
+            RemoveMessageAvailableChanged: RemoveMessageAvailableChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRcsEndUserMessageManager as ::windows::core::Interface>::IID
@@ -3262,7 +3303,13 @@ impl IRcsManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsManagerStatics>, ::windows::core::GetTrustLevel, GetEndUserMessageManager::<Impl, IMPL_OFFSET>, GetTransportsAsync::<Impl, IMPL_OFFSET>, GetTransportAsync::<Impl, IMPL_OFFSET>, LeaveConversationAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRcsManagerStatics, BASE_OFFSET>(),
+            GetEndUserMessageManager: GetEndUserMessageManager::<Impl, IMPL_OFFSET>,
+            GetTransportsAsync: GetTransportsAsync::<Impl, IMPL_OFFSET>,
+            GetTransportAsync: GetTransportAsync::<Impl, IMPL_OFFSET>,
+            LeaveConversationAsync: LeaveConversationAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRcsManagerStatics as ::windows::core::Interface>::IID
@@ -3295,7 +3342,11 @@ impl IRcsManagerStatics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTransportListChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsManagerStatics2>, ::windows::core::GetTrustLevel, TransportListChanged::<Impl, IMPL_OFFSET>, RemoveTransportListChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRcsManagerStatics2, BASE_OFFSET>(),
+            TransportListChanged: TransportListChanged::<Impl, IMPL_OFFSET>,
+            RemoveTransportListChanged: RemoveTransportListChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRcsManagerStatics2 as ::windows::core::Interface>::IID
@@ -3323,7 +3374,10 @@ impl IRcsServiceKindSupportedChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsServiceKindSupportedChangedEventArgs>, ::windows::core::GetTrustLevel, ServiceKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRcsServiceKindSupportedChangedEventArgs, BASE_OFFSET>(),
+            ServiceKind: ServiceKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRcsServiceKindSupportedChangedEventArgs as ::windows::core::Interface>::IID
@@ -3440,23 +3494,18 @@ impl IRcsTransportVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveServiceKindSupportedChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRcsTransport>,
-            ::windows::core::GetTrustLevel,
-            ExtendedProperties::<Impl, IMPL_OFFSET>,
-            IsActive::<Impl, IMPL_OFFSET>,
-            TransportFriendlyName::<Impl, IMPL_OFFSET>,
-            TransportId::<Impl, IMPL_OFFSET>,
-            Configuration::<Impl, IMPL_OFFSET>,
-            IsStoreAndForwardEnabled::<Impl, IMPL_OFFSET>,
-            IsServiceKindSupported::<Impl, IMPL_OFFSET>,
-            ServiceKindSupportedChanged::<Impl, IMPL_OFFSET>,
-            RemoveServiceKindSupportedChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRcsTransport, BASE_OFFSET>(),
+            ExtendedProperties: ExtendedProperties::<Impl, IMPL_OFFSET>,
+            IsActive: IsActive::<Impl, IMPL_OFFSET>,
+            TransportFriendlyName: TransportFriendlyName::<Impl, IMPL_OFFSET>,
+            TransportId: TransportId::<Impl, IMPL_OFFSET>,
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+            IsStoreAndForwardEnabled: IsStoreAndForwardEnabled::<Impl, IMPL_OFFSET>,
+            IsServiceKindSupported: IsServiceKindSupported::<Impl, IMPL_OFFSET>,
+            ServiceKindSupportedChanged: ServiceKindSupportedChanged::<Impl, IMPL_OFFSET>,
+            RemoveServiceKindSupportedChanged: RemoveServiceKindSupportedChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRcsTransport as ::windows::core::Interface>::IID
@@ -3544,20 +3593,15 @@ impl IRcsTransportConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRcsTransportConfiguration>,
-            ::windows::core::GetTrustLevel,
-            MaxAttachmentCount::<Impl, IMPL_OFFSET>,
-            MaxMessageSizeInKilobytes::<Impl, IMPL_OFFSET>,
-            MaxGroupMessageSizeInKilobytes::<Impl, IMPL_OFFSET>,
-            MaxRecipientCount::<Impl, IMPL_OFFSET>,
-            MaxFileSizeInKilobytes::<Impl, IMPL_OFFSET>,
-            WarningFileSizeInKilobytes::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRcsTransportConfiguration, BASE_OFFSET>(),
+            MaxAttachmentCount: MaxAttachmentCount::<Impl, IMPL_OFFSET>,
+            MaxMessageSizeInKilobytes: MaxMessageSizeInKilobytes::<Impl, IMPL_OFFSET>,
+            MaxGroupMessageSizeInKilobytes: MaxGroupMessageSizeInKilobytes::<Impl, IMPL_OFFSET>,
+            MaxRecipientCount: MaxRecipientCount::<Impl, IMPL_OFFSET>,
+            MaxFileSizeInKilobytes: MaxFileSizeInKilobytes::<Impl, IMPL_OFFSET>,
+            WarningFileSizeInKilobytes: WarningFileSizeInKilobytes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRcsTransportConfiguration as ::windows::core::Interface>::IID
@@ -3609,7 +3653,12 @@ impl IRemoteParticipantComposingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteParticipantComposingChangedEventArgs>, ::windows::core::GetTrustLevel, TransportId::<Impl, IMPL_OFFSET>, ParticipantAddress::<Impl, IMPL_OFFSET>, IsComposing::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteParticipantComposingChangedEventArgs, BASE_OFFSET>(),
+            TransportId: TransportId::<Impl, IMPL_OFFSET>,
+            ParticipantAddress: ParticipantAddress::<Impl, IMPL_OFFSET>,
+            IsComposing: IsComposing::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteParticipantComposingChangedEventArgs as ::windows::core::Interface>::IID

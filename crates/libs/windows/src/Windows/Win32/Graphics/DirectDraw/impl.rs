@@ -24,7 +24,13 @@ impl IDDVideoPortContainerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CreateVideoPort::<Impl, IMPL_OFFSET>, EnumVideoPorts::<Impl, IMPL_OFFSET>, GetVideoPortConnectInfo::<Impl, IMPL_OFFSET>, QueryVideoPortStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateVideoPort: CreateVideoPort::<Impl, IMPL_OFFSET>,
+            EnumVideoPorts: EnumVideoPorts::<Impl, IMPL_OFFSET>,
+            GetVideoPortConnectInfo: GetVideoPortConnectInfo::<Impl, IMPL_OFFSET>,
+            QueryVideoPortStatus: QueryVideoPortStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDDVideoPortContainer as ::windows::core::Interface>::IID
@@ -136,31 +142,29 @@ impl IDirectDrawVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Compact::<Impl, IMPL_OFFSET>,
-            CreateClipper::<Impl, IMPL_OFFSET>,
-            CreatePalette::<Impl, IMPL_OFFSET>,
-            CreateSurface::<Impl, IMPL_OFFSET>,
-            DuplicateSurface::<Impl, IMPL_OFFSET>,
-            EnumDisplayModes::<Impl, IMPL_OFFSET>,
-            EnumSurfaces::<Impl, IMPL_OFFSET>,
-            FlipToGDISurface::<Impl, IMPL_OFFSET>,
-            GetCaps::<Impl, IMPL_OFFSET>,
-            GetDisplayMode::<Impl, IMPL_OFFSET>,
-            GetFourCCCodes::<Impl, IMPL_OFFSET>,
-            GetGDISurface::<Impl, IMPL_OFFSET>,
-            GetMonitorFrequency::<Impl, IMPL_OFFSET>,
-            GetScanLine::<Impl, IMPL_OFFSET>,
-            GetVerticalBlankStatus::<Impl, IMPL_OFFSET>,
-            Initialize::<Impl, IMPL_OFFSET>,
-            RestoreDisplayMode::<Impl, IMPL_OFFSET>,
-            SetCooperativeLevel::<Impl, IMPL_OFFSET>,
-            SetDisplayMode::<Impl, IMPL_OFFSET>,
-            WaitForVerticalBlank::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Compact: Compact::<Impl, IMPL_OFFSET>,
+            CreateClipper: CreateClipper::<Impl, IMPL_OFFSET>,
+            CreatePalette: CreatePalette::<Impl, IMPL_OFFSET>,
+            CreateSurface: CreateSurface::<Impl, IMPL_OFFSET>,
+            DuplicateSurface: DuplicateSurface::<Impl, IMPL_OFFSET>,
+            EnumDisplayModes: EnumDisplayModes::<Impl, IMPL_OFFSET>,
+            EnumSurfaces: EnumSurfaces::<Impl, IMPL_OFFSET>,
+            FlipToGDISurface: FlipToGDISurface::<Impl, IMPL_OFFSET>,
+            GetCaps: GetCaps::<Impl, IMPL_OFFSET>,
+            GetDisplayMode: GetDisplayMode::<Impl, IMPL_OFFSET>,
+            GetFourCCCodes: GetFourCCCodes::<Impl, IMPL_OFFSET>,
+            GetGDISurface: GetGDISurface::<Impl, IMPL_OFFSET>,
+            GetMonitorFrequency: GetMonitorFrequency::<Impl, IMPL_OFFSET>,
+            GetScanLine: GetScanLine::<Impl, IMPL_OFFSET>,
+            GetVerticalBlankStatus: GetVerticalBlankStatus::<Impl, IMPL_OFFSET>,
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            RestoreDisplayMode: RestoreDisplayMode::<Impl, IMPL_OFFSET>,
+            SetCooperativeLevel: SetCooperativeLevel::<Impl, IMPL_OFFSET>,
+            SetDisplayMode: SetDisplayMode::<Impl, IMPL_OFFSET>,
+            WaitForVerticalBlank: WaitForVerticalBlank::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDraw as ::windows::core::Interface>::IID
@@ -277,32 +281,30 @@ impl IDirectDraw2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Compact::<Impl, IMPL_OFFSET>,
-            CreateClipper::<Impl, IMPL_OFFSET>,
-            CreatePalette::<Impl, IMPL_OFFSET>,
-            CreateSurface::<Impl, IMPL_OFFSET>,
-            DuplicateSurface::<Impl, IMPL_OFFSET>,
-            EnumDisplayModes::<Impl, IMPL_OFFSET>,
-            EnumSurfaces::<Impl, IMPL_OFFSET>,
-            FlipToGDISurface::<Impl, IMPL_OFFSET>,
-            GetCaps::<Impl, IMPL_OFFSET>,
-            GetDisplayMode::<Impl, IMPL_OFFSET>,
-            GetFourCCCodes::<Impl, IMPL_OFFSET>,
-            GetGDISurface::<Impl, IMPL_OFFSET>,
-            GetMonitorFrequency::<Impl, IMPL_OFFSET>,
-            GetScanLine::<Impl, IMPL_OFFSET>,
-            GetVerticalBlankStatus::<Impl, IMPL_OFFSET>,
-            Initialize::<Impl, IMPL_OFFSET>,
-            RestoreDisplayMode::<Impl, IMPL_OFFSET>,
-            SetCooperativeLevel::<Impl, IMPL_OFFSET>,
-            SetDisplayMode::<Impl, IMPL_OFFSET>,
-            WaitForVerticalBlank::<Impl, IMPL_OFFSET>,
-            GetAvailableVidMem::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Compact: Compact::<Impl, IMPL_OFFSET>,
+            CreateClipper: CreateClipper::<Impl, IMPL_OFFSET>,
+            CreatePalette: CreatePalette::<Impl, IMPL_OFFSET>,
+            CreateSurface: CreateSurface::<Impl, IMPL_OFFSET>,
+            DuplicateSurface: DuplicateSurface::<Impl, IMPL_OFFSET>,
+            EnumDisplayModes: EnumDisplayModes::<Impl, IMPL_OFFSET>,
+            EnumSurfaces: EnumSurfaces::<Impl, IMPL_OFFSET>,
+            FlipToGDISurface: FlipToGDISurface::<Impl, IMPL_OFFSET>,
+            GetCaps: GetCaps::<Impl, IMPL_OFFSET>,
+            GetDisplayMode: GetDisplayMode::<Impl, IMPL_OFFSET>,
+            GetFourCCCodes: GetFourCCCodes::<Impl, IMPL_OFFSET>,
+            GetGDISurface: GetGDISurface::<Impl, IMPL_OFFSET>,
+            GetMonitorFrequency: GetMonitorFrequency::<Impl, IMPL_OFFSET>,
+            GetScanLine: GetScanLine::<Impl, IMPL_OFFSET>,
+            GetVerticalBlankStatus: GetVerticalBlankStatus::<Impl, IMPL_OFFSET>,
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            RestoreDisplayMode: RestoreDisplayMode::<Impl, IMPL_OFFSET>,
+            SetCooperativeLevel: SetCooperativeLevel::<Impl, IMPL_OFFSET>,
+            SetDisplayMode: SetDisplayMode::<Impl, IMPL_OFFSET>,
+            WaitForVerticalBlank: WaitForVerticalBlank::<Impl, IMPL_OFFSET>,
+            GetAvailableVidMem: GetAvailableVidMem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDraw2 as ::windows::core::Interface>::IID
@@ -439,36 +441,34 @@ impl IDirectDraw4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Compact::<Impl, IMPL_OFFSET>,
-            CreateClipper::<Impl, IMPL_OFFSET>,
-            CreatePalette::<Impl, IMPL_OFFSET>,
-            CreateSurface::<Impl, IMPL_OFFSET>,
-            DuplicateSurface::<Impl, IMPL_OFFSET>,
-            EnumDisplayModes::<Impl, IMPL_OFFSET>,
-            EnumSurfaces::<Impl, IMPL_OFFSET>,
-            FlipToGDISurface::<Impl, IMPL_OFFSET>,
-            GetCaps::<Impl, IMPL_OFFSET>,
-            GetDisplayMode::<Impl, IMPL_OFFSET>,
-            GetFourCCCodes::<Impl, IMPL_OFFSET>,
-            GetGDISurface::<Impl, IMPL_OFFSET>,
-            GetMonitorFrequency::<Impl, IMPL_OFFSET>,
-            GetScanLine::<Impl, IMPL_OFFSET>,
-            GetVerticalBlankStatus::<Impl, IMPL_OFFSET>,
-            Initialize::<Impl, IMPL_OFFSET>,
-            RestoreDisplayMode::<Impl, IMPL_OFFSET>,
-            SetCooperativeLevel::<Impl, IMPL_OFFSET>,
-            SetDisplayMode::<Impl, IMPL_OFFSET>,
-            WaitForVerticalBlank::<Impl, IMPL_OFFSET>,
-            GetAvailableVidMem::<Impl, IMPL_OFFSET>,
-            GetSurfaceFromDC::<Impl, IMPL_OFFSET>,
-            RestoreAllSurfaces::<Impl, IMPL_OFFSET>,
-            TestCooperativeLevel::<Impl, IMPL_OFFSET>,
-            GetDeviceIdentifier::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Compact: Compact::<Impl, IMPL_OFFSET>,
+            CreateClipper: CreateClipper::<Impl, IMPL_OFFSET>,
+            CreatePalette: CreatePalette::<Impl, IMPL_OFFSET>,
+            CreateSurface: CreateSurface::<Impl, IMPL_OFFSET>,
+            DuplicateSurface: DuplicateSurface::<Impl, IMPL_OFFSET>,
+            EnumDisplayModes: EnumDisplayModes::<Impl, IMPL_OFFSET>,
+            EnumSurfaces: EnumSurfaces::<Impl, IMPL_OFFSET>,
+            FlipToGDISurface: FlipToGDISurface::<Impl, IMPL_OFFSET>,
+            GetCaps: GetCaps::<Impl, IMPL_OFFSET>,
+            GetDisplayMode: GetDisplayMode::<Impl, IMPL_OFFSET>,
+            GetFourCCCodes: GetFourCCCodes::<Impl, IMPL_OFFSET>,
+            GetGDISurface: GetGDISurface::<Impl, IMPL_OFFSET>,
+            GetMonitorFrequency: GetMonitorFrequency::<Impl, IMPL_OFFSET>,
+            GetScanLine: GetScanLine::<Impl, IMPL_OFFSET>,
+            GetVerticalBlankStatus: GetVerticalBlankStatus::<Impl, IMPL_OFFSET>,
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            RestoreDisplayMode: RestoreDisplayMode::<Impl, IMPL_OFFSET>,
+            SetCooperativeLevel: SetCooperativeLevel::<Impl, IMPL_OFFSET>,
+            SetDisplayMode: SetDisplayMode::<Impl, IMPL_OFFSET>,
+            WaitForVerticalBlank: WaitForVerticalBlank::<Impl, IMPL_OFFSET>,
+            GetAvailableVidMem: GetAvailableVidMem::<Impl, IMPL_OFFSET>,
+            GetSurfaceFromDC: GetSurfaceFromDC::<Impl, IMPL_OFFSET>,
+            RestoreAllSurfaces: RestoreAllSurfaces::<Impl, IMPL_OFFSET>,
+            TestCooperativeLevel: TestCooperativeLevel::<Impl, IMPL_OFFSET>,
+            GetDeviceIdentifier: GetDeviceIdentifier::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDraw4 as ::windows::core::Interface>::IID
@@ -615,38 +615,36 @@ impl IDirectDraw7Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Compact::<Impl, IMPL_OFFSET>,
-            CreateClipper::<Impl, IMPL_OFFSET>,
-            CreatePalette::<Impl, IMPL_OFFSET>,
-            CreateSurface::<Impl, IMPL_OFFSET>,
-            DuplicateSurface::<Impl, IMPL_OFFSET>,
-            EnumDisplayModes::<Impl, IMPL_OFFSET>,
-            EnumSurfaces::<Impl, IMPL_OFFSET>,
-            FlipToGDISurface::<Impl, IMPL_OFFSET>,
-            GetCaps::<Impl, IMPL_OFFSET>,
-            GetDisplayMode::<Impl, IMPL_OFFSET>,
-            GetFourCCCodes::<Impl, IMPL_OFFSET>,
-            GetGDISurface::<Impl, IMPL_OFFSET>,
-            GetMonitorFrequency::<Impl, IMPL_OFFSET>,
-            GetScanLine::<Impl, IMPL_OFFSET>,
-            GetVerticalBlankStatus::<Impl, IMPL_OFFSET>,
-            Initialize::<Impl, IMPL_OFFSET>,
-            RestoreDisplayMode::<Impl, IMPL_OFFSET>,
-            SetCooperativeLevel::<Impl, IMPL_OFFSET>,
-            SetDisplayMode::<Impl, IMPL_OFFSET>,
-            WaitForVerticalBlank::<Impl, IMPL_OFFSET>,
-            GetAvailableVidMem::<Impl, IMPL_OFFSET>,
-            GetSurfaceFromDC::<Impl, IMPL_OFFSET>,
-            RestoreAllSurfaces::<Impl, IMPL_OFFSET>,
-            TestCooperativeLevel::<Impl, IMPL_OFFSET>,
-            GetDeviceIdentifier::<Impl, IMPL_OFFSET>,
-            StartModeTest::<Impl, IMPL_OFFSET>,
-            EvaluateMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Compact: Compact::<Impl, IMPL_OFFSET>,
+            CreateClipper: CreateClipper::<Impl, IMPL_OFFSET>,
+            CreatePalette: CreatePalette::<Impl, IMPL_OFFSET>,
+            CreateSurface: CreateSurface::<Impl, IMPL_OFFSET>,
+            DuplicateSurface: DuplicateSurface::<Impl, IMPL_OFFSET>,
+            EnumDisplayModes: EnumDisplayModes::<Impl, IMPL_OFFSET>,
+            EnumSurfaces: EnumSurfaces::<Impl, IMPL_OFFSET>,
+            FlipToGDISurface: FlipToGDISurface::<Impl, IMPL_OFFSET>,
+            GetCaps: GetCaps::<Impl, IMPL_OFFSET>,
+            GetDisplayMode: GetDisplayMode::<Impl, IMPL_OFFSET>,
+            GetFourCCCodes: GetFourCCCodes::<Impl, IMPL_OFFSET>,
+            GetGDISurface: GetGDISurface::<Impl, IMPL_OFFSET>,
+            GetMonitorFrequency: GetMonitorFrequency::<Impl, IMPL_OFFSET>,
+            GetScanLine: GetScanLine::<Impl, IMPL_OFFSET>,
+            GetVerticalBlankStatus: GetVerticalBlankStatus::<Impl, IMPL_OFFSET>,
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            RestoreDisplayMode: RestoreDisplayMode::<Impl, IMPL_OFFSET>,
+            SetCooperativeLevel: SetCooperativeLevel::<Impl, IMPL_OFFSET>,
+            SetDisplayMode: SetDisplayMode::<Impl, IMPL_OFFSET>,
+            WaitForVerticalBlank: WaitForVerticalBlank::<Impl, IMPL_OFFSET>,
+            GetAvailableVidMem: GetAvailableVidMem::<Impl, IMPL_OFFSET>,
+            GetSurfaceFromDC: GetSurfaceFromDC::<Impl, IMPL_OFFSET>,
+            RestoreAllSurfaces: RestoreAllSurfaces::<Impl, IMPL_OFFSET>,
+            TestCooperativeLevel: TestCooperativeLevel::<Impl, IMPL_OFFSET>,
+            GetDeviceIdentifier: GetDeviceIdentifier::<Impl, IMPL_OFFSET>,
+            StartModeTest: StartModeTest::<Impl, IMPL_OFFSET>,
+            EvaluateMode: EvaluateMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDraw7 as ::windows::core::Interface>::IID
@@ -688,7 +686,15 @@ impl IDirectDrawClipperVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetClipList::<Impl, IMPL_OFFSET>, GetHWnd::<Impl, IMPL_OFFSET>, Initialize::<Impl, IMPL_OFFSET>, IsClipListChanged::<Impl, IMPL_OFFSET>, SetClipList::<Impl, IMPL_OFFSET>, SetHWnd::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetClipList: GetClipList::<Impl, IMPL_OFFSET>,
+            GetHWnd: GetHWnd::<Impl, IMPL_OFFSET>,
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            IsClipListChanged: IsClipListChanged::<Impl, IMPL_OFFSET>,
+            SetClipList: SetClipList::<Impl, IMPL_OFFSET>,
+            SetHWnd: SetHWnd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDrawClipper as ::windows::core::Interface>::IID
@@ -708,7 +714,11 @@ impl IDirectDrawColorControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetColorControls::<Impl, IMPL_OFFSET>, SetColorControls::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetColorControls: GetColorControls::<Impl, IMPL_OFFSET>,
+            SetColorControls: SetColorControls::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDrawColorControl as ::windows::core::Interface>::IID
@@ -728,7 +738,11 @@ impl IDirectDrawGammaControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetGammaRamp::<Impl, IMPL_OFFSET>, SetGammaRamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetGammaRamp: GetGammaRamp::<Impl, IMPL_OFFSET>,
+            SetGammaRamp: SetGammaRamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDrawGammaControl as ::windows::core::Interface>::IID
@@ -753,7 +767,12 @@ impl IDirectDrawKernelVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetCaps::<Impl, IMPL_OFFSET>, GetKernelHandle::<Impl, IMPL_OFFSET>, ReleaseKernelHandle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetCaps: GetCaps::<Impl, IMPL_OFFSET>,
+            GetKernelHandle: GetKernelHandle::<Impl, IMPL_OFFSET>,
+            ReleaseKernelHandle: ReleaseKernelHandle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDrawKernel as ::windows::core::Interface>::IID
@@ -785,7 +804,13 @@ impl IDirectDrawPaletteVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetCaps::<Impl, IMPL_OFFSET>, GetEntries::<Impl, IMPL_OFFSET>, Initialize::<Impl, IMPL_OFFSET>, SetEntries::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetCaps: GetCaps::<Impl, IMPL_OFFSET>,
+            GetEntries: GetEntries::<Impl, IMPL_OFFSET>,
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            SetEntries: SetEntries::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDrawPalette as ::windows::core::Interface>::IID
@@ -962,44 +987,42 @@ impl IDirectDrawSurfaceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            AddAttachedSurface::<Impl, IMPL_OFFSET>,
-            AddOverlayDirtyRect::<Impl, IMPL_OFFSET>,
-            Blt::<Impl, IMPL_OFFSET>,
-            BltBatch::<Impl, IMPL_OFFSET>,
-            BltFast::<Impl, IMPL_OFFSET>,
-            DeleteAttachedSurface::<Impl, IMPL_OFFSET>,
-            EnumAttachedSurfaces::<Impl, IMPL_OFFSET>,
-            EnumOverlayZOrders::<Impl, IMPL_OFFSET>,
-            Flip::<Impl, IMPL_OFFSET>,
-            GetAttachedSurface::<Impl, IMPL_OFFSET>,
-            GetBltStatus::<Impl, IMPL_OFFSET>,
-            GetCaps::<Impl, IMPL_OFFSET>,
-            GetClipper::<Impl, IMPL_OFFSET>,
-            GetColorKey::<Impl, IMPL_OFFSET>,
-            GetDC::<Impl, IMPL_OFFSET>,
-            GetFlipStatus::<Impl, IMPL_OFFSET>,
-            GetOverlayPosition::<Impl, IMPL_OFFSET>,
-            GetPalette::<Impl, IMPL_OFFSET>,
-            GetPixelFormat::<Impl, IMPL_OFFSET>,
-            GetSurfaceDesc::<Impl, IMPL_OFFSET>,
-            Initialize::<Impl, IMPL_OFFSET>,
-            IsLost::<Impl, IMPL_OFFSET>,
-            Lock::<Impl, IMPL_OFFSET>,
-            ReleaseDC::<Impl, IMPL_OFFSET>,
-            Restore::<Impl, IMPL_OFFSET>,
-            SetClipper::<Impl, IMPL_OFFSET>,
-            SetColorKey::<Impl, IMPL_OFFSET>,
-            SetOverlayPosition::<Impl, IMPL_OFFSET>,
-            SetPalette::<Impl, IMPL_OFFSET>,
-            Unlock::<Impl, IMPL_OFFSET>,
-            UpdateOverlay::<Impl, IMPL_OFFSET>,
-            UpdateOverlayDisplay::<Impl, IMPL_OFFSET>,
-            UpdateOverlayZOrder::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddAttachedSurface: AddAttachedSurface::<Impl, IMPL_OFFSET>,
+            AddOverlayDirtyRect: AddOverlayDirtyRect::<Impl, IMPL_OFFSET>,
+            Blt: Blt::<Impl, IMPL_OFFSET>,
+            BltBatch: BltBatch::<Impl, IMPL_OFFSET>,
+            BltFast: BltFast::<Impl, IMPL_OFFSET>,
+            DeleteAttachedSurface: DeleteAttachedSurface::<Impl, IMPL_OFFSET>,
+            EnumAttachedSurfaces: EnumAttachedSurfaces::<Impl, IMPL_OFFSET>,
+            EnumOverlayZOrders: EnumOverlayZOrders::<Impl, IMPL_OFFSET>,
+            Flip: Flip::<Impl, IMPL_OFFSET>,
+            GetAttachedSurface: GetAttachedSurface::<Impl, IMPL_OFFSET>,
+            GetBltStatus: GetBltStatus::<Impl, IMPL_OFFSET>,
+            GetCaps: GetCaps::<Impl, IMPL_OFFSET>,
+            GetClipper: GetClipper::<Impl, IMPL_OFFSET>,
+            GetColorKey: GetColorKey::<Impl, IMPL_OFFSET>,
+            GetDC: GetDC::<Impl, IMPL_OFFSET>,
+            GetFlipStatus: GetFlipStatus::<Impl, IMPL_OFFSET>,
+            GetOverlayPosition: GetOverlayPosition::<Impl, IMPL_OFFSET>,
+            GetPalette: GetPalette::<Impl, IMPL_OFFSET>,
+            GetPixelFormat: GetPixelFormat::<Impl, IMPL_OFFSET>,
+            GetSurfaceDesc: GetSurfaceDesc::<Impl, IMPL_OFFSET>,
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            IsLost: IsLost::<Impl, IMPL_OFFSET>,
+            Lock: Lock::<Impl, IMPL_OFFSET>,
+            ReleaseDC: ReleaseDC::<Impl, IMPL_OFFSET>,
+            Restore: Restore::<Impl, IMPL_OFFSET>,
+            SetClipper: SetClipper::<Impl, IMPL_OFFSET>,
+            SetColorKey: SetColorKey::<Impl, IMPL_OFFSET>,
+            SetOverlayPosition: SetOverlayPosition::<Impl, IMPL_OFFSET>,
+            SetPalette: SetPalette::<Impl, IMPL_OFFSET>,
+            Unlock: Unlock::<Impl, IMPL_OFFSET>,
+            UpdateOverlay: UpdateOverlay::<Impl, IMPL_OFFSET>,
+            UpdateOverlayDisplay: UpdateOverlayDisplay::<Impl, IMPL_OFFSET>,
+            UpdateOverlayZOrder: UpdateOverlayZOrder::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDrawSurface as ::windows::core::Interface>::IID
@@ -1191,47 +1214,45 @@ impl IDirectDrawSurface2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            AddAttachedSurface::<Impl, IMPL_OFFSET>,
-            AddOverlayDirtyRect::<Impl, IMPL_OFFSET>,
-            Blt::<Impl, IMPL_OFFSET>,
-            BltBatch::<Impl, IMPL_OFFSET>,
-            BltFast::<Impl, IMPL_OFFSET>,
-            DeleteAttachedSurface::<Impl, IMPL_OFFSET>,
-            EnumAttachedSurfaces::<Impl, IMPL_OFFSET>,
-            EnumOverlayZOrders::<Impl, IMPL_OFFSET>,
-            Flip::<Impl, IMPL_OFFSET>,
-            GetAttachedSurface::<Impl, IMPL_OFFSET>,
-            GetBltStatus::<Impl, IMPL_OFFSET>,
-            GetCaps::<Impl, IMPL_OFFSET>,
-            GetClipper::<Impl, IMPL_OFFSET>,
-            GetColorKey::<Impl, IMPL_OFFSET>,
-            GetDC::<Impl, IMPL_OFFSET>,
-            GetFlipStatus::<Impl, IMPL_OFFSET>,
-            GetOverlayPosition::<Impl, IMPL_OFFSET>,
-            GetPalette::<Impl, IMPL_OFFSET>,
-            GetPixelFormat::<Impl, IMPL_OFFSET>,
-            GetSurfaceDesc::<Impl, IMPL_OFFSET>,
-            Initialize::<Impl, IMPL_OFFSET>,
-            IsLost::<Impl, IMPL_OFFSET>,
-            Lock::<Impl, IMPL_OFFSET>,
-            ReleaseDC::<Impl, IMPL_OFFSET>,
-            Restore::<Impl, IMPL_OFFSET>,
-            SetClipper::<Impl, IMPL_OFFSET>,
-            SetColorKey::<Impl, IMPL_OFFSET>,
-            SetOverlayPosition::<Impl, IMPL_OFFSET>,
-            SetPalette::<Impl, IMPL_OFFSET>,
-            Unlock::<Impl, IMPL_OFFSET>,
-            UpdateOverlay::<Impl, IMPL_OFFSET>,
-            UpdateOverlayDisplay::<Impl, IMPL_OFFSET>,
-            UpdateOverlayZOrder::<Impl, IMPL_OFFSET>,
-            GetDDInterface::<Impl, IMPL_OFFSET>,
-            PageLock::<Impl, IMPL_OFFSET>,
-            PageUnlock::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddAttachedSurface: AddAttachedSurface::<Impl, IMPL_OFFSET>,
+            AddOverlayDirtyRect: AddOverlayDirtyRect::<Impl, IMPL_OFFSET>,
+            Blt: Blt::<Impl, IMPL_OFFSET>,
+            BltBatch: BltBatch::<Impl, IMPL_OFFSET>,
+            BltFast: BltFast::<Impl, IMPL_OFFSET>,
+            DeleteAttachedSurface: DeleteAttachedSurface::<Impl, IMPL_OFFSET>,
+            EnumAttachedSurfaces: EnumAttachedSurfaces::<Impl, IMPL_OFFSET>,
+            EnumOverlayZOrders: EnumOverlayZOrders::<Impl, IMPL_OFFSET>,
+            Flip: Flip::<Impl, IMPL_OFFSET>,
+            GetAttachedSurface: GetAttachedSurface::<Impl, IMPL_OFFSET>,
+            GetBltStatus: GetBltStatus::<Impl, IMPL_OFFSET>,
+            GetCaps: GetCaps::<Impl, IMPL_OFFSET>,
+            GetClipper: GetClipper::<Impl, IMPL_OFFSET>,
+            GetColorKey: GetColorKey::<Impl, IMPL_OFFSET>,
+            GetDC: GetDC::<Impl, IMPL_OFFSET>,
+            GetFlipStatus: GetFlipStatus::<Impl, IMPL_OFFSET>,
+            GetOverlayPosition: GetOverlayPosition::<Impl, IMPL_OFFSET>,
+            GetPalette: GetPalette::<Impl, IMPL_OFFSET>,
+            GetPixelFormat: GetPixelFormat::<Impl, IMPL_OFFSET>,
+            GetSurfaceDesc: GetSurfaceDesc::<Impl, IMPL_OFFSET>,
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            IsLost: IsLost::<Impl, IMPL_OFFSET>,
+            Lock: Lock::<Impl, IMPL_OFFSET>,
+            ReleaseDC: ReleaseDC::<Impl, IMPL_OFFSET>,
+            Restore: Restore::<Impl, IMPL_OFFSET>,
+            SetClipper: SetClipper::<Impl, IMPL_OFFSET>,
+            SetColorKey: SetColorKey::<Impl, IMPL_OFFSET>,
+            SetOverlayPosition: SetOverlayPosition::<Impl, IMPL_OFFSET>,
+            SetPalette: SetPalette::<Impl, IMPL_OFFSET>,
+            Unlock: Unlock::<Impl, IMPL_OFFSET>,
+            UpdateOverlay: UpdateOverlay::<Impl, IMPL_OFFSET>,
+            UpdateOverlayDisplay: UpdateOverlayDisplay::<Impl, IMPL_OFFSET>,
+            UpdateOverlayZOrder: UpdateOverlayZOrder::<Impl, IMPL_OFFSET>,
+            GetDDInterface: GetDDInterface::<Impl, IMPL_OFFSET>,
+            PageLock: PageLock::<Impl, IMPL_OFFSET>,
+            PageUnlock: PageUnlock::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDrawSurface2 as ::windows::core::Interface>::IID
@@ -1428,48 +1449,46 @@ impl IDirectDrawSurface3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            AddAttachedSurface::<Impl, IMPL_OFFSET>,
-            AddOverlayDirtyRect::<Impl, IMPL_OFFSET>,
-            Blt::<Impl, IMPL_OFFSET>,
-            BltBatch::<Impl, IMPL_OFFSET>,
-            BltFast::<Impl, IMPL_OFFSET>,
-            DeleteAttachedSurface::<Impl, IMPL_OFFSET>,
-            EnumAttachedSurfaces::<Impl, IMPL_OFFSET>,
-            EnumOverlayZOrders::<Impl, IMPL_OFFSET>,
-            Flip::<Impl, IMPL_OFFSET>,
-            GetAttachedSurface::<Impl, IMPL_OFFSET>,
-            GetBltStatus::<Impl, IMPL_OFFSET>,
-            GetCaps::<Impl, IMPL_OFFSET>,
-            GetClipper::<Impl, IMPL_OFFSET>,
-            GetColorKey::<Impl, IMPL_OFFSET>,
-            GetDC::<Impl, IMPL_OFFSET>,
-            GetFlipStatus::<Impl, IMPL_OFFSET>,
-            GetOverlayPosition::<Impl, IMPL_OFFSET>,
-            GetPalette::<Impl, IMPL_OFFSET>,
-            GetPixelFormat::<Impl, IMPL_OFFSET>,
-            GetSurfaceDesc::<Impl, IMPL_OFFSET>,
-            Initialize::<Impl, IMPL_OFFSET>,
-            IsLost::<Impl, IMPL_OFFSET>,
-            Lock::<Impl, IMPL_OFFSET>,
-            ReleaseDC::<Impl, IMPL_OFFSET>,
-            Restore::<Impl, IMPL_OFFSET>,
-            SetClipper::<Impl, IMPL_OFFSET>,
-            SetColorKey::<Impl, IMPL_OFFSET>,
-            SetOverlayPosition::<Impl, IMPL_OFFSET>,
-            SetPalette::<Impl, IMPL_OFFSET>,
-            Unlock::<Impl, IMPL_OFFSET>,
-            UpdateOverlay::<Impl, IMPL_OFFSET>,
-            UpdateOverlayDisplay::<Impl, IMPL_OFFSET>,
-            UpdateOverlayZOrder::<Impl, IMPL_OFFSET>,
-            GetDDInterface::<Impl, IMPL_OFFSET>,
-            PageLock::<Impl, IMPL_OFFSET>,
-            PageUnlock::<Impl, IMPL_OFFSET>,
-            SetSurfaceDesc::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddAttachedSurface: AddAttachedSurface::<Impl, IMPL_OFFSET>,
+            AddOverlayDirtyRect: AddOverlayDirtyRect::<Impl, IMPL_OFFSET>,
+            Blt: Blt::<Impl, IMPL_OFFSET>,
+            BltBatch: BltBatch::<Impl, IMPL_OFFSET>,
+            BltFast: BltFast::<Impl, IMPL_OFFSET>,
+            DeleteAttachedSurface: DeleteAttachedSurface::<Impl, IMPL_OFFSET>,
+            EnumAttachedSurfaces: EnumAttachedSurfaces::<Impl, IMPL_OFFSET>,
+            EnumOverlayZOrders: EnumOverlayZOrders::<Impl, IMPL_OFFSET>,
+            Flip: Flip::<Impl, IMPL_OFFSET>,
+            GetAttachedSurface: GetAttachedSurface::<Impl, IMPL_OFFSET>,
+            GetBltStatus: GetBltStatus::<Impl, IMPL_OFFSET>,
+            GetCaps: GetCaps::<Impl, IMPL_OFFSET>,
+            GetClipper: GetClipper::<Impl, IMPL_OFFSET>,
+            GetColorKey: GetColorKey::<Impl, IMPL_OFFSET>,
+            GetDC: GetDC::<Impl, IMPL_OFFSET>,
+            GetFlipStatus: GetFlipStatus::<Impl, IMPL_OFFSET>,
+            GetOverlayPosition: GetOverlayPosition::<Impl, IMPL_OFFSET>,
+            GetPalette: GetPalette::<Impl, IMPL_OFFSET>,
+            GetPixelFormat: GetPixelFormat::<Impl, IMPL_OFFSET>,
+            GetSurfaceDesc: GetSurfaceDesc::<Impl, IMPL_OFFSET>,
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            IsLost: IsLost::<Impl, IMPL_OFFSET>,
+            Lock: Lock::<Impl, IMPL_OFFSET>,
+            ReleaseDC: ReleaseDC::<Impl, IMPL_OFFSET>,
+            Restore: Restore::<Impl, IMPL_OFFSET>,
+            SetClipper: SetClipper::<Impl, IMPL_OFFSET>,
+            SetColorKey: SetColorKey::<Impl, IMPL_OFFSET>,
+            SetOverlayPosition: SetOverlayPosition::<Impl, IMPL_OFFSET>,
+            SetPalette: SetPalette::<Impl, IMPL_OFFSET>,
+            Unlock: Unlock::<Impl, IMPL_OFFSET>,
+            UpdateOverlay: UpdateOverlay::<Impl, IMPL_OFFSET>,
+            UpdateOverlayDisplay: UpdateOverlayDisplay::<Impl, IMPL_OFFSET>,
+            UpdateOverlayZOrder: UpdateOverlayZOrder::<Impl, IMPL_OFFSET>,
+            GetDDInterface: GetDDInterface::<Impl, IMPL_OFFSET>,
+            PageLock: PageLock::<Impl, IMPL_OFFSET>,
+            PageUnlock: PageUnlock::<Impl, IMPL_OFFSET>,
+            SetSurfaceDesc: SetSurfaceDesc::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDrawSurface3 as ::windows::core::Interface>::IID
@@ -1691,53 +1710,51 @@ impl IDirectDrawSurface4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            AddAttachedSurface::<Impl, IMPL_OFFSET>,
-            AddOverlayDirtyRect::<Impl, IMPL_OFFSET>,
-            Blt::<Impl, IMPL_OFFSET>,
-            BltBatch::<Impl, IMPL_OFFSET>,
-            BltFast::<Impl, IMPL_OFFSET>,
-            DeleteAttachedSurface::<Impl, IMPL_OFFSET>,
-            EnumAttachedSurfaces::<Impl, IMPL_OFFSET>,
-            EnumOverlayZOrders::<Impl, IMPL_OFFSET>,
-            Flip::<Impl, IMPL_OFFSET>,
-            GetAttachedSurface::<Impl, IMPL_OFFSET>,
-            GetBltStatus::<Impl, IMPL_OFFSET>,
-            GetCaps::<Impl, IMPL_OFFSET>,
-            GetClipper::<Impl, IMPL_OFFSET>,
-            GetColorKey::<Impl, IMPL_OFFSET>,
-            GetDC::<Impl, IMPL_OFFSET>,
-            GetFlipStatus::<Impl, IMPL_OFFSET>,
-            GetOverlayPosition::<Impl, IMPL_OFFSET>,
-            GetPalette::<Impl, IMPL_OFFSET>,
-            GetPixelFormat::<Impl, IMPL_OFFSET>,
-            GetSurfaceDesc::<Impl, IMPL_OFFSET>,
-            Initialize::<Impl, IMPL_OFFSET>,
-            IsLost::<Impl, IMPL_OFFSET>,
-            Lock::<Impl, IMPL_OFFSET>,
-            ReleaseDC::<Impl, IMPL_OFFSET>,
-            Restore::<Impl, IMPL_OFFSET>,
-            SetClipper::<Impl, IMPL_OFFSET>,
-            SetColorKey::<Impl, IMPL_OFFSET>,
-            SetOverlayPosition::<Impl, IMPL_OFFSET>,
-            SetPalette::<Impl, IMPL_OFFSET>,
-            Unlock::<Impl, IMPL_OFFSET>,
-            UpdateOverlay::<Impl, IMPL_OFFSET>,
-            UpdateOverlayDisplay::<Impl, IMPL_OFFSET>,
-            UpdateOverlayZOrder::<Impl, IMPL_OFFSET>,
-            GetDDInterface::<Impl, IMPL_OFFSET>,
-            PageLock::<Impl, IMPL_OFFSET>,
-            PageUnlock::<Impl, IMPL_OFFSET>,
-            SetSurfaceDesc::<Impl, IMPL_OFFSET>,
-            SetPrivateData::<Impl, IMPL_OFFSET>,
-            GetPrivateData::<Impl, IMPL_OFFSET>,
-            FreePrivateData::<Impl, IMPL_OFFSET>,
-            GetUniquenessValue::<Impl, IMPL_OFFSET>,
-            ChangeUniquenessValue::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddAttachedSurface: AddAttachedSurface::<Impl, IMPL_OFFSET>,
+            AddOverlayDirtyRect: AddOverlayDirtyRect::<Impl, IMPL_OFFSET>,
+            Blt: Blt::<Impl, IMPL_OFFSET>,
+            BltBatch: BltBatch::<Impl, IMPL_OFFSET>,
+            BltFast: BltFast::<Impl, IMPL_OFFSET>,
+            DeleteAttachedSurface: DeleteAttachedSurface::<Impl, IMPL_OFFSET>,
+            EnumAttachedSurfaces: EnumAttachedSurfaces::<Impl, IMPL_OFFSET>,
+            EnumOverlayZOrders: EnumOverlayZOrders::<Impl, IMPL_OFFSET>,
+            Flip: Flip::<Impl, IMPL_OFFSET>,
+            GetAttachedSurface: GetAttachedSurface::<Impl, IMPL_OFFSET>,
+            GetBltStatus: GetBltStatus::<Impl, IMPL_OFFSET>,
+            GetCaps: GetCaps::<Impl, IMPL_OFFSET>,
+            GetClipper: GetClipper::<Impl, IMPL_OFFSET>,
+            GetColorKey: GetColorKey::<Impl, IMPL_OFFSET>,
+            GetDC: GetDC::<Impl, IMPL_OFFSET>,
+            GetFlipStatus: GetFlipStatus::<Impl, IMPL_OFFSET>,
+            GetOverlayPosition: GetOverlayPosition::<Impl, IMPL_OFFSET>,
+            GetPalette: GetPalette::<Impl, IMPL_OFFSET>,
+            GetPixelFormat: GetPixelFormat::<Impl, IMPL_OFFSET>,
+            GetSurfaceDesc: GetSurfaceDesc::<Impl, IMPL_OFFSET>,
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            IsLost: IsLost::<Impl, IMPL_OFFSET>,
+            Lock: Lock::<Impl, IMPL_OFFSET>,
+            ReleaseDC: ReleaseDC::<Impl, IMPL_OFFSET>,
+            Restore: Restore::<Impl, IMPL_OFFSET>,
+            SetClipper: SetClipper::<Impl, IMPL_OFFSET>,
+            SetColorKey: SetColorKey::<Impl, IMPL_OFFSET>,
+            SetOverlayPosition: SetOverlayPosition::<Impl, IMPL_OFFSET>,
+            SetPalette: SetPalette::<Impl, IMPL_OFFSET>,
+            Unlock: Unlock::<Impl, IMPL_OFFSET>,
+            UpdateOverlay: UpdateOverlay::<Impl, IMPL_OFFSET>,
+            UpdateOverlayDisplay: UpdateOverlayDisplay::<Impl, IMPL_OFFSET>,
+            UpdateOverlayZOrder: UpdateOverlayZOrder::<Impl, IMPL_OFFSET>,
+            GetDDInterface: GetDDInterface::<Impl, IMPL_OFFSET>,
+            PageLock: PageLock::<Impl, IMPL_OFFSET>,
+            PageUnlock: PageUnlock::<Impl, IMPL_OFFSET>,
+            SetSurfaceDesc: SetSurfaceDesc::<Impl, IMPL_OFFSET>,
+            SetPrivateData: SetPrivateData::<Impl, IMPL_OFFSET>,
+            GetPrivateData: GetPrivateData::<Impl, IMPL_OFFSET>,
+            FreePrivateData: FreePrivateData::<Impl, IMPL_OFFSET>,
+            GetUniquenessValue: GetUniquenessValue::<Impl, IMPL_OFFSET>,
+            ChangeUniquenessValue: ChangeUniquenessValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDrawSurface4 as ::windows::core::Interface>::IID
@@ -1979,57 +1996,55 @@ impl IDirectDrawSurface7Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            AddAttachedSurface::<Impl, IMPL_OFFSET>,
-            AddOverlayDirtyRect::<Impl, IMPL_OFFSET>,
-            Blt::<Impl, IMPL_OFFSET>,
-            BltBatch::<Impl, IMPL_OFFSET>,
-            BltFast::<Impl, IMPL_OFFSET>,
-            DeleteAttachedSurface::<Impl, IMPL_OFFSET>,
-            EnumAttachedSurfaces::<Impl, IMPL_OFFSET>,
-            EnumOverlayZOrders::<Impl, IMPL_OFFSET>,
-            Flip::<Impl, IMPL_OFFSET>,
-            GetAttachedSurface::<Impl, IMPL_OFFSET>,
-            GetBltStatus::<Impl, IMPL_OFFSET>,
-            GetCaps::<Impl, IMPL_OFFSET>,
-            GetClipper::<Impl, IMPL_OFFSET>,
-            GetColorKey::<Impl, IMPL_OFFSET>,
-            GetDC::<Impl, IMPL_OFFSET>,
-            GetFlipStatus::<Impl, IMPL_OFFSET>,
-            GetOverlayPosition::<Impl, IMPL_OFFSET>,
-            GetPalette::<Impl, IMPL_OFFSET>,
-            GetPixelFormat::<Impl, IMPL_OFFSET>,
-            GetSurfaceDesc::<Impl, IMPL_OFFSET>,
-            Initialize::<Impl, IMPL_OFFSET>,
-            IsLost::<Impl, IMPL_OFFSET>,
-            Lock::<Impl, IMPL_OFFSET>,
-            ReleaseDC::<Impl, IMPL_OFFSET>,
-            Restore::<Impl, IMPL_OFFSET>,
-            SetClipper::<Impl, IMPL_OFFSET>,
-            SetColorKey::<Impl, IMPL_OFFSET>,
-            SetOverlayPosition::<Impl, IMPL_OFFSET>,
-            SetPalette::<Impl, IMPL_OFFSET>,
-            Unlock::<Impl, IMPL_OFFSET>,
-            UpdateOverlay::<Impl, IMPL_OFFSET>,
-            UpdateOverlayDisplay::<Impl, IMPL_OFFSET>,
-            UpdateOverlayZOrder::<Impl, IMPL_OFFSET>,
-            GetDDInterface::<Impl, IMPL_OFFSET>,
-            PageLock::<Impl, IMPL_OFFSET>,
-            PageUnlock::<Impl, IMPL_OFFSET>,
-            SetSurfaceDesc::<Impl, IMPL_OFFSET>,
-            SetPrivateData::<Impl, IMPL_OFFSET>,
-            GetPrivateData::<Impl, IMPL_OFFSET>,
-            FreePrivateData::<Impl, IMPL_OFFSET>,
-            GetUniquenessValue::<Impl, IMPL_OFFSET>,
-            ChangeUniquenessValue::<Impl, IMPL_OFFSET>,
-            SetPriority::<Impl, IMPL_OFFSET>,
-            GetPriority::<Impl, IMPL_OFFSET>,
-            SetLOD::<Impl, IMPL_OFFSET>,
-            GetLOD::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddAttachedSurface: AddAttachedSurface::<Impl, IMPL_OFFSET>,
+            AddOverlayDirtyRect: AddOverlayDirtyRect::<Impl, IMPL_OFFSET>,
+            Blt: Blt::<Impl, IMPL_OFFSET>,
+            BltBatch: BltBatch::<Impl, IMPL_OFFSET>,
+            BltFast: BltFast::<Impl, IMPL_OFFSET>,
+            DeleteAttachedSurface: DeleteAttachedSurface::<Impl, IMPL_OFFSET>,
+            EnumAttachedSurfaces: EnumAttachedSurfaces::<Impl, IMPL_OFFSET>,
+            EnumOverlayZOrders: EnumOverlayZOrders::<Impl, IMPL_OFFSET>,
+            Flip: Flip::<Impl, IMPL_OFFSET>,
+            GetAttachedSurface: GetAttachedSurface::<Impl, IMPL_OFFSET>,
+            GetBltStatus: GetBltStatus::<Impl, IMPL_OFFSET>,
+            GetCaps: GetCaps::<Impl, IMPL_OFFSET>,
+            GetClipper: GetClipper::<Impl, IMPL_OFFSET>,
+            GetColorKey: GetColorKey::<Impl, IMPL_OFFSET>,
+            GetDC: GetDC::<Impl, IMPL_OFFSET>,
+            GetFlipStatus: GetFlipStatus::<Impl, IMPL_OFFSET>,
+            GetOverlayPosition: GetOverlayPosition::<Impl, IMPL_OFFSET>,
+            GetPalette: GetPalette::<Impl, IMPL_OFFSET>,
+            GetPixelFormat: GetPixelFormat::<Impl, IMPL_OFFSET>,
+            GetSurfaceDesc: GetSurfaceDesc::<Impl, IMPL_OFFSET>,
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            IsLost: IsLost::<Impl, IMPL_OFFSET>,
+            Lock: Lock::<Impl, IMPL_OFFSET>,
+            ReleaseDC: ReleaseDC::<Impl, IMPL_OFFSET>,
+            Restore: Restore::<Impl, IMPL_OFFSET>,
+            SetClipper: SetClipper::<Impl, IMPL_OFFSET>,
+            SetColorKey: SetColorKey::<Impl, IMPL_OFFSET>,
+            SetOverlayPosition: SetOverlayPosition::<Impl, IMPL_OFFSET>,
+            SetPalette: SetPalette::<Impl, IMPL_OFFSET>,
+            Unlock: Unlock::<Impl, IMPL_OFFSET>,
+            UpdateOverlay: UpdateOverlay::<Impl, IMPL_OFFSET>,
+            UpdateOverlayDisplay: UpdateOverlayDisplay::<Impl, IMPL_OFFSET>,
+            UpdateOverlayZOrder: UpdateOverlayZOrder::<Impl, IMPL_OFFSET>,
+            GetDDInterface: GetDDInterface::<Impl, IMPL_OFFSET>,
+            PageLock: PageLock::<Impl, IMPL_OFFSET>,
+            PageUnlock: PageUnlock::<Impl, IMPL_OFFSET>,
+            SetSurfaceDesc: SetSurfaceDesc::<Impl, IMPL_OFFSET>,
+            SetPrivateData: SetPrivateData::<Impl, IMPL_OFFSET>,
+            GetPrivateData: GetPrivateData::<Impl, IMPL_OFFSET>,
+            FreePrivateData: FreePrivateData::<Impl, IMPL_OFFSET>,
+            GetUniquenessValue: GetUniquenessValue::<Impl, IMPL_OFFSET>,
+            ChangeUniquenessValue: ChangeUniquenessValue::<Impl, IMPL_OFFSET>,
+            SetPriority: SetPriority::<Impl, IMPL_OFFSET>,
+            GetPriority: GetPriority::<Impl, IMPL_OFFSET>,
+            SetLOD: SetLOD::<Impl, IMPL_OFFSET>,
+            GetLOD: GetLOD::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDrawSurface7 as ::windows::core::Interface>::IID
@@ -2049,7 +2064,11 @@ impl IDirectDrawSurfaceKernelVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetKernelHandle::<Impl, IMPL_OFFSET>, ReleaseKernelHandle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetKernelHandle: GetKernelHandle::<Impl, IMPL_OFFSET>,
+            ReleaseKernelHandle: ReleaseKernelHandle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDrawSurfaceKernel as ::windows::core::Interface>::IID
@@ -2131,25 +2150,23 @@ impl IDirectDrawVideoPortVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Flip::<Impl, IMPL_OFFSET>,
-            GetBandwidthInfo::<Impl, IMPL_OFFSET>,
-            GetColorControls::<Impl, IMPL_OFFSET>,
-            GetInputFormats::<Impl, IMPL_OFFSET>,
-            GetOutputFormats::<Impl, IMPL_OFFSET>,
-            GetFieldPolarity::<Impl, IMPL_OFFSET>,
-            GetVideoLine::<Impl, IMPL_OFFSET>,
-            GetVideoSignalStatus::<Impl, IMPL_OFFSET>,
-            SetColorControls::<Impl, IMPL_OFFSET>,
-            SetTargetSurface::<Impl, IMPL_OFFSET>,
-            StartVideo::<Impl, IMPL_OFFSET>,
-            StopVideo::<Impl, IMPL_OFFSET>,
-            UpdateVideo::<Impl, IMPL_OFFSET>,
-            WaitForSync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Flip: Flip::<Impl, IMPL_OFFSET>,
+            GetBandwidthInfo: GetBandwidthInfo::<Impl, IMPL_OFFSET>,
+            GetColorControls: GetColorControls::<Impl, IMPL_OFFSET>,
+            GetInputFormats: GetInputFormats::<Impl, IMPL_OFFSET>,
+            GetOutputFormats: GetOutputFormats::<Impl, IMPL_OFFSET>,
+            GetFieldPolarity: GetFieldPolarity::<Impl, IMPL_OFFSET>,
+            GetVideoLine: GetVideoLine::<Impl, IMPL_OFFSET>,
+            GetVideoSignalStatus: GetVideoSignalStatus::<Impl, IMPL_OFFSET>,
+            SetColorControls: SetColorControls::<Impl, IMPL_OFFSET>,
+            SetTargetSurface: SetTargetSurface::<Impl, IMPL_OFFSET>,
+            StartVideo: StartVideo::<Impl, IMPL_OFFSET>,
+            StopVideo: StopVideo::<Impl, IMPL_OFFSET>,
+            UpdateVideo: UpdateVideo::<Impl, IMPL_OFFSET>,
+            WaitForSync: WaitForSync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDrawVideoPort as ::windows::core::Interface>::IID
@@ -2171,7 +2188,11 @@ impl IDirectDrawVideoPortNotifyVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, AcquireNotification::<Impl, IMPL_OFFSET>, ReleaseNotification::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AcquireNotification: AcquireNotification::<Impl, IMPL_OFFSET>,
+            ReleaseNotification: ReleaseNotification::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectDrawVideoPortNotify as ::windows::core::Interface>::IID

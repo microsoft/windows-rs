@@ -18,7 +18,11 @@ impl IDisplayRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestRelease().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayRequest>, ::windows::core::GetTrustLevel, RequestActive::<Impl, IMPL_OFFSET>, RequestRelease::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayRequest, BASE_OFFSET>(),
+            RequestActive: RequestActive::<Impl, IMPL_OFFSET>,
+            RequestRelease: RequestRelease::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayRequest as ::windows::core::Interface>::IID

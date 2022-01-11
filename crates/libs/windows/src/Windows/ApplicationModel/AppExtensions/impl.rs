@@ -92,21 +92,16 @@ impl IAppExtensionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppExtension>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            Package::<Impl, IMPL_OFFSET>,
-            AppInfo::<Impl, IMPL_OFFSET>,
-            GetExtensionPropertiesAsync::<Impl, IMPL_OFFSET>,
-            GetPublicFolderAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppExtension, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            Package: Package::<Impl, IMPL_OFFSET>,
+            AppInfo: AppInfo::<Impl, IMPL_OFFSET>,
+            GetExtensionPropertiesAsync: GetExtensionPropertiesAsync::<Impl, IMPL_OFFSET>,
+            GetPublicFolderAsync: GetPublicFolderAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppExtension as ::windows::core::Interface>::IID
@@ -134,7 +129,7 @@ impl IAppExtension2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtension2>, ::windows::core::GetTrustLevel, AppUserModelId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAppExtension2, BASE_OFFSET>(), AppUserModelId: AppUserModelId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppExtension2 as ::windows::core::Interface>::IID
@@ -259,26 +254,21 @@ impl IAppExtensionCatalogVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePackageStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppExtensionCatalog>,
-            ::windows::core::GetTrustLevel,
-            FindAllAsync::<Impl, IMPL_OFFSET>,
-            RequestRemovePackageAsync::<Impl, IMPL_OFFSET>,
-            PackageInstalled::<Impl, IMPL_OFFSET>,
-            RemovePackageInstalled::<Impl, IMPL_OFFSET>,
-            PackageUpdating::<Impl, IMPL_OFFSET>,
-            RemovePackageUpdating::<Impl, IMPL_OFFSET>,
-            PackageUpdated::<Impl, IMPL_OFFSET>,
-            RemovePackageUpdated::<Impl, IMPL_OFFSET>,
-            PackageUninstalling::<Impl, IMPL_OFFSET>,
-            RemovePackageUninstalling::<Impl, IMPL_OFFSET>,
-            PackageStatusChanged::<Impl, IMPL_OFFSET>,
-            RemovePackageStatusChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppExtensionCatalog, BASE_OFFSET>(),
+            FindAllAsync: FindAllAsync::<Impl, IMPL_OFFSET>,
+            RequestRemovePackageAsync: RequestRemovePackageAsync::<Impl, IMPL_OFFSET>,
+            PackageInstalled: PackageInstalled::<Impl, IMPL_OFFSET>,
+            RemovePackageInstalled: RemovePackageInstalled::<Impl, IMPL_OFFSET>,
+            PackageUpdating: PackageUpdating::<Impl, IMPL_OFFSET>,
+            RemovePackageUpdating: RemovePackageUpdating::<Impl, IMPL_OFFSET>,
+            PackageUpdated: PackageUpdated::<Impl, IMPL_OFFSET>,
+            RemovePackageUpdated: RemovePackageUpdated::<Impl, IMPL_OFFSET>,
+            PackageUninstalling: PackageUninstalling::<Impl, IMPL_OFFSET>,
+            RemovePackageUninstalling: RemovePackageUninstalling::<Impl, IMPL_OFFSET>,
+            PackageStatusChanged: PackageStatusChanged::<Impl, IMPL_OFFSET>,
+            RemovePackageStatusChanged: RemovePackageStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppExtensionCatalog as ::windows::core::Interface>::IID
@@ -306,7 +296,7 @@ impl IAppExtensionCatalogStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionCatalogStatics>, ::windows::core::GetTrustLevel, Open::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAppExtensionCatalogStatics, BASE_OFFSET>(), Open: Open::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppExtensionCatalogStatics as ::windows::core::Interface>::IID
@@ -358,7 +348,12 @@ impl IAppExtensionPackageInstalledEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageInstalledEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>, Extensions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppExtensionPackageInstalledEventArgs, BASE_OFFSET>(),
+            AppExtensionName: AppExtensionName::<Impl, IMPL_OFFSET>,
+            Package: Package::<Impl, IMPL_OFFSET>,
+            Extensions: Extensions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppExtensionPackageInstalledEventArgs as ::windows::core::Interface>::IID
@@ -398,7 +393,11 @@ impl IAppExtensionPackageStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageStatusChangedEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppExtensionPackageStatusChangedEventArgs, BASE_OFFSET>(),
+            AppExtensionName: AppExtensionName::<Impl, IMPL_OFFSET>,
+            Package: Package::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppExtensionPackageStatusChangedEventArgs as ::windows::core::Interface>::IID
@@ -438,7 +437,11 @@ impl IAppExtensionPackageUninstallingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageUninstallingEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppExtensionPackageUninstallingEventArgs, BASE_OFFSET>(),
+            AppExtensionName: AppExtensionName::<Impl, IMPL_OFFSET>,
+            Package: Package::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppExtensionPackageUninstallingEventArgs as ::windows::core::Interface>::IID
@@ -490,7 +493,12 @@ impl IAppExtensionPackageUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageUpdatedEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>, Extensions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppExtensionPackageUpdatedEventArgs, BASE_OFFSET>(),
+            AppExtensionName: AppExtensionName::<Impl, IMPL_OFFSET>,
+            Package: Package::<Impl, IMPL_OFFSET>,
+            Extensions: Extensions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppExtensionPackageUpdatedEventArgs as ::windows::core::Interface>::IID
@@ -530,7 +538,11 @@ impl IAppExtensionPackageUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageUpdatingEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppExtensionPackageUpdatingEventArgs, BASE_OFFSET>(),
+            AppExtensionName: AppExtensionName::<Impl, IMPL_OFFSET>,
+            Package: Package::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppExtensionPackageUpdatingEventArgs as ::windows::core::Interface>::IID

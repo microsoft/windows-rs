@@ -1454,11 +1454,11 @@ pub struct ID3DBlob(::windows::core::IUnknown);
 impl ID3DBlob {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBufferPointer)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
     pub unsafe fn GetBufferSize(&self) -> usize {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBufferSize)(::core::mem::transmute_copy(self)))
     }
 }
 impl ::core::convert::From<ID3DBlob> for ::windows::core::IUnknown {
@@ -1503,7 +1503,11 @@ unsafe impl ::windows::core::Interface for ID3DBlob {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3DBlobVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize);
+pub struct ID3DBlobVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetBufferPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
+    pub GetBufferSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
 #[repr(transparent)]
 pub struct ID3DDestructionNotifier(::windows::core::IUnknown);
@@ -1511,11 +1515,11 @@ impl ID3DDestructionNotifier {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
     pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(callbackfn), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).RegisterDestructionCallback)(::core::mem::transmute_copy(self), ::core::mem::transmute(callbackfn), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
     pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(callbackid)).ok()
+        (::windows::core::Interface::vtable(self).UnregisterDestructionCallback)(::core::mem::transmute_copy(self), ::core::mem::transmute(callbackid)).ok()
     }
 }
 impl ::core::convert::From<ID3DDestructionNotifier> for ::windows::core::IUnknown {
@@ -1560,13 +1564,11 @@ unsafe impl ::windows::core::Interface for ID3DDestructionNotifier {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3DDestructionNotifierVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackfn: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void, pcallbackid: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackid: u32) -> ::windows::core::HRESULT,
-);
+pub struct ID3DDestructionNotifierVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub RegisterDestructionCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackfn: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void, pcallbackid: *mut u32) -> ::windows::core::HRESULT,
+    pub UnregisterDestructionCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackid: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
 #[repr(transparent)]
 pub struct ID3DInclude(::windows::core::IUnknown);
@@ -1574,11 +1576,11 @@ impl ID3DInclude {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Open<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: Param1, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).0)(::core::mem::transmute_copy(self), ::core::mem::transmute(includetype), pfilename.into_param().abi(), ::core::mem::transmute(pparentdata), ::core::mem::transmute(ppdata), ::core::mem::transmute(pbytes)).ok()
+        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), ::core::mem::transmute(includetype), pfilename.into_param().abi(), ::core::mem::transmute(pparentdata), ::core::mem::transmute(ppdata), ::core::mem::transmute(pbytes)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
     pub unsafe fn Close(&self, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata)).ok()
     }
 }
 impl ::core::clone::Clone for ID3DInclude {
@@ -1603,7 +1605,13 @@ unsafe impl ::windows::core::Interface for ID3DInclude {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3DIncludeVtbl(#[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: super::super::Foundation::PSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::HRESULT, #[cfg(not(feature = "Win32_Foundation"))] usize, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub struct ID3DIncludeVtbl {
+    #[cfg(feature = "Win32_Foundation")]
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: super::super::Foundation::PSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Open: usize,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
 pub type PFN_DESTRUCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pdata: *mut ::core::ffi::c_void)>;
 pub const WKPDID_CommentStringW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0149dc0_90e8_4ec8_8144_e900ad266bb2);

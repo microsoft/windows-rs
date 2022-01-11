@@ -27,7 +27,12 @@ impl ICustomGameControllerFactoryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnGameControllerRemoved(&*(&value as *const <super::IGameController as ::windows::core::Abi>::Abi as *const <super::IGameController as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomGameControllerFactory>, ::windows::core::GetTrustLevel, CreateGameController::<Impl, IMPL_OFFSET>, OnGameControllerAdded::<Impl, IMPL_OFFSET>, OnGameControllerRemoved::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomGameControllerFactory, BASE_OFFSET>(),
+            CreateGameController: CreateGameController::<Impl, IMPL_OFFSET>,
+            OnGameControllerAdded: OnGameControllerAdded::<Impl, IMPL_OFFSET>,
+            OnGameControllerRemoved: OnGameControllerRemoved::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICustomGameControllerFactory as ::windows::core::Interface>::IID
@@ -58,7 +63,12 @@ impl IGameControllerFactoryManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterCustomFactoryForXusbType(&*(&factory as *const <ICustomGameControllerFactory as ::windows::core::Abi>::Abi as *const <ICustomGameControllerFactory as ::windows::core::DefaultType>::DefaultType), xusbtype, xusbsubtype).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameControllerFactoryManagerStatics>, ::windows::core::GetTrustLevel, RegisterCustomFactoryForGipInterface::<Impl, IMPL_OFFSET>, RegisterCustomFactoryForHardwareId::<Impl, IMPL_OFFSET>, RegisterCustomFactoryForXusbType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameControllerFactoryManagerStatics, BASE_OFFSET>(),
+            RegisterCustomFactoryForGipInterface: RegisterCustomFactoryForGipInterface::<Impl, IMPL_OFFSET>,
+            RegisterCustomFactoryForHardwareId: RegisterCustomFactoryForHardwareId::<Impl, IMPL_OFFSET>,
+            RegisterCustomFactoryForXusbType: RegisterCustomFactoryForXusbType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameControllerFactoryManagerStatics as ::windows::core::Interface>::IID
@@ -86,7 +96,10 @@ impl IGameControllerFactoryManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameControllerFactoryManagerStatics2>, ::windows::core::GetTrustLevel, TryGetFactoryControllerFromGameController::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameControllerFactoryManagerStatics2, BASE_OFFSET>(),
+            TryGetFactoryControllerFromGameController: TryGetFactoryControllerFromGameController::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameControllerFactoryManagerStatics2 as ::windows::core::Interface>::IID
@@ -109,7 +122,11 @@ impl IGameControllerInputSinkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnInputSuspended(timestamp).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameControllerInputSink>, ::windows::core::GetTrustLevel, OnInputResumed::<Impl, IMPL_OFFSET>, OnInputSuspended::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameControllerInputSink, BASE_OFFSET>(),
+            OnInputResumed: OnInputResumed::<Impl, IMPL_OFFSET>,
+            OnInputSuspended: OnInputSuspended::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameControllerInputSink as ::windows::core::Interface>::IID
@@ -182,7 +199,14 @@ impl IGameControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameControllerProvider>, ::windows::core::GetTrustLevel, FirmwareVersionInfo::<Impl, IMPL_OFFSET>, HardwareProductId::<Impl, IMPL_OFFSET>, HardwareVendorId::<Impl, IMPL_OFFSET>, HardwareVersionInfo::<Impl, IMPL_OFFSET>, IsConnected::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameControllerProvider, BASE_OFFSET>(),
+            FirmwareVersionInfo: FirmwareVersionInfo::<Impl, IMPL_OFFSET>,
+            HardwareProductId: HardwareProductId::<Impl, IMPL_OFFSET>,
+            HardwareVendorId: HardwareVendorId::<Impl, IMPL_OFFSET>,
+            HardwareVersionInfo: HardwareVersionInfo::<Impl, IMPL_OFFSET>,
+            IsConnected: IsConnected::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameControllerProvider as ::windows::core::Interface>::IID
@@ -234,7 +258,12 @@ impl IGipFirmwareUpdateResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGipFirmwareUpdateResult>, ::windows::core::GetTrustLevel, ExtendedErrorCode::<Impl, IMPL_OFFSET>, FinalComponentId::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGipFirmwareUpdateResult, BASE_OFFSET>(),
+            ExtendedErrorCode: ExtendedErrorCode::<Impl, IMPL_OFFSET>,
+            FinalComponentId: FinalComponentId::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGipFirmwareUpdateResult as ::windows::core::Interface>::IID
@@ -257,7 +286,11 @@ impl IGipGameControllerInputSinkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnMessageReceived(timestamp, messageclass, messageid, sequenceid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&messagebuffer), messageBuffer_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGipGameControllerInputSink>, ::windows::core::GetTrustLevel, OnKeyReceived::<Impl, IMPL_OFFSET>, OnMessageReceived::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGipGameControllerInputSink, BASE_OFFSET>(),
+            OnKeyReceived: OnKeyReceived::<Impl, IMPL_OFFSET>,
+            OnMessageReceived: OnMessageReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGipGameControllerInputSink as ::windows::core::Interface>::IID
@@ -295,7 +328,12 @@ impl IGipGameControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGipGameControllerProvider>, ::windows::core::GetTrustLevel, SendMessage::<Impl, IMPL_OFFSET>, SendReceiveMessage::<Impl, IMPL_OFFSET>, UpdateFirmwareAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGipGameControllerProvider, BASE_OFFSET>(),
+            SendMessage: SendMessage::<Impl, IMPL_OFFSET>,
+            SendReceiveMessage: SendReceiveMessage::<Impl, IMPL_OFFSET>,
+            UpdateFirmwareAsync: UpdateFirmwareAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGipGameControllerProvider as ::windows::core::Interface>::IID
@@ -313,7 +351,10 @@ impl IHidGameControllerInputSinkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnInputReportReceived(timestamp, reportid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&reportbuffer), reportBuffer_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidGameControllerInputSink>, ::windows::core::GetTrustLevel, OnInputReportReceived::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidGameControllerInputSink, BASE_OFFSET>(),
+            OnInputReportReceived: OnInputReportReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidGameControllerInputSink as ::windows::core::Interface>::IID
@@ -368,7 +409,14 @@ impl IHidGameControllerProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendOutputReport(reportid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&reportbuffer), reportBuffer_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidGameControllerProvider>, ::windows::core::GetTrustLevel, UsageId::<Impl, IMPL_OFFSET>, UsagePage::<Impl, IMPL_OFFSET>, GetFeatureReport::<Impl, IMPL_OFFSET>, SendFeatureReport::<Impl, IMPL_OFFSET>, SendOutputReport::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidGameControllerProvider, BASE_OFFSET>(),
+            UsageId: UsageId::<Impl, IMPL_OFFSET>,
+            UsagePage: UsagePage::<Impl, IMPL_OFFSET>,
+            GetFeatureReport: GetFeatureReport::<Impl, IMPL_OFFSET>,
+            SendFeatureReport: SendFeatureReport::<Impl, IMPL_OFFSET>,
+            SendOutputReport: SendOutputReport::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHidGameControllerProvider as ::windows::core::Interface>::IID
@@ -386,7 +434,10 @@ impl IXusbGameControllerInputSinkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnInputReceived(timestamp, reportid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&inputbuffer), inputBuffer_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXusbGameControllerInputSink>, ::windows::core::GetTrustLevel, OnInputReceived::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXusbGameControllerInputSink, BASE_OFFSET>(),
+            OnInputReceived: OnInputReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXusbGameControllerInputSink as ::windows::core::Interface>::IID
@@ -407,7 +458,10 @@ impl IXusbGameControllerProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVibration(lowfrequencymotorspeed, highfrequencymotorspeed).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXusbGameControllerProvider>, ::windows::core::GetTrustLevel, SetVibration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXusbGameControllerProvider, BASE_OFFSET>(),
+            SetVibration: SetVibration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXusbGameControllerProvider as ::windows::core::Interface>::IID

@@ -148,28 +148,23 @@ impl IBackgroundAudioTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBackgroundAudioTrack>,
-            ::windows::core::GetTrustLevel,
-            TrimTimeFromStart::<Impl, IMPL_OFFSET>,
-            SetTrimTimeFromStart::<Impl, IMPL_OFFSET>,
-            TrimTimeFromEnd::<Impl, IMPL_OFFSET>,
-            SetTrimTimeFromEnd::<Impl, IMPL_OFFSET>,
-            OriginalDuration::<Impl, IMPL_OFFSET>,
-            TrimmedDuration::<Impl, IMPL_OFFSET>,
-            UserData::<Impl, IMPL_OFFSET>,
-            SetDelay::<Impl, IMPL_OFFSET>,
-            Delay::<Impl, IMPL_OFFSET>,
-            SetVolume::<Impl, IMPL_OFFSET>,
-            Volume::<Impl, IMPL_OFFSET>,
-            Clone::<Impl, IMPL_OFFSET>,
-            GetAudioEncodingProperties::<Impl, IMPL_OFFSET>,
-            AudioEffectDefinitions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundAudioTrack, BASE_OFFSET>(),
+            TrimTimeFromStart: TrimTimeFromStart::<Impl, IMPL_OFFSET>,
+            SetTrimTimeFromStart: SetTrimTimeFromStart::<Impl, IMPL_OFFSET>,
+            TrimTimeFromEnd: TrimTimeFromEnd::<Impl, IMPL_OFFSET>,
+            SetTrimTimeFromEnd: SetTrimTimeFromEnd::<Impl, IMPL_OFFSET>,
+            OriginalDuration: OriginalDuration::<Impl, IMPL_OFFSET>,
+            TrimmedDuration: TrimmedDuration::<Impl, IMPL_OFFSET>,
+            UserData: UserData::<Impl, IMPL_OFFSET>,
+            SetDelay: SetDelay::<Impl, IMPL_OFFSET>,
+            Delay: Delay::<Impl, IMPL_OFFSET>,
+            SetVolume: SetVolume::<Impl, IMPL_OFFSET>,
+            Volume: Volume::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            GetAudioEncodingProperties: GetAudioEncodingProperties::<Impl, IMPL_OFFSET>,
+            AudioEffectDefinitions: AudioEffectDefinitions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundAudioTrack as ::windows::core::Interface>::IID
@@ -209,7 +204,11 @@ impl IBackgroundAudioTrackStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundAudioTrackStatics>, ::windows::core::GetTrustLevel, CreateFromEmbeddedAudioTrack::<Impl, IMPL_OFFSET>, CreateFromFileAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundAudioTrackStatics, BASE_OFFSET>(),
+            CreateFromEmbeddedAudioTrack: CreateFromEmbeddedAudioTrack::<Impl, IMPL_OFFSET>,
+            CreateFromFileAsync: CreateFromFileAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundAudioTrackStatics as ::windows::core::Interface>::IID
@@ -237,7 +236,10 @@ impl IEmbeddedAudioTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmbeddedAudioTrack>, ::windows::core::GetTrustLevel, GetAudioEncodingProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmbeddedAudioTrack, BASE_OFFSET>(),
+            GetAudioEncodingProperties: GetAudioEncodingProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmbeddedAudioTrack as ::windows::core::Interface>::IID
@@ -441,32 +443,27 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaClip>,
-            ::windows::core::GetTrustLevel,
-            TrimTimeFromStart::<Impl, IMPL_OFFSET>,
-            SetTrimTimeFromStart::<Impl, IMPL_OFFSET>,
-            TrimTimeFromEnd::<Impl, IMPL_OFFSET>,
-            SetTrimTimeFromEnd::<Impl, IMPL_OFFSET>,
-            OriginalDuration::<Impl, IMPL_OFFSET>,
-            TrimmedDuration::<Impl, IMPL_OFFSET>,
-            UserData::<Impl, IMPL_OFFSET>,
-            Clone::<Impl, IMPL_OFFSET>,
-            StartTimeInComposition::<Impl, IMPL_OFFSET>,
-            EndTimeInComposition::<Impl, IMPL_OFFSET>,
-            EmbeddedAudioTracks::<Impl, IMPL_OFFSET>,
-            SelectedEmbeddedAudioTrackIndex::<Impl, IMPL_OFFSET>,
-            SetSelectedEmbeddedAudioTrackIndex::<Impl, IMPL_OFFSET>,
-            SetVolume::<Impl, IMPL_OFFSET>,
-            Volume::<Impl, IMPL_OFFSET>,
-            GetVideoEncodingProperties::<Impl, IMPL_OFFSET>,
-            AudioEffectDefinitions::<Impl, IMPL_OFFSET>,
-            VideoEffectDefinitions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaClip, BASE_OFFSET>(),
+            TrimTimeFromStart: TrimTimeFromStart::<Impl, IMPL_OFFSET>,
+            SetTrimTimeFromStart: SetTrimTimeFromStart::<Impl, IMPL_OFFSET>,
+            TrimTimeFromEnd: TrimTimeFromEnd::<Impl, IMPL_OFFSET>,
+            SetTrimTimeFromEnd: SetTrimTimeFromEnd::<Impl, IMPL_OFFSET>,
+            OriginalDuration: OriginalDuration::<Impl, IMPL_OFFSET>,
+            TrimmedDuration: TrimmedDuration::<Impl, IMPL_OFFSET>,
+            UserData: UserData::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            StartTimeInComposition: StartTimeInComposition::<Impl, IMPL_OFFSET>,
+            EndTimeInComposition: EndTimeInComposition::<Impl, IMPL_OFFSET>,
+            EmbeddedAudioTracks: EmbeddedAudioTracks::<Impl, IMPL_OFFSET>,
+            SelectedEmbeddedAudioTrackIndex: SelectedEmbeddedAudioTrackIndex::<Impl, IMPL_OFFSET>,
+            SetSelectedEmbeddedAudioTrackIndex: SetSelectedEmbeddedAudioTrackIndex::<Impl, IMPL_OFFSET>,
+            SetVolume: SetVolume::<Impl, IMPL_OFFSET>,
+            Volume: Volume::<Impl, IMPL_OFFSET>,
+            GetVideoEncodingProperties: GetVideoEncodingProperties::<Impl, IMPL_OFFSET>,
+            AudioEffectDefinitions: AudioEffectDefinitions::<Impl, IMPL_OFFSET>,
+            VideoEffectDefinitions: VideoEffectDefinitions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaClip as ::windows::core::Interface>::IID
@@ -518,7 +515,12 @@ impl IMediaClipStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaClipStatics>, ::windows::core::GetTrustLevel, CreateFromColor::<Impl, IMPL_OFFSET>, CreateFromFileAsync::<Impl, IMPL_OFFSET>, CreateFromImageFileAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaClipStatics, BASE_OFFSET>(),
+            CreateFromColor: CreateFromColor::<Impl, IMPL_OFFSET>,
+            CreateFromFileAsync: CreateFromFileAsync::<Impl, IMPL_OFFSET>,
+            CreateFromImageFileAsync: CreateFromImageFileAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaClipStatics as ::windows::core::Interface>::IID
@@ -546,7 +548,10 @@ impl IMediaClipStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaClipStatics2>, ::windows::core::GetTrustLevel, CreateFromSurface::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaClipStatics2, BASE_OFFSET>(),
+            CreateFromSurface: CreateFromSurface::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaClipStatics2 as ::windows::core::Interface>::IID
@@ -742,29 +747,24 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaComposition>,
-            ::windows::core::GetTrustLevel,
-            Duration::<Impl, IMPL_OFFSET>,
-            Clips::<Impl, IMPL_OFFSET>,
-            BackgroundAudioTracks::<Impl, IMPL_OFFSET>,
-            UserData::<Impl, IMPL_OFFSET>,
-            Clone::<Impl, IMPL_OFFSET>,
-            SaveAsync::<Impl, IMPL_OFFSET>,
-            GetThumbnailAsync::<Impl, IMPL_OFFSET>,
-            GetThumbnailsAsync::<Impl, IMPL_OFFSET>,
-            RenderToFileAsync::<Impl, IMPL_OFFSET>,
-            RenderToFileWithTrimmingPreferenceAsync::<Impl, IMPL_OFFSET>,
-            RenderToFileWithProfileAsync::<Impl, IMPL_OFFSET>,
-            CreateDefaultEncodingProfile::<Impl, IMPL_OFFSET>,
-            GenerateMediaStreamSource::<Impl, IMPL_OFFSET>,
-            GenerateMediaStreamSourceWithProfile::<Impl, IMPL_OFFSET>,
-            GeneratePreviewMediaStreamSource::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaComposition, BASE_OFFSET>(),
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            Clips: Clips::<Impl, IMPL_OFFSET>,
+            BackgroundAudioTracks: BackgroundAudioTracks::<Impl, IMPL_OFFSET>,
+            UserData: UserData::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            SaveAsync: SaveAsync::<Impl, IMPL_OFFSET>,
+            GetThumbnailAsync: GetThumbnailAsync::<Impl, IMPL_OFFSET>,
+            GetThumbnailsAsync: GetThumbnailsAsync::<Impl, IMPL_OFFSET>,
+            RenderToFileAsync: RenderToFileAsync::<Impl, IMPL_OFFSET>,
+            RenderToFileWithTrimmingPreferenceAsync: RenderToFileWithTrimmingPreferenceAsync::<Impl, IMPL_OFFSET>,
+            RenderToFileWithProfileAsync: RenderToFileWithProfileAsync::<Impl, IMPL_OFFSET>,
+            CreateDefaultEncodingProfile: CreateDefaultEncodingProfile::<Impl, IMPL_OFFSET>,
+            GenerateMediaStreamSource: GenerateMediaStreamSource::<Impl, IMPL_OFFSET>,
+            GenerateMediaStreamSourceWithProfile: GenerateMediaStreamSourceWithProfile::<Impl, IMPL_OFFSET>,
+            GeneratePreviewMediaStreamSource: GeneratePreviewMediaStreamSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaComposition as ::windows::core::Interface>::IID
@@ -792,7 +792,7 @@ impl IMediaComposition2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaComposition2>, ::windows::core::GetTrustLevel, OverlayLayers::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaComposition2, BASE_OFFSET>(), OverlayLayers: OverlayLayers::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaComposition2 as ::windows::core::Interface>::IID
@@ -820,7 +820,7 @@ impl IMediaCompositionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaCompositionStatics>, ::windows::core::GetTrustLevel, LoadAsync::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaCompositionStatics, BASE_OFFSET>(), LoadAsync: LoadAsync::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaCompositionStatics as ::windows::core::Interface>::IID
@@ -928,24 +928,19 @@ impl IMediaOverlayVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioEnabled(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaOverlay>,
-            ::windows::core::GetTrustLevel,
-            Position::<Impl, IMPL_OFFSET>,
-            SetPosition::<Impl, IMPL_OFFSET>,
-            SetDelay::<Impl, IMPL_OFFSET>,
-            Delay::<Impl, IMPL_OFFSET>,
-            Opacity::<Impl, IMPL_OFFSET>,
-            SetOpacity::<Impl, IMPL_OFFSET>,
-            Clone::<Impl, IMPL_OFFSET>,
-            Clip::<Impl, IMPL_OFFSET>,
-            AudioEnabled::<Impl, IMPL_OFFSET>,
-            SetAudioEnabled::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaOverlay, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            SetPosition: SetPosition::<Impl, IMPL_OFFSET>,
+            SetDelay: SetDelay::<Impl, IMPL_OFFSET>,
+            Delay: Delay::<Impl, IMPL_OFFSET>,
+            Opacity: Opacity::<Impl, IMPL_OFFSET>,
+            SetOpacity: SetOpacity::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            Clip: Clip::<Impl, IMPL_OFFSET>,
+            AudioEnabled: AudioEnabled::<Impl, IMPL_OFFSET>,
+            SetAudioEnabled: SetAudioEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaOverlay as ::windows::core::Interface>::IID
@@ -985,7 +980,11 @@ impl IMediaOverlayFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaOverlayFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithPositionAndOpacity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaOverlayFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithPositionAndOpacity: CreateWithPositionAndOpacity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaOverlayFactory as ::windows::core::Interface>::IID
@@ -1037,7 +1036,12 @@ impl IMediaOverlayLayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaOverlayLayer>, ::windows::core::GetTrustLevel, Clone::<Impl, IMPL_OFFSET>, Overlays::<Impl, IMPL_OFFSET>, CustomCompositorDefinition::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaOverlayLayer, BASE_OFFSET>(),
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            Overlays: Overlays::<Impl, IMPL_OFFSET>,
+            CustomCompositorDefinition: CustomCompositorDefinition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaOverlayLayer as ::windows::core::Interface>::IID
@@ -1065,7 +1069,10 @@ impl IMediaOverlayLayerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaOverlayLayerFactory>, ::windows::core::GetTrustLevel, CreateWithCompositorDefinition::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaOverlayLayerFactory, BASE_OFFSET>(),
+            CreateWithCompositorDefinition: CreateWithCompositorDefinition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaOverlayLayerFactory as ::windows::core::Interface>::IID

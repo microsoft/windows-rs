@@ -25,7 +25,11 @@ impl ICurrencyFormatterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCurrency(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyFormatter>, ::windows::core::GetTrustLevel, Currency::<Impl, IMPL_OFFSET>, SetCurrency::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrencyFormatter, BASE_OFFSET>(),
+            Currency: Currency::<Impl, IMPL_OFFSET>,
+            SetCurrency: SetCurrency::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrencyFormatter as ::windows::core::Interface>::IID
@@ -63,7 +67,12 @@ impl ICurrencyFormatter2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ApplyRoundingForCurrency(roundingalgorithm).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyFormatter2>, ::windows::core::GetTrustLevel, Mode::<Impl, IMPL_OFFSET>, SetMode::<Impl, IMPL_OFFSET>, ApplyRoundingForCurrency::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrencyFormatter2, BASE_OFFSET>(),
+            Mode: Mode::<Impl, IMPL_OFFSET>,
+            SetMode: SetMode::<Impl, IMPL_OFFSET>,
+            ApplyRoundingForCurrency: ApplyRoundingForCurrency::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrencyFormatter2 as ::windows::core::Interface>::IID
@@ -107,7 +116,11 @@ impl ICurrencyFormatterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyFormatterFactory>, ::windows::core::GetTrustLevel, CreateCurrencyFormatterCode::<Impl, IMPL_OFFSET>, CreateCurrencyFormatterCodeContext::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrencyFormatterFactory, BASE_OFFSET>(),
+            CreateCurrencyFormatterCode: CreateCurrencyFormatterCode::<Impl, IMPL_OFFSET>,
+            CreateCurrencyFormatterCodeContext: CreateCurrencyFormatterCodeContext::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrencyFormatterFactory as ::windows::core::Interface>::IID
@@ -135,7 +148,10 @@ impl IDecimalFormatterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDecimalFormatterFactory>, ::windows::core::GetTrustLevel, CreateDecimalFormatter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDecimalFormatterFactory, BASE_OFFSET>(),
+            CreateDecimalFormatter: CreateDecimalFormatter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDecimalFormatterFactory as ::windows::core::Interface>::IID
@@ -185,7 +201,13 @@ impl IIncrementNumberRounderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIncrement(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIncrementNumberRounder>, ::windows::core::GetTrustLevel, RoundingAlgorithm::<Impl, IMPL_OFFSET>, SetRoundingAlgorithm::<Impl, IMPL_OFFSET>, Increment::<Impl, IMPL_OFFSET>, SetIncrement::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIncrementNumberRounder, BASE_OFFSET>(),
+            RoundingAlgorithm: RoundingAlgorithm::<Impl, IMPL_OFFSET>,
+            SetRoundingAlgorithm: SetRoundingAlgorithm::<Impl, IMPL_OFFSET>,
+            Increment: Increment::<Impl, IMPL_OFFSET>,
+            SetIncrement: SetIncrement::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIncrementNumberRounder as ::windows::core::Interface>::IID
@@ -234,7 +256,12 @@ impl INumberFormatterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberFormatter>, ::windows::core::GetTrustLevel, FormatInt::<Impl, IMPL_OFFSET>, FormatUInt::<Impl, IMPL_OFFSET>, FormatDouble::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INumberFormatter, BASE_OFFSET>(),
+            FormatInt: FormatInt::<Impl, IMPL_OFFSET>,
+            FormatUInt: FormatUInt::<Impl, IMPL_OFFSET>,
+            FormatDouble: FormatDouble::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INumberFormatter as ::windows::core::Interface>::IID
@@ -283,7 +310,12 @@ impl INumberFormatter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberFormatter2>, ::windows::core::GetTrustLevel, FormatInt::<Impl, IMPL_OFFSET>, FormatUInt::<Impl, IMPL_OFFSET>, FormatDouble::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INumberFormatter2, BASE_OFFSET>(),
+            FormatInt: FormatInt::<Impl, IMPL_OFFSET>,
+            FormatUInt: FormatUInt::<Impl, IMPL_OFFSET>,
+            FormatDouble: FormatDouble::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INumberFormatter2 as ::windows::core::Interface>::IID
@@ -432,28 +464,23 @@ impl INumberFormatterOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INumberFormatterOptions>,
-            ::windows::core::GetTrustLevel,
-            Languages::<Impl, IMPL_OFFSET>,
-            GeographicRegion::<Impl, IMPL_OFFSET>,
-            IntegerDigits::<Impl, IMPL_OFFSET>,
-            SetIntegerDigits::<Impl, IMPL_OFFSET>,
-            FractionDigits::<Impl, IMPL_OFFSET>,
-            SetFractionDigits::<Impl, IMPL_OFFSET>,
-            IsGrouped::<Impl, IMPL_OFFSET>,
-            SetIsGrouped::<Impl, IMPL_OFFSET>,
-            IsDecimalPointAlwaysDisplayed::<Impl, IMPL_OFFSET>,
-            SetIsDecimalPointAlwaysDisplayed::<Impl, IMPL_OFFSET>,
-            NumeralSystem::<Impl, IMPL_OFFSET>,
-            SetNumeralSystem::<Impl, IMPL_OFFSET>,
-            ResolvedLanguage::<Impl, IMPL_OFFSET>,
-            ResolvedGeographicRegion::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INumberFormatterOptions, BASE_OFFSET>(),
+            Languages: Languages::<Impl, IMPL_OFFSET>,
+            GeographicRegion: GeographicRegion::<Impl, IMPL_OFFSET>,
+            IntegerDigits: IntegerDigits::<Impl, IMPL_OFFSET>,
+            SetIntegerDigits: SetIntegerDigits::<Impl, IMPL_OFFSET>,
+            FractionDigits: FractionDigits::<Impl, IMPL_OFFSET>,
+            SetFractionDigits: SetFractionDigits::<Impl, IMPL_OFFSET>,
+            IsGrouped: IsGrouped::<Impl, IMPL_OFFSET>,
+            SetIsGrouped: SetIsGrouped::<Impl, IMPL_OFFSET>,
+            IsDecimalPointAlwaysDisplayed: IsDecimalPointAlwaysDisplayed::<Impl, IMPL_OFFSET>,
+            SetIsDecimalPointAlwaysDisplayed: SetIsDecimalPointAlwaysDisplayed::<Impl, IMPL_OFFSET>,
+            NumeralSystem: NumeralSystem::<Impl, IMPL_OFFSET>,
+            SetNumeralSystem: SetNumeralSystem::<Impl, IMPL_OFFSET>,
+            ResolvedLanguage: ResolvedLanguage::<Impl, IMPL_OFFSET>,
+            ResolvedGeographicRegion: ResolvedGeographicRegion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INumberFormatterOptions as ::windows::core::Interface>::IID
@@ -505,7 +532,12 @@ impl INumberParserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberParser>, ::windows::core::GetTrustLevel, ParseInt::<Impl, IMPL_OFFSET>, ParseUInt::<Impl, IMPL_OFFSET>, ParseDouble::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INumberParser, BASE_OFFSET>(),
+            ParseInt: ParseInt::<Impl, IMPL_OFFSET>,
+            ParseUInt: ParseUInt::<Impl, IMPL_OFFSET>,
+            ParseDouble: ParseDouble::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INumberParser as ::windows::core::Interface>::IID
@@ -590,7 +622,15 @@ impl INumberRounderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberRounder>, ::windows::core::GetTrustLevel, RoundInt32::<Impl, IMPL_OFFSET>, RoundUInt32::<Impl, IMPL_OFFSET>, RoundInt64::<Impl, IMPL_OFFSET>, RoundUInt64::<Impl, IMPL_OFFSET>, RoundSingle::<Impl, IMPL_OFFSET>, RoundDouble::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INumberRounder, BASE_OFFSET>(),
+            RoundInt32: RoundInt32::<Impl, IMPL_OFFSET>,
+            RoundUInt32: RoundUInt32::<Impl, IMPL_OFFSET>,
+            RoundInt64: RoundInt64::<Impl, IMPL_OFFSET>,
+            RoundUInt64: RoundUInt64::<Impl, IMPL_OFFSET>,
+            RoundSingle: RoundSingle::<Impl, IMPL_OFFSET>,
+            RoundDouble: RoundDouble::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INumberRounder as ::windows::core::Interface>::IID
@@ -620,7 +660,11 @@ impl INumberRounderOptionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNumberRounder(&*(&value as *const <INumberRounder as ::windows::core::Abi>::Abi as *const <INumberRounder as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberRounderOption>, ::windows::core::GetTrustLevel, NumberRounder::<Impl, IMPL_OFFSET>, SetNumberRounder::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INumberRounderOption, BASE_OFFSET>(),
+            NumberRounder: NumberRounder::<Impl, IMPL_OFFSET>,
+            SetNumberRounder: SetNumberRounder::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INumberRounderOption as ::windows::core::Interface>::IID
@@ -689,7 +733,14 @@ impl INumeralSystemTranslatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumeralSystemTranslator>, ::windows::core::GetTrustLevel, Languages::<Impl, IMPL_OFFSET>, ResolvedLanguage::<Impl, IMPL_OFFSET>, NumeralSystem::<Impl, IMPL_OFFSET>, SetNumeralSystem::<Impl, IMPL_OFFSET>, TranslateNumerals::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INumeralSystemTranslator, BASE_OFFSET>(),
+            Languages: Languages::<Impl, IMPL_OFFSET>,
+            ResolvedLanguage: ResolvedLanguage::<Impl, IMPL_OFFSET>,
+            NumeralSystem: NumeralSystem::<Impl, IMPL_OFFSET>,
+            SetNumeralSystem: SetNumeralSystem::<Impl, IMPL_OFFSET>,
+            TranslateNumerals: TranslateNumerals::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INumeralSystemTranslator as ::windows::core::Interface>::IID
@@ -717,7 +768,7 @@ impl INumeralSystemTranslatorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumeralSystemTranslatorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, INumeralSystemTranslatorFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INumeralSystemTranslatorFactory as ::windows::core::Interface>::IID
@@ -745,7 +796,10 @@ impl IPercentFormatterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPercentFormatterFactory>, ::windows::core::GetTrustLevel, CreatePercentFormatter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPercentFormatterFactory, BASE_OFFSET>(),
+            CreatePercentFormatter: CreatePercentFormatter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPercentFormatterFactory as ::windows::core::Interface>::IID
@@ -773,7 +827,10 @@ impl IPermilleFormatterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPermilleFormatterFactory>, ::windows::core::GetTrustLevel, CreatePermilleFormatter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPermilleFormatterFactory, BASE_OFFSET>(),
+            CreatePermilleFormatter: CreatePermilleFormatter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPermilleFormatterFactory as ::windows::core::Interface>::IID
@@ -803,7 +860,11 @@ impl ISignedZeroOptionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsZeroSigned(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignedZeroOption>, ::windows::core::GetTrustLevel, IsZeroSigned::<Impl, IMPL_OFFSET>, SetIsZeroSigned::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISignedZeroOption, BASE_OFFSET>(),
+            IsZeroSigned: IsZeroSigned::<Impl, IMPL_OFFSET>,
+            SetIsZeroSigned: SetIsZeroSigned::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISignedZeroOption as ::windows::core::Interface>::IID
@@ -853,7 +914,13 @@ impl ISignificantDigitsNumberRounderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignificantDigits(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignificantDigitsNumberRounder>, ::windows::core::GetTrustLevel, RoundingAlgorithm::<Impl, IMPL_OFFSET>, SetRoundingAlgorithm::<Impl, IMPL_OFFSET>, SignificantDigits::<Impl, IMPL_OFFSET>, SetSignificantDigits::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISignificantDigitsNumberRounder, BASE_OFFSET>(),
+            RoundingAlgorithm: RoundingAlgorithm::<Impl, IMPL_OFFSET>,
+            SetRoundingAlgorithm: SetRoundingAlgorithm::<Impl, IMPL_OFFSET>,
+            SignificantDigits: SignificantDigits::<Impl, IMPL_OFFSET>,
+            SetSignificantDigits: SetSignificantDigits::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISignificantDigitsNumberRounder as ::windows::core::Interface>::IID
@@ -883,7 +950,11 @@ impl ISignificantDigitsOptionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignificantDigits(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignificantDigitsOption>, ::windows::core::GetTrustLevel, SignificantDigits::<Impl, IMPL_OFFSET>, SetSignificantDigits::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISignificantDigitsOption, BASE_OFFSET>(),
+            SignificantDigits: SignificantDigits::<Impl, IMPL_OFFSET>,
+            SetSignificantDigits: SetSignificantDigits::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISignificantDigitsOption as ::windows::core::Interface>::IID

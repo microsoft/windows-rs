@@ -68,7 +68,14 @@ impl IEnterpriseKeyCredentialRegistrationInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationInfo>, ::windows::core::GetTrustLevel, TenantId::<Impl, IMPL_OFFSET>, TenantName::<Impl, IMPL_OFFSET>, Subject::<Impl, IMPL_OFFSET>, KeyId::<Impl, IMPL_OFFSET>, KeyName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEnterpriseKeyCredentialRegistrationInfo, BASE_OFFSET>(),
+            TenantId: TenantId::<Impl, IMPL_OFFSET>,
+            TenantName: TenantName::<Impl, IMPL_OFFSET>,
+            Subject: Subject::<Impl, IMPL_OFFSET>,
+            KeyId: KeyId::<Impl, IMPL_OFFSET>,
+            KeyName: KeyName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnterpriseKeyCredentialRegistrationInfo as ::windows::core::Interface>::IID
@@ -96,7 +103,10 @@ impl IEnterpriseKeyCredentialRegistrationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationManager>, ::windows::core::GetTrustLevel, GetRegistrationsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEnterpriseKeyCredentialRegistrationManager, BASE_OFFSET>(),
+            GetRegistrationsAsync: GetRegistrationsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnterpriseKeyCredentialRegistrationManager as ::windows::core::Interface>::IID
@@ -124,7 +134,10 @@ impl IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationManagerStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEnterpriseKeyCredentialRegistrationManagerStatics, BASE_OFFSET>(),
+            Current: Current::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnterpriseKeyCredentialRegistrationManagerStatics as ::windows::core::Interface>::IID

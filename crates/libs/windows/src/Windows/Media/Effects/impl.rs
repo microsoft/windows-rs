@@ -37,7 +37,12 @@ impl IAudioCaptureEffectsManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioCaptureEffectsManager>, ::windows::core::GetTrustLevel, AudioCaptureEffectsChanged::<Impl, IMPL_OFFSET>, RemoveAudioCaptureEffectsChanged::<Impl, IMPL_OFFSET>, GetAudioCaptureEffects::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioCaptureEffectsManager, BASE_OFFSET>(),
+            AudioCaptureEffectsChanged: AudioCaptureEffectsChanged::<Impl, IMPL_OFFSET>,
+            RemoveAudioCaptureEffectsChanged: RemoveAudioCaptureEffectsChanged::<Impl, IMPL_OFFSET>,
+            GetAudioCaptureEffects: GetAudioCaptureEffects::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioCaptureEffectsManager as ::windows::core::Interface>::IID
@@ -65,7 +70,7 @@ impl IAudioEffectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioEffect>, ::windows::core::GetTrustLevel, AudioEffectType::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioEffect, BASE_OFFSET>(), AudioEffectType: AudioEffectType::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEffect as ::windows::core::Interface>::IID
@@ -105,7 +110,11 @@ impl IAudioEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioEffectDefinition>, ::windows::core::GetTrustLevel, ActivatableClassId::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioEffectDefinition, BASE_OFFSET>(),
+            ActivatableClassId: ActivatableClassId::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEffectDefinition as ::windows::core::Interface>::IID
@@ -145,7 +154,11 @@ impl IAudioEffectDefinitionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioEffectDefinitionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioEffectDefinitionFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithProperties: CreateWithProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEffectDefinitionFactory as ::windows::core::Interface>::IID
@@ -209,18 +222,13 @@ impl IAudioEffectsManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAudioEffectsManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            CreateAudioRenderEffectsManager::<Impl, IMPL_OFFSET>,
-            CreateAudioRenderEffectsManagerWithMode::<Impl, IMPL_OFFSET>,
-            CreateAudioCaptureEffectsManager::<Impl, IMPL_OFFSET>,
-            CreateAudioCaptureEffectsManagerWithMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioEffectsManagerStatics, BASE_OFFSET>(),
+            CreateAudioRenderEffectsManager: CreateAudioRenderEffectsManager::<Impl, IMPL_OFFSET>,
+            CreateAudioRenderEffectsManagerWithMode: CreateAudioRenderEffectsManagerWithMode::<Impl, IMPL_OFFSET>,
+            CreateAudioCaptureEffectsManager: CreateAudioCaptureEffectsManager::<Impl, IMPL_OFFSET>,
+            CreateAudioCaptureEffectsManagerWithMode: CreateAudioCaptureEffectsManagerWithMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEffectsManagerStatics as ::windows::core::Interface>::IID
@@ -265,7 +273,12 @@ impl IAudioRenderEffectsManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioRenderEffectsManager>, ::windows::core::GetTrustLevel, AudioRenderEffectsChanged::<Impl, IMPL_OFFSET>, RemoveAudioRenderEffectsChanged::<Impl, IMPL_OFFSET>, GetAudioRenderEffects::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioRenderEffectsManager, BASE_OFFSET>(),
+            AudioRenderEffectsChanged: AudioRenderEffectsChanged::<Impl, IMPL_OFFSET>,
+            RemoveAudioRenderEffectsChanged: RemoveAudioRenderEffectsChanged::<Impl, IMPL_OFFSET>,
+            GetAudioRenderEffects: GetAudioRenderEffects::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioRenderEffectsManager as ::windows::core::Interface>::IID
@@ -310,7 +323,12 @@ impl IAudioRenderEffectsManager2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowSettingsUI().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioRenderEffectsManager2>, ::windows::core::GetTrustLevel, EffectsProviderThumbnail::<Impl, IMPL_OFFSET>, EffectsProviderSettingsLabel::<Impl, IMPL_OFFSET>, ShowSettingsUI::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioRenderEffectsManager2, BASE_OFFSET>(),
+            EffectsProviderThumbnail: EffectsProviderThumbnail::<Impl, IMPL_OFFSET>,
+            EffectsProviderSettingsLabel: EffectsProviderSettingsLabel::<Impl, IMPL_OFFSET>,
+            ShowSettingsUI: ShowSettingsUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioRenderEffectsManager2 as ::windows::core::Interface>::IID
@@ -370,20 +388,15 @@ impl IBasicAudioEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DiscardQueuedFrames().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBasicAudioEffect>,
-            ::windows::core::GetTrustLevel,
-            UseInputFrameForOutput::<Impl, IMPL_OFFSET>,
-            SupportedEncodingProperties::<Impl, IMPL_OFFSET>,
-            SetEncodingProperties::<Impl, IMPL_OFFSET>,
-            ProcessFrame::<Impl, IMPL_OFFSET>,
-            Close::<Impl, IMPL_OFFSET>,
-            DiscardQueuedFrames::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBasicAudioEffect, BASE_OFFSET>(),
+            UseInputFrameForOutput: UseInputFrameForOutput::<Impl, IMPL_OFFSET>,
+            SupportedEncodingProperties: SupportedEncodingProperties::<Impl, IMPL_OFFSET>,
+            SetEncodingProperties: SetEncodingProperties::<Impl, IMPL_OFFSET>,
+            ProcessFrame: ProcessFrame::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+            DiscardQueuedFrames: DiscardQueuedFrames::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBasicAudioEffect as ::windows::core::Interface>::IID
@@ -469,22 +482,17 @@ impl IBasicVideoEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DiscardQueuedFrames().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBasicVideoEffect>,
-            ::windows::core::GetTrustLevel,
-            IsReadOnly::<Impl, IMPL_OFFSET>,
-            SupportedMemoryTypes::<Impl, IMPL_OFFSET>,
-            TimeIndependent::<Impl, IMPL_OFFSET>,
-            SupportedEncodingProperties::<Impl, IMPL_OFFSET>,
-            SetEncodingProperties::<Impl, IMPL_OFFSET>,
-            ProcessFrame::<Impl, IMPL_OFFSET>,
-            Close::<Impl, IMPL_OFFSET>,
-            DiscardQueuedFrames::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBasicVideoEffect, BASE_OFFSET>(),
+            IsReadOnly: IsReadOnly::<Impl, IMPL_OFFSET>,
+            SupportedMemoryTypes: SupportedMemoryTypes::<Impl, IMPL_OFFSET>,
+            TimeIndependent: TimeIndependent::<Impl, IMPL_OFFSET>,
+            SupportedEncodingProperties: SupportedEncodingProperties::<Impl, IMPL_OFFSET>,
+            SetEncodingProperties: SetEncodingProperties::<Impl, IMPL_OFFSET>,
+            ProcessFrame: ProcessFrame::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+            DiscardQueuedFrames: DiscardQueuedFrames::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBasicVideoEffect as ::windows::core::Interface>::IID
@@ -548,7 +556,13 @@ impl ICompositeVideoFrameContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositeVideoFrameContext>, ::windows::core::GetTrustLevel, SurfacesToOverlay::<Impl, IMPL_OFFSET>, BackgroundFrame::<Impl, IMPL_OFFSET>, OutputFrame::<Impl, IMPL_OFFSET>, GetOverlayForSurface::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositeVideoFrameContext, BASE_OFFSET>(),
+            SurfacesToOverlay: SurfacesToOverlay::<Impl, IMPL_OFFSET>,
+            BackgroundFrame: BackgroundFrame::<Impl, IMPL_OFFSET>,
+            OutputFrame: OutputFrame::<Impl, IMPL_OFFSET>,
+            GetOverlayForSurface: GetOverlayForSurface::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompositeVideoFrameContext as ::windows::core::Interface>::IID
@@ -588,7 +602,11 @@ impl IProcessAudioFrameContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessAudioFrameContext>, ::windows::core::GetTrustLevel, InputFrame::<Impl, IMPL_OFFSET>, OutputFrame::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProcessAudioFrameContext, BASE_OFFSET>(),
+            InputFrame: InputFrame::<Impl, IMPL_OFFSET>,
+            OutputFrame: OutputFrame::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProcessAudioFrameContext as ::windows::core::Interface>::IID
@@ -628,7 +646,11 @@ impl IProcessVideoFrameContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessVideoFrameContext>, ::windows::core::GetTrustLevel, InputFrame::<Impl, IMPL_OFFSET>, OutputFrame::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProcessVideoFrameContext, BASE_OFFSET>(),
+            InputFrame: InputFrame::<Impl, IMPL_OFFSET>,
+            OutputFrame: OutputFrame::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProcessVideoFrameContext as ::windows::core::Interface>::IID
@@ -661,7 +683,11 @@ impl ISlowMotionEffectDefinitionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTimeStretchRate(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISlowMotionEffectDefinition>, ::windows::core::GetTrustLevel, TimeStretchRate::<Impl, IMPL_OFFSET>, SetTimeStretchRate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISlowMotionEffectDefinition, BASE_OFFSET>(),
+            TimeStretchRate: TimeStretchRate::<Impl, IMPL_OFFSET>,
+            SetTimeStretchRate: SetTimeStretchRate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISlowMotionEffectDefinition as ::windows::core::Interface>::IID
@@ -711,7 +737,14 @@ impl IVideoCompositorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DiscardQueuedFrames().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoCompositor>, ::windows::core::GetTrustLevel, TimeIndependent::<Impl, IMPL_OFFSET>, SetEncodingProperties::<Impl, IMPL_OFFSET>, CompositeFrame::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>, DiscardQueuedFrames::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoCompositor, BASE_OFFSET>(),
+            TimeIndependent: TimeIndependent::<Impl, IMPL_OFFSET>,
+            SetEncodingProperties: SetEncodingProperties::<Impl, IMPL_OFFSET>,
+            CompositeFrame: CompositeFrame::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+            DiscardQueuedFrames: DiscardQueuedFrames::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoCompositor as ::windows::core::Interface>::IID
@@ -751,7 +784,11 @@ impl IVideoCompositorDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoCompositorDefinition>, ::windows::core::GetTrustLevel, ActivatableClassId::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoCompositorDefinition, BASE_OFFSET>(),
+            ActivatableClassId: ActivatableClassId::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoCompositorDefinition as ::windows::core::Interface>::IID
@@ -791,7 +828,11 @@ impl IVideoCompositorDefinitionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoCompositorDefinitionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoCompositorDefinitionFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithProperties: CreateWithProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoCompositorDefinitionFactory as ::windows::core::Interface>::IID
@@ -831,7 +872,11 @@ impl IVideoEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoEffectDefinition>, ::windows::core::GetTrustLevel, ActivatableClassId::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoEffectDefinition, BASE_OFFSET>(),
+            ActivatableClassId: ActivatableClassId::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoEffectDefinition as ::windows::core::Interface>::IID
@@ -871,7 +916,11 @@ impl IVideoEffectDefinitionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoEffectDefinitionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoEffectDefinitionFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithProperties: CreateWithProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoEffectDefinitionFactory as ::windows::core::Interface>::IID
@@ -989,26 +1038,21 @@ impl IVideoTransformEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVideoTransformEffectDefinition>,
-            ::windows::core::GetTrustLevel,
-            PaddingColor::<Impl, IMPL_OFFSET>,
-            SetPaddingColor::<Impl, IMPL_OFFSET>,
-            OutputSize::<Impl, IMPL_OFFSET>,
-            SetOutputSize::<Impl, IMPL_OFFSET>,
-            CropRectangle::<Impl, IMPL_OFFSET>,
-            SetCropRectangle::<Impl, IMPL_OFFSET>,
-            Rotation::<Impl, IMPL_OFFSET>,
-            SetRotation::<Impl, IMPL_OFFSET>,
-            Mirror::<Impl, IMPL_OFFSET>,
-            SetMirror::<Impl, IMPL_OFFSET>,
-            SetProcessingAlgorithm::<Impl, IMPL_OFFSET>,
-            ProcessingAlgorithm::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoTransformEffectDefinition, BASE_OFFSET>(),
+            PaddingColor: PaddingColor::<Impl, IMPL_OFFSET>,
+            SetPaddingColor: SetPaddingColor::<Impl, IMPL_OFFSET>,
+            OutputSize: OutputSize::<Impl, IMPL_OFFSET>,
+            SetOutputSize: SetOutputSize::<Impl, IMPL_OFFSET>,
+            CropRectangle: CropRectangle::<Impl, IMPL_OFFSET>,
+            SetCropRectangle: SetCropRectangle::<Impl, IMPL_OFFSET>,
+            Rotation: Rotation::<Impl, IMPL_OFFSET>,
+            SetRotation: SetRotation::<Impl, IMPL_OFFSET>,
+            Mirror: Mirror::<Impl, IMPL_OFFSET>,
+            SetMirror: SetMirror::<Impl, IMPL_OFFSET>,
+            SetProcessingAlgorithm: SetProcessingAlgorithm::<Impl, IMPL_OFFSET>,
+            ProcessingAlgorithm: ProcessingAlgorithm::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoTransformEffectDefinition as ::windows::core::Interface>::IID
@@ -1036,7 +1080,10 @@ impl IVideoTransformEffectDefinition2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoTransformEffectDefinition2>, ::windows::core::GetTrustLevel, SphericalProjection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoTransformEffectDefinition2, BASE_OFFSET>(),
+            SphericalProjection: SphericalProjection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoTransformEffectDefinition2 as ::windows::core::Interface>::IID
@@ -1137,24 +1184,19 @@ impl IVideoTransformSphericalProjectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetViewOrientation(&*(&value as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVideoTransformSphericalProjection>,
-            ::windows::core::GetTrustLevel,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            SetIsEnabled::<Impl, IMPL_OFFSET>,
-            FrameFormat::<Impl, IMPL_OFFSET>,
-            SetFrameFormat::<Impl, IMPL_OFFSET>,
-            ProjectionMode::<Impl, IMPL_OFFSET>,
-            SetProjectionMode::<Impl, IMPL_OFFSET>,
-            HorizontalFieldOfViewInDegrees::<Impl, IMPL_OFFSET>,
-            SetHorizontalFieldOfViewInDegrees::<Impl, IMPL_OFFSET>,
-            ViewOrientation::<Impl, IMPL_OFFSET>,
-            SetViewOrientation::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoTransformSphericalProjection, BASE_OFFSET>(),
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled: SetIsEnabled::<Impl, IMPL_OFFSET>,
+            FrameFormat: FrameFormat::<Impl, IMPL_OFFSET>,
+            SetFrameFormat: SetFrameFormat::<Impl, IMPL_OFFSET>,
+            ProjectionMode: ProjectionMode::<Impl, IMPL_OFFSET>,
+            SetProjectionMode: SetProjectionMode::<Impl, IMPL_OFFSET>,
+            HorizontalFieldOfViewInDegrees: HorizontalFieldOfViewInDegrees::<Impl, IMPL_OFFSET>,
+            SetHorizontalFieldOfViewInDegrees: SetHorizontalFieldOfViewInDegrees::<Impl, IMPL_OFFSET>,
+            ViewOrientation: ViewOrientation::<Impl, IMPL_OFFSET>,
+            SetViewOrientation: SetViewOrientation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoTransformSphericalProjection as ::windows::core::Interface>::IID

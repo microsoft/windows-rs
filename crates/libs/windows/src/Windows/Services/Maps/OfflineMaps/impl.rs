@@ -85,21 +85,16 @@ impl IOfflineMapPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IOfflineMapPackage>,
-            ::windows::core::GetTrustLevel,
-            Status::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            EnclosingRegionName::<Impl, IMPL_OFFSET>,
-            EstimatedSizeInBytes::<Impl, IMPL_OFFSET>,
-            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
-            StatusChanged::<Impl, IMPL_OFFSET>,
-            RequestStartDownloadAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOfflineMapPackage, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            EnclosingRegionName: EnclosingRegionName::<Impl, IMPL_OFFSET>,
+            EstimatedSizeInBytes: EstimatedSizeInBytes::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged: RemoveStatusChanged::<Impl, IMPL_OFFSET>,
+            StatusChanged: StatusChanged::<Impl, IMPL_OFFSET>,
+            RequestStartDownloadAsync: RequestStartDownloadAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineMapPackage as ::windows::core::Interface>::IID
@@ -139,7 +134,11 @@ impl IOfflineMapPackageQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageQueryResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Packages::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOfflineMapPackageQueryResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Packages: Packages::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineMapPackageQueryResult as ::windows::core::Interface>::IID
@@ -167,7 +166,10 @@ impl IOfflineMapPackageStartDownloadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageStartDownloadResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOfflineMapPackageStartDownloadResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineMapPackageStartDownloadResult as ::windows::core::Interface>::IID
@@ -219,7 +221,12 @@ impl IOfflineMapPackageStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageStatics>, ::windows::core::GetTrustLevel, FindPackagesAsync::<Impl, IMPL_OFFSET>, FindPackagesInBoundingBoxAsync::<Impl, IMPL_OFFSET>, FindPackagesInGeocircleAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOfflineMapPackageStatics, BASE_OFFSET>(),
+            FindPackagesAsync: FindPackagesAsync::<Impl, IMPL_OFFSET>,
+            FindPackagesInBoundingBoxAsync: FindPackagesInBoundingBoxAsync::<Impl, IMPL_OFFSET>,
+            FindPackagesInGeocircleAsync: FindPackagesInGeocircleAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineMapPackageStatics as ::windows::core::Interface>::IID

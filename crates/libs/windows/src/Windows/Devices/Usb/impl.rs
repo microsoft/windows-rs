@@ -44,7 +44,12 @@ impl IUsbBulkInEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbBulkInEndpointDescriptor>, ::windows::core::GetTrustLevel, MaxPacketSize::<Impl, IMPL_OFFSET>, EndpointNumber::<Impl, IMPL_OFFSET>, Pipe::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbBulkInEndpointDescriptor, BASE_OFFSET>(),
+            MaxPacketSize: MaxPacketSize::<Impl, IMPL_OFFSET>,
+            EndpointNumber: EndpointNumber::<Impl, IMPL_OFFSET>,
+            Pipe: Pipe::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbBulkInEndpointDescriptor as ::windows::core::Interface>::IID
@@ -130,21 +135,16 @@ impl IUsbBulkInPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUsbBulkInPipe>,
-            ::windows::core::GetTrustLevel,
-            MaxTransferSizeBytes::<Impl, IMPL_OFFSET>,
-            EndpointDescriptor::<Impl, IMPL_OFFSET>,
-            ClearStallAsync::<Impl, IMPL_OFFSET>,
-            SetReadOptions::<Impl, IMPL_OFFSET>,
-            ReadOptions::<Impl, IMPL_OFFSET>,
-            FlushBuffer::<Impl, IMPL_OFFSET>,
-            InputStream::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbBulkInPipe, BASE_OFFSET>(),
+            MaxTransferSizeBytes: MaxTransferSizeBytes::<Impl, IMPL_OFFSET>,
+            EndpointDescriptor: EndpointDescriptor::<Impl, IMPL_OFFSET>,
+            ClearStallAsync: ClearStallAsync::<Impl, IMPL_OFFSET>,
+            SetReadOptions: SetReadOptions::<Impl, IMPL_OFFSET>,
+            ReadOptions: ReadOptions::<Impl, IMPL_OFFSET>,
+            FlushBuffer: FlushBuffer::<Impl, IMPL_OFFSET>,
+            InputStream: InputStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbBulkInPipe as ::windows::core::Interface>::IID
@@ -196,7 +196,12 @@ impl IUsbBulkOutEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbBulkOutEndpointDescriptor>, ::windows::core::GetTrustLevel, MaxPacketSize::<Impl, IMPL_OFFSET>, EndpointNumber::<Impl, IMPL_OFFSET>, Pipe::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbBulkOutEndpointDescriptor, BASE_OFFSET>(),
+            MaxPacketSize: MaxPacketSize::<Impl, IMPL_OFFSET>,
+            EndpointNumber: EndpointNumber::<Impl, IMPL_OFFSET>,
+            Pipe: Pipe::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbBulkOutEndpointDescriptor as ::windows::core::Interface>::IID
@@ -265,7 +270,14 @@ impl IUsbBulkOutPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbBulkOutPipe>, ::windows::core::GetTrustLevel, EndpointDescriptor::<Impl, IMPL_OFFSET>, ClearStallAsync::<Impl, IMPL_OFFSET>, SetWriteOptions::<Impl, IMPL_OFFSET>, WriteOptions::<Impl, IMPL_OFFSET>, OutputStream::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbBulkOutPipe, BASE_OFFSET>(),
+            EndpointDescriptor: EndpointDescriptor::<Impl, IMPL_OFFSET>,
+            ClearStallAsync: ClearStallAsync::<Impl, IMPL_OFFSET>,
+            SetWriteOptions: SetWriteOptions::<Impl, IMPL_OFFSET>,
+            WriteOptions: WriteOptions::<Impl, IMPL_OFFSET>,
+            OutputStream: OutputStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbBulkOutPipe as ::windows::core::Interface>::IID
@@ -317,7 +329,12 @@ impl IUsbConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbConfiguration>, ::windows::core::GetTrustLevel, UsbInterfaces::<Impl, IMPL_OFFSET>, ConfigurationDescriptor::<Impl, IMPL_OFFSET>, Descriptors::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbConfiguration, BASE_OFFSET>(),
+            UsbInterfaces: UsbInterfaces::<Impl, IMPL_OFFSET>,
+            ConfigurationDescriptor: ConfigurationDescriptor::<Impl, IMPL_OFFSET>,
+            Descriptors: Descriptors::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbConfiguration as ::windows::core::Interface>::IID
@@ -381,7 +398,13 @@ impl IUsbConfigurationDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbConfigurationDescriptor>, ::windows::core::GetTrustLevel, ConfigurationValue::<Impl, IMPL_OFFSET>, MaxPowerMilliamps::<Impl, IMPL_OFFSET>, SelfPowered::<Impl, IMPL_OFFSET>, RemoteWakeup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbConfigurationDescriptor, BASE_OFFSET>(),
+            ConfigurationValue: ConfigurationValue::<Impl, IMPL_OFFSET>,
+            MaxPowerMilliamps: MaxPowerMilliamps::<Impl, IMPL_OFFSET>,
+            SelfPowered: SelfPowered::<Impl, IMPL_OFFSET>,
+            RemoteWakeup: RemoteWakeup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbConfigurationDescriptor as ::windows::core::Interface>::IID
@@ -421,7 +444,11 @@ impl IUsbConfigurationDescriptorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbConfigurationDescriptorStatics>, ::windows::core::GetTrustLevel, TryParse::<Impl, IMPL_OFFSET>, Parse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbConfigurationDescriptorStatics, BASE_OFFSET>(),
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbConfigurationDescriptorStatics as ::windows::core::Interface>::IID
@@ -505,22 +532,17 @@ impl IUsbControlRequestTypeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAsByte(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUsbControlRequestType>,
-            ::windows::core::GetTrustLevel,
-            Direction::<Impl, IMPL_OFFSET>,
-            SetDirection::<Impl, IMPL_OFFSET>,
-            ControlTransferType::<Impl, IMPL_OFFSET>,
-            SetControlTransferType::<Impl, IMPL_OFFSET>,
-            Recipient::<Impl, IMPL_OFFSET>,
-            SetRecipient::<Impl, IMPL_OFFSET>,
-            AsByte::<Impl, IMPL_OFFSET>,
-            SetAsByte::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbControlRequestType, BASE_OFFSET>(),
+            Direction: Direction::<Impl, IMPL_OFFSET>,
+            SetDirection: SetDirection::<Impl, IMPL_OFFSET>,
+            ControlTransferType: ControlTransferType::<Impl, IMPL_OFFSET>,
+            SetControlTransferType: SetControlTransferType::<Impl, IMPL_OFFSET>,
+            Recipient: Recipient::<Impl, IMPL_OFFSET>,
+            SetRecipient: SetRecipient::<Impl, IMPL_OFFSET>,
+            AsByte: AsByte::<Impl, IMPL_OFFSET>,
+            SetAsByte: SetAsByte::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbControlRequestType as ::windows::core::Interface>::IID
@@ -565,7 +587,12 @@ impl IUsbDescriptorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReadDescriptorBuffer(&*(&buffer as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbDescriptor>, ::windows::core::GetTrustLevel, Length::<Impl, IMPL_OFFSET>, DescriptorType::<Impl, IMPL_OFFSET>, ReadDescriptorBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbDescriptor, BASE_OFFSET>(),
+            Length: Length::<Impl, IMPL_OFFSET>,
+            DescriptorType: DescriptorType::<Impl, IMPL_OFFSET>,
+            ReadDescriptorBuffer: ReadDescriptorBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbDescriptor as ::windows::core::Interface>::IID
@@ -665,21 +692,16 @@ impl IUsbDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUsbDevice>,
-            ::windows::core::GetTrustLevel,
-            SendControlOutTransferAsync::<Impl, IMPL_OFFSET>,
-            SendControlOutTransferAsyncNoBuffer::<Impl, IMPL_OFFSET>,
-            SendControlInTransferAsync::<Impl, IMPL_OFFSET>,
-            SendControlInTransferAsyncNoBuffer::<Impl, IMPL_OFFSET>,
-            DefaultInterface::<Impl, IMPL_OFFSET>,
-            DeviceDescriptor::<Impl, IMPL_OFFSET>,
-            Configuration::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbDevice, BASE_OFFSET>(),
+            SendControlOutTransferAsync: SendControlOutTransferAsync::<Impl, IMPL_OFFSET>,
+            SendControlOutTransferAsyncNoBuffer: SendControlOutTransferAsyncNoBuffer::<Impl, IMPL_OFFSET>,
+            SendControlInTransferAsync: SendControlInTransferAsync::<Impl, IMPL_OFFSET>,
+            SendControlInTransferAsyncNoBuffer: SendControlInTransferAsyncNoBuffer::<Impl, IMPL_OFFSET>,
+            DefaultInterface: DefaultInterface::<Impl, IMPL_OFFSET>,
+            DeviceDescriptor: DeviceDescriptor::<Impl, IMPL_OFFSET>,
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbDevice as ::windows::core::Interface>::IID
@@ -746,20 +768,15 @@ impl IUsbDeviceClassVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProtocolCode(&*(&value as *const <super::super::Foundation::IReference<u8> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<u8> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUsbDeviceClass>,
-            ::windows::core::GetTrustLevel,
-            ClassCode::<Impl, IMPL_OFFSET>,
-            SetClassCode::<Impl, IMPL_OFFSET>,
-            SubclassCode::<Impl, IMPL_OFFSET>,
-            SetSubclassCode::<Impl, IMPL_OFFSET>,
-            ProtocolCode::<Impl, IMPL_OFFSET>,
-            SetProtocolCode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbDeviceClass, BASE_OFFSET>(),
+            ClassCode: ClassCode::<Impl, IMPL_OFFSET>,
+            SetClassCode: SetClassCode::<Impl, IMPL_OFFSET>,
+            SubclassCode: SubclassCode::<Impl, IMPL_OFFSET>,
+            SetSubclassCode: SetSubclassCode::<Impl, IMPL_OFFSET>,
+            ProtocolCode: ProtocolCode::<Impl, IMPL_OFFSET>,
+            SetProtocolCode: SetProtocolCode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbDeviceClass as ::windows::core::Interface>::IID
@@ -774,7 +791,7 @@ impl ::windows::core::RuntimeName for IUsbDeviceClasses {
 #[cfg(feature = "implement_exclusive")]
 impl IUsbDeviceClassesVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceClassesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceClassesVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbDeviceClasses>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbDeviceClasses, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbDeviceClasses as ::windows::core::Interface>::IID
@@ -898,23 +915,18 @@ impl IUsbDeviceClassesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUsbDeviceClassesStatics>,
-            ::windows::core::GetTrustLevel,
-            CdcControl::<Impl, IMPL_OFFSET>,
-            Physical::<Impl, IMPL_OFFSET>,
-            PersonalHealthcare::<Impl, IMPL_OFFSET>,
-            ActiveSync::<Impl, IMPL_OFFSET>,
-            PalmSync::<Impl, IMPL_OFFSET>,
-            DeviceFirmwareUpdate::<Impl, IMPL_OFFSET>,
-            Irda::<Impl, IMPL_OFFSET>,
-            Measurement::<Impl, IMPL_OFFSET>,
-            VendorSpecific::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbDeviceClassesStatics, BASE_OFFSET>(),
+            CdcControl: CdcControl::<Impl, IMPL_OFFSET>,
+            Physical: Physical::<Impl, IMPL_OFFSET>,
+            PersonalHealthcare: PersonalHealthcare::<Impl, IMPL_OFFSET>,
+            ActiveSync: ActiveSync::<Impl, IMPL_OFFSET>,
+            PalmSync: PalmSync::<Impl, IMPL_OFFSET>,
+            DeviceFirmwareUpdate: DeviceFirmwareUpdate::<Impl, IMPL_OFFSET>,
+            Irda: Irda::<Impl, IMPL_OFFSET>,
+            Measurement: Measurement::<Impl, IMPL_OFFSET>,
+            VendorSpecific: VendorSpecific::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbDeviceClassesStatics as ::windows::core::Interface>::IID
@@ -1002,20 +1014,15 @@ impl IUsbDeviceDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUsbDeviceDescriptor>,
-            ::windows::core::GetTrustLevel,
-            BcdUsb::<Impl, IMPL_OFFSET>,
-            MaxPacketSize0::<Impl, IMPL_OFFSET>,
-            VendorId::<Impl, IMPL_OFFSET>,
-            ProductId::<Impl, IMPL_OFFSET>,
-            BcdDeviceRevision::<Impl, IMPL_OFFSET>,
-            NumberOfConfigurations::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbDeviceDescriptor, BASE_OFFSET>(),
+            BcdUsb: BcdUsb::<Impl, IMPL_OFFSET>,
+            MaxPacketSize0: MaxPacketSize0::<Impl, IMPL_OFFSET>,
+            VendorId: VendorId::<Impl, IMPL_OFFSET>,
+            ProductId: ProductId::<Impl, IMPL_OFFSET>,
+            BcdDeviceRevision: BcdDeviceRevision::<Impl, IMPL_OFFSET>,
+            NumberOfConfigurations: NumberOfConfigurations::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbDeviceDescriptor as ::windows::core::Interface>::IID
@@ -1091,19 +1098,14 @@ impl IUsbDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUsbDeviceStatics>,
-            ::windows::core::GetTrustLevel,
-            GetDeviceSelector::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorGuidOnly::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorVidPidOnly::<Impl, IMPL_OFFSET>,
-            GetDeviceClassSelector::<Impl, IMPL_OFFSET>,
-            FromIdAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbDeviceStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorGuidOnly: GetDeviceSelectorGuidOnly::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorVidPidOnly: GetDeviceSelectorVidPidOnly::<Impl, IMPL_OFFSET>,
+            GetDeviceClassSelector: GetDeviceClassSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbDeviceStatics as ::windows::core::Interface>::IID
@@ -1203,21 +1205,16 @@ impl IUsbEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUsbEndpointDescriptor>,
-            ::windows::core::GetTrustLevel,
-            EndpointNumber::<Impl, IMPL_OFFSET>,
-            Direction::<Impl, IMPL_OFFSET>,
-            EndpointType::<Impl, IMPL_OFFSET>,
-            AsBulkInEndpointDescriptor::<Impl, IMPL_OFFSET>,
-            AsInterruptInEndpointDescriptor::<Impl, IMPL_OFFSET>,
-            AsBulkOutEndpointDescriptor::<Impl, IMPL_OFFSET>,
-            AsInterruptOutEndpointDescriptor::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbEndpointDescriptor, BASE_OFFSET>(),
+            EndpointNumber: EndpointNumber::<Impl, IMPL_OFFSET>,
+            Direction: Direction::<Impl, IMPL_OFFSET>,
+            EndpointType: EndpointType::<Impl, IMPL_OFFSET>,
+            AsBulkInEndpointDescriptor: AsBulkInEndpointDescriptor::<Impl, IMPL_OFFSET>,
+            AsInterruptInEndpointDescriptor: AsInterruptInEndpointDescriptor::<Impl, IMPL_OFFSET>,
+            AsBulkOutEndpointDescriptor: AsBulkOutEndpointDescriptor::<Impl, IMPL_OFFSET>,
+            AsInterruptOutEndpointDescriptor: AsInterruptOutEndpointDescriptor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbEndpointDescriptor as ::windows::core::Interface>::IID
@@ -1257,7 +1254,11 @@ impl IUsbEndpointDescriptorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbEndpointDescriptorStatics>, ::windows::core::GetTrustLevel, TryParse::<Impl, IMPL_OFFSET>, Parse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbEndpointDescriptorStatics, BASE_OFFSET>(),
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbEndpointDescriptorStatics as ::windows::core::Interface>::IID
@@ -1357,21 +1358,16 @@ impl IUsbInterfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUsbInterface>,
-            ::windows::core::GetTrustLevel,
-            BulkInPipes::<Impl, IMPL_OFFSET>,
-            InterruptInPipes::<Impl, IMPL_OFFSET>,
-            BulkOutPipes::<Impl, IMPL_OFFSET>,
-            InterruptOutPipes::<Impl, IMPL_OFFSET>,
-            InterfaceSettings::<Impl, IMPL_OFFSET>,
-            InterfaceNumber::<Impl, IMPL_OFFSET>,
-            Descriptors::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbInterface, BASE_OFFSET>(),
+            BulkInPipes: BulkInPipes::<Impl, IMPL_OFFSET>,
+            InterruptInPipes: InterruptInPipes::<Impl, IMPL_OFFSET>,
+            BulkOutPipes: BulkOutPipes::<Impl, IMPL_OFFSET>,
+            InterruptOutPipes: InterruptOutPipes::<Impl, IMPL_OFFSET>,
+            InterfaceSettings: InterfaceSettings::<Impl, IMPL_OFFSET>,
+            InterfaceNumber: InterfaceNumber::<Impl, IMPL_OFFSET>,
+            Descriptors: Descriptors::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbInterface as ::windows::core::Interface>::IID
@@ -1447,7 +1443,14 @@ impl IUsbInterfaceDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterfaceDescriptor>, ::windows::core::GetTrustLevel, ClassCode::<Impl, IMPL_OFFSET>, SubclassCode::<Impl, IMPL_OFFSET>, ProtocolCode::<Impl, IMPL_OFFSET>, AlternateSettingNumber::<Impl, IMPL_OFFSET>, InterfaceNumber::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbInterfaceDescriptor, BASE_OFFSET>(),
+            ClassCode: ClassCode::<Impl, IMPL_OFFSET>,
+            SubclassCode: SubclassCode::<Impl, IMPL_OFFSET>,
+            ProtocolCode: ProtocolCode::<Impl, IMPL_OFFSET>,
+            AlternateSettingNumber: AlternateSettingNumber::<Impl, IMPL_OFFSET>,
+            InterfaceNumber: InterfaceNumber::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbInterfaceDescriptor as ::windows::core::Interface>::IID
@@ -1487,7 +1490,11 @@ impl IUsbInterfaceDescriptorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterfaceDescriptorStatics>, ::windows::core::GetTrustLevel, TryParse::<Impl, IMPL_OFFSET>, Parse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbInterfaceDescriptorStatics, BASE_OFFSET>(),
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbInterfaceDescriptorStatics as ::windows::core::Interface>::IID
@@ -1599,22 +1606,17 @@ impl IUsbInterfaceSettingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUsbInterfaceSetting>,
-            ::windows::core::GetTrustLevel,
-            BulkInEndpoints::<Impl, IMPL_OFFSET>,
-            InterruptInEndpoints::<Impl, IMPL_OFFSET>,
-            BulkOutEndpoints::<Impl, IMPL_OFFSET>,
-            InterruptOutEndpoints::<Impl, IMPL_OFFSET>,
-            Selected::<Impl, IMPL_OFFSET>,
-            SelectSettingAsync::<Impl, IMPL_OFFSET>,
-            InterfaceDescriptor::<Impl, IMPL_OFFSET>,
-            Descriptors::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbInterfaceSetting, BASE_OFFSET>(),
+            BulkInEndpoints: BulkInEndpoints::<Impl, IMPL_OFFSET>,
+            InterruptInEndpoints: InterruptInEndpoints::<Impl, IMPL_OFFSET>,
+            BulkOutEndpoints: BulkOutEndpoints::<Impl, IMPL_OFFSET>,
+            InterruptOutEndpoints: InterruptOutEndpoints::<Impl, IMPL_OFFSET>,
+            Selected: Selected::<Impl, IMPL_OFFSET>,
+            SelectSettingAsync: SelectSettingAsync::<Impl, IMPL_OFFSET>,
+            InterfaceDescriptor: InterfaceDescriptor::<Impl, IMPL_OFFSET>,
+            Descriptors: Descriptors::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbInterfaceSetting as ::windows::core::Interface>::IID
@@ -1678,7 +1680,13 @@ impl IUsbInterruptInEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptInEndpointDescriptor>, ::windows::core::GetTrustLevel, MaxPacketSize::<Impl, IMPL_OFFSET>, EndpointNumber::<Impl, IMPL_OFFSET>, Interval::<Impl, IMPL_OFFSET>, Pipe::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbInterruptInEndpointDescriptor, BASE_OFFSET>(),
+            MaxPacketSize: MaxPacketSize::<Impl, IMPL_OFFSET>,
+            EndpointNumber: EndpointNumber::<Impl, IMPL_OFFSET>,
+            Interval: Interval::<Impl, IMPL_OFFSET>,
+            Pipe: Pipe::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbInterruptInEndpointDescriptor as ::windows::core::Interface>::IID
@@ -1706,7 +1714,10 @@ impl IUsbInterruptInEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptInEventArgs>, ::windows::core::GetTrustLevel, InterruptData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbInterruptInEventArgs, BASE_OFFSET>(),
+            InterruptData: InterruptData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbInterruptInEventArgs as ::windows::core::Interface>::IID
@@ -1763,7 +1774,13 @@ impl IUsbInterruptInPipeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDataReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptInPipe>, ::windows::core::GetTrustLevel, EndpointDescriptor::<Impl, IMPL_OFFSET>, ClearStallAsync::<Impl, IMPL_OFFSET>, DataReceived::<Impl, IMPL_OFFSET>, RemoveDataReceived::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbInterruptInPipe, BASE_OFFSET>(),
+            EndpointDescriptor: EndpointDescriptor::<Impl, IMPL_OFFSET>,
+            ClearStallAsync: ClearStallAsync::<Impl, IMPL_OFFSET>,
+            DataReceived: DataReceived::<Impl, IMPL_OFFSET>,
+            RemoveDataReceived: RemoveDataReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbInterruptInPipe as ::windows::core::Interface>::IID
@@ -1827,7 +1844,13 @@ impl IUsbInterruptOutEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptOutEndpointDescriptor>, ::windows::core::GetTrustLevel, MaxPacketSize::<Impl, IMPL_OFFSET>, EndpointNumber::<Impl, IMPL_OFFSET>, Interval::<Impl, IMPL_OFFSET>, Pipe::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbInterruptOutEndpointDescriptor, BASE_OFFSET>(),
+            MaxPacketSize: MaxPacketSize::<Impl, IMPL_OFFSET>,
+            EndpointNumber: EndpointNumber::<Impl, IMPL_OFFSET>,
+            Interval: Interval::<Impl, IMPL_OFFSET>,
+            Pipe: Pipe::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbInterruptOutEndpointDescriptor as ::windows::core::Interface>::IID
@@ -1896,7 +1919,14 @@ impl IUsbInterruptOutPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptOutPipe>, ::windows::core::GetTrustLevel, EndpointDescriptor::<Impl, IMPL_OFFSET>, ClearStallAsync::<Impl, IMPL_OFFSET>, SetWriteOptions::<Impl, IMPL_OFFSET>, WriteOptions::<Impl, IMPL_OFFSET>, OutputStream::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbInterruptOutPipe, BASE_OFFSET>(),
+            EndpointDescriptor: EndpointDescriptor::<Impl, IMPL_OFFSET>,
+            ClearStallAsync: ClearStallAsync::<Impl, IMPL_OFFSET>,
+            SetWriteOptions: SetWriteOptions::<Impl, IMPL_OFFSET>,
+            WriteOptions: WriteOptions::<Impl, IMPL_OFFSET>,
+            OutputStream: OutputStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbInterruptOutPipe as ::windows::core::Interface>::IID
@@ -1997,24 +2027,19 @@ impl IUsbSetupPacketVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLength(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUsbSetupPacket>,
-            ::windows::core::GetTrustLevel,
-            RequestType::<Impl, IMPL_OFFSET>,
-            SetRequestType::<Impl, IMPL_OFFSET>,
-            Request::<Impl, IMPL_OFFSET>,
-            SetRequest::<Impl, IMPL_OFFSET>,
-            Value::<Impl, IMPL_OFFSET>,
-            SetValue::<Impl, IMPL_OFFSET>,
-            Index::<Impl, IMPL_OFFSET>,
-            SetIndex::<Impl, IMPL_OFFSET>,
-            Length::<Impl, IMPL_OFFSET>,
-            SetLength::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbSetupPacket, BASE_OFFSET>(),
+            RequestType: RequestType::<Impl, IMPL_OFFSET>,
+            SetRequestType: SetRequestType::<Impl, IMPL_OFFSET>,
+            Request: Request::<Impl, IMPL_OFFSET>,
+            SetRequest: SetRequest::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+            Index: Index::<Impl, IMPL_OFFSET>,
+            SetIndex: SetIndex::<Impl, IMPL_OFFSET>,
+            Length: Length::<Impl, IMPL_OFFSET>,
+            SetLength: SetLength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbSetupPacket as ::windows::core::Interface>::IID
@@ -2042,7 +2067,10 @@ impl IUsbSetupPacketFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbSetupPacketFactory>, ::windows::core::GetTrustLevel, CreateWithEightByteBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbSetupPacketFactory, BASE_OFFSET>(),
+            CreateWithEightByteBuffer: CreateWithEightByteBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUsbSetupPacketFactory as ::windows::core::Interface>::IID

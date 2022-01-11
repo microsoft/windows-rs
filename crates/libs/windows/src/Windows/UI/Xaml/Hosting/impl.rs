@@ -20,7 +20,7 @@ impl IDesignerAppExitedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDesignerAppExitedEventArgs>, ::windows::core::GetTrustLevel, ExitCode::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDesignerAppExitedEventArgs, BASE_OFFSET>(), ExitCode: ExitCode::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDesignerAppExitedEventArgs as ::windows::core::Interface>::IID
@@ -93,19 +93,14 @@ impl IDesignerAppManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDesignerAppManager>,
-            ::windows::core::GetTrustLevel,
-            AppUserModelId::<Impl, IMPL_OFFSET>,
-            DesignerAppExited::<Impl, IMPL_OFFSET>,
-            RemoveDesignerAppExited::<Impl, IMPL_OFFSET>,
-            CreateNewViewAsync::<Impl, IMPL_OFFSET>,
-            LoadObjectIntoAppAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDesignerAppManager, BASE_OFFSET>(),
+            AppUserModelId: AppUserModelId::<Impl, IMPL_OFFSET>,
+            DesignerAppExited: DesignerAppExited::<Impl, IMPL_OFFSET>,
+            RemoveDesignerAppExited: RemoveDesignerAppExited::<Impl, IMPL_OFFSET>,
+            CreateNewViewAsync: CreateNewViewAsync::<Impl, IMPL_OFFSET>,
+            LoadObjectIntoAppAsync: LoadObjectIntoAppAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDesignerAppManager as ::windows::core::Interface>::IID
@@ -133,7 +128,7 @@ impl IDesignerAppManagerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDesignerAppManagerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDesignerAppManagerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDesignerAppManagerFactory as ::windows::core::Interface>::IID
@@ -209,7 +204,14 @@ impl IDesignerAppViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDesignerAppView>, ::windows::core::GetTrustLevel, ApplicationViewId::<Impl, IMPL_OFFSET>, AppUserModelId::<Impl, IMPL_OFFSET>, ViewState::<Impl, IMPL_OFFSET>, ViewSize::<Impl, IMPL_OFFSET>, UpdateViewAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDesignerAppView, BASE_OFFSET>(),
+            ApplicationViewId: ApplicationViewId::<Impl, IMPL_OFFSET>,
+            AppUserModelId: AppUserModelId::<Impl, IMPL_OFFSET>,
+            ViewState: ViewState::<Impl, IMPL_OFFSET>,
+            ViewSize: ViewSize::<Impl, IMPL_OFFSET>,
+            UpdateViewAsync: UpdateViewAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDesignerAppView as ::windows::core::Interface>::IID
@@ -300,22 +302,17 @@ impl IDesktopWindowXamlSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDesktopWindowXamlSource>,
-            ::windows::core::GetTrustLevel,
-            Content::<Impl, IMPL_OFFSET>,
-            SetContent::<Impl, IMPL_OFFSET>,
-            HasFocus::<Impl, IMPL_OFFSET>,
-            TakeFocusRequested::<Impl, IMPL_OFFSET>,
-            RemoveTakeFocusRequested::<Impl, IMPL_OFFSET>,
-            GotFocus::<Impl, IMPL_OFFSET>,
-            RemoveGotFocus::<Impl, IMPL_OFFSET>,
-            NavigateFocus::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDesktopWindowXamlSource, BASE_OFFSET>(),
+            Content: Content::<Impl, IMPL_OFFSET>,
+            SetContent: SetContent::<Impl, IMPL_OFFSET>,
+            HasFocus: HasFocus::<Impl, IMPL_OFFSET>,
+            TakeFocusRequested: TakeFocusRequested::<Impl, IMPL_OFFSET>,
+            RemoveTakeFocusRequested: RemoveTakeFocusRequested::<Impl, IMPL_OFFSET>,
+            GotFocus: GotFocus::<Impl, IMPL_OFFSET>,
+            RemoveGotFocus: RemoveGotFocus::<Impl, IMPL_OFFSET>,
+            NavigateFocus: NavigateFocus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDesktopWindowXamlSource as ::windows::core::Interface>::IID
@@ -343,7 +340,10 @@ impl IDesktopWindowXamlSourceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDesktopWindowXamlSourceFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDesktopWindowXamlSourceFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDesktopWindowXamlSourceFactory as ::windows::core::Interface>::IID
@@ -371,7 +371,10 @@ impl IDesktopWindowXamlSourceGotFocusEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDesktopWindowXamlSourceGotFocusEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDesktopWindowXamlSourceGotFocusEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDesktopWindowXamlSourceGotFocusEventArgs as ::windows::core::Interface>::IID
@@ -399,7 +402,10 @@ impl IDesktopWindowXamlSourceTakeFocusRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDesktopWindowXamlSourceTakeFocusRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDesktopWindowXamlSourceTakeFocusRequestedEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDesktopWindowXamlSourceTakeFocusRequestedEventArgs as ::windows::core::Interface>::IID
@@ -414,7 +420,7 @@ impl ::windows::core::RuntimeName for IElementCompositionPreview {
 #[cfg(feature = "implement_exclusive")]
 impl IElementCompositionPreviewVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IElementCompositionPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IElementCompositionPreviewVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IElementCompositionPreview>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IElementCompositionPreview, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IElementCompositionPreview as ::windows::core::Interface>::IID
@@ -471,7 +477,13 @@ impl IElementCompositionPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IElementCompositionPreviewStatics>, ::windows::core::GetTrustLevel, GetElementVisual::<Impl, IMPL_OFFSET>, GetElementChildVisual::<Impl, IMPL_OFFSET>, SetElementChildVisual::<Impl, IMPL_OFFSET>, GetScrollViewerManipulationPropertySet::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IElementCompositionPreviewStatics, BASE_OFFSET>(),
+            GetElementVisual: GetElementVisual::<Impl, IMPL_OFFSET>,
+            GetElementChildVisual: GetElementChildVisual::<Impl, IMPL_OFFSET>,
+            SetElementChildVisual: SetElementChildVisual::<Impl, IMPL_OFFSET>,
+            GetScrollViewerManipulationPropertySet: GetScrollViewerManipulationPropertySet::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IElementCompositionPreviewStatics as ::windows::core::Interface>::IID
@@ -514,18 +526,13 @@ impl IElementCompositionPreviewStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IElementCompositionPreviewStatics2>,
-            ::windows::core::GetTrustLevel,
-            SetImplicitShowAnimation::<Impl, IMPL_OFFSET>,
-            SetImplicitHideAnimation::<Impl, IMPL_OFFSET>,
-            SetIsTranslationEnabled::<Impl, IMPL_OFFSET>,
-            GetPointerPositionPropertySet::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IElementCompositionPreviewStatics2, BASE_OFFSET>(),
+            SetImplicitShowAnimation: SetImplicitShowAnimation::<Impl, IMPL_OFFSET>,
+            SetImplicitHideAnimation: SetImplicitHideAnimation::<Impl, IMPL_OFFSET>,
+            SetIsTranslationEnabled: SetIsTranslationEnabled::<Impl, IMPL_OFFSET>,
+            GetPointerPositionPropertySet: GetPointerPositionPropertySet::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IElementCompositionPreviewStatics2 as ::windows::core::Interface>::IID
@@ -558,7 +565,11 @@ impl IElementCompositionPreviewStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IElementCompositionPreviewStatics3>, ::windows::core::GetTrustLevel, SetAppWindowContent::<Impl, IMPL_OFFSET>, GetAppWindowContent::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IElementCompositionPreviewStatics3, BASE_OFFSET>(),
+            SetAppWindowContent: SetAppWindowContent::<Impl, IMPL_OFFSET>,
+            GetAppWindowContent: GetAppWindowContent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IElementCompositionPreviewStatics3 as ::windows::core::Interface>::IID
@@ -573,7 +584,7 @@ impl ::windows::core::RuntimeName for IWindowsXamlManager {
 #[cfg(feature = "implement_exclusive")]
 impl IWindowsXamlManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsXamlManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowsXamlManagerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowsXamlManager>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWindowsXamlManager, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowsXamlManager as ::windows::core::Interface>::IID
@@ -601,7 +612,10 @@ impl IWindowsXamlManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowsXamlManagerStatics>, ::windows::core::GetTrustLevel, InitializeForCurrentThread::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWindowsXamlManagerStatics, BASE_OFFSET>(),
+            InitializeForCurrentThread: InitializeForCurrentThread::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowsXamlManagerStatics as ::windows::core::Interface>::IID
@@ -653,7 +667,12 @@ impl IXamlSourceFocusNavigationRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlSourceFocusNavigationRequest>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>, HintRect::<Impl, IMPL_OFFSET>, CorrelationId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlSourceFocusNavigationRequest, BASE_OFFSET>(),
+            Reason: Reason::<Impl, IMPL_OFFSET>,
+            HintRect: HintRect::<Impl, IMPL_OFFSET>,
+            CorrelationId: CorrelationId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlSourceFocusNavigationRequest as ::windows::core::Interface>::IID
@@ -705,7 +724,12 @@ impl IXamlSourceFocusNavigationRequestFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlSourceFocusNavigationRequestFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>, CreateInstanceWithHintRect::<Impl, IMPL_OFFSET>, CreateInstanceWithHintRectAndCorrelationId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlSourceFocusNavigationRequestFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+            CreateInstanceWithHintRect: CreateInstanceWithHintRect::<Impl, IMPL_OFFSET>,
+            CreateInstanceWithHintRectAndCorrelationId: CreateInstanceWithHintRectAndCorrelationId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlSourceFocusNavigationRequestFactory as ::windows::core::Interface>::IID
@@ -733,7 +757,10 @@ impl IXamlSourceFocusNavigationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlSourceFocusNavigationResult>, ::windows::core::GetTrustLevel, WasFocusMoved::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlSourceFocusNavigationResult, BASE_OFFSET>(),
+            WasFocusMoved: WasFocusMoved::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlSourceFocusNavigationResult as ::windows::core::Interface>::IID
@@ -761,7 +788,10 @@ impl IXamlSourceFocusNavigationResultFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlSourceFocusNavigationResultFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlSourceFocusNavigationResultFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlSourceFocusNavigationResultFactory as ::windows::core::Interface>::IID
@@ -843,23 +873,18 @@ impl IXamlUIPresenterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Present().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IXamlUIPresenter>,
-            ::windows::core::GetTrustLevel,
-            RootElement::<Impl, IMPL_OFFSET>,
-            SetRootElement::<Impl, IMPL_OFFSET>,
-            ThemeKey::<Impl, IMPL_OFFSET>,
-            SetThemeKey::<Impl, IMPL_OFFSET>,
-            ThemeResourcesXaml::<Impl, IMPL_OFFSET>,
-            SetThemeResourcesXaml::<Impl, IMPL_OFFSET>,
-            SetSize::<Impl, IMPL_OFFSET>,
-            Render::<Impl, IMPL_OFFSET>,
-            Present::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlUIPresenter, BASE_OFFSET>(),
+            RootElement: RootElement::<Impl, IMPL_OFFSET>,
+            SetRootElement: SetRootElement::<Impl, IMPL_OFFSET>,
+            ThemeKey: ThemeKey::<Impl, IMPL_OFFSET>,
+            SetThemeKey: SetThemeKey::<Impl, IMPL_OFFSET>,
+            ThemeResourcesXaml: ThemeResourcesXaml::<Impl, IMPL_OFFSET>,
+            SetThemeResourcesXaml: SetThemeResourcesXaml::<Impl, IMPL_OFFSET>,
+            SetSize: SetSize::<Impl, IMPL_OFFSET>,
+            Render: Render::<Impl, IMPL_OFFSET>,
+            Present: Present::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlUIPresenter as ::windows::core::Interface>::IID
@@ -884,7 +909,10 @@ impl IXamlUIPresenterHostVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlUIPresenterHost>, ::windows::core::GetTrustLevel, ResolveFileResource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlUIPresenterHost, BASE_OFFSET>(),
+            ResolveFileResource: ResolveFileResource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlUIPresenterHost as ::windows::core::Interface>::IID
@@ -909,7 +937,10 @@ impl IXamlUIPresenterHost2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlUIPresenterHost2>, ::windows::core::GetTrustLevel, GetGenericXamlFilePath::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlUIPresenterHost2, BASE_OFFSET>(),
+            GetGenericXamlFilePath: GetGenericXamlFilePath::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlUIPresenterHost2 as ::windows::core::Interface>::IID
@@ -938,7 +969,10 @@ impl IXamlUIPresenterHost3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlUIPresenterHost3>, ::windows::core::GetTrustLevel, ResolveDictionaryResource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlUIPresenterHost3, BASE_OFFSET>(),
+            ResolveDictionaryResource: ResolveDictionaryResource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlUIPresenterHost3 as ::windows::core::Interface>::IID
@@ -981,7 +1015,13 @@ impl IXamlUIPresenterStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).NotifyWindowSizeChanged().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlUIPresenterStatics>, ::windows::core::GetTrustLevel, CompleteTimelinesAutomatically::<Impl, IMPL_OFFSET>, SetCompleteTimelinesAutomatically::<Impl, IMPL_OFFSET>, SetHost::<Impl, IMPL_OFFSET>, NotifyWindowSizeChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlUIPresenterStatics, BASE_OFFSET>(),
+            CompleteTimelinesAutomatically: CompleteTimelinesAutomatically::<Impl, IMPL_OFFSET>,
+            SetCompleteTimelinesAutomatically: SetCompleteTimelinesAutomatically::<Impl, IMPL_OFFSET>,
+            SetHost: SetHost::<Impl, IMPL_OFFSET>,
+            NotifyWindowSizeChanged: NotifyWindowSizeChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlUIPresenterStatics as ::windows::core::Interface>::IID
@@ -1029,7 +1069,11 @@ impl IXamlUIPresenterStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlUIPresenterStatics2>, ::windows::core::GetTrustLevel, GetFlyoutPlacementTargetInfo::<Impl, IMPL_OFFSET>, GetFlyoutPlacement::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlUIPresenterStatics2, BASE_OFFSET>(),
+            GetFlyoutPlacementTargetInfo: GetFlyoutPlacementTargetInfo::<Impl, IMPL_OFFSET>,
+            GetFlyoutPlacement: GetFlyoutPlacement::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlUIPresenterStatics2 as ::windows::core::Interface>::IID

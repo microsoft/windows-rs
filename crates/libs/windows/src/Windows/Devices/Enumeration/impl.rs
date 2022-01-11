@@ -20,7 +20,7 @@ impl IDeviceAccessChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceAccessChangedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceAccessChangedEventArgs, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceAccessChangedEventArgs as ::windows::core::Interface>::IID
@@ -48,7 +48,7 @@ impl IDeviceAccessChangedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceAccessChangedEventArgs2>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceAccessChangedEventArgs2, BASE_OFFSET>(), Id: Id::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceAccessChangedEventArgs2 as ::windows::core::Interface>::IID
@@ -93,7 +93,12 @@ impl IDeviceAccessInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceAccessInformation>, ::windows::core::GetTrustLevel, AccessChanged::<Impl, IMPL_OFFSET>, RemoveAccessChanged::<Impl, IMPL_OFFSET>, CurrentStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceAccessInformation, BASE_OFFSET>(),
+            AccessChanged: AccessChanged::<Impl, IMPL_OFFSET>,
+            RemoveAccessChanged: RemoveAccessChanged::<Impl, IMPL_OFFSET>,
+            CurrentStatus: CurrentStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceAccessInformation as ::windows::core::Interface>::IID
@@ -145,7 +150,12 @@ impl IDeviceAccessInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceAccessInformationStatics>, ::windows::core::GetTrustLevel, CreateFromId::<Impl, IMPL_OFFSET>, CreateFromDeviceClassId::<Impl, IMPL_OFFSET>, CreateFromDeviceClass::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceAccessInformationStatics, BASE_OFFSET>(),
+            CreateFromId: CreateFromId::<Impl, IMPL_OFFSET>,
+            CreateFromDeviceClassId: CreateFromDeviceClassId::<Impl, IMPL_OFFSET>,
+            CreateFromDeviceClass: CreateFromDeviceClass::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceAccessInformationStatics as ::windows::core::Interface>::IID
@@ -173,7 +183,10 @@ impl IDeviceConnectionChangeTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceConnectionChangeTriggerDetails>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceConnectionChangeTriggerDetails, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceConnectionChangeTriggerDetails as ::windows::core::Interface>::IID
@@ -201,7 +214,10 @@ impl IDeviceDisconnectButtonClickedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceDisconnectButtonClickedEventArgs>, ::windows::core::GetTrustLevel, Device::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceDisconnectButtonClickedEventArgs, BASE_OFFSET>(),
+            Device: Device::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceDisconnectButtonClickedEventArgs as ::windows::core::Interface>::IID
@@ -318,23 +334,18 @@ impl IDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDeviceInformation>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            IsDefault::<Impl, IMPL_OFFSET>,
-            EnclosureLocation::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            Update::<Impl, IMPL_OFFSET>,
-            GetThumbnailAsync::<Impl, IMPL_OFFSET>,
-            GetGlyphThumbnailAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceInformation, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            IsDefault: IsDefault::<Impl, IMPL_OFFSET>,
+            EnclosureLocation: EnclosureLocation::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            Update: Update::<Impl, IMPL_OFFSET>,
+            GetThumbnailAsync: GetThumbnailAsync::<Impl, IMPL_OFFSET>,
+            GetGlyphThumbnailAsync: GetGlyphThumbnailAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceInformation as ::windows::core::Interface>::IID
@@ -374,7 +385,11 @@ impl IDeviceInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceInformation2>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, Pairing::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceInformation2, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            Pairing: Pairing::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceInformation2 as ::windows::core::Interface>::IID
@@ -443,19 +458,14 @@ impl IDeviceInformationCustomPairingVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePairingRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDeviceInformationCustomPairing>,
-            ::windows::core::GetTrustLevel,
-            PairAsync::<Impl, IMPL_OFFSET>,
-            PairWithProtectionLevelAsync::<Impl, IMPL_OFFSET>,
-            PairWithProtectionLevelAndSettingsAsync::<Impl, IMPL_OFFSET>,
-            PairingRequested::<Impl, IMPL_OFFSET>,
-            RemovePairingRequested::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceInformationCustomPairing, BASE_OFFSET>(),
+            PairAsync: PairAsync::<Impl, IMPL_OFFSET>,
+            PairWithProtectionLevelAsync: PairWithProtectionLevelAsync::<Impl, IMPL_OFFSET>,
+            PairWithProtectionLevelAndSettingsAsync: PairWithProtectionLevelAndSettingsAsync::<Impl, IMPL_OFFSET>,
+            PairingRequested: PairingRequested::<Impl, IMPL_OFFSET>,
+            RemovePairingRequested: RemovePairingRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceInformationCustomPairing as ::windows::core::Interface>::IID
@@ -519,7 +529,13 @@ impl IDeviceInformationPairingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceInformationPairing>, ::windows::core::GetTrustLevel, IsPaired::<Impl, IMPL_OFFSET>, CanPair::<Impl, IMPL_OFFSET>, PairAsync::<Impl, IMPL_OFFSET>, PairWithProtectionLevelAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceInformationPairing, BASE_OFFSET>(),
+            IsPaired: IsPaired::<Impl, IMPL_OFFSET>,
+            CanPair: CanPair::<Impl, IMPL_OFFSET>,
+            PairAsync: PairAsync::<Impl, IMPL_OFFSET>,
+            PairWithProtectionLevelAsync: PairWithProtectionLevelAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceInformationPairing as ::windows::core::Interface>::IID
@@ -583,7 +599,13 @@ impl IDeviceInformationPairing2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceInformationPairing2>, ::windows::core::GetTrustLevel, ProtectionLevel::<Impl, IMPL_OFFSET>, Custom::<Impl, IMPL_OFFSET>, PairWithProtectionLevelAndSettingsAsync::<Impl, IMPL_OFFSET>, UnpairAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceInformationPairing2, BASE_OFFSET>(),
+            ProtectionLevel: ProtectionLevel::<Impl, IMPL_OFFSET>,
+            Custom: Custom::<Impl, IMPL_OFFSET>,
+            PairWithProtectionLevelAndSettingsAsync: PairWithProtectionLevelAndSettingsAsync::<Impl, IMPL_OFFSET>,
+            UnpairAsync: UnpairAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceInformationPairing2 as ::windows::core::Interface>::IID
@@ -611,7 +633,10 @@ impl IDeviceInformationPairingStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceInformationPairingStatics>, ::windows::core::GetTrustLevel, TryRegisterForAllInboundPairingRequests::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceInformationPairingStatics, BASE_OFFSET>(),
+            TryRegisterForAllInboundPairingRequests: TryRegisterForAllInboundPairingRequests::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceInformationPairingStatics as ::windows::core::Interface>::IID
@@ -639,7 +664,10 @@ impl IDeviceInformationPairingStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceInformationPairingStatics2>, ::windows::core::GetTrustLevel, TryRegisterForAllInboundPairingRequestsWithProtectionLevel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceInformationPairingStatics2, BASE_OFFSET>(),
+            TryRegisterForAllInboundPairingRequestsWithProtectionLevel: TryRegisterForAllInboundPairingRequestsWithProtectionLevel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceInformationPairingStatics2 as ::windows::core::Interface>::IID
@@ -775,24 +803,19 @@ impl IDeviceInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDeviceInformationStatics>,
-            ::windows::core::GetTrustLevel,
-            CreateFromIdAsync::<Impl, IMPL_OFFSET>,
-            CreateFromIdAsyncAdditionalProperties::<Impl, IMPL_OFFSET>,
-            FindAllAsync::<Impl, IMPL_OFFSET>,
-            FindAllAsyncDeviceClass::<Impl, IMPL_OFFSET>,
-            FindAllAsyncAqsFilter::<Impl, IMPL_OFFSET>,
-            FindAllAsyncAqsFilterAndAdditionalProperties::<Impl, IMPL_OFFSET>,
-            CreateWatcher::<Impl, IMPL_OFFSET>,
-            CreateWatcherDeviceClass::<Impl, IMPL_OFFSET>,
-            CreateWatcherAqsFilter::<Impl, IMPL_OFFSET>,
-            CreateWatcherAqsFilterAndAdditionalProperties::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceInformationStatics, BASE_OFFSET>(),
+            CreateFromIdAsync: CreateFromIdAsync::<Impl, IMPL_OFFSET>,
+            CreateFromIdAsyncAdditionalProperties: CreateFromIdAsyncAdditionalProperties::<Impl, IMPL_OFFSET>,
+            FindAllAsync: FindAllAsync::<Impl, IMPL_OFFSET>,
+            FindAllAsyncDeviceClass: FindAllAsyncDeviceClass::<Impl, IMPL_OFFSET>,
+            FindAllAsyncAqsFilter: FindAllAsyncAqsFilter::<Impl, IMPL_OFFSET>,
+            FindAllAsyncAqsFilterAndAdditionalProperties: FindAllAsyncAqsFilterAndAdditionalProperties::<Impl, IMPL_OFFSET>,
+            CreateWatcher: CreateWatcher::<Impl, IMPL_OFFSET>,
+            CreateWatcherDeviceClass: CreateWatcherDeviceClass::<Impl, IMPL_OFFSET>,
+            CreateWatcherAqsFilter: CreateWatcherAqsFilter::<Impl, IMPL_OFFSET>,
+            CreateWatcherAqsFilterAndAdditionalProperties: CreateWatcherAqsFilterAndAdditionalProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceInformationStatics as ::windows::core::Interface>::IID
@@ -856,18 +879,13 @@ impl IDeviceInformationStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDeviceInformationStatics2>,
-            ::windows::core::GetTrustLevel,
-            GetAqsFilterFromDeviceClass::<Impl, IMPL_OFFSET>,
-            CreateFromIdAsyncWithKindAndAdditionalProperties::<Impl, IMPL_OFFSET>,
-            FindAllAsyncWithKindAqsFilterAndAdditionalProperties::<Impl, IMPL_OFFSET>,
-            CreateWatcherWithKindAqsFilterAndAdditionalProperties::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceInformationStatics2, BASE_OFFSET>(),
+            GetAqsFilterFromDeviceClass: GetAqsFilterFromDeviceClass::<Impl, IMPL_OFFSET>,
+            CreateFromIdAsyncWithKindAndAdditionalProperties: CreateFromIdAsyncWithKindAndAdditionalProperties::<Impl, IMPL_OFFSET>,
+            FindAllAsyncWithKindAqsFilterAndAdditionalProperties: FindAllAsyncWithKindAqsFilterAndAdditionalProperties::<Impl, IMPL_OFFSET>,
+            CreateWatcherWithKindAqsFilterAndAdditionalProperties: CreateWatcherWithKindAqsFilterAndAdditionalProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceInformationStatics2 as ::windows::core::Interface>::IID
@@ -907,7 +925,11 @@ impl IDeviceInformationUpdateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceInformationUpdate>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceInformationUpdate, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceInformationUpdate as ::windows::core::Interface>::IID
@@ -935,7 +957,7 @@ impl IDeviceInformationUpdate2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceInformationUpdate2>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceInformationUpdate2, BASE_OFFSET>(), Kind: Kind::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceInformationUpdate2 as ::windows::core::Interface>::IID
@@ -1009,20 +1031,15 @@ impl IDevicePairingRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDevicePairingRequestedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            DeviceInformation::<Impl, IMPL_OFFSET>,
-            PairingKind::<Impl, IMPL_OFFSET>,
-            Pin::<Impl, IMPL_OFFSET>,
-            Accept::<Impl, IMPL_OFFSET>,
-            AcceptWithPin::<Impl, IMPL_OFFSET>,
-            GetDeferral::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePairingRequestedEventArgs, BASE_OFFSET>(),
+            DeviceInformation: DeviceInformation::<Impl, IMPL_OFFSET>,
+            PairingKind: PairingKind::<Impl, IMPL_OFFSET>,
+            Pin: Pin::<Impl, IMPL_OFFSET>,
+            Accept: Accept::<Impl, IMPL_OFFSET>,
+            AcceptWithPin: AcceptWithPin::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePairingRequestedEventArgs as ::windows::core::Interface>::IID
@@ -1043,7 +1060,10 @@ impl IDevicePairingRequestedEventArgs2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AcceptWithPasswordCredential(&*(&passwordcredential as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePairingRequestedEventArgs2>, ::windows::core::GetTrustLevel, AcceptWithPasswordCredential::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePairingRequestedEventArgs2, BASE_OFFSET>(),
+            AcceptWithPasswordCredential: AcceptWithPasswordCredential::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePairingRequestedEventArgs2 as ::windows::core::Interface>::IID
@@ -1083,7 +1103,11 @@ impl IDevicePairingResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePairingResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ProtectionLevelUsed::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePairingResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ProtectionLevelUsed: ProtectionLevelUsed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePairingResult as ::windows::core::Interface>::IID
@@ -1095,7 +1119,7 @@ impl ::windows::core::RuntimeName for IDevicePairingSettings {
 }
 impl IDevicePairingSettingsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePairingSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePairingSettingsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePairingSettings>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePairingSettings, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePairingSettings as ::windows::core::Interface>::IID
@@ -1242,29 +1266,24 @@ impl IDevicePickerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayStatus(&*(&device as *const <DeviceInformation as ::windows::core::Abi>::Abi as *const <DeviceInformation as ::windows::core::DefaultType>::DefaultType), &*(&status as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), options).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDevicePicker>,
-            ::windows::core::GetTrustLevel,
-            Filter::<Impl, IMPL_OFFSET>,
-            Appearance::<Impl, IMPL_OFFSET>,
-            RequestedProperties::<Impl, IMPL_OFFSET>,
-            DeviceSelected::<Impl, IMPL_OFFSET>,
-            RemoveDeviceSelected::<Impl, IMPL_OFFSET>,
-            DisconnectButtonClicked::<Impl, IMPL_OFFSET>,
-            RemoveDisconnectButtonClicked::<Impl, IMPL_OFFSET>,
-            DevicePickerDismissed::<Impl, IMPL_OFFSET>,
-            RemoveDevicePickerDismissed::<Impl, IMPL_OFFSET>,
-            Show::<Impl, IMPL_OFFSET>,
-            ShowWithPlacement::<Impl, IMPL_OFFSET>,
-            PickSingleDeviceAsync::<Impl, IMPL_OFFSET>,
-            PickSingleDeviceAsyncWithPlacement::<Impl, IMPL_OFFSET>,
-            Hide::<Impl, IMPL_OFFSET>,
-            SetDisplayStatus::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePicker, BASE_OFFSET>(),
+            Filter: Filter::<Impl, IMPL_OFFSET>,
+            Appearance: Appearance::<Impl, IMPL_OFFSET>,
+            RequestedProperties: RequestedProperties::<Impl, IMPL_OFFSET>,
+            DeviceSelected: DeviceSelected::<Impl, IMPL_OFFSET>,
+            RemoveDeviceSelected: RemoveDeviceSelected::<Impl, IMPL_OFFSET>,
+            DisconnectButtonClicked: DisconnectButtonClicked::<Impl, IMPL_OFFSET>,
+            RemoveDisconnectButtonClicked: RemoveDisconnectButtonClicked::<Impl, IMPL_OFFSET>,
+            DevicePickerDismissed: DevicePickerDismissed::<Impl, IMPL_OFFSET>,
+            RemoveDevicePickerDismissed: RemoveDevicePickerDismissed::<Impl, IMPL_OFFSET>,
+            Show: Show::<Impl, IMPL_OFFSET>,
+            ShowWithPlacement: ShowWithPlacement::<Impl, IMPL_OFFSET>,
+            PickSingleDeviceAsync: PickSingleDeviceAsync::<Impl, IMPL_OFFSET>,
+            PickSingleDeviceAsyncWithPlacement: PickSingleDeviceAsyncWithPlacement::<Impl, IMPL_OFFSET>,
+            Hide: Hide::<Impl, IMPL_OFFSET>,
+            SetDisplayStatus: SetDisplayStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePicker as ::windows::core::Interface>::IID
@@ -1399,28 +1418,23 @@ impl IDevicePickerAppearanceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSelectedAccentColor(&*(&value as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDevicePickerAppearance>,
-            ::windows::core::GetTrustLevel,
-            Title::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            ForegroundColor::<Impl, IMPL_OFFSET>,
-            SetForegroundColor::<Impl, IMPL_OFFSET>,
-            BackgroundColor::<Impl, IMPL_OFFSET>,
-            SetBackgroundColor::<Impl, IMPL_OFFSET>,
-            AccentColor::<Impl, IMPL_OFFSET>,
-            SetAccentColor::<Impl, IMPL_OFFSET>,
-            SelectedForegroundColor::<Impl, IMPL_OFFSET>,
-            SetSelectedForegroundColor::<Impl, IMPL_OFFSET>,
-            SelectedBackgroundColor::<Impl, IMPL_OFFSET>,
-            SetSelectedBackgroundColor::<Impl, IMPL_OFFSET>,
-            SelectedAccentColor::<Impl, IMPL_OFFSET>,
-            SetSelectedAccentColor::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePickerAppearance, BASE_OFFSET>(),
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            ForegroundColor: ForegroundColor::<Impl, IMPL_OFFSET>,
+            SetForegroundColor: SetForegroundColor::<Impl, IMPL_OFFSET>,
+            BackgroundColor: BackgroundColor::<Impl, IMPL_OFFSET>,
+            SetBackgroundColor: SetBackgroundColor::<Impl, IMPL_OFFSET>,
+            AccentColor: AccentColor::<Impl, IMPL_OFFSET>,
+            SetAccentColor: SetAccentColor::<Impl, IMPL_OFFSET>,
+            SelectedForegroundColor: SelectedForegroundColor::<Impl, IMPL_OFFSET>,
+            SetSelectedForegroundColor: SetSelectedForegroundColor::<Impl, IMPL_OFFSET>,
+            SelectedBackgroundColor: SelectedBackgroundColor::<Impl, IMPL_OFFSET>,
+            SetSelectedBackgroundColor: SetSelectedBackgroundColor::<Impl, IMPL_OFFSET>,
+            SelectedAccentColor: SelectedAccentColor::<Impl, IMPL_OFFSET>,
+            SetSelectedAccentColor: SetSelectedAccentColor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePickerAppearance as ::windows::core::Interface>::IID
@@ -1460,7 +1474,11 @@ impl IDevicePickerFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePickerFilter>, ::windows::core::GetTrustLevel, SupportedDeviceClasses::<Impl, IMPL_OFFSET>, SupportedDeviceSelectors::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePickerFilter, BASE_OFFSET>(),
+            SupportedDeviceClasses: SupportedDeviceClasses::<Impl, IMPL_OFFSET>,
+            SupportedDeviceSelectors: SupportedDeviceSelectors::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDevicePickerFilter as ::windows::core::Interface>::IID
@@ -1488,7 +1506,10 @@ impl IDeviceSelectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceSelectedEventArgs>, ::windows::core::GetTrustLevel, SelectedDevice::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceSelectedEventArgs, BASE_OFFSET>(),
+            SelectedDevice: SelectedDevice::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceSelectedEventArgs as ::windows::core::Interface>::IID
@@ -1516,7 +1537,7 @@ impl IDeviceUnpairingResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceUnpairingResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceUnpairingResult, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceUnpairingResult as ::windows::core::Interface>::IID
@@ -1639,27 +1660,22 @@ impl IDeviceWatcherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDeviceWatcher>,
-            ::windows::core::GetTrustLevel,
-            Added::<Impl, IMPL_OFFSET>,
-            RemoveAdded::<Impl, IMPL_OFFSET>,
-            Updated::<Impl, IMPL_OFFSET>,
-            RemoveUpdated::<Impl, IMPL_OFFSET>,
-            Removed::<Impl, IMPL_OFFSET>,
-            RemoveRemoved::<Impl, IMPL_OFFSET>,
-            EnumerationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
-            Stopped::<Impl, IMPL_OFFSET>,
-            RemoveStopped::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceWatcher, BASE_OFFSET>(),
+            Added: Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded: RemoveAdded::<Impl, IMPL_OFFSET>,
+            Updated: Updated::<Impl, IMPL_OFFSET>,
+            RemoveUpdated: RemoveUpdated::<Impl, IMPL_OFFSET>,
+            Removed: Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved: RemoveRemoved::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Stopped: Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped: RemoveStopped::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceWatcher as ::windows::core::Interface>::IID
@@ -1687,7 +1703,10 @@ impl IDeviceWatcher2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceWatcher2>, ::windows::core::GetTrustLevel, GetBackgroundTrigger::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceWatcher2, BASE_OFFSET>(),
+            GetBackgroundTrigger: GetBackgroundTrigger::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceWatcher2 as ::windows::core::Interface>::IID
@@ -1739,7 +1758,12 @@ impl IDeviceWatcherEventVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceWatcherEvent>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, DeviceInformation::<Impl, IMPL_OFFSET>, DeviceInformationUpdate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceWatcherEvent, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            DeviceInformation: DeviceInformation::<Impl, IMPL_OFFSET>,
+            DeviceInformationUpdate: DeviceInformationUpdate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceWatcherEvent as ::windows::core::Interface>::IID
@@ -1767,7 +1791,10 @@ impl IDeviceWatcherTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceWatcherTriggerDetails>, ::windows::core::GetTrustLevel, DeviceWatcherEvents::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceWatcherTriggerDetails, BASE_OFFSET>(),
+            DeviceWatcherEvents: DeviceWatcherEvents::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceWatcherTriggerDetails as ::windows::core::Interface>::IID
@@ -1819,7 +1846,12 @@ impl IEnclosureLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnclosureLocation>, ::windows::core::GetTrustLevel, InDock::<Impl, IMPL_OFFSET>, InLid::<Impl, IMPL_OFFSET>, Panel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEnclosureLocation, BASE_OFFSET>(),
+            InDock: InDock::<Impl, IMPL_OFFSET>,
+            InLid: InLid::<Impl, IMPL_OFFSET>,
+            Panel: Panel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnclosureLocation as ::windows::core::Interface>::IID
@@ -1847,7 +1879,10 @@ impl IEnclosureLocation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnclosureLocation2>, ::windows::core::GetTrustLevel, RotationAngleInDegreesClockwise::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEnclosureLocation2, BASE_OFFSET>(),
+            RotationAngleInDegreesClockwise: RotationAngleInDegreesClockwise::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnclosureLocation2 as ::windows::core::Interface>::IID

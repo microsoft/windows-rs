@@ -36,7 +36,11 @@ impl ICoreUserActivityManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreUserActivityManagerStatics>, ::windows::core::GetTrustLevel, CreateUserActivitySessionInBackground::<Impl, IMPL_OFFSET>, DeleteUserActivitySessionsInTimeRangeAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreUserActivityManagerStatics, BASE_OFFSET>(),
+            CreateUserActivitySessionInBackground: CreateUserActivitySessionInBackground::<Impl, IMPL_OFFSET>,
+            DeleteUserActivitySessionsInTimeRangeAsync: DeleteUserActivitySessionsInTimeRangeAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreUserActivityManagerStatics as ::windows::core::Interface>::IID

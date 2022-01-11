@@ -7,7 +7,7 @@ impl ::windows::core::RuntimeName for IApplicationDataManager {
 #[cfg(feature = "implement_exclusive")]
 impl IApplicationDataManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationDataManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IApplicationDataManagerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationDataManager>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationDataManager, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationDataManager as ::windows::core::Interface>::IID
@@ -35,7 +35,10 @@ impl IApplicationDataManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationDataManagerStatics>, ::windows::core::GetTrustLevel, CreateForPackageFamily::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationDataManagerStatics, BASE_OFFSET>(),
+            CreateForPackageFamily: CreateForPackageFamily::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationDataManagerStatics as ::windows::core::Interface>::IID

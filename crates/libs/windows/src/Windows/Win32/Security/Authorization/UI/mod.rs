@@ -102,7 +102,7 @@ impl IEffectivePermission {
     #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEffectivePermission<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pguidobjecttype: *const ::windows::core::GUID, pusersid: Param1, pszservername: Param2, psd: *mut super::super::SECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidobjecttype), pusersid.into_param().abi(), pszservername.into_param().abi(), ::core::mem::transmute(psd), ::core::mem::transmute(ppobjecttypelist), ::core::mem::transmute(pcobjecttypelistlength), ::core::mem::transmute(ppgrantedaccesslist), ::core::mem::transmute(pcgrantedaccesslistlength)).ok()
+        (::windows::core::Interface::vtable(self).GetEffectivePermission)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidobjecttype), pusersid.into_param().abi(), pszservername.into_param().abi(), ::core::mem::transmute(psd), ::core::mem::transmute(ppobjecttypelist), ::core::mem::transmute(pcobjecttypelistlength), ::core::mem::transmute(ppgrantedaccesslist), ::core::mem::transmute(pcgrantedaccesslistlength)).ok()
     }
 }
 impl ::core::convert::From<IEffectivePermission> for ::windows::core::IUnknown {
@@ -147,13 +147,13 @@ unsafe impl ::windows::core::Interface for IEffectivePermission {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEffectivePermissionVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: super::super::super::Foundation::PWSTR, psd: *mut super::super::SECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IEffectivePermissionVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetEffectivePermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: super::super::super::Foundation::PWSTR, psd: *mut super::super::SECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetEffectivePermission: usize,
+}
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 #[repr(transparent)]
 pub struct IEffectivePermission2(::windows::core::IUnknown);
@@ -177,7 +177,7 @@ impl IEffectivePermission2 {
         pauthzdeviceclaimsoperations: *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION,
         peffpermresultlists: *mut EFFPERM_RESULT_LIST,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
+        (::windows::core::Interface::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(
             ::core::mem::transmute_copy(self),
             psid.into_param().abi(),
             pdevicesid.into_param().abi(),
@@ -239,12 +239,10 @@ unsafe impl ::windows::core::Interface for IEffectivePermission2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEffectivePermission2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+pub struct IEffectivePermission2Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
+    pub ComputeEffectivePermissionWithSecondarySecurity: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         psid: super::super::super::Foundation::PSID,
         pdevicesid: super::super::super::Foundation::PSID,
@@ -261,8 +259,9 @@ pub struct IEffectivePermission2Vtbl(
         pauthzdeviceclaimsoperations: *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION,
         peffpermresultlists: *mut EFFPERM_RESULT_LIST,
     ) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ComputeEffectivePermissionWithSecondarySecurity: usize,
+}
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 #[repr(transparent)]
 pub struct ISecurityInformation(::windows::core::IUnknown);
@@ -270,36 +269,36 @@ impl ISecurityInformation {
     #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pobjectinfo)).ok()
+        (::windows::core::Interface::vtable(self).GetObjectInformation)(::core::mem::transmute_copy(self), ::core::mem::transmute(pobjectinfo)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSecurity<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut *mut super::super::SECURITY_DESCRIPTOR, fdefault: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedinformation), ::core::mem::transmute(ppsecuritydescriptor), fdefault.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetSecurity)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedinformation), ::core::mem::transmute(ppsecuritydescriptor), fdefault.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSecurity(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: *mut super::super::SECURITY_DESCRIPTOR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(securityinformation), ::core::mem::transmute(psecuritydescriptor)).ok()
+        (::windows::core::Interface::vtable(self).SetSecurity)(::core::mem::transmute_copy(self), ::core::mem::transmute(securityinformation), ::core::mem::transmute(psecuritydescriptor)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAccessRights(&self, pguidobjecttype: *const ::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidobjecttype), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaccess), ::core::mem::transmute(pcaccesses), ::core::mem::transmute(pidefaultaccess)).ok()
+        (::windows::core::Interface::vtable(self).GetAccessRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidobjecttype), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaccess), ::core::mem::transmute(pcaccesses), ::core::mem::transmute(pidefaultaccess)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
     pub unsafe fn MapGeneric(&self, pguidobjecttype: *const ::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidobjecttype), ::core::mem::transmute(paceflags), ::core::mem::transmute(pmask)).ok()
+        (::windows::core::Interface::vtable(self).MapGeneric)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidobjecttype), ::core::mem::transmute(paceflags), ::core::mem::transmute(pmask)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetInheritTypes(&self, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppinherittypes), ::core::mem::transmute(pcinherittypes)).ok()
+        (::windows::core::Interface::vtable(self).GetInheritTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppinherittypes), ::core::mem::transmute(pcinherittypes)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation', 'Win32_UI_Controls'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
     pub unsafe fn PropertySheetPageCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(upage)).ok()
+        (::windows::core::Interface::vtable(self).PropertySheetPageCallback)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(upage)).ok()
     }
 }
 impl ::core::convert::From<ISecurityInformation> for ::windows::core::IUnknown {
@@ -344,24 +343,34 @@ unsafe impl ::windows::core::Interface for ISecurityInformation {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecurityInformationVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut *mut super::super::SECURITY_DESCRIPTOR, fdefault: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: *mut super::super::SECURITY_DESCRIPTOR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls")))] usize,
-);
+pub struct ISecurityInformationVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetObjectInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetObjectInformation: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut *mut super::super::SECURITY_DESCRIPTOR, fdefault: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetSecurity: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: *mut super::super::SECURITY_DESCRIPTOR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetSecurity: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetAccessRights: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetAccessRights: usize,
+    pub MapGeneric: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetInheritTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetInheritTypes: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+    pub PropertySheetPageCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls")))]
+    PropertySheetPageCallback: usize,
+}
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 #[repr(transparent)]
 pub struct ISecurityInformation2(::windows::core::IUnknown);
@@ -369,12 +378,12 @@ impl ISecurityInformation2 {
     #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDaclCanonical(&self, pdacl: *mut super::super::ACL) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdacl)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDaclCanonical)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdacl)))
     }
     #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn LookupSids(&self, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(csids), ::core::mem::transmute(rgpsids), ::core::mem::transmute(ppdo)).ok()
+        (::windows::core::Interface::vtable(self).LookupSids)(::core::mem::transmute_copy(self), ::core::mem::transmute(csids), ::core::mem::transmute(rgpsids), ::core::mem::transmute(ppdo)).ok()
     }
 }
 impl ::core::convert::From<ISecurityInformation2> for ::windows::core::IUnknown {
@@ -419,15 +428,17 @@ unsafe impl ::windows::core::Interface for ISecurityInformation2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecurityInformation2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdacl: *mut super::super::ACL) -> super::super::super::Foundation::BOOL,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct ISecurityInformation2Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsDaclCanonical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdacl: *mut super::super::ACL) -> super::super::super::Foundation::BOOL,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsDaclCanonical: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub LookupSids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    LookupSids: usize,
+}
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 #[repr(transparent)]
 pub struct ISecurityInformation3(::windows::core::IUnknown);
@@ -436,12 +447,12 @@ impl ISecurityInformation3 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFullResourceName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
         let mut result__: super::super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetFullResourceName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenElevatedEditor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(upage)).ok()
+        (::windows::core::Interface::vtable(self).OpenElevatedEditor)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(upage)).ok()
     }
 }
 impl ::core::convert::From<ISecurityInformation3> for ::windows::core::IUnknown {
@@ -486,15 +497,17 @@ unsafe impl ::windows::core::Interface for ISecurityInformation3 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecurityInformation3Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszresourcename: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, upage: SI_PAGE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct ISecurityInformation3Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetFullResourceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszresourcename: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetFullResourceName: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OpenElevatedEditor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, upage: SI_PAGE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OpenElevatedEditor: usize,
+}
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 #[repr(transparent)]
 pub struct ISecurityInformation4(::windows::core::IUnknown);
@@ -502,7 +515,7 @@ impl ISecurityInformation4 {
     #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSecondarySecurity(&self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(psecurityobjects), ::core::mem::transmute(psecurityobjectcount)).ok()
+        (::windows::core::Interface::vtable(self).GetSecondarySecurity)(::core::mem::transmute_copy(self), ::core::mem::transmute(psecurityobjects), ::core::mem::transmute(psecurityobjectcount)).ok()
     }
 }
 impl ::core::convert::From<ISecurityInformation4> for ::windows::core::IUnknown {
@@ -547,13 +560,13 @@ unsafe impl ::windows::core::Interface for ISecurityInformation4 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecurityInformation4Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct ISecurityInformation4Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetSecondarySecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetSecondarySecurity: usize,
+}
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 #[repr(transparent)]
 pub struct ISecurityObjectTypeInfo(::windows::core::IUnknown);
@@ -561,7 +574,7 @@ impl ISecurityObjectTypeInfo {
     #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetInheritSource(&self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(si), ::core::mem::transmute(pacl), ::core::mem::transmute(ppinheritarray)).ok()
+        (::windows::core::Interface::vtable(self).GetInheritSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(si), ::core::mem::transmute(pacl), ::core::mem::transmute(ppinheritarray)).ok()
     }
 }
 impl ::core::convert::From<ISecurityObjectTypeInfo> for ::windows::core::IUnknown {
@@ -606,13 +619,13 @@ unsafe impl ::windows::core::Interface for ISecurityObjectTypeInfo {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecurityObjectTypeInfoVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct ISecurityObjectTypeInfoVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetInheritSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetInheritSource: usize,
+}
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub type SECURITY_INFO_PAGE_FLAGS = u32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]

@@ -28,7 +28,13 @@ impl ICompositionDebugHeatMapsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowRedraw(&*(&subtree as *const <super::Visual as ::windows::core::Abi>::Abi as *const <super::Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositionDebugHeatMaps>, ::windows::core::GetTrustLevel, Hide::<Impl, IMPL_OFFSET>, ShowMemoryUsage::<Impl, IMPL_OFFSET>, ShowOverdraw::<Impl, IMPL_OFFSET>, ShowRedraw::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionDebugHeatMaps, BASE_OFFSET>(),
+            Hide: Hide::<Impl, IMPL_OFFSET>,
+            ShowMemoryUsage: ShowMemoryUsage::<Impl, IMPL_OFFSET>,
+            ShowOverdraw: ShowOverdraw::<Impl, IMPL_OFFSET>,
+            ShowRedraw: ShowRedraw::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompositionDebugHeatMaps as ::windows::core::Interface>::IID
@@ -56,7 +62,7 @@ impl ICompositionDebugSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositionDebugSettings>, ::windows::core::GetTrustLevel, HeatMaps::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionDebugSettings, BASE_OFFSET>(), HeatMaps: HeatMaps::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompositionDebugSettings as ::windows::core::Interface>::IID
@@ -84,7 +90,10 @@ impl ICompositionDebugSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositionDebugSettingsStatics>, ::windows::core::GetTrustLevel, TryGetSettings::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionDebugSettingsStatics, BASE_OFFSET>(),
+            TryGetSettings: TryGetSettings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompositionDebugSettingsStatics as ::windows::core::Interface>::IID

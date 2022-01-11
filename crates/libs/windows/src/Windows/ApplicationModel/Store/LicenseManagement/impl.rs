@@ -35,7 +35,11 @@ impl ILicenseManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILicenseManagerStatics>, ::windows::core::GetTrustLevel, AddLicenseAsync::<Impl, IMPL_OFFSET>, GetSatisfactionInfosAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILicenseManagerStatics, BASE_OFFSET>(),
+            AddLicenseAsync: AddLicenseAsync::<Impl, IMPL_OFFSET>,
+            GetSatisfactionInfosAsync: GetSatisfactionInfosAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILicenseManagerStatics as ::windows::core::Interface>::IID
@@ -63,7 +67,10 @@ impl ILicenseManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILicenseManagerStatics2>, ::windows::core::GetTrustLevel, RefreshLicensesAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILicenseManagerStatics2, BASE_OFFSET>(),
+            RefreshLicensesAsync: RefreshLicensesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILicenseManagerStatics2 as ::windows::core::Interface>::IID
@@ -163,21 +170,16 @@ impl ILicenseSatisfactionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILicenseSatisfactionInfo>,
-            ::windows::core::GetTrustLevel,
-            SatisfiedByDevice::<Impl, IMPL_OFFSET>,
-            SatisfiedByOpenLicense::<Impl, IMPL_OFFSET>,
-            SatisfiedByTrial::<Impl, IMPL_OFFSET>,
-            SatisfiedByPass::<Impl, IMPL_OFFSET>,
-            SatisfiedByInstallMedia::<Impl, IMPL_OFFSET>,
-            SatisfiedBySignedInUser::<Impl, IMPL_OFFSET>,
-            IsSatisfied::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILicenseSatisfactionInfo, BASE_OFFSET>(),
+            SatisfiedByDevice: SatisfiedByDevice::<Impl, IMPL_OFFSET>,
+            SatisfiedByOpenLicense: SatisfiedByOpenLicense::<Impl, IMPL_OFFSET>,
+            SatisfiedByTrial: SatisfiedByTrial::<Impl, IMPL_OFFSET>,
+            SatisfiedByPass: SatisfiedByPass::<Impl, IMPL_OFFSET>,
+            SatisfiedByInstallMedia: SatisfiedByInstallMedia::<Impl, IMPL_OFFSET>,
+            SatisfiedBySignedInUser: SatisfiedBySignedInUser::<Impl, IMPL_OFFSET>,
+            IsSatisfied: IsSatisfied::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILicenseSatisfactionInfo as ::windows::core::Interface>::IID
@@ -217,7 +219,11 @@ impl ILicenseSatisfactionResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILicenseSatisfactionResult>, ::windows::core::GetTrustLevel, LicenseSatisfactionInfos::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILicenseSatisfactionResult, BASE_OFFSET>(),
+            LicenseSatisfactionInfos: LicenseSatisfactionInfos::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILicenseSatisfactionResult as ::windows::core::Interface>::IID

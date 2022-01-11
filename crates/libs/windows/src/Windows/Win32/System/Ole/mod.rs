@@ -1246,31 +1246,31 @@ impl IAdviseSinkEx {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnDataChange(&self, pformatetc: *const super::Com::FORMATETC, pstgmed: *const super::Com::STGMEDIUM) {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed))
+        (::windows::core::Interface::vtable(self).OnDataChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed))
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnViewChange(&self, dwaspect: u32, lindex: i32) {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex))
+        (::windows::core::Interface::vtable(self).OnViewChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex))
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnRename<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IMoniker>>(&self, pmk: Param0) {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pmk.into_param().abi())
+        (::windows::core::Interface::vtable(self).OnRename)(::core::mem::transmute_copy(self), pmk.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSave(&self) {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).OnSave)(::core::mem::transmute_copy(self))
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnClose(&self) {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).OnClose)(::core::mem::transmute_copy(self))
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnViewStatusChange(&self, dwviewstatus: u32) {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwviewstatus))
+        (::windows::core::Interface::vtable(self).OnViewStatusChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwviewstatus))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1339,22 +1339,10 @@ unsafe impl ::windows::core::Interface for IAdviseSinkEx {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdviseSinkExVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, pstgmed: *const super::Com::STGMEDIUM),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, lindex: i32),
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmk: ::windows::core::RawPtr),
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwviewstatus: u32),
-);
+pub struct IAdviseSinkExVtbl {
+    pub base: IAdviseSinkVtbl,
+    pub OnViewStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwviewstatus: u32),
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct ICanHandleException(::windows::core::IUnknown);
@@ -1362,7 +1350,7 @@ impl ICanHandleException {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CanHandleException(&self, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(pvar)).ok()
+        (::windows::core::Interface::vtable(self).CanHandleException)(::core::mem::transmute_copy(self), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(pvar)).ok()
     }
 }
 impl ::core::convert::From<ICanHandleException> for ::windows::core::IUnknown {
@@ -1407,13 +1395,13 @@ unsafe impl ::windows::core::Interface for ICanHandleException {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICanHandleExceptionVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct ICanHandleExceptionVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub CanHandleException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    CanHandleException: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IClassFactory2(::windows::core::IUnknown);
@@ -1422,28 +1410,28 @@ impl IClassFactory2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, T: ::windows::core::Interface>(&self, punkouter: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateInstance)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn LockServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, flock: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), flock.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).LockServer)(::core::mem::transmute_copy(self), flock.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLicInfo(&self, plicinfo: *mut LICINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(plicinfo)).ok()
+        (::windows::core::Interface::vtable(self).GetLicInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(plicinfo)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestLicKey(&self, dwreserved: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).RequestLicKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateInstanceLic<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, punkouter: Param0, punkreserved: Param1, riid: *const ::windows::core::GUID, bstrkey: Param3, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), punkreserved.into_param().abi(), ::core::mem::transmute(riid), bstrkey.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+        (::windows::core::Interface::vtable(self).CreateInstanceLic)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), punkreserved.into_param().abi(), ::core::mem::transmute(riid), bstrkey.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1512,28 +1500,28 @@ unsafe impl ::windows::core::Interface for IClassFactory2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClassFactory2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flock: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plicinfo: *mut LICINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32, pbstrkey: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, punkreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, bstrkey: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IClassFactory2Vtbl {
+    pub base: IClassFactoryVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetLicInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plicinfo: *mut LICINFO) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetLicInfo: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub RequestLicKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32, pbstrkey: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    RequestLicKey: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub CreateInstanceLic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, punkreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, bstrkey: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    CreateInstanceLic: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IContinue(::windows::core::IUnknown);
 impl IContinue {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn FContinue(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).FContinue)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IContinue> for ::windows::core::IUnknown {
@@ -1578,19 +1566,22 @@ unsafe impl ::windows::core::Interface for IContinue {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContinueVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub struct IContinueVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub FContinue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IContinueCallback(::windows::core::IUnknown);
 impl IContinueCallback {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn FContinue(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).FContinue)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FContinuePrinting<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, ncntprinted: i32, ncurpage: i32, pwszprintstatus: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ncntprinted), ::core::mem::transmute(ncurpage), pwszprintstatus.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FContinuePrinting)(::core::mem::transmute_copy(self), ::core::mem::transmute(ncntprinted), ::core::mem::transmute(ncurpage), pwszprintstatus.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IContinueCallback> for ::windows::core::IUnknown {
@@ -1635,40 +1626,40 @@ unsafe impl ::windows::core::Interface for IContinueCallback {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContinueCallbackVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncntprinted: i32, ncurpage: i32, pwszprintstatus: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IContinueCallbackVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub FContinue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub FContinuePrinting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncntprinted: i32, ncurpage: i32, pwszprintstatus: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    FContinuePrinting: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct ICreateErrorInfo(::windows::core::IUnknown);
 impl ICreateErrorInfo {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetGUID(&self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguid)).ok()
+        (::windows::core::Interface::vtable(self).SetGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szsource: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), szsource.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSource)(::core::mem::transmute_copy(self), szsource.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), szdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), szdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHelpFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szhelpfile: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), szhelpfile.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHelpFile)(::core::mem::transmute_copy(self), szhelpfile.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetHelpContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
     }
 }
 impl ::core::convert::From<ICreateErrorInfo> for ::windows::core::IUnknown {
@@ -1713,127 +1704,131 @@ unsafe impl ::windows::core::Interface for ICreateErrorInfo {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateErrorInfoVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szsource: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szdescription: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szhelpfile: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpcontext: u32) -> ::windows::core::HRESULT,
-);
+pub struct ICreateErrorInfoVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub SetGUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szsource: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetSource: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szdescription: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetDescription: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetHelpFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szhelpfile: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetHelpFile: usize,
+    pub SetHelpContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpcontext: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct ICreateTypeInfo(::windows::core::IUnknown);
 impl ICreateTypeInfo {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetGuid(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
+        (::windows::core::Interface::vtable(self).SetGuid)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetTypeFlags(&self, utypeflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(utypeflags)).ok()
+        (::windows::core::Interface::vtable(self).SetTypeFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(utypeflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDocString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pstrdoc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pstrdoc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDocString)(::core::mem::transmute_copy(self), pstrdoc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetHelpContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
+        (::windows::core::Interface::vtable(self).SetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRefTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::Com::ITypeInfo>>(&self, ptinfo: Param0, phreftype: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ptinfo.into_param().abi(), ::core::mem::transmute(phreftype)).ok()
+        (::windows::core::Interface::vtable(self).AddRefTypeInfo)(::core::mem::transmute_copy(self), ptinfo.into_param().abi(), ::core::mem::transmute(phreftype)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddFuncDesc(&self, index: u32, pfuncdesc: *const super::Com::FUNCDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pfuncdesc)).ok()
+        (::windows::core::Interface::vtable(self).AddFuncDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pfuncdesc)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn AddImplType(&self, index: u32, hreftype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(hreftype)).ok()
+        (::windows::core::Interface::vtable(self).AddImplType)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(hreftype)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetImplTypeFlags(&self, index: u32, impltypeflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(impltypeflags)).ok()
+        (::windows::core::Interface::vtable(self).SetImplTypeFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(impltypeflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetAlignment(&self, cbalignment: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbalignment)).ok()
+        (::windows::core::Interface::vtable(self).SetAlignment)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbalignment)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSchema<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pstrschema: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), pstrschema.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSchema)(::core::mem::transmute_copy(self), pstrschema.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddVarDesc(&self, index: u32, pvardesc: *const super::Com::VARDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pvardesc)).ok()
+        (::windows::core::Interface::vtable(self).AddVarDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pvardesc)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames)).ok()
+        (::windows::core::Interface::vtable(self).SetFuncAndParamNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVarName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, index: u32, szname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetVarName)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szname.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTypeDescAlias(&self, ptdescalias: *const super::Com::TYPEDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptdescalias)).ok()
+        (::windows::core::Interface::vtable(self).SetTypeDescAlias)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptdescalias)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DefineFuncAsDllEntry<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, index: u32, szdllname: Param1, szprocname: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdllname.into_param().abi(), szprocname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DefineFuncAsDllEntry)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdllname.into_param().abi(), szprocname.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFuncDocString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, index: u32, szdocstring: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdocstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFuncDocString)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdocstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVarDocString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, index: u32, szdocstring: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdocstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetVarDocString)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdocstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetFuncHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetFuncHelpContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetVarHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetVarHelpContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMops<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, index: u32, bstrmops: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), bstrmops.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetMops)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), bstrmops.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTypeIdldesc(&self, pidldesc: *const super::Com::IDLDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(pidldesc)).ok()
+        (::windows::core::Interface::vtable(self).SetTypeIdldesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pidldesc)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn LayOut(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).LayOut)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<ICreateTypeInfo> for ::windows::core::IUnknown {
@@ -1878,222 +1873,246 @@ unsafe impl ::windows::core::Interface for ICreateTypeInfo {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateTypeInfoVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, utypeflags: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdoc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpcontext: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmajorvernum: u16, wminorvernum: u16) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptinfo: ::windows::core::RawPtr, phreftype: *const u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pfuncdesc: *const super::Com::FUNCDESC) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, hreftype: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, impltypeflags: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbalignment: u16) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrschema: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pvardesc: *const super::Com::VARDESC) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptdescalias: *const super::Com::TYPEDESC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szdllname: super::super::Foundation::PWSTR, szprocname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szdocstring: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szdocstring: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dwhelpcontext: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dwhelpcontext: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, bstrmops: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidldesc: *const super::Com::IDLDESC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct ICreateTypeInfoVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub SetGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub SetTypeFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, utypeflags: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetDocString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdoc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetDocString: usize,
+    pub SetHelpContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpcontext: u32) -> ::windows::core::HRESULT,
+    pub SetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmajorvernum: u16, wminorvernum: u16) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub AddRefTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptinfo: ::windows::core::RawPtr, phreftype: *const u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    AddRefTypeInfo: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub AddFuncDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pfuncdesc: *const super::Com::FUNCDESC) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    AddFuncDesc: usize,
+    pub AddImplType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, hreftype: u32) -> ::windows::core::HRESULT,
+    pub SetImplTypeFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, impltypeflags: i32) -> ::windows::core::HRESULT,
+    pub SetAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbalignment: u16) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetSchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrschema: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetSchema: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub AddVarDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pvardesc: *const super::Com::VARDESC) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    AddVarDesc: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetFuncAndParamNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetFuncAndParamNames: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetVarName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetVarName: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub SetTypeDescAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptdescalias: *const super::Com::TYPEDESC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetTypeDescAlias: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub DefineFuncAsDllEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szdllname: super::super::Foundation::PWSTR, szprocname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    DefineFuncAsDllEntry: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetFuncDocString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szdocstring: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetFuncDocString: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetVarDocString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szdocstring: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetVarDocString: usize,
+    pub SetFuncHelpContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dwhelpcontext: u32) -> ::windows::core::HRESULT,
+    pub SetVarHelpContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dwhelpcontext: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetMops: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, bstrmops: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetMops: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub SetTypeIdldesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidldesc: *const super::Com::IDLDESC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetTypeIdldesc: usize,
+    pub LayOut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct ICreateTypeInfo2(::windows::core::IUnknown);
 impl ICreateTypeInfo2 {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetGuid(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
+        (::windows::core::Interface::vtable(self).SetGuid)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetTypeFlags(&self, utypeflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(utypeflags)).ok()
+        (::windows::core::Interface::vtable(self).SetTypeFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(utypeflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDocString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pstrdoc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pstrdoc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDocString)(::core::mem::transmute_copy(self), pstrdoc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetHelpContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
+        (::windows::core::Interface::vtable(self).SetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRefTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::Com::ITypeInfo>>(&self, ptinfo: Param0, phreftype: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ptinfo.into_param().abi(), ::core::mem::transmute(phreftype)).ok()
+        (::windows::core::Interface::vtable(self).AddRefTypeInfo)(::core::mem::transmute_copy(self), ptinfo.into_param().abi(), ::core::mem::transmute(phreftype)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddFuncDesc(&self, index: u32, pfuncdesc: *const super::Com::FUNCDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pfuncdesc)).ok()
+        (::windows::core::Interface::vtable(self).AddFuncDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pfuncdesc)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn AddImplType(&self, index: u32, hreftype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(hreftype)).ok()
+        (::windows::core::Interface::vtable(self).AddImplType)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(hreftype)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetImplTypeFlags(&self, index: u32, impltypeflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(impltypeflags)).ok()
+        (::windows::core::Interface::vtable(self).SetImplTypeFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(impltypeflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetAlignment(&self, cbalignment: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbalignment)).ok()
+        (::windows::core::Interface::vtable(self).SetAlignment)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbalignment)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSchema<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pstrschema: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), pstrschema.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSchema)(::core::mem::transmute_copy(self), pstrschema.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddVarDesc(&self, index: u32, pvardesc: *const super::Com::VARDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pvardesc)).ok()
+        (::windows::core::Interface::vtable(self).AddVarDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pvardesc)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames)).ok()
+        (::windows::core::Interface::vtable(self).SetFuncAndParamNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVarName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, index: u32, szname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetVarName)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szname.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTypeDescAlias(&self, ptdescalias: *const super::Com::TYPEDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptdescalias)).ok()
+        (::windows::core::Interface::vtable(self).SetTypeDescAlias)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptdescalias)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DefineFuncAsDllEntry<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, index: u32, szdllname: Param1, szprocname: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdllname.into_param().abi(), szprocname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DefineFuncAsDllEntry)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdllname.into_param().abi(), szprocname.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFuncDocString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, index: u32, szdocstring: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdocstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFuncDocString)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdocstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVarDocString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, index: u32, szdocstring: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdocstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetVarDocString)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdocstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetFuncHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetFuncHelpContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetVarHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetVarHelpContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMops<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, index: u32, bstrmops: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), bstrmops.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetMops)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), bstrmops.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTypeIdldesc(&self, pidldesc: *const super::Com::IDLDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(pidldesc)).ok()
+        (::windows::core::Interface::vtable(self).SetTypeIdldesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pidldesc)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn LayOut(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).LayOut)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DeleteFuncDesc(&self, index: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).DeleteFuncDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeleteFuncDescByMemId(&self, memid: i32, invkind: super::Com::INVOKEKIND) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), ::core::mem::transmute(invkind)).ok()
+        (::windows::core::Interface::vtable(self).DeleteFuncDescByMemId)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), ::core::mem::transmute(invkind)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DeleteVarDesc(&self, index: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).DeleteVarDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DeleteVarDescByMemId(&self, memid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid)).ok()
+        (::windows::core::Interface::vtable(self).DeleteVarDescByMemId)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DeleteImplType(&self, index: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).DeleteImplType)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetCustData(&self, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
+        (::windows::core::Interface::vtable(self).SetCustData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetFuncCustData(&self, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
+        (::windows::core::Interface::vtable(self).SetFuncCustData)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexfunc), ::core::mem::transmute(indexparam), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
+        (::windows::core::Interface::vtable(self).SetParamCustData)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexfunc), ::core::mem::transmute(indexparam), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetVarCustData(&self, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
+        (::windows::core::Interface::vtable(self).SetVarCustData)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetImplTypeCustData(&self, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
+        (::windows::core::Interface::vtable(self).SetImplTypeCustData)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetHelpStringContext(&self, dwhelpstringcontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpstringcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetHelpStringContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpstringcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetFuncHelpStringContext(&self, index: u32, dwhelpstringcontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpstringcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetFuncHelpStringContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpstringcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetVarHelpStringContext(&self, index: u32, dwhelpstringcontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpstringcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetVarHelpStringContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpstringcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Invalidate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Invalidate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), szname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), szname.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<ICreateTypeInfo2> for ICreateTypeInfo {
@@ -2158,69 +2177,45 @@ unsafe impl ::windows::core::Interface for ICreateTypeInfo2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateTypeInfo2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, utypeflags: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdoc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpcontext: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmajorvernum: u16, wminorvernum: u16) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptinfo: ::windows::core::RawPtr, phreftype: *const u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pfuncdesc: *const super::Com::FUNCDESC) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, hreftype: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, impltypeflags: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbalignment: u16) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrschema: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pvardesc: *const super::Com::VARDESC) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptdescalias: *const super::Com::TYPEDESC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szdllname: super::super::Foundation::PWSTR, szprocname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szdocstring: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szdocstring: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dwhelpcontext: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dwhelpcontext: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, bstrmops: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidldesc: *const super::Com::IDLDESC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memid: i32, invkind: super::Com::INVOKEKIND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memid: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct ICreateTypeInfo2Vtbl {
+    pub base: ICreateTypeInfoVtbl,
+    pub DeleteFuncDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub DeleteFuncDescByMemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memid: i32, invkind: super::Com::INVOKEKIND) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    DeleteFuncDescByMemId: usize,
+    pub DeleteVarDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
+    pub DeleteVarDescByMemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memid: i32) -> ::windows::core::HRESULT,
+    pub DeleteImplType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    SetCustData: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub SetFuncCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    SetFuncCustData: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub SetParamCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    SetParamCustData: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub SetVarCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    SetVarCustData: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub SetImplTypeCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    SetImplTypeCustData: usize,
+    pub SetHelpStringContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
+    pub SetFuncHelpStringContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
+    pub SetVarHelpStringContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
+    pub Invalidate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetName: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct ICreateTypeLib(::windows::core::IUnknown);
@@ -2229,46 +2224,46 @@ impl ICreateTypeLib {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szname: Param0, tkind: super::Com::TYPEKIND) -> ::windows::core::Result<ICreateTypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szname.into_param().abi(), ::core::mem::transmute(tkind), ::core::mem::transmute(&mut result__)).from_abi::<ICreateTypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).CreateTypeInfo)(::core::mem::transmute_copy(self), szname.into_param().abi(), ::core::mem::transmute(tkind), ::core::mem::transmute(&mut result__)).from_abi::<ICreateTypeInfo>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), szname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), szname.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
+        (::windows::core::Interface::vtable(self).SetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetGuid(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
+        (::windows::core::Interface::vtable(self).SetGuid)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDocString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szdoc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), szdoc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDocString)(::core::mem::transmute_copy(self), szdoc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHelpFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szhelpfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), szhelpfilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHelpFileName)(::core::mem::transmute_copy(self), szhelpfilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetHelpContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetLcid(&self, lcid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcid)).ok()
+        (::windows::core::Interface::vtable(self).SetLcid)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetLibFlags(&self, ulibflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulibflags)).ok()
+        (::windows::core::Interface::vtable(self).SetLibFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulibflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SaveAllChanges(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).SaveAllChanges)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<ICreateTypeLib> for ::windows::core::IUnknown {
@@ -2313,25 +2308,31 @@ unsafe impl ::windows::core::Interface for ICreateTypeLib {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateTypeLibVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::Foundation::PWSTR, tkind: super::Com::TYPEKIND, ppctinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmajorvernum: u16, wminorvernum: u16) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szdoc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szhelpfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpcontext: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcid: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulibflags: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct ICreateTypeLibVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub CreateTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::Foundation::PWSTR, tkind: super::Com::TYPEKIND, ppctinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    CreateTypeInfo: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetName: usize,
+    pub SetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmajorvernum: u16, wminorvernum: u16) -> ::windows::core::HRESULT,
+    pub SetGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetDocString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szdoc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetDocString: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetHelpFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szhelpfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetHelpFileName: usize,
+    pub SetHelpContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpcontext: u32) -> ::windows::core::HRESULT,
+    pub SetLcid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcid: u32) -> ::windows::core::HRESULT,
+    pub SetLibFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulibflags: u32) -> ::windows::core::HRESULT,
+    pub SaveAllChanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct ICreateTypeLib2(::windows::core::IUnknown);
@@ -2340,65 +2341,65 @@ impl ICreateTypeLib2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szname: Param0, tkind: super::Com::TYPEKIND) -> ::windows::core::Result<ICreateTypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szname.into_param().abi(), ::core::mem::transmute(tkind), ::core::mem::transmute(&mut result__)).from_abi::<ICreateTypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).CreateTypeInfo)(::core::mem::transmute_copy(self), szname.into_param().abi(), ::core::mem::transmute(tkind), ::core::mem::transmute(&mut result__)).from_abi::<ICreateTypeInfo>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), szname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), szname.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
+        (::windows::core::Interface::vtable(self).SetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetGuid(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
+        (::windows::core::Interface::vtable(self).SetGuid)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDocString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szdoc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), szdoc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDocString)(::core::mem::transmute_copy(self), szdoc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHelpFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szhelpfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), szhelpfilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHelpFileName)(::core::mem::transmute_copy(self), szhelpfilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetHelpContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetLcid(&self, lcid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcid)).ok()
+        (::windows::core::Interface::vtable(self).SetLcid)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetLibFlags(&self, ulibflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulibflags)).ok()
+        (::windows::core::Interface::vtable(self).SetLibFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulibflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SaveAllChanges(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).SaveAllChanges)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), szname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeleteTypeInfo)(::core::mem::transmute_copy(self), szname.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetCustData(&self, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
+        (::windows::core::Interface::vtable(self).SetCustData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetHelpStringContext(&self, dwhelpstringcontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpstringcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetHelpStringContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpstringcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHelpStringDll<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), szfilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHelpStringDll)(::core::mem::transmute_copy(self), szfilename.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<ICreateTypeLib2> for ICreateTypeLib {
@@ -2463,32 +2464,22 @@ unsafe impl ::windows::core::Interface for ICreateTypeLib2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateTypeLib2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::Foundation::PWSTR, tkind: super::Com::TYPEKIND, ppctinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmajorvernum: u16, wminorvernum: u16) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szdoc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szhelpfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpcontext: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcid: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulibflags: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct ICreateTypeLib2Vtbl {
+    pub base: ICreateTypeLibVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub DeleteTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    DeleteTypeInfo: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    SetCustData: usize,
+    pub SetHelpStringContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetHelpStringDll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetHelpStringDll: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 pub const IDC_BZ_ICON: u32 = 601u32;
 #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -2774,34 +2765,34 @@ impl IDispError {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn QueryErrorInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, guiderrortype: Param0) -> ::windows::core::Result<IDispError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), guiderrortype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDispError>(result__)
+        (::windows::core::Interface::vtable(self).QueryErrorInfo)(::core::mem::transmute_copy(self), guiderrortype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDispError>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetNext(&self) -> ::windows::core::Result<IDispError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDispError>(result__)
+        (::windows::core::Interface::vtable(self).GetNext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDispError>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetHresult(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::HRESULT>(result__)
+        (::windows::core::Interface::vtable(self).GetHresult)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::HRESULT>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSource(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHelpInfo(&self, pbstrfilename: *mut super::super::Foundation::BSTR, pdwcontext: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrfilename), ::core::mem::transmute(pdwcontext)).ok()
+        (::windows::core::Interface::vtable(self).GetHelpInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrfilename), ::core::mem::transmute(pdwcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IDispError> for ::windows::core::IUnknown {
@@ -2846,20 +2837,24 @@ unsafe impl ::windows::core::Interface for IDispError {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDispErrorVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guiderrortype: ::windows::core::GUID, ppde: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppde: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phr: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfilename: *mut super::super::Foundation::BSTR, pdwcontext: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IDispErrorVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub QueryErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guiderrortype: ::windows::core::GUID, ppde: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppde: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetHresult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phr: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetSource: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetHelpInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfilename: *mut super::super::Foundation::BSTR, pdwcontext: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetHelpInfo: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetDescription: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IDispatchEx(::windows::core::IUnknown);
@@ -2868,64 +2863,64 @@ impl IDispatchEx {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+        (::windows::core::Interface::vtable(self).GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
+        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDispID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, grfdex: u32) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(grfdex), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetDispID)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(grfdex), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InvokeEx<'a, Param6: ::windows::core::IntoParam<'a, super::Com::IServiceProvider>>(&self, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Com::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdp), ::core::mem::transmute(pvarres), ::core::mem::transmute(pei), pspcaller.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).InvokeEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdp), ::core::mem::transmute(pvarres), ::core::mem::transmute(pei), pspcaller.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteMemberByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, grfdex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(grfdex)).ok()
+        (::windows::core::Interface::vtable(self).DeleteMemberByName)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(grfdex)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DeleteMemberByDispID(&self, id: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(id)).ok()
+        (::windows::core::Interface::vtable(self).DeleteMemberByDispID)(::core::mem::transmute_copy(self), ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetMemberProperties(&self, id: i32, grfdexfetch: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(grfdexfetch), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetMemberProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(grfdexfetch), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMemberName(&self, id: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetMemberName)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetNextDispID(&self, grfdex: u32, id: i32) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfdex), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetNextDispID)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfdex), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetNameSpaceParent(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetNameSpaceParent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2994,31 +2989,29 @@ unsafe impl ::windows::core::Interface for IDispatchEx {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDispatchExVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctinfo: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, grfdex: u32, pid: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Com::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, grfdex: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, grfdexfetch: u32, pgrfdex: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfdex: u32, id: i32, pid: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IDispatchExVtbl {
+    pub base: IDispatchVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetDispID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, grfdex: u32, pid: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetDispID: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub InvokeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Com::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    InvokeEx: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub DeleteMemberByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, grfdex: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    DeleteMemberByName: usize,
+    pub DeleteMemberByDispID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32) -> ::windows::core::HRESULT,
+    pub GetMemberProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, grfdexfetch: u32, pgrfdex: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetMemberName: usize,
+    pub GetNextDispID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfdex: u32, id: i32, pid: *mut i32) -> ::windows::core::HRESULT,
+    pub GetNameSpaceParent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IDropSource(::windows::core::IUnknown);
@@ -3026,11 +3019,11 @@ impl IDropSource {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryContinueDrag<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fescapepressed: Param0, grfkeystate: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), fescapepressed.into_param().abi(), ::core::mem::transmute(grfkeystate)).ok()
+        (::windows::core::Interface::vtable(self).QueryContinueDrag)(::core::mem::transmute_copy(self), fescapepressed.into_param().abi(), ::core::mem::transmute(grfkeystate)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GiveFeedback(&self, dweffect: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweffect)).ok()
+        (::windows::core::Interface::vtable(self).GiveFeedback)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweffect)).ok()
     }
 }
 impl ::core::convert::From<IDropSource> for ::windows::core::IUnknown {
@@ -3075,14 +3068,14 @@ unsafe impl ::windows::core::Interface for IDropSource {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDropSourceVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fescapepressed: super::super::Foundation::BOOL, grfkeystate: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweffect: u32) -> ::windows::core::HRESULT,
-);
+pub struct IDropSourceVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub QueryContinueDrag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fescapepressed: super::super::Foundation::BOOL, grfkeystate: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    QueryContinueDrag: usize,
+    pub GiveFeedback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweffect: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IDropSourceNotify(::windows::core::IUnknown);
@@ -3090,11 +3083,11 @@ impl IDropSourceNotify {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DragEnterTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndtarget: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hwndtarget.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DragEnterTarget)(::core::mem::transmute_copy(self), hwndtarget.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DragLeaveTarget(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DragLeaveTarget)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IDropSourceNotify> for ::windows::core::IUnknown {
@@ -3139,14 +3132,14 @@ unsafe impl ::windows::core::Interface for IDropSourceNotify {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDropSourceNotifyVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndtarget: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IDropSourceNotifyVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub DragEnterTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndtarget: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    DragEnterTarget: usize,
+    pub DragLeaveTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IDropTarget(::windows::core::IUnknown);
@@ -3154,21 +3147,21 @@ impl IDropTarget {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn DragEnter<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::POINTL>>(&self, pdataobj: Param0, grfkeystate: u32, pt: Param2, pdweffect: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pdataobj.into_param().abi(), ::core::mem::transmute(grfkeystate), pt.into_param().abi(), ::core::mem::transmute(pdweffect)).ok()
+        (::windows::core::Interface::vtable(self).DragEnter)(::core::mem::transmute_copy(self), pdataobj.into_param().abi(), ::core::mem::transmute(grfkeystate), pt.into_param().abi(), ::core::mem::transmute(pdweffect)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DragOver<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::POINTL>>(&self, grfkeystate: u32, pt: Param1, pdweffect: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfkeystate), pt.into_param().abi(), ::core::mem::transmute(pdweffect)).ok()
+        (::windows::core::Interface::vtable(self).DragOver)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfkeystate), pt.into_param().abi(), ::core::mem::transmute(pdweffect)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DragLeave(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DragLeave)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Drop<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::POINTL>>(&self, pdataobj: Param0, grfkeystate: u32, pt: Param2, pdweffect: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pdataobj.into_param().abi(), ::core::mem::transmute(grfkeystate), pt.into_param().abi(), ::core::mem::transmute(pdweffect)).ok()
+        (::windows::core::Interface::vtable(self).Drop)(::core::mem::transmute_copy(self), pdataobj.into_param().abi(), ::core::mem::transmute(grfkeystate), pt.into_param().abi(), ::core::mem::transmute(pdweffect)).ok()
     }
 }
 impl ::core::convert::From<IDropTarget> for ::windows::core::IUnknown {
@@ -3213,18 +3206,22 @@ unsafe impl ::windows::core::Interface for IDropTarget {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDropTargetVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobj: ::windows::core::RawPtr, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobj: ::windows::core::RawPtr, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct IDropTargetVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub DragEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobj: ::windows::core::RawPtr, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    DragEnter: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub DragOver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    DragOver: usize,
+    pub DragLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub Drop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobj: ::windows::core::RawPtr, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    Drop: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IEnterpriseDropTarget(::windows::core::IUnknown);
@@ -3232,13 +3229,13 @@ impl IEnterpriseDropTarget {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDropSourceEnterpriseId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, identity: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), identity.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDropSourceEnterpriseId)(::core::mem::transmute_copy(self), identity.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEvaluatingEdpPolicy(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsEvaluatingEdpPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IEnterpriseDropTarget> for ::windows::core::IUnknown {
@@ -3283,15 +3280,17 @@ unsafe impl ::windows::core::Interface for IEnterpriseDropTarget {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnterpriseDropTargetVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identity: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IEnterpriseDropTargetVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetDropSourceEnterpriseId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identity: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetDropSourceEnterpriseId: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsEvaluatingEdpPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsEvaluatingEdpPolicy: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IEnumOLEVERB(::windows::core::IUnknown);
@@ -3299,20 +3298,20 @@ impl IEnumOLEVERB {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut OLEVERB, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumOLEVERB> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumOLEVERB>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumOLEVERB>(result__)
     }
 }
 impl ::core::convert::From<IEnumOLEVERB> for ::windows::core::IUnknown {
@@ -3357,36 +3356,36 @@ unsafe impl ::windows::core::Interface for IEnumOLEVERB {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumOLEVERBVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut OLEVERB, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IEnumOLEVERBVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut OLEVERB, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Next: usize,
+    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IEnumOleDocumentViews(::windows::core::IUnknown);
 impl IEnumOleDocumentViews {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Next(&self, cviews: u32, rgpview: *mut ::core::option::Option<IOleDocumentView>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(cviews), ::core::mem::transmute(rgpview), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cviews), ::core::mem::transmute(rgpview), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Skip(&self, cviews: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(cviews)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(cviews)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumOleDocumentViews> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumOleDocumentViews>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumOleDocumentViews>(result__)
     }
 }
 impl ::core::convert::From<IEnumOleDocumentViews> for ::windows::core::IUnknown {
@@ -3431,35 +3430,33 @@ unsafe impl ::windows::core::Interface for IEnumOleDocumentViews {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumOleDocumentViewsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cviews: u32, rgpview: *mut ::windows::core::RawPtr, pcfetched: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cviews: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IEnumOleDocumentViewsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cviews: u32, rgpview: *mut ::windows::core::RawPtr, pcfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cviews: u32) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IEnumOleUndoUnits(::windows::core::IUnknown);
 impl IEnumOleUndoUnits {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IOleUndoUnit>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumOleUndoUnits> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumOleUndoUnits>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumOleUndoUnits>(result__)
     }
 }
 impl ::core::convert::From<IEnumOleUndoUnits> for ::windows::core::IUnknown {
@@ -3504,15 +3501,13 @@ unsafe impl ::windows::core::Interface for IEnumOleUndoUnits {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumOleUndoUnitsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IEnumOleUndoUnitsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IEnumVARIANT(::windows::core::IUnknown);
@@ -3520,20 +3515,20 @@ impl IEnumVARIANT {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Next(&self, celt: u32, rgvar: *mut super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgvar), ::core::mem::transmute(pceltfetched)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgvar), ::core::mem::transmute(pceltfetched)))
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)))
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumVARIANT> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumVARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumVARIANT>(result__)
     }
 }
 impl ::core::convert::From<IEnumVARIANT> for ::windows::core::IUnknown {
@@ -3578,16 +3573,16 @@ unsafe impl ::windows::core::Interface for IEnumVARIANT {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumVARIANTVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IEnumVARIANTVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    Next: usize,
+    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IFont(::windows::core::IUnknown);
@@ -3596,125 +3591,125 @@ impl IFont {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Size(&self) -> ::windows::core::Result<super::Com::CY> {
         let mut result__: super::Com::CY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::CY>(result__)
+        (::windows::core::Interface::vtable(self).Size)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::CY>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSize<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(&self, size: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), size.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSize)(::core::mem::transmute_copy(self), size.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Bold(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).Bold)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBold<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bold: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), bold.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBold)(::core::mem::transmute_copy(self), bold.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Italic(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).Italic)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetItalic<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, italic: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), italic.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetItalic)(::core::mem::transmute_copy(self), italic.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Underline(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).Underline)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUnderline<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, underline: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), underline.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetUnderline)(::core::mem::transmute_copy(self), underline.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Strikethrough(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).Strikethrough)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStrikethrough<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, strikethrough: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), strikethrough.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetStrikethrough)(::core::mem::transmute_copy(self), strikethrough.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Weight(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Weight)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetWeight(&self, weight: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(weight)).ok()
+        (::windows::core::Interface::vtable(self).SetWeight)(::core::mem::transmute_copy(self), ::core::mem::transmute(weight)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Charset(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Charset)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetCharset(&self, charset: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(charset)).ok()
+        (::windows::core::Interface::vtable(self).SetCharset)(::core::mem::transmute_copy(self), ::core::mem::transmute(charset)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn hFont(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::HFONT> {
         let mut result__: super::super::Graphics::Gdi::HFONT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HFONT>(result__)
+        (::windows::core::Interface::vtable(self).hFont)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HFONT>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IFont> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFont>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFont>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, IFont>>(&self, pfontother: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pfontother.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).IsEqual)(::core::mem::transmute_copy(self), pfontother.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetRatio(&self, cylogical: i32, cyhimetric: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(cylogical), ::core::mem::transmute(cyhimetric)).ok()
+        (::windows::core::Interface::vtable(self).SetRatio)(::core::mem::transmute_copy(self), ::core::mem::transmute(cylogical), ::core::mem::transmute(cyhimetric)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn QueryTextMetrics(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::TEXTMETRICW> {
         let mut result__: super::super::Graphics::Gdi::TEXTMETRICW = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::TEXTMETRICW>(result__)
+        (::windows::core::Interface::vtable(self).QueryTextMetrics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::TEXTMETRICW>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn AddRefHfont<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HFONT>>(&self, hfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), hfont.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddRefHfont)(::core::mem::transmute_copy(self), hfont.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseHfont<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HFONT>>(&self, hfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), hfont.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ReleaseHfont)(::core::mem::transmute_copy(self), hfont.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetHdc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), hdc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHdc)(::core::mem::transmute_copy(self), hdc.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IFont> for ::windows::core::IUnknown {
@@ -3759,52 +3754,84 @@ unsafe impl ::windows::core::Interface for IFont {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFontVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psize: *mut super::Com::CY) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: super::Com::CY) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbold: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bold: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitalic: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, italic: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punderline: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, underline: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrikethrough: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strikethrough: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pweight: *mut i16) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, weight: i16) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcharset: *mut i16) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, charset: i16) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phfont: *mut super::super::Graphics::Gdi::HFONT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfont: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfontother: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cylogical: i32, cyhimetric: i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hfont: super::super::Graphics::Gdi::HFONT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hfont: super::super::Graphics::Gdi::HFONT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-);
+pub struct IFontVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Name: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetName: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psize: *mut super::Com::CY) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Size: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub SetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: super::Com::CY) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetSize: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Bold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbold: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Bold: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetBold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bold: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetBold: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Italic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitalic: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Italic: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetItalic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, italic: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetItalic: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Underline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punderline: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Underline: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetUnderline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, underline: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetUnderline: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Strikethrough: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrikethrough: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Strikethrough: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetStrikethrough: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strikethrough: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetStrikethrough: usize,
+    pub Weight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pweight: *mut i16) -> ::windows::core::HRESULT,
+    pub SetWeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, weight: i16) -> ::windows::core::HRESULT,
+    pub Charset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcharset: *mut i16) -> ::windows::core::HRESULT,
+    pub SetCharset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, charset: i16) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub hFont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phfont: *mut super::super::Graphics::Gdi::HFONT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    hFont: usize,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfont: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsEqual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfontother: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cylogical: i32, cyhimetric: i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub QueryTextMetrics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    QueryTextMetrics: usize,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub AddRefHfont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hfont: super::super::Graphics::Gdi::HFONT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    AddRefHfont: usize,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub ReleaseHfont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hfont: super::super::Graphics::Gdi::HFONT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    ReleaseHfont: usize,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub SetHdc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    SetHdc: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IFontDisp(::windows::core::IUnknown);
@@ -3813,23 +3840,23 @@ impl IFontDisp {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+        (::windows::core::Interface::vtable(self).GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
+        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3898,19 +3925,9 @@ unsafe impl ::windows::core::Interface for IFontDisp {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFontDispVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctinfo: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct IFontDispVtbl {
+    pub base: IDispatchVtbl,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IFontEventsDisp(::windows::core::IUnknown);
@@ -3919,23 +3936,23 @@ impl IFontEventsDisp {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+        (::windows::core::Interface::vtable(self).GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
+        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4004,19 +4021,9 @@ unsafe impl ::windows::core::Interface for IFontEventsDisp {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFontEventsDispVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctinfo: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct IFontEventsDispVtbl {
+    pub base: IDispatchVtbl,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 pub type IGNOREMIME = i32;
 #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -4029,7 +4036,7 @@ pub struct IGetOleObject(::windows::core::IUnknown);
 impl IGetOleObject {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetOleObject(&self, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobj)).ok()
+        (::windows::core::Interface::vtable(self).GetOleObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobj)).ok()
     }
 }
 impl ::core::convert::From<IGetOleObject> for ::windows::core::IUnknown {
@@ -4074,14 +4081,17 @@ unsafe impl ::windows::core::Interface for IGetOleObject {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGetOleObjectVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub struct IGetOleObjectVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetOleObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IGetVBAObject(::windows::core::IUnknown);
 impl IGetVBAObject {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetObject(&self, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobj), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).GetObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobj), ::core::mem::transmute(dwreserved)).ok()
     }
 }
 impl ::core::convert::From<IGetVBAObject> for ::windows::core::IUnknown {
@@ -4126,12 +4136,10 @@ unsafe impl ::windows::core::Interface for IGetVBAObject {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGetVBAObjectVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT,
-);
+pub struct IGetVBAObjectVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 pub const IMPLTYPEFLAG_FDEFAULT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -4219,7 +4227,7 @@ pub struct IObjectIdentity(::windows::core::IUnknown);
 impl IObjectIdentity {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn IsEqualObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punk: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), punk.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).IsEqualObject)(::core::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IObjectIdentity> for ::windows::core::IUnknown {
@@ -4264,19 +4272,22 @@ unsafe impl ::windows::core::Interface for IObjectIdentity {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObjectIdentityVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub struct IObjectIdentityVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub IsEqualObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IObjectWithSite(::windows::core::IUnknown);
 impl IObjectWithSite {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetSite<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punksite: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), punksite.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSite)(::core::mem::transmute_copy(self), punksite.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetSite<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetSite)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IObjectWithSite> for ::windows::core::IUnknown {
@@ -4321,13 +4332,11 @@ unsafe impl ::windows::core::Interface for IObjectWithSite {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObjectWithSiteVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punksite: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvsite: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IObjectWithSiteVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub SetSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punksite: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvsite: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleAdviseHolder(::windows::core::IUnknown);
@@ -4336,30 +4345,30 @@ impl IOleAdviseHolder {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Advise<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>>(&self, padvise: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), padvise.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Advise)(::core::mem::transmute_copy(self), padvise.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Unadvise(&self, dwconnection: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwconnection)).ok()
+        (::windows::core::Interface::vtable(self).Unadvise)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwconnection)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumAdvise(&self) -> ::windows::core::Result<super::Com::IEnumSTATDATA> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumSTATDATA>(result__)
+        (::windows::core::Interface::vtable(self).EnumAdvise)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumSTATDATA>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SendOnRename<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IMoniker>>(&self, pmk: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pmk.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SendOnRename)(::core::mem::transmute_copy(self), pmk.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SendOnSave(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).SendOnSave)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SendOnClose(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).SendOnClose)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IOleAdviseHolder> for ::windows::core::IUnknown {
@@ -4404,20 +4413,24 @@ unsafe impl ::windows::core::Interface for IOleAdviseHolder {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleAdviseHolderVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padvise: ::windows::core::RawPtr, pdwconnection: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwconnection: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumadvise: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmk: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IOleAdviseHolderVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padvise: ::windows::core::RawPtr, pdwconnection: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Advise: usize,
+    pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwconnection: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub EnumAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumadvise: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    EnumAdvise: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub SendOnRename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmk: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SendOnRename: usize,
+    pub SendOnSave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SendOnClose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleCache(::windows::core::IUnknown);
@@ -4426,27 +4439,27 @@ impl IOleCache {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cache(&self, pformatetc: *const super::Com::FORMATETC, advf: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(advf), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Cache)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(advf), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Uncache(&self, dwconnection: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwconnection)).ok()
+        (::windows::core::Interface::vtable(self).Uncache)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwconnection)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCache(&self) -> ::windows::core::Result<super::Com::IEnumSTATDATA> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumSTATDATA>(result__)
+        (::windows::core::Interface::vtable(self).EnumCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumSTATDATA>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitCache<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>>(&self, pdataobject: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pdataobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitCache)(::core::mem::transmute_copy(self), pdataobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetData<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pmedium), frelease.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetData)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pmedium), frelease.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IOleCache> for ::windows::core::IUnknown {
@@ -4491,20 +4504,26 @@ unsafe impl ::windows::core::Interface for IOleCache {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleCacheVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, advf: u32, pdwconnection: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwconnection: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumstatdata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-);
+pub struct IOleCacheVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub Cache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, advf: u32, pdwconnection: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Cache: usize,
+    pub Uncache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwconnection: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub EnumCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumstatdata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    EnumCache: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub InitCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    InitCache: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))]
+    SetData: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleCache2(::windows::core::IUnknown);
@@ -4513,36 +4532,36 @@ impl IOleCache2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cache(&self, pformatetc: *const super::Com::FORMATETC, advf: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(advf), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Cache)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(advf), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Uncache(&self, dwconnection: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwconnection)).ok()
+        (::windows::core::Interface::vtable(self).Uncache)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwconnection)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCache(&self) -> ::windows::core::Result<super::Com::IEnumSTATDATA> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumSTATDATA>(result__)
+        (::windows::core::Interface::vtable(self).EnumCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumSTATDATA>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitCache<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>>(&self, pdataobject: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pdataobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitCache)(::core::mem::transmute_copy(self), pdataobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetData<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pmedium), frelease.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetData)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pmedium), frelease.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UpdateCache<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>>(&self, pdataobject: Param0, grfupdf: UPDFCACHE_FLAGS, preserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pdataobject.into_param().abi(), ::core::mem::transmute(grfupdf), ::core::mem::transmute(preserved)).ok()
+        (::windows::core::Interface::vtable(self).UpdateCache)(::core::mem::transmute_copy(self), pdataobject.into_param().abi(), ::core::mem::transmute(grfupdf), ::core::mem::transmute(preserved)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DiscardCache(&self, dwdiscardoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdiscardoptions)).ok()
+        (::windows::core::Interface::vtable(self).DiscardCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdiscardoptions)).ok()
     }
 }
 impl ::core::convert::From<IOleCache2> for IOleCache {
@@ -4607,23 +4626,14 @@ unsafe impl ::windows::core::Interface for IOleCache2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleCache2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, advf: u32, pdwconnection: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwconnection: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumstatdata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr, grfupdf: UPDFCACHE_FLAGS, preserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdiscardoptions: u32) -> ::windows::core::HRESULT,
-);
+pub struct IOleCache2Vtbl {
+    pub base: IOleCacheVtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub UpdateCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr, grfupdf: UPDFCACHE_FLAGS, preserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    UpdateCache: usize,
+    pub DiscardCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdiscardoptions: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleCacheControl(::windows::core::IUnknown);
@@ -4631,11 +4641,11 @@ impl IOleCacheControl {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnRun<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>>(&self, pdataobject: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pdataobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnRun)(::core::mem::transmute_copy(self), pdataobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnStop(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnStop)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IOleCacheControl> for ::windows::core::IUnknown {
@@ -4680,45 +4690,45 @@ unsafe impl ::windows::core::Interface for IOleCacheControl {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleCacheControlVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IOleCacheControlVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub OnRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    OnRun: usize,
+    pub OnStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleClientSite(::windows::core::IUnknown);
 impl IOleClientSite {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SaveObject(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).SaveObject)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMoniker(&self, dwassign: u32, dwwhichmoniker: u32) -> ::windows::core::Result<super::Com::IMoniker> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwassign), ::core::mem::transmute(dwwhichmoniker), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IMoniker>(result__)
+        (::windows::core::Interface::vtable(self).GetMoniker)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwassign), ::core::mem::transmute(dwwhichmoniker), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IMoniker>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetContainer(&self) -> ::windows::core::Result<IOleContainer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOleContainer>(result__)
+        (::windows::core::Interface::vtable(self).GetContainer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOleContainer>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn ShowObject(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ShowObject)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnShowWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), fshow.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnShowWindow)(::core::mem::transmute_copy(self), fshow.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn RequestNewObjectLayout(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).RequestNewObjectLayout)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IOleClientSite> for ::windows::core::IUnknown {
@@ -4763,31 +4773,33 @@ unsafe impl ::windows::core::Interface for IOleClientSite {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleClientSiteVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwassign: u32, dwwhichmoniker: u32, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontainer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fshow: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IOleClientSiteVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub SaveObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetMoniker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwassign: u32, dwwhichmoniker: u32, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetMoniker: usize,
+    pub GetContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontainer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ShowObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnShowWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fshow: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnShowWindow: usize,
+    pub RequestNewObjectLayout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleCommandTarget(::windows::core::IUnknown);
 impl IOleCommandTarget {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn QueryStatus(&self, pguidcmdgroup: *const ::windows::core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidcmdgroup), ::core::mem::transmute(ccmds), ::core::mem::transmute(prgcmds), ::core::mem::transmute(pcmdtext)).ok()
+        (::windows::core::Interface::vtable(self).QueryStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidcmdgroup), ::core::mem::transmute(ccmds), ::core::mem::transmute(prgcmds), ::core::mem::transmute(pcmdtext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Exec(&self, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidcmdgroup), ::core::mem::transmute(ncmdid), ::core::mem::transmute(ncmdexecopt), ::core::mem::transmute(pvain), ::core::mem::transmute(pvaout)).ok()
+        (::windows::core::Interface::vtable(self).Exec)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidcmdgroup), ::core::mem::transmute(ncmdid), ::core::mem::transmute(ncmdexecopt), ::core::mem::transmute(pvain), ::core::mem::transmute(pvaout)).ok()
     }
 }
 impl ::core::convert::From<IOleCommandTarget> for ::windows::core::IUnknown {
@@ -4832,14 +4844,14 @@ unsafe impl ::windows::core::Interface for IOleCommandTarget {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleCommandTargetVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct IOleCommandTargetVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub QueryStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub Exec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    Exec: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleContainer(::windows::core::IUnknown);
@@ -4847,18 +4859,18 @@ impl IOleContainer {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ParseDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pbc: Param0, pszdisplayname: Param1, pcheaten: *mut u32, ppmkout: *mut ::core::option::Option<super::Com::IMoniker>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pbc.into_param().abi(), pszdisplayname.into_param().abi(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppmkout)).ok()
+        (::windows::core::Interface::vtable(self).ParseDisplayName)(::core::mem::transmute_copy(self), pbc.into_param().abi(), pszdisplayname.into_param().abi(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppmkout)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumObjects(&self, grfflags: u32) -> ::windows::core::Result<super::Com::IEnumUnknown> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfflags), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumUnknown>(result__)
+        (::windows::core::Interface::vtable(self).EnumObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfflags), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumUnknown>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LockContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, flock: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), flock.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).LockContainer)(::core::mem::transmute_copy(self), flock.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IOleContainer> for IParseDisplayName {
@@ -4923,17 +4935,17 @@ unsafe impl ::windows::core::Interface for IOleContainer {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleContainerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr, pszdisplayname: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmkout: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flock: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IOleContainerVtbl {
+    pub base: IParseDisplayNameVtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub EnumObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    EnumObjects: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub LockContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flock: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    LockContainer: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleControl(::windows::core::IUnknown);
@@ -4941,21 +4953,21 @@ impl IOleControl {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetControlInfo(&self, pci: *mut CONTROLINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pci)).ok()
+        (::windows::core::Interface::vtable(self).GetControlInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pci)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn OnMnemonic(&self, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmsg)).ok()
+        (::windows::core::Interface::vtable(self).OnMnemonic)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmsg)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnAmbientPropertyChange(&self, dispid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid)).ok()
+        (::windows::core::Interface::vtable(self).OnAmbientPropertyChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FreezeEvents<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bfreeze: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), bfreeze.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FreezeEvents)(::core::mem::transmute_copy(self), bfreeze.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IOleControl> for ::windows::core::IUnknown {
@@ -5000,55 +5012,59 @@ unsafe impl ::windows::core::Interface for IOleControl {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleControlVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pci: *mut CONTROLINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bfreeze: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IOleControlVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub GetControlInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pci: *mut CONTROLINFO) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
+    GetControlInfo: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub OnMnemonic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    OnMnemonic: usize,
+    pub OnAmbientPropertyChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub FreezeEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bfreeze: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    FreezeEvents: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleControlSite(::windows::core::IUnknown);
 impl IOleControlSite {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnControlInfoChanged(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnControlInfoChanged)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LockInPlaceActive<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, flock: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), flock.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).LockInPlaceActive)(::core::mem::transmute_copy(self), flock.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExtendedControl(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetExtendedControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransformCoords(&self, pptlhimetric: *mut super::super::Foundation::POINTL, pptfcontainer: *mut POINTF, dwflags: XFORMCOORDS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pptlhimetric), ::core::mem::transmute(pptfcontainer), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).TransformCoords)(::core::mem::transmute_copy(self), ::core::mem::transmute(pptlhimetric), ::core::mem::transmute(pptfcontainer), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TranslateAccelerator(&self, pmsg: *const super::super::UI::WindowsAndMessaging::MSG, grfmodifiers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmsg), ::core::mem::transmute(grfmodifiers)).ok()
+        (::windows::core::Interface::vtable(self).TranslateAccelerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmsg), ::core::mem::transmute(grfmodifiers)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fgotfocus: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), fgotfocus.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnFocus)(::core::mem::transmute_copy(self), fgotfocus.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn ShowPropertyFrame(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ShowPropertyFrame)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IOleControlSite> for ::windows::core::IUnknown {
@@ -5093,23 +5109,31 @@ unsafe impl ::windows::core::Interface for IOleControlSite {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleControlSiteVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flock: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptlhimetric: *mut super::super::Foundation::POINTL, pptfcontainer: *mut POINTF, dwflags: XFORMCOORDS) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsg: *const super::super::UI::WindowsAndMessaging::MSG, grfmodifiers: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fgotfocus: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IOleControlSiteVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub OnControlInfoChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub LockInPlaceActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flock: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    LockInPlaceActive: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetExtendedControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetExtendedControl: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub TransformCoords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptlhimetric: *mut super::super::Foundation::POINTL, pptfcontainer: *mut POINTF, dwflags: XFORMCOORDS) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    TransformCoords: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub TranslateAccelerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsg: *const super::super::UI::WindowsAndMessaging::MSG, grfmodifiers: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    TranslateAccelerator: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fgotfocus: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnFocus: usize,
+    pub ShowPropertyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleDocument(::windows::core::IUnknown);
@@ -5118,16 +5142,16 @@ impl IOleDocument {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateView<'a, Param0: ::windows::core::IntoParam<'a, IOleInPlaceSite>, Param1: ::windows::core::IntoParam<'a, super::Com::IStream>>(&self, pipsite: Param0, pstm: Param1, dwreserved: u32) -> ::windows::core::Result<IOleDocumentView> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pipsite.into_param().abi(), pstm.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(&mut result__)).from_abi::<IOleDocumentView>(result__)
+        (::windows::core::Interface::vtable(self).CreateView)(::core::mem::transmute_copy(self), pipsite.into_param().abi(), pstm.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(&mut result__)).from_abi::<IOleDocumentView>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetDocMiscStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetDocMiscStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn EnumViews(&self, ppenum: *mut ::core::option::Option<IEnumOleDocumentViews>, ppview: *mut ::core::option::Option<IOleDocumentView>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppenum), ::core::mem::transmute(ppview)).ok()
+        (::windows::core::Interface::vtable(self).EnumViews)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppenum), ::core::mem::transmute(ppview)).ok()
     }
 }
 impl ::core::convert::From<IOleDocument> for ::windows::core::IUnknown {
@@ -5172,22 +5196,22 @@ unsafe impl ::windows::core::Interface for IOleDocument {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleDocumentVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipsite: ::windows::core::RawPtr, pstm: ::windows::core::RawPtr, dwreserved: u32, ppview: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr, ppview: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IOleDocumentVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipsite: ::windows::core::RawPtr, pstm: ::windows::core::RawPtr, dwreserved: u32, ppview: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreateView: usize,
+    pub GetDocMiscStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
+    pub EnumViews: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr, ppview: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleDocumentSite(::windows::core::IUnknown);
 impl IOleDocumentSite {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn ActivateMe<'a, Param0: ::windows::core::IntoParam<'a, IOleDocumentView>>(&self, pviewtoactivate: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pviewtoactivate.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ActivateMe)(::core::mem::transmute_copy(self), pviewtoactivate.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IOleDocumentSite> for ::windows::core::IUnknown {
@@ -5232,73 +5256,76 @@ unsafe impl ::windows::core::Interface for IOleDocumentSite {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleDocumentSiteVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pviewtoactivate: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+pub struct IOleDocumentSiteVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub ActivateMe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pviewtoactivate: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleDocumentView(::windows::core::IUnknown);
 impl IOleDocumentView {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetInPlaceSite<'a, Param0: ::windows::core::IntoParam<'a, IOleInPlaceSite>>(&self, pipsite: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pipsite.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetInPlaceSite)(::core::mem::transmute_copy(self), pipsite.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetInPlaceSite(&self) -> ::windows::core::Result<IOleInPlaceSite> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOleInPlaceSite>(result__)
+        (::windows::core::Interface::vtable(self).GetInPlaceSite)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOleInPlaceSite>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetDocument(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRect(&self, prcview: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(prcview)).ok()
+        (::windows::core::Interface::vtable(self).SetRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(prcview)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRect(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__: super::super::Foundation::RECT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::RECT>(result__)
+        (::windows::core::Interface::vtable(self).GetRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRectComplex(&self, prcview: *const super::super::Foundation::RECT, prchscroll: *const super::super::Foundation::RECT, prcvscroll: *const super::super::Foundation::RECT, prcsizebox: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(prcview), ::core::mem::transmute(prchscroll), ::core::mem::transmute(prcvscroll), ::core::mem::transmute(prcsizebox)).ok()
+        (::windows::core::Interface::vtable(self).SetRectComplex)(::core::mem::transmute_copy(self), ::core::mem::transmute(prcview), ::core::mem::transmute(prchscroll), ::core::mem::transmute(prcvscroll), ::core::mem::transmute(prcsizebox)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), fshow.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Show)(::core::mem::transmute_copy(self), fshow.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIActivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fuiactivate: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), fuiactivate.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UIActivate)(::core::mem::transmute_copy(self), fuiactivate.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Open(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn CloseView(&self, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).CloseView)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveViewState<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>>(&self, pstm: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), pstm.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SaveViewState)(::core::mem::transmute_copy(self), pstm.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplyViewState<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>>(&self, pstm: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pstm.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ApplyViewState)(::core::mem::transmute_copy(self), pstm.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Clone<'a, Param0: ::windows::core::IntoParam<'a, IOleInPlaceSite>>(&self, pipsitenew: Param0) -> ::windows::core::Result<IOleDocumentView> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pipsitenew.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IOleDocumentView>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), pipsitenew.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IOleDocumentView>(result__)
     }
 }
 impl ::core::convert::From<IOleDocumentView> for ::windows::core::IUnknown {
@@ -5343,31 +5370,43 @@ unsafe impl ::windows::core::Interface for IOleDocumentView {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleDocumentViewVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipsite: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppipsite: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prcview: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prcview: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prcview: *const super::super::Foundation::RECT, prchscroll: *const super::super::Foundation::RECT, prcvscroll: *const super::super::Foundation::RECT, prcsizebox: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fshow: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuiactivate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstm: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstm: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipsitenew: ::windows::core::RawPtr, ppviewnew: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IOleDocumentViewVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub SetInPlaceSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipsite: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetInPlaceSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppipsite: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prcview: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetRect: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prcview: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetRect: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetRectComplex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prcview: *const super::super::Foundation::RECT, prchscroll: *const super::super::Foundation::RECT, prcvscroll: *const super::super::Foundation::RECT, prcsizebox: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetRectComplex: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fshow: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Show: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub UIActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuiactivate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    UIActivate: usize,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CloseView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub SaveViewState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstm: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SaveViewState: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub ApplyViewState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstm: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    ApplyViewState: usize,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipsitenew: ::windows::core::RawPtr, ppviewnew: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleInPlaceActiveObject(::windows::core::IUnknown);
@@ -5376,37 +5415,37 @@ impl IOleInPlaceActiveObject {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).GetWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TranslateAccelerator(&self, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpmsg)).ok()
+        (::windows::core::Interface::vtable(self).TranslateAccelerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpmsg)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnFrameWindowActivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, factivate: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), factivate.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnFrameWindowActivate)(::core::mem::transmute_copy(self), factivate.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnDocWindowActivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, factivate: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), factivate.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnDocWindowActivate)(::core::mem::transmute_copy(self), factivate.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResizeBorder<'a, Param1: ::windows::core::IntoParam<'a, IOleInPlaceUIWindow>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, prcborder: *const super::super::Foundation::RECT, puiwindow: Param1, fframewindow: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(prcborder), puiwindow.into_param().abi(), fframewindow.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ResizeBorder)(::core::mem::transmute_copy(self), ::core::mem::transmute(prcborder), puiwindow.into_param().abi(), fframewindow.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableModeless<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).EnableModeless)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IOleInPlaceActiveObject> for IOleWindow {
@@ -5471,25 +5510,29 @@ unsafe impl ::windows::core::Interface for IOleInPlaceActiveObject {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleInPlaceActiveObjectVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fentermode: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factivate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factivate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prcborder: *const super::super::Foundation::RECT, puiwindow: ::windows::core::RawPtr, fframewindow: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IOleInPlaceActiveObjectVtbl {
+    pub base: IOleWindowVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub TranslateAccelerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    TranslateAccelerator: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnFrameWindowActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factivate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnFrameWindowActivate: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnDocWindowActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factivate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnDocWindowActivate: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ResizeBorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prcborder: *const super::super::Foundation::RECT, puiwindow: ::windows::core::RawPtr, fframewindow: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ResizeBorder: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub EnableModeless: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    EnableModeless: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleInPlaceFrame(::windows::core::IUnknown);
@@ -5498,63 +5541,63 @@ impl IOleInPlaceFrame {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).GetWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBorder(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__: super::super::Foundation::RECT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::RECT>(result__)
+        (::windows::core::Interface::vtable(self).GetBorder)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestBorderSpace(&self, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pborderwidths)).ok()
+        (::windows::core::Interface::vtable(self).RequestBorderSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(pborderwidths)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBorderSpace(&self, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pborderwidths)).ok()
+        (::windows::core::Interface::vtable(self).SetBorderSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(pborderwidths)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetActiveObject<'a, Param0: ::windows::core::IntoParam<'a, IOleInPlaceActiveObject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pactiveobject: Param0, pszobjname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pactiveobject.into_param().abi(), pszobjname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetActiveObject)(::core::mem::transmute_copy(self), pactiveobject.into_param().abi(), pszobjname.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn InsertMenus<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>>(&self, hmenushared: Param0, lpmenuwidths: *mut OleMenuGroupWidths) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), hmenushared.into_param().abi(), ::core::mem::transmute(lpmenuwidths)).ok()
+        (::windows::core::Interface::vtable(self).InsertMenus)(::core::mem::transmute_copy(self), hmenushared.into_param().abi(), ::core::mem::transmute(lpmenuwidths)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn SetMenu<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hmenushared: Param0, holemenu: isize, hwndactiveobject: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), hmenushared.into_param().abi(), ::core::mem::transmute(holemenu), hwndactiveobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetMenu)(::core::mem::transmute_copy(self), hmenushared.into_param().abi(), ::core::mem::transmute(holemenu), hwndactiveobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn RemoveMenus<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>>(&self, hmenushared: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), hmenushared.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RemoveMenus)(::core::mem::transmute_copy(self), hmenushared.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStatusText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstatustext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), pszstatustext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetStatusText)(::core::mem::transmute_copy(self), pszstatustext.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableModeless<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).EnableModeless)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TranslateAccelerator(&self, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, wid: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpmsg), ::core::mem::transmute(wid)).ok()
+        (::windows::core::Interface::vtable(self).TranslateAccelerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpmsg), ::core::mem::transmute(wid)).ok()
     }
 }
 impl ::core::convert::From<IOleInPlaceFrame> for IOleInPlaceUIWindow {
@@ -5639,35 +5682,33 @@ unsafe impl ::windows::core::Interface for IOleInPlaceFrame {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleInPlaceFrameVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fentermode: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprectborder: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pactiveobject: ::windows::core::RawPtr, pszobjname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenushared: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *mut OleMenuGroupWidths) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenushared: super::super::UI::WindowsAndMessaging::HMENU, holemenu: isize, hwndactiveobject: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenushared: super::super::UI::WindowsAndMessaging::HMENU) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, wid: u16) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-);
+pub struct IOleInPlaceFrameVtbl {
+    pub base: IOleInPlaceUIWindowVtbl,
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub InsertMenus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenushared: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *mut OleMenuGroupWidths) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
+    InsertMenus: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub SetMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenushared: super::super::UI::WindowsAndMessaging::HMENU, holemenu: isize, hwndactiveobject: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    SetMenu: usize,
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub RemoveMenus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenushared: super::super::UI::WindowsAndMessaging::HMENU) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
+    RemoveMenus: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetStatusText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetStatusText: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub EnableModeless: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    EnableModeless: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub TranslateAccelerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, wid: u16) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    TranslateAccelerator: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleInPlaceObject(::windows::core::IUnknown);
@@ -5676,29 +5717,29 @@ impl IOleInPlaceObject {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).GetWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn InPlaceDeactivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).InPlaceDeactivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn UIDeactivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).UIDeactivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetObjectRects(&self, lprcposrect: *const super::super::Foundation::RECT, lprccliprect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprcposrect), ::core::mem::transmute(lprccliprect)).ok()
+        (::windows::core::Interface::vtable(self).SetObjectRects)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprcposrect), ::core::mem::transmute(lprccliprect)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn ReactivateAndUndo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ReactivateAndUndo)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IOleInPlaceObject> for IOleWindow {
@@ -5763,20 +5804,16 @@ unsafe impl ::windows::core::Interface for IOleInPlaceObject {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleInPlaceObjectVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fentermode: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprcposrect: *const super::super::Foundation::RECT, lprccliprect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IOleInPlaceObjectVtbl {
+    pub base: IOleWindowVtbl,
+    pub InPlaceDeactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UIDeactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetObjectRects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprcposrect: *const super::super::Foundation::RECT, lprccliprect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetObjectRects: usize,
+    pub ReactivateAndUndo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleInPlaceObjectWindowless(::windows::core::IUnknown);
@@ -5785,40 +5822,40 @@ impl IOleInPlaceObjectWindowless {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).GetWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn InPlaceDeactivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).InPlaceDeactivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn UIDeactivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).UIDeactivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetObjectRects(&self, lprcposrect: *const super::super::Foundation::RECT, lprccliprect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprcposrect), ::core::mem::transmute(lprccliprect)).ok()
+        (::windows::core::Interface::vtable(self).SetObjectRects)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprcposrect), ::core::mem::transmute(lprccliprect)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn ReactivateAndUndo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ReactivateAndUndo)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnWindowMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, msg: u32, wparam: Param1, lparam: Param2) -> ::windows::core::Result<super::super::Foundation::LRESULT> {
         let mut result__: super::super::Foundation::LRESULT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LRESULT>(result__)
+        (::windows::core::Interface::vtable(self).OnWindowMessage)(::core::mem::transmute_copy(self), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LRESULT>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetDropTarget(&self) -> ::windows::core::Result<IDropTarget> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDropTarget>(result__)
+        (::windows::core::Interface::vtable(self).GetDropTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDropTarget>(result__)
     }
 }
 impl ::core::convert::From<IOleInPlaceObjectWindowless> for IOleInPlaceObject {
@@ -5903,23 +5940,14 @@ unsafe impl ::windows::core::Interface for IOleInPlaceObjectWindowless {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleInPlaceObjectWindowlessVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fentermode: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprcposrect: *const super::super::Foundation::RECT, lprccliprect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdroptarget: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IOleInPlaceObjectWindowlessVtbl {
+    pub base: IOleInPlaceObjectVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnWindowMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnWindowMessage: usize,
+    pub GetDropTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdroptarget: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleInPlaceSite(::windows::core::IUnknown);
@@ -5928,56 +5956,56 @@ impl IOleInPlaceSite {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).GetWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn CanInPlaceActivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CanInPlaceActivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnInPlaceActivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnInPlaceActivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnUIActivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnUIActivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetWindowContext(&self, ppframe: *mut ::core::option::Option<IOleInPlaceFrame>, ppdoc: *mut ::core::option::Option<IOleInPlaceUIWindow>, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OIFI) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppframe), ::core::mem::transmute(ppdoc), ::core::mem::transmute(lprcposrect), ::core::mem::transmute(lprccliprect), ::core::mem::transmute(lpframeinfo)).ok()
+        (::windows::core::Interface::vtable(self).GetWindowContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppframe), ::core::mem::transmute(ppdoc), ::core::mem::transmute(lprcposrect), ::core::mem::transmute(lprccliprect), ::core::mem::transmute(lpframeinfo)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Scroll<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::SIZE>>(&self, scrollextant: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), scrollextant.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Scroll)(::core::mem::transmute_copy(self), scrollextant.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnUIDeactivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fundoable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), fundoable.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnUIDeactivate)(::core::mem::transmute_copy(self), fundoable.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnInPlaceDeactivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnInPlaceDeactivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DiscardUndoState(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DiscardUndoState)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DeactivateAndUndo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DeactivateAndUndo)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnPosRectChange(&self, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprcposrect)).ok()
+        (::windows::core::Interface::vtable(self).OnPosRectChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprcposrect)).ok()
     }
 }
 impl ::core::convert::From<IOleInPlaceSite> for IOleWindow {
@@ -6042,29 +6070,31 @@ unsafe impl ::windows::core::Interface for IOleInPlaceSite {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleInPlaceSiteVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fentermode: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppframe: *mut ::windows::core::RawPtr, ppdoc: *mut ::windows::core::RawPtr, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OIFI) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scrollextant: super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fundoable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IOleInPlaceSiteVtbl {
+    pub base: IOleWindowVtbl,
+    pub CanInPlaceActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub OnInPlaceActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub OnUIActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub GetWindowContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppframe: *mut ::windows::core::RawPtr, ppdoc: *mut ::windows::core::RawPtr, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OIFI) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    GetWindowContext: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Scroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scrollextant: super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Scroll: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnUIDeactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fundoable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnUIDeactivate: usize,
+    pub OnInPlaceDeactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DiscardUndoState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DeactivateAndUndo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnPosRectChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnPosRectChange: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleInPlaceSiteEx(::windows::core::IUnknown);
@@ -6073,70 +6103,70 @@ impl IOleInPlaceSiteEx {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).GetWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn CanInPlaceActivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CanInPlaceActivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnInPlaceActivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnInPlaceActivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnUIActivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnUIActivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetWindowContext(&self, ppframe: *mut ::core::option::Option<IOleInPlaceFrame>, ppdoc: *mut ::core::option::Option<IOleInPlaceUIWindow>, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OIFI) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppframe), ::core::mem::transmute(ppdoc), ::core::mem::transmute(lprcposrect), ::core::mem::transmute(lprccliprect), ::core::mem::transmute(lpframeinfo)).ok()
+        (::windows::core::Interface::vtable(self).GetWindowContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppframe), ::core::mem::transmute(ppdoc), ::core::mem::transmute(lprcposrect), ::core::mem::transmute(lprccliprect), ::core::mem::transmute(lpframeinfo)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Scroll<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::SIZE>>(&self, scrollextant: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), scrollextant.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Scroll)(::core::mem::transmute_copy(self), scrollextant.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnUIDeactivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fundoable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), fundoable.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnUIDeactivate)(::core::mem::transmute_copy(self), fundoable.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnInPlaceDeactivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnInPlaceDeactivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DiscardUndoState(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DiscardUndoState)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DeactivateAndUndo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DeactivateAndUndo)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnPosRectChange(&self, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprcposrect)).ok()
+        (::windows::core::Interface::vtable(self).OnPosRectChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprcposrect)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnInPlaceActivateEx(&self, pfnoredraw: *mut super::super::Foundation::BOOL, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfnoredraw), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).OnInPlaceActivateEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfnoredraw), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnInPlaceDeactivateEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fnoredraw: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), fnoredraw.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnInPlaceDeactivateEx)(::core::mem::transmute_copy(self), fnoredraw.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn RequestUIActivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).RequestUIActivate)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IOleInPlaceSiteEx> for IOleInPlaceSite {
@@ -6221,34 +6251,18 @@ unsafe impl ::windows::core::Interface for IOleInPlaceSiteEx {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleInPlaceSiteExVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fentermode: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppframe: *mut ::windows::core::RawPtr, ppdoc: *mut ::windows::core::RawPtr, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OIFI) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scrollextant: super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fundoable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfnoredraw: *mut super::super::Foundation::BOOL, dwflags: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fnoredraw: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IOleInPlaceSiteExVtbl {
+    pub base: IOleInPlaceSiteVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnInPlaceActivateEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfnoredraw: *mut super::super::Foundation::BOOL, dwflags: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnInPlaceActivateEx: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnInPlaceDeactivateEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fnoredraw: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnInPlaceDeactivateEx: usize,
+    pub RequestUIActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleInPlaceSiteWindowless(::windows::core::IUnknown);
@@ -6257,129 +6271,129 @@ impl IOleInPlaceSiteWindowless {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).GetWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn CanInPlaceActivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CanInPlaceActivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnInPlaceActivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnInPlaceActivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnUIActivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnUIActivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetWindowContext(&self, ppframe: *mut ::core::option::Option<IOleInPlaceFrame>, ppdoc: *mut ::core::option::Option<IOleInPlaceUIWindow>, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OIFI) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppframe), ::core::mem::transmute(ppdoc), ::core::mem::transmute(lprcposrect), ::core::mem::transmute(lprccliprect), ::core::mem::transmute(lpframeinfo)).ok()
+        (::windows::core::Interface::vtable(self).GetWindowContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppframe), ::core::mem::transmute(ppdoc), ::core::mem::transmute(lprcposrect), ::core::mem::transmute(lprccliprect), ::core::mem::transmute(lpframeinfo)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Scroll<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::SIZE>>(&self, scrollextant: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), scrollextant.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Scroll)(::core::mem::transmute_copy(self), scrollextant.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnUIDeactivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fundoable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), fundoable.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnUIDeactivate)(::core::mem::transmute_copy(self), fundoable.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnInPlaceDeactivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnInPlaceDeactivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DiscardUndoState(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DiscardUndoState)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DeactivateAndUndo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DeactivateAndUndo)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnPosRectChange(&self, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprcposrect)).ok()
+        (::windows::core::Interface::vtable(self).OnPosRectChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprcposrect)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnInPlaceActivateEx(&self, pfnoredraw: *mut super::super::Foundation::BOOL, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfnoredraw), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).OnInPlaceActivateEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfnoredraw), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnInPlaceDeactivateEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fnoredraw: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), fnoredraw.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnInPlaceDeactivateEx)(::core::mem::transmute_copy(self), fnoredraw.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn RequestUIActivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).RequestUIActivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn CanWindowlessActivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CanWindowlessActivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetCapture(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).GetCapture)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCapture<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fcapture: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), fcapture.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCapture)(::core::mem::transmute_copy(self), fcapture.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetFocus(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).GetFocus)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffocus: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ffocus.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFocus)(::core::mem::transmute_copy(self), ffocus.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetDC(&self, prect: *const super::super::Foundation::RECT, grfflags: u32) -> ::windows::core::Result<super::super::Graphics::Gdi::HDC> {
         let mut result__: super::super::Graphics::Gdi::HDC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(prect), ::core::mem::transmute(grfflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HDC>(result__)
+        (::windows::core::Interface::vtable(self).GetDC)(::core::mem::transmute_copy(self), ::core::mem::transmute(prect), ::core::mem::transmute(grfflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HDC>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), hdc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ReleaseDC)(::core::mem::transmute_copy(self), hdc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InvalidateRect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, prect: *const super::super::Foundation::RECT, ferase: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(prect), ferase.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).InvalidateRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(prect), ferase.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn InvalidateRgn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HRGN>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hrgn: Param0, ferase: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), hrgn.into_param().abi(), ferase.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).InvalidateRgn)(::core::mem::transmute_copy(self), hrgn.into_param().abi(), ferase.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScrollRect(&self, dx: i32, dy: i32, prectscroll: *const super::super::Foundation::RECT, prectclip: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(prectscroll), ::core::mem::transmute(prectclip)).ok()
+        (::windows::core::Interface::vtable(self).ScrollRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(prectscroll), ::core::mem::transmute(prectclip)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdjustRect(&self, prc: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc)).ok()
+        (::windows::core::Interface::vtable(self).AdjustRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnDefWindowMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, msg: u32, wparam: Param1, lparam: Param2) -> ::windows::core::Result<super::super::Foundation::LRESULT> {
         let mut result__: super::super::Foundation::LRESULT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LRESULT>(result__)
+        (::windows::core::Interface::vtable(self).OnDefWindowMessage)(::core::mem::transmute_copy(self), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LRESULT>(result__)
     }
 }
 impl ::core::convert::From<IOleInPlaceSiteWindowless> for IOleInPlaceSiteEx {
@@ -6484,55 +6498,48 @@ unsafe impl ::windows::core::Interface for IOleInPlaceSiteWindowless {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleInPlaceSiteWindowlessVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fentermode: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppframe: *mut ::windows::core::RawPtr, ppdoc: *mut ::windows::core::RawPtr, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OIFI) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scrollextant: super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fundoable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfnoredraw: *mut super::super::Foundation::BOOL, dwflags: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fnoredraw: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcapture: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ffocus: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const super::super::Foundation::RECT, grfflags: u32, phdc: *mut super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const super::super::Foundation::RECT, ferase: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrgn: super::super::Graphics::Gdi::HRGN, ferase: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dx: i32, dy: i32, prectscroll: *const super::super::Foundation::RECT, prectclip: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prc: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IOleInPlaceSiteWindowlessVtbl {
+    pub base: IOleInPlaceSiteExVtbl,
+    pub CanWindowlessActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcapture: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetCapture: usize,
+    pub GetFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ffocus: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetFocus: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub GetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const super::super::Foundation::RECT, grfflags: u32, phdc: *mut super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
+    GetDC: usize,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub ReleaseDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    ReleaseDC: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub InvalidateRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const super::super::Foundation::RECT, ferase: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    InvalidateRect: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub InvalidateRgn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrgn: super::super::Graphics::Gdi::HRGN, ferase: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
+    InvalidateRgn: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ScrollRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dx: i32, dy: i32, prectscroll: *const super::super::Foundation::RECT, prectclip: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ScrollRect: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub AdjustRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prc: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    AdjustRect: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnDefWindowMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnDefWindowMessage: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleInPlaceUIWindow(::windows::core::IUnknown);
@@ -6541,33 +6548,33 @@ impl IOleInPlaceUIWindow {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).GetWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBorder(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__: super::super::Foundation::RECT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::RECT>(result__)
+        (::windows::core::Interface::vtable(self).GetBorder)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestBorderSpace(&self, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pborderwidths)).ok()
+        (::windows::core::Interface::vtable(self).RequestBorderSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(pborderwidths)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBorderSpace(&self, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pborderwidths)).ok()
+        (::windows::core::Interface::vtable(self).SetBorderSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(pborderwidths)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetActiveObject<'a, Param0: ::windows::core::IntoParam<'a, IOleInPlaceActiveObject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pactiveobject: Param0, pszobjname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pactiveobject.into_param().abi(), pszobjname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetActiveObject)(::core::mem::transmute_copy(self), pactiveobject.into_param().abi(), pszobjname.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IOleInPlaceUIWindow> for IOleWindow {
@@ -6632,23 +6639,25 @@ unsafe impl ::windows::core::Interface for IOleInPlaceUIWindow {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleInPlaceUIWindowVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fentermode: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprectborder: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pactiveobject: ::windows::core::RawPtr, pszobjname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IOleInPlaceUIWindowVtbl {
+    pub base: IOleWindowVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetBorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprectborder: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetBorder: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub RequestBorderSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    RequestBorderSpace: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetBorderSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetBorderSpace: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetActiveObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pactiveobject: ::windows::core::RawPtr, pszobjname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetActiveObject: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleItemContainer(::windows::core::IUnknown);
@@ -6656,35 +6665,35 @@ impl IOleItemContainer {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ParseDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pbc: Param0, pszdisplayname: Param1, pcheaten: *mut u32, ppmkout: *mut ::core::option::Option<super::Com::IMoniker>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pbc.into_param().abi(), pszdisplayname.into_param().abi(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppmkout)).ok()
+        (::windows::core::Interface::vtable(self).ParseDisplayName)(::core::mem::transmute_copy(self), pbc.into_param().abi(), pszdisplayname.into_param().abi(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppmkout)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumObjects(&self, grfflags: u32) -> ::windows::core::Result<super::Com::IEnumUnknown> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfflags), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumUnknown>(result__)
+        (::windows::core::Interface::vtable(self).EnumObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfflags), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumUnknown>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LockContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, flock: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), flock.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).LockContainer)(::core::mem::transmute_copy(self), flock.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IBindCtx>, T: ::windows::core::Interface>(&self, pszitem: Param0, dwspeedneeded: u32, pbc: Param2) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pszitem.into_param().abi(), ::core::mem::transmute(dwspeedneeded), pbc.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetObject)(::core::mem::transmute_copy(self), pszitem.into_param().abi(), ::core::mem::transmute(dwspeedneeded), pbc.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetObjectStorage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Com::IBindCtx>, T: ::windows::core::Interface>(&self, pszitem: Param0, pbc: Param1) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pszitem.into_param().abi(), pbc.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetObjectStorage)(::core::mem::transmute_copy(self), pszitem.into_param().abi(), pbc.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRunning<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszitem: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pszitem.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).IsRunning)(::core::mem::transmute_copy(self), pszitem.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IOleItemContainer> for IOleContainer {
@@ -6769,80 +6778,78 @@ unsafe impl ::windows::core::Interface for IOleItemContainer {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleItemContainerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr, pszdisplayname: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmkout: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flock: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszitem: super::super::Foundation::PWSTR, dwspeedneeded: u32, pbc: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszitem: super::super::Foundation::PWSTR, pbc: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszitem: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IOleItemContainerVtbl {
+    pub base: IOleContainerVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszitem: super::super::Foundation::PWSTR, dwspeedneeded: u32, pbc: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    GetObject: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub GetObjectStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszitem: super::super::Foundation::PWSTR, pbc: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    GetObjectStorage: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsRunning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszitem: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsRunning: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleLink(::windows::core::IUnknown);
 impl IOleLink {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetUpdateOptions(&self, dwupdateopt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwupdateopt)).ok()
+        (::windows::core::Interface::vtable(self).SetUpdateOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwupdateopt)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetUpdateOptions(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetUpdateOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSourceMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IMoniker>>(&self, pmk: Param0, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pmk.into_param().abi(), ::core::mem::transmute(rclsid)).ok()
+        (::windows::core::Interface::vtable(self).SetSourceMoniker)(::core::mem::transmute_copy(self), pmk.into_param().abi(), ::core::mem::transmute(rclsid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSourceMoniker(&self) -> ::windows::core::Result<super::Com::IMoniker> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IMoniker>(result__)
+        (::windows::core::Interface::vtable(self).GetSourceMoniker)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IMoniker>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSourceDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstatustext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pszstatustext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSourceDisplayName)(::core::mem::transmute_copy(self), pszstatustext.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSourceDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetSourceDisplayName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BindToSource<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IBindCtx>>(&self, bindflags: u32, pbc: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(bindflags), pbc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).BindToSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(bindflags), pbc.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn BindIfRunning(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).BindIfRunning)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetBoundSource(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetBoundSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn UnbindSource(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).UnbindSource)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Update<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IBindCtx>>(&self, pbc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), pbc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Update)(::core::mem::transmute_copy(self), pbc.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IOleLink> for ::windows::core::IUnknown {
@@ -6887,137 +6894,147 @@ unsafe impl ::windows::core::Interface for IOleLink {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleLinkVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwupdateopt: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwupdateopt: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmk: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszdisplayname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindflags: u32, pbc: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-);
+pub struct IOleLinkVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub SetUpdateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwupdateopt: u32) -> ::windows::core::HRESULT,
+    pub GetUpdateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwupdateopt: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub SetSourceMoniker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmk: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetSourceMoniker: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetSourceMoniker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetSourceMoniker: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetSourceDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetSourceDisplayName: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetSourceDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszdisplayname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetSourceDisplayName: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub BindToSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindflags: u32, pbc: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    BindToSource: usize,
+    pub BindIfRunning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetBoundSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UnbindSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Update: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleObject(::windows::core::IUnknown);
 impl IOleObject {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetClientSite<'a, Param0: ::windows::core::IntoParam<'a, IOleClientSite>>(&self, pclientsite: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pclientsite.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetClientSite)(::core::mem::transmute_copy(self), pclientsite.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetClientSite(&self) -> ::windows::core::Result<IOleClientSite> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOleClientSite>(result__)
+        (::windows::core::Interface::vtable(self).GetClientSite)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOleClientSite>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHostNames<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szcontainerapp: Param0, szcontainerobj: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), szcontainerapp.into_param().abi(), szcontainerobj.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHostNames)(::core::mem::transmute_copy(self), szcontainerapp.into_param().abi(), szcontainerobj.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Close(&self, dwsaveoption: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsaveoption)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsaveoption)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMoniker<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IMoniker>>(&self, dwwhichmoniker: u32, pmk: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwwhichmoniker), pmk.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetMoniker)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwwhichmoniker), pmk.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMoniker(&self, dwassign: u32, dwwhichmoniker: u32) -> ::windows::core::Result<super::Com::IMoniker> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwassign), ::core::mem::transmute(dwwhichmoniker), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IMoniker>(result__)
+        (::windows::core::Interface::vtable(self).GetMoniker)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwassign), ::core::mem::transmute(dwwhichmoniker), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IMoniker>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InitFromData<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdataobject: Param0, fcreation: Param1, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pdataobject.into_param().abi(), fcreation.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).InitFromData)(::core::mem::transmute_copy(self), pdataobject.into_param().abi(), fcreation.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClipboardData(&self, dwreserved: u32) -> ::windows::core::Result<super::Com::IDataObject> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IDataObject>(result__)
+        (::windows::core::Interface::vtable(self).GetClipboardData)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IDataObject>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn DoVerb<'a, Param2: ::windows::core::IntoParam<'a, IOleClientSite>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, iverb: i32, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, pactivesite: Param2, lindex: i32, hwndparent: Param4, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(iverb), ::core::mem::transmute(lpmsg), pactivesite.into_param().abi(), ::core::mem::transmute(lindex), hwndparent.into_param().abi(), ::core::mem::transmute(lprcposrect)).ok()
+        (::windows::core::Interface::vtable(self).DoVerb)(::core::mem::transmute_copy(self), ::core::mem::transmute(iverb), ::core::mem::transmute(lpmsg), pactivesite.into_param().abi(), ::core::mem::transmute(lindex), hwndparent.into_param().abi(), ::core::mem::transmute(lprcposrect)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn EnumVerbs(&self) -> ::windows::core::Result<IEnumOLEVERB> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumOLEVERB>(result__)
+        (::windows::core::Interface::vtable(self).EnumVerbs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumOLEVERB>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Update(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Update)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn IsUpToDate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).IsUpToDate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetUserClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetUserClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserType(&self, dwformoftype: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwformoftype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetUserType)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwformoftype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExtent(&self, dwdrawaspect: u32, psizel: *const super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(psizel)).ok()
+        (::windows::core::Interface::vtable(self).SetExtent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(psizel)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtent(&self, dwdrawaspect: u32) -> ::windows::core::Result<super::super::Foundation::SIZE> {
         let mut result__: super::super::Foundation::SIZE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SIZE>(result__)
+        (::windows::core::Interface::vtable(self).GetExtent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SIZE>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Advise<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>>(&self, padvsink: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), padvsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Advise)(::core::mem::transmute_copy(self), padvsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Unadvise(&self, dwconnection: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwconnection)).ok()
+        (::windows::core::Interface::vtable(self).Unadvise)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwconnection)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumAdvise(&self) -> ::windows::core::Result<super::Com::IEnumSTATDATA> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumSTATDATA>(result__)
+        (::windows::core::Interface::vtable(self).EnumAdvise)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumSTATDATA>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetMiscStatus(&self, dwaspect: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetMiscStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetColorScheme(&self, plogpal: *const super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(plogpal)).ok()
+        (::windows::core::Interface::vtable(self).SetColorScheme)(::core::mem::transmute_copy(self), ::core::mem::transmute(plogpal)).ok()
     }
 }
 impl ::core::convert::From<IOleObject> for ::windows::core::IUnknown {
@@ -7062,87 +7079,109 @@ unsafe impl ::windows::core::Interface for IOleObject {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleObjectVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclientsite: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclientsite: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szcontainerapp: super::super::Foundation::PWSTR, szcontainerobj: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsaveoption: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwwhichmoniker: u32, pmk: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwassign: u32, dwwhichmoniker: u32, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr, fcreation: super::super::Foundation::BOOL, dwreserved: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32, ppdataobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iverb: i32, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, pactivesite: ::windows::core::RawPtr, lindex: i32, hwndparent: super::super::Foundation::HWND, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumoleverb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwformoftype: u32, pszusertype: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, psizel: *const super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, psizel: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padvsink: ::windows::core::RawPtr, pdwconnection: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwconnection: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumadvise: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plogpal: *const super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-);
+pub struct IOleObjectVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub SetClientSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclientsite: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetClientSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclientsite: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetHostNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szcontainerapp: super::super::Foundation::PWSTR, szcontainerobj: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetHostNames: usize,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsaveoption: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub SetMoniker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwwhichmoniker: u32, pmk: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetMoniker: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetMoniker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwassign: u32, dwwhichmoniker: u32, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetMoniker: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub InitFromData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr, fcreation: super::super::Foundation::BOOL, dwreserved: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    InitFromData: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetClipboardData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32, ppdataobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetClipboardData: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub DoVerb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iverb: i32, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, pactivesite: ::windows::core::RawPtr, lindex: i32, hwndparent: super::super::Foundation::HWND, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    DoVerb: usize,
+    pub EnumVerbs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumoleverb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsUpToDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetUserClassID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetUserType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwformoftype: u32, pszusertype: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetUserType: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, psizel: *const super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetExtent: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, psizel: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetExtent: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padvsink: ::windows::core::RawPtr, pdwconnection: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Advise: usize,
+    pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwconnection: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub EnumAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumadvise: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    EnumAdvise: usize,
+    pub GetMiscStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub SetColorScheme: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plogpal: *const super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    SetColorScheme: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleParentUndoUnit(::windows::core::IUnknown);
 impl IOleParentUndoUnit {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Do<'a, Param0: ::windows::core::IntoParam<'a, IOleUndoManager>>(&self, pundomanager: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pundomanager.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Do)(::core::mem::transmute_copy(self), pundomanager.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetUnitType(&self, pclsid: *mut ::windows::core::GUID, plid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pclsid), ::core::mem::transmute(plid)).ok()
+        (::windows::core::Interface::vtable(self).GetUnitType)(::core::mem::transmute_copy(self), ::core::mem::transmute(pclsid), ::core::mem::transmute(plid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnNextAdd(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnNextAdd)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Open<'a, Param0: ::windows::core::IntoParam<'a, IOleParentUndoUnit>>(&self, ppuu: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ppuu.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), ppuu.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Close<'a, Param0: ::windows::core::IntoParam<'a, IOleParentUndoUnit>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ppuu: Param0, fcommit: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ppuu.into_param().abi(), fcommit.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self), ppuu.into_param().abi(), fcommit.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, IOleUndoUnit>>(&self, puu: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), puu.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), puu.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn FindUnit<'a, Param0: ::windows::core::IntoParam<'a, IOleUndoUnit>>(&self, puu: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), puu.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FindUnit)(::core::mem::transmute_copy(self), puu.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetParentState(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetParentState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IOleParentUndoUnit> for IOleUndoUnit {
@@ -7207,61 +7246,56 @@ unsafe impl ::windows::core::Interface for IOleParentUndoUnit {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleParentUndoUnitVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pundomanager: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID, plid: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppuu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppuu: ::windows::core::RawPtr, fcommit: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IOleParentUndoUnitVtbl {
+    pub base: IOleUndoUnitVtbl,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppuu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppuu: ::windows::core::RawPtr, fcommit: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Close: usize,
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FindUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetParentState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleUILinkContainerA(::windows::core::IUnknown);
 impl IOleUILinkContainerA {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetNextLink(&self, dwlink: u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextLink)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)))
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetLinkUpdateOptions(&self, dwlink: u32, dwupdateopt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(dwupdateopt)).ok()
+        (::windows::core::Interface::vtable(self).SetLinkUpdateOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(dwupdateopt)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetLinkUpdateOptions(&self, dwlink: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetLinkUpdateOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLinkSource<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, lpszdisplayname: Param1, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), lpszdisplayname.into_param().abi(), ::core::mem::transmute(lenfilename), ::core::mem::transmute(pcheaten), fvalidatesource.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLinkSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), lpszdisplayname.into_param().abi(), ::core::mem::transmute(lenfilename), ::core::mem::transmute(pcheaten), fvalidatesource.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLinkSource(&self, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PSTR, lplpszshortlinktype: *mut super::super::Foundation::PSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(lplpszdisplayname), ::core::mem::transmute(lplenfilename), ::core::mem::transmute(lplpszfulllinktype), ::core::mem::transmute(lplpszshortlinktype), ::core::mem::transmute(lpfsourceavailable), ::core::mem::transmute(lpfisselected)).ok()
+        (::windows::core::Interface::vtable(self).GetLinkSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(lplpszdisplayname), ::core::mem::transmute(lplenfilename), ::core::mem::transmute(lplpszfulllinktype), ::core::mem::transmute(lplpszshortlinktype), ::core::mem::transmute(lpfsourceavailable), ::core::mem::transmute(lpfisselected)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OpenLinkSource(&self, dwlink: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
+        (::windows::core::Interface::vtable(self).OpenLinkSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateLink<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, ferrormessage: Param1, freserved: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ferrormessage.into_param().abi(), freserved.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UpdateLink)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ferrormessage.into_param().abi(), freserved.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn CancelLink(&self, dwlink: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
+        (::windows::core::Interface::vtable(self).CancelLink)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
     }
 }
 impl ::core::convert::From<IOleUILinkContainerA> for ::windows::core::IUnknown {
@@ -7306,61 +7340,65 @@ unsafe impl ::windows::core::Interface for IOleUILinkContainerA {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleUILinkContainerAVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, dwupdateopt: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpdwupdateopt: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpszdisplayname: super::super::Foundation::PSTR, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PSTR, lplpszshortlinktype: *mut super::super::Foundation::PSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, ferrormessage: super::super::Foundation::BOOL, freserved: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> ::windows::core::HRESULT,
-);
+pub struct IOleUILinkContainerAVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetNextLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> u32,
+    pub SetLinkUpdateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, dwupdateopt: u32) -> ::windows::core::HRESULT,
+    pub GetLinkUpdateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpdwupdateopt: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetLinkSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpszdisplayname: super::super::Foundation::PSTR, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetLinkSource: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetLinkSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PSTR, lplpszshortlinktype: *mut super::super::Foundation::PSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetLinkSource: usize,
+    pub OpenLinkSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub UpdateLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, ferrormessage: super::super::Foundation::BOOL, freserved: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    UpdateLink: usize,
+    pub CancelLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleUILinkContainerW(::windows::core::IUnknown);
 impl IOleUILinkContainerW {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetNextLink(&self, dwlink: u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextLink)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)))
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetLinkUpdateOptions(&self, dwlink: u32, dwupdateopt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(dwupdateopt)).ok()
+        (::windows::core::Interface::vtable(self).SetLinkUpdateOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(dwupdateopt)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetLinkUpdateOptions(&self, dwlink: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetLinkUpdateOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLinkSource<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, lpszdisplayname: Param1, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), lpszdisplayname.into_param().abi(), ::core::mem::transmute(lenfilename), ::core::mem::transmute(pcheaten), fvalidatesource.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLinkSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), lpszdisplayname.into_param().abi(), ::core::mem::transmute(lenfilename), ::core::mem::transmute(pcheaten), fvalidatesource.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLinkSource(&self, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PWSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PWSTR, lplpszshortlinktype: *mut super::super::Foundation::PWSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(lplpszdisplayname), ::core::mem::transmute(lplenfilename), ::core::mem::transmute(lplpszfulllinktype), ::core::mem::transmute(lplpszshortlinktype), ::core::mem::transmute(lpfsourceavailable), ::core::mem::transmute(lpfisselected)).ok()
+        (::windows::core::Interface::vtable(self).GetLinkSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(lplpszdisplayname), ::core::mem::transmute(lplenfilename), ::core::mem::transmute(lplpszfulllinktype), ::core::mem::transmute(lplpszshortlinktype), ::core::mem::transmute(lpfsourceavailable), ::core::mem::transmute(lpfisselected)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OpenLinkSource(&self, dwlink: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
+        (::windows::core::Interface::vtable(self).OpenLinkSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateLink<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, ferrormessage: Param1, freserved: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ferrormessage.into_param().abi(), freserved.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UpdateLink)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ferrormessage.into_param().abi(), freserved.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn CancelLink(&self, dwlink: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
+        (::windows::core::Interface::vtable(self).CancelLink)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
     }
 }
 impl ::core::convert::From<IOleUILinkContainerW> for ::windows::core::IUnknown {
@@ -7405,67 +7443,71 @@ unsafe impl ::windows::core::Interface for IOleUILinkContainerW {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleUILinkContainerWVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, dwupdateopt: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpdwupdateopt: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpszdisplayname: super::super::Foundation::PWSTR, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PWSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PWSTR, lplpszshortlinktype: *mut super::super::Foundation::PWSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, ferrormessage: super::super::Foundation::BOOL, freserved: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> ::windows::core::HRESULT,
-);
+pub struct IOleUILinkContainerWVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetNextLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> u32,
+    pub SetLinkUpdateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, dwupdateopt: u32) -> ::windows::core::HRESULT,
+    pub GetLinkUpdateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpdwupdateopt: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetLinkSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpszdisplayname: super::super::Foundation::PWSTR, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetLinkSource: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetLinkSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PWSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PWSTR, lplpszshortlinktype: *mut super::super::Foundation::PWSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetLinkSource: usize,
+    pub OpenLinkSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub UpdateLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, ferrormessage: super::super::Foundation::BOOL, freserved: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    UpdateLink: usize,
+    pub CancelLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleUILinkInfoA(::windows::core::IUnknown);
 impl IOleUILinkInfoA {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetNextLink(&self, dwlink: u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextLink)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)))
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetLinkUpdateOptions(&self, dwlink: u32, dwupdateopt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(dwupdateopt)).ok()
+        (::windows::core::Interface::vtable(self).SetLinkUpdateOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(dwupdateopt)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetLinkUpdateOptions(&self, dwlink: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetLinkUpdateOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLinkSource<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, lpszdisplayname: Param1, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), lpszdisplayname.into_param().abi(), ::core::mem::transmute(lenfilename), ::core::mem::transmute(pcheaten), fvalidatesource.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLinkSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), lpszdisplayname.into_param().abi(), ::core::mem::transmute(lenfilename), ::core::mem::transmute(pcheaten), fvalidatesource.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLinkSource(&self, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PSTR, lplpszshortlinktype: *mut super::super::Foundation::PSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(lplpszdisplayname), ::core::mem::transmute(lplenfilename), ::core::mem::transmute(lplpszfulllinktype), ::core::mem::transmute(lplpszshortlinktype), ::core::mem::transmute(lpfsourceavailable), ::core::mem::transmute(lpfisselected)).ok()
+        (::windows::core::Interface::vtable(self).GetLinkSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(lplpszdisplayname), ::core::mem::transmute(lplenfilename), ::core::mem::transmute(lplpszfulllinktype), ::core::mem::transmute(lplpszshortlinktype), ::core::mem::transmute(lpfsourceavailable), ::core::mem::transmute(lpfisselected)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OpenLinkSource(&self, dwlink: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
+        (::windows::core::Interface::vtable(self).OpenLinkSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateLink<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, ferrormessage: Param1, freserved: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ferrormessage.into_param().abi(), freserved.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UpdateLink)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ferrormessage.into_param().abi(), freserved.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn CancelLink(&self, dwlink: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
+        (::windows::core::Interface::vtable(self).CancelLink)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastUpdate(&self, dwlink: u32) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__: super::super::Foundation::FILETIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
+        (::windows::core::Interface::vtable(self).GetLastUpdate)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
 }
 impl ::core::convert::From<IOleUILinkInfoA> for IOleUILinkContainerA {
@@ -7530,69 +7572,58 @@ unsafe impl ::windows::core::Interface for IOleUILinkInfoA {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleUILinkInfoAVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, dwupdateopt: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpdwupdateopt: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpszdisplayname: super::super::Foundation::PSTR, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PSTR, lplpszshortlinktype: *mut super::super::Foundation::PSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, ferrormessage: super::super::Foundation::BOOL, freserved: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lplastupdate: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IOleUILinkInfoAVtbl {
+    pub base: IOleUILinkContainerAVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetLastUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lplastupdate: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetLastUpdate: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleUILinkInfoW(::windows::core::IUnknown);
 impl IOleUILinkInfoW {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetNextLink(&self, dwlink: u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextLink)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)))
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetLinkUpdateOptions(&self, dwlink: u32, dwupdateopt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(dwupdateopt)).ok()
+        (::windows::core::Interface::vtable(self).SetLinkUpdateOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(dwupdateopt)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetLinkUpdateOptions(&self, dwlink: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetLinkUpdateOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLinkSource<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, lpszdisplayname: Param1, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), lpszdisplayname.into_param().abi(), ::core::mem::transmute(lenfilename), ::core::mem::transmute(pcheaten), fvalidatesource.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLinkSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), lpszdisplayname.into_param().abi(), ::core::mem::transmute(lenfilename), ::core::mem::transmute(pcheaten), fvalidatesource.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLinkSource(&self, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PWSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PWSTR, lplpszshortlinktype: *mut super::super::Foundation::PWSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(lplpszdisplayname), ::core::mem::transmute(lplenfilename), ::core::mem::transmute(lplpszfulllinktype), ::core::mem::transmute(lplpszshortlinktype), ::core::mem::transmute(lpfsourceavailable), ::core::mem::transmute(lpfisselected)).ok()
+        (::windows::core::Interface::vtable(self).GetLinkSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(lplpszdisplayname), ::core::mem::transmute(lplenfilename), ::core::mem::transmute(lplpszfulllinktype), ::core::mem::transmute(lplpszshortlinktype), ::core::mem::transmute(lpfsourceavailable), ::core::mem::transmute(lpfisselected)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OpenLinkSource(&self, dwlink: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
+        (::windows::core::Interface::vtable(self).OpenLinkSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateLink<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, ferrormessage: Param1, freserved: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ferrormessage.into_param().abi(), freserved.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UpdateLink)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ferrormessage.into_param().abi(), freserved.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn CancelLink(&self, dwlink: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
+        (::windows::core::Interface::vtable(self).CancelLink)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastUpdate(&self, dwlink: u32) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__: super::super::Foundation::FILETIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
+        (::windows::core::Interface::vtable(self).GetLastUpdate)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlink), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
 }
 impl ::core::convert::From<IOleUILinkInfoW> for IOleUILinkContainerW {
@@ -7657,24 +7688,13 @@ unsafe impl ::windows::core::Interface for IOleUILinkInfoW {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleUILinkInfoWVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, dwupdateopt: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpdwupdateopt: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpszdisplayname: super::super::Foundation::PWSTR, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PWSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PWSTR, lplpszshortlinktype: *mut super::super::Foundation::PWSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, ferrormessage: super::super::Foundation::BOOL, freserved: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lplastupdate: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IOleUILinkInfoWVtbl {
+    pub base: IOleUILinkContainerWVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetLastUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lplastupdate: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetLastUpdate: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleUIObjInfoA(::windows::core::IUnknown);
@@ -7682,24 +7702,24 @@ impl IOleUIObjInfoA {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectInfo(&self, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut super::super::Foundation::PSTR, lplpsztype: *mut super::super::Foundation::PSTR, lplpszshorttype: *mut super::super::Foundation::PSTR, lplpszlocation: *mut super::super::Foundation::PSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(lpdwobjsize), ::core::mem::transmute(lplpszlabel), ::core::mem::transmute(lplpsztype), ::core::mem::transmute(lplpszshorttype), ::core::mem::transmute(lplpszlocation)).ok()
+        (::windows::core::Interface::vtable(self).GetObjectInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(lpdwobjsize), ::core::mem::transmute(lplpszlabel), ::core::mem::transmute(lplpsztype), ::core::mem::transmute(lplpszshorttype), ::core::mem::transmute(lplpszlocation)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetConvertInfo(&self, dwobject: u32, lpclassid: *mut ::windows::core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::core::GUID, lplpclsidexclude: *mut *mut ::windows::core::GUID, lpcclsidexclude: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(lpclassid), ::core::mem::transmute(lpwformat), ::core::mem::transmute(lpconvertdefaultclassid), ::core::mem::transmute(lplpclsidexclude), ::core::mem::transmute(lpcclsidexclude)).ok()
+        (::windows::core::Interface::vtable(self).GetConvertInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(lpclassid), ::core::mem::transmute(lpwformat), ::core::mem::transmute(lpconvertdefaultclassid), ::core::mem::transmute(lplpclsidexclude), ::core::mem::transmute(lpcclsidexclude)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn ConvertObject(&self, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(clsidnew)).ok()
+        (::windows::core::Interface::vtable(self).ConvertObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(clsidnew)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetViewInfo(&self, dwobject: u32, phmetapict: *const isize, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(phmetapict), ::core::mem::transmute(pdvaspect), ::core::mem::transmute(pncurrentscale)).ok()
+        (::windows::core::Interface::vtable(self).GetViewInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(phmetapict), ::core::mem::transmute(pdvaspect), ::core::mem::transmute(pncurrentscale)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetViewInfo<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(hmetapict), ::core::mem::transmute(dvaspect), ::core::mem::transmute(ncurrentscale), brelativetoorig.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetViewInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(hmetapict), ::core::mem::transmute(dvaspect), ::core::mem::transmute(ncurrentscale), brelativetoorig.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IOleUIObjInfoA> for ::windows::core::IUnknown {
@@ -7744,18 +7764,20 @@ unsafe impl ::windows::core::Interface for IOleUIObjInfoA {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleUIObjInfoAVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut super::super::Foundation::PSTR, lplpsztype: *mut super::super::Foundation::PSTR, lplpszshorttype: *mut super::super::Foundation::PSTR, lplpszlocation: *mut super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpclassid: *mut ::windows::core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::core::GUID, lplpclsidexclude: *mut *mut ::windows::core::GUID, lpcclsidexclude: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, phmetapict: *const isize, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IOleUIObjInfoAVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetObjectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut super::super::Foundation::PSTR, lplpsztype: *mut super::super::Foundation::PSTR, lplpszshorttype: *mut super::super::Foundation::PSTR, lplpszlocation: *mut super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetObjectInfo: usize,
+    pub GetConvertInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpclassid: *mut ::windows::core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::core::GUID, lplpclsidexclude: *mut *mut ::windows::core::GUID, lpcclsidexclude: *mut u32) -> ::windows::core::HRESULT,
+    pub ConvertObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub GetViewInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, phmetapict: *const isize, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetViewInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetViewInfo: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleUIObjInfoW(::windows::core::IUnknown);
@@ -7763,24 +7785,24 @@ impl IOleUIObjInfoW {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectInfo(&self, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut super::super::Foundation::PWSTR, lplpsztype: *mut super::super::Foundation::PWSTR, lplpszshorttype: *mut super::super::Foundation::PWSTR, lplpszlocation: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(lpdwobjsize), ::core::mem::transmute(lplpszlabel), ::core::mem::transmute(lplpsztype), ::core::mem::transmute(lplpszshorttype), ::core::mem::transmute(lplpszlocation)).ok()
+        (::windows::core::Interface::vtable(self).GetObjectInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(lpdwobjsize), ::core::mem::transmute(lplpszlabel), ::core::mem::transmute(lplpsztype), ::core::mem::transmute(lplpszshorttype), ::core::mem::transmute(lplpszlocation)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetConvertInfo(&self, dwobject: u32, lpclassid: *mut ::windows::core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::core::GUID, lplpclsidexclude: *mut *mut ::windows::core::GUID, lpcclsidexclude: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(lpclassid), ::core::mem::transmute(lpwformat), ::core::mem::transmute(lpconvertdefaultclassid), ::core::mem::transmute(lplpclsidexclude), ::core::mem::transmute(lpcclsidexclude)).ok()
+        (::windows::core::Interface::vtable(self).GetConvertInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(lpclassid), ::core::mem::transmute(lpwformat), ::core::mem::transmute(lpconvertdefaultclassid), ::core::mem::transmute(lplpclsidexclude), ::core::mem::transmute(lpcclsidexclude)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn ConvertObject(&self, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(clsidnew)).ok()
+        (::windows::core::Interface::vtable(self).ConvertObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(clsidnew)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetViewInfo(&self, dwobject: u32, phmetapict: *const isize, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(phmetapict), ::core::mem::transmute(pdvaspect), ::core::mem::transmute(pncurrentscale)).ok()
+        (::windows::core::Interface::vtable(self).GetViewInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(phmetapict), ::core::mem::transmute(pdvaspect), ::core::mem::transmute(pncurrentscale)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetViewInfo<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(hmetapict), ::core::mem::transmute(dvaspect), ::core::mem::transmute(ncurrentscale), brelativetoorig.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetViewInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(hmetapict), ::core::mem::transmute(dvaspect), ::core::mem::transmute(ncurrentscale), brelativetoorig.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IOleUIObjInfoW> for ::windows::core::IUnknown {
@@ -7825,78 +7847,80 @@ unsafe impl ::windows::core::Interface for IOleUIObjInfoW {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleUIObjInfoWVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut super::super::Foundation::PWSTR, lplpsztype: *mut super::super::Foundation::PWSTR, lplpszshorttype: *mut super::super::Foundation::PWSTR, lplpszlocation: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpclassid: *mut ::windows::core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::core::GUID, lplpclsidexclude: *mut *mut ::windows::core::GUID, lpcclsidexclude: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, phmetapict: *const isize, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IOleUIObjInfoWVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetObjectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut super::super::Foundation::PWSTR, lplpsztype: *mut super::super::Foundation::PWSTR, lplpszshorttype: *mut super::super::Foundation::PWSTR, lplpszlocation: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetObjectInfo: usize,
+    pub GetConvertInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpclassid: *mut ::windows::core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::core::GUID, lplpclsidexclude: *mut *mut ::windows::core::GUID, lpcclsidexclude: *mut u32) -> ::windows::core::HRESULT,
+    pub ConvertObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub GetViewInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, phmetapict: *const isize, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetViewInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetViewInfo: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleUndoManager(::windows::core::IUnknown);
 impl IOleUndoManager {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Open<'a, Param0: ::windows::core::IntoParam<'a, IOleParentUndoUnit>>(&self, ppuu: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ppuu.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), ppuu.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Close<'a, Param0: ::windows::core::IntoParam<'a, IOleParentUndoUnit>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ppuu: Param0, fcommit: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ppuu.into_param().abi(), fcommit.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self), ppuu.into_param().abi(), fcommit.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, IOleUndoUnit>>(&self, puu: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), puu.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), puu.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetOpenParentState(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetOpenParentState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn DiscardFrom<'a, Param0: ::windows::core::IntoParam<'a, IOleUndoUnit>>(&self, puu: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), puu.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DiscardFrom)(::core::mem::transmute_copy(self), puu.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn UndoTo<'a, Param0: ::windows::core::IntoParam<'a, IOleUndoUnit>>(&self, puu: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), puu.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UndoTo)(::core::mem::transmute_copy(self), puu.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn RedoTo<'a, Param0: ::windows::core::IntoParam<'a, IOleUndoUnit>>(&self, puu: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), puu.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RedoTo)(::core::mem::transmute_copy(self), puu.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn EnumUndoable(&self) -> ::windows::core::Result<IEnumOleUndoUnits> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumOleUndoUnits>(result__)
+        (::windows::core::Interface::vtable(self).EnumUndoable)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumOleUndoUnits>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn EnumRedoable(&self) -> ::windows::core::Result<IEnumOleUndoUnits> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumOleUndoUnits>(result__)
+        (::windows::core::Interface::vtable(self).EnumRedoable)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumOleUndoUnits>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastUndoDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetLastUndoDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastRedoDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetLastRedoDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Enable)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IOleUndoManager> for ::windows::core::IUnknown {
@@ -7941,48 +7965,54 @@ unsafe impl ::windows::core::Interface for IOleUndoManager {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleUndoManagerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppuu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppuu: ::windows::core::RawPtr, fcommit: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IOleUndoManagerVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppuu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppuu: ::windows::core::RawPtr, fcommit: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Close: usize,
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetOpenParentState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT,
+    pub DiscardFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub UndoTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub RedoTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puu: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub EnumUndoable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub EnumRedoable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetLastUndoDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetLastUndoDescription: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetLastRedoDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetLastRedoDescription: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Enable: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleUndoUnit(::windows::core::IUnknown);
 impl IOleUndoUnit {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Do<'a, Param0: ::windows::core::IntoParam<'a, IOleUndoManager>>(&self, pundomanager: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pundomanager.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Do)(::core::mem::transmute_copy(self), pundomanager.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetUnitType(&self, pclsid: *mut ::windows::core::GUID, plid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pclsid), ::core::mem::transmute(plid)).ok()
+        (::windows::core::Interface::vtable(self).GetUnitType)(::core::mem::transmute_copy(self), ::core::mem::transmute(pclsid), ::core::mem::transmute(plid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnNextAdd(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnNextAdd)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IOleUndoUnit> for ::windows::core::IUnknown {
@@ -8027,16 +8057,16 @@ unsafe impl ::windows::core::Interface for IOleUndoUnit {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleUndoUnitVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pundomanager: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID, plid: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IOleUndoUnitVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Do: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pundomanager: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetDescription: usize,
+    pub GetUnitType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID, plid: *mut i32) -> ::windows::core::HRESULT,
+    pub OnNextAdd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IOleWindow(::windows::core::IUnknown);
@@ -8045,12 +8075,12 @@ impl IOleWindow {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).GetWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IOleWindow> for ::windows::core::IUnknown {
@@ -8095,15 +8125,17 @@ unsafe impl ::windows::core::Interface for IOleWindow {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOleWindowVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fentermode: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IOleWindowVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetWindow: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ContextSensitiveHelp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fentermode: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ContextSensitiveHelp: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IParseDisplayName(::windows::core::IUnknown);
@@ -8111,7 +8143,7 @@ impl IParseDisplayName {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ParseDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pbc: Param0, pszdisplayname: Param1, pcheaten: *mut u32, ppmkout: *mut ::core::option::Option<super::Com::IMoniker>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pbc.into_param().abi(), pszdisplayname.into_param().abi(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppmkout)).ok()
+        (::windows::core::Interface::vtable(self).ParseDisplayName)(::core::mem::transmute_copy(self), pbc.into_param().abi(), pszdisplayname.into_param().abi(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppmkout)).ok()
     }
 }
 impl ::core::convert::From<IParseDisplayName> for ::windows::core::IUnknown {
@@ -8156,13 +8188,13 @@ unsafe impl ::windows::core::Interface for IParseDisplayName {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IParseDisplayNameVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr, pszdisplayname: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmkout: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct IParseDisplayNameVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub ParseDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr, pszdisplayname: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmkout: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    ParseDisplayName: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IPerPropertyBrowsing(::windows::core::IUnknown);
@@ -8171,23 +8203,23 @@ impl IPerPropertyBrowsing {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayString(&self, dispid: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDisplayString)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn MapPropertyToPage(&self, dispid: i32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).MapPropertyToPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPredefinedStrings(&self, dispid: i32, pcastringsout: *mut CALPOLESTR, pcacookiesout: *mut CADWORD) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid), ::core::mem::transmute(pcastringsout), ::core::mem::transmute(pcacookiesout)).ok()
+        (::windows::core::Interface::vtable(self).GetPredefinedStrings)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid), ::core::mem::transmute(pcastringsout), ::core::mem::transmute(pcacookiesout)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPredefinedValue(&self, dispid: i32, dwcookie: u32) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid), ::core::mem::transmute(dwcookie), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetPredefinedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid), ::core::mem::transmute(dwcookie), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
     }
 }
 impl ::core::convert::From<IPerPropertyBrowsing> for ::windows::core::IUnknown {
@@ -8232,18 +8264,22 @@ unsafe impl ::windows::core::Interface for IPerPropertyBrowsing {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerPropertyBrowsingVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pcastringsout: *mut CALPOLESTR, pcacookiesout: *mut CADWORD) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, dwcookie: u32, pvarout: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct IPerPropertyBrowsingVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetDisplayString: usize,
+    pub MapPropertyToPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetPredefinedStrings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pcastringsout: *mut CALPOLESTR, pcacookiesout: *mut CADWORD) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetPredefinedStrings: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub GetPredefinedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, dwcookie: u32, pvarout: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    GetPredefinedValue: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IPersistPropertyBag(::windows::core::IUnknown);
@@ -8252,21 +8288,21 @@ impl IPersistPropertyBag {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn InitNew(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).InitNew)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::Com::IErrorLog>>(&self, ppropbag: Param0, perrorlog: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ppropbag.into_param().abi(), perrorlog.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Load)(::core::mem::transmute_copy(self), ppropbag.into_param().abi(), perrorlog.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Save<'a, Param0: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ppropbag: Param0, fcleardirty: Param1, fsaveallproperties: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ppropbag.into_param().abi(), fcleardirty.into_param().abi(), fsaveallproperties.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self), ppropbag.into_param().abi(), fcleardirty.into_param().abi(), fsaveallproperties.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8335,18 +8371,18 @@ unsafe impl ::windows::core::Interface for IPersistPropertyBag {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPersistPropertyBagVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclassid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropbag: ::windows::core::RawPtr, perrorlog: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropbag: ::windows::core::RawPtr, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))] usize,
-);
+pub struct IPersistPropertyBagVtbl {
+    pub base: IPersistVtbl,
+    pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropbag: ::windows::core::RawPtr, perrorlog: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))]
+    Load: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropbag: ::windows::core::RawPtr, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    Save: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IPersistPropertyBag2(::windows::core::IUnknown);
@@ -8355,25 +8391,25 @@ impl IPersistPropertyBag2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn InitNew(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).InitNew)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IPropertyBag2>, Param1: ::windows::core::IntoParam<'a, super::Com::IErrorLog>>(&self, ppropbag: Param0, perrlog: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ppropbag.into_param().abi(), perrlog.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Load)(::core::mem::transmute_copy(self), ppropbag.into_param().abi(), perrlog.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Save<'a, Param0: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IPropertyBag2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ppropbag: Param0, fcleardirty: Param1, fsaveallproperties: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ppropbag.into_param().abi(), fcleardirty.into_param().abi(), fsaveallproperties.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self), ppropbag.into_param().abi(), fcleardirty.into_param().abi(), fsaveallproperties.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8442,19 +8478,19 @@ unsafe impl ::windows::core::Interface for IPersistPropertyBag2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPersistPropertyBag2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclassid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropbag: ::windows::core::RawPtr, perrlog: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropbag: ::windows::core::RawPtr, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IPersistPropertyBag2Vtbl {
+    pub base: IPersistVtbl,
+    pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropbag: ::windows::core::RawPtr, perrlog: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))]
+    Load: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropbag: ::windows::core::RawPtr, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    Save: usize,
+    pub IsDirty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IPicture(::windows::core::IUnknown);
@@ -8462,73 +8498,73 @@ impl IPicture {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Handle(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Handle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn hPal(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).hPal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Width(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Width)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Height(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Height)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Render<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0, x: i32, y: i32, cx: i32, cy: i32, xsrc: i32, ysrc: i32, cxsrc: i32, cysrc: i32, prcwbounds: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(cxsrc), ::core::mem::transmute(cysrc), ::core::mem::transmute(prcwbounds)).ok()
+        (::windows::core::Interface::vtable(self).Render)(::core::mem::transmute_copy(self), hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(cxsrc), ::core::mem::transmute(cysrc), ::core::mem::transmute(prcwbounds)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn set_hPal(&self, hpal: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(hpal)).ok()
+        (::windows::core::Interface::vtable(self).set_hPal)(::core::mem::transmute_copy(self), ::core::mem::transmute(hpal)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CurDC(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::HDC> {
         let mut result__: super::super::Graphics::Gdi::HDC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HDC>(result__)
+        (::windows::core::Interface::vtable(self).CurDC)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HDC>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SelectPicture<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, hdcin: Param0, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), hdcin.into_param().abi(), ::core::mem::transmute(phdcout), ::core::mem::transmute(phbmpout)).ok()
+        (::windows::core::Interface::vtable(self).SelectPicture)(::core::mem::transmute_copy(self), hdcin.into_param().abi(), ::core::mem::transmute(phdcout), ::core::mem::transmute(phbmpout)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeepOriginalFormat(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).KeepOriginalFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetKeepOriginalFormat<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, keep: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), keep.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetKeepOriginalFormat)(::core::mem::transmute_copy(self), keep.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn PictureChanged(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).PictureChanged)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SaveAsFile<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pstream: Param0, fsavememcopy: Param1) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pstream.into_param().abi(), fsavememcopy.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SaveAsFile)(::core::mem::transmute_copy(self), pstream.into_param().abi(), fsavememcopy.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Attributes(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IPicture> for ::windows::core::IUnknown {
@@ -8573,31 +8609,41 @@ unsafe impl ::windows::core::Interface for IPicture {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPictureVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phpal: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut i16) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwidth: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pheight: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: i32, ysrc: i32, cxsrc: i32, cysrc: i32, prcwbounds: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpal: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phdc: *mut super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdcin: super::super::Graphics::Gdi::HDC, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeep: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keep: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, fsavememcopy: super::super::Foundation::BOOL, pcbsize: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattr: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IPictureVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut u32) -> ::windows::core::HRESULT,
+    pub hPal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phpal: *mut u32) -> ::windows::core::HRESULT,
+    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut i16) -> ::windows::core::HRESULT,
+    pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwidth: *mut i32) -> ::windows::core::HRESULT,
+    pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pheight: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub Render: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: i32, ysrc: i32, cxsrc: i32, cysrc: i32, prcwbounds: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
+    Render: usize,
+    pub set_hPal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpal: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub CurDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phdc: *mut super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    CurDC: usize,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub SelectPicture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdcin: super::super::Graphics::Gdi::HDC, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    SelectPicture: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub KeepOriginalFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeep: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    KeepOriginalFormat: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetKeepOriginalFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keep: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetKeepOriginalFormat: usize,
+    pub PictureChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub SaveAsFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, fsavememcopy: super::super::Foundation::BOOL, pcbsize: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    SaveAsFile: usize,
+    pub Attributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattr: *mut u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IPicture2(::windows::core::IUnknown);
@@ -8605,73 +8651,73 @@ impl IPicture2 {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Handle(&self) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).Handle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn hPal(&self) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).hPal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Width(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Width)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Height(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Height)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Render<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0, x: i32, y: i32, cx: i32, cy: i32, xsrc: i32, ysrc: i32, cxsrc: i32, cysrc: i32, prcwbounds: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(cxsrc), ::core::mem::transmute(cysrc), ::core::mem::transmute(prcwbounds)).ok()
+        (::windows::core::Interface::vtable(self).Render)(::core::mem::transmute_copy(self), hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(cxsrc), ::core::mem::transmute(cysrc), ::core::mem::transmute(prcwbounds)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn set_hPal(&self, hpal: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(hpal)).ok()
+        (::windows::core::Interface::vtable(self).set_hPal)(::core::mem::transmute_copy(self), ::core::mem::transmute(hpal)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CurDC(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::HDC> {
         let mut result__: super::super::Graphics::Gdi::HDC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HDC>(result__)
+        (::windows::core::Interface::vtable(self).CurDC)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HDC>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SelectPicture<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, hdcin: Param0, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), hdcin.into_param().abi(), ::core::mem::transmute(phdcout), ::core::mem::transmute(phbmpout)).ok()
+        (::windows::core::Interface::vtable(self).SelectPicture)(::core::mem::transmute_copy(self), hdcin.into_param().abi(), ::core::mem::transmute(phdcout), ::core::mem::transmute(phbmpout)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeepOriginalFormat(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).KeepOriginalFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetKeepOriginalFormat<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, keep: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), keep.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetKeepOriginalFormat)(::core::mem::transmute_copy(self), keep.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn PictureChanged(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).PictureChanged)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SaveAsFile<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pstream: Param0, fsavememcopy: Param1) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pstream.into_param().abi(), fsavememcopy.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SaveAsFile)(::core::mem::transmute_copy(self), pstream.into_param().abi(), fsavememcopy.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Attributes(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IPicture2> for ::windows::core::IUnknown {
@@ -8716,31 +8762,41 @@ unsafe impl ::windows::core::Interface for IPicture2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPicture2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut usize) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phpal: *mut usize) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut i16) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwidth: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pheight: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: i32, ysrc: i32, cxsrc: i32, cysrc: i32, prcwbounds: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpal: usize) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phdc: *mut super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdcin: super::super::Graphics::Gdi::HDC, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut usize) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeep: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keep: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, fsavememcopy: super::super::Foundation::BOOL, pcbsize: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattr: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IPicture2Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut usize) -> ::windows::core::HRESULT,
+    pub hPal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phpal: *mut usize) -> ::windows::core::HRESULT,
+    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut i16) -> ::windows::core::HRESULT,
+    pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwidth: *mut i32) -> ::windows::core::HRESULT,
+    pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pheight: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub Render: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: i32, ysrc: i32, cxsrc: i32, cysrc: i32, prcwbounds: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
+    Render: usize,
+    pub set_hPal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpal: usize) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub CurDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phdc: *mut super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    CurDC: usize,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub SelectPicture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdcin: super::super::Graphics::Gdi::HDC, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut usize) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    SelectPicture: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub KeepOriginalFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeep: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    KeepOriginalFormat: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetKeepOriginalFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keep: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetKeepOriginalFormat: usize,
+    pub PictureChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub SaveAsFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, fsavememcopy: super::super::Foundation::BOOL, pcbsize: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    SaveAsFile: usize,
+    pub Attributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattr: *mut u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IPictureDisp(::windows::core::IUnknown);
@@ -8749,23 +8805,23 @@ impl IPictureDisp {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+        (::windows::core::Interface::vtable(self).GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
+        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8834,19 +8890,9 @@ unsafe impl ::windows::core::Interface for IPictureDisp {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPictureDispVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctinfo: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct IPictureDispVtbl {
+    pub base: IDispatchVtbl,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IPointerInactive(::windows::core::IUnknown);
@@ -8854,17 +8900,17 @@ impl IPointerInactive {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetActivationPolicy(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetActivationPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnInactiveMouseMove(&self, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, grfkeystate: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(prectbounds), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(grfkeystate)).ok()
+        (::windows::core::Interface::vtable(self).OnInactiveMouseMove)(::core::mem::transmute_copy(self), ::core::mem::transmute(prectbounds), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(grfkeystate)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnInactiveSetCursor<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(prectbounds), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(dwmousemsg), fsetalways.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnInactiveSetCursor)(::core::mem::transmute_copy(self), ::core::mem::transmute(prectbounds), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(dwmousemsg), fsetalways.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IPointerInactive> for ::windows::core::IUnknown {
@@ -8909,32 +8955,34 @@ unsafe impl ::windows::core::Interface for IPointerInactive {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPointerInactiveVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwpolicy: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, grfkeystate: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IPointerInactiveVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetActivationPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwpolicy: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnInactiveMouseMove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, grfkeystate: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnInactiveMouseMove: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnInactiveSetCursor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnInactiveSetCursor: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IPrint(::windows::core::IUnknown);
 impl IPrint {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetInitialPageNum(&self, nfirstpage: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(nfirstpage)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialPageNum)(::core::mem::transmute_copy(self), ::core::mem::transmute(nfirstpage)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetPageInfo(&self, pnfirstpage: *mut i32, pcpages: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnfirstpage), ::core::mem::transmute(pcpages)).ok()
+        (::windows::core::Interface::vtable(self).GetPageInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnfirstpage), ::core::mem::transmute(pcpages)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Print<'a, Param4: ::windows::core::IntoParam<'a, IContinueCallback>>(&self, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: Param4, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfflags), ::core::mem::transmute(pptd), ::core::mem::transmute(pppageset), ::core::mem::transmute(pstgmoptions), pcallback.into_param().abi(), ::core::mem::transmute(nfirstpage), ::core::mem::transmute(pcpagesprinted), ::core::mem::transmute(pnlastpage)).ok()
+        (::windows::core::Interface::vtable(self).Print)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfflags), ::core::mem::transmute(pptd), ::core::mem::transmute(pppageset), ::core::mem::transmute(pstgmoptions), pcallback.into_param().abi(), ::core::mem::transmute(nfirstpage), ::core::mem::transmute(pcpagesprinted), ::core::mem::transmute(pnlastpage)).ok()
     }
 }
 impl ::core::convert::From<IPrint> for ::windows::core::IUnknown {
@@ -8979,26 +9027,26 @@ unsafe impl ::windows::core::Interface for IPrint {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nfirstpage: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnfirstpage: *mut i32, pcpages: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: ::windows::core::RawPtr, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-);
+pub struct IPrintVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub SetInitialPageNum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nfirstpage: i32) -> ::windows::core::HRESULT,
+    pub GetPageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnfirstpage: *mut i32, pcpages: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    pub Print: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: ::windows::core::RawPtr, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))]
+    Print: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IPropertyNotifySink(::windows::core::IUnknown);
 impl IPropertyNotifySink {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnChanged(&self, dispid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid)).ok()
+        (::windows::core::Interface::vtable(self).OnChanged)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnRequestEdit(&self, dispid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid)).ok()
+        (::windows::core::Interface::vtable(self).OnRequestEdit)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid)).ok()
     }
 }
 impl ::core::convert::From<IPropertyNotifySink> for ::windows::core::IUnknown {
@@ -9043,66 +9091,64 @@ unsafe impl ::windows::core::Interface for IPropertyNotifySink {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyNotifySinkVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32) -> ::windows::core::HRESULT,
-);
+pub struct IPropertyNotifySinkVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub OnChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32) -> ::windows::core::HRESULT,
+    pub OnRequestEdit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IPropertyPage(::windows::core::IUnknown);
 impl IPropertyPage {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetPageSite<'a, Param0: ::windows::core::IntoParam<'a, IPropertyPageSite>>(&self, ppagesite: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ppagesite.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPageSite)(::core::mem::transmute_copy(self), ppagesite.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hwndparent: Param0, prect: *const super::super::Foundation::RECT, bmodal: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(prect), bmodal.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Activate)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(prect), bmodal.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Deactivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPageInfo(&self) -> ::windows::core::Result<PROPPAGEINFO> {
         let mut result__: PROPPAGEINFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PROPPAGEINFO>(result__)
+        (::windows::core::Interface::vtable(self).GetPageInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PROPPAGEINFO>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetObjects(&self, cobjects: u32, ppunk: *const ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(cobjects), ::core::mem::transmute(ppunk)).ok()
+        (::windows::core::Interface::vtable(self).SetObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(cobjects), ::core::mem::transmute(ppunk)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Show(&self, ncmdshow: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(ncmdshow)).ok()
+        (::windows::core::Interface::vtable(self).Show)(::core::mem::transmute_copy(self), ::core::mem::transmute(ncmdshow)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Move(&self, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(prect)).ok()
+        (::windows::core::Interface::vtable(self).Move)(::core::mem::transmute_copy(self), ::core::mem::transmute(prect)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn IsPageDirty(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).IsPageDirty)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Apply(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Apply)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Help<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszhelpdir: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), pszhelpdir.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Help)(::core::mem::transmute_copy(self), pszhelpdir.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TranslateAccelerator(&self, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmsg)).ok()
+        (::windows::core::Interface::vtable(self).TranslateAccelerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmsg)).ok()
     }
 }
 impl ::core::convert::From<IPropertyPage> for ::windows::core::IUnknown {
@@ -9147,84 +9193,92 @@ unsafe impl ::windows::core::Interface for IPropertyPage {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyPageVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppagesite: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, prect: *const super::super::Foundation::RECT, bmodal: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppageinfo: *mut PROPPAGEINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cobjects: u32, ppunk: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncmdshow: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhelpdir: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-);
+pub struct IPropertyPageVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub SetPageSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppagesite: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, prect: *const super::super::Foundation::RECT, bmodal: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Activate: usize,
+    pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetPageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppageinfo: *mut PROPPAGEINFO) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetPageInfo: usize,
+    pub SetObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cobjects: u32, ppunk: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncmdshow: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Move: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Move: usize,
+    pub IsPageDirty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Apply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Help: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhelpdir: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Help: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub TranslateAccelerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    TranslateAccelerator: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IPropertyPage2(::windows::core::IUnknown);
 impl IPropertyPage2 {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetPageSite<'a, Param0: ::windows::core::IntoParam<'a, IPropertyPageSite>>(&self, ppagesite: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ppagesite.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPageSite)(::core::mem::transmute_copy(self), ppagesite.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hwndparent: Param0, prect: *const super::super::Foundation::RECT, bmodal: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(prect), bmodal.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Activate)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(prect), bmodal.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Deactivate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPageInfo(&self) -> ::windows::core::Result<PROPPAGEINFO> {
         let mut result__: PROPPAGEINFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PROPPAGEINFO>(result__)
+        (::windows::core::Interface::vtable(self).GetPageInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PROPPAGEINFO>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn SetObjects(&self, cobjects: u32, ppunk: *const ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(cobjects), ::core::mem::transmute(ppunk)).ok()
+        (::windows::core::Interface::vtable(self).SetObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(cobjects), ::core::mem::transmute(ppunk)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Show(&self, ncmdshow: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(ncmdshow)).ok()
+        (::windows::core::Interface::vtable(self).Show)(::core::mem::transmute_copy(self), ::core::mem::transmute(ncmdshow)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Move(&self, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(prect)).ok()
+        (::windows::core::Interface::vtable(self).Move)(::core::mem::transmute_copy(self), ::core::mem::transmute(prect)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn IsPageDirty(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).IsPageDirty)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Apply(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Apply)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Help<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszhelpdir: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), pszhelpdir.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Help)(::core::mem::transmute_copy(self), pszhelpdir.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TranslateAccelerator(&self, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmsg)).ok()
+        (::windows::core::Interface::vtable(self).TranslateAccelerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmsg)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn EditProperty(&self, dispid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid)).ok()
+        (::windows::core::Interface::vtable(self).EditProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispid)).ok()
     }
 }
 impl ::core::convert::From<IPropertyPage2> for IPropertyPage {
@@ -9289,50 +9343,32 @@ unsafe impl ::windows::core::Interface for IPropertyPage2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyPage2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppagesite: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, prect: *const super::super::Foundation::RECT, bmodal: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppageinfo: *mut PROPPAGEINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cobjects: u32, ppunk: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncmdshow: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhelpdir: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32) -> ::windows::core::HRESULT,
-);
+pub struct IPropertyPage2Vtbl {
+    pub base: IPropertyPageVtbl,
+    pub EditProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IPropertyPageSite(::windows::core::IUnknown);
 impl IPropertyPageSite {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnStatusChange(&self, dwflags: PROPPAGESTATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).OnStatusChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetLocaleID(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetLocaleID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetPageContainer(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetPageContainer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TranslateAccelerator(&self, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmsg)).ok()
+        (::windows::core::Interface::vtable(self).TranslateAccelerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmsg)).ok()
     }
 }
 impl ::core::convert::From<IPropertyPageSite> for ::windows::core::IUnknown {
@@ -9377,16 +9413,16 @@ unsafe impl ::windows::core::Interface for IPropertyPageSite {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyPageSiteVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: PROPPAGESTATUS) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocaleid: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-);
+pub struct IPropertyPageSiteVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub OnStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: PROPPAGESTATUS) -> ::windows::core::HRESULT,
+    pub GetLocaleID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocaleid: *mut u32) -> ::windows::core::HRESULT,
+    pub GetPageContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub TranslateAccelerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    TranslateAccelerator: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IProtectFocus(::windows::core::IUnknown);
@@ -9395,7 +9431,7 @@ impl IProtectFocus {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowFocusChange(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).AllowFocusChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IProtectFocus> for ::windows::core::IUnknown {
@@ -9440,13 +9476,13 @@ unsafe impl ::windows::core::Interface for IProtectFocus {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectFocusVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfallow: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IProtectFocusVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub AllowFocusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfallow: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    AllowFocusChange: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IProtectedModeMenuServices(::windows::core::IUnknown);
@@ -9455,19 +9491,19 @@ impl IProtectedModeMenuServices {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn CreateMenu(&self) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::HMENU> {
         let mut result__: super::super::UI::WindowsAndMessaging::HMENU = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::UI::WindowsAndMessaging::HMENU>(result__)
+        (::windows::core::Interface::vtable(self).CreateMenu)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::UI::WindowsAndMessaging::HMENU>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn LoadMenu<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmodulename: Param0, pszmenuname: Param1) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::HMENU> {
         let mut result__: super::super::UI::WindowsAndMessaging::HMENU = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszmodulename.into_param().abi(), pszmenuname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::UI::WindowsAndMessaging::HMENU>(result__)
+        (::windows::core::Interface::vtable(self).LoadMenu)(::core::mem::transmute_copy(self), pszmodulename.into_param().abi(), pszmenuname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::UI::WindowsAndMessaging::HMENU>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn LoadMenuID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmodulename: Param0, wresourceid: u16) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::HMENU> {
         let mut result__: super::super::UI::WindowsAndMessaging::HMENU = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszmodulename.into_param().abi(), ::core::mem::transmute(wresourceid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::UI::WindowsAndMessaging::HMENU>(result__)
+        (::windows::core::Interface::vtable(self).LoadMenuID)(::core::mem::transmute_copy(self), pszmodulename.into_param().abi(), ::core::mem::transmute(wresourceid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::UI::WindowsAndMessaging::HMENU>(result__)
     }
 }
 impl ::core::convert::From<IProtectedModeMenuServices> for ::windows::core::IUnknown {
@@ -9512,17 +9548,21 @@ unsafe impl ::windows::core::Interface for IProtectedModeMenuServices {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectedModeMenuServicesVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmodulename: super::super::Foundation::PWSTR, pszmenuname: super::super::Foundation::PWSTR, phmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmodulename: super::super::Foundation::PWSTR, wresourceid: u16, phmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
-);
+pub struct IProtectedModeMenuServicesVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub CreateMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
+    CreateMenu: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub LoadMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmodulename: super::super::Foundation::PWSTR, pszmenuname: super::super::Foundation::PWSTR, phmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    LoadMenu: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub LoadMenuID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmodulename: super::super::Foundation::PWSTR, wresourceid: u16, phmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    LoadMenuID: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IProvideClassInfo(::windows::core::IUnknown);
@@ -9531,7 +9571,7 @@ impl IProvideClassInfo {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassInfo(&self) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).GetClassInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
     }
 }
 impl ::core::convert::From<IProvideClassInfo> for ::windows::core::IUnknown {
@@ -9576,13 +9616,13 @@ unsafe impl ::windows::core::Interface for IProvideClassInfo {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProvideClassInfoVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppti: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-);
+pub struct IProvideClassInfoVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetClassInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppti: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetClassInfo: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IProvideClassInfo2(::windows::core::IUnknown);
@@ -9591,12 +9631,12 @@ impl IProvideClassInfo2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassInfo(&self) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).GetClassInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetGUID(&self, dwguidkind: u32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwguidkind), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwguidkind), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
 }
 impl ::core::convert::From<IProvideClassInfo2> for IProvideClassInfo {
@@ -9661,14 +9701,10 @@ unsafe impl ::windows::core::Interface for IProvideClassInfo2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProvideClassInfo2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppti: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwguidkind: u32, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-);
+pub struct IProvideClassInfo2Vtbl {
+    pub base: IProvideClassInfoVtbl,
+    pub GetGUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwguidkind: u32, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IProvideMultipleClassInfo(::windows::core::IUnknown);
@@ -9677,22 +9713,22 @@ impl IProvideMultipleClassInfo {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassInfo(&self) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).GetClassInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetGUID(&self, dwguidkind: u32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwguidkind), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwguidkind), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetMultiTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetMultiTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInfoOfIndex(&self, iti: u32, dwflags: MULTICLASSINFO_FLAGS, ppticoclass: *mut ::core::option::Option<super::Com::ITypeInfo>, pdwtiflags: *mut u32, pcdispidreserved: *mut u32, piidprimary: *mut ::windows::core::GUID, piidsource: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(iti), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppticoclass), ::core::mem::transmute(pdwtiflags), ::core::mem::transmute(pcdispidreserved), ::core::mem::transmute(piidprimary), ::core::mem::transmute(piidsource)).ok()
+        (::windows::core::Interface::vtable(self).GetInfoOfIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(iti), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppticoclass), ::core::mem::transmute(pdwtiflags), ::core::mem::transmute(pcdispidreserved), ::core::mem::transmute(piidprimary), ::core::mem::transmute(piidsource)).ok()
     }
 }
 impl ::core::convert::From<IProvideMultipleClassInfo> for IProvideClassInfo2 {
@@ -9777,24 +9813,21 @@ unsafe impl ::windows::core::Interface for IProvideMultipleClassInfo {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProvideMultipleClassInfoVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppti: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwguidkind: u32, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcti: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iti: u32, dwflags: MULTICLASSINFO_FLAGS, ppticoclass: *mut ::windows::core::RawPtr, pdwtiflags: *mut u32, pcdispidreserved: *mut u32, piidprimary: *mut ::windows::core::GUID, piidsource: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-);
+pub struct IProvideMultipleClassInfoVtbl {
+    pub base: IProvideClassInfo2Vtbl,
+    pub GetMultiTypeInfoCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcti: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetInfoOfIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iti: u32, dwflags: MULTICLASSINFO_FLAGS, ppticoclass: *mut ::windows::core::RawPtr, pdwtiflags: *mut u32, pcdispidreserved: *mut u32, piidprimary: *mut ::windows::core::GUID, piidsource: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetInfoOfIndex: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IProvideRuntimeContext(::windows::core::IUnknown);
 impl IProvideRuntimeContext {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetCurrentSourceContext(&self, pdwcontext: *mut usize, pfexecutingglobalcode: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwcontext), ::core::mem::transmute(pfexecutingglobalcode)).ok()
+        (::windows::core::Interface::vtable(self).GetCurrentSourceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwcontext), ::core::mem::transmute(pfexecutingglobalcode)).ok()
     }
 }
 impl ::core::convert::From<IProvideRuntimeContext> for ::windows::core::IUnknown {
@@ -9839,7 +9872,10 @@ unsafe impl ::windows::core::Interface for IProvideRuntimeContext {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProvideRuntimeContextVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcontext: *mut usize, pfexecutingglobalcode: *mut i16) -> ::windows::core::HRESULT);
+pub struct IProvideRuntimeContextVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetCurrentSourceContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcontext: *mut usize, pfexecutingglobalcode: *mut i16) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IQuickActivate(::windows::core::IUnknown);
@@ -9847,18 +9883,18 @@ impl IQuickActivate {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn QuickActivate(&self, pqacontainer: *const QACONTAINER, pqacontrol: *mut QACONTROL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pqacontainer), ::core::mem::transmute(pqacontrol)).ok()
+        (::windows::core::Interface::vtable(self).QuickActivate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pqacontainer), ::core::mem::transmute(pqacontrol)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetContentExtent(&self, psizel: *const super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(psizel)).ok()
+        (::windows::core::Interface::vtable(self).SetContentExtent)(::core::mem::transmute_copy(self), ::core::mem::transmute(psizel)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContentExtent(&self) -> ::windows::core::Result<super::super::Foundation::SIZE> {
         let mut result__: super::super::Foundation::SIZE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SIZE>(result__)
+        (::windows::core::Interface::vtable(self).GetContentExtent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SIZE>(result__)
     }
 }
 impl ::core::convert::From<IQuickActivate> for ::windows::core::IUnknown {
@@ -9903,97 +9939,101 @@ unsafe impl ::windows::core::Interface for IQuickActivate {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IQuickActivateVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqacontainer: *const QACONTAINER, pqacontrol: *mut QACONTROL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psizel: *const super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psizel: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IQuickActivateVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+    pub QuickActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqacontainer: *const QACONTAINER, pqacontrol: *mut QACONTROL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
+    QuickActivate: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetContentExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psizel: *const super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetContentExtent: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetContentExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psizel: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetContentExtent: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IRecordInfo(::windows::core::IUnknown);
 impl IRecordInfo {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn RecordInit(&self, pvnew: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvnew)).ok()
+        (::windows::core::Interface::vtable(self).RecordInit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvnew)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn RecordClear(&self, pvexisting: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvexisting)).ok()
+        (::windows::core::Interface::vtable(self).RecordClear)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvexisting)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn RecordCopy(&self, pvexisting: *const ::core::ffi::c_void, pvnew: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvexisting), ::core::mem::transmute(pvnew)).ok()
+        (::windows::core::Interface::vtable(self).RecordCopy)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvexisting), ::core::mem::transmute(pvnew)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetGuid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetField<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pvdata: *const ::core::ffi::c_void, szfieldname: Param1) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvdata), szfieldname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetField)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvdata), szfieldname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFieldNoCopy<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pvdata: *const ::core::ffi::c_void, szfieldname: Param1, pvarfield: *mut super::Com::VARIANT, ppvdatacarray: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvdata), szfieldname.into_param().abi(), ::core::mem::transmute(pvarfield), ::core::mem::transmute(ppvdatacarray)).ok()
+        (::windows::core::Interface::vtable(self).GetFieldNoCopy)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvdata), szfieldname.into_param().abi(), ::core::mem::transmute(pvarfield), ::core::mem::transmute(ppvdatacarray)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn PutField<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: Param2, pvarfield: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(wflags), ::core::mem::transmute(pvdata), szfieldname.into_param().abi(), ::core::mem::transmute(pvarfield)).ok()
+        (::windows::core::Interface::vtable(self).PutField)(::core::mem::transmute_copy(self), ::core::mem::transmute(wflags), ::core::mem::transmute(pvdata), szfieldname.into_param().abi(), ::core::mem::transmute(pvarfield)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn PutFieldNoCopy<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: Param2, pvarfield: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(wflags), ::core::mem::transmute(pvdata), szfieldname.into_param().abi(), ::core::mem::transmute(pvarfield)).ok()
+        (::windows::core::Interface::vtable(self).PutFieldNoCopy)(::core::mem::transmute_copy(self), ::core::mem::transmute(wflags), ::core::mem::transmute(pvdata), szfieldname.into_param().abi(), ::core::mem::transmute(pvarfield)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFieldNames(&self, pcnames: *mut u32, rgbstrnames: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcnames), ::core::mem::transmute(rgbstrnames)).ok()
+        (::windows::core::Interface::vtable(self).GetFieldNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcnames), ::core::mem::transmute(rgbstrnames)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMatchingType<'a, Param0: ::windows::core::IntoParam<'a, IRecordInfo>>(&self, precordinfo: Param0) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), precordinfo.into_param().abi()))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsMatchingType)(::core::mem::transmute_copy(self), precordinfo.into_param().abi()))
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn RecordCreate(&self) -> *mut ::core::ffi::c_void {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).RecordCreate)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn RecordCreateCopy(&self, pvsource: *const ::core::ffi::c_void, ppvdest: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvsource), ::core::mem::transmute(ppvdest)).ok()
+        (::windows::core::Interface::vtable(self).RecordCreateCopy)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvsource), ::core::mem::transmute(ppvdest)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn RecordDestroy(&self, pvrecord: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvrecord)).ok()
+        (::windows::core::Interface::vtable(self).RecordDestroy)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvrecord)).ok()
     }
 }
 impl ::core::convert::From<IRecordInfo> for ::windows::core::IUnknown {
@@ -10038,35 +10078,49 @@ unsafe impl ::windows::core::Interface for IRecordInfo {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRecordInfoVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvnew: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvexisting: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvexisting: *const ::core::ffi::c_void, pvnew: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptypeinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: super::super::Foundation::PWSTR, pvarfield: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: super::super::Foundation::PWSTR, pvarfield: *mut super::Com::VARIANT, ppvdatacarray: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: super::super::Foundation::PWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: super::super::Foundation::PWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnames: *mut u32, rgbstrnames: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precordinfo: ::windows::core::RawPtr) -> super::super::Foundation::BOOL,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvsource: *const ::core::ffi::c_void, ppvdest: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvrecord: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IRecordInfoVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub RecordInit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvnew: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RecordClear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvexisting: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RecordCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvexisting: *const ::core::ffi::c_void, pvnew: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetName: usize,
+    pub GetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptypeinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetTypeInfo: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub GetField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: super::super::Foundation::PWSTR, pvarfield: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    GetField: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub GetFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: super::super::Foundation::PWSTR, pvarfield: *mut super::Com::VARIANT, ppvdatacarray: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    GetFieldNoCopy: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub PutField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: super::super::Foundation::PWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    PutField: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub PutFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: super::super::Foundation::PWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    PutFieldNoCopy: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetFieldNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnames: *mut u32, rgbstrnames: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetFieldNames: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsMatchingType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precordinfo: ::windows::core::RawPtr) -> super::super::Foundation::BOOL,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsMatchingType: usize,
+    pub RecordCreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
+    pub RecordCreateCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvsource: *const ::core::ffi::c_void, ppvdest: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RecordDestroy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvrecord: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct ISimpleFrameSite(::windows::core::IUnknown);
@@ -10074,12 +10128,12 @@ impl ISimpleFrameSite {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreMessageFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, hwnd: Param0, msg: u32, wp: Param2, lp: Param3, plresult: *mut super::super::Foundation::LRESULT, pdwcookie: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(msg), wp.into_param().abi(), lp.into_param().abi(), ::core::mem::transmute(plresult), ::core::mem::transmute(pdwcookie)).ok()
+        (::windows::core::Interface::vtable(self).PreMessageFilter)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(msg), wp.into_param().abi(), lp.into_param().abi(), ::core::mem::transmute(plresult), ::core::mem::transmute(pdwcookie)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostMessageFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, hwnd: Param0, msg: u32, wp: Param2, lp: Param3, plresult: *mut super::super::Foundation::LRESULT, dwcookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(msg), wp.into_param().abi(), lp.into_param().abi(), ::core::mem::transmute(plresult), ::core::mem::transmute(dwcookie)).ok()
+        (::windows::core::Interface::vtable(self).PostMessageFilter)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(msg), wp.into_param().abi(), lp.into_param().abi(), ::core::mem::transmute(plresult), ::core::mem::transmute(dwcookie)).ok()
     }
 }
 impl ::core::convert::From<ISimpleFrameSite> for ::windows::core::IUnknown {
@@ -10124,15 +10178,17 @@ unsafe impl ::windows::core::Interface for ISimpleFrameSite {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISimpleFrameSiteVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, msg: u32, wp: super::super::Foundation::WPARAM, lp: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, msg: u32, wp: super::super::Foundation::WPARAM, lp: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT, dwcookie: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct ISimpleFrameSiteVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub PreMessageFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, msg: u32, wp: super::super::Foundation::WPARAM, lp: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    PreMessageFilter: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub PostMessageFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, msg: u32, wp: super::super::Foundation::WPARAM, lp: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT, dwcookie: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    PostMessageFilter: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct ISpecifyPropertyPages(::windows::core::IUnknown);
@@ -10140,7 +10196,7 @@ impl ISpecifyPropertyPages {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetPages(&self) -> ::windows::core::Result<CAUUID> {
         let mut result__: CAUUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<CAUUID>(result__)
+        (::windows::core::Interface::vtable(self).GetPages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<CAUUID>(result__)
     }
 }
 impl ::core::convert::From<ISpecifyPropertyPages> for ::windows::core::IUnknown {
@@ -10185,7 +10241,10 @@ unsafe impl ::windows::core::Interface for ISpecifyPropertyPages {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpecifyPropertyPagesVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppages: *mut CAUUID) -> ::windows::core::HRESULT);
+pub struct ISpecifyPropertyPagesVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppages: *mut CAUUID) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct ITypeChangeEvents(::windows::core::IUnknown);
@@ -10194,12 +10253,12 @@ impl ITypeChangeEvents {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RequestTypeChange<'a, Param1: ::windows::core::IntoParam<'a, super::Com::ITypeInfo>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, changekind: CHANGEKIND, ptinfobefore: Param1, pstrname: Param2) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(changekind), ptinfobefore.into_param().abi(), pstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).RequestTypeChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(changekind), ptinfobefore.into_param().abi(), pstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AfterTypeChange<'a, Param1: ::windows::core::IntoParam<'a, super::Com::ITypeInfo>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, changekind: CHANGEKIND, ptinfoafter: Param1, pstrname: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(changekind), ptinfoafter.into_param().abi(), pstrname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AfterTypeChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(changekind), ptinfoafter.into_param().abi(), pstrname.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<ITypeChangeEvents> for ::windows::core::IUnknown {
@@ -10244,15 +10303,17 @@ unsafe impl ::windows::core::Interface for ITypeChangeEvents {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITypeChangeEventsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changekind: CHANGEKIND, ptinfobefore: ::windows::core::RawPtr, pstrname: super::super::Foundation::PWSTR, pfcancel: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changekind: CHANGEKIND, ptinfoafter: ::windows::core::RawPtr, pstrname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct ITypeChangeEventsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub RequestTypeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changekind: CHANGEKIND, ptinfobefore: ::windows::core::RawPtr, pstrname: super::super::Foundation::PWSTR, pfcancel: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    RequestTypeChange: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub AfterTypeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changekind: CHANGEKIND, ptinfoafter: ::windows::core::RawPtr, pstrname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    AfterTypeChange: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct ITypeFactory(::windows::core::IUnknown);
@@ -10261,7 +10322,7 @@ impl ITypeFactory {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFromTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::Com::ITypeInfo>>(&self, ptypeinfo: Param0, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ptypeinfo.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).CreateFromTypeInfo)(::core::mem::transmute_copy(self), ptypeinfo.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 impl ::core::convert::From<ITypeFactory> for ::windows::core::IUnknown {
@@ -10306,13 +10367,13 @@ unsafe impl ::windows::core::Interface for ITypeFactory {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITypeFactoryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptypeinfo: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-);
+pub struct ITypeFactoryVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateFromTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptypeinfo: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreateFromTypeInfo: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct ITypeMarshal(::windows::core::IUnknown);
@@ -10320,19 +10381,19 @@ impl ITypeMarshal {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Size(&self, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvtype), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Size)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvtype), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Marshal(&self, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, cbbufferlength: u32, pbuffer: *mut u8, pcbwritten: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvtype), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbwritten)).ok()
+        (::windows::core::Interface::vtable(self).Marshal)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvtype), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbwritten)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Unmarshal(&self, pvtype: *mut ::core::ffi::c_void, dwflags: u32, cbbufferlength: u32, pbuffer: *const u8, pcbread: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvtype), ::core::mem::transmute(dwflags), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbread)).ok()
+        (::windows::core::Interface::vtable(self).Unmarshal)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvtype), ::core::mem::transmute(dwflags), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbread)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Free(&self, pvtype: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvtype)).ok()
+        (::windows::core::Interface::vtable(self).Free)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvtype)).ok()
     }
 }
 impl ::core::convert::From<ITypeMarshal> for ::windows::core::IUnknown {
@@ -10377,15 +10438,13 @@ unsafe impl ::windows::core::Interface for ITypeMarshal {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITypeMarshalVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, psize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, cbbufferlength: u32, pbuffer: *mut u8, pcbwritten: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtype: *mut ::core::ffi::c_void, dwflags: u32, cbbufferlength: u32, pbuffer: *const u8, pcbread: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtype: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct ITypeMarshalVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, psize: *mut u32) -> ::windows::core::HRESULT,
+    pub Marshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, cbbufferlength: u32, pbuffer: *mut u8, pcbwritten: *mut u32) -> ::windows::core::HRESULT,
+    pub Unmarshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtype: *mut ::core::ffi::c_void, dwflags: u32, cbbufferlength: u32, pbuffer: *const u8, pcbread: *mut u32) -> ::windows::core::HRESULT,
+    pub Free: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtype: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IVBFormat(::windows::core::IUnknown);
@@ -10393,7 +10452,7 @@ impl IVBFormat {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Format<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, vdata: *mut super::Com::VARIANT, bstrformat: Param1, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(vdata), bstrformat.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cb), ::core::mem::transmute(lcid), ::core::mem::transmute(sfirstdayofweek), ::core::mem::transmute(sfirstweekofyear), ::core::mem::transmute(rcb)).ok()
+        (::windows::core::Interface::vtable(self).Format)(::core::mem::transmute_copy(self), ::core::mem::transmute(vdata), bstrformat.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cb), ::core::mem::transmute(lcid), ::core::mem::transmute(sfirstdayofweek), ::core::mem::transmute(sfirstweekofyear), ::core::mem::transmute(rcb)).ok()
     }
 }
 impl ::core::convert::From<IVBFormat> for ::windows::core::IUnknown {
@@ -10438,13 +10497,13 @@ unsafe impl ::windows::core::Interface for IVBFormat {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVBFormatVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vdata: *mut super::Com::VARIANT, bstrformat: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct IVBFormatVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vdata: *mut super::Com::VARIANT, bstrformat: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    Format: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IVBGetControl(::windows::core::IUnknown);
@@ -10453,7 +10512,7 @@ impl IVBGetControl {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumControls(&self, dwolecontf: OLECONTF, dwwhich: ENUM_CONTROLS_WHICH_FLAGS) -> ::windows::core::Result<super::Com::IEnumUnknown> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwolecontf), ::core::mem::transmute(dwwhich), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumUnknown>(result__)
+        (::windows::core::Interface::vtable(self).EnumControls)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwolecontf), ::core::mem::transmute(dwwhich), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumUnknown>(result__)
     }
 }
 impl ::core::convert::From<IVBGetControl> for ::windows::core::IUnknown {
@@ -10498,13 +10557,13 @@ unsafe impl ::windows::core::Interface for IVBGetControl {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVBGetControlVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwolecontf: OLECONTF, dwwhich: ENUM_CONTROLS_WHICH_FLAGS, ppenumunk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-);
+pub struct IVBGetControlVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub EnumControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwolecontf: OLECONTF, dwwhich: ENUM_CONTROLS_WHICH_FLAGS, ppenumunk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    EnumControls: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IVariantChangeType(::windows::core::IUnknown);
@@ -10512,7 +10571,7 @@ impl IVariantChangeType {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ChangeType(&self, pvardst: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, vtnew: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvardst), ::core::mem::transmute(pvarsrc), ::core::mem::transmute(lcid), ::core::mem::transmute(vtnew)).ok()
+        (::windows::core::Interface::vtable(self).ChangeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvardst), ::core::mem::transmute(pvarsrc), ::core::mem::transmute(lcid), ::core::mem::transmute(vtnew)).ok()
     }
 }
 impl ::core::convert::From<IVariantChangeType> for ::windows::core::IUnknown {
@@ -10557,13 +10616,13 @@ unsafe impl ::windows::core::Interface for IVariantChangeType {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVariantChangeTypeVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardst: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, vtnew: u16) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct IVariantChangeTypeVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub ChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardst: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, vtnew: u16) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    ChangeType: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IViewObject(::windows::core::IUnknown);
@@ -10571,30 +10630,30 @@ impl IViewObject {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn Draw<'a, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hdctargetdev: Param4, hdcdraw: Param5, lprcbounds: *const super::super::Foundation::RECTL, lprcwbounds: *const super::super::Foundation::RECTL, pfncontinue: isize, dwcontinue: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdctargetdev.into_param().abi(), hdcdraw.into_param().abi(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue)).ok()
+        (::windows::core::Interface::vtable(self).Draw)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdctargetdev.into_param().abi(), hdcdraw.into_param().abi(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn GetColorSet<'a, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: Param4, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hictargetdev.into_param().abi(), ::core::mem::transmute(ppcolorset)).ok()
+        (::windows::core::Interface::vtable(self).GetColorSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hictargetdev.into_param().abi(), ::core::mem::transmute(ppcolorset)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Freeze(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, pdwfreeze: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(pdwfreeze)).ok()
+        (::windows::core::Interface::vtable(self).Freeze)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(pdwfreeze)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Unfreeze(&self, dwfreeze: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwfreeze)).ok()
+        (::windows::core::Interface::vtable(self).Unfreeze)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwfreeze)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAdvise<'a, Param2: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>>(&self, aspects: u32, advf: u32, padvsink: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(aspects), ::core::mem::transmute(advf), padvsink.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAdvise)(::core::mem::transmute_copy(self), ::core::mem::transmute(aspects), ::core::mem::transmute(advf), padvsink.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAdvise(&self, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut ::core::option::Option<super::Com::IAdviseSink>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(paspects), ::core::mem::transmute(padvf), ::core::mem::transmute(ppadvsink)).ok()
+        (::windows::core::Interface::vtable(self).GetAdvise)(::core::mem::transmute_copy(self), ::core::mem::transmute(paspects), ::core::mem::transmute(padvf), ::core::mem::transmute(ppadvsink)).ok()
     }
 }
 impl ::core::convert::From<IViewObject> for ::windows::core::IUnknown {
@@ -10639,21 +10698,27 @@ unsafe impl ::windows::core::Interface for IViewObject {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IViewObjectVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hdctargetdev: super::super::Graphics::Gdi::HDC, hdcdraw: super::super::Graphics::Gdi::HDC, lprcbounds: *const super::super::Foundation::RECTL, lprcwbounds: *const super::super::Foundation::RECTL, pfncontinue: isize, dwcontinue: usize) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, pdwfreeze: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfreeze: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aspects: u32, advf: u32, padvsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-);
+pub struct IViewObjectVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+    pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hdctargetdev: super::super::Graphics::Gdi::HDC, hdcdraw: super::super::Graphics::Gdi::HDC, lprcbounds: *const super::super::Foundation::RECTL, lprcwbounds: *const super::super::Foundation::RECTL, pfncontinue: isize, dwcontinue: usize) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
+    Draw: usize,
+    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+    pub GetColorSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
+    GetColorSet: usize,
+    pub Freeze: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, pdwfreeze: *mut u32) -> ::windows::core::HRESULT,
+    pub Unfreeze: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfreeze: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub SetAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aspects: u32, advf: u32, padvsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetAdvise: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetAdvise: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IViewObject2(::windows::core::IUnknown);
@@ -10661,36 +10726,36 @@ impl IViewObject2 {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn Draw<'a, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hdctargetdev: Param4, hdcdraw: Param5, lprcbounds: *const super::super::Foundation::RECTL, lprcwbounds: *const super::super::Foundation::RECTL, pfncontinue: isize, dwcontinue: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdctargetdev.into_param().abi(), hdcdraw.into_param().abi(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue)).ok()
+        (::windows::core::Interface::vtable(self).Draw)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdctargetdev.into_param().abi(), hdcdraw.into_param().abi(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn GetColorSet<'a, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: Param4, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hictargetdev.into_param().abi(), ::core::mem::transmute(ppcolorset)).ok()
+        (::windows::core::Interface::vtable(self).GetColorSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hictargetdev.into_param().abi(), ::core::mem::transmute(ppcolorset)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Freeze(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, pdwfreeze: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(pdwfreeze)).ok()
+        (::windows::core::Interface::vtable(self).Freeze)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(pdwfreeze)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Unfreeze(&self, dwfreeze: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwfreeze)).ok()
+        (::windows::core::Interface::vtable(self).Unfreeze)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwfreeze)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAdvise<'a, Param2: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>>(&self, aspects: u32, advf: u32, padvsink: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(aspects), ::core::mem::transmute(advf), padvsink.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAdvise)(::core::mem::transmute_copy(self), ::core::mem::transmute(aspects), ::core::mem::transmute(advf), padvsink.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAdvise(&self, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut ::core::option::Option<super::Com::IAdviseSink>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(paspects), ::core::mem::transmute(padvf), ::core::mem::transmute(ppadvsink)).ok()
+        (::windows::core::Interface::vtable(self).GetAdvise)(::core::mem::transmute_copy(self), ::core::mem::transmute(paspects), ::core::mem::transmute(padvf), ::core::mem::transmute(ppadvsink)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetExtent(&self, dwdrawaspect: u32, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE) -> ::windows::core::Result<super::super::Foundation::SIZE> {
         let mut result__: super::super::Foundation::SIZE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(ptd), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SIZE>(result__)
+        (::windows::core::Interface::vtable(self).GetExtent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(ptd), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SIZE>(result__)
     }
 }
 impl ::core::convert::From<IViewObject2> for IViewObject {
@@ -10755,23 +10820,13 @@ unsafe impl ::windows::core::Interface for IViewObject2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IViewObject2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hdctargetdev: super::super::Graphics::Gdi::HDC, hdcdraw: super::super::Graphics::Gdi::HDC, lprcbounds: *const super::super::Foundation::RECTL, lprcwbounds: *const super::super::Foundation::RECTL, pfncontinue: isize, dwcontinue: usize) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, pdwfreeze: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfreeze: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aspects: u32, advf: u32, padvsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, lpsizel: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-);
+pub struct IViewObject2Vtbl {
+    pub base: IViewObjectVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub GetExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, lpsizel: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    GetExtent: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IViewObjectEx(::windows::core::IUnknown);
@@ -10779,65 +10834,65 @@ impl IViewObjectEx {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn Draw<'a, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hdctargetdev: Param4, hdcdraw: Param5, lprcbounds: *const super::super::Foundation::RECTL, lprcwbounds: *const super::super::Foundation::RECTL, pfncontinue: isize, dwcontinue: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdctargetdev.into_param().abi(), hdcdraw.into_param().abi(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue)).ok()
+        (::windows::core::Interface::vtable(self).Draw)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdctargetdev.into_param().abi(), hdcdraw.into_param().abi(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn GetColorSet<'a, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: Param4, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hictargetdev.into_param().abi(), ::core::mem::transmute(ppcolorset)).ok()
+        (::windows::core::Interface::vtable(self).GetColorSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hictargetdev.into_param().abi(), ::core::mem::transmute(ppcolorset)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Freeze(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, pdwfreeze: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(pdwfreeze)).ok()
+        (::windows::core::Interface::vtable(self).Freeze)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(pdwfreeze)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Unfreeze(&self, dwfreeze: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwfreeze)).ok()
+        (::windows::core::Interface::vtable(self).Unfreeze)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwfreeze)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAdvise<'a, Param2: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>>(&self, aspects: u32, advf: u32, padvsink: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(aspects), ::core::mem::transmute(advf), padvsink.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAdvise)(::core::mem::transmute_copy(self), ::core::mem::transmute(aspects), ::core::mem::transmute(advf), padvsink.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAdvise(&self, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut ::core::option::Option<super::Com::IAdviseSink>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(paspects), ::core::mem::transmute(padvf), ::core::mem::transmute(ppadvsink)).ok()
+        (::windows::core::Interface::vtable(self).GetAdvise)(::core::mem::transmute_copy(self), ::core::mem::transmute(paspects), ::core::mem::transmute(padvf), ::core::mem::transmute(ppadvsink)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetExtent(&self, dwdrawaspect: u32, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE) -> ::windows::core::Result<super::super::Foundation::SIZE> {
         let mut result__: super::super::Foundation::SIZE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(ptd), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SIZE>(result__)
+        (::windows::core::Interface::vtable(self).GetExtent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(ptd), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SIZE>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRect(&self, dwaspect: u32) -> ::windows::core::Result<super::super::Foundation::RECTL> {
         let mut result__: super::super::Foundation::RECTL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::RECTL>(result__)
+        (::windows::core::Interface::vtable(self).GetRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::RECTL>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn GetViewStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetViewStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryHitPoint<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(&self, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, ptlloc: Param2, lclosehint: i32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(prectbounds), ptlloc.into_param().abi(), ::core::mem::transmute(lclosehint), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).QueryHitPoint)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(prectbounds), ptlloc.into_param().abi(), ::core::mem::transmute(lclosehint), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryHitRect(&self, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, prectloc: *const super::super::Foundation::RECT, lclosehint: i32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(prectbounds), ::core::mem::transmute(prectloc), ::core::mem::transmute(lclosehint), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).QueryHitRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(prectbounds), ::core::mem::transmute(prectloc), ::core::mem::transmute(lclosehint), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn GetNaturalExtent<'a, Param3: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: Param3, pextentinfo: *const ExtentInfo) -> ::windows::core::Result<super::super::Foundation::SIZE> {
         let mut result__: super::super::Foundation::SIZE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(ptd), hictargetdev.into_param().abi(), ::core::mem::transmute(pextentinfo), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SIZE>(result__)
+        (::windows::core::Interface::vtable(self).GetNaturalExtent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(ptd), hictargetdev.into_param().abi(), ::core::mem::transmute(pextentinfo), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SIZE>(result__)
     }
 }
 impl ::core::convert::From<IViewObjectEx> for IViewObject2 {
@@ -10922,39 +10977,33 @@ unsafe impl ::windows::core::Interface for IViewObjectEx {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IViewObjectExVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hdctargetdev: super::super::Graphics::Gdi::HDC, hdcdraw: super::super::Graphics::Gdi::HDC, lprcbounds: *const super::super::Foundation::RECTL, lprcwbounds: *const super::super::Foundation::RECTL, pfncontinue: isize, dwcontinue: usize) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, pdwfreeze: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfreeze: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aspects: u32, advf: u32, padvsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, lpsizel: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, prect: *mut super::super::Foundation::RECTL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, ptlloc: super::super::Foundation::POINT, lclosehint: i32, phitresult: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, prectloc: *const super::super::Foundation::RECT, lclosehint: i32, phitresult: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, pextentinfo: *const ExtentInfo, psizel: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))] usize,
-);
+pub struct IViewObjectExVtbl {
+    pub base: IViewObject2Vtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, prect: *mut super::super::Foundation::RECTL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetRect: usize,
+    pub GetViewStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub QueryHitPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, ptlloc: super::super::Foundation::POINT, lclosehint: i32, phitresult: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    QueryHitPoint: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub QueryHitRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, prectloc: *const super::super::Foundation::RECT, lclosehint: i32, phitresult: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    QueryHitRect: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+    pub GetNaturalExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, pextentinfo: *const ExtentInfo, psizel: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
+    GetNaturalExtent: usize,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IZoomEvents(::windows::core::IUnknown);
 impl IZoomEvents {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn OnZoomPercentChanged(&self, ulzoompercent: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulzoompercent)).ok()
+        (::windows::core::Interface::vtable(self).OnZoomPercentChanged)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulzoompercent)).ok()
     }
 }
 impl ::core::convert::From<IZoomEvents> for ::windows::core::IUnknown {
@@ -10999,7 +11048,10 @@ unsafe impl ::windows::core::Interface for IZoomEvents {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IZoomEventsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulzoompercent: u32) -> ::windows::core::HRESULT);
+pub struct IZoomEventsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub OnZoomPercentChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulzoompercent: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]

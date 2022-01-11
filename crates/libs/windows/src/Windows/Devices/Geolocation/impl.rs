@@ -68,7 +68,14 @@ impl ICivicAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICivicAddress>, ::windows::core::GetTrustLevel, Country::<Impl, IMPL_OFFSET>, State::<Impl, IMPL_OFFSET>, City::<Impl, IMPL_OFFSET>, PostalCode::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICivicAddress, BASE_OFFSET>(),
+            Country: Country::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            City: City::<Impl, IMPL_OFFSET>,
+            PostalCode: PostalCode::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICivicAddress as ::windows::core::Interface>::IID
@@ -144,7 +151,14 @@ impl IGeoboundingBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeoboundingBox>, ::windows::core::GetTrustLevel, NorthwestCorner::<Impl, IMPL_OFFSET>, SoutheastCorner::<Impl, IMPL_OFFSET>, Center::<Impl, IMPL_OFFSET>, MinAltitude::<Impl, IMPL_OFFSET>, MaxAltitude::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeoboundingBox, BASE_OFFSET>(),
+            NorthwestCorner: NorthwestCorner::<Impl, IMPL_OFFSET>,
+            SoutheastCorner: SoutheastCorner::<Impl, IMPL_OFFSET>,
+            Center: Center::<Impl, IMPL_OFFSET>,
+            MinAltitude: MinAltitude::<Impl, IMPL_OFFSET>,
+            MaxAltitude: MaxAltitude::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeoboundingBox as ::windows::core::Interface>::IID
@@ -196,7 +210,12 @@ impl IGeoboundingBoxFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeoboundingBoxFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithAltitudeReference::<Impl, IMPL_OFFSET>, CreateWithAltitudeReferenceAndSpatialReference::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeoboundingBoxFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithAltitudeReference: CreateWithAltitudeReference::<Impl, IMPL_OFFSET>,
+            CreateWithAltitudeReferenceAndSpatialReference: CreateWithAltitudeReferenceAndSpatialReference::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeoboundingBoxFactory as ::windows::core::Interface>::IID
@@ -248,7 +267,12 @@ impl IGeoboundingBoxStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeoboundingBoxStatics>, ::windows::core::GetTrustLevel, TryCompute::<Impl, IMPL_OFFSET>, TryComputeWithAltitudeReference::<Impl, IMPL_OFFSET>, TryComputeWithAltitudeReferenceAndSpatialReference::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeoboundingBoxStatics, BASE_OFFSET>(),
+            TryCompute: TryCompute::<Impl, IMPL_OFFSET>,
+            TryComputeWithAltitudeReference: TryComputeWithAltitudeReference::<Impl, IMPL_OFFSET>,
+            TryComputeWithAltitudeReferenceAndSpatialReference: TryComputeWithAltitudeReferenceAndSpatialReference::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeoboundingBoxStatics as ::windows::core::Interface>::IID
@@ -288,7 +312,11 @@ impl IGeocircleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeocircle>, ::windows::core::GetTrustLevel, Center::<Impl, IMPL_OFFSET>, Radius::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeocircle, BASE_OFFSET>(),
+            Center: Center::<Impl, IMPL_OFFSET>,
+            Radius: Radius::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeocircle as ::windows::core::Interface>::IID
@@ -340,7 +368,12 @@ impl IGeocircleFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeocircleFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithAltitudeReferenceSystem::<Impl, IMPL_OFFSET>, CreateWithAltitudeReferenceSystemAndSpatialReferenceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeocircleFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithAltitudeReferenceSystem: CreateWithAltitudeReferenceSystem::<Impl, IMPL_OFFSET>,
+            CreateWithAltitudeReferenceSystemAndSpatialReferenceId: CreateWithAltitudeReferenceSystemAndSpatialReferenceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeocircleFactory as ::windows::core::Interface>::IID
@@ -452,22 +485,17 @@ impl IGeocoordinateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGeocoordinate>,
-            ::windows::core::GetTrustLevel,
-            Latitude::<Impl, IMPL_OFFSET>,
-            Longitude::<Impl, IMPL_OFFSET>,
-            Altitude::<Impl, IMPL_OFFSET>,
-            Accuracy::<Impl, IMPL_OFFSET>,
-            AltitudeAccuracy::<Impl, IMPL_OFFSET>,
-            Heading::<Impl, IMPL_OFFSET>,
-            Speed::<Impl, IMPL_OFFSET>,
-            Timestamp::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeocoordinate, BASE_OFFSET>(),
+            Latitude: Latitude::<Impl, IMPL_OFFSET>,
+            Longitude: Longitude::<Impl, IMPL_OFFSET>,
+            Altitude: Altitude::<Impl, IMPL_OFFSET>,
+            Accuracy: Accuracy::<Impl, IMPL_OFFSET>,
+            AltitudeAccuracy: AltitudeAccuracy::<Impl, IMPL_OFFSET>,
+            Heading: Heading::<Impl, IMPL_OFFSET>,
+            Speed: Speed::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeocoordinate as ::windows::core::Interface>::IID
@@ -519,7 +547,12 @@ impl IGeocoordinateSatelliteDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeocoordinateSatelliteData>, ::windows::core::GetTrustLevel, PositionDilutionOfPrecision::<Impl, IMPL_OFFSET>, HorizontalDilutionOfPrecision::<Impl, IMPL_OFFSET>, VerticalDilutionOfPrecision::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeocoordinateSatelliteData, BASE_OFFSET>(),
+            PositionDilutionOfPrecision: PositionDilutionOfPrecision::<Impl, IMPL_OFFSET>,
+            HorizontalDilutionOfPrecision: HorizontalDilutionOfPrecision::<Impl, IMPL_OFFSET>,
+            VerticalDilutionOfPrecision: VerticalDilutionOfPrecision::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeocoordinateSatelliteData as ::windows::core::Interface>::IID
@@ -559,7 +592,11 @@ impl IGeocoordinateSatelliteData2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeocoordinateSatelliteData2>, ::windows::core::GetTrustLevel, GeometricDilutionOfPrecision::<Impl, IMPL_OFFSET>, TimeDilutionOfPrecision::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeocoordinateSatelliteData2, BASE_OFFSET>(),
+            GeometricDilutionOfPrecision: GeometricDilutionOfPrecision::<Impl, IMPL_OFFSET>,
+            TimeDilutionOfPrecision: TimeDilutionOfPrecision::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeocoordinateSatelliteData2 as ::windows::core::Interface>::IID
@@ -587,7 +624,7 @@ impl IGeocoordinateWithPointVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeocoordinateWithPoint>, ::windows::core::GetTrustLevel, Point::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGeocoordinateWithPoint, BASE_OFFSET>(), Point: Point::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeocoordinateWithPoint as ::windows::core::Interface>::IID
@@ -627,7 +664,11 @@ impl IGeocoordinateWithPositionDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeocoordinateWithPositionData>, ::windows::core::GetTrustLevel, PositionSource::<Impl, IMPL_OFFSET>, SatelliteData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeocoordinateWithPositionData, BASE_OFFSET>(),
+            PositionSource: PositionSource::<Impl, IMPL_OFFSET>,
+            SatelliteData: SatelliteData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeocoordinateWithPositionData as ::windows::core::Interface>::IID
@@ -655,7 +696,10 @@ impl IGeocoordinateWithPositionSourceTimestampVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeocoordinateWithPositionSourceTimestamp>, ::windows::core::GetTrustLevel, PositionSourceTimestamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeocoordinateWithPositionSourceTimestamp, BASE_OFFSET>(),
+            PositionSourceTimestamp: PositionSourceTimestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeocoordinateWithPositionSourceTimestamp as ::windows::core::Interface>::IID
@@ -683,7 +727,10 @@ impl IGeocoordinateWithRemoteSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeocoordinateWithRemoteSource>, ::windows::core::GetTrustLevel, IsRemoteSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeocoordinateWithRemoteSource, BASE_OFFSET>(),
+            IsRemoteSource: IsRemoteSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeocoordinateWithRemoteSource as ::windows::core::Interface>::IID
@@ -820,27 +867,22 @@ impl IGeolocatorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGeolocator>,
-            ::windows::core::GetTrustLevel,
-            DesiredAccuracy::<Impl, IMPL_OFFSET>,
-            SetDesiredAccuracy::<Impl, IMPL_OFFSET>,
-            MovementThreshold::<Impl, IMPL_OFFSET>,
-            SetMovementThreshold::<Impl, IMPL_OFFSET>,
-            ReportInterval::<Impl, IMPL_OFFSET>,
-            SetReportInterval::<Impl, IMPL_OFFSET>,
-            LocationStatus::<Impl, IMPL_OFFSET>,
-            GetGeopositionAsync::<Impl, IMPL_OFFSET>,
-            GetGeopositionAsyncWithAgeAndTimeout::<Impl, IMPL_OFFSET>,
-            PositionChanged::<Impl, IMPL_OFFSET>,
-            RemovePositionChanged::<Impl, IMPL_OFFSET>,
-            StatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeolocator, BASE_OFFSET>(),
+            DesiredAccuracy: DesiredAccuracy::<Impl, IMPL_OFFSET>,
+            SetDesiredAccuracy: SetDesiredAccuracy::<Impl, IMPL_OFFSET>,
+            MovementThreshold: MovementThreshold::<Impl, IMPL_OFFSET>,
+            SetMovementThreshold: SetMovementThreshold::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            LocationStatus: LocationStatus::<Impl, IMPL_OFFSET>,
+            GetGeopositionAsync: GetGeopositionAsync::<Impl, IMPL_OFFSET>,
+            GetGeopositionAsyncWithAgeAndTimeout: GetGeopositionAsyncWithAgeAndTimeout::<Impl, IMPL_OFFSET>,
+            PositionChanged: PositionChanged::<Impl, IMPL_OFFSET>,
+            RemovePositionChanged: RemovePositionChanged::<Impl, IMPL_OFFSET>,
+            StatusChanged: StatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged: RemoveStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeolocator as ::windows::core::Interface>::IID
@@ -861,7 +903,10 @@ impl IGeolocator2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AllowFallbackToConsentlessPositions().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeolocator2>, ::windows::core::GetTrustLevel, AllowFallbackToConsentlessPositions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeolocator2, BASE_OFFSET>(),
+            AllowFallbackToConsentlessPositions: AllowFallbackToConsentlessPositions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeolocator2 as ::windows::core::Interface>::IID
@@ -913,7 +958,12 @@ impl IGeolocatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeolocatorStatics>, ::windows::core::GetTrustLevel, RequestAccessAsync::<Impl, IMPL_OFFSET>, GetGeopositionHistoryAsync::<Impl, IMPL_OFFSET>, GetGeopositionHistoryWithDurationAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeolocatorStatics, BASE_OFFSET>(),
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            GetGeopositionHistoryAsync: GetGeopositionHistoryAsync::<Impl, IMPL_OFFSET>,
+            GetGeopositionHistoryWithDurationAsync: GetGeopositionHistoryWithDurationAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeolocatorStatics as ::windows::core::Interface>::IID
@@ -958,7 +1008,12 @@ impl IGeolocatorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeolocatorStatics2>, ::windows::core::GetTrustLevel, IsDefaultGeopositionRecommended::<Impl, IMPL_OFFSET>, SetDefaultGeoposition::<Impl, IMPL_OFFSET>, DefaultGeoposition::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeolocatorStatics2, BASE_OFFSET>(),
+            IsDefaultGeopositionRecommended: IsDefaultGeopositionRecommended::<Impl, IMPL_OFFSET>,
+            SetDefaultGeoposition: SetDefaultGeoposition::<Impl, IMPL_OFFSET>,
+            DefaultGeoposition: DefaultGeoposition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeolocatorStatics2 as ::windows::core::Interface>::IID
@@ -991,7 +1046,11 @@ impl IGeolocatorWithScalarAccuracyVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredAccuracyInMeters(&*(&value as *const <super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeolocatorWithScalarAccuracy>, ::windows::core::GetTrustLevel, DesiredAccuracyInMeters::<Impl, IMPL_OFFSET>, SetDesiredAccuracyInMeters::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeolocatorWithScalarAccuracy, BASE_OFFSET>(),
+            DesiredAccuracyInMeters: DesiredAccuracyInMeters::<Impl, IMPL_OFFSET>,
+            SetDesiredAccuracyInMeters: SetDesiredAccuracyInMeters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeolocatorWithScalarAccuracy as ::windows::core::Interface>::IID
@@ -1019,7 +1078,7 @@ impl IGeopathVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeopath>, ::windows::core::GetTrustLevel, Positions::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGeopath, BASE_OFFSET>(), Positions: Positions::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeopath as ::windows::core::Interface>::IID
@@ -1071,7 +1130,12 @@ impl IGeopathFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeopathFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithAltitudeReference::<Impl, IMPL_OFFSET>, CreateWithAltitudeReferenceAndSpatialReference::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeopathFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithAltitudeReference: CreateWithAltitudeReference::<Impl, IMPL_OFFSET>,
+            CreateWithAltitudeReferenceAndSpatialReference: CreateWithAltitudeReferenceAndSpatialReference::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeopathFactory as ::windows::core::Interface>::IID
@@ -1099,7 +1163,7 @@ impl IGeopointVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeopoint>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGeopoint, BASE_OFFSET>(), Position: Position::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeopoint as ::windows::core::Interface>::IID
@@ -1151,7 +1215,12 @@ impl IGeopointFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeopointFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithAltitudeReferenceSystem::<Impl, IMPL_OFFSET>, CreateWithAltitudeReferenceSystemAndSpatialReferenceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeopointFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithAltitudeReferenceSystem: CreateWithAltitudeReferenceSystem::<Impl, IMPL_OFFSET>,
+            CreateWithAltitudeReferenceSystemAndSpatialReferenceId: CreateWithAltitudeReferenceSystemAndSpatialReferenceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeopointFactory as ::windows::core::Interface>::IID
@@ -1191,7 +1260,11 @@ impl IGeopositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeoposition>, ::windows::core::GetTrustLevel, Coordinate::<Impl, IMPL_OFFSET>, CivicAddress::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeoposition, BASE_OFFSET>(),
+            Coordinate: Coordinate::<Impl, IMPL_OFFSET>,
+            CivicAddress: CivicAddress::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeoposition as ::windows::core::Interface>::IID
@@ -1219,7 +1292,7 @@ impl IGeoposition2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeoposition2>, ::windows::core::GetTrustLevel, VenueData::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGeoposition2, BASE_OFFSET>(), VenueData: VenueData::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeoposition2 as ::windows::core::Interface>::IID
@@ -1268,7 +1341,12 @@ impl IGeoshapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeoshape>, ::windows::core::GetTrustLevel, GeoshapeType::<Impl, IMPL_OFFSET>, SpatialReferenceId::<Impl, IMPL_OFFSET>, AltitudeReferenceSystem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeoshape, BASE_OFFSET>(),
+            GeoshapeType: GeoshapeType::<Impl, IMPL_OFFSET>,
+            SpatialReferenceId: SpatialReferenceId::<Impl, IMPL_OFFSET>,
+            AltitudeReferenceSystem: AltitudeReferenceSystem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeoshape as ::windows::core::Interface>::IID
@@ -1320,7 +1398,12 @@ impl IGeovisitVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeovisit>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, StateChange::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeovisit, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            StateChange: StateChange::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeovisit as ::windows::core::Interface>::IID
@@ -1375,7 +1458,14 @@ impl IGeovisitMonitorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVisitStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeovisitMonitor>, ::windows::core::GetTrustLevel, MonitoringScope::<Impl, IMPL_OFFSET>, Start::<Impl, IMPL_OFFSET>, Stop::<Impl, IMPL_OFFSET>, VisitStateChanged::<Impl, IMPL_OFFSET>, RemoveVisitStateChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeovisitMonitor, BASE_OFFSET>(),
+            MonitoringScope: MonitoringScope::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            VisitStateChanged: VisitStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveVisitStateChanged: RemoveVisitStateChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeovisitMonitor as ::windows::core::Interface>::IID
@@ -1403,7 +1493,10 @@ impl IGeovisitMonitorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeovisitMonitorStatics>, ::windows::core::GetTrustLevel, GetLastReportAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeovisitMonitorStatics, BASE_OFFSET>(),
+            GetLastReportAsync: GetLastReportAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeovisitMonitorStatics as ::windows::core::Interface>::IID
@@ -1431,7 +1524,7 @@ impl IGeovisitStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeovisitStateChangedEventArgs>, ::windows::core::GetTrustLevel, Visit::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGeovisitStateChangedEventArgs, BASE_OFFSET>(), Visit: Visit::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeovisitStateChangedEventArgs as ::windows::core::Interface>::IID
@@ -1459,7 +1552,7 @@ impl IGeovisitTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeovisitTriggerDetails>, ::windows::core::GetTrustLevel, ReadReports::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGeovisitTriggerDetails, BASE_OFFSET>(), ReadReports: ReadReports::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeovisitTriggerDetails as ::windows::core::Interface>::IID
@@ -1487,7 +1580,7 @@ impl IPositionChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPositionChangedEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPositionChangedEventArgs, BASE_OFFSET>(), Position: Position::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPositionChangedEventArgs as ::windows::core::Interface>::IID
@@ -1515,7 +1608,7 @@ impl IStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStatusChangedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IStatusChangedEventArgs, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStatusChangedEventArgs as ::windows::core::Interface>::IID
@@ -1555,7 +1648,11 @@ impl IVenueDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVenueData>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Level::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVenueData, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Level: Level::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVenueData as ::windows::core::Interface>::IID

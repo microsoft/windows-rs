@@ -49,7 +49,13 @@ impl IPreviewBuildsManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreviewBuildsManager>, ::windows::core::GetTrustLevel, ArePreviewBuildsAllowed::<Impl, IMPL_OFFSET>, SetArePreviewBuildsAllowed::<Impl, IMPL_OFFSET>, GetCurrentState::<Impl, IMPL_OFFSET>, SyncAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPreviewBuildsManager, BASE_OFFSET>(),
+            ArePreviewBuildsAllowed: ArePreviewBuildsAllowed::<Impl, IMPL_OFFSET>,
+            SetArePreviewBuildsAllowed: SetArePreviewBuildsAllowed::<Impl, IMPL_OFFSET>,
+            GetCurrentState: GetCurrentState::<Impl, IMPL_OFFSET>,
+            SyncAsync: SyncAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPreviewBuildsManager as ::windows::core::Interface>::IID
@@ -89,7 +95,11 @@ impl IPreviewBuildsManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreviewBuildsManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, IsSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPreviewBuildsManagerStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPreviewBuildsManagerStatics as ::windows::core::Interface>::IID
@@ -117,7 +127,7 @@ impl IPreviewBuildsStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreviewBuildsState>, ::windows::core::GetTrustLevel, Properties::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPreviewBuildsState, BASE_OFFSET>(), Properties: Properties::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPreviewBuildsState as ::windows::core::Interface>::IID

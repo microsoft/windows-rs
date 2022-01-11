@@ -9,7 +9,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::Streams::IInputStreamReference>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Streams::IInputStream>>(result__)
+            (::windows::core::Interface::vtable(this).OpenSequentialReadAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Streams::IInputStream>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Storage_Streams'*"]
@@ -18,7 +18,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::Streams::IRandomAccessStreamReference>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Streams::IRandomAccessStreamWithContentType>>(result__)
+            (::windows::core::Interface::vtable(this).OpenReadAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Streams::IRandomAccessStreamWithContentType>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -26,7 +26,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FileType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -34,7 +34,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ContentType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Storage_Streams'*"]
@@ -43,7 +43,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), accessmode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Streams::IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).OpenAsync)(::core::mem::transmute_copy(this), accessmode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Streams::IRandomAccessStream>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -52,7 +52,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
+            (::windows::core::Interface::vtable(this).OpenTransactedWriteAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -61,7 +61,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), destinationfolder.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).CopyOverloadDefaultNameAndOptions)(::core::mem::transmute_copy(this), destinationfolder.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -70,7 +70,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), destinationfolder.into_param().abi(), desirednewname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).CopyOverloadDefaultOptions)(::core::mem::transmute_copy(this), destinationfolder.into_param().abi(), desirednewname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -79,7 +79,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), destinationfolder.into_param().abi(), desirednewname.into_param().abi(), option, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).CopyOverload)(::core::mem::transmute_copy(this), destinationfolder.into_param().abi(), desirednewname.into_param().abi(), option, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -88,7 +88,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), filetoreplace.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).CopyAndReplaceAsync)(::core::mem::transmute_copy(this), filetoreplace.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -97,7 +97,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), destinationfolder.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MoveOverloadDefaultNameAndOptions)(::core::mem::transmute_copy(this), destinationfolder.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -106,7 +106,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), destinationfolder.into_param().abi(), desirednewname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MoveOverloadDefaultOptions)(::core::mem::transmute_copy(this), destinationfolder.into_param().abi(), desirednewname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -115,7 +115,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), destinationfolder.into_param().abi(), desirednewname.into_param().abi(), option, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MoveOverload)(::core::mem::transmute_copy(this), destinationfolder.into_param().abi(), desirednewname.into_param().abi(), option, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -124,7 +124,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), filetoreplace.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MoveAndReplaceAsync)(::core::mem::transmute_copy(this), filetoreplace.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Storage_Streams'*"]
@@ -133,7 +133,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), accessmode, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Streams::IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).OpenWithOptionsAsync)(::core::mem::transmute_copy(this), accessmode, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Streams::IRandomAccessStream>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -142,7 +142,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFile2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
+            (::windows::core::Interface::vtable(this).OpenTransactedWriteWithOptionsAsync)(::core::mem::transmute_copy(this), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -150,7 +150,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFilePropertiesWithAvailability>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAvailable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -159,7 +159,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RenameAsyncOverloadDefaultOptions)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -168,7 +168,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), option, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RenameAsync)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), option, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -177,7 +177,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteAsyncOverloadDefaultOptions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -186,7 +186,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), option, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteAsync)(::core::mem::transmute_copy(this), option, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Storage_FileProperties'*"]
@@ -195,7 +195,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::BasicProperties>>(result__)
+            (::windows::core::Interface::vtable(this).GetBasicPropertiesAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::BasicProperties>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -203,7 +203,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -211,7 +211,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Path)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -219,7 +219,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: super::FileAttributes = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileAttributes>(result__)
+            (::windows::core::Interface::vtable(this).Attributes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileAttributes>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -228,7 +228,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).DateCreated)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -236,7 +236,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOfType)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -245,7 +245,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).GetParentAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -253,7 +253,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEqual)(::core::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -262,7 +262,7 @@ impl FileInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::MusicProperties>(result__)
+            (::windows::core::Interface::vtable(this).MusicProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::MusicProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -271,7 +271,7 @@ impl FileInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::VideoProperties>(result__)
+            (::windows::core::Interface::vtable(this).VideoProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::VideoProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -280,7 +280,7 @@ impl FileInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::ImageProperties>(result__)
+            (::windows::core::Interface::vtable(this).ImageProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::ImageProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -289,7 +289,7 @@ impl FileInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::DocumentProperties>(result__)
+            (::windows::core::Interface::vtable(this).DocumentProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::DocumentProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -298,7 +298,7 @@ impl FileInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::BasicProperties>(result__)
+            (::windows::core::Interface::vtable(this).BasicProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::BasicProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties', 'Storage_Streams'*"]
@@ -307,7 +307,7 @@ impl FileInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::StorageItemThumbnail>(result__)
+            (::windows::core::Interface::vtable(this).Thumbnail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::StorageItemThumbnail>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -316,14 +316,14 @@ impl FileInformation {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ThumbnailUpdated)(::core::mem::transmute_copy(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveThumbnailUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveThumbnailUpdated)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
@@ -331,14 +331,14 @@ impl FileInformation {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PropertiesUpdated)(::core::mem::transmute_copy(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePropertiesUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePropertiesUpdated)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Storage_FileProperties', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
@@ -346,7 +346,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), mode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::core::mem::transmute_copy(this), mode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Storage_FileProperties', 'Storage_Streams'*"]
@@ -355,7 +355,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), mode, requestedsize, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(::core::mem::transmute_copy(this), mode, requestedsize, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Storage_FileProperties', 'Storage_Streams'*"]
@@ -364,7 +364,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), mode, requestedsize, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::core::mem::transmute_copy(this), mode, requestedsize, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -372,7 +372,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -380,7 +380,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -388,7 +388,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FolderRelativeId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -397,7 +397,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::StorageItemContentProperties>(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::StorageItemContentProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -405,7 +405,7 @@ impl FileInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemPropertiesWithProvider>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::StorageProvider>(result__)
+            (::windows::core::Interface::vtable(this).Provider)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::StorageProvider>(result__)
         }
     }
 }
@@ -713,7 +713,7 @@ impl FileInformationFactory {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), startindex, maxitemstoretrieve, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>>(result__)
+            (::windows::core::Interface::vtable(this).GetItemsAsync)(::core::mem::transmute_copy(this), startindex, maxitemstoretrieve, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Foundation_Collections'*"]
@@ -722,7 +722,7 @@ impl FileInformationFactory {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>>(result__)
+            (::windows::core::Interface::vtable(this).GetItemsAsyncDefaultStartAndCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Foundation_Collections'*"]
@@ -731,7 +731,7 @@ impl FileInformationFactory {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), startindex, maxitemstoretrieve, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFilesAsync)(::core::mem::transmute_copy(this), startindex, maxitemstoretrieve, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Foundation_Collections'*"]
@@ -740,7 +740,7 @@ impl FileInformationFactory {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFilesAsyncDefaultStartAndCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Foundation_Collections'*"]
@@ -749,7 +749,7 @@ impl FileInformationFactory {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), startindex, maxitemstoretrieve, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFoldersAsync)(::core::mem::transmute_copy(this), startindex, maxitemstoretrieve, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Foundation_Collections'*"]
@@ -758,7 +758,7 @@ impl FileInformationFactory {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFoldersAsyncDefaultStartAndCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -766,7 +766,7 @@ impl FileInformationFactory {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).GetVirtualizedItemsVector)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -774,7 +774,7 @@ impl FileInformationFactory {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).GetVirtualizedFilesVector)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -782,7 +782,7 @@ impl FileInformationFactory {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).GetVirtualizedFoldersVector)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties', 'Storage_Search'*"]
@@ -790,7 +790,7 @@ impl FileInformationFactory {
     pub fn CreateWithMode<'a, Param0: ::windows::core::IntoParam<'a, super::Search::IStorageQueryResultBase>>(queryresult: Param0, mode: super::FileProperties::ThumbnailMode) -> ::windows::core::Result<FileInformationFactory> {
         Self::IFileInformationFactoryFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), queryresult.into_param().abi(), mode, &mut result__).from_abi::<FileInformationFactory>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithMode)(::core::mem::transmute_copy(this), queryresult.into_param().abi(), mode, &mut result__).from_abi::<FileInformationFactory>(result__)
         })
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties', 'Storage_Search'*"]
@@ -798,7 +798,7 @@ impl FileInformationFactory {
     pub fn CreateWithModeAndSize<'a, Param0: ::windows::core::IntoParam<'a, super::Search::IStorageQueryResultBase>>(queryresult: Param0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32) -> ::windows::core::Result<FileInformationFactory> {
         Self::IFileInformationFactoryFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), queryresult.into_param().abi(), mode, requestedthumbnailsize, &mut result__).from_abi::<FileInformationFactory>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithModeAndSize)(::core::mem::transmute_copy(this), queryresult.into_param().abi(), mode, requestedthumbnailsize, &mut result__).from_abi::<FileInformationFactory>(result__)
         })
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties', 'Storage_Search'*"]
@@ -806,7 +806,7 @@ impl FileInformationFactory {
     pub fn CreateWithModeAndSizeAndOptions<'a, Param0: ::windows::core::IntoParam<'a, super::Search::IStorageQueryResultBase>>(queryresult: Param0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions) -> ::windows::core::Result<FileInformationFactory> {
         Self::IFileInformationFactoryFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), queryresult.into_param().abi(), mode, requestedthumbnailsize, thumbnailoptions, &mut result__).from_abi::<FileInformationFactory>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithModeAndSizeAndOptions)(::core::mem::transmute_copy(this), queryresult.into_param().abi(), mode, requestedthumbnailsize, thumbnailoptions, &mut result__).from_abi::<FileInformationFactory>(result__)
         })
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties', 'Storage_Search'*"]
@@ -814,7 +814,7 @@ impl FileInformationFactory {
     pub fn CreateWithModeAndSizeAndOptionsAndFlags<'a, Param0: ::windows::core::IntoParam<'a, super::Search::IStorageQueryResultBase>>(queryresult: Param0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool) -> ::windows::core::Result<FileInformationFactory> {
         Self::IFileInformationFactoryFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), queryresult.into_param().abi(), mode, requestedthumbnailsize, thumbnailoptions, delayload, &mut result__).from_abi::<FileInformationFactory>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithModeAndSizeAndOptionsAndFlags)(::core::mem::transmute_copy(this), queryresult.into_param().abi(), mode, requestedthumbnailsize, thumbnailoptions, delayload, &mut result__).from_abi::<FileInformationFactory>(result__)
         })
     }
     #[doc(hidden)]
@@ -901,7 +901,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFolder>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFileAsyncOverloadDefaultOptions)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -910,7 +910,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFolder>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFileAsync)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -919,7 +919,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFolder>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFolderAsyncOverloadDefaultOptions)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -928,7 +928,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFolder>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFolderAsync)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -937,7 +937,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFolder>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).GetFileAsync)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -946,7 +946,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFolder>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).GetFolderAsync)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -955,7 +955,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFolder>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
+            (::windows::core::Interface::vtable(this).GetItemAsync)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Foundation_Collections'*"]
@@ -964,7 +964,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFolder>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFilesAsyncOverloadDefaultOptionsStartAndCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Foundation_Collections'*"]
@@ -973,7 +973,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFolder>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFoldersAsyncOverloadDefaultOptionsStartAndCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Foundation_Collections'*"]
@@ -982,7 +982,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFolder>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>(result__)
+            (::windows::core::Interface::vtable(this).GetItemsAsyncOverloadDefaultStartAndCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -991,7 +991,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageFolder2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetItemAsync)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Storage_Search'*"]
@@ -1000,7 +1000,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Search::IndexedState>>(result__)
+            (::windows::core::Interface::vtable(this).GetIndexedStateAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Search::IndexedState>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_Search'*"]
@@ -1009,7 +1009,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Search::StorageFileQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateFileQueryOverloadDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Search::StorageFileQueryResult>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_Search'*"]
@@ -1018,7 +1018,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), query, &mut result__).from_abi::<super::Search::StorageFileQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateFileQuery)(::core::mem::transmute_copy(this), query, &mut result__).from_abi::<super::Search::StorageFileQueryResult>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_Search'*"]
@@ -1027,7 +1027,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), queryoptions.into_param().abi(), &mut result__).from_abi::<super::Search::StorageFileQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateFileQueryWithOptions)(::core::mem::transmute_copy(this), queryoptions.into_param().abi(), &mut result__).from_abi::<super::Search::StorageFileQueryResult>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_Search'*"]
@@ -1036,7 +1036,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Search::StorageFolderQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateFolderQueryOverloadDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Search::StorageFolderQueryResult>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_Search'*"]
@@ -1045,7 +1045,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), query, &mut result__).from_abi::<super::Search::StorageFolderQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateFolderQuery)(::core::mem::transmute_copy(this), query, &mut result__).from_abi::<super::Search::StorageFolderQueryResult>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_Search'*"]
@@ -1054,7 +1054,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), queryoptions.into_param().abi(), &mut result__).from_abi::<super::Search::StorageFolderQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateFolderQueryWithOptions)(::core::mem::transmute_copy(this), queryoptions.into_param().abi(), &mut result__).from_abi::<super::Search::StorageFolderQueryResult>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_Search'*"]
@@ -1063,7 +1063,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Search::StorageItemQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateItemQuery)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Search::StorageItemQueryResult>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_Search'*"]
@@ -1072,7 +1072,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), queryoptions.into_param().abi(), &mut result__).from_abi::<super::Search::StorageItemQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateItemQueryWithOptions)(::core::mem::transmute_copy(this), queryoptions.into_param().abi(), &mut result__).from_abi::<super::Search::StorageItemQueryResult>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Foundation_Collections', 'Storage_Search'*"]
@@ -1081,7 +1081,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), query, startindex, maxitemstoretrieve, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFilesAsync)(::core::mem::transmute_copy(this), query, startindex, maxitemstoretrieve, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Foundation_Collections', 'Storage_Search'*"]
@@ -1090,7 +1090,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), query, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFilesAsyncOverloadDefaultStartAndCount)(::core::mem::transmute_copy(this), query, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Foundation_Collections', 'Storage_Search'*"]
@@ -1099,7 +1099,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), query, startindex, maxitemstoretrieve, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFoldersAsync)(::core::mem::transmute_copy(this), query, startindex, maxitemstoretrieve, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Foundation_Collections', 'Storage_Search'*"]
@@ -1108,7 +1108,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), query, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFoldersAsyncOverloadDefaultStartAndCount)(::core::mem::transmute_copy(this), query, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Foundation_Collections', 'Storage_Search'*"]
@@ -1117,7 +1117,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), startindex, maxitemstoretrieve, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>(result__)
+            (::windows::core::Interface::vtable(this).GetItemsAsync)(::core::mem::transmute_copy(this), startindex, maxitemstoretrieve, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_Search'*"]
@@ -1126,7 +1126,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), queryoptions.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AreQueryOptionsSupported)(::core::mem::transmute_copy(this), queryoptions.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_Search'*"]
@@ -1135,7 +1135,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), query, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCommonFolderQuerySupported)(::core::mem::transmute_copy(this), query, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_Search'*"]
@@ -1144,7 +1144,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), query, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCommonFileQuerySupported)(::core::mem::transmute_copy(this), query, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -1153,7 +1153,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RenameAsyncOverloadDefaultOptions)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -1162,7 +1162,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), option, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RenameAsync)(::core::mem::transmute_copy(this), desiredname.into_param().abi(), option, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -1171,7 +1171,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteAsyncOverloadDefaultOptions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -1180,7 +1180,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), option, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteAsync)(::core::mem::transmute_copy(this), option, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Storage_FileProperties'*"]
@@ -1189,7 +1189,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::BasicProperties>>(result__)
+            (::windows::core::Interface::vtable(this).GetBasicPropertiesAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::BasicProperties>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -1197,7 +1197,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -1205,7 +1205,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Path)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -1213,7 +1213,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: super::FileAttributes = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileAttributes>(result__)
+            (::windows::core::Interface::vtable(this).Attributes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileAttributes>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -1222,7 +1222,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).DateCreated)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -1230,7 +1230,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOfType)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -1239,7 +1239,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).GetParentAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -1247,7 +1247,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItem2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEqual)(::core::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -1256,7 +1256,7 @@ impl FolderInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::MusicProperties>(result__)
+            (::windows::core::Interface::vtable(this).MusicProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::MusicProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -1265,7 +1265,7 @@ impl FolderInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::VideoProperties>(result__)
+            (::windows::core::Interface::vtable(this).VideoProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::VideoProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -1274,7 +1274,7 @@ impl FolderInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::ImageProperties>(result__)
+            (::windows::core::Interface::vtable(this).ImageProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::ImageProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -1283,7 +1283,7 @@ impl FolderInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::DocumentProperties>(result__)
+            (::windows::core::Interface::vtable(this).DocumentProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::DocumentProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -1292,7 +1292,7 @@ impl FolderInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::BasicProperties>(result__)
+            (::windows::core::Interface::vtable(this).BasicProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::BasicProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties', 'Storage_Streams'*"]
@@ -1301,7 +1301,7 @@ impl FolderInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::StorageItemThumbnail>(result__)
+            (::windows::core::Interface::vtable(this).Thumbnail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::StorageItemThumbnail>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -1310,14 +1310,14 @@ impl FolderInformation {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ThumbnailUpdated)(::core::mem::transmute_copy(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveThumbnailUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveThumbnailUpdated)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
@@ -1325,14 +1325,14 @@ impl FolderInformation {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PropertiesUpdated)(::core::mem::transmute_copy(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePropertiesUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePropertiesUpdated)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Storage_FileProperties', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
@@ -1340,7 +1340,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), mode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::core::mem::transmute_copy(this), mode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Storage_FileProperties', 'Storage_Streams'*"]
@@ -1349,7 +1349,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), mode, requestedsize, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(::core::mem::transmute_copy(this), mode, requestedsize, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation', 'Storage_FileProperties', 'Storage_Streams'*"]
@@ -1358,7 +1358,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), mode, requestedsize, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::core::mem::transmute_copy(this), mode, requestedsize, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -1366,7 +1366,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -1374,7 +1374,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -1382,7 +1382,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FolderRelativeId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -1391,7 +1391,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemProperties>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::StorageItemContentProperties>(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::StorageItemContentProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess'*"]
@@ -1399,7 +1399,7 @@ impl FolderInformation {
         let this = &::windows::core::Interface::cast::<super::IStorageItemPropertiesWithProvider>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::StorageProvider>(result__)
+            (::windows::core::Interface::vtable(this).Provider)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::StorageProvider>(result__)
         }
     }
 }
@@ -1658,29 +1658,36 @@ unsafe impl ::windows::core::Interface for IFileInformationFactory {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileInformationFactoryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IFileInformationFactoryVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    pub GetItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    GetItemsAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    pub GetItemsAsyncDefaultStartAndCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    GetItemsAsyncDefaultStartAndCount: usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    pub GetFilesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    GetFilesAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    pub GetFilesAsyncDefaultStartAndCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    GetFilesAsyncDefaultStartAndCount: usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    pub GetFoldersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    GetFoldersAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    pub GetFoldersAsyncDefaultStartAndCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    GetFoldersAsyncDefaultStartAndCount: usize,
+    pub GetVirtualizedItemsVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetVirtualizedFilesVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetVirtualizedFoldersVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFileInformationFactoryFactory(::windows::core::IUnknown);
@@ -1690,22 +1697,25 @@ unsafe impl ::windows::core::Interface for IFileInformationFactoryFactory {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileInformationFactoryFactoryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))] usize,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))] usize,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))] usize,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))] usize,
-);
+pub struct IFileInformationFactoryFactoryVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
+    pub CreateWithMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
+    CreateWithMode: usize,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
+    pub CreateWithModeAndSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
+    CreateWithModeAndSize: usize,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
+    pub CreateWithModeAndSizeAndOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
+    CreateWithModeAndSizeAndOptions: usize,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
+    pub CreateWithModeAndSizeAndOptionsAndFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
+    CreateWithModeAndSizeAndOptionsAndFlags: usize,
+}
 #[doc = "*Required features: 'Storage_BulkAccess'*"]
 #[repr(transparent)]
 pub struct IStorageItemInformation(::windows::core::IUnknown);
@@ -1716,7 +1726,7 @@ impl IStorageItemInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::MusicProperties>(result__)
+            (::windows::core::Interface::vtable(this).MusicProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::MusicProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -1725,7 +1735,7 @@ impl IStorageItemInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::VideoProperties>(result__)
+            (::windows::core::Interface::vtable(this).VideoProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::VideoProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -1734,7 +1744,7 @@ impl IStorageItemInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::ImageProperties>(result__)
+            (::windows::core::Interface::vtable(this).ImageProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::ImageProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -1743,7 +1753,7 @@ impl IStorageItemInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::DocumentProperties>(result__)
+            (::windows::core::Interface::vtable(this).DocumentProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::DocumentProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties'*"]
@@ -1752,7 +1762,7 @@ impl IStorageItemInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::BasicProperties>(result__)
+            (::windows::core::Interface::vtable(this).BasicProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::BasicProperties>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Storage_FileProperties', 'Storage_Streams'*"]
@@ -1761,7 +1771,7 @@ impl IStorageItemInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::StorageItemThumbnail>(result__)
+            (::windows::core::Interface::vtable(this).Thumbnail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FileProperties::StorageItemThumbnail>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
@@ -1770,14 +1780,14 @@ impl IStorageItemInformation {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ThumbnailUpdated)(::core::mem::transmute_copy(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveThumbnailUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveThumbnailUpdated)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
@@ -1785,14 +1795,14 @@ impl IStorageItemInformation {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PropertiesUpdated)(::core::mem::transmute_copy(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: 'Storage_BulkAccess', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePropertiesUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePropertiesUpdated)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
 }
 impl ::core::convert::From<IStorageItemInformation> for ::windows::core::IInspectable {
@@ -1860,33 +1870,48 @@ unsafe impl ::windows::core::Interface for IStorageItemInformation {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageItemInformationVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage_FileProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))] usize,
-    #[cfg(feature = "Storage_FileProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))] usize,
-    #[cfg(feature = "Storage_FileProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))] usize,
-    #[cfg(feature = "Storage_FileProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))] usize,
-    #[cfg(feature = "Storage_FileProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))] usize,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changedhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changedhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct IStorageItemInformationVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub MusicProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    MusicProperties: usize,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub VideoProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    VideoProperties: usize,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub ImageProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    ImageProperties: usize,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub DocumentProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    DocumentProperties: usize,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub BasicProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    BasicProperties: usize,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub Thumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
+    Thumbnail: usize,
+    #[cfg(feature = "Foundation")]
+    pub ThumbnailUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changedhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ThumbnailUpdated: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveThumbnailUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveThumbnailUpdated: usize,
+    #[cfg(feature = "Foundation")]
+    pub PropertiesUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changedhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PropertiesUpdated: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePropertiesUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePropertiesUpdated: usize,
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

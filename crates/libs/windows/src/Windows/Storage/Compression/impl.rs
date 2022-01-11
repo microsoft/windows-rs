@@ -32,7 +32,11 @@ impl ICompressorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompressor>, ::windows::core::GetTrustLevel, FinishAsync::<Impl, IMPL_OFFSET>, DetachStream::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompressor, BASE_OFFSET>(),
+            FinishAsync: FinishAsync::<Impl, IMPL_OFFSET>,
+            DetachStream: DetachStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompressor as ::windows::core::Interface>::IID
@@ -72,7 +76,11 @@ impl ICompressorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompressorFactory>, ::windows::core::GetTrustLevel, CreateCompressor::<Impl, IMPL_OFFSET>, CreateCompressorEx::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompressorFactory, BASE_OFFSET>(),
+            CreateCompressor: CreateCompressor::<Impl, IMPL_OFFSET>,
+            CreateCompressorEx: CreateCompressorEx::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompressorFactory as ::windows::core::Interface>::IID
@@ -100,7 +108,7 @@ impl IDecompressorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDecompressor>, ::windows::core::GetTrustLevel, DetachStream::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDecompressor, BASE_OFFSET>(), DetachStream: DetachStream::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDecompressor as ::windows::core::Interface>::IID
@@ -128,7 +136,10 @@ impl IDecompressorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDecompressorFactory>, ::windows::core::GetTrustLevel, CreateDecompressor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDecompressorFactory, BASE_OFFSET>(),
+            CreateDecompressor: CreateDecompressor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDecompressorFactory as ::windows::core::Interface>::IID

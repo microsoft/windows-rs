@@ -32,7 +32,11 @@ impl IBarcodeScannerDisableScannerRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerDisableScannerRequest>, ::windows::core::GetTrustLevel, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerDisableScannerRequest, BASE_OFFSET>(),
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerDisableScannerRequest as ::windows::core::Interface>::IID
@@ -72,7 +76,11 @@ impl IBarcodeScannerDisableScannerRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerDisableScannerRequest2>, ::windows::core::GetTrustLevel, ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerDisableScannerRequest2, BASE_OFFSET>(),
+            ReportFailedWithFailedReasonAsync: ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedWithFailedReasonAndDescriptionAsync: ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerDisableScannerRequest2 as ::windows::core::Interface>::IID
@@ -112,7 +120,11 @@ impl IBarcodeScannerDisableScannerRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerDisableScannerRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerDisableScannerRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerDisableScannerRequestEventArgs as ::windows::core::Interface>::IID
@@ -152,7 +164,11 @@ impl IBarcodeScannerEnableScannerRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerEnableScannerRequest>, ::windows::core::GetTrustLevel, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerEnableScannerRequest, BASE_OFFSET>(),
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerEnableScannerRequest as ::windows::core::Interface>::IID
@@ -192,7 +208,11 @@ impl IBarcodeScannerEnableScannerRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerEnableScannerRequest2>, ::windows::core::GetTrustLevel, ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerEnableScannerRequest2, BASE_OFFSET>(),
+            ReportFailedWithFailedReasonAsync: ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedWithFailedReasonAndDescriptionAsync: ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerEnableScannerRequest2 as ::windows::core::Interface>::IID
@@ -232,7 +252,11 @@ impl IBarcodeScannerEnableScannerRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerEnableScannerRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerEnableScannerRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerEnableScannerRequestEventArgs as ::windows::core::Interface>::IID
@@ -313,20 +337,15 @@ impl IBarcodeScannerFrameReaderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFrameArrived(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBarcodeScannerFrameReader>,
-            ::windows::core::GetTrustLevel,
-            StartAsync::<Impl, IMPL_OFFSET>,
-            StopAsync::<Impl, IMPL_OFFSET>,
-            TryAcquireLatestFrameAsync::<Impl, IMPL_OFFSET>,
-            Connection::<Impl, IMPL_OFFSET>,
-            FrameArrived::<Impl, IMPL_OFFSET>,
-            RemoveFrameArrived::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerFrameReader, BASE_OFFSET>(),
+            StartAsync: StartAsync::<Impl, IMPL_OFFSET>,
+            StopAsync: StopAsync::<Impl, IMPL_OFFSET>,
+            TryAcquireLatestFrameAsync: TryAcquireLatestFrameAsync::<Impl, IMPL_OFFSET>,
+            Connection: Connection::<Impl, IMPL_OFFSET>,
+            FrameArrived: FrameArrived::<Impl, IMPL_OFFSET>,
+            RemoveFrameArrived: RemoveFrameArrived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerFrameReader as ::windows::core::Interface>::IID
@@ -354,7 +373,10 @@ impl IBarcodeScannerFrameReaderFrameArrivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerFrameReaderFrameArrivedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerFrameReaderFrameArrivedEventArgs, BASE_OFFSET>(),
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerFrameReaderFrameArrivedEventArgs as ::windows::core::Interface>::IID
@@ -406,7 +428,12 @@ impl IBarcodeScannerGetSymbologyAttributesRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerGetSymbologyAttributesRequest>, ::windows::core::GetTrustLevel, Symbology::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerGetSymbologyAttributesRequest, BASE_OFFSET>(),
+            Symbology: Symbology::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerGetSymbologyAttributesRequest as ::windows::core::Interface>::IID
@@ -446,7 +473,11 @@ impl IBarcodeScannerGetSymbologyAttributesRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerGetSymbologyAttributesRequest2>, ::windows::core::GetTrustLevel, ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerGetSymbologyAttributesRequest2, BASE_OFFSET>(),
+            ReportFailedWithFailedReasonAsync: ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedWithFailedReasonAndDescriptionAsync: ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerGetSymbologyAttributesRequest2 as ::windows::core::Interface>::IID
@@ -486,7 +517,11 @@ impl IBarcodeScannerGetSymbologyAttributesRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerGetSymbologyAttributesRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerGetSymbologyAttributesRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerGetSymbologyAttributesRequestEventArgs as ::windows::core::Interface>::IID
@@ -526,7 +561,11 @@ impl IBarcodeScannerHideVideoPreviewRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerHideVideoPreviewRequest>, ::windows::core::GetTrustLevel, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerHideVideoPreviewRequest, BASE_OFFSET>(),
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerHideVideoPreviewRequest as ::windows::core::Interface>::IID
@@ -566,7 +605,11 @@ impl IBarcodeScannerHideVideoPreviewRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerHideVideoPreviewRequest2>, ::windows::core::GetTrustLevel, ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerHideVideoPreviewRequest2, BASE_OFFSET>(),
+            ReportFailedWithFailedReasonAsync: ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedWithFailedReasonAndDescriptionAsync: ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerHideVideoPreviewRequest2 as ::windows::core::Interface>::IID
@@ -606,7 +649,11 @@ impl IBarcodeScannerHideVideoPreviewRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerHideVideoPreviewRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerHideVideoPreviewRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerHideVideoPreviewRequestEventArgs as ::windows::core::Interface>::IID
@@ -898,44 +945,39 @@ impl IBarcodeScannerProviderConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveHideVideoPreviewRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBarcodeScannerProviderConnection>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            VideoDeviceId::<Impl, IMPL_OFFSET>,
-            SupportedSymbologies::<Impl, IMPL_OFFSET>,
-            CompanyName::<Impl, IMPL_OFFSET>,
-            SetCompanyName::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            SetName::<Impl, IMPL_OFFSET>,
-            Version::<Impl, IMPL_OFFSET>,
-            SetVersion::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            ReportScannedDataAsync::<Impl, IMPL_OFFSET>,
-            ReportTriggerStateAsync::<Impl, IMPL_OFFSET>,
-            ReportErrorAsync::<Impl, IMPL_OFFSET>,
-            ReportErrorAsyncWithScanReport::<Impl, IMPL_OFFSET>,
-            EnableScannerRequested::<Impl, IMPL_OFFSET>,
-            RemoveEnableScannerRequested::<Impl, IMPL_OFFSET>,
-            DisableScannerRequested::<Impl, IMPL_OFFSET>,
-            RemoveDisableScannerRequested::<Impl, IMPL_OFFSET>,
-            SetActiveSymbologiesRequested::<Impl, IMPL_OFFSET>,
-            RemoveSetActiveSymbologiesRequested::<Impl, IMPL_OFFSET>,
-            StartSoftwareTriggerRequested::<Impl, IMPL_OFFSET>,
-            RemoveStartSoftwareTriggerRequested::<Impl, IMPL_OFFSET>,
-            StopSoftwareTriggerRequested::<Impl, IMPL_OFFSET>,
-            RemoveStopSoftwareTriggerRequested::<Impl, IMPL_OFFSET>,
-            GetBarcodeSymbologyAttributesRequested::<Impl, IMPL_OFFSET>,
-            RemoveGetBarcodeSymbologyAttributesRequested::<Impl, IMPL_OFFSET>,
-            SetBarcodeSymbologyAttributesRequested::<Impl, IMPL_OFFSET>,
-            RemoveSetBarcodeSymbologyAttributesRequested::<Impl, IMPL_OFFSET>,
-            HideVideoPreviewRequested::<Impl, IMPL_OFFSET>,
-            RemoveHideVideoPreviewRequested::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerProviderConnection, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            VideoDeviceId: VideoDeviceId::<Impl, IMPL_OFFSET>,
+            SupportedSymbologies: SupportedSymbologies::<Impl, IMPL_OFFSET>,
+            CompanyName: CompanyName::<Impl, IMPL_OFFSET>,
+            SetCompanyName: SetCompanyName::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            Version: Version::<Impl, IMPL_OFFSET>,
+            SetVersion: SetVersion::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            ReportScannedDataAsync: ReportScannedDataAsync::<Impl, IMPL_OFFSET>,
+            ReportTriggerStateAsync: ReportTriggerStateAsync::<Impl, IMPL_OFFSET>,
+            ReportErrorAsync: ReportErrorAsync::<Impl, IMPL_OFFSET>,
+            ReportErrorAsyncWithScanReport: ReportErrorAsyncWithScanReport::<Impl, IMPL_OFFSET>,
+            EnableScannerRequested: EnableScannerRequested::<Impl, IMPL_OFFSET>,
+            RemoveEnableScannerRequested: RemoveEnableScannerRequested::<Impl, IMPL_OFFSET>,
+            DisableScannerRequested: DisableScannerRequested::<Impl, IMPL_OFFSET>,
+            RemoveDisableScannerRequested: RemoveDisableScannerRequested::<Impl, IMPL_OFFSET>,
+            SetActiveSymbologiesRequested: SetActiveSymbologiesRequested::<Impl, IMPL_OFFSET>,
+            RemoveSetActiveSymbologiesRequested: RemoveSetActiveSymbologiesRequested::<Impl, IMPL_OFFSET>,
+            StartSoftwareTriggerRequested: StartSoftwareTriggerRequested::<Impl, IMPL_OFFSET>,
+            RemoveStartSoftwareTriggerRequested: RemoveStartSoftwareTriggerRequested::<Impl, IMPL_OFFSET>,
+            StopSoftwareTriggerRequested: StopSoftwareTriggerRequested::<Impl, IMPL_OFFSET>,
+            RemoveStopSoftwareTriggerRequested: RemoveStopSoftwareTriggerRequested::<Impl, IMPL_OFFSET>,
+            GetBarcodeSymbologyAttributesRequested: GetBarcodeSymbologyAttributesRequested::<Impl, IMPL_OFFSET>,
+            RemoveGetBarcodeSymbologyAttributesRequested: RemoveGetBarcodeSymbologyAttributesRequested::<Impl, IMPL_OFFSET>,
+            SetBarcodeSymbologyAttributesRequested: SetBarcodeSymbologyAttributesRequested::<Impl, IMPL_OFFSET>,
+            RemoveSetBarcodeSymbologyAttributesRequested: RemoveSetBarcodeSymbologyAttributesRequested::<Impl, IMPL_OFFSET>,
+            HideVideoPreviewRequested: HideVideoPreviewRequested::<Impl, IMPL_OFFSET>,
+            RemoveHideVideoPreviewRequested: RemoveHideVideoPreviewRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerProviderConnection as ::windows::core::Interface>::IID
@@ -987,7 +1029,12 @@ impl IBarcodeScannerProviderConnection2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerProviderConnection2>, ::windows::core::GetTrustLevel, CreateFrameReaderAsync::<Impl, IMPL_OFFSET>, CreateFrameReaderWithFormatAsync::<Impl, IMPL_OFFSET>, CreateFrameReaderWithFormatAndSizeAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerProviderConnection2, BASE_OFFSET>(),
+            CreateFrameReaderAsync: CreateFrameReaderAsync::<Impl, IMPL_OFFSET>,
+            CreateFrameReaderWithFormatAsync: CreateFrameReaderWithFormatAsync::<Impl, IMPL_OFFSET>,
+            CreateFrameReaderWithFormatAndSizeAsync: CreateFrameReaderWithFormatAndSizeAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerProviderConnection2 as ::windows::core::Interface>::IID
@@ -1015,7 +1062,10 @@ impl IBarcodeScannerProviderTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerProviderTriggerDetails>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerProviderTriggerDetails, BASE_OFFSET>(),
+            Connection: Connection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerProviderTriggerDetails as ::windows::core::Interface>::IID
@@ -1067,7 +1117,12 @@ impl IBarcodeScannerSetActiveSymbologiesRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerSetActiveSymbologiesRequest>, ::windows::core::GetTrustLevel, Symbologies::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerSetActiveSymbologiesRequest, BASE_OFFSET>(),
+            Symbologies: Symbologies::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerSetActiveSymbologiesRequest as ::windows::core::Interface>::IID
@@ -1107,7 +1162,11 @@ impl IBarcodeScannerSetActiveSymbologiesRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerSetActiveSymbologiesRequest2>, ::windows::core::GetTrustLevel, ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerSetActiveSymbologiesRequest2, BASE_OFFSET>(),
+            ReportFailedWithFailedReasonAsync: ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedWithFailedReasonAndDescriptionAsync: ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerSetActiveSymbologiesRequest2 as ::windows::core::Interface>::IID
@@ -1147,7 +1206,11 @@ impl IBarcodeScannerSetActiveSymbologiesRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerSetActiveSymbologiesRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerSetActiveSymbologiesRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerSetActiveSymbologiesRequestEventArgs as ::windows::core::Interface>::IID
@@ -1211,7 +1274,13 @@ impl IBarcodeScannerSetSymbologyAttributesRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerSetSymbologyAttributesRequest>, ::windows::core::GetTrustLevel, Symbology::<Impl, IMPL_OFFSET>, Attributes::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerSetSymbologyAttributesRequest, BASE_OFFSET>(),
+            Symbology: Symbology::<Impl, IMPL_OFFSET>,
+            Attributes: Attributes::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerSetSymbologyAttributesRequest as ::windows::core::Interface>::IID
@@ -1251,7 +1320,11 @@ impl IBarcodeScannerSetSymbologyAttributesRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerSetSymbologyAttributesRequest2>, ::windows::core::GetTrustLevel, ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerSetSymbologyAttributesRequest2, BASE_OFFSET>(),
+            ReportFailedWithFailedReasonAsync: ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedWithFailedReasonAndDescriptionAsync: ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerSetSymbologyAttributesRequest2 as ::windows::core::Interface>::IID
@@ -1291,7 +1364,11 @@ impl IBarcodeScannerSetSymbologyAttributesRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerSetSymbologyAttributesRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerSetSymbologyAttributesRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerSetSymbologyAttributesRequestEventArgs as ::windows::core::Interface>::IID
@@ -1331,7 +1408,11 @@ impl IBarcodeScannerStartSoftwareTriggerRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStartSoftwareTriggerRequest>, ::windows::core::GetTrustLevel, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerStartSoftwareTriggerRequest, BASE_OFFSET>(),
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerStartSoftwareTriggerRequest as ::windows::core::Interface>::IID
@@ -1371,7 +1452,11 @@ impl IBarcodeScannerStartSoftwareTriggerRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStartSoftwareTriggerRequest2>, ::windows::core::GetTrustLevel, ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerStartSoftwareTriggerRequest2, BASE_OFFSET>(),
+            ReportFailedWithFailedReasonAsync: ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedWithFailedReasonAndDescriptionAsync: ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerStartSoftwareTriggerRequest2 as ::windows::core::Interface>::IID
@@ -1411,7 +1496,11 @@ impl IBarcodeScannerStartSoftwareTriggerRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStartSoftwareTriggerRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerStartSoftwareTriggerRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerStartSoftwareTriggerRequestEventArgs as ::windows::core::Interface>::IID
@@ -1451,7 +1540,11 @@ impl IBarcodeScannerStopSoftwareTriggerRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStopSoftwareTriggerRequest>, ::windows::core::GetTrustLevel, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerStopSoftwareTriggerRequest, BASE_OFFSET>(),
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerStopSoftwareTriggerRequest as ::windows::core::Interface>::IID
@@ -1491,7 +1584,11 @@ impl IBarcodeScannerStopSoftwareTriggerRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStopSoftwareTriggerRequest2>, ::windows::core::GetTrustLevel, ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerStopSoftwareTriggerRequest2, BASE_OFFSET>(),
+            ReportFailedWithFailedReasonAsync: ReportFailedWithFailedReasonAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedWithFailedReasonAndDescriptionAsync: ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerStopSoftwareTriggerRequest2 as ::windows::core::Interface>::IID
@@ -1531,7 +1628,11 @@ impl IBarcodeScannerStopSoftwareTriggerRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStopSoftwareTriggerRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerStopSoftwareTriggerRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerStopSoftwareTriggerRequestEventArgs as ::windows::core::Interface>::IID
@@ -1595,7 +1696,13 @@ impl IBarcodeScannerVideoFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerVideoFrame>, ::windows::core::GetTrustLevel, Format::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>, Height::<Impl, IMPL_OFFSET>, PixelData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerVideoFrame, BASE_OFFSET>(),
+            Format: Format::<Impl, IMPL_OFFSET>,
+            Width: Width::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+            PixelData: PixelData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeScannerVideoFrame as ::windows::core::Interface>::IID
@@ -1674,21 +1781,16 @@ impl IBarcodeSymbologyAttributesBuilderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBarcodeSymbologyAttributesBuilder>,
-            ::windows::core::GetTrustLevel,
-            IsCheckDigitValidationSupported::<Impl, IMPL_OFFSET>,
-            SetIsCheckDigitValidationSupported::<Impl, IMPL_OFFSET>,
-            IsCheckDigitTransmissionSupported::<Impl, IMPL_OFFSET>,
-            SetIsCheckDigitTransmissionSupported::<Impl, IMPL_OFFSET>,
-            IsDecodeLengthSupported::<Impl, IMPL_OFFSET>,
-            SetIsDecodeLengthSupported::<Impl, IMPL_OFFSET>,
-            CreateAttributes::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeSymbologyAttributesBuilder, BASE_OFFSET>(),
+            IsCheckDigitValidationSupported: IsCheckDigitValidationSupported::<Impl, IMPL_OFFSET>,
+            SetIsCheckDigitValidationSupported: SetIsCheckDigitValidationSupported::<Impl, IMPL_OFFSET>,
+            IsCheckDigitTransmissionSupported: IsCheckDigitTransmissionSupported::<Impl, IMPL_OFFSET>,
+            SetIsCheckDigitTransmissionSupported: SetIsCheckDigitTransmissionSupported::<Impl, IMPL_OFFSET>,
+            IsDecodeLengthSupported: IsDecodeLengthSupported::<Impl, IMPL_OFFSET>,
+            SetIsDecodeLengthSupported: SetIsDecodeLengthSupported::<Impl, IMPL_OFFSET>,
+            CreateAttributes: CreateAttributes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarcodeSymbologyAttributesBuilder as ::windows::core::Interface>::IID

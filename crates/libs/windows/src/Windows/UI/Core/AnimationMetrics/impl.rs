@@ -68,7 +68,14 @@ impl IAnimationDescriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAnimationDescription>, ::windows::core::GetTrustLevel, Animations::<Impl, IMPL_OFFSET>, StaggerDelay::<Impl, IMPL_OFFSET>, StaggerDelayFactor::<Impl, IMPL_OFFSET>, DelayLimit::<Impl, IMPL_OFFSET>, ZOrder::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAnimationDescription, BASE_OFFSET>(),
+            Animations: Animations::<Impl, IMPL_OFFSET>,
+            StaggerDelay: StaggerDelay::<Impl, IMPL_OFFSET>,
+            StaggerDelayFactor: StaggerDelayFactor::<Impl, IMPL_OFFSET>,
+            DelayLimit: DelayLimit::<Impl, IMPL_OFFSET>,
+            ZOrder: ZOrder::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAnimationDescription as ::windows::core::Interface>::IID
@@ -96,7 +103,10 @@ impl IAnimationDescriptionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAnimationDescriptionFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAnimationDescriptionFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAnimationDescriptionFactory as ::windows::core::Interface>::IID
@@ -136,7 +146,11 @@ impl IOpacityAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOpacityAnimation>, ::windows::core::GetTrustLevel, InitialOpacity::<Impl, IMPL_OFFSET>, FinalOpacity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOpacityAnimation, BASE_OFFSET>(),
+            InitialOpacity: InitialOpacity::<Impl, IMPL_OFFSET>,
+            FinalOpacity: FinalOpacity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOpacityAnimation as ::windows::core::Interface>::IID
@@ -212,7 +226,14 @@ impl IPropertyAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPropertyAnimation>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, Delay::<Impl, IMPL_OFFSET>, Duration::<Impl, IMPL_OFFSET>, Control1::<Impl, IMPL_OFFSET>, Control2::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertyAnimation, BASE_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            Delay: Delay::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            Control1: Control1::<Impl, IMPL_OFFSET>,
+            Control2: Control2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPropertyAnimation as ::windows::core::Interface>::IID
@@ -288,7 +309,14 @@ impl IScaleAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScaleAnimation>, ::windows::core::GetTrustLevel, InitialScaleX::<Impl, IMPL_OFFSET>, InitialScaleY::<Impl, IMPL_OFFSET>, FinalScaleX::<Impl, IMPL_OFFSET>, FinalScaleY::<Impl, IMPL_OFFSET>, NormalizedOrigin::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScaleAnimation, BASE_OFFSET>(),
+            InitialScaleX: InitialScaleX::<Impl, IMPL_OFFSET>,
+            InitialScaleY: InitialScaleY::<Impl, IMPL_OFFSET>,
+            FinalScaleX: FinalScaleX::<Impl, IMPL_OFFSET>,
+            FinalScaleY: FinalScaleY::<Impl, IMPL_OFFSET>,
+            NormalizedOrigin: NormalizedOrigin::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScaleAnimation as ::windows::core::Interface>::IID

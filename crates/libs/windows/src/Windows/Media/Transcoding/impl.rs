@@ -133,29 +133,24 @@ impl IMediaTranscoderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaTranscoder>,
-            ::windows::core::GetTrustLevel,
-            SetTrimStartTime::<Impl, IMPL_OFFSET>,
-            TrimStartTime::<Impl, IMPL_OFFSET>,
-            SetTrimStopTime::<Impl, IMPL_OFFSET>,
-            TrimStopTime::<Impl, IMPL_OFFSET>,
-            SetAlwaysReencode::<Impl, IMPL_OFFSET>,
-            AlwaysReencode::<Impl, IMPL_OFFSET>,
-            SetHardwareAccelerationEnabled::<Impl, IMPL_OFFSET>,
-            HardwareAccelerationEnabled::<Impl, IMPL_OFFSET>,
-            AddAudioEffect::<Impl, IMPL_OFFSET>,
-            AddAudioEffectWithSettings::<Impl, IMPL_OFFSET>,
-            AddVideoEffect::<Impl, IMPL_OFFSET>,
-            AddVideoEffectWithSettings::<Impl, IMPL_OFFSET>,
-            ClearEffects::<Impl, IMPL_OFFSET>,
-            PrepareFileTranscodeAsync::<Impl, IMPL_OFFSET>,
-            PrepareStreamTranscodeAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaTranscoder, BASE_OFFSET>(),
+            SetTrimStartTime: SetTrimStartTime::<Impl, IMPL_OFFSET>,
+            TrimStartTime: TrimStartTime::<Impl, IMPL_OFFSET>,
+            SetTrimStopTime: SetTrimStopTime::<Impl, IMPL_OFFSET>,
+            TrimStopTime: TrimStopTime::<Impl, IMPL_OFFSET>,
+            SetAlwaysReencode: SetAlwaysReencode::<Impl, IMPL_OFFSET>,
+            AlwaysReencode: AlwaysReencode::<Impl, IMPL_OFFSET>,
+            SetHardwareAccelerationEnabled: SetHardwareAccelerationEnabled::<Impl, IMPL_OFFSET>,
+            HardwareAccelerationEnabled: HardwareAccelerationEnabled::<Impl, IMPL_OFFSET>,
+            AddAudioEffect: AddAudioEffect::<Impl, IMPL_OFFSET>,
+            AddAudioEffectWithSettings: AddAudioEffectWithSettings::<Impl, IMPL_OFFSET>,
+            AddVideoEffect: AddVideoEffect::<Impl, IMPL_OFFSET>,
+            AddVideoEffectWithSettings: AddVideoEffectWithSettings::<Impl, IMPL_OFFSET>,
+            ClearEffects: ClearEffects::<Impl, IMPL_OFFSET>,
+            PrepareFileTranscodeAsync: PrepareFileTranscodeAsync::<Impl, IMPL_OFFSET>,
+            PrepareStreamTranscodeAsync: PrepareStreamTranscodeAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaTranscoder as ::windows::core::Interface>::IID
@@ -204,7 +199,12 @@ impl IMediaTranscoder2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaTranscoder2>, ::windows::core::GetTrustLevel, PrepareMediaStreamSourceTranscodeAsync::<Impl, IMPL_OFFSET>, SetVideoProcessingAlgorithm::<Impl, IMPL_OFFSET>, VideoProcessingAlgorithm::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaTranscoder2, BASE_OFFSET>(),
+            PrepareMediaStreamSourceTranscodeAsync: PrepareMediaStreamSourceTranscodeAsync::<Impl, IMPL_OFFSET>,
+            SetVideoProcessingAlgorithm: SetVideoProcessingAlgorithm::<Impl, IMPL_OFFSET>,
+            VideoProcessingAlgorithm: VideoProcessingAlgorithm::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaTranscoder2 as ::windows::core::Interface>::IID
@@ -256,7 +256,12 @@ impl IPrepareTranscodeResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrepareTranscodeResult>, ::windows::core::GetTrustLevel, CanTranscode::<Impl, IMPL_OFFSET>, FailureReason::<Impl, IMPL_OFFSET>, TranscodeAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrepareTranscodeResult, BASE_OFFSET>(),
+            CanTranscode: CanTranscode::<Impl, IMPL_OFFSET>,
+            FailureReason: FailureReason::<Impl, IMPL_OFFSET>,
+            TranscodeAsync: TranscodeAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrepareTranscodeResult as ::windows::core::Interface>::IID

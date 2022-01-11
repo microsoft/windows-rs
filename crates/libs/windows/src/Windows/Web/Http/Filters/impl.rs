@@ -180,33 +180,28 @@ impl IHttpBaseProtocolFilterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUseProxy(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter>,
-            ::windows::core::GetTrustLevel,
-            AllowAutoRedirect::<Impl, IMPL_OFFSET>,
-            SetAllowAutoRedirect::<Impl, IMPL_OFFSET>,
-            AllowUI::<Impl, IMPL_OFFSET>,
-            SetAllowUI::<Impl, IMPL_OFFSET>,
-            AutomaticDecompression::<Impl, IMPL_OFFSET>,
-            SetAutomaticDecompression::<Impl, IMPL_OFFSET>,
-            CacheControl::<Impl, IMPL_OFFSET>,
-            CookieManager::<Impl, IMPL_OFFSET>,
-            ClientCertificate::<Impl, IMPL_OFFSET>,
-            SetClientCertificate::<Impl, IMPL_OFFSET>,
-            IgnorableServerCertificateErrors::<Impl, IMPL_OFFSET>,
-            MaxConnectionsPerServer::<Impl, IMPL_OFFSET>,
-            SetMaxConnectionsPerServer::<Impl, IMPL_OFFSET>,
-            ProxyCredential::<Impl, IMPL_OFFSET>,
-            SetProxyCredential::<Impl, IMPL_OFFSET>,
-            ServerCredential::<Impl, IMPL_OFFSET>,
-            SetServerCredential::<Impl, IMPL_OFFSET>,
-            UseProxy::<Impl, IMPL_OFFSET>,
-            SetUseProxy::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpBaseProtocolFilter, BASE_OFFSET>(),
+            AllowAutoRedirect: AllowAutoRedirect::<Impl, IMPL_OFFSET>,
+            SetAllowAutoRedirect: SetAllowAutoRedirect::<Impl, IMPL_OFFSET>,
+            AllowUI: AllowUI::<Impl, IMPL_OFFSET>,
+            SetAllowUI: SetAllowUI::<Impl, IMPL_OFFSET>,
+            AutomaticDecompression: AutomaticDecompression::<Impl, IMPL_OFFSET>,
+            SetAutomaticDecompression: SetAutomaticDecompression::<Impl, IMPL_OFFSET>,
+            CacheControl: CacheControl::<Impl, IMPL_OFFSET>,
+            CookieManager: CookieManager::<Impl, IMPL_OFFSET>,
+            ClientCertificate: ClientCertificate::<Impl, IMPL_OFFSET>,
+            SetClientCertificate: SetClientCertificate::<Impl, IMPL_OFFSET>,
+            IgnorableServerCertificateErrors: IgnorableServerCertificateErrors::<Impl, IMPL_OFFSET>,
+            MaxConnectionsPerServer: MaxConnectionsPerServer::<Impl, IMPL_OFFSET>,
+            SetMaxConnectionsPerServer: SetMaxConnectionsPerServer::<Impl, IMPL_OFFSET>,
+            ProxyCredential: ProxyCredential::<Impl, IMPL_OFFSET>,
+            SetProxyCredential: SetProxyCredential::<Impl, IMPL_OFFSET>,
+            ServerCredential: ServerCredential::<Impl, IMPL_OFFSET>,
+            SetServerCredential: SetServerCredential::<Impl, IMPL_OFFSET>,
+            UseProxy: UseProxy::<Impl, IMPL_OFFSET>,
+            SetUseProxy: SetUseProxy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpBaseProtocolFilter as ::windows::core::Interface>::IID
@@ -239,7 +234,11 @@ impl IHttpBaseProtocolFilter2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxVersion(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter2>, ::windows::core::GetTrustLevel, MaxVersion::<Impl, IMPL_OFFSET>, SetMaxVersion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpBaseProtocolFilter2, BASE_OFFSET>(),
+            MaxVersion: MaxVersion::<Impl, IMPL_OFFSET>,
+            SetMaxVersion: SetMaxVersion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpBaseProtocolFilter2 as ::windows::core::Interface>::IID
@@ -272,7 +271,11 @@ impl IHttpBaseProtocolFilter3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCookieUsageBehavior(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter3>, ::windows::core::GetTrustLevel, CookieUsageBehavior::<Impl, IMPL_OFFSET>, SetCookieUsageBehavior::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpBaseProtocolFilter3, BASE_OFFSET>(),
+            CookieUsageBehavior: CookieUsageBehavior::<Impl, IMPL_OFFSET>,
+            SetCookieUsageBehavior: SetCookieUsageBehavior::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpBaseProtocolFilter3 as ::windows::core::Interface>::IID
@@ -310,7 +313,12 @@ impl IHttpBaseProtocolFilter4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearAuthenticationCache().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter4>, ::windows::core::GetTrustLevel, ServerCustomValidationRequested::<Impl, IMPL_OFFSET>, RemoveServerCustomValidationRequested::<Impl, IMPL_OFFSET>, ClearAuthenticationCache::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpBaseProtocolFilter4, BASE_OFFSET>(),
+            ServerCustomValidationRequested: ServerCustomValidationRequested::<Impl, IMPL_OFFSET>,
+            RemoveServerCustomValidationRequested: RemoveServerCustomValidationRequested::<Impl, IMPL_OFFSET>,
+            ClearAuthenticationCache: ClearAuthenticationCache::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpBaseProtocolFilter4 as ::windows::core::Interface>::IID
@@ -338,7 +346,7 @@ impl IHttpBaseProtocolFilter5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter5>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpBaseProtocolFilter5, BASE_OFFSET>(), User: User::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpBaseProtocolFilter5 as ::windows::core::Interface>::IID
@@ -366,7 +374,10 @@ impl IHttpBaseProtocolFilterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilterStatics>, ::windows::core::GetTrustLevel, CreateForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpBaseProtocolFilterStatics, BASE_OFFSET>(),
+            CreateForUser: CreateForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpBaseProtocolFilterStatics as ::windows::core::Interface>::IID
@@ -416,7 +427,13 @@ impl IHttpCacheControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWriteBehavior(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCacheControl>, ::windows::core::GetTrustLevel, ReadBehavior::<Impl, IMPL_OFFSET>, SetReadBehavior::<Impl, IMPL_OFFSET>, WriteBehavior::<Impl, IMPL_OFFSET>, SetWriteBehavior::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpCacheControl, BASE_OFFSET>(),
+            ReadBehavior: ReadBehavior::<Impl, IMPL_OFFSET>,
+            SetReadBehavior: SetReadBehavior::<Impl, IMPL_OFFSET>,
+            WriteBehavior: WriteBehavior::<Impl, IMPL_OFFSET>,
+            SetWriteBehavior: SetWriteBehavior::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpCacheControl as ::windows::core::Interface>::IID
@@ -444,7 +461,7 @@ impl IHttpFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpFilter>, ::windows::core::GetTrustLevel, SendRequestAsync::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpFilter, BASE_OFFSET>(), SendRequestAsync: SendRequestAsync::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpFilter as ::windows::core::Interface>::IID
@@ -537,21 +554,16 @@ impl IHttpServerCustomValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpServerCustomValidationRequestedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            RequestMessage::<Impl, IMPL_OFFSET>,
-            ServerCertificate::<Impl, IMPL_OFFSET>,
-            ServerCertificateErrorSeverity::<Impl, IMPL_OFFSET>,
-            ServerCertificateErrors::<Impl, IMPL_OFFSET>,
-            ServerIntermediateCertificates::<Impl, IMPL_OFFSET>,
-            Reject::<Impl, IMPL_OFFSET>,
-            GetDeferral::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpServerCustomValidationRequestedEventArgs, BASE_OFFSET>(),
+            RequestMessage: RequestMessage::<Impl, IMPL_OFFSET>,
+            ServerCertificate: ServerCertificate::<Impl, IMPL_OFFSET>,
+            ServerCertificateErrorSeverity: ServerCertificateErrorSeverity::<Impl, IMPL_OFFSET>,
+            ServerCertificateErrors: ServerCertificateErrors::<Impl, IMPL_OFFSET>,
+            ServerIntermediateCertificates: ServerIntermediateCertificates::<Impl, IMPL_OFFSET>,
+            Reject: Reject::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpServerCustomValidationRequestedEventArgs as ::windows::core::Interface>::IID

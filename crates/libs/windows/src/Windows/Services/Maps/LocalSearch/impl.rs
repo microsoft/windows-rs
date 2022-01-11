@@ -104,22 +104,17 @@ impl ILocalCategoriesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILocalCategoriesStatics>,
-            ::windows::core::GetTrustLevel,
-            BankAndCreditUnions::<Impl, IMPL_OFFSET>,
-            EatDrink::<Impl, IMPL_OFFSET>,
-            Hospitals::<Impl, IMPL_OFFSET>,
-            HotelsAndMotels::<Impl, IMPL_OFFSET>,
-            All::<Impl, IMPL_OFFSET>,
-            Parking::<Impl, IMPL_OFFSET>,
-            SeeDo::<Impl, IMPL_OFFSET>,
-            Shop::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILocalCategoriesStatics, BASE_OFFSET>(),
+            BankAndCreditUnions: BankAndCreditUnions::<Impl, IMPL_OFFSET>,
+            EatDrink: EatDrink::<Impl, IMPL_OFFSET>,
+            Hospitals: Hospitals::<Impl, IMPL_OFFSET>,
+            HotelsAndMotels: HotelsAndMotels::<Impl, IMPL_OFFSET>,
+            All: All::<Impl, IMPL_OFFSET>,
+            Parking: Parking::<Impl, IMPL_OFFSET>,
+            SeeDo: SeeDo::<Impl, IMPL_OFFSET>,
+            Shop: Shop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILocalCategoriesStatics as ::windows::core::Interface>::IID
@@ -219,21 +214,16 @@ impl ILocalLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILocalLocation>,
-            ::windows::core::GetTrustLevel,
-            Address::<Impl, IMPL_OFFSET>,
-            Identifier::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            Point::<Impl, IMPL_OFFSET>,
-            PhoneNumber::<Impl, IMPL_OFFSET>,
-            DataAttribution::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILocalLocation, BASE_OFFSET>(),
+            Address: Address::<Impl, IMPL_OFFSET>,
+            Identifier: Identifier::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            Point: Point::<Impl, IMPL_OFFSET>,
+            PhoneNumber: PhoneNumber::<Impl, IMPL_OFFSET>,
+            DataAttribution: DataAttribution::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILocalLocation as ::windows::core::Interface>::IID
@@ -285,7 +275,12 @@ impl ILocalLocation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocalLocation2>, ::windows::core::GetTrustLevel, Category::<Impl, IMPL_OFFSET>, RatingInfo::<Impl, IMPL_OFFSET>, HoursOfOperation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILocalLocation2, BASE_OFFSET>(),
+            Category: Category::<Impl, IMPL_OFFSET>,
+            RatingInfo: RatingInfo::<Impl, IMPL_OFFSET>,
+            HoursOfOperation: HoursOfOperation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILocalLocation2 as ::windows::core::Interface>::IID
@@ -325,7 +320,11 @@ impl ILocalLocationFinderResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocalLocationFinderResult>, ::windows::core::GetTrustLevel, LocalLocations::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILocalLocationFinderResult, BASE_OFFSET>(),
+            LocalLocations: LocalLocations::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILocalLocationFinderResult as ::windows::core::Interface>::IID
@@ -358,7 +357,10 @@ impl ILocalLocationFinderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocalLocationFinderStatics>, ::windows::core::GetTrustLevel, FindLocalLocationsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILocalLocationFinderStatics, BASE_OFFSET>(),
+            FindLocalLocationsAsync: FindLocalLocationsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILocalLocationFinderStatics as ::windows::core::Interface>::IID
@@ -410,7 +412,12 @@ impl ILocalLocationHoursOfOperationItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocalLocationHoursOfOperationItem>, ::windows::core::GetTrustLevel, Day::<Impl, IMPL_OFFSET>, Start::<Impl, IMPL_OFFSET>, Span::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILocalLocationHoursOfOperationItem, BASE_OFFSET>(),
+            Day: Day::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Span: Span::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILocalLocationHoursOfOperationItem as ::windows::core::Interface>::IID
@@ -462,7 +469,12 @@ impl ILocalLocationRatingInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocalLocationRatingInfo>, ::windows::core::GetTrustLevel, AggregateRating::<Impl, IMPL_OFFSET>, RatingCount::<Impl, IMPL_OFFSET>, ProviderIdentifier::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILocalLocationRatingInfo, BASE_OFFSET>(),
+            AggregateRating: AggregateRating::<Impl, IMPL_OFFSET>,
+            RatingCount: RatingCount::<Impl, IMPL_OFFSET>,
+            ProviderIdentifier: ProviderIdentifier::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILocalLocationRatingInfo as ::windows::core::Interface>::IID
@@ -490,7 +502,10 @@ impl IPlaceInfoHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaceInfoHelperStatics>, ::windows::core::GetTrustLevel, CreateFromLocalLocation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlaceInfoHelperStatics, BASE_OFFSET>(),
+            CreateFromLocalLocation: CreateFromLocalLocation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlaceInfoHelperStatics as ::windows::core::Interface>::IID

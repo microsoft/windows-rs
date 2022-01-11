@@ -20,7 +20,7 @@ impl IAudioDeviceInputNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioDeviceInputNode>, ::windows::core::GetTrustLevel, Device::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioDeviceInputNode, BASE_OFFSET>(), Device: Device::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioDeviceInputNode as ::windows::core::Interface>::IID
@@ -48,7 +48,7 @@ impl IAudioDeviceOutputNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioDeviceOutputNode>, ::windows::core::GetTrustLevel, Device::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioDeviceOutputNode, BASE_OFFSET>(), Device: Device::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioDeviceOutputNode as ::windows::core::Interface>::IID
@@ -190,28 +190,23 @@ impl IAudioFileInputNodeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFileCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAudioFileInputNode>,
-            ::windows::core::GetTrustLevel,
-            SetPlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
-            PlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
-            Position::<Impl, IMPL_OFFSET>,
-            Seek::<Impl, IMPL_OFFSET>,
-            StartTime::<Impl, IMPL_OFFSET>,
-            SetStartTime::<Impl, IMPL_OFFSET>,
-            EndTime::<Impl, IMPL_OFFSET>,
-            SetEndTime::<Impl, IMPL_OFFSET>,
-            LoopCount::<Impl, IMPL_OFFSET>,
-            SetLoopCount::<Impl, IMPL_OFFSET>,
-            Duration::<Impl, IMPL_OFFSET>,
-            SourceFile::<Impl, IMPL_OFFSET>,
-            FileCompleted::<Impl, IMPL_OFFSET>,
-            RemoveFileCompleted::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioFileInputNode, BASE_OFFSET>(),
+            SetPlaybackSpeedFactor: SetPlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
+            PlaybackSpeedFactor: PlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            Seek: Seek::<Impl, IMPL_OFFSET>,
+            StartTime: StartTime::<Impl, IMPL_OFFSET>,
+            SetStartTime: SetStartTime::<Impl, IMPL_OFFSET>,
+            EndTime: EndTime::<Impl, IMPL_OFFSET>,
+            SetEndTime: SetEndTime::<Impl, IMPL_OFFSET>,
+            LoopCount: LoopCount::<Impl, IMPL_OFFSET>,
+            SetLoopCount: SetLoopCount::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            SourceFile: SourceFile::<Impl, IMPL_OFFSET>,
+            FileCompleted: FileCompleted::<Impl, IMPL_OFFSET>,
+            RemoveFileCompleted: RemoveFileCompleted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioFileInputNode as ::windows::core::Interface>::IID
@@ -263,7 +258,12 @@ impl IAudioFileOutputNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioFileOutputNode>, ::windows::core::GetTrustLevel, File::<Impl, IMPL_OFFSET>, FileEncodingProfile::<Impl, IMPL_OFFSET>, FinalizeAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioFileOutputNode, BASE_OFFSET>(),
+            File: File::<Impl, IMPL_OFFSET>,
+            FileEncodingProfile: FileEncodingProfile::<Impl, IMPL_OFFSET>,
+            FinalizeAsync: FinalizeAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioFileOutputNode as ::windows::core::Interface>::IID
@@ -291,7 +291,7 @@ impl IAudioFrameCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioFrameCompletedEventArgs>, ::windows::core::GetTrustLevel, Frame::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioFrameCompletedEventArgs, BASE_OFFSET>(), Frame: Frame::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioFrameCompletedEventArgs as ::windows::core::Interface>::IID
@@ -380,23 +380,18 @@ impl IAudioFrameInputNodeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveQuantumStarted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAudioFrameInputNode>,
-            ::windows::core::GetTrustLevel,
-            SetPlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
-            PlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
-            AddFrame::<Impl, IMPL_OFFSET>,
-            DiscardQueuedFrames::<Impl, IMPL_OFFSET>,
-            QueuedSampleCount::<Impl, IMPL_OFFSET>,
-            AudioFrameCompleted::<Impl, IMPL_OFFSET>,
-            RemoveAudioFrameCompleted::<Impl, IMPL_OFFSET>,
-            QuantumStarted::<Impl, IMPL_OFFSET>,
-            RemoveQuantumStarted::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioFrameInputNode, BASE_OFFSET>(),
+            SetPlaybackSpeedFactor: SetPlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
+            PlaybackSpeedFactor: PlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
+            AddFrame: AddFrame::<Impl, IMPL_OFFSET>,
+            DiscardQueuedFrames: DiscardQueuedFrames::<Impl, IMPL_OFFSET>,
+            QueuedSampleCount: QueuedSampleCount::<Impl, IMPL_OFFSET>,
+            AudioFrameCompleted: AudioFrameCompleted::<Impl, IMPL_OFFSET>,
+            RemoveAudioFrameCompleted: RemoveAudioFrameCompleted::<Impl, IMPL_OFFSET>,
+            QuantumStarted: QuantumStarted::<Impl, IMPL_OFFSET>,
+            RemoveQuantumStarted: RemoveQuantumStarted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioFrameInputNode as ::windows::core::Interface>::IID
@@ -424,7 +419,7 @@ impl IAudioFrameOutputNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioFrameOutputNode>, ::windows::core::GetTrustLevel, GetFrame::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioFrameOutputNode, BASE_OFFSET>(), GetFrame: GetFrame::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioFrameOutputNode as ::windows::core::Interface>::IID
@@ -734,42 +729,37 @@ impl IAudioGraphVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAudioGraph>,
-            ::windows::core::GetTrustLevel,
-            CreateFrameInputNode::<Impl, IMPL_OFFSET>,
-            CreateFrameInputNodeWithFormat::<Impl, IMPL_OFFSET>,
-            CreateDeviceInputNodeAsync::<Impl, IMPL_OFFSET>,
-            CreateDeviceInputNodeWithFormatAsync::<Impl, IMPL_OFFSET>,
-            CreateDeviceInputNodeWithFormatOnDeviceAsync::<Impl, IMPL_OFFSET>,
-            CreateFrameOutputNode::<Impl, IMPL_OFFSET>,
-            CreateFrameOutputNodeWithFormat::<Impl, IMPL_OFFSET>,
-            CreateDeviceOutputNodeAsync::<Impl, IMPL_OFFSET>,
-            CreateFileInputNodeAsync::<Impl, IMPL_OFFSET>,
-            CreateFileOutputNodeAsync::<Impl, IMPL_OFFSET>,
-            CreateFileOutputNodeWithFileProfileAsync::<Impl, IMPL_OFFSET>,
-            CreateSubmixNode::<Impl, IMPL_OFFSET>,
-            CreateSubmixNodeWithFormat::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            ResetAllNodes::<Impl, IMPL_OFFSET>,
-            QuantumStarted::<Impl, IMPL_OFFSET>,
-            RemoveQuantumStarted::<Impl, IMPL_OFFSET>,
-            QuantumProcessed::<Impl, IMPL_OFFSET>,
-            RemoveQuantumProcessed::<Impl, IMPL_OFFSET>,
-            UnrecoverableErrorOccurred::<Impl, IMPL_OFFSET>,
-            RemoveUnrecoverableErrorOccurred::<Impl, IMPL_OFFSET>,
-            CompletedQuantumCount::<Impl, IMPL_OFFSET>,
-            EncodingProperties::<Impl, IMPL_OFFSET>,
-            LatencyInSamples::<Impl, IMPL_OFFSET>,
-            PrimaryRenderDevice::<Impl, IMPL_OFFSET>,
-            RenderDeviceAudioProcessing::<Impl, IMPL_OFFSET>,
-            SamplesPerQuantum::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioGraph, BASE_OFFSET>(),
+            CreateFrameInputNode: CreateFrameInputNode::<Impl, IMPL_OFFSET>,
+            CreateFrameInputNodeWithFormat: CreateFrameInputNodeWithFormat::<Impl, IMPL_OFFSET>,
+            CreateDeviceInputNodeAsync: CreateDeviceInputNodeAsync::<Impl, IMPL_OFFSET>,
+            CreateDeviceInputNodeWithFormatAsync: CreateDeviceInputNodeWithFormatAsync::<Impl, IMPL_OFFSET>,
+            CreateDeviceInputNodeWithFormatOnDeviceAsync: CreateDeviceInputNodeWithFormatOnDeviceAsync::<Impl, IMPL_OFFSET>,
+            CreateFrameOutputNode: CreateFrameOutputNode::<Impl, IMPL_OFFSET>,
+            CreateFrameOutputNodeWithFormat: CreateFrameOutputNodeWithFormat::<Impl, IMPL_OFFSET>,
+            CreateDeviceOutputNodeAsync: CreateDeviceOutputNodeAsync::<Impl, IMPL_OFFSET>,
+            CreateFileInputNodeAsync: CreateFileInputNodeAsync::<Impl, IMPL_OFFSET>,
+            CreateFileOutputNodeAsync: CreateFileOutputNodeAsync::<Impl, IMPL_OFFSET>,
+            CreateFileOutputNodeWithFileProfileAsync: CreateFileOutputNodeWithFileProfileAsync::<Impl, IMPL_OFFSET>,
+            CreateSubmixNode: CreateSubmixNode::<Impl, IMPL_OFFSET>,
+            CreateSubmixNodeWithFormat: CreateSubmixNodeWithFormat::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            ResetAllNodes: ResetAllNodes::<Impl, IMPL_OFFSET>,
+            QuantumStarted: QuantumStarted::<Impl, IMPL_OFFSET>,
+            RemoveQuantumStarted: RemoveQuantumStarted::<Impl, IMPL_OFFSET>,
+            QuantumProcessed: QuantumProcessed::<Impl, IMPL_OFFSET>,
+            RemoveQuantumProcessed: RemoveQuantumProcessed::<Impl, IMPL_OFFSET>,
+            UnrecoverableErrorOccurred: UnrecoverableErrorOccurred::<Impl, IMPL_OFFSET>,
+            RemoveUnrecoverableErrorOccurred: RemoveUnrecoverableErrorOccurred::<Impl, IMPL_OFFSET>,
+            CompletedQuantumCount: CompletedQuantumCount::<Impl, IMPL_OFFSET>,
+            EncodingProperties: EncodingProperties::<Impl, IMPL_OFFSET>,
+            LatencyInSamples: LatencyInSamples::<Impl, IMPL_OFFSET>,
+            PrimaryRenderDevice: PrimaryRenderDevice::<Impl, IMPL_OFFSET>,
+            RenderDeviceAudioProcessing: RenderDeviceAudioProcessing::<Impl, IMPL_OFFSET>,
+            SamplesPerQuantum: SamplesPerQuantum::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioGraph as ::windows::core::Interface>::IID
@@ -850,19 +840,14 @@ impl IAudioGraph2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAudioGraph2>,
-            ::windows::core::GetTrustLevel,
-            CreateFrameInputNodeWithFormatAndEmitter::<Impl, IMPL_OFFSET>,
-            CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync::<Impl, IMPL_OFFSET>,
-            CreateFileInputNodeWithEmitterAsync::<Impl, IMPL_OFFSET>,
-            CreateSubmixNodeWithFormatAndEmitter::<Impl, IMPL_OFFSET>,
-            CreateBatchUpdater::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioGraph2, BASE_OFFSET>(),
+            CreateFrameInputNodeWithFormatAndEmitter: CreateFrameInputNodeWithFormatAndEmitter::<Impl, IMPL_OFFSET>,
+            CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync: CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync::<Impl, IMPL_OFFSET>,
+            CreateFileInputNodeWithEmitterAsync: CreateFileInputNodeWithEmitterAsync::<Impl, IMPL_OFFSET>,
+            CreateSubmixNodeWithFormatAndEmitter: CreateSubmixNodeWithFormatAndEmitter::<Impl, IMPL_OFFSET>,
+            CreateBatchUpdater: CreateBatchUpdater::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioGraph2 as ::windows::core::Interface>::IID
@@ -902,7 +887,11 @@ impl IAudioGraph3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioGraph3>, ::windows::core::GetTrustLevel, CreateMediaSourceAudioInputNodeAsync::<Impl, IMPL_OFFSET>, CreateMediaSourceAudioInputNodeWithEmitterAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioGraph3, BASE_OFFSET>(),
+            CreateMediaSourceAudioInputNodeAsync: CreateMediaSourceAudioInputNodeAsync::<Impl, IMPL_OFFSET>,
+            CreateMediaSourceAudioInputNodeWithEmitterAsync: CreateMediaSourceAudioInputNodeWithEmitterAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioGraph3 as ::windows::core::Interface>::IID
@@ -947,7 +936,12 @@ impl IAudioGraphConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioGraphConnection>, ::windows::core::GetTrustLevel, Destination::<Impl, IMPL_OFFSET>, SetGain::<Impl, IMPL_OFFSET>, Gain::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioGraphConnection, BASE_OFFSET>(),
+            Destination: Destination::<Impl, IMPL_OFFSET>,
+            SetGain: SetGain::<Impl, IMPL_OFFSET>,
+            Gain: Gain::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioGraphConnection as ::windows::core::Interface>::IID
@@ -1065,26 +1059,21 @@ impl IAudioGraphSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredRenderDeviceAudioProcessing(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAudioGraphSettings>,
-            ::windows::core::GetTrustLevel,
-            EncodingProperties::<Impl, IMPL_OFFSET>,
-            SetEncodingProperties::<Impl, IMPL_OFFSET>,
-            PrimaryRenderDevice::<Impl, IMPL_OFFSET>,
-            SetPrimaryRenderDevice::<Impl, IMPL_OFFSET>,
-            QuantumSizeSelectionMode::<Impl, IMPL_OFFSET>,
-            SetQuantumSizeSelectionMode::<Impl, IMPL_OFFSET>,
-            DesiredSamplesPerQuantum::<Impl, IMPL_OFFSET>,
-            SetDesiredSamplesPerQuantum::<Impl, IMPL_OFFSET>,
-            AudioRenderCategory::<Impl, IMPL_OFFSET>,
-            SetAudioRenderCategory::<Impl, IMPL_OFFSET>,
-            DesiredRenderDeviceAudioProcessing::<Impl, IMPL_OFFSET>,
-            SetDesiredRenderDeviceAudioProcessing::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioGraphSettings, BASE_OFFSET>(),
+            EncodingProperties: EncodingProperties::<Impl, IMPL_OFFSET>,
+            SetEncodingProperties: SetEncodingProperties::<Impl, IMPL_OFFSET>,
+            PrimaryRenderDevice: PrimaryRenderDevice::<Impl, IMPL_OFFSET>,
+            SetPrimaryRenderDevice: SetPrimaryRenderDevice::<Impl, IMPL_OFFSET>,
+            QuantumSizeSelectionMode: QuantumSizeSelectionMode::<Impl, IMPL_OFFSET>,
+            SetQuantumSizeSelectionMode: SetQuantumSizeSelectionMode::<Impl, IMPL_OFFSET>,
+            DesiredSamplesPerQuantum: DesiredSamplesPerQuantum::<Impl, IMPL_OFFSET>,
+            SetDesiredSamplesPerQuantum: SetDesiredSamplesPerQuantum::<Impl, IMPL_OFFSET>,
+            AudioRenderCategory: AudioRenderCategory::<Impl, IMPL_OFFSET>,
+            SetAudioRenderCategory: SetAudioRenderCategory::<Impl, IMPL_OFFSET>,
+            DesiredRenderDeviceAudioProcessing: DesiredRenderDeviceAudioProcessing::<Impl, IMPL_OFFSET>,
+            SetDesiredRenderDeviceAudioProcessing: SetDesiredRenderDeviceAudioProcessing::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioGraphSettings as ::windows::core::Interface>::IID
@@ -1117,7 +1106,11 @@ impl IAudioGraphSettings2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioGraphSettings2>, ::windows::core::GetTrustLevel, SetMaxPlaybackSpeedFactor::<Impl, IMPL_OFFSET>, MaxPlaybackSpeedFactor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioGraphSettings2, BASE_OFFSET>(),
+            SetMaxPlaybackSpeedFactor: SetMaxPlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
+            MaxPlaybackSpeedFactor: MaxPlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioGraphSettings2 as ::windows::core::Interface>::IID
@@ -1145,7 +1138,7 @@ impl IAudioGraphSettingsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioGraphSettingsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioGraphSettingsFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioGraphSettingsFactory as ::windows::core::Interface>::IID
@@ -1173,7 +1166,7 @@ impl IAudioGraphStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioGraphStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioGraphStatics, BASE_OFFSET>(), CreateAsync: CreateAsync::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioGraphStatics as ::windows::core::Interface>::IID
@@ -1201,7 +1194,10 @@ impl IAudioGraphUnrecoverableErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioGraphUnrecoverableErrorOccurredEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioGraphUnrecoverableErrorOccurredEventArgs, BASE_OFFSET>(),
+            Error: Error::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioGraphUnrecoverableErrorOccurredEventArgs as ::windows::core::Interface>::IID
@@ -1244,7 +1240,13 @@ impl IAudioInputNodeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveOutgoingConnection(&*(&destination as *const <IAudioNode as ::windows::core::Abi>::Abi as *const <IAudioNode as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioInputNode>, ::windows::core::GetTrustLevel, OutgoingConnections::<Impl, IMPL_OFFSET>, AddOutgoingConnection::<Impl, IMPL_OFFSET>, AddOutgoingConnectionWithGain::<Impl, IMPL_OFFSET>, RemoveOutgoingConnection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioInputNode, BASE_OFFSET>(),
+            OutgoingConnections: OutgoingConnections::<Impl, IMPL_OFFSET>,
+            AddOutgoingConnection: AddOutgoingConnection::<Impl, IMPL_OFFSET>,
+            AddOutgoingConnectionWithGain: AddOutgoingConnectionWithGain::<Impl, IMPL_OFFSET>,
+            RemoveOutgoingConnection: RemoveOutgoingConnection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioInputNode as ::windows::core::Interface>::IID
@@ -1272,7 +1274,7 @@ impl IAudioInputNode2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioInputNode2>, ::windows::core::GetTrustLevel, Emitter::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioInputNode2, BASE_OFFSET>(), Emitter: Emitter::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioInputNode2 as ::windows::core::Interface>::IID
@@ -1371,25 +1373,20 @@ impl IAudioNodeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableEffectsByDefinition(&*(&definition as *const <super::Effects::IAudioEffectDefinition as ::windows::core::Abi>::Abi as *const <super::Effects::IAudioEffectDefinition as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAudioNode>,
-            ::windows::core::GetTrustLevel,
-            EffectDefinitions::<Impl, IMPL_OFFSET>,
-            SetOutgoingGain::<Impl, IMPL_OFFSET>,
-            OutgoingGain::<Impl, IMPL_OFFSET>,
-            EncodingProperties::<Impl, IMPL_OFFSET>,
-            ConsumeInput::<Impl, IMPL_OFFSET>,
-            SetConsumeInput::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            Reset::<Impl, IMPL_OFFSET>,
-            DisableEffectsByDefinition::<Impl, IMPL_OFFSET>,
-            EnableEffectsByDefinition::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNode, BASE_OFFSET>(),
+            EffectDefinitions: EffectDefinitions::<Impl, IMPL_OFFSET>,
+            SetOutgoingGain: SetOutgoingGain::<Impl, IMPL_OFFSET>,
+            OutgoingGain: OutgoingGain::<Impl, IMPL_OFFSET>,
+            EncodingProperties: EncodingProperties::<Impl, IMPL_OFFSET>,
+            ConsumeInput: ConsumeInput::<Impl, IMPL_OFFSET>,
+            SetConsumeInput: SetConsumeInput::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            DisableEffectsByDefinition: DisableEffectsByDefinition::<Impl, IMPL_OFFSET>,
+            EnableEffectsByDefinition: EnableEffectsByDefinition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioNode as ::windows::core::Interface>::IID
@@ -1543,29 +1540,24 @@ impl IAudioNodeEmitterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAudioNodeEmitter>,
-            ::windows::core::GetTrustLevel,
-            Position::<Impl, IMPL_OFFSET>,
-            SetPosition::<Impl, IMPL_OFFSET>,
-            Direction::<Impl, IMPL_OFFSET>,
-            SetDirection::<Impl, IMPL_OFFSET>,
-            Shape::<Impl, IMPL_OFFSET>,
-            DecayModel::<Impl, IMPL_OFFSET>,
-            Gain::<Impl, IMPL_OFFSET>,
-            SetGain::<Impl, IMPL_OFFSET>,
-            DistanceScale::<Impl, IMPL_OFFSET>,
-            SetDistanceScale::<Impl, IMPL_OFFSET>,
-            DopplerScale::<Impl, IMPL_OFFSET>,
-            SetDopplerScale::<Impl, IMPL_OFFSET>,
-            DopplerVelocity::<Impl, IMPL_OFFSET>,
-            SetDopplerVelocity::<Impl, IMPL_OFFSET>,
-            IsDopplerDisabled::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNodeEmitter, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            SetPosition: SetPosition::<Impl, IMPL_OFFSET>,
+            Direction: Direction::<Impl, IMPL_OFFSET>,
+            SetDirection: SetDirection::<Impl, IMPL_OFFSET>,
+            Shape: Shape::<Impl, IMPL_OFFSET>,
+            DecayModel: DecayModel::<Impl, IMPL_OFFSET>,
+            Gain: Gain::<Impl, IMPL_OFFSET>,
+            SetGain: SetGain::<Impl, IMPL_OFFSET>,
+            DistanceScale: DistanceScale::<Impl, IMPL_OFFSET>,
+            SetDistanceScale: SetDistanceScale::<Impl, IMPL_OFFSET>,
+            DopplerScale: DopplerScale::<Impl, IMPL_OFFSET>,
+            SetDopplerScale: SetDopplerScale::<Impl, IMPL_OFFSET>,
+            DopplerVelocity: DopplerVelocity::<Impl, IMPL_OFFSET>,
+            SetDopplerVelocity: SetDopplerVelocity::<Impl, IMPL_OFFSET>,
+            IsDopplerDisabled: IsDopplerDisabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioNodeEmitter as ::windows::core::Interface>::IID
@@ -1598,7 +1590,11 @@ impl IAudioNodeEmitter2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSpatialAudioModel(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioNodeEmitter2>, ::windows::core::GetTrustLevel, SpatialAudioModel::<Impl, IMPL_OFFSET>, SetSpatialAudioModel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNodeEmitter2, BASE_OFFSET>(),
+            SpatialAudioModel: SpatialAudioModel::<Impl, IMPL_OFFSET>,
+            SetSpatialAudioModel: SetSpatialAudioModel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioNodeEmitter2 as ::windows::core::Interface>::IID
@@ -1650,7 +1646,12 @@ impl IAudioNodeEmitterConePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioNodeEmitterConeProperties>, ::windows::core::GetTrustLevel, InnerAngle::<Impl, IMPL_OFFSET>, OuterAngle::<Impl, IMPL_OFFSET>, OuterAngleGain::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNodeEmitterConeProperties, BASE_OFFSET>(),
+            InnerAngle: InnerAngle::<Impl, IMPL_OFFSET>,
+            OuterAngle: OuterAngle::<Impl, IMPL_OFFSET>,
+            OuterAngleGain: OuterAngleGain::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioNodeEmitterConeProperties as ::windows::core::Interface>::IID
@@ -1714,7 +1715,13 @@ impl IAudioNodeEmitterDecayModelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioNodeEmitterDecayModel>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, MinGain::<Impl, IMPL_OFFSET>, MaxGain::<Impl, IMPL_OFFSET>, NaturalProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNodeEmitterDecayModel, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            MinGain: MinGain::<Impl, IMPL_OFFSET>,
+            MaxGain: MaxGain::<Impl, IMPL_OFFSET>,
+            NaturalProperties: NaturalProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioNodeEmitterDecayModel as ::windows::core::Interface>::IID
@@ -1754,7 +1761,11 @@ impl IAudioNodeEmitterDecayModelStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioNodeEmitterDecayModelStatics>, ::windows::core::GetTrustLevel, CreateNatural::<Impl, IMPL_OFFSET>, CreateCustom::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNodeEmitterDecayModelStatics, BASE_OFFSET>(),
+            CreateNatural: CreateNatural::<Impl, IMPL_OFFSET>,
+            CreateCustom: CreateCustom::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioNodeEmitterDecayModelStatics as ::windows::core::Interface>::IID
@@ -1782,7 +1793,10 @@ impl IAudioNodeEmitterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioNodeEmitterFactory>, ::windows::core::GetTrustLevel, CreateAudioNodeEmitter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNodeEmitterFactory, BASE_OFFSET>(),
+            CreateAudioNodeEmitter: CreateAudioNodeEmitter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioNodeEmitterFactory as ::windows::core::Interface>::IID
@@ -1822,7 +1836,11 @@ impl IAudioNodeEmitterNaturalDecayModelPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioNodeEmitterNaturalDecayModelProperties>, ::windows::core::GetTrustLevel, UnityGainDistance::<Impl, IMPL_OFFSET>, CutoffDistance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNodeEmitterNaturalDecayModelProperties, BASE_OFFSET>(),
+            UnityGainDistance: UnityGainDistance::<Impl, IMPL_OFFSET>,
+            CutoffDistance: CutoffDistance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioNodeEmitterNaturalDecayModelProperties as ::windows::core::Interface>::IID
@@ -1862,7 +1880,11 @@ impl IAudioNodeEmitterShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioNodeEmitterShape>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, ConeProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNodeEmitterShape, BASE_OFFSET>(),
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            ConeProperties: ConeProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioNodeEmitterShape as ::windows::core::Interface>::IID
@@ -1902,7 +1924,11 @@ impl IAudioNodeEmitterShapeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioNodeEmitterShapeStatics>, ::windows::core::GetTrustLevel, CreateCone::<Impl, IMPL_OFFSET>, CreateOmnidirectional::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNodeEmitterShapeStatics, BASE_OFFSET>(),
+            CreateCone: CreateCone::<Impl, IMPL_OFFSET>,
+            CreateOmnidirectional: CreateOmnidirectional::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioNodeEmitterShapeStatics as ::windows::core::Interface>::IID
@@ -1986,22 +2012,17 @@ impl IAudioNodeListenerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDopplerVelocity(&*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAudioNodeListener>,
-            ::windows::core::GetTrustLevel,
-            Position::<Impl, IMPL_OFFSET>,
-            SetPosition::<Impl, IMPL_OFFSET>,
-            Orientation::<Impl, IMPL_OFFSET>,
-            SetOrientation::<Impl, IMPL_OFFSET>,
-            SpeedOfSound::<Impl, IMPL_OFFSET>,
-            SetSpeedOfSound::<Impl, IMPL_OFFSET>,
-            DopplerVelocity::<Impl, IMPL_OFFSET>,
-            SetDopplerVelocity::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNodeListener, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            SetPosition: SetPosition::<Impl, IMPL_OFFSET>,
+            Orientation: Orientation::<Impl, IMPL_OFFSET>,
+            SetOrientation: SetOrientation::<Impl, IMPL_OFFSET>,
+            SpeedOfSound: SpeedOfSound::<Impl, IMPL_OFFSET>,
+            SetSpeedOfSound: SetSpeedOfSound::<Impl, IMPL_OFFSET>,
+            DopplerVelocity: DopplerVelocity::<Impl, IMPL_OFFSET>,
+            SetDopplerVelocity: SetDopplerVelocity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioNodeListener as ::windows::core::Interface>::IID
@@ -2034,7 +2055,11 @@ impl IAudioNodeWithListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioNodeWithListener>, ::windows::core::GetTrustLevel, SetListener::<Impl, IMPL_OFFSET>, Listener::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNodeWithListener, BASE_OFFSET>(),
+            SetListener: SetListener::<Impl, IMPL_OFFSET>,
+            Listener: Listener::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioNodeWithListener as ::windows::core::Interface>::IID
@@ -2132,22 +2157,17 @@ impl IAudioPlaybackConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAudioPlaybackConnection>,
-            ::windows::core::GetTrustLevel,
-            Start::<Impl, IMPL_OFFSET>,
-            StartAsync::<Impl, IMPL_OFFSET>,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            Open::<Impl, IMPL_OFFSET>,
-            OpenAsync::<Impl, IMPL_OFFSET>,
-            StateChanged::<Impl, IMPL_OFFSET>,
-            RemoveStateChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioPlaybackConnection, BASE_OFFSET>(),
+            Start: Start::<Impl, IMPL_OFFSET>,
+            StartAsync: StartAsync::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            Open: Open::<Impl, IMPL_OFFSET>,
+            OpenAsync: OpenAsync::<Impl, IMPL_OFFSET>,
+            StateChanged: StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged: RemoveStateChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioPlaybackConnection as ::windows::core::Interface>::IID
@@ -2187,7 +2207,11 @@ impl IAudioPlaybackConnectionOpenResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioPlaybackConnectionOpenResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioPlaybackConnectionOpenResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioPlaybackConnectionOpenResult as ::windows::core::Interface>::IID
@@ -2227,7 +2251,11 @@ impl IAudioPlaybackConnectionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioPlaybackConnectionStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, TryCreateFromId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioPlaybackConnectionStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            TryCreateFromId: TryCreateFromId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioPlaybackConnectionStatics as ::windows::core::Interface>::IID
@@ -2272,7 +2300,12 @@ impl IAudioStateMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioStateMonitor>, ::windows::core::GetTrustLevel, SoundLevelChanged::<Impl, IMPL_OFFSET>, RemoveSoundLevelChanged::<Impl, IMPL_OFFSET>, SoundLevel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioStateMonitor, BASE_OFFSET>(),
+            SoundLevelChanged: SoundLevelChanged::<Impl, IMPL_OFFSET>,
+            RemoveSoundLevelChanged: RemoveSoundLevelChanged::<Impl, IMPL_OFFSET>,
+            SoundLevel: SoundLevel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioStateMonitor as ::windows::core::Interface>::IID
@@ -2384,22 +2417,17 @@ impl IAudioStateMonitorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAudioStateMonitorStatics>,
-            ::windows::core::GetTrustLevel,
-            CreateForRenderMonitoring::<Impl, IMPL_OFFSET>,
-            CreateForRenderMonitoringWithCategory::<Impl, IMPL_OFFSET>,
-            CreateForRenderMonitoringWithCategoryAndDeviceRole::<Impl, IMPL_OFFSET>,
-            CreateForRenderMonitoringWithCategoryAndDeviceId::<Impl, IMPL_OFFSET>,
-            CreateForCaptureMonitoring::<Impl, IMPL_OFFSET>,
-            CreateForCaptureMonitoringWithCategory::<Impl, IMPL_OFFSET>,
-            CreateForCaptureMonitoringWithCategoryAndDeviceRole::<Impl, IMPL_OFFSET>,
-            CreateForCaptureMonitoringWithCategoryAndDeviceId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioStateMonitorStatics, BASE_OFFSET>(),
+            CreateForRenderMonitoring: CreateForRenderMonitoring::<Impl, IMPL_OFFSET>,
+            CreateForRenderMonitoringWithCategory: CreateForRenderMonitoringWithCategory::<Impl, IMPL_OFFSET>,
+            CreateForRenderMonitoringWithCategoryAndDeviceRole: CreateForRenderMonitoringWithCategoryAndDeviceRole::<Impl, IMPL_OFFSET>,
+            CreateForRenderMonitoringWithCategoryAndDeviceId: CreateForRenderMonitoringWithCategoryAndDeviceId::<Impl, IMPL_OFFSET>,
+            CreateForCaptureMonitoring: CreateForCaptureMonitoring::<Impl, IMPL_OFFSET>,
+            CreateForCaptureMonitoringWithCategory: CreateForCaptureMonitoringWithCategory::<Impl, IMPL_OFFSET>,
+            CreateForCaptureMonitoringWithCategoryAndDeviceRole: CreateForCaptureMonitoringWithCategoryAndDeviceRole::<Impl, IMPL_OFFSET>,
+            CreateForCaptureMonitoringWithCategoryAndDeviceId: CreateForCaptureMonitoringWithCategoryAndDeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioStateMonitorStatics as ::windows::core::Interface>::IID
@@ -2439,7 +2467,11 @@ impl ICreateAudioDeviceInputNodeResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICreateAudioDeviceInputNodeResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, DeviceInputNode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateAudioDeviceInputNodeResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            DeviceInputNode: DeviceInputNode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateAudioDeviceInputNodeResult as ::windows::core::Interface>::IID
@@ -2467,7 +2499,10 @@ impl ICreateAudioDeviceInputNodeResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICreateAudioDeviceInputNodeResult2>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateAudioDeviceInputNodeResult2, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateAudioDeviceInputNodeResult2 as ::windows::core::Interface>::IID
@@ -2507,7 +2542,11 @@ impl ICreateAudioDeviceOutputNodeResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICreateAudioDeviceOutputNodeResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, DeviceOutputNode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateAudioDeviceOutputNodeResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            DeviceOutputNode: DeviceOutputNode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateAudioDeviceOutputNodeResult as ::windows::core::Interface>::IID
@@ -2535,7 +2574,10 @@ impl ICreateAudioDeviceOutputNodeResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICreateAudioDeviceOutputNodeResult2>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateAudioDeviceOutputNodeResult2, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateAudioDeviceOutputNodeResult2 as ::windows::core::Interface>::IID
@@ -2575,7 +2617,11 @@ impl ICreateAudioFileInputNodeResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICreateAudioFileInputNodeResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, FileInputNode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateAudioFileInputNodeResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            FileInputNode: FileInputNode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateAudioFileInputNodeResult as ::windows::core::Interface>::IID
@@ -2603,7 +2649,10 @@ impl ICreateAudioFileInputNodeResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICreateAudioFileInputNodeResult2>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateAudioFileInputNodeResult2, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateAudioFileInputNodeResult2 as ::windows::core::Interface>::IID
@@ -2643,7 +2692,11 @@ impl ICreateAudioFileOutputNodeResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICreateAudioFileOutputNodeResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, FileOutputNode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateAudioFileOutputNodeResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            FileOutputNode: FileOutputNode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateAudioFileOutputNodeResult as ::windows::core::Interface>::IID
@@ -2671,7 +2724,10 @@ impl ICreateAudioFileOutputNodeResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICreateAudioFileOutputNodeResult2>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateAudioFileOutputNodeResult2, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateAudioFileOutputNodeResult2 as ::windows::core::Interface>::IID
@@ -2711,7 +2767,11 @@ impl ICreateAudioGraphResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICreateAudioGraphResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Graph::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateAudioGraphResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Graph: Graph::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateAudioGraphResult as ::windows::core::Interface>::IID
@@ -2739,7 +2799,10 @@ impl ICreateAudioGraphResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICreateAudioGraphResult2>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateAudioGraphResult2, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateAudioGraphResult2 as ::windows::core::Interface>::IID
@@ -2779,7 +2842,11 @@ impl ICreateMediaSourceAudioInputNodeResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICreateMediaSourceAudioInputNodeResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Node::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateMediaSourceAudioInputNodeResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Node: Node::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateMediaSourceAudioInputNodeResult as ::windows::core::Interface>::IID
@@ -2807,7 +2874,10 @@ impl ICreateMediaSourceAudioInputNodeResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICreateMediaSourceAudioInputNodeResult2>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateMediaSourceAudioInputNodeResult2, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateMediaSourceAudioInputNodeResult2 as ::windows::core::Interface>::IID
@@ -2874,7 +2944,15 @@ impl IEchoEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEchoEffectDefinition>, ::windows::core::GetTrustLevel, SetWetDryMix::<Impl, IMPL_OFFSET>, WetDryMix::<Impl, IMPL_OFFSET>, SetFeedback::<Impl, IMPL_OFFSET>, Feedback::<Impl, IMPL_OFFSET>, SetDelay::<Impl, IMPL_OFFSET>, Delay::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEchoEffectDefinition, BASE_OFFSET>(),
+            SetWetDryMix: SetWetDryMix::<Impl, IMPL_OFFSET>,
+            WetDryMix: WetDryMix::<Impl, IMPL_OFFSET>,
+            SetFeedback: SetFeedback::<Impl, IMPL_OFFSET>,
+            Feedback: Feedback::<Impl, IMPL_OFFSET>,
+            SetDelay: SetDelay::<Impl, IMPL_OFFSET>,
+            Delay: Delay::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEchoEffectDefinition as ::windows::core::Interface>::IID
@@ -2902,7 +2980,7 @@ impl IEchoEffectDefinitionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEchoEffectDefinitionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IEchoEffectDefinitionFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEchoEffectDefinitionFactory as ::windows::core::Interface>::IID
@@ -2969,7 +3047,15 @@ impl IEqualizerBandVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGain(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEqualizerBand>, ::windows::core::GetTrustLevel, Bandwidth::<Impl, IMPL_OFFSET>, SetBandwidth::<Impl, IMPL_OFFSET>, FrequencyCenter::<Impl, IMPL_OFFSET>, SetFrequencyCenter::<Impl, IMPL_OFFSET>, Gain::<Impl, IMPL_OFFSET>, SetGain::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEqualizerBand, BASE_OFFSET>(),
+            Bandwidth: Bandwidth::<Impl, IMPL_OFFSET>,
+            SetBandwidth: SetBandwidth::<Impl, IMPL_OFFSET>,
+            FrequencyCenter: FrequencyCenter::<Impl, IMPL_OFFSET>,
+            SetFrequencyCenter: SetFrequencyCenter::<Impl, IMPL_OFFSET>,
+            Gain: Gain::<Impl, IMPL_OFFSET>,
+            SetGain: SetGain::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEqualizerBand as ::windows::core::Interface>::IID
@@ -2997,7 +3083,7 @@ impl IEqualizerEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEqualizerEffectDefinition>, ::windows::core::GetTrustLevel, Bands::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IEqualizerEffectDefinition, BASE_OFFSET>(), Bands: Bands::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEqualizerEffectDefinition as ::windows::core::Interface>::IID
@@ -3025,7 +3111,7 @@ impl IEqualizerEffectDefinitionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEqualizerEffectDefinitionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IEqualizerEffectDefinitionFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEqualizerEffectDefinitionFactory as ::windows::core::Interface>::IID
@@ -3053,7 +3139,10 @@ impl IFrameInputNodeQuantumStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameInputNodeQuantumStartedEventArgs>, ::windows::core::GetTrustLevel, RequiredSamples::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameInputNodeQuantumStartedEventArgs, BASE_OFFSET>(),
+            RequiredSamples: RequiredSamples::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameInputNodeQuantumStartedEventArgs as ::windows::core::Interface>::IID
@@ -3103,7 +3192,13 @@ impl ILimiterEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILimiterEffectDefinition>, ::windows::core::GetTrustLevel, SetRelease::<Impl, IMPL_OFFSET>, Release::<Impl, IMPL_OFFSET>, SetLoudness::<Impl, IMPL_OFFSET>, Loudness::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILimiterEffectDefinition, BASE_OFFSET>(),
+            SetRelease: SetRelease::<Impl, IMPL_OFFSET>,
+            Release: Release::<Impl, IMPL_OFFSET>,
+            SetLoudness: SetLoudness::<Impl, IMPL_OFFSET>,
+            Loudness: Loudness::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILimiterEffectDefinition as ::windows::core::Interface>::IID
@@ -3131,7 +3226,7 @@ impl ILimiterEffectDefinitionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILimiterEffectDefinitionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILimiterEffectDefinitionFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILimiterEffectDefinitionFactory as ::windows::core::Interface>::IID
@@ -3273,28 +3368,23 @@ impl IMediaSourceAudioInputNodeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMediaSourceCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaSourceAudioInputNode>,
-            ::windows::core::GetTrustLevel,
-            SetPlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
-            PlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
-            Position::<Impl, IMPL_OFFSET>,
-            Seek::<Impl, IMPL_OFFSET>,
-            StartTime::<Impl, IMPL_OFFSET>,
-            SetStartTime::<Impl, IMPL_OFFSET>,
-            EndTime::<Impl, IMPL_OFFSET>,
-            SetEndTime::<Impl, IMPL_OFFSET>,
-            LoopCount::<Impl, IMPL_OFFSET>,
-            SetLoopCount::<Impl, IMPL_OFFSET>,
-            Duration::<Impl, IMPL_OFFSET>,
-            MediaSource::<Impl, IMPL_OFFSET>,
-            MediaSourceCompleted::<Impl, IMPL_OFFSET>,
-            RemoveMediaSourceCompleted::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSourceAudioInputNode, BASE_OFFSET>(),
+            SetPlaybackSpeedFactor: SetPlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
+            PlaybackSpeedFactor: PlaybackSpeedFactor::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            Seek: Seek::<Impl, IMPL_OFFSET>,
+            StartTime: StartTime::<Impl, IMPL_OFFSET>,
+            SetStartTime: SetStartTime::<Impl, IMPL_OFFSET>,
+            EndTime: EndTime::<Impl, IMPL_OFFSET>,
+            SetEndTime: SetEndTime::<Impl, IMPL_OFFSET>,
+            LoopCount: LoopCount::<Impl, IMPL_OFFSET>,
+            SetLoopCount: SetLoopCount::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            MediaSource: MediaSource::<Impl, IMPL_OFFSET>,
+            MediaSourceCompleted: MediaSourceCompleted::<Impl, IMPL_OFFSET>,
+            RemoveMediaSourceCompleted: RemoveMediaSourceCompleted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSourceAudioInputNode as ::windows::core::Interface>::IID
@@ -3701,60 +3791,55 @@ impl IReverbEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IReverbEffectDefinition>,
-            ::windows::core::GetTrustLevel,
-            SetWetDryMix::<Impl, IMPL_OFFSET>,
-            WetDryMix::<Impl, IMPL_OFFSET>,
-            SetReflectionsDelay::<Impl, IMPL_OFFSET>,
-            ReflectionsDelay::<Impl, IMPL_OFFSET>,
-            SetReverbDelay::<Impl, IMPL_OFFSET>,
-            ReverbDelay::<Impl, IMPL_OFFSET>,
-            SetRearDelay::<Impl, IMPL_OFFSET>,
-            RearDelay::<Impl, IMPL_OFFSET>,
-            SetPositionLeft::<Impl, IMPL_OFFSET>,
-            PositionLeft::<Impl, IMPL_OFFSET>,
-            SetPositionRight::<Impl, IMPL_OFFSET>,
-            PositionRight::<Impl, IMPL_OFFSET>,
-            SetPositionMatrixLeft::<Impl, IMPL_OFFSET>,
-            PositionMatrixLeft::<Impl, IMPL_OFFSET>,
-            SetPositionMatrixRight::<Impl, IMPL_OFFSET>,
-            PositionMatrixRight::<Impl, IMPL_OFFSET>,
-            SetEarlyDiffusion::<Impl, IMPL_OFFSET>,
-            EarlyDiffusion::<Impl, IMPL_OFFSET>,
-            SetLateDiffusion::<Impl, IMPL_OFFSET>,
-            LateDiffusion::<Impl, IMPL_OFFSET>,
-            SetLowEQGain::<Impl, IMPL_OFFSET>,
-            LowEQGain::<Impl, IMPL_OFFSET>,
-            SetLowEQCutoff::<Impl, IMPL_OFFSET>,
-            LowEQCutoff::<Impl, IMPL_OFFSET>,
-            SetHighEQGain::<Impl, IMPL_OFFSET>,
-            HighEQGain::<Impl, IMPL_OFFSET>,
-            SetHighEQCutoff::<Impl, IMPL_OFFSET>,
-            HighEQCutoff::<Impl, IMPL_OFFSET>,
-            SetRoomFilterFreq::<Impl, IMPL_OFFSET>,
-            RoomFilterFreq::<Impl, IMPL_OFFSET>,
-            SetRoomFilterMain::<Impl, IMPL_OFFSET>,
-            RoomFilterMain::<Impl, IMPL_OFFSET>,
-            SetRoomFilterHF::<Impl, IMPL_OFFSET>,
-            RoomFilterHF::<Impl, IMPL_OFFSET>,
-            SetReflectionsGain::<Impl, IMPL_OFFSET>,
-            ReflectionsGain::<Impl, IMPL_OFFSET>,
-            SetReverbGain::<Impl, IMPL_OFFSET>,
-            ReverbGain::<Impl, IMPL_OFFSET>,
-            SetDecayTime::<Impl, IMPL_OFFSET>,
-            DecayTime::<Impl, IMPL_OFFSET>,
-            SetDensity::<Impl, IMPL_OFFSET>,
-            Density::<Impl, IMPL_OFFSET>,
-            SetRoomSize::<Impl, IMPL_OFFSET>,
-            RoomSize::<Impl, IMPL_OFFSET>,
-            SetDisableLateField::<Impl, IMPL_OFFSET>,
-            DisableLateField::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IReverbEffectDefinition, BASE_OFFSET>(),
+            SetWetDryMix: SetWetDryMix::<Impl, IMPL_OFFSET>,
+            WetDryMix: WetDryMix::<Impl, IMPL_OFFSET>,
+            SetReflectionsDelay: SetReflectionsDelay::<Impl, IMPL_OFFSET>,
+            ReflectionsDelay: ReflectionsDelay::<Impl, IMPL_OFFSET>,
+            SetReverbDelay: SetReverbDelay::<Impl, IMPL_OFFSET>,
+            ReverbDelay: ReverbDelay::<Impl, IMPL_OFFSET>,
+            SetRearDelay: SetRearDelay::<Impl, IMPL_OFFSET>,
+            RearDelay: RearDelay::<Impl, IMPL_OFFSET>,
+            SetPositionLeft: SetPositionLeft::<Impl, IMPL_OFFSET>,
+            PositionLeft: PositionLeft::<Impl, IMPL_OFFSET>,
+            SetPositionRight: SetPositionRight::<Impl, IMPL_OFFSET>,
+            PositionRight: PositionRight::<Impl, IMPL_OFFSET>,
+            SetPositionMatrixLeft: SetPositionMatrixLeft::<Impl, IMPL_OFFSET>,
+            PositionMatrixLeft: PositionMatrixLeft::<Impl, IMPL_OFFSET>,
+            SetPositionMatrixRight: SetPositionMatrixRight::<Impl, IMPL_OFFSET>,
+            PositionMatrixRight: PositionMatrixRight::<Impl, IMPL_OFFSET>,
+            SetEarlyDiffusion: SetEarlyDiffusion::<Impl, IMPL_OFFSET>,
+            EarlyDiffusion: EarlyDiffusion::<Impl, IMPL_OFFSET>,
+            SetLateDiffusion: SetLateDiffusion::<Impl, IMPL_OFFSET>,
+            LateDiffusion: LateDiffusion::<Impl, IMPL_OFFSET>,
+            SetLowEQGain: SetLowEQGain::<Impl, IMPL_OFFSET>,
+            LowEQGain: LowEQGain::<Impl, IMPL_OFFSET>,
+            SetLowEQCutoff: SetLowEQCutoff::<Impl, IMPL_OFFSET>,
+            LowEQCutoff: LowEQCutoff::<Impl, IMPL_OFFSET>,
+            SetHighEQGain: SetHighEQGain::<Impl, IMPL_OFFSET>,
+            HighEQGain: HighEQGain::<Impl, IMPL_OFFSET>,
+            SetHighEQCutoff: SetHighEQCutoff::<Impl, IMPL_OFFSET>,
+            HighEQCutoff: HighEQCutoff::<Impl, IMPL_OFFSET>,
+            SetRoomFilterFreq: SetRoomFilterFreq::<Impl, IMPL_OFFSET>,
+            RoomFilterFreq: RoomFilterFreq::<Impl, IMPL_OFFSET>,
+            SetRoomFilterMain: SetRoomFilterMain::<Impl, IMPL_OFFSET>,
+            RoomFilterMain: RoomFilterMain::<Impl, IMPL_OFFSET>,
+            SetRoomFilterHF: SetRoomFilterHF::<Impl, IMPL_OFFSET>,
+            RoomFilterHF: RoomFilterHF::<Impl, IMPL_OFFSET>,
+            SetReflectionsGain: SetReflectionsGain::<Impl, IMPL_OFFSET>,
+            ReflectionsGain: ReflectionsGain::<Impl, IMPL_OFFSET>,
+            SetReverbGain: SetReverbGain::<Impl, IMPL_OFFSET>,
+            ReverbGain: ReverbGain::<Impl, IMPL_OFFSET>,
+            SetDecayTime: SetDecayTime::<Impl, IMPL_OFFSET>,
+            DecayTime: DecayTime::<Impl, IMPL_OFFSET>,
+            SetDensity: SetDensity::<Impl, IMPL_OFFSET>,
+            Density: Density::<Impl, IMPL_OFFSET>,
+            SetRoomSize: SetRoomSize::<Impl, IMPL_OFFSET>,
+            RoomSize: RoomSize::<Impl, IMPL_OFFSET>,
+            SetDisableLateField: SetDisableLateField::<Impl, IMPL_OFFSET>,
+            DisableLateField: DisableLateField::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IReverbEffectDefinition as ::windows::core::Interface>::IID
@@ -3782,7 +3867,7 @@ impl IReverbEffectDefinitionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReverbEffectDefinitionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IReverbEffectDefinitionFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IReverbEffectDefinitionFactory as ::windows::core::Interface>::IID
@@ -3810,7 +3895,10 @@ impl ISetDefaultSpatialAudioFormatResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISetDefaultSpatialAudioFormatResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISetDefaultSpatialAudioFormatResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISetDefaultSpatialAudioFormatResult as ::windows::core::Interface>::IID
@@ -3915,22 +4003,17 @@ impl ISpatialAudioDeviceConfigurationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveConfigurationChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialAudioDeviceConfiguration>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            IsSpatialAudioSupported::<Impl, IMPL_OFFSET>,
-            IsSpatialAudioFormatSupported::<Impl, IMPL_OFFSET>,
-            ActiveSpatialAudioFormat::<Impl, IMPL_OFFSET>,
-            DefaultSpatialAudioFormat::<Impl, IMPL_OFFSET>,
-            SetDefaultSpatialAudioFormatAsync::<Impl, IMPL_OFFSET>,
-            ConfigurationChanged::<Impl, IMPL_OFFSET>,
-            RemoveConfigurationChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAudioDeviceConfiguration, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            IsSpatialAudioSupported: IsSpatialAudioSupported::<Impl, IMPL_OFFSET>,
+            IsSpatialAudioFormatSupported: IsSpatialAudioFormatSupported::<Impl, IMPL_OFFSET>,
+            ActiveSpatialAudioFormat: ActiveSpatialAudioFormat::<Impl, IMPL_OFFSET>,
+            DefaultSpatialAudioFormat: DefaultSpatialAudioFormat::<Impl, IMPL_OFFSET>,
+            SetDefaultSpatialAudioFormatAsync: SetDefaultSpatialAudioFormatAsync::<Impl, IMPL_OFFSET>,
+            ConfigurationChanged: ConfigurationChanged::<Impl, IMPL_OFFSET>,
+            RemoveConfigurationChanged: RemoveConfigurationChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAudioDeviceConfiguration as ::windows::core::Interface>::IID
@@ -3958,7 +4041,10 @@ impl ISpatialAudioDeviceConfigurationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAudioDeviceConfigurationStatics>, ::windows::core::GetTrustLevel, GetForDeviceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAudioDeviceConfigurationStatics, BASE_OFFSET>(),
+            GetForDeviceId: GetForDeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAudioDeviceConfigurationStatics as ::windows::core::Interface>::IID
@@ -4015,18 +4101,13 @@ impl ISpatialAudioFormatConfigurationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMixedRealityExclusiveModePolicy(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialAudioFormatConfiguration>,
-            ::windows::core::GetTrustLevel,
-            ReportLicenseChangedAsync::<Impl, IMPL_OFFSET>,
-            ReportConfigurationChangedAsync::<Impl, IMPL_OFFSET>,
-            MixedRealityExclusiveModePolicy::<Impl, IMPL_OFFSET>,
-            SetMixedRealityExclusiveModePolicy::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAudioFormatConfiguration, BASE_OFFSET>(),
+            ReportLicenseChangedAsync: ReportLicenseChangedAsync::<Impl, IMPL_OFFSET>,
+            ReportConfigurationChangedAsync: ReportConfigurationChangedAsync::<Impl, IMPL_OFFSET>,
+            MixedRealityExclusiveModePolicy: MixedRealityExclusiveModePolicy::<Impl, IMPL_OFFSET>,
+            SetMixedRealityExclusiveModePolicy: SetMixedRealityExclusiveModePolicy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAudioFormatConfiguration as ::windows::core::Interface>::IID
@@ -4054,7 +4135,10 @@ impl ISpatialAudioFormatConfigurationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAudioFormatConfigurationStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAudioFormatConfigurationStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAudioFormatConfigurationStatics as ::windows::core::Interface>::IID
@@ -4142,20 +4226,15 @@ impl ISpatialAudioFormatSubtypeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialAudioFormatSubtypeStatics>,
-            ::windows::core::GetTrustLevel,
-            WindowsSonic::<Impl, IMPL_OFFSET>,
-            DolbyAtmosForHeadphones::<Impl, IMPL_OFFSET>,
-            DolbyAtmosForHomeTheater::<Impl, IMPL_OFFSET>,
-            DolbyAtmosForSpeakers::<Impl, IMPL_OFFSET>,
-            DTSHeadphoneX::<Impl, IMPL_OFFSET>,
-            DTSXUltra::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAudioFormatSubtypeStatics, BASE_OFFSET>(),
+            WindowsSonic: WindowsSonic::<Impl, IMPL_OFFSET>,
+            DolbyAtmosForHeadphones: DolbyAtmosForHeadphones::<Impl, IMPL_OFFSET>,
+            DolbyAtmosForHomeTheater: DolbyAtmosForHomeTheater::<Impl, IMPL_OFFSET>,
+            DolbyAtmosForSpeakers: DolbyAtmosForSpeakers::<Impl, IMPL_OFFSET>,
+            DTSHeadphoneX: DTSHeadphoneX::<Impl, IMPL_OFFSET>,
+            DTSXUltra: DTSXUltra::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAudioFormatSubtypeStatics as ::windows::core::Interface>::IID
@@ -4183,7 +4262,10 @@ impl ISpatialAudioFormatSubtypeStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAudioFormatSubtypeStatics2>, ::windows::core::GetTrustLevel, DTSXForHomeTheater::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialAudioFormatSubtypeStatics2, BASE_OFFSET>(),
+            DTSXForHomeTheater: DTSXForHomeTheater::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialAudioFormatSubtypeStatics2 as ::windows::core::Interface>::IID

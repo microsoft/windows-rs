@@ -145,26 +145,21 @@ impl IESimVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveProfileChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IESim>,
-            ::windows::core::GetTrustLevel,
-            AvailableMemoryInBytes::<Impl, IMPL_OFFSET>,
-            Eid::<Impl, IMPL_OFFSET>,
-            FirmwareVersion::<Impl, IMPL_OFFSET>,
-            MobileBroadbandModemDeviceId::<Impl, IMPL_OFFSET>,
-            Policy::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            GetProfiles::<Impl, IMPL_OFFSET>,
-            DeleteProfileAsync::<Impl, IMPL_OFFSET>,
-            DownloadProfileMetadataAsync::<Impl, IMPL_OFFSET>,
-            ResetAsync::<Impl, IMPL_OFFSET>,
-            ProfileChanged::<Impl, IMPL_OFFSET>,
-            RemoveProfileChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IESim, BASE_OFFSET>(),
+            AvailableMemoryInBytes: AvailableMemoryInBytes::<Impl, IMPL_OFFSET>,
+            Eid: Eid::<Impl, IMPL_OFFSET>,
+            FirmwareVersion: FirmwareVersion::<Impl, IMPL_OFFSET>,
+            MobileBroadbandModemDeviceId: MobileBroadbandModemDeviceId::<Impl, IMPL_OFFSET>,
+            Policy: Policy::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            GetProfiles: GetProfiles::<Impl, IMPL_OFFSET>,
+            DeleteProfileAsync: DeleteProfileAsync::<Impl, IMPL_OFFSET>,
+            DownloadProfileMetadataAsync: DownloadProfileMetadataAsync::<Impl, IMPL_OFFSET>,
+            ResetAsync: ResetAsync::<Impl, IMPL_OFFSET>,
+            ProfileChanged: ProfileChanged::<Impl, IMPL_OFFSET>,
+            RemoveProfileChanged: RemoveProfileChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESim as ::windows::core::Interface>::IID
@@ -228,7 +223,13 @@ impl IESim2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESim2>, ::windows::core::GetTrustLevel, Discover::<Impl, IMPL_OFFSET>, DiscoverWithServerAddressAndMatchingId::<Impl, IMPL_OFFSET>, DiscoverAsync::<Impl, IMPL_OFFSET>, DiscoverWithServerAddressAndMatchingIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IESim2, BASE_OFFSET>(),
+            Discover: Discover::<Impl, IMPL_OFFSET>,
+            DiscoverWithServerAddressAndMatchingId: DiscoverWithServerAddressAndMatchingId::<Impl, IMPL_OFFSET>,
+            DiscoverAsync: DiscoverAsync::<Impl, IMPL_OFFSET>,
+            DiscoverWithServerAddressAndMatchingIdAsync: DiscoverWithServerAddressAndMatchingIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESim2 as ::windows::core::Interface>::IID
@@ -256,7 +257,7 @@ impl IESimAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimAddedEventArgs>, ::windows::core::GetTrustLevel, ESim::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IESimAddedEventArgs, BASE_OFFSET>(), ESim: ESim::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimAddedEventArgs as ::windows::core::Interface>::IID
@@ -296,7 +297,11 @@ impl IESimDiscoverEventVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimDiscoverEvent>, ::windows::core::GetTrustLevel, MatchingId::<Impl, IMPL_OFFSET>, RspServerAddress::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IESimDiscoverEvent, BASE_OFFSET>(),
+            MatchingId: MatchingId::<Impl, IMPL_OFFSET>,
+            RspServerAddress: RspServerAddress::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimDiscoverEvent as ::windows::core::Interface>::IID
@@ -360,7 +365,13 @@ impl IESimDiscoverResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimDiscoverResult>, ::windows::core::GetTrustLevel, Events::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>, ProfileMetadata::<Impl, IMPL_OFFSET>, Result::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IESimDiscoverResult, BASE_OFFSET>(),
+            Events: Events::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            ProfileMetadata: ProfileMetadata::<Impl, IMPL_OFFSET>,
+            Result: Result::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimDiscoverResult as ::windows::core::Interface>::IID
@@ -400,7 +411,11 @@ impl IESimDownloadProfileMetadataResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimDownloadProfileMetadataResult>, ::windows::core::GetTrustLevel, Result::<Impl, IMPL_OFFSET>, ProfileMetadata::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IESimDownloadProfileMetadataResult, BASE_OFFSET>(),
+            Result: Result::<Impl, IMPL_OFFSET>,
+            ProfileMetadata: ProfileMetadata::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimDownloadProfileMetadataResult as ::windows::core::Interface>::IID
@@ -457,7 +472,13 @@ impl IESimManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveServiceInfoChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimManagerStatics>, ::windows::core::GetTrustLevel, ServiceInfo::<Impl, IMPL_OFFSET>, TryCreateESimWatcher::<Impl, IMPL_OFFSET>, ServiceInfoChanged::<Impl, IMPL_OFFSET>, RemoveServiceInfoChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IESimManagerStatics, BASE_OFFSET>(),
+            ServiceInfo: ServiceInfo::<Impl, IMPL_OFFSET>,
+            TryCreateESimWatcher: TryCreateESimWatcher::<Impl, IMPL_OFFSET>,
+            ServiceInfoChanged: ServiceInfoChanged::<Impl, IMPL_OFFSET>,
+            RemoveServiceInfoChanged: RemoveServiceInfoChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimManagerStatics as ::windows::core::Interface>::IID
@@ -485,7 +506,7 @@ impl IESimOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimOperationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IESimOperationResult, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimOperationResult as ::windows::core::Interface>::IID
@@ -513,7 +534,10 @@ impl IESimPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimPolicy>, ::windows::core::GetTrustLevel, ShouldEnableManagingUi::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IESimPolicy, BASE_OFFSET>(),
+            ShouldEnableManagingUi: ShouldEnableManagingUi::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimPolicy as ::windows::core::Interface>::IID
@@ -661,25 +685,20 @@ impl IESimProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IESimProfile>,
-            ::windows::core::GetTrustLevel,
-            Class::<Impl, IMPL_OFFSET>,
-            Nickname::<Impl, IMPL_OFFSET>,
-            Policy::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            ProviderIcon::<Impl, IMPL_OFFSET>,
-            ProviderId::<Impl, IMPL_OFFSET>,
-            ProviderName::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            DisableAsync::<Impl, IMPL_OFFSET>,
-            EnableAsync::<Impl, IMPL_OFFSET>,
-            SetNicknameAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IESimProfile, BASE_OFFSET>(),
+            Class: Class::<Impl, IMPL_OFFSET>,
+            Nickname: Nickname::<Impl, IMPL_OFFSET>,
+            Policy: Policy::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            ProviderIcon: ProviderIcon::<Impl, IMPL_OFFSET>,
+            ProviderId: ProviderId::<Impl, IMPL_OFFSET>,
+            ProviderName: ProviderName::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            DisableAsync: DisableAsync::<Impl, IMPL_OFFSET>,
+            EnableAsync: EnableAsync::<Impl, IMPL_OFFSET>,
+            SetNicknameAsync: SetNicknameAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimProfile as ::windows::core::Interface>::IID
@@ -844,27 +863,22 @@ impl IESimProfileMetadataVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IESimProfileMetadata>,
-            ::windows::core::GetTrustLevel,
-            IsConfirmationCodeRequired::<Impl, IMPL_OFFSET>,
-            Policy::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            ProviderIcon::<Impl, IMPL_OFFSET>,
-            ProviderId::<Impl, IMPL_OFFSET>,
-            ProviderName::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            DenyInstallAsync::<Impl, IMPL_OFFSET>,
-            ConfirmInstallAsync::<Impl, IMPL_OFFSET>,
-            ConfirmInstallWithConfirmationCodeAsync::<Impl, IMPL_OFFSET>,
-            PostponeInstallAsync::<Impl, IMPL_OFFSET>,
-            StateChanged::<Impl, IMPL_OFFSET>,
-            RemoveStateChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IESimProfileMetadata, BASE_OFFSET>(),
+            IsConfirmationCodeRequired: IsConfirmationCodeRequired::<Impl, IMPL_OFFSET>,
+            Policy: Policy::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            ProviderIcon: ProviderIcon::<Impl, IMPL_OFFSET>,
+            ProviderId: ProviderId::<Impl, IMPL_OFFSET>,
+            ProviderName: ProviderName::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            DenyInstallAsync: DenyInstallAsync::<Impl, IMPL_OFFSET>,
+            ConfirmInstallAsync: ConfirmInstallAsync::<Impl, IMPL_OFFSET>,
+            ConfirmInstallWithConfirmationCodeAsync: ConfirmInstallWithConfirmationCodeAsync::<Impl, IMPL_OFFSET>,
+            PostponeInstallAsync: PostponeInstallAsync::<Impl, IMPL_OFFSET>,
+            StateChanged: StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged: RemoveStateChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimProfileMetadata as ::windows::core::Interface>::IID
@@ -916,7 +930,12 @@ impl IESimProfilePolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimProfilePolicy>, ::windows::core::GetTrustLevel, CanDelete::<Impl, IMPL_OFFSET>, CanDisable::<Impl, IMPL_OFFSET>, IsManagedByEnterprise::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IESimProfilePolicy, BASE_OFFSET>(),
+            CanDelete: CanDelete::<Impl, IMPL_OFFSET>,
+            CanDisable: CanDisable::<Impl, IMPL_OFFSET>,
+            IsManagedByEnterprise: IsManagedByEnterprise::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimProfilePolicy as ::windows::core::Interface>::IID
@@ -944,7 +963,7 @@ impl IESimRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimRemovedEventArgs>, ::windows::core::GetTrustLevel, ESim::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IESimRemovedEventArgs, BASE_OFFSET>(), ESim: ESim::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimRemovedEventArgs as ::windows::core::Interface>::IID
@@ -984,7 +1003,11 @@ impl IESimServiceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimServiceInfo>, ::windows::core::GetTrustLevel, AuthenticationPreference::<Impl, IMPL_OFFSET>, IsESimUiEnabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IESimServiceInfo, BASE_OFFSET>(),
+            AuthenticationPreference: AuthenticationPreference::<Impl, IMPL_OFFSET>,
+            IsESimUiEnabled: IsESimUiEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimServiceInfo as ::windows::core::Interface>::IID
@@ -1012,7 +1035,7 @@ impl IESimUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimUpdatedEventArgs>, ::windows::core::GetTrustLevel, ESim::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IESimUpdatedEventArgs, BASE_OFFSET>(), ESim: ESim::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimUpdatedEventArgs as ::windows::core::Interface>::IID
@@ -1135,27 +1158,22 @@ impl IESimWatcherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IESimWatcher>,
-            ::windows::core::GetTrustLevel,
-            Status::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            Added::<Impl, IMPL_OFFSET>,
-            RemoveAdded::<Impl, IMPL_OFFSET>,
-            EnumerationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
-            Removed::<Impl, IMPL_OFFSET>,
-            RemoveRemoved::<Impl, IMPL_OFFSET>,
-            Stopped::<Impl, IMPL_OFFSET>,
-            RemoveStopped::<Impl, IMPL_OFFSET>,
-            Updated::<Impl, IMPL_OFFSET>,
-            RemoveUpdated::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IESimWatcher, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            Added: Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded: RemoveAdded::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Removed: Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved: RemoveRemoved::<Impl, IMPL_OFFSET>,
+            Stopped: Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped: RemoveStopped::<Impl, IMPL_OFFSET>,
+            Updated: Updated::<Impl, IMPL_OFFSET>,
+            RemoveUpdated: RemoveUpdated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IESimWatcher as ::windows::core::Interface>::IID
@@ -1183,7 +1201,10 @@ impl IFdnAccessManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFdnAccessManagerStatics>, ::windows::core::GetTrustLevel, RequestUnlockAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFdnAccessManagerStatics, BASE_OFFSET>(),
+            RequestUnlockAsync: RequestUnlockAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFdnAccessManagerStatics as ::windows::core::Interface>::IID
@@ -1287,23 +1308,18 @@ impl IHotspotAuthenticationContextVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TriggerAttentionRequired(&*(&packagerelativeapplicationid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&applicationparameters as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHotspotAuthenticationContext>,
-            ::windows::core::GetTrustLevel,
-            WirelessNetworkId::<Impl, IMPL_OFFSET>,
-            NetworkAdapter::<Impl, IMPL_OFFSET>,
-            RedirectMessageUrl::<Impl, IMPL_OFFSET>,
-            RedirectMessageXml::<Impl, IMPL_OFFSET>,
-            AuthenticationUrl::<Impl, IMPL_OFFSET>,
-            IssueCredentials::<Impl, IMPL_OFFSET>,
-            AbortAuthentication::<Impl, IMPL_OFFSET>,
-            SkipAuthentication::<Impl, IMPL_OFFSET>,
-            TriggerAttentionRequired::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHotspotAuthenticationContext, BASE_OFFSET>(),
+            WirelessNetworkId: WirelessNetworkId::<Impl, IMPL_OFFSET>,
+            NetworkAdapter: NetworkAdapter::<Impl, IMPL_OFFSET>,
+            RedirectMessageUrl: RedirectMessageUrl::<Impl, IMPL_OFFSET>,
+            RedirectMessageXml: RedirectMessageXml::<Impl, IMPL_OFFSET>,
+            AuthenticationUrl: AuthenticationUrl::<Impl, IMPL_OFFSET>,
+            IssueCredentials: IssueCredentials::<Impl, IMPL_OFFSET>,
+            AbortAuthentication: AbortAuthentication::<Impl, IMPL_OFFSET>,
+            SkipAuthentication: SkipAuthentication::<Impl, IMPL_OFFSET>,
+            TriggerAttentionRequired: TriggerAttentionRequired::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHotspotAuthenticationContext as ::windows::core::Interface>::IID
@@ -1336,7 +1352,10 @@ impl IHotspotAuthenticationContext2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHotspotAuthenticationContext2>, ::windows::core::GetTrustLevel, IssueCredentialsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHotspotAuthenticationContext2, BASE_OFFSET>(),
+            IssueCredentialsAsync: IssueCredentialsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHotspotAuthenticationContext2 as ::windows::core::Interface>::IID
@@ -1364,7 +1383,10 @@ impl IHotspotAuthenticationContextStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHotspotAuthenticationContextStatics>, ::windows::core::GetTrustLevel, TryGetAuthenticationContext::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHotspotAuthenticationContextStatics, BASE_OFFSET>(),
+            TryGetAuthenticationContext: TryGetAuthenticationContext::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHotspotAuthenticationContextStatics as ::windows::core::Interface>::IID
@@ -1392,7 +1414,10 @@ impl IHotspotAuthenticationEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHotspotAuthenticationEventDetails>, ::windows::core::GetTrustLevel, EventToken::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHotspotAuthenticationEventDetails, BASE_OFFSET>(),
+            EventToken: EventToken::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHotspotAuthenticationEventDetails as ::windows::core::Interface>::IID
@@ -1456,7 +1481,13 @@ impl IHotspotCredentialsAuthenticationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHotspotCredentialsAuthenticationResult>, ::windows::core::GetTrustLevel, HasNetworkErrorOccurred::<Impl, IMPL_OFFSET>, ResponseCode::<Impl, IMPL_OFFSET>, LogoffUrl::<Impl, IMPL_OFFSET>, AuthenticationReplyXml::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHotspotCredentialsAuthenticationResult, BASE_OFFSET>(),
+            HasNetworkErrorOccurred: HasNetworkErrorOccurred::<Impl, IMPL_OFFSET>,
+            ResponseCode: ResponseCode::<Impl, IMPL_OFFSET>,
+            LogoffUrl: LogoffUrl::<Impl, IMPL_OFFSET>,
+            AuthenticationReplyXml: AuthenticationReplyXml::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHotspotCredentialsAuthenticationResult as ::windows::core::Interface>::IID
@@ -1508,7 +1539,12 @@ impl IKnownCSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownCSimFilePathsStatics>, ::windows::core::GetTrustLevel, EFSpn::<Impl, IMPL_OFFSET>, Gid1::<Impl, IMPL_OFFSET>, Gid2::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownCSimFilePathsStatics, BASE_OFFSET>(),
+            EFSpn: EFSpn::<Impl, IMPL_OFFSET>,
+            Gid1: Gid1::<Impl, IMPL_OFFSET>,
+            Gid2: Gid2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownCSimFilePathsStatics as ::windows::core::Interface>::IID
@@ -1560,7 +1596,12 @@ impl IKnownRuimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownRuimFilePathsStatics>, ::windows::core::GetTrustLevel, EFSpn::<Impl, IMPL_OFFSET>, Gid1::<Impl, IMPL_OFFSET>, Gid2::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownRuimFilePathsStatics, BASE_OFFSET>(),
+            EFSpn: EFSpn::<Impl, IMPL_OFFSET>,
+            Gid1: Gid1::<Impl, IMPL_OFFSET>,
+            Gid2: Gid2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownRuimFilePathsStatics as ::windows::core::Interface>::IID
@@ -1624,7 +1665,13 @@ impl IKnownSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownSimFilePathsStatics>, ::windows::core::GetTrustLevel, EFOns::<Impl, IMPL_OFFSET>, EFSpn::<Impl, IMPL_OFFSET>, Gid1::<Impl, IMPL_OFFSET>, Gid2::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownSimFilePathsStatics, BASE_OFFSET>(),
+            EFOns: EFOns::<Impl, IMPL_OFFSET>,
+            EFSpn: EFSpn::<Impl, IMPL_OFFSET>,
+            Gid1: Gid1::<Impl, IMPL_OFFSET>,
+            Gid2: Gid2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownSimFilePathsStatics as ::windows::core::Interface>::IID
@@ -1700,7 +1747,14 @@ impl IKnownUSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownUSimFilePathsStatics>, ::windows::core::GetTrustLevel, EFSpn::<Impl, IMPL_OFFSET>, EFOpl::<Impl, IMPL_OFFSET>, EFPnn::<Impl, IMPL_OFFSET>, Gid1::<Impl, IMPL_OFFSET>, Gid2::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownUSimFilePathsStatics, BASE_OFFSET>(),
+            EFSpn: EFSpn::<Impl, IMPL_OFFSET>,
+            EFOpl: EFOpl::<Impl, IMPL_OFFSET>,
+            EFPnn: EFPnn::<Impl, IMPL_OFFSET>,
+            Gid1: Gid1::<Impl, IMPL_OFFSET>,
+            Gid2: Gid2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownUSimFilePathsStatics as ::windows::core::Interface>::IID
@@ -1776,19 +1830,14 @@ impl IMobileBroadbandAccountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccount>,
-            ::windows::core::GetTrustLevel,
-            NetworkAccountId::<Impl, IMPL_OFFSET>,
-            ServiceProviderGuid::<Impl, IMPL_OFFSET>,
-            ServiceProviderName::<Impl, IMPL_OFFSET>,
-            CurrentNetwork::<Impl, IMPL_OFFSET>,
-            CurrentDeviceInformation::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandAccount, BASE_OFFSET>(),
+            NetworkAccountId: NetworkAccountId::<Impl, IMPL_OFFSET>,
+            ServiceProviderGuid: ServiceProviderGuid::<Impl, IMPL_OFFSET>,
+            ServiceProviderName: ServiceProviderName::<Impl, IMPL_OFFSET>,
+            CurrentNetwork: CurrentNetwork::<Impl, IMPL_OFFSET>,
+            CurrentDeviceInformation: CurrentDeviceInformation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandAccount as ::windows::core::Interface>::IID
@@ -1816,7 +1865,10 @@ impl IMobileBroadbandAccount2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccount2>, ::windows::core::GetTrustLevel, GetConnectionProfiles::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandAccount2, BASE_OFFSET>(),
+            GetConnectionProfiles: GetConnectionProfiles::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandAccount2 as ::windows::core::Interface>::IID
@@ -1844,7 +1896,10 @@ impl IMobileBroadbandAccount3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccount3>, ::windows::core::GetTrustLevel, AccountExperienceUrl::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandAccount3, BASE_OFFSET>(),
+            AccountExperienceUrl: AccountExperienceUrl::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandAccount3 as ::windows::core::Interface>::IID
@@ -1872,7 +1927,10 @@ impl IMobileBroadbandAccountEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccountEventArgs>, ::windows::core::GetTrustLevel, NetworkAccountId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandAccountEventArgs, BASE_OFFSET>(),
+            NetworkAccountId: NetworkAccountId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandAccountEventArgs as ::windows::core::Interface>::IID
@@ -1912,7 +1970,11 @@ impl IMobileBroadbandAccountStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccountStatics>, ::windows::core::GetTrustLevel, AvailableNetworkAccountIds::<Impl, IMPL_OFFSET>, CreateFromNetworkAccountId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandAccountStatics, BASE_OFFSET>(),
+            AvailableNetworkAccountIds: AvailableNetworkAccountIds::<Impl, IMPL_OFFSET>,
+            CreateFromNetworkAccountId: CreateFromNetworkAccountId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandAccountStatics as ::windows::core::Interface>::IID
@@ -1964,7 +2026,12 @@ impl IMobileBroadbandAccountUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccountUpdatedEventArgs>, ::windows::core::GetTrustLevel, NetworkAccountId::<Impl, IMPL_OFFSET>, HasDeviceInformationChanged::<Impl, IMPL_OFFSET>, HasNetworkChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandAccountUpdatedEventArgs, BASE_OFFSET>(),
+            NetworkAccountId: NetworkAccountId::<Impl, IMPL_OFFSET>,
+            HasDeviceInformationChanged: HasDeviceInformationChanged::<Impl, IMPL_OFFSET>,
+            HasNetworkChanged: HasNetworkChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandAccountUpdatedEventArgs as ::windows::core::Interface>::IID
@@ -2087,27 +2154,22 @@ impl IMobileBroadbandAccountWatcherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccountWatcher>,
-            ::windows::core::GetTrustLevel,
-            AccountAdded::<Impl, IMPL_OFFSET>,
-            RemoveAccountAdded::<Impl, IMPL_OFFSET>,
-            AccountUpdated::<Impl, IMPL_OFFSET>,
-            RemoveAccountUpdated::<Impl, IMPL_OFFSET>,
-            AccountRemoved::<Impl, IMPL_OFFSET>,
-            RemoveAccountRemoved::<Impl, IMPL_OFFSET>,
-            EnumerationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
-            Stopped::<Impl, IMPL_OFFSET>,
-            RemoveStopped::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandAccountWatcher, BASE_OFFSET>(),
+            AccountAdded: AccountAdded::<Impl, IMPL_OFFSET>,
+            RemoveAccountAdded: RemoveAccountAdded::<Impl, IMPL_OFFSET>,
+            AccountUpdated: AccountUpdated::<Impl, IMPL_OFFSET>,
+            RemoveAccountUpdated: RemoveAccountUpdated::<Impl, IMPL_OFFSET>,
+            AccountRemoved: AccountRemoved::<Impl, IMPL_OFFSET>,
+            RemoveAccountRemoved: RemoveAccountRemoved::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Stopped: Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped: RemoveStopped::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandAccountWatcher as ::windows::core::Interface>::IID
@@ -2147,7 +2209,11 @@ impl IMobileBroadbandAntennaSarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAntennaSar>, ::windows::core::GetTrustLevel, AntennaIndex::<Impl, IMPL_OFFSET>, SarBackoffIndex::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandAntennaSar, BASE_OFFSET>(),
+            AntennaIndex: AntennaIndex::<Impl, IMPL_OFFSET>,
+            SarBackoffIndex: SarBackoffIndex::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandAntennaSar as ::windows::core::Interface>::IID
@@ -2175,7 +2241,10 @@ impl IMobileBroadbandAntennaSarFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAntennaSarFactory>, ::windows::core::GetTrustLevel, CreateWithIndex::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandAntennaSarFactory, BASE_OFFSET>(),
+            CreateWithIndex: CreateWithIndex::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandAntennaSarFactory as ::windows::core::Interface>::IID
@@ -2287,22 +2356,17 @@ impl IMobileBroadbandCellCdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellCdma>,
-            ::windows::core::GetTrustLevel,
-            BaseStationId::<Impl, IMPL_OFFSET>,
-            BaseStationPNCode::<Impl, IMPL_OFFSET>,
-            BaseStationLatitude::<Impl, IMPL_OFFSET>,
-            BaseStationLongitude::<Impl, IMPL_OFFSET>,
-            BaseStationLastBroadcastGpsTime::<Impl, IMPL_OFFSET>,
-            NetworkId::<Impl, IMPL_OFFSET>,
-            PilotSignalStrengthInDB::<Impl, IMPL_OFFSET>,
-            SystemId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandCellCdma, BASE_OFFSET>(),
+            BaseStationId: BaseStationId::<Impl, IMPL_OFFSET>,
+            BaseStationPNCode: BaseStationPNCode::<Impl, IMPL_OFFSET>,
+            BaseStationLatitude: BaseStationLatitude::<Impl, IMPL_OFFSET>,
+            BaseStationLongitude: BaseStationLongitude::<Impl, IMPL_OFFSET>,
+            BaseStationLastBroadcastGpsTime: BaseStationLastBroadcastGpsTime::<Impl, IMPL_OFFSET>,
+            NetworkId: NetworkId::<Impl, IMPL_OFFSET>,
+            PilotSignalStrengthInDB: PilotSignalStrengthInDB::<Impl, IMPL_OFFSET>,
+            SystemId: SystemId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandCellCdma as ::windows::core::Interface>::IID
@@ -2402,21 +2466,16 @@ impl IMobileBroadbandCellGsmVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellGsm>,
-            ::windows::core::GetTrustLevel,
-            BaseStationId::<Impl, IMPL_OFFSET>,
-            CellId::<Impl, IMPL_OFFSET>,
-            ChannelNumber::<Impl, IMPL_OFFSET>,
-            LocationAreaCode::<Impl, IMPL_OFFSET>,
-            ProviderId::<Impl, IMPL_OFFSET>,
-            ReceivedSignalStrengthInDBm::<Impl, IMPL_OFFSET>,
-            TimingAdvanceInBitPeriods::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandCellGsm, BASE_OFFSET>(),
+            BaseStationId: BaseStationId::<Impl, IMPL_OFFSET>,
+            CellId: CellId::<Impl, IMPL_OFFSET>,
+            ChannelNumber: ChannelNumber::<Impl, IMPL_OFFSET>,
+            LocationAreaCode: LocationAreaCode::<Impl, IMPL_OFFSET>,
+            ProviderId: ProviderId::<Impl, IMPL_OFFSET>,
+            ReceivedSignalStrengthInDBm: ReceivedSignalStrengthInDBm::<Impl, IMPL_OFFSET>,
+            TimingAdvanceInBitPeriods: TimingAdvanceInBitPeriods::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandCellGsm as ::windows::core::Interface>::IID
@@ -2528,22 +2587,17 @@ impl IMobileBroadbandCellLteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellLte>,
-            ::windows::core::GetTrustLevel,
-            CellId::<Impl, IMPL_OFFSET>,
-            ChannelNumber::<Impl, IMPL_OFFSET>,
-            PhysicalCellId::<Impl, IMPL_OFFSET>,
-            ProviderId::<Impl, IMPL_OFFSET>,
-            ReferenceSignalReceivedPowerInDBm::<Impl, IMPL_OFFSET>,
-            ReferenceSignalReceivedQualityInDBm::<Impl, IMPL_OFFSET>,
-            TimingAdvanceInBitPeriods::<Impl, IMPL_OFFSET>,
-            TrackingAreaCode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandCellLte, BASE_OFFSET>(),
+            CellId: CellId::<Impl, IMPL_OFFSET>,
+            ChannelNumber: ChannelNumber::<Impl, IMPL_OFFSET>,
+            PhysicalCellId: PhysicalCellId::<Impl, IMPL_OFFSET>,
+            ProviderId: ProviderId::<Impl, IMPL_OFFSET>,
+            ReferenceSignalReceivedPowerInDBm: ReferenceSignalReceivedPowerInDBm::<Impl, IMPL_OFFSET>,
+            ReferenceSignalReceivedQualityInDBm: ReferenceSignalReceivedQualityInDBm::<Impl, IMPL_OFFSET>,
+            TimingAdvanceInBitPeriods: TimingAdvanceInBitPeriods::<Impl, IMPL_OFFSET>,
+            TrackingAreaCode: TrackingAreaCode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandCellLte as ::windows::core::Interface>::IID
@@ -2667,23 +2721,18 @@ impl IMobileBroadbandCellNRVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellNR>,
-            ::windows::core::GetTrustLevel,
-            CellId::<Impl, IMPL_OFFSET>,
-            ChannelNumber::<Impl, IMPL_OFFSET>,
-            PhysicalCellId::<Impl, IMPL_OFFSET>,
-            ProviderId::<Impl, IMPL_OFFSET>,
-            ReferenceSignalReceivedPowerInDBm::<Impl, IMPL_OFFSET>,
-            ReferenceSignalReceivedQualityInDBm::<Impl, IMPL_OFFSET>,
-            TimingAdvanceInNanoseconds::<Impl, IMPL_OFFSET>,
-            TrackingAreaCode::<Impl, IMPL_OFFSET>,
-            SignalToNoiseRatioInDB::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandCellNR, BASE_OFFSET>(),
+            CellId: CellId::<Impl, IMPL_OFFSET>,
+            ChannelNumber: ChannelNumber::<Impl, IMPL_OFFSET>,
+            PhysicalCellId: PhysicalCellId::<Impl, IMPL_OFFSET>,
+            ProviderId: ProviderId::<Impl, IMPL_OFFSET>,
+            ReferenceSignalReceivedPowerInDBm: ReferenceSignalReceivedPowerInDBm::<Impl, IMPL_OFFSET>,
+            ReferenceSignalReceivedQualityInDBm: ReferenceSignalReceivedQualityInDBm::<Impl, IMPL_OFFSET>,
+            TimingAdvanceInNanoseconds: TimingAdvanceInNanoseconds::<Impl, IMPL_OFFSET>,
+            TrackingAreaCode: TrackingAreaCode::<Impl, IMPL_OFFSET>,
+            SignalToNoiseRatioInDB: SignalToNoiseRatioInDB::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandCellNR as ::windows::core::Interface>::IID
@@ -2795,22 +2844,17 @@ impl IMobileBroadbandCellTdscdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellTdscdma>,
-            ::windows::core::GetTrustLevel,
-            CellId::<Impl, IMPL_OFFSET>,
-            CellParameterId::<Impl, IMPL_OFFSET>,
-            ChannelNumber::<Impl, IMPL_OFFSET>,
-            LocationAreaCode::<Impl, IMPL_OFFSET>,
-            PathLossInDB::<Impl, IMPL_OFFSET>,
-            ProviderId::<Impl, IMPL_OFFSET>,
-            ReceivedSignalCodePowerInDBm::<Impl, IMPL_OFFSET>,
-            TimingAdvanceInBitPeriods::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandCellTdscdma, BASE_OFFSET>(),
+            CellId: CellId::<Impl, IMPL_OFFSET>,
+            CellParameterId: CellParameterId::<Impl, IMPL_OFFSET>,
+            ChannelNumber: ChannelNumber::<Impl, IMPL_OFFSET>,
+            LocationAreaCode: LocationAreaCode::<Impl, IMPL_OFFSET>,
+            PathLossInDB: PathLossInDB::<Impl, IMPL_OFFSET>,
+            ProviderId: ProviderId::<Impl, IMPL_OFFSET>,
+            ReceivedSignalCodePowerInDBm: ReceivedSignalCodePowerInDBm::<Impl, IMPL_OFFSET>,
+            TimingAdvanceInBitPeriods: TimingAdvanceInBitPeriods::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandCellTdscdma as ::windows::core::Interface>::IID
@@ -2922,22 +2966,17 @@ impl IMobileBroadbandCellUmtsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellUmts>,
-            ::windows::core::GetTrustLevel,
-            CellId::<Impl, IMPL_OFFSET>,
-            ChannelNumber::<Impl, IMPL_OFFSET>,
-            LocationAreaCode::<Impl, IMPL_OFFSET>,
-            PathLossInDB::<Impl, IMPL_OFFSET>,
-            PrimaryScramblingCode::<Impl, IMPL_OFFSET>,
-            ProviderId::<Impl, IMPL_OFFSET>,
-            ReceivedSignalCodePowerInDBm::<Impl, IMPL_OFFSET>,
-            SignalToNoiseRatioInDB::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandCellUmts, BASE_OFFSET>(),
+            CellId: CellId::<Impl, IMPL_OFFSET>,
+            ChannelNumber: ChannelNumber::<Impl, IMPL_OFFSET>,
+            LocationAreaCode: LocationAreaCode::<Impl, IMPL_OFFSET>,
+            PathLossInDB: PathLossInDB::<Impl, IMPL_OFFSET>,
+            PrimaryScramblingCode: PrimaryScramblingCode::<Impl, IMPL_OFFSET>,
+            ProviderId: ProviderId::<Impl, IMPL_OFFSET>,
+            ReceivedSignalCodePowerInDBm: ReceivedSignalCodePowerInDBm::<Impl, IMPL_OFFSET>,
+            SignalToNoiseRatioInDB: SignalToNoiseRatioInDB::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandCellUmts as ::windows::core::Interface>::IID
@@ -3073,24 +3112,19 @@ impl IMobileBroadbandCellsInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellsInfo>,
-            ::windows::core::GetTrustLevel,
-            NeighboringCellsCdma::<Impl, IMPL_OFFSET>,
-            NeighboringCellsGsm::<Impl, IMPL_OFFSET>,
-            NeighboringCellsLte::<Impl, IMPL_OFFSET>,
-            NeighboringCellsTdscdma::<Impl, IMPL_OFFSET>,
-            NeighboringCellsUmts::<Impl, IMPL_OFFSET>,
-            ServingCellsCdma::<Impl, IMPL_OFFSET>,
-            ServingCellsGsm::<Impl, IMPL_OFFSET>,
-            ServingCellsLte::<Impl, IMPL_OFFSET>,
-            ServingCellsTdscdma::<Impl, IMPL_OFFSET>,
-            ServingCellsUmts::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandCellsInfo, BASE_OFFSET>(),
+            NeighboringCellsCdma: NeighboringCellsCdma::<Impl, IMPL_OFFSET>,
+            NeighboringCellsGsm: NeighboringCellsGsm::<Impl, IMPL_OFFSET>,
+            NeighboringCellsLte: NeighboringCellsLte::<Impl, IMPL_OFFSET>,
+            NeighboringCellsTdscdma: NeighboringCellsTdscdma::<Impl, IMPL_OFFSET>,
+            NeighboringCellsUmts: NeighboringCellsUmts::<Impl, IMPL_OFFSET>,
+            ServingCellsCdma: ServingCellsCdma::<Impl, IMPL_OFFSET>,
+            ServingCellsGsm: ServingCellsGsm::<Impl, IMPL_OFFSET>,
+            ServingCellsLte: ServingCellsLte::<Impl, IMPL_OFFSET>,
+            ServingCellsTdscdma: ServingCellsTdscdma::<Impl, IMPL_OFFSET>,
+            ServingCellsUmts: ServingCellsUmts::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandCellsInfo as ::windows::core::Interface>::IID
@@ -3130,7 +3164,11 @@ impl IMobileBroadbandCellsInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellsInfo2>, ::windows::core::GetTrustLevel, NeighboringCellsNR::<Impl, IMPL_OFFSET>, ServingCellsNR::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandCellsInfo2, BASE_OFFSET>(),
+            NeighboringCellsNR: NeighboringCellsNR::<Impl, IMPL_OFFSET>,
+            ServingCellsNR: ServingCellsNR::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandCellsInfo2 as ::windows::core::Interface>::IID
@@ -3158,7 +3196,10 @@ impl IMobileBroadbandCurrentSlotIndexChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandCurrentSlotIndexChangedEventArgs>, ::windows::core::GetTrustLevel, CurrentSlotIndex::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandCurrentSlotIndexChangedEventArgs, BASE_OFFSET>(),
+            CurrentSlotIndex: CurrentSlotIndex::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandCurrentSlotIndexChangedEventArgs as ::windows::core::Interface>::IID
@@ -3342,28 +3383,23 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceInformation>,
-            ::windows::core::GetTrustLevel,
-            NetworkDeviceStatus::<Impl, IMPL_OFFSET>,
-            Manufacturer::<Impl, IMPL_OFFSET>,
-            Model::<Impl, IMPL_OFFSET>,
-            FirmwareInformation::<Impl, IMPL_OFFSET>,
-            CellularClass::<Impl, IMPL_OFFSET>,
-            DataClasses::<Impl, IMPL_OFFSET>,
-            CustomDataClass::<Impl, IMPL_OFFSET>,
-            MobileEquipmentId::<Impl, IMPL_OFFSET>,
-            TelephoneNumbers::<Impl, IMPL_OFFSET>,
-            SubscriberId::<Impl, IMPL_OFFSET>,
-            SimIccId::<Impl, IMPL_OFFSET>,
-            DeviceType::<Impl, IMPL_OFFSET>,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            CurrentRadioState::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandDeviceInformation, BASE_OFFSET>(),
+            NetworkDeviceStatus: NetworkDeviceStatus::<Impl, IMPL_OFFSET>,
+            Manufacturer: Manufacturer::<Impl, IMPL_OFFSET>,
+            Model: Model::<Impl, IMPL_OFFSET>,
+            FirmwareInformation: FirmwareInformation::<Impl, IMPL_OFFSET>,
+            CellularClass: CellularClass::<Impl, IMPL_OFFSET>,
+            DataClasses: DataClasses::<Impl, IMPL_OFFSET>,
+            CustomDataClass: CustomDataClass::<Impl, IMPL_OFFSET>,
+            MobileEquipmentId: MobileEquipmentId::<Impl, IMPL_OFFSET>,
+            TelephoneNumbers: TelephoneNumbers::<Impl, IMPL_OFFSET>,
+            SubscriberId: SubscriberId::<Impl, IMPL_OFFSET>,
+            SimIccId: SimIccId::<Impl, IMPL_OFFSET>,
+            DeviceType: DeviceType::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            CurrentRadioState: CurrentRadioState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandDeviceInformation as ::windows::core::Interface>::IID
@@ -3415,7 +3451,12 @@ impl IMobileBroadbandDeviceInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceInformation2>, ::windows::core::GetTrustLevel, PinManager::<Impl, IMPL_OFFSET>, Revision::<Impl, IMPL_OFFSET>, SerialNumber::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandDeviceInformation2, BASE_OFFSET>(),
+            PinManager: PinManager::<Impl, IMPL_OFFSET>,
+            Revision: Revision::<Impl, IMPL_OFFSET>,
+            SerialNumber: SerialNumber::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandDeviceInformation2 as ::windows::core::Interface>::IID
@@ -3467,7 +3508,12 @@ impl IMobileBroadbandDeviceInformation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceInformation3>, ::windows::core::GetTrustLevel, SimSpn::<Impl, IMPL_OFFSET>, SimPnn::<Impl, IMPL_OFFSET>, SimGid1::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandDeviceInformation3, BASE_OFFSET>(),
+            SimSpn: SimSpn::<Impl, IMPL_OFFSET>,
+            SimPnn: SimPnn::<Impl, IMPL_OFFSET>,
+            SimGid1: SimGid1::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandDeviceInformation3 as ::windows::core::Interface>::IID
@@ -3495,7 +3541,10 @@ impl IMobileBroadbandDeviceInformation4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceInformation4>, ::windows::core::GetTrustLevel, SlotManager::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandDeviceInformation4, BASE_OFFSET>(),
+            SlotManager: SlotManager::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandDeviceInformation4 as ::windows::core::Interface>::IID
@@ -3559,7 +3608,13 @@ impl IMobileBroadbandDeviceServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceService>, ::windows::core::GetTrustLevel, DeviceServiceId::<Impl, IMPL_OFFSET>, SupportedCommands::<Impl, IMPL_OFFSET>, OpenDataSession::<Impl, IMPL_OFFSET>, OpenCommandSession::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandDeviceService, BASE_OFFSET>(),
+            DeviceServiceId: DeviceServiceId::<Impl, IMPL_OFFSET>,
+            SupportedCommands: SupportedCommands::<Impl, IMPL_OFFSET>,
+            OpenDataSession: OpenDataSession::<Impl, IMPL_OFFSET>,
+            OpenCommandSession: OpenCommandSession::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandDeviceService as ::windows::core::Interface>::IID
@@ -3599,7 +3654,11 @@ impl IMobileBroadbandDeviceServiceCommandResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceCommandResult>, ::windows::core::GetTrustLevel, StatusCode::<Impl, IMPL_OFFSET>, ResponseData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandDeviceServiceCommandResult, BASE_OFFSET>(),
+            StatusCode: StatusCode::<Impl, IMPL_OFFSET>,
+            ResponseData: ResponseData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandDeviceServiceCommandResult as ::windows::core::Interface>::IID
@@ -3644,7 +3703,12 @@ impl IMobileBroadbandDeviceServiceCommandSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CloseSession().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceCommandSession>, ::windows::core::GetTrustLevel, SendQueryCommandAsync::<Impl, IMPL_OFFSET>, SendSetCommandAsync::<Impl, IMPL_OFFSET>, CloseSession::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandDeviceServiceCommandSession, BASE_OFFSET>(),
+            SendQueryCommandAsync: SendQueryCommandAsync::<Impl, IMPL_OFFSET>,
+            SendSetCommandAsync: SendSetCommandAsync::<Impl, IMPL_OFFSET>,
+            CloseSession: CloseSession::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandDeviceServiceCommandSession as ::windows::core::Interface>::IID
@@ -3672,7 +3736,10 @@ impl IMobileBroadbandDeviceServiceDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceDataReceivedEventArgs>, ::windows::core::GetTrustLevel, ReceivedData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandDeviceServiceDataReceivedEventArgs, BASE_OFFSET>(),
+            ReceivedData: ReceivedData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandDeviceServiceDataReceivedEventArgs as ::windows::core::Interface>::IID
@@ -3722,7 +3789,13 @@ impl IMobileBroadbandDeviceServiceDataSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDataReceived(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceDataSession>, ::windows::core::GetTrustLevel, WriteDataAsync::<Impl, IMPL_OFFSET>, CloseSession::<Impl, IMPL_OFFSET>, DataReceived::<Impl, IMPL_OFFSET>, RemoveDataReceived::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandDeviceServiceDataSession, BASE_OFFSET>(),
+            WriteDataAsync: WriteDataAsync::<Impl, IMPL_OFFSET>,
+            CloseSession: CloseSession::<Impl, IMPL_OFFSET>,
+            DataReceived: DataReceived::<Impl, IMPL_OFFSET>,
+            RemoveDataReceived: RemoveDataReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandDeviceServiceDataSession as ::windows::core::Interface>::IID
@@ -3774,7 +3847,12 @@ impl IMobileBroadbandDeviceServiceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceInformation>, ::windows::core::GetTrustLevel, DeviceServiceId::<Impl, IMPL_OFFSET>, IsDataReadSupported::<Impl, IMPL_OFFSET>, IsDataWriteSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandDeviceServiceInformation, BASE_OFFSET>(),
+            DeviceServiceId: DeviceServiceId::<Impl, IMPL_OFFSET>,
+            IsDataReadSupported: IsDataReadSupported::<Impl, IMPL_OFFSET>,
+            IsDataWriteSupported: IsDataWriteSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandDeviceServiceInformation as ::windows::core::Interface>::IID
@@ -3826,7 +3904,12 @@ impl IMobileBroadbandDeviceServiceTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceTriggerDetails>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, DeviceServiceId::<Impl, IMPL_OFFSET>, ReceivedData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandDeviceServiceTriggerDetails, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            DeviceServiceId: DeviceServiceId::<Impl, IMPL_OFFSET>,
+            ReceivedData: ReceivedData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandDeviceServiceTriggerDetails as ::windows::core::Interface>::IID
@@ -3962,24 +4045,19 @@ impl IMobileBroadbandModemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandModem>,
-            ::windows::core::GetTrustLevel,
-            CurrentAccount::<Impl, IMPL_OFFSET>,
-            DeviceInformation::<Impl, IMPL_OFFSET>,
-            MaxDeviceServiceCommandSizeInBytes::<Impl, IMPL_OFFSET>,
-            MaxDeviceServiceDataSizeInBytes::<Impl, IMPL_OFFSET>,
-            DeviceServices::<Impl, IMPL_OFFSET>,
-            GetDeviceService::<Impl, IMPL_OFFSET>,
-            IsResetSupported::<Impl, IMPL_OFFSET>,
-            ResetAsync::<Impl, IMPL_OFFSET>,
-            GetCurrentConfigurationAsync::<Impl, IMPL_OFFSET>,
-            CurrentNetwork::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandModem, BASE_OFFSET>(),
+            CurrentAccount: CurrentAccount::<Impl, IMPL_OFFSET>,
+            DeviceInformation: DeviceInformation::<Impl, IMPL_OFFSET>,
+            MaxDeviceServiceCommandSizeInBytes: MaxDeviceServiceCommandSizeInBytes::<Impl, IMPL_OFFSET>,
+            MaxDeviceServiceDataSizeInBytes: MaxDeviceServiceDataSizeInBytes::<Impl, IMPL_OFFSET>,
+            DeviceServices: DeviceServices::<Impl, IMPL_OFFSET>,
+            GetDeviceService: GetDeviceService::<Impl, IMPL_OFFSET>,
+            IsResetSupported: IsResetSupported::<Impl, IMPL_OFFSET>,
+            ResetAsync: ResetAsync::<Impl, IMPL_OFFSET>,
+            GetCurrentConfigurationAsync: GetCurrentConfigurationAsync::<Impl, IMPL_OFFSET>,
+            CurrentNetwork: CurrentNetwork::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandModem as ::windows::core::Interface>::IID
@@ -4019,7 +4097,11 @@ impl IMobileBroadbandModem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModem2>, ::windows::core::GetTrustLevel, GetIsPassthroughEnabledAsync::<Impl, IMPL_OFFSET>, SetIsPassthroughEnabledAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandModem2, BASE_OFFSET>(),
+            GetIsPassthroughEnabledAsync: GetIsPassthroughEnabledAsync::<Impl, IMPL_OFFSET>,
+            SetIsPassthroughEnabledAsync: SetIsPassthroughEnabledAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandModem2 as ::windows::core::Interface>::IID
@@ -4076,7 +4158,13 @@ impl IMobileBroadbandModem3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsInEmergencyCallModeChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModem3>, ::windows::core::GetTrustLevel, TryGetPcoAsync::<Impl, IMPL_OFFSET>, IsInEmergencyCallMode::<Impl, IMPL_OFFSET>, IsInEmergencyCallModeChanged::<Impl, IMPL_OFFSET>, RemoveIsInEmergencyCallModeChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandModem3, BASE_OFFSET>(),
+            TryGetPcoAsync: TryGetPcoAsync::<Impl, IMPL_OFFSET>,
+            IsInEmergencyCallMode: IsInEmergencyCallMode::<Impl, IMPL_OFFSET>,
+            IsInEmergencyCallModeChanged: IsInEmergencyCallModeChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsInEmergencyCallModeChanged: RemoveIsInEmergencyCallModeChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandModem3 as ::windows::core::Interface>::IID
@@ -4128,7 +4216,12 @@ impl IMobileBroadbandModemConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemConfiguration>, ::windows::core::GetTrustLevel, Uicc::<Impl, IMPL_OFFSET>, HomeProviderId::<Impl, IMPL_OFFSET>, HomeProviderName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandModemConfiguration, BASE_OFFSET>(),
+            Uicc: Uicc::<Impl, IMPL_OFFSET>,
+            HomeProviderId: HomeProviderId::<Impl, IMPL_OFFSET>,
+            HomeProviderName: HomeProviderName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandModemConfiguration as ::windows::core::Interface>::IID
@@ -4156,7 +4249,10 @@ impl IMobileBroadbandModemConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemConfiguration2>, ::windows::core::GetTrustLevel, SarManager::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandModemConfiguration2, BASE_OFFSET>(),
+            SarManager: SarManager::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandModemConfiguration2 as ::windows::core::Interface>::IID
@@ -4206,7 +4302,13 @@ impl IMobileBroadbandModemIsolationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemIsolation>, ::windows::core::GetTrustLevel, AddAllowedHost::<Impl, IMPL_OFFSET>, AddAllowedHostRange::<Impl, IMPL_OFFSET>, ApplyConfigurationAsync::<Impl, IMPL_OFFSET>, ClearConfigurationAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandModemIsolation, BASE_OFFSET>(),
+            AddAllowedHost: AddAllowedHost::<Impl, IMPL_OFFSET>,
+            AddAllowedHostRange: AddAllowedHostRange::<Impl, IMPL_OFFSET>,
+            ApplyConfigurationAsync: ApplyConfigurationAsync::<Impl, IMPL_OFFSET>,
+            ClearConfigurationAsync: ClearConfigurationAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandModemIsolation as ::windows::core::Interface>::IID
@@ -4234,7 +4336,10 @@ impl IMobileBroadbandModemIsolationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemIsolationFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandModemIsolationFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandModemIsolationFactory as ::windows::core::Interface>::IID
@@ -4286,7 +4391,12 @@ impl IMobileBroadbandModemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromId::<Impl, IMPL_OFFSET>, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandModemStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromId: FromId::<Impl, IMPL_OFFSET>,
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandModemStatics as ::windows::core::Interface>::IID
@@ -4415,24 +4525,19 @@ impl IMobileBroadbandNetworkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowConnectionUI().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetwork>,
-            ::windows::core::GetTrustLevel,
-            NetworkAdapter::<Impl, IMPL_OFFSET>,
-            NetworkRegistrationState::<Impl, IMPL_OFFSET>,
-            RegistrationNetworkError::<Impl, IMPL_OFFSET>,
-            PacketAttachNetworkError::<Impl, IMPL_OFFSET>,
-            ActivationNetworkError::<Impl, IMPL_OFFSET>,
-            AccessPointName::<Impl, IMPL_OFFSET>,
-            RegisteredDataClass::<Impl, IMPL_OFFSET>,
-            RegisteredProviderId::<Impl, IMPL_OFFSET>,
-            RegisteredProviderName::<Impl, IMPL_OFFSET>,
-            ShowConnectionUI::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandNetwork, BASE_OFFSET>(),
+            NetworkAdapter: NetworkAdapter::<Impl, IMPL_OFFSET>,
+            NetworkRegistrationState: NetworkRegistrationState::<Impl, IMPL_OFFSET>,
+            RegistrationNetworkError: RegistrationNetworkError::<Impl, IMPL_OFFSET>,
+            PacketAttachNetworkError: PacketAttachNetworkError::<Impl, IMPL_OFFSET>,
+            ActivationNetworkError: ActivationNetworkError::<Impl, IMPL_OFFSET>,
+            AccessPointName: AccessPointName::<Impl, IMPL_OFFSET>,
+            RegisteredDataClass: RegisteredDataClass::<Impl, IMPL_OFFSET>,
+            RegisteredProviderId: RegisteredProviderId::<Impl, IMPL_OFFSET>,
+            RegisteredProviderName: RegisteredProviderName::<Impl, IMPL_OFFSET>,
+            ShowConnectionUI: ShowConnectionUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandNetwork as ::windows::core::Interface>::IID
@@ -4472,7 +4577,11 @@ impl IMobileBroadbandNetwork2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetwork2>, ::windows::core::GetTrustLevel, GetVoiceCallSupportAsync::<Impl, IMPL_OFFSET>, RegistrationUiccApps::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandNetwork2, BASE_OFFSET>(),
+            GetVoiceCallSupportAsync: GetVoiceCallSupportAsync::<Impl, IMPL_OFFSET>,
+            RegistrationUiccApps: RegistrationUiccApps::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandNetwork2 as ::windows::core::Interface>::IID
@@ -4500,7 +4609,10 @@ impl IMobileBroadbandNetwork3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetwork3>, ::windows::core::GetTrustLevel, GetCellsInfoAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandNetwork3, BASE_OFFSET>(),
+            GetCellsInfoAsync: GetCellsInfoAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandNetwork3 as ::windows::core::Interface>::IID
@@ -4540,7 +4652,11 @@ impl IMobileBroadbandNetworkRegistrationStateChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetworkRegistrationStateChange>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, Network::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandNetworkRegistrationStateChange, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            Network: Network::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandNetworkRegistrationStateChange as ::windows::core::Interface>::IID
@@ -4568,7 +4684,10 @@ impl IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails>, ::windows::core::GetTrustLevel, NetworkRegistrationStateChanges::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails, BASE_OFFSET>(),
+            NetworkRegistrationStateChanges: NetworkRegistrationStateChanges::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails as ::windows::core::Interface>::IID
@@ -4620,7 +4739,12 @@ impl IMobileBroadbandPcoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPco>, ::windows::core::GetTrustLevel, Data::<Impl, IMPL_OFFSET>, IsComplete::<Impl, IMPL_OFFSET>, DeviceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandPco, BASE_OFFSET>(),
+            Data: Data::<Impl, IMPL_OFFSET>,
+            IsComplete: IsComplete::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandPco as ::windows::core::Interface>::IID
@@ -4648,7 +4772,10 @@ impl IMobileBroadbandPcoDataChangeTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPcoDataChangeTriggerDetails>, ::windows::core::GetTrustLevel, UpdatedData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandPcoDataChangeTriggerDetails, BASE_OFFSET>(),
+            UpdatedData: UpdatedData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandPcoDataChangeTriggerDetails as ::windows::core::Interface>::IID
@@ -4808,26 +4935,21 @@ impl IMobileBroadbandPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandPin>,
-            ::windows::core::GetTrustLevel,
-            Type::<Impl, IMPL_OFFSET>,
-            LockState::<Impl, IMPL_OFFSET>,
-            Format::<Impl, IMPL_OFFSET>,
-            Enabled::<Impl, IMPL_OFFSET>,
-            MaxLength::<Impl, IMPL_OFFSET>,
-            MinLength::<Impl, IMPL_OFFSET>,
-            AttemptsRemaining::<Impl, IMPL_OFFSET>,
-            EnableAsync::<Impl, IMPL_OFFSET>,
-            DisableAsync::<Impl, IMPL_OFFSET>,
-            EnterAsync::<Impl, IMPL_OFFSET>,
-            ChangeAsync::<Impl, IMPL_OFFSET>,
-            UnblockAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandPin, BASE_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            LockState: LockState::<Impl, IMPL_OFFSET>,
+            Format: Format::<Impl, IMPL_OFFSET>,
+            Enabled: Enabled::<Impl, IMPL_OFFSET>,
+            MaxLength: MaxLength::<Impl, IMPL_OFFSET>,
+            MinLength: MinLength::<Impl, IMPL_OFFSET>,
+            AttemptsRemaining: AttemptsRemaining::<Impl, IMPL_OFFSET>,
+            EnableAsync: EnableAsync::<Impl, IMPL_OFFSET>,
+            DisableAsync: DisableAsync::<Impl, IMPL_OFFSET>,
+            EnterAsync: EnterAsync::<Impl, IMPL_OFFSET>,
+            ChangeAsync: ChangeAsync::<Impl, IMPL_OFFSET>,
+            UnblockAsync: UnblockAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandPin as ::windows::core::Interface>::IID
@@ -4879,7 +5001,12 @@ impl IMobileBroadbandPinLockStateChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPinLockStateChange>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, PinType::<Impl, IMPL_OFFSET>, PinLockState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandPinLockStateChange, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            PinType: PinType::<Impl, IMPL_OFFSET>,
+            PinLockState: PinLockState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandPinLockStateChange as ::windows::core::Interface>::IID
@@ -4907,7 +5034,10 @@ impl IMobileBroadbandPinLockStateChangeTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPinLockStateChangeTriggerDetails>, ::windows::core::GetTrustLevel, PinLockStateChanges::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandPinLockStateChangeTriggerDetails, BASE_OFFSET>(),
+            PinLockStateChanges: PinLockStateChanges::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandPinLockStateChangeTriggerDetails as ::windows::core::Interface>::IID
@@ -4947,7 +5077,11 @@ impl IMobileBroadbandPinManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPinManager>, ::windows::core::GetTrustLevel, SupportedPins::<Impl, IMPL_OFFSET>, GetPin::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandPinManager, BASE_OFFSET>(),
+            SupportedPins: SupportedPins::<Impl, IMPL_OFFSET>,
+            GetPin: GetPin::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandPinManager as ::windows::core::Interface>::IID
@@ -4987,7 +5121,11 @@ impl IMobileBroadbandPinOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPinOperationResult>, ::windows::core::GetTrustLevel, IsSuccessful::<Impl, IMPL_OFFSET>, AttemptsRemaining::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandPinOperationResult, BASE_OFFSET>(),
+            IsSuccessful: IsSuccessful::<Impl, IMPL_OFFSET>,
+            AttemptsRemaining: AttemptsRemaining::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandPinOperationResult as ::windows::core::Interface>::IID
@@ -5027,7 +5165,11 @@ impl IMobileBroadbandRadioStateChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandRadioStateChange>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, RadioState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandRadioStateChange, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            RadioState: RadioState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandRadioStateChange as ::windows::core::Interface>::IID
@@ -5055,7 +5197,10 @@ impl IMobileBroadbandRadioStateChangeTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandRadioStateChangeTriggerDetails>, ::windows::core::GetTrustLevel, RadioStateChanges::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandRadioStateChangeTriggerDetails, BASE_OFFSET>(),
+            RadioStateChanges: RadioStateChanges::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandRadioStateChangeTriggerDetails as ::windows::core::Interface>::IID
@@ -5230,29 +5375,24 @@ impl IMobileBroadbandSarManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopTransmissionStateMonitoring().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandSarManager>,
-            ::windows::core::GetTrustLevel,
-            IsBackoffEnabled::<Impl, IMPL_OFFSET>,
-            IsWiFiHardwareIntegrated::<Impl, IMPL_OFFSET>,
-            IsSarControlledByHardware::<Impl, IMPL_OFFSET>,
-            Antennas::<Impl, IMPL_OFFSET>,
-            HysteresisTimerPeriod::<Impl, IMPL_OFFSET>,
-            TransmissionStateChanged::<Impl, IMPL_OFFSET>,
-            RemoveTransmissionStateChanged::<Impl, IMPL_OFFSET>,
-            EnableBackoffAsync::<Impl, IMPL_OFFSET>,
-            DisableBackoffAsync::<Impl, IMPL_OFFSET>,
-            SetConfigurationAsync::<Impl, IMPL_OFFSET>,
-            RevertSarToHardwareControlAsync::<Impl, IMPL_OFFSET>,
-            SetTransmissionStateChangedHysteresisAsync::<Impl, IMPL_OFFSET>,
-            GetIsTransmittingAsync::<Impl, IMPL_OFFSET>,
-            StartTransmissionStateMonitoring::<Impl, IMPL_OFFSET>,
-            StopTransmissionStateMonitoring::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandSarManager, BASE_OFFSET>(),
+            IsBackoffEnabled: IsBackoffEnabled::<Impl, IMPL_OFFSET>,
+            IsWiFiHardwareIntegrated: IsWiFiHardwareIntegrated::<Impl, IMPL_OFFSET>,
+            IsSarControlledByHardware: IsSarControlledByHardware::<Impl, IMPL_OFFSET>,
+            Antennas: Antennas::<Impl, IMPL_OFFSET>,
+            HysteresisTimerPeriod: HysteresisTimerPeriod::<Impl, IMPL_OFFSET>,
+            TransmissionStateChanged: TransmissionStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveTransmissionStateChanged: RemoveTransmissionStateChanged::<Impl, IMPL_OFFSET>,
+            EnableBackoffAsync: EnableBackoffAsync::<Impl, IMPL_OFFSET>,
+            DisableBackoffAsync: DisableBackoffAsync::<Impl, IMPL_OFFSET>,
+            SetConfigurationAsync: SetConfigurationAsync::<Impl, IMPL_OFFSET>,
+            RevertSarToHardwareControlAsync: RevertSarToHardwareControlAsync::<Impl, IMPL_OFFSET>,
+            SetTransmissionStateChangedHysteresisAsync: SetTransmissionStateChangedHysteresisAsync::<Impl, IMPL_OFFSET>,
+            GetIsTransmittingAsync: GetIsTransmittingAsync::<Impl, IMPL_OFFSET>,
+            StartTransmissionStateMonitoring: StartTransmissionStateMonitoring::<Impl, IMPL_OFFSET>,
+            StopTransmissionStateMonitoring: StopTransmissionStateMonitoring::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandSarManager as ::windows::core::Interface>::IID
@@ -5292,7 +5432,11 @@ impl IMobileBroadbandSlotInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandSlotInfo>, ::windows::core::GetTrustLevel, Index::<Impl, IMPL_OFFSET>, State::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandSlotInfo, BASE_OFFSET>(),
+            Index: Index::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandSlotInfo as ::windows::core::Interface>::IID
@@ -5320,7 +5464,10 @@ impl IMobileBroadbandSlotInfoChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandSlotInfoChangedEventArgs>, ::windows::core::GetTrustLevel, SlotInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandSlotInfoChangedEventArgs, BASE_OFFSET>(),
+            SlotInfo: SlotInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandSlotInfoChangedEventArgs as ::windows::core::Interface>::IID
@@ -5418,22 +5565,17 @@ impl IMobileBroadbandSlotManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCurrentSlotIndexChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandSlotManager>,
-            ::windows::core::GetTrustLevel,
-            SlotInfos::<Impl, IMPL_OFFSET>,
-            CurrentSlotIndex::<Impl, IMPL_OFFSET>,
-            SetCurrentSlot::<Impl, IMPL_OFFSET>,
-            SetCurrentSlotAsync::<Impl, IMPL_OFFSET>,
-            SlotInfoChanged::<Impl, IMPL_OFFSET>,
-            RemoveSlotInfoChanged::<Impl, IMPL_OFFSET>,
-            CurrentSlotIndexChanged::<Impl, IMPL_OFFSET>,
-            RemoveCurrentSlotIndexChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandSlotManager, BASE_OFFSET>(),
+            SlotInfos: SlotInfos::<Impl, IMPL_OFFSET>,
+            CurrentSlotIndex: CurrentSlotIndex::<Impl, IMPL_OFFSET>,
+            SetCurrentSlot: SetCurrentSlot::<Impl, IMPL_OFFSET>,
+            SetCurrentSlotAsync: SetCurrentSlotAsync::<Impl, IMPL_OFFSET>,
+            SlotInfoChanged: SlotInfoChanged::<Impl, IMPL_OFFSET>,
+            RemoveSlotInfoChanged: RemoveSlotInfoChanged::<Impl, IMPL_OFFSET>,
+            CurrentSlotIndexChanged: CurrentSlotIndexChanged::<Impl, IMPL_OFFSET>,
+            RemoveCurrentSlotIndexChanged: RemoveCurrentSlotIndexChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandSlotManager as ::windows::core::Interface>::IID
@@ -5461,7 +5603,10 @@ impl IMobileBroadbandTransmissionStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandTransmissionStateChangedEventArgs>, ::windows::core::GetTrustLevel, IsTransmitting::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandTransmissionStateChangedEventArgs, BASE_OFFSET>(),
+            IsTransmitting: IsTransmitting::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandTransmissionStateChangedEventArgs as ::windows::core::Interface>::IID
@@ -5501,7 +5646,11 @@ impl IMobileBroadbandUiccVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUicc>, ::windows::core::GetTrustLevel, SimIccId::<Impl, IMPL_OFFSET>, GetUiccAppsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandUicc, BASE_OFFSET>(),
+            SimIccId: SimIccId::<Impl, IMPL_OFFSET>,
+            GetUiccAppsAsync: GetUiccAppsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandUicc as ::windows::core::Interface>::IID
@@ -5565,7 +5714,13 @@ impl IMobileBroadbandUiccAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUiccApp>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>, GetRecordDetailsAsync::<Impl, IMPL_OFFSET>, ReadRecordAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandUiccApp, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            GetRecordDetailsAsync: GetRecordDetailsAsync::<Impl, IMPL_OFFSET>,
+            ReadRecordAsync: ReadRecordAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandUiccApp as ::windows::core::Interface>::IID
@@ -5605,7 +5760,11 @@ impl IMobileBroadbandUiccAppReadRecordResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUiccAppReadRecordResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Data::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandUiccAppReadRecordResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Data: Data::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandUiccAppReadRecordResult as ::windows::core::Interface>::IID
@@ -5693,20 +5852,15 @@ impl IMobileBroadbandUiccAppRecordDetailsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMobileBroadbandUiccAppRecordDetailsResult>,
-            ::windows::core::GetTrustLevel,
-            Status::<Impl, IMPL_OFFSET>,
-            Kind::<Impl, IMPL_OFFSET>,
-            RecordCount::<Impl, IMPL_OFFSET>,
-            RecordSize::<Impl, IMPL_OFFSET>,
-            ReadAccessCondition::<Impl, IMPL_OFFSET>,
-            WriteAccessCondition::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandUiccAppRecordDetailsResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            RecordCount: RecordCount::<Impl, IMPL_OFFSET>,
+            RecordSize: RecordSize::<Impl, IMPL_OFFSET>,
+            ReadAccessCondition: ReadAccessCondition::<Impl, IMPL_OFFSET>,
+            WriteAccessCondition: WriteAccessCondition::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandUiccAppRecordDetailsResult as ::windows::core::Interface>::IID
@@ -5746,7 +5900,11 @@ impl IMobileBroadbandUiccAppsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUiccAppsResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, UiccApps::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMobileBroadbandUiccAppsResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            UiccApps: UiccApps::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMobileBroadbandUiccAppsResult as ::windows::core::Interface>::IID
@@ -5774,7 +5932,10 @@ impl INetworkOperatorDataUsageTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorDataUsageTriggerDetails>, ::windows::core::GetTrustLevel, NotificationKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorDataUsageTriggerDetails, BASE_OFFSET>(),
+            NotificationKind: NotificationKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorDataUsageTriggerDetails as ::windows::core::Interface>::IID
@@ -5862,20 +6023,15 @@ impl INetworkOperatorNotificationEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INetworkOperatorNotificationEventDetails>,
-            ::windows::core::GetTrustLevel,
-            NotificationType::<Impl, IMPL_OFFSET>,
-            NetworkAccountId::<Impl, IMPL_OFFSET>,
-            EncodingType::<Impl, IMPL_OFFSET>,
-            Message::<Impl, IMPL_OFFSET>,
-            RuleId::<Impl, IMPL_OFFSET>,
-            SmsMessage::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorNotificationEventDetails, BASE_OFFSET>(),
+            NotificationType: NotificationType::<Impl, IMPL_OFFSET>,
+            NetworkAccountId: NetworkAccountId::<Impl, IMPL_OFFSET>,
+            EncodingType: EncodingType::<Impl, IMPL_OFFSET>,
+            Message: Message::<Impl, IMPL_OFFSET>,
+            RuleId: RuleId::<Impl, IMPL_OFFSET>,
+            SmsMessage: SmsMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorNotificationEventDetails as ::windows::core::Interface>::IID
@@ -5925,7 +6081,13 @@ impl INetworkOperatorTetheringAccessPointConfigurationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPassphrase(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringAccessPointConfiguration>, ::windows::core::GetTrustLevel, Ssid::<Impl, IMPL_OFFSET>, SetSsid::<Impl, IMPL_OFFSET>, Passphrase::<Impl, IMPL_OFFSET>, SetPassphrase::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorTetheringAccessPointConfiguration, BASE_OFFSET>(),
+            Ssid: Ssid::<Impl, IMPL_OFFSET>,
+            SetSsid: SetSsid::<Impl, IMPL_OFFSET>,
+            Passphrase: Passphrase::<Impl, IMPL_OFFSET>,
+            SetPassphrase: SetPassphrase::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorTetheringAccessPointConfiguration as ::windows::core::Interface>::IID
@@ -5982,7 +6144,13 @@ impl INetworkOperatorTetheringAccessPointConfiguration2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBand(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringAccessPointConfiguration2>, ::windows::core::GetTrustLevel, IsBandSupported::<Impl, IMPL_OFFSET>, IsBandSupportedAsync::<Impl, IMPL_OFFSET>, Band::<Impl, IMPL_OFFSET>, SetBand::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorTetheringAccessPointConfiguration2, BASE_OFFSET>(),
+            IsBandSupported: IsBandSupported::<Impl, IMPL_OFFSET>,
+            IsBandSupportedAsync: IsBandSupportedAsync::<Impl, IMPL_OFFSET>,
+            Band: Band::<Impl, IMPL_OFFSET>,
+            SetBand: SetBand::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorTetheringAccessPointConfiguration2 as ::windows::core::Interface>::IID
@@ -6022,7 +6190,11 @@ impl INetworkOperatorTetheringClientVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringClient>, ::windows::core::GetTrustLevel, MacAddress::<Impl, IMPL_OFFSET>, HostNames::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorTetheringClient, BASE_OFFSET>(),
+            MacAddress: MacAddress::<Impl, IMPL_OFFSET>,
+            HostNames: HostNames::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorTetheringClient as ::windows::core::Interface>::IID
@@ -6050,7 +6222,10 @@ impl INetworkOperatorTetheringClientManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringClientManager>, ::windows::core::GetTrustLevel, GetTetheringClients::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorTetheringClientManager, BASE_OFFSET>(),
+            GetTetheringClients: GetTetheringClients::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorTetheringClientManager as ::windows::core::Interface>::IID
@@ -6071,7 +6246,10 @@ impl INetworkOperatorTetheringEntitlementCheckVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AuthorizeTethering(allow, &*(&entitlementfailurereason as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringEntitlementCheck>, ::windows::core::GetTrustLevel, AuthorizeTethering::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorTetheringEntitlementCheck, BASE_OFFSET>(),
+            AuthorizeTethering: AuthorizeTethering::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorTetheringEntitlementCheck as ::windows::core::Interface>::IID
@@ -6171,21 +6349,16 @@ impl INetworkOperatorTetheringManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManager>,
-            ::windows::core::GetTrustLevel,
-            MaxClientCount::<Impl, IMPL_OFFSET>,
-            ClientCount::<Impl, IMPL_OFFSET>,
-            TetheringOperationalState::<Impl, IMPL_OFFSET>,
-            GetCurrentAccessPointConfiguration::<Impl, IMPL_OFFSET>,
-            ConfigureAccessPointAsync::<Impl, IMPL_OFFSET>,
-            StartTetheringAsync::<Impl, IMPL_OFFSET>,
-            StopTetheringAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorTetheringManager, BASE_OFFSET>(),
+            MaxClientCount: MaxClientCount::<Impl, IMPL_OFFSET>,
+            ClientCount: ClientCount::<Impl, IMPL_OFFSET>,
+            TetheringOperationalState: TetheringOperationalState::<Impl, IMPL_OFFSET>,
+            GetCurrentAccessPointConfiguration: GetCurrentAccessPointConfiguration::<Impl, IMPL_OFFSET>,
+            ConfigureAccessPointAsync: ConfigureAccessPointAsync::<Impl, IMPL_OFFSET>,
+            StartTetheringAsync: StartTetheringAsync::<Impl, IMPL_OFFSET>,
+            StopTetheringAsync: StopTetheringAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorTetheringManager as ::windows::core::Interface>::IID
@@ -6225,7 +6398,11 @@ impl INetworkOperatorTetheringManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManagerStatics>, ::windows::core::GetTrustLevel, GetTetheringCapability::<Impl, IMPL_OFFSET>, CreateFromNetworkAccountId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorTetheringManagerStatics, BASE_OFFSET>(),
+            GetTetheringCapability: GetTetheringCapability::<Impl, IMPL_OFFSET>,
+            CreateFromNetworkAccountId: CreateFromNetworkAccountId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorTetheringManagerStatics as ::windows::core::Interface>::IID
@@ -6265,7 +6442,11 @@ impl INetworkOperatorTetheringManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManagerStatics2>, ::windows::core::GetTrustLevel, GetTetheringCapabilityFromConnectionProfile::<Impl, IMPL_OFFSET>, CreateFromConnectionProfile::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorTetheringManagerStatics2, BASE_OFFSET>(),
+            GetTetheringCapabilityFromConnectionProfile: GetTetheringCapabilityFromConnectionProfile::<Impl, IMPL_OFFSET>,
+            CreateFromConnectionProfile: CreateFromConnectionProfile::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorTetheringManagerStatics2 as ::windows::core::Interface>::IID
@@ -6293,7 +6474,10 @@ impl INetworkOperatorTetheringManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManagerStatics3>, ::windows::core::GetTrustLevel, CreateFromConnectionProfileWithTargetAdapter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorTetheringManagerStatics3, BASE_OFFSET>(),
+            CreateFromConnectionProfileWithTargetAdapter: CreateFromConnectionProfileWithTargetAdapter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorTetheringManagerStatics3 as ::windows::core::Interface>::IID
@@ -6355,19 +6539,14 @@ impl INetworkOperatorTetheringManagerStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManagerStatics4>,
-            ::windows::core::GetTrustLevel,
-            IsNoConnectionsTimeoutEnabled::<Impl, IMPL_OFFSET>,
-            EnableNoConnectionsTimeout::<Impl, IMPL_OFFSET>,
-            EnableNoConnectionsTimeoutAsync::<Impl, IMPL_OFFSET>,
-            DisableNoConnectionsTimeout::<Impl, IMPL_OFFSET>,
-            DisableNoConnectionsTimeoutAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorTetheringManagerStatics4, BASE_OFFSET>(),
+            IsNoConnectionsTimeoutEnabled: IsNoConnectionsTimeoutEnabled::<Impl, IMPL_OFFSET>,
+            EnableNoConnectionsTimeout: EnableNoConnectionsTimeout::<Impl, IMPL_OFFSET>,
+            EnableNoConnectionsTimeoutAsync: EnableNoConnectionsTimeoutAsync::<Impl, IMPL_OFFSET>,
+            DisableNoConnectionsTimeout: DisableNoConnectionsTimeout::<Impl, IMPL_OFFSET>,
+            DisableNoConnectionsTimeoutAsync: DisableNoConnectionsTimeoutAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorTetheringManagerStatics4 as ::windows::core::Interface>::IID
@@ -6407,7 +6586,11 @@ impl INetworkOperatorTetheringOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringOperationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, AdditionalErrorMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorTetheringOperationResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            AdditionalErrorMessage: AdditionalErrorMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorTetheringOperationResult as ::windows::core::Interface>::IID
@@ -6447,7 +6630,11 @@ impl IProvisionFromXmlDocumentResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProvisionFromXmlDocumentResults>, ::windows::core::GetTrustLevel, AllElementsProvisioned::<Impl, IMPL_OFFSET>, ProvisionResultsXml::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProvisionFromXmlDocumentResults, BASE_OFFSET>(),
+            AllElementsProvisioned: AllElementsProvisioned::<Impl, IMPL_OFFSET>,
+            ProvisionResultsXml: ProvisionResultsXml::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProvisionFromXmlDocumentResults as ::windows::core::Interface>::IID
@@ -6473,7 +6660,11 @@ impl IProvisionedProfileVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateUsage(&*(&value as *const <ProfileUsage as ::windows::core::Abi>::Abi as *const <ProfileUsage as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProvisionedProfile>, ::windows::core::GetTrustLevel, UpdateCost::<Impl, IMPL_OFFSET>, UpdateUsage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProvisionedProfile, BASE_OFFSET>(),
+            UpdateCost: UpdateCost::<Impl, IMPL_OFFSET>,
+            UpdateUsage: UpdateUsage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProvisionedProfile as ::windows::core::Interface>::IID
@@ -6513,7 +6704,11 @@ impl IProvisioningAgentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProvisioningAgent>, ::windows::core::GetTrustLevel, ProvisionFromXmlDocumentAsync::<Impl, IMPL_OFFSET>, GetProvisionedProfile::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProvisioningAgent, BASE_OFFSET>(),
+            ProvisionFromXmlDocumentAsync: ProvisionFromXmlDocumentAsync::<Impl, IMPL_OFFSET>,
+            GetProvisionedProfile: GetProvisionedProfile::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProvisioningAgent as ::windows::core::Interface>::IID
@@ -6541,7 +6736,10 @@ impl IProvisioningAgentStaticMethodsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProvisioningAgentStaticMethods>, ::windows::core::GetTrustLevel, CreateFromNetworkAccountId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProvisioningAgentStaticMethods, BASE_OFFSET>(),
+            CreateFromNetworkAccountId: CreateFromNetworkAccountId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProvisioningAgentStaticMethods as ::windows::core::Interface>::IID
@@ -6579,7 +6777,12 @@ impl ITetheringEntitlementCheckTriggerDetailsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DenyTethering(&*(&entitlementfailurereason as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITetheringEntitlementCheckTriggerDetails>, ::windows::core::GetTrustLevel, NetworkAccountId::<Impl, IMPL_OFFSET>, AllowTethering::<Impl, IMPL_OFFSET>, DenyTethering::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITetheringEntitlementCheckTriggerDetails, BASE_OFFSET>(),
+            NetworkAccountId: NetworkAccountId::<Impl, IMPL_OFFSET>,
+            AllowTethering: AllowTethering::<Impl, IMPL_OFFSET>,
+            DenyTethering: DenyTethering::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITetheringEntitlementCheckTriggerDetails as ::windows::core::Interface>::IID
@@ -6647,20 +6850,15 @@ impl IUssdMessageVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPayloadAsText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUssdMessage>,
-            ::windows::core::GetTrustLevel,
-            DataCodingScheme::<Impl, IMPL_OFFSET>,
-            SetDataCodingScheme::<Impl, IMPL_OFFSET>,
-            GetPayload::<Impl, IMPL_OFFSET>,
-            SetPayload::<Impl, IMPL_OFFSET>,
-            PayloadAsText::<Impl, IMPL_OFFSET>,
-            SetPayloadAsText::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUssdMessage, BASE_OFFSET>(),
+            DataCodingScheme: DataCodingScheme::<Impl, IMPL_OFFSET>,
+            SetDataCodingScheme: SetDataCodingScheme::<Impl, IMPL_OFFSET>,
+            GetPayload: GetPayload::<Impl, IMPL_OFFSET>,
+            SetPayload: SetPayload::<Impl, IMPL_OFFSET>,
+            PayloadAsText: PayloadAsText::<Impl, IMPL_OFFSET>,
+            SetPayloadAsText: SetPayloadAsText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUssdMessage as ::windows::core::Interface>::IID
@@ -6688,7 +6886,7 @@ impl IUssdMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUssdMessageFactory>, ::windows::core::GetTrustLevel, CreateMessage::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUssdMessageFactory, BASE_OFFSET>(), CreateMessage: CreateMessage::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUssdMessageFactory as ::windows::core::Interface>::IID
@@ -6728,7 +6926,11 @@ impl IUssdReplyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUssdReply>, ::windows::core::GetTrustLevel, ResultCode::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUssdReply, BASE_OFFSET>(),
+            ResultCode: ResultCode::<Impl, IMPL_OFFSET>,
+            Message: Message::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUssdReply as ::windows::core::Interface>::IID
@@ -6761,7 +6963,11 @@ impl IUssdSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUssdSession>, ::windows::core::GetTrustLevel, SendMessageAndGetReplyAsync::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUssdSession, BASE_OFFSET>(),
+            SendMessageAndGetReplyAsync: SendMessageAndGetReplyAsync::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUssdSession as ::windows::core::Interface>::IID
@@ -6801,7 +7007,11 @@ impl IUssdSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUssdSessionStatics>, ::windows::core::GetTrustLevel, CreateFromNetworkAccountId::<Impl, IMPL_OFFSET>, CreateFromNetworkInterfaceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUssdSessionStatics, BASE_OFFSET>(),
+            CreateFromNetworkAccountId: CreateFromNetworkAccountId::<Impl, IMPL_OFFSET>,
+            CreateFromNetworkInterfaceId: CreateFromNetworkInterfaceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUssdSessionStatics as ::windows::core::Interface>::IID

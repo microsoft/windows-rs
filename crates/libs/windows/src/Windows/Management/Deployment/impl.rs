@@ -277,44 +277,39 @@ impl IAddPackageOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDeferRegistrationWhenPackagesAreInUse(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAddPackageOptions>,
-            ::windows::core::GetTrustLevel,
-            DependencyPackageUris::<Impl, IMPL_OFFSET>,
-            TargetVolume::<Impl, IMPL_OFFSET>,
-            SetTargetVolume::<Impl, IMPL_OFFSET>,
-            OptionalPackageFamilyNames::<Impl, IMPL_OFFSET>,
-            OptionalPackageUris::<Impl, IMPL_OFFSET>,
-            RelatedPackageUris::<Impl, IMPL_OFFSET>,
-            ExternalLocationUri::<Impl, IMPL_OFFSET>,
-            SetExternalLocationUri::<Impl, IMPL_OFFSET>,
-            StubPackageOption::<Impl, IMPL_OFFSET>,
-            SetStubPackageOption::<Impl, IMPL_OFFSET>,
-            DeveloperMode::<Impl, IMPL_OFFSET>,
-            SetDeveloperMode::<Impl, IMPL_OFFSET>,
-            ForceAppShutdown::<Impl, IMPL_OFFSET>,
-            SetForceAppShutdown::<Impl, IMPL_OFFSET>,
-            ForceTargetAppShutdown::<Impl, IMPL_OFFSET>,
-            SetForceTargetAppShutdown::<Impl, IMPL_OFFSET>,
-            ForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
-            SetForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
-            InstallAllResources::<Impl, IMPL_OFFSET>,
-            SetInstallAllResources::<Impl, IMPL_OFFSET>,
-            RequiredContentGroupOnly::<Impl, IMPL_OFFSET>,
-            SetRequiredContentGroupOnly::<Impl, IMPL_OFFSET>,
-            RetainFilesOnFailure::<Impl, IMPL_OFFSET>,
-            SetRetainFilesOnFailure::<Impl, IMPL_OFFSET>,
-            StageInPlace::<Impl, IMPL_OFFSET>,
-            SetStageInPlace::<Impl, IMPL_OFFSET>,
-            AllowUnsigned::<Impl, IMPL_OFFSET>,
-            SetAllowUnsigned::<Impl, IMPL_OFFSET>,
-            DeferRegistrationWhenPackagesAreInUse::<Impl, IMPL_OFFSET>,
-            SetDeferRegistrationWhenPackagesAreInUse::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAddPackageOptions, BASE_OFFSET>(),
+            DependencyPackageUris: DependencyPackageUris::<Impl, IMPL_OFFSET>,
+            TargetVolume: TargetVolume::<Impl, IMPL_OFFSET>,
+            SetTargetVolume: SetTargetVolume::<Impl, IMPL_OFFSET>,
+            OptionalPackageFamilyNames: OptionalPackageFamilyNames::<Impl, IMPL_OFFSET>,
+            OptionalPackageUris: OptionalPackageUris::<Impl, IMPL_OFFSET>,
+            RelatedPackageUris: RelatedPackageUris::<Impl, IMPL_OFFSET>,
+            ExternalLocationUri: ExternalLocationUri::<Impl, IMPL_OFFSET>,
+            SetExternalLocationUri: SetExternalLocationUri::<Impl, IMPL_OFFSET>,
+            StubPackageOption: StubPackageOption::<Impl, IMPL_OFFSET>,
+            SetStubPackageOption: SetStubPackageOption::<Impl, IMPL_OFFSET>,
+            DeveloperMode: DeveloperMode::<Impl, IMPL_OFFSET>,
+            SetDeveloperMode: SetDeveloperMode::<Impl, IMPL_OFFSET>,
+            ForceAppShutdown: ForceAppShutdown::<Impl, IMPL_OFFSET>,
+            SetForceAppShutdown: SetForceAppShutdown::<Impl, IMPL_OFFSET>,
+            ForceTargetAppShutdown: ForceTargetAppShutdown::<Impl, IMPL_OFFSET>,
+            SetForceTargetAppShutdown: SetForceTargetAppShutdown::<Impl, IMPL_OFFSET>,
+            ForceUpdateFromAnyVersion: ForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
+            SetForceUpdateFromAnyVersion: SetForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
+            InstallAllResources: InstallAllResources::<Impl, IMPL_OFFSET>,
+            SetInstallAllResources: SetInstallAllResources::<Impl, IMPL_OFFSET>,
+            RequiredContentGroupOnly: RequiredContentGroupOnly::<Impl, IMPL_OFFSET>,
+            SetRequiredContentGroupOnly: SetRequiredContentGroupOnly::<Impl, IMPL_OFFSET>,
+            RetainFilesOnFailure: RetainFilesOnFailure::<Impl, IMPL_OFFSET>,
+            SetRetainFilesOnFailure: SetRetainFilesOnFailure::<Impl, IMPL_OFFSET>,
+            StageInPlace: StageInPlace::<Impl, IMPL_OFFSET>,
+            SetStageInPlace: SetStageInPlace::<Impl, IMPL_OFFSET>,
+            AllowUnsigned: AllowUnsigned::<Impl, IMPL_OFFSET>,
+            SetAllowUnsigned: SetAllowUnsigned::<Impl, IMPL_OFFSET>,
+            DeferRegistrationWhenPackagesAreInUse: DeferRegistrationWhenPackagesAreInUse::<Impl, IMPL_OFFSET>,
+            SetDeferRegistrationWhenPackagesAreInUse: SetDeferRegistrationWhenPackagesAreInUse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAddPackageOptions as ::windows::core::Interface>::IID
@@ -345,7 +340,12 @@ impl IAppInstallerManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PauseAutoUpdatesUntil(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&datetime as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallerManager>, ::windows::core::GetTrustLevel, SetAutoUpdateSettings::<Impl, IMPL_OFFSET>, ClearAutoUpdateSettings::<Impl, IMPL_OFFSET>, PauseAutoUpdatesUntil::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallerManager, BASE_OFFSET>(),
+            SetAutoUpdateSettings: SetAutoUpdateSettings::<Impl, IMPL_OFFSET>,
+            ClearAutoUpdateSettings: ClearAutoUpdateSettings::<Impl, IMPL_OFFSET>,
+            PauseAutoUpdatesUntil: PauseAutoUpdatesUntil::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallerManager as ::windows::core::Interface>::IID
@@ -385,7 +385,11 @@ impl IAppInstallerManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallerManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForSystem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppInstallerManagerStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            GetForSystem: GetForSystem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppInstallerManagerStatics as ::windows::core::Interface>::IID
@@ -602,36 +606,31 @@ impl IAutoUpdateSettingsOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAutoUpdateSettingsOptions>,
-            ::windows::core::GetTrustLevel,
-            Version::<Impl, IMPL_OFFSET>,
-            SetVersion::<Impl, IMPL_OFFSET>,
-            AppInstallerUri::<Impl, IMPL_OFFSET>,
-            SetAppInstallerUri::<Impl, IMPL_OFFSET>,
-            OnLaunch::<Impl, IMPL_OFFSET>,
-            SetOnLaunch::<Impl, IMPL_OFFSET>,
-            HoursBetweenUpdateChecks::<Impl, IMPL_OFFSET>,
-            SetHoursBetweenUpdateChecks::<Impl, IMPL_OFFSET>,
-            ShowPrompt::<Impl, IMPL_OFFSET>,
-            SetShowPrompt::<Impl, IMPL_OFFSET>,
-            UpdateBlocksActivation::<Impl, IMPL_OFFSET>,
-            SetUpdateBlocksActivation::<Impl, IMPL_OFFSET>,
-            AutomaticBackgroundTask::<Impl, IMPL_OFFSET>,
-            SetAutomaticBackgroundTask::<Impl, IMPL_OFFSET>,
-            ForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
-            SetForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
-            IsAutoRepairEnabled::<Impl, IMPL_OFFSET>,
-            SetIsAutoRepairEnabled::<Impl, IMPL_OFFSET>,
-            UpdateUris::<Impl, IMPL_OFFSET>,
-            RepairUris::<Impl, IMPL_OFFSET>,
-            DependencyPackageUris::<Impl, IMPL_OFFSET>,
-            OptionalPackageUris::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutoUpdateSettingsOptions, BASE_OFFSET>(),
+            Version: Version::<Impl, IMPL_OFFSET>,
+            SetVersion: SetVersion::<Impl, IMPL_OFFSET>,
+            AppInstallerUri: AppInstallerUri::<Impl, IMPL_OFFSET>,
+            SetAppInstallerUri: SetAppInstallerUri::<Impl, IMPL_OFFSET>,
+            OnLaunch: OnLaunch::<Impl, IMPL_OFFSET>,
+            SetOnLaunch: SetOnLaunch::<Impl, IMPL_OFFSET>,
+            HoursBetweenUpdateChecks: HoursBetweenUpdateChecks::<Impl, IMPL_OFFSET>,
+            SetHoursBetweenUpdateChecks: SetHoursBetweenUpdateChecks::<Impl, IMPL_OFFSET>,
+            ShowPrompt: ShowPrompt::<Impl, IMPL_OFFSET>,
+            SetShowPrompt: SetShowPrompt::<Impl, IMPL_OFFSET>,
+            UpdateBlocksActivation: UpdateBlocksActivation::<Impl, IMPL_OFFSET>,
+            SetUpdateBlocksActivation: SetUpdateBlocksActivation::<Impl, IMPL_OFFSET>,
+            AutomaticBackgroundTask: AutomaticBackgroundTask::<Impl, IMPL_OFFSET>,
+            SetAutomaticBackgroundTask: SetAutomaticBackgroundTask::<Impl, IMPL_OFFSET>,
+            ForceUpdateFromAnyVersion: ForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
+            SetForceUpdateFromAnyVersion: SetForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
+            IsAutoRepairEnabled: IsAutoRepairEnabled::<Impl, IMPL_OFFSET>,
+            SetIsAutoRepairEnabled: SetIsAutoRepairEnabled::<Impl, IMPL_OFFSET>,
+            UpdateUris: UpdateUris::<Impl, IMPL_OFFSET>,
+            RepairUris: RepairUris::<Impl, IMPL_OFFSET>,
+            DependencyPackageUris: DependencyPackageUris::<Impl, IMPL_OFFSET>,
+            OptionalPackageUris: OptionalPackageUris::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutoUpdateSettingsOptions as ::windows::core::Interface>::IID
@@ -659,7 +658,10 @@ impl IAutoUpdateSettingsOptionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutoUpdateSettingsOptionsStatics>, ::windows::core::GetTrustLevel, CreateFromAppInstallerInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutoUpdateSettingsOptionsStatics, BASE_OFFSET>(),
+            CreateFromAppInstallerInfo: CreateFromAppInstallerInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutoUpdateSettingsOptionsStatics as ::windows::core::Interface>::IID
@@ -721,19 +723,14 @@ impl ICreateSharedPackageContainerOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCreateCollisionOption(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICreateSharedPackageContainerOptions>,
-            ::windows::core::GetTrustLevel,
-            Members::<Impl, IMPL_OFFSET>,
-            ForceAppShutdown::<Impl, IMPL_OFFSET>,
-            SetForceAppShutdown::<Impl, IMPL_OFFSET>,
-            CreateCollisionOption::<Impl, IMPL_OFFSET>,
-            SetCreateCollisionOption::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateSharedPackageContainerOptions, BASE_OFFSET>(),
+            Members: Members::<Impl, IMPL_OFFSET>,
+            ForceAppShutdown: ForceAppShutdown::<Impl, IMPL_OFFSET>,
+            SetForceAppShutdown: SetForceAppShutdown::<Impl, IMPL_OFFSET>,
+            CreateCollisionOption: CreateCollisionOption::<Impl, IMPL_OFFSET>,
+            SetCreateCollisionOption: SetCreateCollisionOption::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateSharedPackageContainerOptions as ::windows::core::Interface>::IID
@@ -785,7 +782,12 @@ impl ICreateSharedPackageContainerResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICreateSharedPackageContainerResult>, ::windows::core::GetTrustLevel, Container::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICreateSharedPackageContainerResult, BASE_OFFSET>(),
+            Container: Container::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateSharedPackageContainerResult as ::windows::core::Interface>::IID
@@ -835,7 +837,13 @@ impl IDeleteSharedPackageContainerOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllUsers(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeleteSharedPackageContainerOptions>, ::windows::core::GetTrustLevel, ForceAppShutdown::<Impl, IMPL_OFFSET>, SetForceAppShutdown::<Impl, IMPL_OFFSET>, AllUsers::<Impl, IMPL_OFFSET>, SetAllUsers::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeleteSharedPackageContainerOptions, BASE_OFFSET>(),
+            ForceAppShutdown: ForceAppShutdown::<Impl, IMPL_OFFSET>,
+            SetForceAppShutdown: SetForceAppShutdown::<Impl, IMPL_OFFSET>,
+            AllUsers: AllUsers::<Impl, IMPL_OFFSET>,
+            SetAllUsers: SetAllUsers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeleteSharedPackageContainerOptions as ::windows::core::Interface>::IID
@@ -875,7 +883,11 @@ impl IDeleteSharedPackageContainerResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeleteSharedPackageContainerResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeleteSharedPackageContainerResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeleteSharedPackageContainerResult as ::windows::core::Interface>::IID
@@ -927,7 +939,12 @@ impl IDeploymentResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeploymentResult>, ::windows::core::GetTrustLevel, ErrorText::<Impl, IMPL_OFFSET>, ActivityId::<Impl, IMPL_OFFSET>, ExtendedErrorCode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeploymentResult, BASE_OFFSET>(),
+            ErrorText: ErrorText::<Impl, IMPL_OFFSET>,
+            ActivityId: ActivityId::<Impl, IMPL_OFFSET>,
+            ExtendedErrorCode: ExtendedErrorCode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeploymentResult as ::windows::core::Interface>::IID
@@ -955,7 +972,7 @@ impl IDeploymentResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeploymentResult2>, ::windows::core::GetTrustLevel, IsRegistered::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDeploymentResult2, BASE_OFFSET>(), IsRegistered: IsRegistered::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeploymentResult2 as ::windows::core::Interface>::IID
@@ -1005,7 +1022,13 @@ impl IFindSharedPackageContainerOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPackageFamilyName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFindSharedPackageContainerOptions>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, PackageFamilyName::<Impl, IMPL_OFFSET>, SetPackageFamilyName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFindSharedPackageContainerOptions, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            PackageFamilyName: PackageFamilyName::<Impl, IMPL_OFFSET>,
+            SetPackageFamilyName: SetPackageFamilyName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFindSharedPackageContainerOptions as ::windows::core::Interface>::IID
@@ -1045,7 +1068,11 @@ impl IPackageAllUserProvisioningOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageAllUserProvisioningOptions>, ::windows::core::GetTrustLevel, OptionalPackageFamilyNames::<Impl, IMPL_OFFSET>, ProjectionOrderPackageFamilyNames::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageAllUserProvisioningOptions, BASE_OFFSET>(),
+            OptionalPackageFamilyNames: OptionalPackageFamilyNames::<Impl, IMPL_OFFSET>,
+            ProjectionOrderPackageFamilyNames: ProjectionOrderPackageFamilyNames::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageAllUserProvisioningOptions as ::windows::core::Interface>::IID
@@ -1250,30 +1277,25 @@ impl IPackageManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPackageManager>,
-            ::windows::core::GetTrustLevel,
-            AddPackageAsync::<Impl, IMPL_OFFSET>,
-            UpdatePackageAsync::<Impl, IMPL_OFFSET>,
-            RemovePackageAsync::<Impl, IMPL_OFFSET>,
-            StagePackageAsync::<Impl, IMPL_OFFSET>,
-            RegisterPackageAsync::<Impl, IMPL_OFFSET>,
-            FindPackages::<Impl, IMPL_OFFSET>,
-            FindPackagesByUserSecurityId::<Impl, IMPL_OFFSET>,
-            FindPackagesByNamePublisher::<Impl, IMPL_OFFSET>,
-            FindPackagesByUserSecurityIdNamePublisher::<Impl, IMPL_OFFSET>,
-            FindUsers::<Impl, IMPL_OFFSET>,
-            SetPackageState::<Impl, IMPL_OFFSET>,
-            FindPackageByPackageFullName::<Impl, IMPL_OFFSET>,
-            CleanupPackageForUserAsync::<Impl, IMPL_OFFSET>,
-            FindPackagesByPackageFamilyName::<Impl, IMPL_OFFSET>,
-            FindPackagesByUserSecurityIdPackageFamilyName::<Impl, IMPL_OFFSET>,
-            FindPackageByUserSecurityIdPackageFullName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageManager, BASE_OFFSET>(),
+            AddPackageAsync: AddPackageAsync::<Impl, IMPL_OFFSET>,
+            UpdatePackageAsync: UpdatePackageAsync::<Impl, IMPL_OFFSET>,
+            RemovePackageAsync: RemovePackageAsync::<Impl, IMPL_OFFSET>,
+            StagePackageAsync: StagePackageAsync::<Impl, IMPL_OFFSET>,
+            RegisterPackageAsync: RegisterPackageAsync::<Impl, IMPL_OFFSET>,
+            FindPackages: FindPackages::<Impl, IMPL_OFFSET>,
+            FindPackagesByUserSecurityId: FindPackagesByUserSecurityId::<Impl, IMPL_OFFSET>,
+            FindPackagesByNamePublisher: FindPackagesByNamePublisher::<Impl, IMPL_OFFSET>,
+            FindPackagesByUserSecurityIdNamePublisher: FindPackagesByUserSecurityIdNamePublisher::<Impl, IMPL_OFFSET>,
+            FindUsers: FindUsers::<Impl, IMPL_OFFSET>,
+            SetPackageState: SetPackageState::<Impl, IMPL_OFFSET>,
+            FindPackageByPackageFullName: FindPackageByPackageFullName::<Impl, IMPL_OFFSET>,
+            CleanupPackageForUserAsync: CleanupPackageForUserAsync::<Impl, IMPL_OFFSET>,
+            FindPackagesByPackageFamilyName: FindPackagesByPackageFamilyName::<Impl, IMPL_OFFSET>,
+            FindPackagesByUserSecurityIdPackageFamilyName: FindPackagesByUserSecurityIdPackageFamilyName::<Impl, IMPL_OFFSET>,
+            FindPackageByUserSecurityIdPackageFullName: FindPackageByUserSecurityIdPackageFullName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageManager as ::windows::core::Interface>::IID
@@ -1301,7 +1323,10 @@ impl IPackageManager10Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageManager10>, ::windows::core::GetTrustLevel, ProvisionPackageForAllUsersWithOptionsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageManager10, BASE_OFFSET>(),
+            ProvisionPackageForAllUsersWithOptionsAsync: ProvisionPackageForAllUsersWithOptionsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageManager10 as ::windows::core::Interface>::IID
@@ -1442,24 +1467,19 @@ impl IPackageManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPackageManager2>,
-            ::windows::core::GetTrustLevel,
-            RemovePackageWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            StagePackageWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            RegisterPackageByFullNameAsync::<Impl, IMPL_OFFSET>,
-            FindPackagesWithPackageTypes::<Impl, IMPL_OFFSET>,
-            FindPackagesByUserSecurityIdWithPackageTypes::<Impl, IMPL_OFFSET>,
-            FindPackagesByNamePublisherWithPackageTypes::<Impl, IMPL_OFFSET>,
-            FindPackagesByUserSecurityIdNamePublisherWithPackageTypes::<Impl, IMPL_OFFSET>,
-            FindPackagesByPackageFamilyNameWithPackageTypes::<Impl, IMPL_OFFSET>,
-            FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes::<Impl, IMPL_OFFSET>,
-            StageUserDataAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageManager2, BASE_OFFSET>(),
+            RemovePackageWithOptionsAsync: RemovePackageWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            StagePackageWithOptionsAsync: StagePackageWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            RegisterPackageByFullNameAsync: RegisterPackageByFullNameAsync::<Impl, IMPL_OFFSET>,
+            FindPackagesWithPackageTypes: FindPackagesWithPackageTypes::<Impl, IMPL_OFFSET>,
+            FindPackagesByUserSecurityIdWithPackageTypes: FindPackagesByUserSecurityIdWithPackageTypes::<Impl, IMPL_OFFSET>,
+            FindPackagesByNamePublisherWithPackageTypes: FindPackagesByNamePublisherWithPackageTypes::<Impl, IMPL_OFFSET>,
+            FindPackagesByUserSecurityIdNamePublisherWithPackageTypes: FindPackagesByUserSecurityIdNamePublisherWithPackageTypes::<Impl, IMPL_OFFSET>,
+            FindPackagesByPackageFamilyNameWithPackageTypes: FindPackagesByPackageFamilyNameWithPackageTypes::<Impl, IMPL_OFFSET>,
+            FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes: FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes::<Impl, IMPL_OFFSET>,
+            StageUserDataAsync: StageUserDataAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageManager2 as ::windows::core::Interface>::IID
@@ -1649,29 +1669,24 @@ impl IPackageManager3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPackageManager3>,
-            ::windows::core::GetTrustLevel,
-            AddPackageVolumeAsync::<Impl, IMPL_OFFSET>,
-            AddPackageToVolumeAsync::<Impl, IMPL_OFFSET>,
-            ClearPackageStatus::<Impl, IMPL_OFFSET>,
-            RegisterPackageWithAppDataVolumeAsync::<Impl, IMPL_OFFSET>,
-            FindPackageVolumeByName::<Impl, IMPL_OFFSET>,
-            FindPackageVolumes::<Impl, IMPL_OFFSET>,
-            GetDefaultPackageVolume::<Impl, IMPL_OFFSET>,
-            MovePackageToVolumeAsync::<Impl, IMPL_OFFSET>,
-            RemovePackageVolumeAsync::<Impl, IMPL_OFFSET>,
-            SetDefaultPackageVolume::<Impl, IMPL_OFFSET>,
-            SetPackageStatus::<Impl, IMPL_OFFSET>,
-            SetPackageVolumeOfflineAsync::<Impl, IMPL_OFFSET>,
-            SetPackageVolumeOnlineAsync::<Impl, IMPL_OFFSET>,
-            StagePackageToVolumeAsync::<Impl, IMPL_OFFSET>,
-            StageUserDataWithOptionsAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageManager3, BASE_OFFSET>(),
+            AddPackageVolumeAsync: AddPackageVolumeAsync::<Impl, IMPL_OFFSET>,
+            AddPackageToVolumeAsync: AddPackageToVolumeAsync::<Impl, IMPL_OFFSET>,
+            ClearPackageStatus: ClearPackageStatus::<Impl, IMPL_OFFSET>,
+            RegisterPackageWithAppDataVolumeAsync: RegisterPackageWithAppDataVolumeAsync::<Impl, IMPL_OFFSET>,
+            FindPackageVolumeByName: FindPackageVolumeByName::<Impl, IMPL_OFFSET>,
+            FindPackageVolumes: FindPackageVolumes::<Impl, IMPL_OFFSET>,
+            GetDefaultPackageVolume: GetDefaultPackageVolume::<Impl, IMPL_OFFSET>,
+            MovePackageToVolumeAsync: MovePackageToVolumeAsync::<Impl, IMPL_OFFSET>,
+            RemovePackageVolumeAsync: RemovePackageVolumeAsync::<Impl, IMPL_OFFSET>,
+            SetDefaultPackageVolume: SetDefaultPackageVolume::<Impl, IMPL_OFFSET>,
+            SetPackageStatus: SetPackageStatus::<Impl, IMPL_OFFSET>,
+            SetPackageVolumeOfflineAsync: SetPackageVolumeOfflineAsync::<Impl, IMPL_OFFSET>,
+            SetPackageVolumeOnlineAsync: SetPackageVolumeOnlineAsync::<Impl, IMPL_OFFSET>,
+            StagePackageToVolumeAsync: StagePackageToVolumeAsync::<Impl, IMPL_OFFSET>,
+            StageUserDataWithOptionsAsync: StageUserDataWithOptionsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageManager3 as ::windows::core::Interface>::IID
@@ -1699,7 +1714,10 @@ impl IPackageManager4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageManager4>, ::windows::core::GetTrustLevel, GetPackageVolumesAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageManager4, BASE_OFFSET>(),
+            GetPackageVolumesAsync: GetPackageVolumesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageManager4 as ::windows::core::Interface>::IID
@@ -1783,18 +1801,13 @@ impl IPackageManager5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPackageManager5>,
-            ::windows::core::GetTrustLevel,
-            AddPackageToVolumeAndOptionalPackagesAsync::<Impl, IMPL_OFFSET>,
-            StagePackageToVolumeAndOptionalPackagesAsync::<Impl, IMPL_OFFSET>,
-            RegisterPackageByFamilyNameAndOptionalPackagesAsync::<Impl, IMPL_OFFSET>,
-            DebugSettings::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageManager5, BASE_OFFSET>(),
+            AddPackageToVolumeAndOptionalPackagesAsync: AddPackageToVolumeAndOptionalPackagesAsync::<Impl, IMPL_OFFSET>,
+            StagePackageToVolumeAndOptionalPackagesAsync: StagePackageToVolumeAndOptionalPackagesAsync::<Impl, IMPL_OFFSET>,
+            RegisterPackageByFamilyNameAndOptionalPackagesAsync: RegisterPackageByFamilyNameAndOptionalPackagesAsync::<Impl, IMPL_OFFSET>,
+            DebugSettings: DebugSettings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageManager5 as ::windows::core::Interface>::IID
@@ -1923,20 +1936,15 @@ impl IPackageManager6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPackageManager6>,
-            ::windows::core::GetTrustLevel,
-            ProvisionPackageForAllUsersAsync::<Impl, IMPL_OFFSET>,
-            AddPackageByAppInstallerFileAsync::<Impl, IMPL_OFFSET>,
-            RequestAddPackageByAppInstallerFileAsync::<Impl, IMPL_OFFSET>,
-            AddPackageToVolumeAndRelatedSetAsync::<Impl, IMPL_OFFSET>,
-            StagePackageToVolumeAndRelatedSetAsync::<Impl, IMPL_OFFSET>,
-            RequestAddPackageAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageManager6, BASE_OFFSET>(),
+            ProvisionPackageForAllUsersAsync: ProvisionPackageForAllUsersAsync::<Impl, IMPL_OFFSET>,
+            AddPackageByAppInstallerFileAsync: AddPackageByAppInstallerFileAsync::<Impl, IMPL_OFFSET>,
+            RequestAddPackageByAppInstallerFileAsync: RequestAddPackageByAppInstallerFileAsync::<Impl, IMPL_OFFSET>,
+            AddPackageToVolumeAndRelatedSetAsync: AddPackageToVolumeAndRelatedSetAsync::<Impl, IMPL_OFFSET>,
+            StagePackageToVolumeAndRelatedSetAsync: StagePackageToVolumeAndRelatedSetAsync::<Impl, IMPL_OFFSET>,
+            RequestAddPackageAsync: RequestAddPackageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageManager6 as ::windows::core::Interface>::IID
@@ -1981,7 +1989,10 @@ impl IPackageManager7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageManager7>, ::windows::core::GetTrustLevel, RequestAddPackageAndRelatedSetAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageManager7, BASE_OFFSET>(),
+            RequestAddPackageAndRelatedSetAsync: RequestAddPackageAndRelatedSetAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageManager7 as ::windows::core::Interface>::IID
@@ -2009,7 +2020,10 @@ impl IPackageManager8Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageManager8>, ::windows::core::GetTrustLevel, DeprovisionPackageForAllUsersAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageManager8, BASE_OFFSET>(),
+            DeprovisionPackageForAllUsersAsync: DeprovisionPackageForAllUsersAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageManager8 as ::windows::core::Interface>::IID
@@ -2102,21 +2116,16 @@ impl IPackageManager9Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPackageManager9>,
-            ::windows::core::GetTrustLevel,
-            FindProvisionedPackages::<Impl, IMPL_OFFSET>,
-            AddPackageByUriAsync::<Impl, IMPL_OFFSET>,
-            StagePackageByUriAsync::<Impl, IMPL_OFFSET>,
-            RegisterPackageByUriAsync::<Impl, IMPL_OFFSET>,
-            RegisterPackagesByFullNameAsync::<Impl, IMPL_OFFSET>,
-            SetPackageStubPreference::<Impl, IMPL_OFFSET>,
-            GetPackageStubPreference::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageManager9, BASE_OFFSET>(),
+            FindProvisionedPackages: FindProvisionedPackages::<Impl, IMPL_OFFSET>,
+            AddPackageByUriAsync: AddPackageByUriAsync::<Impl, IMPL_OFFSET>,
+            StagePackageByUriAsync: StagePackageByUriAsync::<Impl, IMPL_OFFSET>,
+            RegisterPackageByUriAsync: RegisterPackageByUriAsync::<Impl, IMPL_OFFSET>,
+            RegisterPackagesByFullNameAsync: RegisterPackagesByFullNameAsync::<Impl, IMPL_OFFSET>,
+            SetPackageStubPreference: SetPackageStubPreference::<Impl, IMPL_OFFSET>,
+            GetPackageStubPreference: GetPackageStubPreference::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageManager9 as ::windows::core::Interface>::IID
@@ -2156,7 +2165,11 @@ impl IPackageManagerDebugSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageManagerDebugSettings>, ::windows::core::GetTrustLevel, SetContentGroupStateAsync::<Impl, IMPL_OFFSET>, SetContentGroupStateWithPercentageAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageManagerDebugSettings, BASE_OFFSET>(),
+            SetContentGroupStateAsync: SetContentGroupStateAsync::<Impl, IMPL_OFFSET>,
+            SetContentGroupStateWithPercentageAsync: SetContentGroupStateWithPercentageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageManagerDebugSettings as ::windows::core::Interface>::IID
@@ -2196,7 +2209,11 @@ impl IPackageUserInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageUserInformation>, ::windows::core::GetTrustLevel, UserSecurityId::<Impl, IMPL_OFFSET>, InstallState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageUserInformation, BASE_OFFSET>(),
+            UserSecurityId: UserSecurityId::<Impl, IMPL_OFFSET>,
+            InstallState: InstallState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageUserInformation as ::windows::core::Interface>::IID
@@ -2461,34 +2478,29 @@ impl IPackageVolumeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPackageVolume>,
-            ::windows::core::GetTrustLevel,
-            IsOffline::<Impl, IMPL_OFFSET>,
-            IsSystemVolume::<Impl, IMPL_OFFSET>,
-            MountPoint::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            PackageStorePath::<Impl, IMPL_OFFSET>,
-            SupportsHardLinks::<Impl, IMPL_OFFSET>,
-            FindPackages::<Impl, IMPL_OFFSET>,
-            FindPackagesByNamePublisher::<Impl, IMPL_OFFSET>,
-            FindPackagesByPackageFamilyName::<Impl, IMPL_OFFSET>,
-            FindPackagesWithPackageTypes::<Impl, IMPL_OFFSET>,
-            FindPackagesByNamePublisherWithPackagesTypes::<Impl, IMPL_OFFSET>,
-            FindPackagesByPackageFamilyNameWithPackageTypes::<Impl, IMPL_OFFSET>,
-            FindPackageByPackageFullName::<Impl, IMPL_OFFSET>,
-            FindPackagesByUserSecurityId::<Impl, IMPL_OFFSET>,
-            FindPackagesByUserSecurityIdNamePublisher::<Impl, IMPL_OFFSET>,
-            FindPackagesByUserSecurityIdPackageFamilyName::<Impl, IMPL_OFFSET>,
-            FindPackagesByUserSecurityIdWithPackageTypes::<Impl, IMPL_OFFSET>,
-            FindPackagesByUserSecurityIdNamePublisherWithPackageTypes::<Impl, IMPL_OFFSET>,
-            FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes::<Impl, IMPL_OFFSET>,
-            FindPackageByUserSecurityIdPackageFullName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageVolume, BASE_OFFSET>(),
+            IsOffline: IsOffline::<Impl, IMPL_OFFSET>,
+            IsSystemVolume: IsSystemVolume::<Impl, IMPL_OFFSET>,
+            MountPoint: MountPoint::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            PackageStorePath: PackageStorePath::<Impl, IMPL_OFFSET>,
+            SupportsHardLinks: SupportsHardLinks::<Impl, IMPL_OFFSET>,
+            FindPackages: FindPackages::<Impl, IMPL_OFFSET>,
+            FindPackagesByNamePublisher: FindPackagesByNamePublisher::<Impl, IMPL_OFFSET>,
+            FindPackagesByPackageFamilyName: FindPackagesByPackageFamilyName::<Impl, IMPL_OFFSET>,
+            FindPackagesWithPackageTypes: FindPackagesWithPackageTypes::<Impl, IMPL_OFFSET>,
+            FindPackagesByNamePublisherWithPackagesTypes: FindPackagesByNamePublisherWithPackagesTypes::<Impl, IMPL_OFFSET>,
+            FindPackagesByPackageFamilyNameWithPackageTypes: FindPackagesByPackageFamilyNameWithPackageTypes::<Impl, IMPL_OFFSET>,
+            FindPackageByPackageFullName: FindPackageByPackageFullName::<Impl, IMPL_OFFSET>,
+            FindPackagesByUserSecurityId: FindPackagesByUserSecurityId::<Impl, IMPL_OFFSET>,
+            FindPackagesByUserSecurityIdNamePublisher: FindPackagesByUserSecurityIdNamePublisher::<Impl, IMPL_OFFSET>,
+            FindPackagesByUserSecurityIdPackageFamilyName: FindPackagesByUserSecurityIdPackageFamilyName::<Impl, IMPL_OFFSET>,
+            FindPackagesByUserSecurityIdWithPackageTypes: FindPackagesByUserSecurityIdWithPackageTypes::<Impl, IMPL_OFFSET>,
+            FindPackagesByUserSecurityIdNamePublisherWithPackageTypes: FindPackagesByUserSecurityIdNamePublisherWithPackageTypes::<Impl, IMPL_OFFSET>,
+            FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes: FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes::<Impl, IMPL_OFFSET>,
+            FindPackageByUserSecurityIdPackageFullName: FindPackageByUserSecurityIdPackageFullName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageVolume as ::windows::core::Interface>::IID
@@ -2540,7 +2552,12 @@ impl IPackageVolume2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageVolume2>, ::windows::core::GetTrustLevel, IsFullTrustPackageSupported::<Impl, IMPL_OFFSET>, IsAppxInstallSupported::<Impl, IMPL_OFFSET>, GetAvailableSpaceAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPackageVolume2, BASE_OFFSET>(),
+            IsFullTrustPackageSupported: IsFullTrustPackageSupported::<Impl, IMPL_OFFSET>,
+            IsAppxInstallSupported: IsAppxInstallSupported::<Impl, IMPL_OFFSET>,
+            GetAvailableSpaceAsync: GetAvailableSpaceAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPackageVolume2 as ::windows::core::Interface>::IID
@@ -2750,36 +2767,31 @@ impl IRegisterPackageOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDeferRegistrationWhenPackagesAreInUse(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRegisterPackageOptions>,
-            ::windows::core::GetTrustLevel,
-            DependencyPackageUris::<Impl, IMPL_OFFSET>,
-            AppDataVolume::<Impl, IMPL_OFFSET>,
-            SetAppDataVolume::<Impl, IMPL_OFFSET>,
-            OptionalPackageFamilyNames::<Impl, IMPL_OFFSET>,
-            ExternalLocationUri::<Impl, IMPL_OFFSET>,
-            SetExternalLocationUri::<Impl, IMPL_OFFSET>,
-            DeveloperMode::<Impl, IMPL_OFFSET>,
-            SetDeveloperMode::<Impl, IMPL_OFFSET>,
-            ForceAppShutdown::<Impl, IMPL_OFFSET>,
-            SetForceAppShutdown::<Impl, IMPL_OFFSET>,
-            ForceTargetAppShutdown::<Impl, IMPL_OFFSET>,
-            SetForceTargetAppShutdown::<Impl, IMPL_OFFSET>,
-            ForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
-            SetForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
-            InstallAllResources::<Impl, IMPL_OFFSET>,
-            SetInstallAllResources::<Impl, IMPL_OFFSET>,
-            StageInPlace::<Impl, IMPL_OFFSET>,
-            SetStageInPlace::<Impl, IMPL_OFFSET>,
-            AllowUnsigned::<Impl, IMPL_OFFSET>,
-            SetAllowUnsigned::<Impl, IMPL_OFFSET>,
-            DeferRegistrationWhenPackagesAreInUse::<Impl, IMPL_OFFSET>,
-            SetDeferRegistrationWhenPackagesAreInUse::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRegisterPackageOptions, BASE_OFFSET>(),
+            DependencyPackageUris: DependencyPackageUris::<Impl, IMPL_OFFSET>,
+            AppDataVolume: AppDataVolume::<Impl, IMPL_OFFSET>,
+            SetAppDataVolume: SetAppDataVolume::<Impl, IMPL_OFFSET>,
+            OptionalPackageFamilyNames: OptionalPackageFamilyNames::<Impl, IMPL_OFFSET>,
+            ExternalLocationUri: ExternalLocationUri::<Impl, IMPL_OFFSET>,
+            SetExternalLocationUri: SetExternalLocationUri::<Impl, IMPL_OFFSET>,
+            DeveloperMode: DeveloperMode::<Impl, IMPL_OFFSET>,
+            SetDeveloperMode: SetDeveloperMode::<Impl, IMPL_OFFSET>,
+            ForceAppShutdown: ForceAppShutdown::<Impl, IMPL_OFFSET>,
+            SetForceAppShutdown: SetForceAppShutdown::<Impl, IMPL_OFFSET>,
+            ForceTargetAppShutdown: ForceTargetAppShutdown::<Impl, IMPL_OFFSET>,
+            SetForceTargetAppShutdown: SetForceTargetAppShutdown::<Impl, IMPL_OFFSET>,
+            ForceUpdateFromAnyVersion: ForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
+            SetForceUpdateFromAnyVersion: SetForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
+            InstallAllResources: InstallAllResources::<Impl, IMPL_OFFSET>,
+            SetInstallAllResources: SetInstallAllResources::<Impl, IMPL_OFFSET>,
+            StageInPlace: StageInPlace::<Impl, IMPL_OFFSET>,
+            SetStageInPlace: SetStageInPlace::<Impl, IMPL_OFFSET>,
+            AllowUnsigned: AllowUnsigned::<Impl, IMPL_OFFSET>,
+            SetAllowUnsigned: SetAllowUnsigned::<Impl, IMPL_OFFSET>,
+            DeferRegistrationWhenPackagesAreInUse: DeferRegistrationWhenPackagesAreInUse::<Impl, IMPL_OFFSET>,
+            SetDeferRegistrationWhenPackagesAreInUse: SetDeferRegistrationWhenPackagesAreInUse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRegisterPackageOptions as ::windows::core::Interface>::IID
@@ -2855,7 +2867,14 @@ impl ISharedPackageContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISharedPackageContainer>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, GetMembers::<Impl, IMPL_OFFSET>, RemovePackageFamily::<Impl, IMPL_OFFSET>, ResetData::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISharedPackageContainer, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            GetMembers: GetMembers::<Impl, IMPL_OFFSET>,
+            RemovePackageFamily: RemovePackageFamily::<Impl, IMPL_OFFSET>,
+            ResetData: ResetData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISharedPackageContainer as ::windows::core::Interface>::IID
@@ -2931,19 +2950,14 @@ impl ISharedPackageContainerManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISharedPackageContainerManager>,
-            ::windows::core::GetTrustLevel,
-            CreateContainer::<Impl, IMPL_OFFSET>,
-            DeleteContainer::<Impl, IMPL_OFFSET>,
-            GetContainer::<Impl, IMPL_OFFSET>,
-            FindContainers::<Impl, IMPL_OFFSET>,
-            FindContainersWithOptions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISharedPackageContainerManager, BASE_OFFSET>(),
+            CreateContainer: CreateContainer::<Impl, IMPL_OFFSET>,
+            DeleteContainer: DeleteContainer::<Impl, IMPL_OFFSET>,
+            GetContainer: GetContainer::<Impl, IMPL_OFFSET>,
+            FindContainers: FindContainers::<Impl, IMPL_OFFSET>,
+            FindContainersWithOptions: FindContainersWithOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISharedPackageContainerManager as ::windows::core::Interface>::IID
@@ -2995,7 +3009,12 @@ impl ISharedPackageContainerManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISharedPackageContainerManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>, GetForProvisioning::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISharedPackageContainerManagerStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+            GetForProvisioning: GetForProvisioning::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISharedPackageContainerManagerStatics as ::windows::core::Interface>::IID
@@ -3023,7 +3042,10 @@ impl ISharedPackageContainerMemberVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISharedPackageContainerMember>, ::windows::core::GetTrustLevel, PackageFamilyName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISharedPackageContainerMember, BASE_OFFSET>(),
+            PackageFamilyName: PackageFamilyName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISharedPackageContainerMember as ::windows::core::Interface>::IID
@@ -3051,7 +3073,10 @@ impl ISharedPackageContainerMemberFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISharedPackageContainerMemberFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISharedPackageContainerMemberFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISharedPackageContainerMemberFactory as ::windows::core::Interface>::IID
@@ -3268,36 +3293,31 @@ impl IStagePackageOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowUnsigned(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStagePackageOptions>,
-            ::windows::core::GetTrustLevel,
-            DependencyPackageUris::<Impl, IMPL_OFFSET>,
-            TargetVolume::<Impl, IMPL_OFFSET>,
-            SetTargetVolume::<Impl, IMPL_OFFSET>,
-            OptionalPackageFamilyNames::<Impl, IMPL_OFFSET>,
-            OptionalPackageUris::<Impl, IMPL_OFFSET>,
-            RelatedPackageUris::<Impl, IMPL_OFFSET>,
-            ExternalLocationUri::<Impl, IMPL_OFFSET>,
-            SetExternalLocationUri::<Impl, IMPL_OFFSET>,
-            StubPackageOption::<Impl, IMPL_OFFSET>,
-            SetStubPackageOption::<Impl, IMPL_OFFSET>,
-            DeveloperMode::<Impl, IMPL_OFFSET>,
-            SetDeveloperMode::<Impl, IMPL_OFFSET>,
-            ForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
-            SetForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
-            InstallAllResources::<Impl, IMPL_OFFSET>,
-            SetInstallAllResources::<Impl, IMPL_OFFSET>,
-            RequiredContentGroupOnly::<Impl, IMPL_OFFSET>,
-            SetRequiredContentGroupOnly::<Impl, IMPL_OFFSET>,
-            StageInPlace::<Impl, IMPL_OFFSET>,
-            SetStageInPlace::<Impl, IMPL_OFFSET>,
-            AllowUnsigned::<Impl, IMPL_OFFSET>,
-            SetAllowUnsigned::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStagePackageOptions, BASE_OFFSET>(),
+            DependencyPackageUris: DependencyPackageUris::<Impl, IMPL_OFFSET>,
+            TargetVolume: TargetVolume::<Impl, IMPL_OFFSET>,
+            SetTargetVolume: SetTargetVolume::<Impl, IMPL_OFFSET>,
+            OptionalPackageFamilyNames: OptionalPackageFamilyNames::<Impl, IMPL_OFFSET>,
+            OptionalPackageUris: OptionalPackageUris::<Impl, IMPL_OFFSET>,
+            RelatedPackageUris: RelatedPackageUris::<Impl, IMPL_OFFSET>,
+            ExternalLocationUri: ExternalLocationUri::<Impl, IMPL_OFFSET>,
+            SetExternalLocationUri: SetExternalLocationUri::<Impl, IMPL_OFFSET>,
+            StubPackageOption: StubPackageOption::<Impl, IMPL_OFFSET>,
+            SetStubPackageOption: SetStubPackageOption::<Impl, IMPL_OFFSET>,
+            DeveloperMode: DeveloperMode::<Impl, IMPL_OFFSET>,
+            SetDeveloperMode: SetDeveloperMode::<Impl, IMPL_OFFSET>,
+            ForceUpdateFromAnyVersion: ForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
+            SetForceUpdateFromAnyVersion: SetForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
+            InstallAllResources: InstallAllResources::<Impl, IMPL_OFFSET>,
+            SetInstallAllResources: SetInstallAllResources::<Impl, IMPL_OFFSET>,
+            RequiredContentGroupOnly: RequiredContentGroupOnly::<Impl, IMPL_OFFSET>,
+            SetRequiredContentGroupOnly: SetRequiredContentGroupOnly::<Impl, IMPL_OFFSET>,
+            StageInPlace: StageInPlace::<Impl, IMPL_OFFSET>,
+            SetStageInPlace: SetStageInPlace::<Impl, IMPL_OFFSET>,
+            AllowUnsigned: AllowUnsigned::<Impl, IMPL_OFFSET>,
+            SetAllowUnsigned: SetAllowUnsigned::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStagePackageOptions as ::windows::core::Interface>::IID
@@ -3347,7 +3367,13 @@ impl IUpdateSharedPackageContainerOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequirePackagesPresent(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUpdateSharedPackageContainerOptions>, ::windows::core::GetTrustLevel, ForceAppShutdown::<Impl, IMPL_OFFSET>, SetForceAppShutdown::<Impl, IMPL_OFFSET>, RequirePackagesPresent::<Impl, IMPL_OFFSET>, SetRequirePackagesPresent::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUpdateSharedPackageContainerOptions, BASE_OFFSET>(),
+            ForceAppShutdown: ForceAppShutdown::<Impl, IMPL_OFFSET>,
+            SetForceAppShutdown: SetForceAppShutdown::<Impl, IMPL_OFFSET>,
+            RequirePackagesPresent: RequirePackagesPresent::<Impl, IMPL_OFFSET>,
+            SetRequirePackagesPresent: SetRequirePackagesPresent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUpdateSharedPackageContainerOptions as ::windows::core::Interface>::IID
@@ -3387,7 +3413,11 @@ impl IUpdateSharedPackageContainerResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUpdateSharedPackageContainerResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUpdateSharedPackageContainerResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUpdateSharedPackageContainerResult as ::windows::core::Interface>::IID

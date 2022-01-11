@@ -88,23 +88,18 @@ impl ILampArrayBitmapEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBitmapRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILampArrayBitmapEffect>,
-            ::windows::core::GetTrustLevel,
-            Duration::<Impl, IMPL_OFFSET>,
-            SetDuration::<Impl, IMPL_OFFSET>,
-            StartDelay::<Impl, IMPL_OFFSET>,
-            SetStartDelay::<Impl, IMPL_OFFSET>,
-            UpdateInterval::<Impl, IMPL_OFFSET>,
-            SetUpdateInterval::<Impl, IMPL_OFFSET>,
-            SuggestedBitmapSize::<Impl, IMPL_OFFSET>,
-            BitmapRequested::<Impl, IMPL_OFFSET>,
-            RemoveBitmapRequested::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayBitmapEffect, BASE_OFFSET>(),
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            SetDuration: SetDuration::<Impl, IMPL_OFFSET>,
+            StartDelay: StartDelay::<Impl, IMPL_OFFSET>,
+            SetStartDelay: SetStartDelay::<Impl, IMPL_OFFSET>,
+            UpdateInterval: UpdateInterval::<Impl, IMPL_OFFSET>,
+            SetUpdateInterval: SetUpdateInterval::<Impl, IMPL_OFFSET>,
+            SuggestedBitmapSize: SuggestedBitmapSize::<Impl, IMPL_OFFSET>,
+            BitmapRequested: BitmapRequested::<Impl, IMPL_OFFSET>,
+            RemoveBitmapRequested: RemoveBitmapRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayBitmapEffect as ::windows::core::Interface>::IID
@@ -132,7 +127,10 @@ impl ILampArrayBitmapEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayBitmapEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayBitmapEffectFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayBitmapEffectFactory as ::windows::core::Interface>::IID
@@ -165,7 +163,11 @@ impl ILampArrayBitmapRequestedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateBitmap(&*(&bitmap as *const <super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayBitmapRequestedEventArgs>, ::windows::core::GetTrustLevel, SinceStarted::<Impl, IMPL_OFFSET>, UpdateBitmap::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayBitmapRequestedEventArgs, BASE_OFFSET>(),
+            SinceStarted: SinceStarted::<Impl, IMPL_OFFSET>,
+            UpdateBitmap: UpdateBitmap::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayBitmapRequestedEventArgs as ::windows::core::Interface>::IID
@@ -317,30 +319,25 @@ impl ILampArrayBlinkEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRepetitionMode(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILampArrayBlinkEffect>,
-            ::windows::core::GetTrustLevel,
-            Color::<Impl, IMPL_OFFSET>,
-            SetColor::<Impl, IMPL_OFFSET>,
-            AttackDuration::<Impl, IMPL_OFFSET>,
-            SetAttackDuration::<Impl, IMPL_OFFSET>,
-            SustainDuration::<Impl, IMPL_OFFSET>,
-            SetSustainDuration::<Impl, IMPL_OFFSET>,
-            DecayDuration::<Impl, IMPL_OFFSET>,
-            SetDecayDuration::<Impl, IMPL_OFFSET>,
-            RepetitionDelay::<Impl, IMPL_OFFSET>,
-            SetRepetitionDelay::<Impl, IMPL_OFFSET>,
-            StartDelay::<Impl, IMPL_OFFSET>,
-            SetStartDelay::<Impl, IMPL_OFFSET>,
-            Occurrences::<Impl, IMPL_OFFSET>,
-            SetOccurrences::<Impl, IMPL_OFFSET>,
-            RepetitionMode::<Impl, IMPL_OFFSET>,
-            SetRepetitionMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayBlinkEffect, BASE_OFFSET>(),
+            Color: Color::<Impl, IMPL_OFFSET>,
+            SetColor: SetColor::<Impl, IMPL_OFFSET>,
+            AttackDuration: AttackDuration::<Impl, IMPL_OFFSET>,
+            SetAttackDuration: SetAttackDuration::<Impl, IMPL_OFFSET>,
+            SustainDuration: SustainDuration::<Impl, IMPL_OFFSET>,
+            SetSustainDuration: SetSustainDuration::<Impl, IMPL_OFFSET>,
+            DecayDuration: DecayDuration::<Impl, IMPL_OFFSET>,
+            SetDecayDuration: SetDecayDuration::<Impl, IMPL_OFFSET>,
+            RepetitionDelay: RepetitionDelay::<Impl, IMPL_OFFSET>,
+            SetRepetitionDelay: SetRepetitionDelay::<Impl, IMPL_OFFSET>,
+            StartDelay: StartDelay::<Impl, IMPL_OFFSET>,
+            SetStartDelay: SetStartDelay::<Impl, IMPL_OFFSET>,
+            Occurrences: Occurrences::<Impl, IMPL_OFFSET>,
+            SetOccurrences: SetOccurrences::<Impl, IMPL_OFFSET>,
+            RepetitionMode: RepetitionMode::<Impl, IMPL_OFFSET>,
+            SetRepetitionMode: SetRepetitionMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayBlinkEffect as ::windows::core::Interface>::IID
@@ -368,7 +365,10 @@ impl ILampArrayBlinkEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayBlinkEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayBlinkEffectFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayBlinkEffectFactory as ::windows::core::Interface>::IID
@@ -452,22 +452,17 @@ impl ILampArrayColorRampEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCompletionBehavior(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILampArrayColorRampEffect>,
-            ::windows::core::GetTrustLevel,
-            Color::<Impl, IMPL_OFFSET>,
-            SetColor::<Impl, IMPL_OFFSET>,
-            RampDuration::<Impl, IMPL_OFFSET>,
-            SetRampDuration::<Impl, IMPL_OFFSET>,
-            StartDelay::<Impl, IMPL_OFFSET>,
-            SetStartDelay::<Impl, IMPL_OFFSET>,
-            CompletionBehavior::<Impl, IMPL_OFFSET>,
-            SetCompletionBehavior::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayColorRampEffect, BASE_OFFSET>(),
+            Color: Color::<Impl, IMPL_OFFSET>,
+            SetColor: SetColor::<Impl, IMPL_OFFSET>,
+            RampDuration: RampDuration::<Impl, IMPL_OFFSET>,
+            SetRampDuration: SetRampDuration::<Impl, IMPL_OFFSET>,
+            StartDelay: StartDelay::<Impl, IMPL_OFFSET>,
+            SetStartDelay: SetStartDelay::<Impl, IMPL_OFFSET>,
+            CompletionBehavior: CompletionBehavior::<Impl, IMPL_OFFSET>,
+            SetCompletionBehavior: SetCompletionBehavior::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayColorRampEffect as ::windows::core::Interface>::IID
@@ -495,7 +490,10 @@ impl ILampArrayColorRampEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayColorRampEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayColorRampEffectFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayColorRampEffectFactory as ::windows::core::Interface>::IID
@@ -562,20 +560,15 @@ impl ILampArrayCustomEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUpdateRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILampArrayCustomEffect>,
-            ::windows::core::GetTrustLevel,
-            Duration::<Impl, IMPL_OFFSET>,
-            SetDuration::<Impl, IMPL_OFFSET>,
-            UpdateInterval::<Impl, IMPL_OFFSET>,
-            SetUpdateInterval::<Impl, IMPL_OFFSET>,
-            UpdateRequested::<Impl, IMPL_OFFSET>,
-            RemoveUpdateRequested::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayCustomEffect, BASE_OFFSET>(),
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            SetDuration: SetDuration::<Impl, IMPL_OFFSET>,
+            UpdateInterval: UpdateInterval::<Impl, IMPL_OFFSET>,
+            SetUpdateInterval: SetUpdateInterval::<Impl, IMPL_OFFSET>,
+            UpdateRequested: UpdateRequested::<Impl, IMPL_OFFSET>,
+            RemoveUpdateRequested: RemoveUpdateRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayCustomEffect as ::windows::core::Interface>::IID
@@ -603,7 +596,10 @@ impl ILampArrayCustomEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayCustomEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayCustomEffectFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayCustomEffectFactory as ::windows::core::Interface>::IID
@@ -633,7 +629,11 @@ impl ILampArrayEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetZIndex(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayEffect>, ::windows::core::GetTrustLevel, ZIndex::<Impl, IMPL_OFFSET>, SetZIndex::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayEffect, BASE_OFFSET>(),
+            ZIndex: ZIndex::<Impl, IMPL_OFFSET>,
+            SetZIndex: SetZIndex::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayEffect as ::windows::core::Interface>::IID
@@ -725,25 +725,20 @@ impl ILampArrayEffectPlaylistVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRepetitionMode(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILampArrayEffectPlaylist>,
-            ::windows::core::GetTrustLevel,
-            Append::<Impl, IMPL_OFFSET>,
-            OverrideZIndex::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            Pause::<Impl, IMPL_OFFSET>,
-            EffectStartMode::<Impl, IMPL_OFFSET>,
-            SetEffectStartMode::<Impl, IMPL_OFFSET>,
-            Occurrences::<Impl, IMPL_OFFSET>,
-            SetOccurrences::<Impl, IMPL_OFFSET>,
-            RepetitionMode::<Impl, IMPL_OFFSET>,
-            SetRepetitionMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayEffectPlaylist, BASE_OFFSET>(),
+            Append: Append::<Impl, IMPL_OFFSET>,
+            OverrideZIndex: OverrideZIndex::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            EffectStartMode: EffectStartMode::<Impl, IMPL_OFFSET>,
+            SetEffectStartMode: SetEffectStartMode::<Impl, IMPL_OFFSET>,
+            Occurrences: Occurrences::<Impl, IMPL_OFFSET>,
+            SetOccurrences: SetOccurrences::<Impl, IMPL_OFFSET>,
+            RepetitionMode: RepetitionMode::<Impl, IMPL_OFFSET>,
+            SetRepetitionMode: SetRepetitionMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayEffectPlaylist as ::windows::core::Interface>::IID
@@ -774,7 +769,12 @@ impl ILampArrayEffectPlaylistStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PauseAll(&*(&value as *const <super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayEffectPlaylistStatics>, ::windows::core::GetTrustLevel, StartAll::<Impl, IMPL_OFFSET>, StopAll::<Impl, IMPL_OFFSET>, PauseAll::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayEffectPlaylistStatics, BASE_OFFSET>(),
+            StartAll: StartAll::<Impl, IMPL_OFFSET>,
+            StopAll: StopAll::<Impl, IMPL_OFFSET>,
+            PauseAll: PauseAll::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayEffectPlaylistStatics as ::windows::core::Interface>::IID
@@ -858,22 +858,17 @@ impl ILampArraySolidEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCompletionBehavior(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILampArraySolidEffect>,
-            ::windows::core::GetTrustLevel,
-            Color::<Impl, IMPL_OFFSET>,
-            SetColor::<Impl, IMPL_OFFSET>,
-            Duration::<Impl, IMPL_OFFSET>,
-            SetDuration::<Impl, IMPL_OFFSET>,
-            StartDelay::<Impl, IMPL_OFFSET>,
-            SetStartDelay::<Impl, IMPL_OFFSET>,
-            CompletionBehavior::<Impl, IMPL_OFFSET>,
-            SetCompletionBehavior::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArraySolidEffect, BASE_OFFSET>(),
+            Color: Color::<Impl, IMPL_OFFSET>,
+            SetColor: SetColor::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            SetDuration: SetDuration::<Impl, IMPL_OFFSET>,
+            StartDelay: StartDelay::<Impl, IMPL_OFFSET>,
+            SetStartDelay: SetStartDelay::<Impl, IMPL_OFFSET>,
+            CompletionBehavior: CompletionBehavior::<Impl, IMPL_OFFSET>,
+            SetCompletionBehavior: SetCompletionBehavior::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArraySolidEffect as ::windows::core::Interface>::IID
@@ -901,7 +896,10 @@ impl ILampArraySolidEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArraySolidEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArraySolidEffectFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArraySolidEffectFactory as ::windows::core::Interface>::IID
@@ -949,19 +947,14 @@ impl ILampArrayUpdateRequestedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColorsForIndices(::core::slice::from_raw_parts(::core::mem::transmute_copy(&desiredcolors), desiredColors_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&lampindexes), lampIndexes_array_size as _)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILampArrayUpdateRequestedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            SinceStarted::<Impl, IMPL_OFFSET>,
-            SetColor::<Impl, IMPL_OFFSET>,
-            SetColorForIndex::<Impl, IMPL_OFFSET>,
-            SetSingleColorForIndices::<Impl, IMPL_OFFSET>,
-            SetColorsForIndices::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayUpdateRequestedEventArgs, BASE_OFFSET>(),
+            SinceStarted: SinceStarted::<Impl, IMPL_OFFSET>,
+            SetColor: SetColor::<Impl, IMPL_OFFSET>,
+            SetColorForIndex: SetColorForIndex::<Impl, IMPL_OFFSET>,
+            SetSingleColorForIndices: SetSingleColorForIndices::<Impl, IMPL_OFFSET>,
+            SetColorsForIndices: SetColorsForIndices::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILampArrayUpdateRequestedEventArgs as ::windows::core::Interface>::IID

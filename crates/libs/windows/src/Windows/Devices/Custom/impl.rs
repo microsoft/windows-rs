@@ -64,7 +64,13 @@ impl ICustomDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomDevice>, ::windows::core::GetTrustLevel, InputStream::<Impl, IMPL_OFFSET>, OutputStream::<Impl, IMPL_OFFSET>, SendIOControlAsync::<Impl, IMPL_OFFSET>, TrySendIOControlAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomDevice, BASE_OFFSET>(),
+            InputStream: InputStream::<Impl, IMPL_OFFSET>,
+            OutputStream: OutputStream::<Impl, IMPL_OFFSET>,
+            SendIOControlAsync: SendIOControlAsync::<Impl, IMPL_OFFSET>,
+            TrySendIOControlAsync: TrySendIOControlAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICustomDevice as ::windows::core::Interface>::IID
@@ -104,7 +110,11 @@ impl ICustomDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomDeviceStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICustomDeviceStatics as ::windows::core::Interface>::IID
@@ -177,7 +187,14 @@ impl IIOControlCodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIOControlCode>, ::windows::core::GetTrustLevel, AccessMode::<Impl, IMPL_OFFSET>, BufferingMethod::<Impl, IMPL_OFFSET>, Function::<Impl, IMPL_OFFSET>, DeviceType::<Impl, IMPL_OFFSET>, ControlCode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIOControlCode, BASE_OFFSET>(),
+            AccessMode: AccessMode::<Impl, IMPL_OFFSET>,
+            BufferingMethod: BufferingMethod::<Impl, IMPL_OFFSET>,
+            Function: Function::<Impl, IMPL_OFFSET>,
+            DeviceType: DeviceType::<Impl, IMPL_OFFSET>,
+            ControlCode: ControlCode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIOControlCode as ::windows::core::Interface>::IID
@@ -205,7 +222,10 @@ impl IIOControlCodeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIOControlCodeFactory>, ::windows::core::GetTrustLevel, CreateIOControlCode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIOControlCodeFactory, BASE_OFFSET>(),
+            CreateIOControlCode: CreateIOControlCode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIOControlCodeFactory as ::windows::core::Interface>::IID
@@ -233,7 +253,7 @@ impl IKnownDeviceTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownDeviceTypesStatics>, ::windows::core::GetTrustLevel, Unknown::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownDeviceTypesStatics, BASE_OFFSET>(), Unknown: Unknown::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownDeviceTypesStatics as ::windows::core::Interface>::IID

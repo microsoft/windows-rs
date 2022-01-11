@@ -68,7 +68,14 @@ impl IAttributedNetworkUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAttributedNetworkUsage>, ::windows::core::GetTrustLevel, BytesSent::<Impl, IMPL_OFFSET>, BytesReceived::<Impl, IMPL_OFFSET>, AttributionId::<Impl, IMPL_OFFSET>, AttributionName::<Impl, IMPL_OFFSET>, AttributionThumbnail::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAttributedNetworkUsage, BASE_OFFSET>(),
+            BytesSent: BytesSent::<Impl, IMPL_OFFSET>,
+            BytesReceived: BytesReceived::<Impl, IMPL_OFFSET>,
+            AttributionId: AttributionId::<Impl, IMPL_OFFSET>,
+            AttributionName: AttributionName::<Impl, IMPL_OFFSET>,
+            AttributionThumbnail: AttributionThumbnail::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAttributedNetworkUsage as ::windows::core::Interface>::IID
@@ -186,26 +193,21 @@ impl ICellularApnContextVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAuthenticationType(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICellularApnContext>,
-            ::windows::core::GetTrustLevel,
-            ProviderId::<Impl, IMPL_OFFSET>,
-            SetProviderId::<Impl, IMPL_OFFSET>,
-            AccessPointName::<Impl, IMPL_OFFSET>,
-            SetAccessPointName::<Impl, IMPL_OFFSET>,
-            UserName::<Impl, IMPL_OFFSET>,
-            SetUserName::<Impl, IMPL_OFFSET>,
-            Password::<Impl, IMPL_OFFSET>,
-            SetPassword::<Impl, IMPL_OFFSET>,
-            IsCompressionEnabled::<Impl, IMPL_OFFSET>,
-            SetIsCompressionEnabled::<Impl, IMPL_OFFSET>,
-            AuthenticationType::<Impl, IMPL_OFFSET>,
-            SetAuthenticationType::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICellularApnContext, BASE_OFFSET>(),
+            ProviderId: ProviderId::<Impl, IMPL_OFFSET>,
+            SetProviderId: SetProviderId::<Impl, IMPL_OFFSET>,
+            AccessPointName: AccessPointName::<Impl, IMPL_OFFSET>,
+            SetAccessPointName: SetAccessPointName::<Impl, IMPL_OFFSET>,
+            UserName: UserName::<Impl, IMPL_OFFSET>,
+            SetUserName: SetUserName::<Impl, IMPL_OFFSET>,
+            Password: Password::<Impl, IMPL_OFFSET>,
+            SetPassword: SetPassword::<Impl, IMPL_OFFSET>,
+            IsCompressionEnabled: IsCompressionEnabled::<Impl, IMPL_OFFSET>,
+            SetIsCompressionEnabled: SetIsCompressionEnabled::<Impl, IMPL_OFFSET>,
+            AuthenticationType: AuthenticationType::<Impl, IMPL_OFFSET>,
+            SetAuthenticationType: SetAuthenticationType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICellularApnContext as ::windows::core::Interface>::IID
@@ -238,7 +240,11 @@ impl ICellularApnContext2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProfileName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICellularApnContext2>, ::windows::core::GetTrustLevel, ProfileName::<Impl, IMPL_OFFSET>, SetProfileName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICellularApnContext2, BASE_OFFSET>(),
+            ProfileName: ProfileName::<Impl, IMPL_OFFSET>,
+            SetProfileName: SetProfileName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICellularApnContext2 as ::windows::core::Interface>::IID
@@ -302,7 +308,13 @@ impl IConnectionCostVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionCost>, ::windows::core::GetTrustLevel, NetworkCostType::<Impl, IMPL_OFFSET>, Roaming::<Impl, IMPL_OFFSET>, OverDataLimit::<Impl, IMPL_OFFSET>, ApproachingDataLimit::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectionCost, BASE_OFFSET>(),
+            NetworkCostType: NetworkCostType::<Impl, IMPL_OFFSET>,
+            Roaming: Roaming::<Impl, IMPL_OFFSET>,
+            OverDataLimit: OverDataLimit::<Impl, IMPL_OFFSET>,
+            ApproachingDataLimit: ApproachingDataLimit::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectionCost as ::windows::core::Interface>::IID
@@ -330,7 +342,10 @@ impl IConnectionCost2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionCost2>, ::windows::core::GetTrustLevel, BackgroundDataUsageRestricted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectionCost2, BASE_OFFSET>(),
+            BackgroundDataUsageRestricted: BackgroundDataUsageRestricted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectionCost2 as ::windows::core::Interface>::IID
@@ -454,23 +469,18 @@ impl IConnectionProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IConnectionProfile>,
-            ::windows::core::GetTrustLevel,
-            ProfileName::<Impl, IMPL_OFFSET>,
-            GetNetworkConnectivityLevel::<Impl, IMPL_OFFSET>,
-            GetNetworkNames::<Impl, IMPL_OFFSET>,
-            GetConnectionCost::<Impl, IMPL_OFFSET>,
-            GetDataPlanStatus::<Impl, IMPL_OFFSET>,
-            NetworkAdapter::<Impl, IMPL_OFFSET>,
-            GetLocalUsage::<Impl, IMPL_OFFSET>,
-            GetLocalUsagePerRoamingStates::<Impl, IMPL_OFFSET>,
-            NetworkSecuritySettings::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectionProfile, BASE_OFFSET>(),
+            ProfileName: ProfileName::<Impl, IMPL_OFFSET>,
+            GetNetworkConnectivityLevel: GetNetworkConnectivityLevel::<Impl, IMPL_OFFSET>,
+            GetNetworkNames: GetNetworkNames::<Impl, IMPL_OFFSET>,
+            GetConnectionCost: GetConnectionCost::<Impl, IMPL_OFFSET>,
+            GetDataPlanStatus: GetDataPlanStatus::<Impl, IMPL_OFFSET>,
+            NetworkAdapter: NetworkAdapter::<Impl, IMPL_OFFSET>,
+            GetLocalUsage: GetLocalUsage::<Impl, IMPL_OFFSET>,
+            GetLocalUsagePerRoamingStates: GetLocalUsagePerRoamingStates::<Impl, IMPL_OFFSET>,
+            NetworkSecuritySettings: NetworkSecuritySettings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectionProfile as ::windows::core::Interface>::IID
@@ -603,23 +613,18 @@ impl IConnectionProfile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IConnectionProfile2>,
-            ::windows::core::GetTrustLevel,
-            IsWwanConnectionProfile::<Impl, IMPL_OFFSET>,
-            IsWlanConnectionProfile::<Impl, IMPL_OFFSET>,
-            WwanConnectionProfileDetails::<Impl, IMPL_OFFSET>,
-            WlanConnectionProfileDetails::<Impl, IMPL_OFFSET>,
-            ServiceProviderGuid::<Impl, IMPL_OFFSET>,
-            GetSignalBars::<Impl, IMPL_OFFSET>,
-            GetDomainConnectivityLevel::<Impl, IMPL_OFFSET>,
-            GetNetworkUsageAsync::<Impl, IMPL_OFFSET>,
-            GetConnectivityIntervalsAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectionProfile2, BASE_OFFSET>(),
+            IsWwanConnectionProfile: IsWwanConnectionProfile::<Impl, IMPL_OFFSET>,
+            IsWlanConnectionProfile: IsWlanConnectionProfile::<Impl, IMPL_OFFSET>,
+            WwanConnectionProfileDetails: WwanConnectionProfileDetails::<Impl, IMPL_OFFSET>,
+            WlanConnectionProfileDetails: WlanConnectionProfileDetails::<Impl, IMPL_OFFSET>,
+            ServiceProviderGuid: ServiceProviderGuid::<Impl, IMPL_OFFSET>,
+            GetSignalBars: GetSignalBars::<Impl, IMPL_OFFSET>,
+            GetDomainConnectivityLevel: GetDomainConnectivityLevel::<Impl, IMPL_OFFSET>,
+            GetNetworkUsageAsync: GetNetworkUsageAsync::<Impl, IMPL_OFFSET>,
+            GetConnectivityIntervalsAsync: GetConnectivityIntervalsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectionProfile2 as ::windows::core::Interface>::IID
@@ -651,7 +656,10 @@ impl IConnectionProfile3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionProfile3>, ::windows::core::GetTrustLevel, GetAttributedNetworkUsageAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectionProfile3, BASE_OFFSET>(),
+            GetAttributedNetworkUsageAsync: GetAttributedNetworkUsageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectionProfile3 as ::windows::core::Interface>::IID
@@ -683,7 +691,10 @@ impl IConnectionProfile4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionProfile4>, ::windows::core::GetTrustLevel, GetProviderNetworkUsageAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectionProfile4, BASE_OFFSET>(),
+            GetProviderNetworkUsageAsync: GetProviderNetworkUsageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectionProfile4 as ::windows::core::Interface>::IID
@@ -723,7 +734,11 @@ impl IConnectionProfile5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionProfile5>, ::windows::core::GetTrustLevel, CanDelete::<Impl, IMPL_OFFSET>, TryDeleteAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectionProfile5, BASE_OFFSET>(),
+            CanDelete: CanDelete::<Impl, IMPL_OFFSET>,
+            TryDeleteAsync: TryDeleteAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectionProfile5 as ::windows::core::Interface>::IID
@@ -824,24 +839,19 @@ impl IConnectionProfileFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IConnectionProfileFilter>,
-            ::windows::core::GetTrustLevel,
-            SetIsConnected::<Impl, IMPL_OFFSET>,
-            IsConnected::<Impl, IMPL_OFFSET>,
-            SetIsWwanConnectionProfile::<Impl, IMPL_OFFSET>,
-            IsWwanConnectionProfile::<Impl, IMPL_OFFSET>,
-            SetIsWlanConnectionProfile::<Impl, IMPL_OFFSET>,
-            IsWlanConnectionProfile::<Impl, IMPL_OFFSET>,
-            SetNetworkCostType::<Impl, IMPL_OFFSET>,
-            NetworkCostType::<Impl, IMPL_OFFSET>,
-            SetServiceProviderGuid::<Impl, IMPL_OFFSET>,
-            ServiceProviderGuid::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectionProfileFilter, BASE_OFFSET>(),
+            SetIsConnected: SetIsConnected::<Impl, IMPL_OFFSET>,
+            IsConnected: IsConnected::<Impl, IMPL_OFFSET>,
+            SetIsWwanConnectionProfile: SetIsWwanConnectionProfile::<Impl, IMPL_OFFSET>,
+            IsWwanConnectionProfile: IsWwanConnectionProfile::<Impl, IMPL_OFFSET>,
+            SetIsWlanConnectionProfile: SetIsWlanConnectionProfile::<Impl, IMPL_OFFSET>,
+            IsWlanConnectionProfile: IsWlanConnectionProfile::<Impl, IMPL_OFFSET>,
+            SetNetworkCostType: SetNetworkCostType::<Impl, IMPL_OFFSET>,
+            NetworkCostType: NetworkCostType::<Impl, IMPL_OFFSET>,
+            SetServiceProviderGuid: SetServiceProviderGuid::<Impl, IMPL_OFFSET>,
+            ServiceProviderGuid: ServiceProviderGuid::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectionProfileFilter as ::windows::core::Interface>::IID
@@ -920,21 +930,16 @@ impl IConnectionProfileFilter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IConnectionProfileFilter2>,
-            ::windows::core::GetTrustLevel,
-            SetIsRoaming::<Impl, IMPL_OFFSET>,
-            IsRoaming::<Impl, IMPL_OFFSET>,
-            SetIsOverDataLimit::<Impl, IMPL_OFFSET>,
-            IsOverDataLimit::<Impl, IMPL_OFFSET>,
-            SetIsBackgroundDataUsageRestricted::<Impl, IMPL_OFFSET>,
-            IsBackgroundDataUsageRestricted::<Impl, IMPL_OFFSET>,
-            RawData::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectionProfileFilter2, BASE_OFFSET>(),
+            SetIsRoaming: SetIsRoaming::<Impl, IMPL_OFFSET>,
+            IsRoaming: IsRoaming::<Impl, IMPL_OFFSET>,
+            SetIsOverDataLimit: SetIsOverDataLimit::<Impl, IMPL_OFFSET>,
+            IsOverDataLimit: IsOverDataLimit::<Impl, IMPL_OFFSET>,
+            SetIsBackgroundDataUsageRestricted: SetIsBackgroundDataUsageRestricted::<Impl, IMPL_OFFSET>,
+            IsBackgroundDataUsageRestricted: IsBackgroundDataUsageRestricted::<Impl, IMPL_OFFSET>,
+            RawData: RawData::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectionProfileFilter2 as ::windows::core::Interface>::IID
@@ -967,7 +972,11 @@ impl IConnectionProfileFilter3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionProfileFilter3>, ::windows::core::GetTrustLevel, SetPurposeGuid::<Impl, IMPL_OFFSET>, PurposeGuid::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectionProfileFilter3, BASE_OFFSET>(),
+            SetPurposeGuid: SetPurposeGuid::<Impl, IMPL_OFFSET>,
+            PurposeGuid: PurposeGuid::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectionProfileFilter3 as ::windows::core::Interface>::IID
@@ -995,7 +1004,10 @@ impl IConnectionSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionSession>, ::windows::core::GetTrustLevel, ConnectionProfile::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectionSession, BASE_OFFSET>(),
+            ConnectionProfile: ConnectionProfile::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectionSession as ::windows::core::Interface>::IID
@@ -1035,7 +1047,11 @@ impl IConnectivityIntervalVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectivityInterval>, ::windows::core::GetTrustLevel, StartTime::<Impl, IMPL_OFFSET>, ConnectionDuration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectivityInterval, BASE_OFFSET>(),
+            StartTime: StartTime::<Impl, IMPL_OFFSET>,
+            ConnectionDuration: ConnectionDuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectivityInterval as ::windows::core::Interface>::IID
@@ -1073,7 +1089,12 @@ impl IConnectivityManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveHttpRoutePolicy(&*(&routepolicy as *const <RoutePolicy as ::windows::core::Abi>::Abi as *const <RoutePolicy as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectivityManagerStatics>, ::windows::core::GetTrustLevel, AcquireConnectionAsync::<Impl, IMPL_OFFSET>, AddHttpRoutePolicy::<Impl, IMPL_OFFSET>, RemoveHttpRoutePolicy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectivityManagerStatics, BASE_OFFSET>(),
+            AcquireConnectionAsync: AcquireConnectionAsync::<Impl, IMPL_OFFSET>,
+            AddHttpRoutePolicy: AddHttpRoutePolicy::<Impl, IMPL_OFFSET>,
+            RemoveHttpRoutePolicy: RemoveHttpRoutePolicy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectivityManagerStatics as ::windows::core::Interface>::IID
@@ -1161,20 +1182,15 @@ impl IDataPlanStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDataPlanStatus>,
-            ::windows::core::GetTrustLevel,
-            DataPlanUsage::<Impl, IMPL_OFFSET>,
-            DataLimitInMegabytes::<Impl, IMPL_OFFSET>,
-            InboundBitsPerSecond::<Impl, IMPL_OFFSET>,
-            OutboundBitsPerSecond::<Impl, IMPL_OFFSET>,
-            NextBillingCycle::<Impl, IMPL_OFFSET>,
-            MaxTransferSizeInMegabytes::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataPlanStatus, BASE_OFFSET>(),
+            DataPlanUsage: DataPlanUsage::<Impl, IMPL_OFFSET>,
+            DataLimitInMegabytes: DataLimitInMegabytes::<Impl, IMPL_OFFSET>,
+            InboundBitsPerSecond: InboundBitsPerSecond::<Impl, IMPL_OFFSET>,
+            OutboundBitsPerSecond: OutboundBitsPerSecond::<Impl, IMPL_OFFSET>,
+            NextBillingCycle: NextBillingCycle::<Impl, IMPL_OFFSET>,
+            MaxTransferSizeInMegabytes: MaxTransferSizeInMegabytes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataPlanStatus as ::windows::core::Interface>::IID
@@ -1214,7 +1230,11 @@ impl IDataPlanUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataPlanUsage>, ::windows::core::GetTrustLevel, MegabytesUsed::<Impl, IMPL_OFFSET>, LastSyncTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataPlanUsage, BASE_OFFSET>(),
+            MegabytesUsed: MegabytesUsed::<Impl, IMPL_OFFSET>,
+            LastSyncTime: LastSyncTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataPlanUsage as ::windows::core::Interface>::IID
@@ -1254,7 +1274,11 @@ impl IDataUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataUsage>, ::windows::core::GetTrustLevel, BytesSent::<Impl, IMPL_OFFSET>, BytesReceived::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataUsage, BASE_OFFSET>(),
+            BytesSent: BytesSent::<Impl, IMPL_OFFSET>,
+            BytesReceived: BytesReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataUsage as ::windows::core::Interface>::IID
@@ -1294,7 +1318,11 @@ impl IIPInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIPInformation>, ::windows::core::GetTrustLevel, NetworkAdapter::<Impl, IMPL_OFFSET>, PrefixLength::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIPInformation, BASE_OFFSET>(),
+            NetworkAdapter: NetworkAdapter::<Impl, IMPL_OFFSET>,
+            PrefixLength: PrefixLength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIPInformation as ::windows::core::Interface>::IID
@@ -1346,7 +1374,12 @@ impl ILanIdentifierVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanIdentifier>, ::windows::core::GetTrustLevel, InfrastructureId::<Impl, IMPL_OFFSET>, PortId::<Impl, IMPL_OFFSET>, NetworkAdapterId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILanIdentifier, BASE_OFFSET>(),
+            InfrastructureId: InfrastructureId::<Impl, IMPL_OFFSET>,
+            PortId: PortId::<Impl, IMPL_OFFSET>,
+            NetworkAdapterId: NetworkAdapterId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanIdentifier as ::windows::core::Interface>::IID
@@ -1386,7 +1419,11 @@ impl ILanIdentifierDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanIdentifierData>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILanIdentifierData, BASE_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanIdentifierData as ::windows::core::Interface>::IID
@@ -1474,20 +1511,15 @@ impl INetworkAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INetworkAdapter>,
-            ::windows::core::GetTrustLevel,
-            OutboundMaxBitsPerSecond::<Impl, IMPL_OFFSET>,
-            InboundMaxBitsPerSecond::<Impl, IMPL_OFFSET>,
-            IanaInterfaceType::<Impl, IMPL_OFFSET>,
-            NetworkItem::<Impl, IMPL_OFFSET>,
-            NetworkAdapterId::<Impl, IMPL_OFFSET>,
-            GetConnectedProfileAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkAdapter, BASE_OFFSET>(),
+            OutboundMaxBitsPerSecond: OutboundMaxBitsPerSecond::<Impl, IMPL_OFFSET>,
+            InboundMaxBitsPerSecond: InboundMaxBitsPerSecond::<Impl, IMPL_OFFSET>,
+            IanaInterfaceType: IanaInterfaceType::<Impl, IMPL_OFFSET>,
+            NetworkItem: NetworkItem::<Impl, IMPL_OFFSET>,
+            NetworkAdapterId: NetworkAdapterId::<Impl, IMPL_OFFSET>,
+            GetConnectedProfileAsync: GetConnectedProfileAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkAdapter as ::windows::core::Interface>::IID
@@ -1592,22 +1624,17 @@ impl INetworkInformationStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveNetworkStatusChanged(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INetworkInformationStatics>,
-            ::windows::core::GetTrustLevel,
-            GetConnectionProfiles::<Impl, IMPL_OFFSET>,
-            GetInternetConnectionProfile::<Impl, IMPL_OFFSET>,
-            GetLanIdentifiers::<Impl, IMPL_OFFSET>,
-            GetHostNames::<Impl, IMPL_OFFSET>,
-            GetProxyConfigurationAsync::<Impl, IMPL_OFFSET>,
-            GetSortedEndpointPairs::<Impl, IMPL_OFFSET>,
-            NetworkStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveNetworkStatusChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkInformationStatics, BASE_OFFSET>(),
+            GetConnectionProfiles: GetConnectionProfiles::<Impl, IMPL_OFFSET>,
+            GetInternetConnectionProfile: GetInternetConnectionProfile::<Impl, IMPL_OFFSET>,
+            GetLanIdentifiers: GetLanIdentifiers::<Impl, IMPL_OFFSET>,
+            GetHostNames: GetHostNames::<Impl, IMPL_OFFSET>,
+            GetProxyConfigurationAsync: GetProxyConfigurationAsync::<Impl, IMPL_OFFSET>,
+            GetSortedEndpointPairs: GetSortedEndpointPairs::<Impl, IMPL_OFFSET>,
+            NetworkStatusChanged: NetworkStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveNetworkStatusChanged: RemoveNetworkStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkInformationStatics as ::windows::core::Interface>::IID
@@ -1635,7 +1662,10 @@ impl INetworkInformationStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkInformationStatics2>, ::windows::core::GetTrustLevel, FindConnectionProfilesAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkInformationStatics2, BASE_OFFSET>(),
+            FindConnectionProfilesAsync: FindConnectionProfilesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkInformationStatics2 as ::windows::core::Interface>::IID
@@ -1675,7 +1705,11 @@ impl INetworkItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkItem>, ::windows::core::GetTrustLevel, NetworkId::<Impl, IMPL_OFFSET>, GetNetworkTypes::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkItem, BASE_OFFSET>(),
+            NetworkId: NetworkId::<Impl, IMPL_OFFSET>,
+            GetNetworkTypes: GetNetworkTypes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkItem as ::windows::core::Interface>::IID
@@ -1715,7 +1749,11 @@ impl INetworkSecuritySettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkSecuritySettings>, ::windows::core::GetTrustLevel, NetworkAuthenticationType::<Impl, IMPL_OFFSET>, NetworkEncryptionType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkSecuritySettings, BASE_OFFSET>(),
+            NetworkAuthenticationType: NetworkAuthenticationType::<Impl, IMPL_OFFSET>,
+            NetworkEncryptionType: NetworkEncryptionType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkSecuritySettings as ::windows::core::Interface>::IID
@@ -1803,20 +1841,15 @@ impl INetworkStateChangeEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INetworkStateChangeEventDetails>,
-            ::windows::core::GetTrustLevel,
-            HasNewInternetConnectionProfile::<Impl, IMPL_OFFSET>,
-            HasNewConnectionCost::<Impl, IMPL_OFFSET>,
-            HasNewNetworkConnectivityLevel::<Impl, IMPL_OFFSET>,
-            HasNewDomainConnectivityLevel::<Impl, IMPL_OFFSET>,
-            HasNewHostNameList::<Impl, IMPL_OFFSET>,
-            HasNewWwanRegistrationState::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkStateChangeEventDetails, BASE_OFFSET>(),
+            HasNewInternetConnectionProfile: HasNewInternetConnectionProfile::<Impl, IMPL_OFFSET>,
+            HasNewConnectionCost: HasNewConnectionCost::<Impl, IMPL_OFFSET>,
+            HasNewNetworkConnectivityLevel: HasNewNetworkConnectivityLevel::<Impl, IMPL_OFFSET>,
+            HasNewDomainConnectivityLevel: HasNewDomainConnectivityLevel::<Impl, IMPL_OFFSET>,
+            HasNewHostNameList: HasNewHostNameList::<Impl, IMPL_OFFSET>,
+            HasNewWwanRegistrationState: HasNewWwanRegistrationState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkStateChangeEventDetails as ::windows::core::Interface>::IID
@@ -1856,7 +1889,11 @@ impl INetworkStateChangeEventDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkStateChangeEventDetails2>, ::windows::core::GetTrustLevel, HasNewTetheringOperationalState::<Impl, IMPL_OFFSET>, HasNewTetheringClientCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkStateChangeEventDetails2, BASE_OFFSET>(),
+            HasNewTetheringOperationalState: HasNewTetheringOperationalState::<Impl, IMPL_OFFSET>,
+            HasNewTetheringClientCount: HasNewTetheringClientCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkStateChangeEventDetails2 as ::windows::core::Interface>::IID
@@ -1908,7 +1945,12 @@ impl INetworkUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkUsage>, ::windows::core::GetTrustLevel, BytesSent::<Impl, IMPL_OFFSET>, BytesReceived::<Impl, IMPL_OFFSET>, ConnectionDuration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkUsage, BASE_OFFSET>(),
+            BytesSent: BytesSent::<Impl, IMPL_OFFSET>,
+            BytesReceived: BytesReceived::<Impl, IMPL_OFFSET>,
+            ConnectionDuration: ConnectionDuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkUsage as ::windows::core::Interface>::IID
@@ -1960,7 +2002,12 @@ impl IProviderNetworkUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProviderNetworkUsage>, ::windows::core::GetTrustLevel, BytesSent::<Impl, IMPL_OFFSET>, BytesReceived::<Impl, IMPL_OFFSET>, ProviderId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProviderNetworkUsage, BASE_OFFSET>(),
+            BytesSent: BytesSent::<Impl, IMPL_OFFSET>,
+            BytesReceived: BytesReceived::<Impl, IMPL_OFFSET>,
+            ProviderId: ProviderId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProviderNetworkUsage as ::windows::core::Interface>::IID
@@ -2000,7 +2047,11 @@ impl IProxyConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProxyConfiguration>, ::windows::core::GetTrustLevel, ProxyUris::<Impl, IMPL_OFFSET>, CanConnectDirectly::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProxyConfiguration, BASE_OFFSET>(),
+            ProxyUris: ProxyUris::<Impl, IMPL_OFFSET>,
+            CanConnectDirectly: CanConnectDirectly::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProxyConfiguration as ::windows::core::Interface>::IID
@@ -2052,7 +2103,12 @@ impl IRoutePolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRoutePolicy>, ::windows::core::GetTrustLevel, ConnectionProfile::<Impl, IMPL_OFFSET>, HostName::<Impl, IMPL_OFFSET>, HostNameType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRoutePolicy, BASE_OFFSET>(),
+            ConnectionProfile: ConnectionProfile::<Impl, IMPL_OFFSET>,
+            HostName: HostName::<Impl, IMPL_OFFSET>,
+            HostNameType: HostNameType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRoutePolicy as ::windows::core::Interface>::IID
@@ -2080,7 +2136,10 @@ impl IRoutePolicyFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRoutePolicyFactory>, ::windows::core::GetTrustLevel, CreateRoutePolicy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRoutePolicyFactory, BASE_OFFSET>(),
+            CreateRoutePolicy: CreateRoutePolicy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRoutePolicyFactory as ::windows::core::Interface>::IID
@@ -2108,7 +2167,10 @@ impl IWlanConnectionProfileDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWlanConnectionProfileDetails>, ::windows::core::GetTrustLevel, GetConnectedSsid::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWlanConnectionProfileDetails, BASE_OFFSET>(),
+            GetConnectedSsid: GetConnectedSsid::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWlanConnectionProfileDetails as ::windows::core::Interface>::IID
@@ -2172,7 +2234,13 @@ impl IWwanConnectionProfileDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWwanConnectionProfileDetails>, ::windows::core::GetTrustLevel, HomeProviderId::<Impl, IMPL_OFFSET>, AccessPointName::<Impl, IMPL_OFFSET>, GetNetworkRegistrationState::<Impl, IMPL_OFFSET>, GetCurrentDataClass::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWwanConnectionProfileDetails, BASE_OFFSET>(),
+            HomeProviderId: HomeProviderId::<Impl, IMPL_OFFSET>,
+            AccessPointName: AccessPointName::<Impl, IMPL_OFFSET>,
+            GetNetworkRegistrationState: GetNetworkRegistrationState::<Impl, IMPL_OFFSET>,
+            GetCurrentDataClass: GetCurrentDataClass::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWwanConnectionProfileDetails as ::windows::core::Interface>::IID
@@ -2212,7 +2280,11 @@ impl IWwanConnectionProfileDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWwanConnectionProfileDetails2>, ::windows::core::GetTrustLevel, IPKind::<Impl, IMPL_OFFSET>, PurposeGuids::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWwanConnectionProfileDetails2, BASE_OFFSET>(),
+            IPKind: IPKind::<Impl, IMPL_OFFSET>,
+            PurposeGuids: PurposeGuids::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWwanConnectionProfileDetails2 as ::windows::core::Interface>::IID

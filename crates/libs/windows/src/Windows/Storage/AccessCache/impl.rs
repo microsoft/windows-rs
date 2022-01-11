@@ -20,7 +20,7 @@ impl IItemRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IItemRemovedEventArgs>, ::windows::core::GetTrustLevel, RemovedEntry::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IItemRemovedEventArgs, BASE_OFFSET>(), RemovedEntry: RemovedEntry::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IItemRemovedEventArgs as ::windows::core::Interface>::IID
@@ -60,7 +60,11 @@ impl IStorageApplicationPermissionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageApplicationPermissionsStatics>, ::windows::core::GetTrustLevel, FutureAccessList::<Impl, IMPL_OFFSET>, MostRecentlyUsedList::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageApplicationPermissionsStatics, BASE_OFFSET>(),
+            FutureAccessList: FutureAccessList::<Impl, IMPL_OFFSET>,
+            MostRecentlyUsedList: MostRecentlyUsedList::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageApplicationPermissionsStatics as ::windows::core::Interface>::IID
@@ -100,7 +104,11 @@ impl IStorageApplicationPermissionsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageApplicationPermissionsStatics2>, ::windows::core::GetTrustLevel, GetFutureAccessListForUser::<Impl, IMPL_OFFSET>, GetMostRecentlyUsedListForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageApplicationPermissionsStatics2, BASE_OFFSET>(),
+            GetFutureAccessListForUser: GetFutureAccessListForUser::<Impl, IMPL_OFFSET>,
+            GetMostRecentlyUsedListForUser: GetMostRecentlyUsedListForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageApplicationPermissionsStatics2 as ::windows::core::Interface>::IID
@@ -282,30 +290,25 @@ impl IStorageItemAccessListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStorageItemAccessList>,
-            ::windows::core::GetTrustLevel,
-            AddOverloadDefaultMetadata::<Impl, IMPL_OFFSET>,
-            Add::<Impl, IMPL_OFFSET>,
-            AddOrReplaceOverloadDefaultMetadata::<Impl, IMPL_OFFSET>,
-            AddOrReplace::<Impl, IMPL_OFFSET>,
-            GetItemAsync::<Impl, IMPL_OFFSET>,
-            GetFileAsync::<Impl, IMPL_OFFSET>,
-            GetFolderAsync::<Impl, IMPL_OFFSET>,
-            GetItemWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            GetFileWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            GetFolderWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            Remove::<Impl, IMPL_OFFSET>,
-            ContainsItem::<Impl, IMPL_OFFSET>,
-            Clear::<Impl, IMPL_OFFSET>,
-            CheckAccess::<Impl, IMPL_OFFSET>,
-            Entries::<Impl, IMPL_OFFSET>,
-            MaximumItemsAllowed::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemAccessList, BASE_OFFSET>(),
+            AddOverloadDefaultMetadata: AddOverloadDefaultMetadata::<Impl, IMPL_OFFSET>,
+            Add: Add::<Impl, IMPL_OFFSET>,
+            AddOrReplaceOverloadDefaultMetadata: AddOrReplaceOverloadDefaultMetadata::<Impl, IMPL_OFFSET>,
+            AddOrReplace: AddOrReplace::<Impl, IMPL_OFFSET>,
+            GetItemAsync: GetItemAsync::<Impl, IMPL_OFFSET>,
+            GetFileAsync: GetFileAsync::<Impl, IMPL_OFFSET>,
+            GetFolderAsync: GetFolderAsync::<Impl, IMPL_OFFSET>,
+            GetItemWithOptionsAsync: GetItemWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            GetFileWithOptionsAsync: GetFileWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            GetFolderWithOptionsAsync: GetFolderWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            Remove: Remove::<Impl, IMPL_OFFSET>,
+            ContainsItem: ContainsItem::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+            CheckAccess: CheckAccess::<Impl, IMPL_OFFSET>,
+            Entries: Entries::<Impl, IMPL_OFFSET>,
+            MaximumItemsAllowed: MaximumItemsAllowed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageItemAccessList as ::windows::core::Interface>::IID
@@ -338,7 +341,11 @@ impl IStorageItemMostRecentlyUsedListVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemRemoved(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemMostRecentlyUsedList>, ::windows::core::GetTrustLevel, ItemRemoved::<Impl, IMPL_OFFSET>, RemoveItemRemoved::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemMostRecentlyUsedList, BASE_OFFSET>(),
+            ItemRemoved: ItemRemoved::<Impl, IMPL_OFFSET>,
+            RemoveItemRemoved: RemoveItemRemoved::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageItemMostRecentlyUsedList as ::windows::core::Interface>::IID
@@ -378,7 +385,11 @@ impl IStorageItemMostRecentlyUsedList2Vtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemMostRecentlyUsedList2>, ::windows::core::GetTrustLevel, AddWithMetadataAndVisibility::<Impl, IMPL_OFFSET>, AddOrReplaceWithMetadataAndVisibility::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemMostRecentlyUsedList2, BASE_OFFSET>(),
+            AddWithMetadataAndVisibility: AddWithMetadataAndVisibility::<Impl, IMPL_OFFSET>,
+            AddOrReplaceWithMetadataAndVisibility: AddOrReplaceWithMetadataAndVisibility::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageItemMostRecentlyUsedList2 as ::windows::core::Interface>::IID

@@ -32,7 +32,11 @@ impl IMidiChannelPressureMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiChannelPressureMessage>, ::windows::core::GetTrustLevel, Channel::<Impl, IMPL_OFFSET>, Pressure::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiChannelPressureMessage, BASE_OFFSET>(),
+            Channel: Channel::<Impl, IMPL_OFFSET>,
+            Pressure: Pressure::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiChannelPressureMessage as ::windows::core::Interface>::IID
@@ -60,7 +64,10 @@ impl IMidiChannelPressureMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiChannelPressureMessageFactory>, ::windows::core::GetTrustLevel, CreateMidiChannelPressureMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiChannelPressureMessageFactory, BASE_OFFSET>(),
+            CreateMidiChannelPressureMessage: CreateMidiChannelPressureMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiChannelPressureMessageFactory as ::windows::core::Interface>::IID
@@ -112,7 +119,12 @@ impl IMidiControlChangeMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiControlChangeMessage>, ::windows::core::GetTrustLevel, Channel::<Impl, IMPL_OFFSET>, Controller::<Impl, IMPL_OFFSET>, ControlValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiControlChangeMessage, BASE_OFFSET>(),
+            Channel: Channel::<Impl, IMPL_OFFSET>,
+            Controller: Controller::<Impl, IMPL_OFFSET>,
+            ControlValue: ControlValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiControlChangeMessage as ::windows::core::Interface>::IID
@@ -140,7 +152,10 @@ impl IMidiControlChangeMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiControlChangeMessageFactory>, ::windows::core::GetTrustLevel, CreateMidiControlChangeMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiControlChangeMessageFactory, BASE_OFFSET>(),
+            CreateMidiControlChangeMessage: CreateMidiControlChangeMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiControlChangeMessageFactory as ::windows::core::Interface>::IID
@@ -185,7 +200,12 @@ impl IMidiInPortVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiInPort>, ::windows::core::GetTrustLevel, MessageReceived::<Impl, IMPL_OFFSET>, RemoveMessageReceived::<Impl, IMPL_OFFSET>, DeviceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiInPort, BASE_OFFSET>(),
+            MessageReceived: MessageReceived::<Impl, IMPL_OFFSET>,
+            RemoveMessageReceived: RemoveMessageReceived::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiInPort as ::windows::core::Interface>::IID
@@ -225,7 +245,11 @@ impl IMidiInPortStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiInPortStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiInPortStatics, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiInPortStatics as ::windows::core::Interface>::IID
@@ -277,7 +301,12 @@ impl IMidiMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiMessage>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, RawData::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiMessage, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            RawData: RawData::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiMessage as ::windows::core::Interface>::IID
@@ -305,7 +334,7 @@ impl IMidiMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiMessageReceivedEventArgs>, ::windows::core::GetTrustLevel, Message::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiMessageReceivedEventArgs, BASE_OFFSET>(), Message: Message::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiMessageReceivedEventArgs as ::windows::core::Interface>::IID
@@ -357,7 +386,12 @@ impl IMidiNoteOffMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiNoteOffMessage>, ::windows::core::GetTrustLevel, Channel::<Impl, IMPL_OFFSET>, Note::<Impl, IMPL_OFFSET>, Velocity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiNoteOffMessage, BASE_OFFSET>(),
+            Channel: Channel::<Impl, IMPL_OFFSET>,
+            Note: Note::<Impl, IMPL_OFFSET>,
+            Velocity: Velocity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiNoteOffMessage as ::windows::core::Interface>::IID
@@ -385,7 +419,10 @@ impl IMidiNoteOffMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiNoteOffMessageFactory>, ::windows::core::GetTrustLevel, CreateMidiNoteOffMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiNoteOffMessageFactory, BASE_OFFSET>(),
+            CreateMidiNoteOffMessage: CreateMidiNoteOffMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiNoteOffMessageFactory as ::windows::core::Interface>::IID
@@ -437,7 +474,12 @@ impl IMidiNoteOnMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiNoteOnMessage>, ::windows::core::GetTrustLevel, Channel::<Impl, IMPL_OFFSET>, Note::<Impl, IMPL_OFFSET>, Velocity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiNoteOnMessage, BASE_OFFSET>(),
+            Channel: Channel::<Impl, IMPL_OFFSET>,
+            Note: Note::<Impl, IMPL_OFFSET>,
+            Velocity: Velocity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiNoteOnMessage as ::windows::core::Interface>::IID
@@ -465,7 +507,10 @@ impl IMidiNoteOnMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiNoteOnMessageFactory>, ::windows::core::GetTrustLevel, CreateMidiNoteOnMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiNoteOnMessageFactory, BASE_OFFSET>(),
+            CreateMidiNoteOnMessage: CreateMidiNoteOnMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiNoteOnMessageFactory as ::windows::core::Interface>::IID
@@ -503,7 +548,12 @@ impl IMidiOutPortVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiOutPort>, ::windows::core::GetTrustLevel, SendMessage::<Impl, IMPL_OFFSET>, SendBuffer::<Impl, IMPL_OFFSET>, DeviceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiOutPort, BASE_OFFSET>(),
+            SendMessage: SendMessage::<Impl, IMPL_OFFSET>,
+            SendBuffer: SendBuffer::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiOutPort as ::windows::core::Interface>::IID
@@ -543,7 +593,11 @@ impl IMidiOutPortStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiOutPortStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiOutPortStatics, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiOutPortStatics as ::windows::core::Interface>::IID
@@ -583,7 +637,11 @@ impl IMidiPitchBendChangeMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiPitchBendChangeMessage>, ::windows::core::GetTrustLevel, Channel::<Impl, IMPL_OFFSET>, Bend::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiPitchBendChangeMessage, BASE_OFFSET>(),
+            Channel: Channel::<Impl, IMPL_OFFSET>,
+            Bend: Bend::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiPitchBendChangeMessage as ::windows::core::Interface>::IID
@@ -611,7 +669,10 @@ impl IMidiPitchBendChangeMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiPitchBendChangeMessageFactory>, ::windows::core::GetTrustLevel, CreateMidiPitchBendChangeMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiPitchBendChangeMessageFactory, BASE_OFFSET>(),
+            CreateMidiPitchBendChangeMessage: CreateMidiPitchBendChangeMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiPitchBendChangeMessageFactory as ::windows::core::Interface>::IID
@@ -663,7 +724,12 @@ impl IMidiPolyphonicKeyPressureMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiPolyphonicKeyPressureMessage>, ::windows::core::GetTrustLevel, Channel::<Impl, IMPL_OFFSET>, Note::<Impl, IMPL_OFFSET>, Pressure::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiPolyphonicKeyPressureMessage, BASE_OFFSET>(),
+            Channel: Channel::<Impl, IMPL_OFFSET>,
+            Note: Note::<Impl, IMPL_OFFSET>,
+            Pressure: Pressure::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiPolyphonicKeyPressureMessage as ::windows::core::Interface>::IID
@@ -691,7 +757,10 @@ impl IMidiPolyphonicKeyPressureMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiPolyphonicKeyPressureMessageFactory>, ::windows::core::GetTrustLevel, CreateMidiPolyphonicKeyPressureMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiPolyphonicKeyPressureMessageFactory, BASE_OFFSET>(),
+            CreateMidiPolyphonicKeyPressureMessage: CreateMidiPolyphonicKeyPressureMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiPolyphonicKeyPressureMessageFactory as ::windows::core::Interface>::IID
@@ -731,7 +800,11 @@ impl IMidiProgramChangeMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiProgramChangeMessage>, ::windows::core::GetTrustLevel, Channel::<Impl, IMPL_OFFSET>, Program::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiProgramChangeMessage, BASE_OFFSET>(),
+            Channel: Channel::<Impl, IMPL_OFFSET>,
+            Program: Program::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiProgramChangeMessage as ::windows::core::Interface>::IID
@@ -759,7 +832,10 @@ impl IMidiProgramChangeMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiProgramChangeMessageFactory>, ::windows::core::GetTrustLevel, CreateMidiProgramChangeMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiProgramChangeMessageFactory, BASE_OFFSET>(),
+            CreateMidiProgramChangeMessage: CreateMidiProgramChangeMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiProgramChangeMessageFactory as ::windows::core::Interface>::IID
@@ -787,7 +863,7 @@ impl IMidiSongPositionPointerMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiSongPositionPointerMessage>, ::windows::core::GetTrustLevel, Beats::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiSongPositionPointerMessage, BASE_OFFSET>(), Beats: Beats::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiSongPositionPointerMessage as ::windows::core::Interface>::IID
@@ -815,7 +891,10 @@ impl IMidiSongPositionPointerMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiSongPositionPointerMessageFactory>, ::windows::core::GetTrustLevel, CreateMidiSongPositionPointerMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiSongPositionPointerMessageFactory, BASE_OFFSET>(),
+            CreateMidiSongPositionPointerMessage: CreateMidiSongPositionPointerMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiSongPositionPointerMessageFactory as ::windows::core::Interface>::IID
@@ -843,7 +922,7 @@ impl IMidiSongSelectMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiSongSelectMessage>, ::windows::core::GetTrustLevel, Song::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiSongSelectMessage, BASE_OFFSET>(), Song: Song::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiSongSelectMessage as ::windows::core::Interface>::IID
@@ -871,7 +950,10 @@ impl IMidiSongSelectMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiSongSelectMessageFactory>, ::windows::core::GetTrustLevel, CreateMidiSongSelectMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiSongSelectMessageFactory, BASE_OFFSET>(),
+            CreateMidiSongSelectMessage: CreateMidiSongSelectMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiSongSelectMessageFactory as ::windows::core::Interface>::IID
@@ -916,7 +998,12 @@ impl IMidiSynthesizerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVolume(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiSynthesizer>, ::windows::core::GetTrustLevel, AudioDevice::<Impl, IMPL_OFFSET>, Volume::<Impl, IMPL_OFFSET>, SetVolume::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiSynthesizer, BASE_OFFSET>(),
+            AudioDevice: AudioDevice::<Impl, IMPL_OFFSET>,
+            Volume: Volume::<Impl, IMPL_OFFSET>,
+            SetVolume: SetVolume::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiSynthesizer as ::windows::core::Interface>::IID
@@ -968,7 +1055,12 @@ impl IMidiSynthesizerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiSynthesizerStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>, CreateFromAudioDeviceAsync::<Impl, IMPL_OFFSET>, IsSynthesizer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiSynthesizerStatics, BASE_OFFSET>(),
+            CreateAsync: CreateAsync::<Impl, IMPL_OFFSET>,
+            CreateFromAudioDeviceAsync: CreateFromAudioDeviceAsync::<Impl, IMPL_OFFSET>,
+            IsSynthesizer: IsSynthesizer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiSynthesizerStatics as ::windows::core::Interface>::IID
@@ -996,7 +1088,10 @@ impl IMidiSystemExclusiveMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiSystemExclusiveMessageFactory>, ::windows::core::GetTrustLevel, CreateMidiSystemExclusiveMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiSystemExclusiveMessageFactory, BASE_OFFSET>(),
+            CreateMidiSystemExclusiveMessage: CreateMidiSystemExclusiveMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiSystemExclusiveMessageFactory as ::windows::core::Interface>::IID
@@ -1036,7 +1131,11 @@ impl IMidiTimeCodeMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiTimeCodeMessage>, ::windows::core::GetTrustLevel, FrameType::<Impl, IMPL_OFFSET>, Values::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiTimeCodeMessage, BASE_OFFSET>(),
+            FrameType: FrameType::<Impl, IMPL_OFFSET>,
+            Values: Values::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiTimeCodeMessage as ::windows::core::Interface>::IID
@@ -1064,7 +1163,10 @@ impl IMidiTimeCodeMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMidiTimeCodeMessageFactory>, ::windows::core::GetTrustLevel, CreateMidiTimeCodeMessage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiTimeCodeMessageFactory, BASE_OFFSET>(),
+            CreateMidiTimeCodeMessage: CreateMidiTimeCodeMessage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMidiTimeCodeMessageFactory as ::windows::core::Interface>::IID

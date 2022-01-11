@@ -92,21 +92,16 @@ impl IRfcommDeviceServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRfcommDeviceService>,
-            ::windows::core::GetTrustLevel,
-            ConnectionHostName::<Impl, IMPL_OFFSET>,
-            ConnectionServiceName::<Impl, IMPL_OFFSET>,
-            ServiceId::<Impl, IMPL_OFFSET>,
-            ProtectionLevel::<Impl, IMPL_OFFSET>,
-            MaxProtectionLevel::<Impl, IMPL_OFFSET>,
-            GetSdpRawAttributesAsync::<Impl, IMPL_OFFSET>,
-            GetSdpRawAttributesWithCacheModeAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRfcommDeviceService, BASE_OFFSET>(),
+            ConnectionHostName: ConnectionHostName::<Impl, IMPL_OFFSET>,
+            ConnectionServiceName: ConnectionServiceName::<Impl, IMPL_OFFSET>,
+            ServiceId: ServiceId::<Impl, IMPL_OFFSET>,
+            ProtectionLevel: ProtectionLevel::<Impl, IMPL_OFFSET>,
+            MaxProtectionLevel: MaxProtectionLevel::<Impl, IMPL_OFFSET>,
+            GetSdpRawAttributesAsync: GetSdpRawAttributesAsync::<Impl, IMPL_OFFSET>,
+            GetSdpRawAttributesWithCacheModeAsync: GetSdpRawAttributesWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRfcommDeviceService as ::windows::core::Interface>::IID
@@ -134,7 +129,7 @@ impl IRfcommDeviceService2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRfcommDeviceService2>, ::windows::core::GetTrustLevel, Device::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRfcommDeviceService2, BASE_OFFSET>(), Device: Device::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRfcommDeviceService2 as ::windows::core::Interface>::IID
@@ -174,7 +169,11 @@ impl IRfcommDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRfcommDeviceService3>, ::windows::core::GetTrustLevel, DeviceAccessInformation::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRfcommDeviceService3, BASE_OFFSET>(),
+            DeviceAccessInformation: DeviceAccessInformation::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRfcommDeviceService3 as ::windows::core::Interface>::IID
@@ -214,7 +213,11 @@ impl IRfcommDeviceServiceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRfcommDeviceServiceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRfcommDeviceServiceStatics, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRfcommDeviceServiceStatics as ::windows::core::Interface>::IID
@@ -278,18 +281,13 @@ impl IRfcommDeviceServiceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRfcommDeviceServiceStatics2>,
-            ::windows::core::GetTrustLevel,
-            GetDeviceSelectorForBluetoothDevice::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorForBluetoothDeviceWithCacheMode::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorForBluetoothDeviceAndServiceId::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRfcommDeviceServiceStatics2, BASE_OFFSET>(),
+            GetDeviceSelectorForBluetoothDevice: GetDeviceSelectorForBluetoothDevice::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorForBluetoothDeviceWithCacheMode: GetDeviceSelectorForBluetoothDeviceWithCacheMode::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorForBluetoothDeviceAndServiceId: GetDeviceSelectorForBluetoothDeviceAndServiceId::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode: GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRfcommDeviceServiceStatics2 as ::windows::core::Interface>::IID
@@ -329,7 +327,11 @@ impl IRfcommDeviceServicesResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRfcommDeviceServicesResult>, ::windows::core::GetTrustLevel, Error::<Impl, IMPL_OFFSET>, Services::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRfcommDeviceServicesResult, BASE_OFFSET>(),
+            Error: Error::<Impl, IMPL_OFFSET>,
+            Services: Services::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRfcommDeviceServicesResult as ::windows::core::Interface>::IID
@@ -381,7 +383,12 @@ impl IRfcommServiceIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRfcommServiceId>, ::windows::core::GetTrustLevel, Uuid::<Impl, IMPL_OFFSET>, AsShortId::<Impl, IMPL_OFFSET>, AsString::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRfcommServiceId, BASE_OFFSET>(),
+            Uuid: Uuid::<Impl, IMPL_OFFSET>,
+            AsShortId: AsShortId::<Impl, IMPL_OFFSET>,
+            AsString: AsString::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRfcommServiceId as ::windows::core::Interface>::IID
@@ -493,22 +500,17 @@ impl IRfcommServiceIdStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRfcommServiceIdStatics>,
-            ::windows::core::GetTrustLevel,
-            FromUuid::<Impl, IMPL_OFFSET>,
-            FromShortId::<Impl, IMPL_OFFSET>,
-            SerialPort::<Impl, IMPL_OFFSET>,
-            ObexObjectPush::<Impl, IMPL_OFFSET>,
-            ObexFileTransfer::<Impl, IMPL_OFFSET>,
-            PhoneBookAccessPce::<Impl, IMPL_OFFSET>,
-            PhoneBookAccessPse::<Impl, IMPL_OFFSET>,
-            GenericFileTransfer::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRfcommServiceIdStatics, BASE_OFFSET>(),
+            FromUuid: FromUuid::<Impl, IMPL_OFFSET>,
+            FromShortId: FromShortId::<Impl, IMPL_OFFSET>,
+            SerialPort: SerialPort::<Impl, IMPL_OFFSET>,
+            ObexObjectPush: ObexObjectPush::<Impl, IMPL_OFFSET>,
+            ObexFileTransfer: ObexFileTransfer::<Impl, IMPL_OFFSET>,
+            PhoneBookAccessPce: PhoneBookAccessPce::<Impl, IMPL_OFFSET>,
+            PhoneBookAccessPse: PhoneBookAccessPse::<Impl, IMPL_OFFSET>,
+            GenericFileTransfer: GenericFileTransfer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRfcommServiceIdStatics as ::windows::core::Interface>::IID
@@ -558,7 +560,13 @@ impl IRfcommServiceProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopAdvertising().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRfcommServiceProvider>, ::windows::core::GetTrustLevel, ServiceId::<Impl, IMPL_OFFSET>, SdpRawAttributes::<Impl, IMPL_OFFSET>, StartAdvertising::<Impl, IMPL_OFFSET>, StopAdvertising::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRfcommServiceProvider, BASE_OFFSET>(),
+            ServiceId: ServiceId::<Impl, IMPL_OFFSET>,
+            SdpRawAttributes: SdpRawAttributes::<Impl, IMPL_OFFSET>,
+            StartAdvertising: StartAdvertising::<Impl, IMPL_OFFSET>,
+            StopAdvertising: StopAdvertising::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRfcommServiceProvider as ::windows::core::Interface>::IID
@@ -579,7 +587,10 @@ impl IRfcommServiceProvider2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartAdvertisingWithRadioDiscoverability(&*(&listener as *const <super::super::super::Networking::Sockets::StreamSocketListener as ::windows::core::Abi>::Abi as *const <super::super::super::Networking::Sockets::StreamSocketListener as ::windows::core::DefaultType>::DefaultType), radiodiscoverable).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRfcommServiceProvider2>, ::windows::core::GetTrustLevel, StartAdvertisingWithRadioDiscoverability::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRfcommServiceProvider2, BASE_OFFSET>(),
+            StartAdvertisingWithRadioDiscoverability: StartAdvertisingWithRadioDiscoverability::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRfcommServiceProvider2 as ::windows::core::Interface>::IID
@@ -607,7 +618,10 @@ impl IRfcommServiceProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRfcommServiceProviderStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRfcommServiceProviderStatics, BASE_OFFSET>(),
+            CreateAsync: CreateAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRfcommServiceProviderStatics as ::windows::core::Interface>::IID

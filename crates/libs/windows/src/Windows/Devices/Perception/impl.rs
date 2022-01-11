@@ -56,7 +56,13 @@ impl IKnownCameraIntrinsicsPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownCameraIntrinsicsPropertiesStatics>, ::windows::core::GetTrustLevel, FocalLength::<Impl, IMPL_OFFSET>, PrincipalPoint::<Impl, IMPL_OFFSET>, RadialDistortion::<Impl, IMPL_OFFSET>, TangentialDistortion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownCameraIntrinsicsPropertiesStatics, BASE_OFFSET>(),
+            FocalLength: FocalLength::<Impl, IMPL_OFFSET>,
+            PrincipalPoint: PrincipalPoint::<Impl, IMPL_OFFSET>,
+            RadialDistortion: RadialDistortion::<Impl, IMPL_OFFSET>,
+            TangentialDistortion: TangentialDistortion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownCameraIntrinsicsPropertiesStatics as ::windows::core::Interface>::IID
@@ -108,7 +114,12 @@ impl IKnownPerceptionColorFrameSourcePropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionColorFrameSourcePropertiesStatics>, ::windows::core::GetTrustLevel, Exposure::<Impl, IMPL_OFFSET>, AutoExposureEnabled::<Impl, IMPL_OFFSET>, ExposureCompensation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownPerceptionColorFrameSourcePropertiesStatics, BASE_OFFSET>(),
+            Exposure: Exposure::<Impl, IMPL_OFFSET>,
+            AutoExposureEnabled: AutoExposureEnabled::<Impl, IMPL_OFFSET>,
+            ExposureCompensation: ExposureCompensation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownPerceptionColorFrameSourcePropertiesStatics as ::windows::core::Interface>::IID
@@ -148,7 +159,11 @@ impl IKnownPerceptionDepthFrameSourcePropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionDepthFrameSourcePropertiesStatics>, ::windows::core::GetTrustLevel, MinDepth::<Impl, IMPL_OFFSET>, MaxDepth::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownPerceptionDepthFrameSourcePropertiesStatics, BASE_OFFSET>(),
+            MinDepth: MinDepth::<Impl, IMPL_OFFSET>,
+            MaxDepth: MaxDepth::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownPerceptionDepthFrameSourcePropertiesStatics as ::windows::core::Interface>::IID
@@ -224,7 +239,14 @@ impl IKnownPerceptionFrameSourcePropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionFrameSourcePropertiesStatics>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, PhysicalDeviceIds::<Impl, IMPL_OFFSET>, FrameKind::<Impl, IMPL_OFFSET>, DeviceModelVersion::<Impl, IMPL_OFFSET>, EnclosureLocation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownPerceptionFrameSourcePropertiesStatics, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            PhysicalDeviceIds: PhysicalDeviceIds::<Impl, IMPL_OFFSET>,
+            FrameKind: FrameKind::<Impl, IMPL_OFFSET>,
+            DeviceModelVersion: DeviceModelVersion::<Impl, IMPL_OFFSET>,
+            EnclosureLocation: EnclosureLocation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownPerceptionFrameSourcePropertiesStatics as ::windows::core::Interface>::IID
@@ -252,7 +274,10 @@ impl IKnownPerceptionFrameSourcePropertiesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionFrameSourcePropertiesStatics2>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownPerceptionFrameSourcePropertiesStatics2, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownPerceptionFrameSourcePropertiesStatics2 as ::windows::core::Interface>::IID
@@ -352,21 +377,16 @@ impl IKnownPerceptionInfraredFrameSourcePropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IKnownPerceptionInfraredFrameSourcePropertiesStatics>,
-            ::windows::core::GetTrustLevel,
-            Exposure::<Impl, IMPL_OFFSET>,
-            AutoExposureEnabled::<Impl, IMPL_OFFSET>,
-            ExposureCompensation::<Impl, IMPL_OFFSET>,
-            ActiveIlluminationEnabled::<Impl, IMPL_OFFSET>,
-            AmbientSubtractionEnabled::<Impl, IMPL_OFFSET>,
-            StructureLightPatternEnabled::<Impl, IMPL_OFFSET>,
-            InterleavedIlluminationEnabled::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownPerceptionInfraredFrameSourcePropertiesStatics, BASE_OFFSET>(),
+            Exposure: Exposure::<Impl, IMPL_OFFSET>,
+            AutoExposureEnabled: AutoExposureEnabled::<Impl, IMPL_OFFSET>,
+            ExposureCompensation: ExposureCompensation::<Impl, IMPL_OFFSET>,
+            ActiveIlluminationEnabled: ActiveIlluminationEnabled::<Impl, IMPL_OFFSET>,
+            AmbientSubtractionEnabled: AmbientSubtractionEnabled::<Impl, IMPL_OFFSET>,
+            StructureLightPatternEnabled: StructureLightPatternEnabled::<Impl, IMPL_OFFSET>,
+            InterleavedIlluminationEnabled: InterleavedIlluminationEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownPerceptionInfraredFrameSourcePropertiesStatics as ::windows::core::Interface>::IID
@@ -442,19 +462,14 @@ impl IKnownPerceptionVideoFrameSourcePropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IKnownPerceptionVideoFrameSourcePropertiesStatics>,
-            ::windows::core::GetTrustLevel,
-            VideoProfile::<Impl, IMPL_OFFSET>,
-            SupportedVideoProfiles::<Impl, IMPL_OFFSET>,
-            AvailableVideoProfiles::<Impl, IMPL_OFFSET>,
-            IsMirrored::<Impl, IMPL_OFFSET>,
-            CameraIntrinsics::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownPerceptionVideoFrameSourcePropertiesStatics, BASE_OFFSET>(),
+            VideoProfile: VideoProfile::<Impl, IMPL_OFFSET>,
+            SupportedVideoProfiles: SupportedVideoProfiles::<Impl, IMPL_OFFSET>,
+            AvailableVideoProfiles: AvailableVideoProfiles::<Impl, IMPL_OFFSET>,
+            IsMirrored: IsMirrored::<Impl, IMPL_OFFSET>,
+            CameraIntrinsics: CameraIntrinsics::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownPerceptionVideoFrameSourcePropertiesStatics as ::windows::core::Interface>::IID
@@ -530,7 +545,14 @@ impl IKnownPerceptionVideoProfilePropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionVideoProfilePropertiesStatics>, ::windows::core::GetTrustLevel, BitmapPixelFormat::<Impl, IMPL_OFFSET>, BitmapAlphaMode::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>, Height::<Impl, IMPL_OFFSET>, FrameDuration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownPerceptionVideoProfilePropertiesStatics, BASE_OFFSET>(),
+            BitmapPixelFormat: BitmapPixelFormat::<Impl, IMPL_OFFSET>,
+            BitmapAlphaMode: BitmapAlphaMode::<Impl, IMPL_OFFSET>,
+            Width: Width::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+            FrameDuration: FrameDuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownPerceptionVideoProfilePropertiesStatics as ::windows::core::Interface>::IID
@@ -558,7 +580,7 @@ impl IPerceptionColorFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrame>, ::windows::core::GetTrustLevel, VideoFrame::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionColorFrame, BASE_OFFSET>(), VideoFrame: VideoFrame::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionColorFrame as ::windows::core::Interface>::IID
@@ -598,7 +620,11 @@ impl IPerceptionColorFrameArrivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameArrivedEventArgs>, ::windows::core::GetTrustLevel, RelativeTime::<Impl, IMPL_OFFSET>, TryOpenFrame::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionColorFrameArrivedEventArgs, BASE_OFFSET>(),
+            RelativeTime: RelativeTime::<Impl, IMPL_OFFSET>,
+            TryOpenFrame: TryOpenFrame::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionColorFrameArrivedEventArgs as ::windows::core::Interface>::IID
@@ -672,20 +698,15 @@ impl IPerceptionColorFrameReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameReader>,
-            ::windows::core::GetTrustLevel,
-            FrameArrived::<Impl, IMPL_OFFSET>,
-            RemoveFrameArrived::<Impl, IMPL_OFFSET>,
-            Source::<Impl, IMPL_OFFSET>,
-            IsPaused::<Impl, IMPL_OFFSET>,
-            SetIsPaused::<Impl, IMPL_OFFSET>,
-            TryReadLatestFrame::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionColorFrameReader, BASE_OFFSET>(),
+            FrameArrived: FrameArrived::<Impl, IMPL_OFFSET>,
+            RemoveFrameArrived: RemoveFrameArrived::<Impl, IMPL_OFFSET>,
+            Source: Source::<Impl, IMPL_OFFSET>,
+            IsPaused: IsPaused::<Impl, IMPL_OFFSET>,
+            SetIsPaused: SetIsPaused::<Impl, IMPL_OFFSET>,
+            TryReadLatestFrame: TryReadLatestFrame::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionColorFrameReader as ::windows::core::Interface>::IID
@@ -1014,43 +1035,38 @@ impl IPerceptionColorFrameSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSource>,
-            ::windows::core::GetTrustLevel,
-            AvailableChanged::<Impl, IMPL_OFFSET>,
-            RemoveAvailableChanged::<Impl, IMPL_OFFSET>,
-            ActiveChanged::<Impl, IMPL_OFFSET>,
-            RemoveActiveChanged::<Impl, IMPL_OFFSET>,
-            PropertiesChanged::<Impl, IMPL_OFFSET>,
-            RemovePropertiesChanged::<Impl, IMPL_OFFSET>,
-            VideoProfileChanged::<Impl, IMPL_OFFSET>,
-            RemoveVideoProfileChanged::<Impl, IMPL_OFFSET>,
-            CameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
-            RemoveCameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            DeviceKind::<Impl, IMPL_OFFSET>,
-            Available::<Impl, IMPL_OFFSET>,
-            Active::<Impl, IMPL_OFFSET>,
-            IsControlled::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            SupportedVideoProfiles::<Impl, IMPL_OFFSET>,
-            AvailableVideoProfiles::<Impl, IMPL_OFFSET>,
-            VideoProfile::<Impl, IMPL_OFFSET>,
-            CameraIntrinsics::<Impl, IMPL_OFFSET>,
-            AcquireControlSession::<Impl, IMPL_OFFSET>,
-            CanControlIndependentlyFrom::<Impl, IMPL_OFFSET>,
-            IsCorrelatedWith::<Impl, IMPL_OFFSET>,
-            TryGetTransformTo::<Impl, IMPL_OFFSET>,
-            TryGetDepthCorrelatedCameraIntrinsicsAsync::<Impl, IMPL_OFFSET>,
-            TryGetDepthCorrelatedCoordinateMapperAsync::<Impl, IMPL_OFFSET>,
-            TrySetVideoProfileAsync::<Impl, IMPL_OFFSET>,
-            OpenReader::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionColorFrameSource, BASE_OFFSET>(),
+            AvailableChanged: AvailableChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailableChanged: RemoveAvailableChanged::<Impl, IMPL_OFFSET>,
+            ActiveChanged: ActiveChanged::<Impl, IMPL_OFFSET>,
+            RemoveActiveChanged: RemoveActiveChanged::<Impl, IMPL_OFFSET>,
+            PropertiesChanged: PropertiesChanged::<Impl, IMPL_OFFSET>,
+            RemovePropertiesChanged: RemovePropertiesChanged::<Impl, IMPL_OFFSET>,
+            VideoProfileChanged: VideoProfileChanged::<Impl, IMPL_OFFSET>,
+            RemoveVideoProfileChanged: RemoveVideoProfileChanged::<Impl, IMPL_OFFSET>,
+            CameraIntrinsicsChanged: CameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
+            RemoveCameraIntrinsicsChanged: RemoveCameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            DeviceKind: DeviceKind::<Impl, IMPL_OFFSET>,
+            Available: Available::<Impl, IMPL_OFFSET>,
+            Active: Active::<Impl, IMPL_OFFSET>,
+            IsControlled: IsControlled::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            SupportedVideoProfiles: SupportedVideoProfiles::<Impl, IMPL_OFFSET>,
+            AvailableVideoProfiles: AvailableVideoProfiles::<Impl, IMPL_OFFSET>,
+            VideoProfile: VideoProfile::<Impl, IMPL_OFFSET>,
+            CameraIntrinsics: CameraIntrinsics::<Impl, IMPL_OFFSET>,
+            AcquireControlSession: AcquireControlSession::<Impl, IMPL_OFFSET>,
+            CanControlIndependentlyFrom: CanControlIndependentlyFrom::<Impl, IMPL_OFFSET>,
+            IsCorrelatedWith: IsCorrelatedWith::<Impl, IMPL_OFFSET>,
+            TryGetTransformTo: TryGetTransformTo::<Impl, IMPL_OFFSET>,
+            TryGetDepthCorrelatedCameraIntrinsicsAsync: TryGetDepthCorrelatedCameraIntrinsicsAsync::<Impl, IMPL_OFFSET>,
+            TryGetDepthCorrelatedCoordinateMapperAsync: TryGetDepthCorrelatedCoordinateMapperAsync::<Impl, IMPL_OFFSET>,
+            TrySetVideoProfileAsync: TrySetVideoProfileAsync::<Impl, IMPL_OFFSET>,
+            OpenReader: OpenReader::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionColorFrameSource as ::windows::core::Interface>::IID
@@ -1078,7 +1094,7 @@ impl IPerceptionColorFrameSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSource2>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionColorFrameSource2, BASE_OFFSET>(), DeviceId: DeviceId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionColorFrameSource2 as ::windows::core::Interface>::IID
@@ -1106,7 +1122,10 @@ impl IPerceptionColorFrameSourceAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSourceAddedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionColorFrameSourceAddedEventArgs, BASE_OFFSET>(),
+            FrameSource: FrameSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionColorFrameSourceAddedEventArgs as ::windows::core::Interface>::IID
@@ -1134,7 +1153,10 @@ impl IPerceptionColorFrameSourceRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSourceRemovedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionColorFrameSourceRemovedEventArgs, BASE_OFFSET>(),
+            FrameSource: FrameSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionColorFrameSourceRemovedEventArgs as ::windows::core::Interface>::IID
@@ -1198,7 +1220,13 @@ impl IPerceptionColorFrameSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSourceStatics>, ::windows::core::GetTrustLevel, CreateWatcher::<Impl, IMPL_OFFSET>, FindAllAsync::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionColorFrameSourceStatics, BASE_OFFSET>(),
+            CreateWatcher: CreateWatcher::<Impl, IMPL_OFFSET>,
+            FindAllAsync: FindAllAsync::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionColorFrameSourceStatics as ::windows::core::Interface>::IID
@@ -1304,25 +1332,20 @@ impl IPerceptionColorFrameSourceWatcherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSourceWatcher>,
-            ::windows::core::GetTrustLevel,
-            SourceAdded::<Impl, IMPL_OFFSET>,
-            RemoveSourceAdded::<Impl, IMPL_OFFSET>,
-            SourceRemoved::<Impl, IMPL_OFFSET>,
-            RemoveSourceRemoved::<Impl, IMPL_OFFSET>,
-            Stopped::<Impl, IMPL_OFFSET>,
-            RemoveStopped::<Impl, IMPL_OFFSET>,
-            EnumerationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionColorFrameSourceWatcher, BASE_OFFSET>(),
+            SourceAdded: SourceAdded::<Impl, IMPL_OFFSET>,
+            RemoveSourceAdded: RemoveSourceAdded::<Impl, IMPL_OFFSET>,
+            SourceRemoved: SourceRemoved::<Impl, IMPL_OFFSET>,
+            RemoveSourceRemoved: RemoveSourceRemoved::<Impl, IMPL_OFFSET>,
+            Stopped: Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped: RemoveStopped::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionColorFrameSourceWatcher as ::windows::core::Interface>::IID
@@ -1367,7 +1390,12 @@ impl IPerceptionControlSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionControlSession>, ::windows::core::GetTrustLevel, ControlLost::<Impl, IMPL_OFFSET>, RemoveControlLost::<Impl, IMPL_OFFSET>, TrySetPropertyAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionControlSession, BASE_OFFSET>(),
+            ControlLost: ControlLost::<Impl, IMPL_OFFSET>,
+            RemoveControlLost: RemoveControlLost::<Impl, IMPL_OFFSET>,
+            TrySetPropertyAsync: TrySetPropertyAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionControlSession as ::windows::core::Interface>::IID
@@ -1424,18 +1452,13 @@ impl IPerceptionDepthCorrelatedCameraIntrinsicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPerceptionDepthCorrelatedCameraIntrinsics>,
-            ::windows::core::GetTrustLevel,
-            UnprojectPixelAtCorrelatedDepth::<Impl, IMPL_OFFSET>,
-            UnprojectPixelsAtCorrelatedDepth::<Impl, IMPL_OFFSET>,
-            UnprojectRegionPixelsAtCorrelatedDepthAsync::<Impl, IMPL_OFFSET>,
-            UnprojectAllPixelsAtCorrelatedDepthAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionDepthCorrelatedCameraIntrinsics, BASE_OFFSET>(),
+            UnprojectPixelAtCorrelatedDepth: UnprojectPixelAtCorrelatedDepth::<Impl, IMPL_OFFSET>,
+            UnprojectPixelsAtCorrelatedDepth: UnprojectPixelsAtCorrelatedDepth::<Impl, IMPL_OFFSET>,
+            UnprojectRegionPixelsAtCorrelatedDepthAsync: UnprojectRegionPixelsAtCorrelatedDepthAsync::<Impl, IMPL_OFFSET>,
+            UnprojectAllPixelsAtCorrelatedDepthAsync: UnprojectAllPixelsAtCorrelatedDepthAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionDepthCorrelatedCameraIntrinsics as ::windows::core::Interface>::IID
@@ -1492,7 +1515,13 @@ impl IPerceptionDepthCorrelatedCoordinateMapperVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthCorrelatedCoordinateMapper>, ::windows::core::GetTrustLevel, MapPixelToTarget::<Impl, IMPL_OFFSET>, MapPixelsToTarget::<Impl, IMPL_OFFSET>, MapRegionOfPixelsToTargetAsync::<Impl, IMPL_OFFSET>, MapAllPixelsToTargetAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionDepthCorrelatedCoordinateMapper, BASE_OFFSET>(),
+            MapPixelToTarget: MapPixelToTarget::<Impl, IMPL_OFFSET>,
+            MapPixelsToTarget: MapPixelsToTarget::<Impl, IMPL_OFFSET>,
+            MapRegionOfPixelsToTargetAsync: MapRegionOfPixelsToTargetAsync::<Impl, IMPL_OFFSET>,
+            MapAllPixelsToTargetAsync: MapAllPixelsToTargetAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionDepthCorrelatedCoordinateMapper as ::windows::core::Interface>::IID
@@ -1520,7 +1549,7 @@ impl IPerceptionDepthFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrame>, ::windows::core::GetTrustLevel, VideoFrame::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionDepthFrame, BASE_OFFSET>(), VideoFrame: VideoFrame::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionDepthFrame as ::windows::core::Interface>::IID
@@ -1560,7 +1589,11 @@ impl IPerceptionDepthFrameArrivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameArrivedEventArgs>, ::windows::core::GetTrustLevel, RelativeTime::<Impl, IMPL_OFFSET>, TryOpenFrame::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionDepthFrameArrivedEventArgs, BASE_OFFSET>(),
+            RelativeTime: RelativeTime::<Impl, IMPL_OFFSET>,
+            TryOpenFrame: TryOpenFrame::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionDepthFrameArrivedEventArgs as ::windows::core::Interface>::IID
@@ -1634,20 +1667,15 @@ impl IPerceptionDepthFrameReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameReader>,
-            ::windows::core::GetTrustLevel,
-            FrameArrived::<Impl, IMPL_OFFSET>,
-            RemoveFrameArrived::<Impl, IMPL_OFFSET>,
-            Source::<Impl, IMPL_OFFSET>,
-            IsPaused::<Impl, IMPL_OFFSET>,
-            SetIsPaused::<Impl, IMPL_OFFSET>,
-            TryReadLatestFrame::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionDepthFrameReader, BASE_OFFSET>(),
+            FrameArrived: FrameArrived::<Impl, IMPL_OFFSET>,
+            RemoveFrameArrived: RemoveFrameArrived::<Impl, IMPL_OFFSET>,
+            Source: Source::<Impl, IMPL_OFFSET>,
+            IsPaused: IsPaused::<Impl, IMPL_OFFSET>,
+            SetIsPaused: SetIsPaused::<Impl, IMPL_OFFSET>,
+            TryReadLatestFrame: TryReadLatestFrame::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionDepthFrameReader as ::windows::core::Interface>::IID
@@ -1976,43 +2004,38 @@ impl IPerceptionDepthFrameSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSource>,
-            ::windows::core::GetTrustLevel,
-            AvailableChanged::<Impl, IMPL_OFFSET>,
-            RemoveAvailableChanged::<Impl, IMPL_OFFSET>,
-            ActiveChanged::<Impl, IMPL_OFFSET>,
-            RemoveActiveChanged::<Impl, IMPL_OFFSET>,
-            PropertiesChanged::<Impl, IMPL_OFFSET>,
-            RemovePropertiesChanged::<Impl, IMPL_OFFSET>,
-            VideoProfileChanged::<Impl, IMPL_OFFSET>,
-            RemoveVideoProfileChanged::<Impl, IMPL_OFFSET>,
-            CameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
-            RemoveCameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            DeviceKind::<Impl, IMPL_OFFSET>,
-            Available::<Impl, IMPL_OFFSET>,
-            Active::<Impl, IMPL_OFFSET>,
-            IsControlled::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            SupportedVideoProfiles::<Impl, IMPL_OFFSET>,
-            AvailableVideoProfiles::<Impl, IMPL_OFFSET>,
-            VideoProfile::<Impl, IMPL_OFFSET>,
-            CameraIntrinsics::<Impl, IMPL_OFFSET>,
-            AcquireControlSession::<Impl, IMPL_OFFSET>,
-            CanControlIndependentlyFrom::<Impl, IMPL_OFFSET>,
-            IsCorrelatedWith::<Impl, IMPL_OFFSET>,
-            TryGetTransformTo::<Impl, IMPL_OFFSET>,
-            TryGetDepthCorrelatedCameraIntrinsicsAsync::<Impl, IMPL_OFFSET>,
-            TryGetDepthCorrelatedCoordinateMapperAsync::<Impl, IMPL_OFFSET>,
-            TrySetVideoProfileAsync::<Impl, IMPL_OFFSET>,
-            OpenReader::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionDepthFrameSource, BASE_OFFSET>(),
+            AvailableChanged: AvailableChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailableChanged: RemoveAvailableChanged::<Impl, IMPL_OFFSET>,
+            ActiveChanged: ActiveChanged::<Impl, IMPL_OFFSET>,
+            RemoveActiveChanged: RemoveActiveChanged::<Impl, IMPL_OFFSET>,
+            PropertiesChanged: PropertiesChanged::<Impl, IMPL_OFFSET>,
+            RemovePropertiesChanged: RemovePropertiesChanged::<Impl, IMPL_OFFSET>,
+            VideoProfileChanged: VideoProfileChanged::<Impl, IMPL_OFFSET>,
+            RemoveVideoProfileChanged: RemoveVideoProfileChanged::<Impl, IMPL_OFFSET>,
+            CameraIntrinsicsChanged: CameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
+            RemoveCameraIntrinsicsChanged: RemoveCameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            DeviceKind: DeviceKind::<Impl, IMPL_OFFSET>,
+            Available: Available::<Impl, IMPL_OFFSET>,
+            Active: Active::<Impl, IMPL_OFFSET>,
+            IsControlled: IsControlled::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            SupportedVideoProfiles: SupportedVideoProfiles::<Impl, IMPL_OFFSET>,
+            AvailableVideoProfiles: AvailableVideoProfiles::<Impl, IMPL_OFFSET>,
+            VideoProfile: VideoProfile::<Impl, IMPL_OFFSET>,
+            CameraIntrinsics: CameraIntrinsics::<Impl, IMPL_OFFSET>,
+            AcquireControlSession: AcquireControlSession::<Impl, IMPL_OFFSET>,
+            CanControlIndependentlyFrom: CanControlIndependentlyFrom::<Impl, IMPL_OFFSET>,
+            IsCorrelatedWith: IsCorrelatedWith::<Impl, IMPL_OFFSET>,
+            TryGetTransformTo: TryGetTransformTo::<Impl, IMPL_OFFSET>,
+            TryGetDepthCorrelatedCameraIntrinsicsAsync: TryGetDepthCorrelatedCameraIntrinsicsAsync::<Impl, IMPL_OFFSET>,
+            TryGetDepthCorrelatedCoordinateMapperAsync: TryGetDepthCorrelatedCoordinateMapperAsync::<Impl, IMPL_OFFSET>,
+            TrySetVideoProfileAsync: TrySetVideoProfileAsync::<Impl, IMPL_OFFSET>,
+            OpenReader: OpenReader::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionDepthFrameSource as ::windows::core::Interface>::IID
@@ -2040,7 +2063,7 @@ impl IPerceptionDepthFrameSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSource2>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionDepthFrameSource2, BASE_OFFSET>(), DeviceId: DeviceId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionDepthFrameSource2 as ::windows::core::Interface>::IID
@@ -2068,7 +2091,10 @@ impl IPerceptionDepthFrameSourceAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSourceAddedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionDepthFrameSourceAddedEventArgs, BASE_OFFSET>(),
+            FrameSource: FrameSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionDepthFrameSourceAddedEventArgs as ::windows::core::Interface>::IID
@@ -2096,7 +2122,10 @@ impl IPerceptionDepthFrameSourceRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSourceRemovedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionDepthFrameSourceRemovedEventArgs, BASE_OFFSET>(),
+            FrameSource: FrameSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionDepthFrameSourceRemovedEventArgs as ::windows::core::Interface>::IID
@@ -2160,7 +2189,13 @@ impl IPerceptionDepthFrameSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSourceStatics>, ::windows::core::GetTrustLevel, CreateWatcher::<Impl, IMPL_OFFSET>, FindAllAsync::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionDepthFrameSourceStatics, BASE_OFFSET>(),
+            CreateWatcher: CreateWatcher::<Impl, IMPL_OFFSET>,
+            FindAllAsync: FindAllAsync::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionDepthFrameSourceStatics as ::windows::core::Interface>::IID
@@ -2266,25 +2301,20 @@ impl IPerceptionDepthFrameSourceWatcherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSourceWatcher>,
-            ::windows::core::GetTrustLevel,
-            SourceAdded::<Impl, IMPL_OFFSET>,
-            RemoveSourceAdded::<Impl, IMPL_OFFSET>,
-            SourceRemoved::<Impl, IMPL_OFFSET>,
-            RemoveSourceRemoved::<Impl, IMPL_OFFSET>,
-            Stopped::<Impl, IMPL_OFFSET>,
-            RemoveStopped::<Impl, IMPL_OFFSET>,
-            EnumerationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionDepthFrameSourceWatcher, BASE_OFFSET>(),
+            SourceAdded: SourceAdded::<Impl, IMPL_OFFSET>,
+            RemoveSourceAdded: RemoveSourceAdded::<Impl, IMPL_OFFSET>,
+            SourceRemoved: SourceRemoved::<Impl, IMPL_OFFSET>,
+            RemoveSourceRemoved: RemoveSourceRemoved::<Impl, IMPL_OFFSET>,
+            Stopped: Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped: RemoveStopped::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionDepthFrameSourceWatcher as ::windows::core::Interface>::IID
@@ -2324,7 +2354,11 @@ impl IPerceptionFrameSourcePropertiesChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameSourcePropertiesChangedEventArgs>, ::windows::core::GetTrustLevel, CollectionChange::<Impl, IMPL_OFFSET>, Key::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionFrameSourcePropertiesChangedEventArgs, BASE_OFFSET>(),
+            CollectionChange: CollectionChange::<Impl, IMPL_OFFSET>,
+            Key: Key::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionFrameSourcePropertiesChangedEventArgs as ::windows::core::Interface>::IID
@@ -2364,7 +2398,11 @@ impl IPerceptionFrameSourcePropertyChangeResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameSourcePropertyChangeResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, NewValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionFrameSourcePropertyChangeResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            NewValue: NewValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionFrameSourcePropertyChangeResult as ::windows::core::Interface>::IID
@@ -2392,7 +2430,7 @@ impl IPerceptionInfraredFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrame>, ::windows::core::GetTrustLevel, VideoFrame::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionInfraredFrame, BASE_OFFSET>(), VideoFrame: VideoFrame::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionInfraredFrame as ::windows::core::Interface>::IID
@@ -2432,7 +2470,11 @@ impl IPerceptionInfraredFrameArrivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameArrivedEventArgs>, ::windows::core::GetTrustLevel, RelativeTime::<Impl, IMPL_OFFSET>, TryOpenFrame::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionInfraredFrameArrivedEventArgs, BASE_OFFSET>(),
+            RelativeTime: RelativeTime::<Impl, IMPL_OFFSET>,
+            TryOpenFrame: TryOpenFrame::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionInfraredFrameArrivedEventArgs as ::windows::core::Interface>::IID
@@ -2506,20 +2548,15 @@ impl IPerceptionInfraredFrameReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameReader>,
-            ::windows::core::GetTrustLevel,
-            FrameArrived::<Impl, IMPL_OFFSET>,
-            RemoveFrameArrived::<Impl, IMPL_OFFSET>,
-            Source::<Impl, IMPL_OFFSET>,
-            IsPaused::<Impl, IMPL_OFFSET>,
-            SetIsPaused::<Impl, IMPL_OFFSET>,
-            TryReadLatestFrame::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionInfraredFrameReader, BASE_OFFSET>(),
+            FrameArrived: FrameArrived::<Impl, IMPL_OFFSET>,
+            RemoveFrameArrived: RemoveFrameArrived::<Impl, IMPL_OFFSET>,
+            Source: Source::<Impl, IMPL_OFFSET>,
+            IsPaused: IsPaused::<Impl, IMPL_OFFSET>,
+            SetIsPaused: SetIsPaused::<Impl, IMPL_OFFSET>,
+            TryReadLatestFrame: TryReadLatestFrame::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionInfraredFrameReader as ::windows::core::Interface>::IID
@@ -2848,43 +2885,38 @@ impl IPerceptionInfraredFrameSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSource>,
-            ::windows::core::GetTrustLevel,
-            AvailableChanged::<Impl, IMPL_OFFSET>,
-            RemoveAvailableChanged::<Impl, IMPL_OFFSET>,
-            ActiveChanged::<Impl, IMPL_OFFSET>,
-            RemoveActiveChanged::<Impl, IMPL_OFFSET>,
-            PropertiesChanged::<Impl, IMPL_OFFSET>,
-            RemovePropertiesChanged::<Impl, IMPL_OFFSET>,
-            VideoProfileChanged::<Impl, IMPL_OFFSET>,
-            RemoveVideoProfileChanged::<Impl, IMPL_OFFSET>,
-            CameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
-            RemoveCameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            DeviceKind::<Impl, IMPL_OFFSET>,
-            Available::<Impl, IMPL_OFFSET>,
-            Active::<Impl, IMPL_OFFSET>,
-            IsControlled::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            SupportedVideoProfiles::<Impl, IMPL_OFFSET>,
-            AvailableVideoProfiles::<Impl, IMPL_OFFSET>,
-            VideoProfile::<Impl, IMPL_OFFSET>,
-            CameraIntrinsics::<Impl, IMPL_OFFSET>,
-            AcquireControlSession::<Impl, IMPL_OFFSET>,
-            CanControlIndependentlyFrom::<Impl, IMPL_OFFSET>,
-            IsCorrelatedWith::<Impl, IMPL_OFFSET>,
-            TryGetTransformTo::<Impl, IMPL_OFFSET>,
-            TryGetDepthCorrelatedCameraIntrinsicsAsync::<Impl, IMPL_OFFSET>,
-            TryGetDepthCorrelatedCoordinateMapperAsync::<Impl, IMPL_OFFSET>,
-            TrySetVideoProfileAsync::<Impl, IMPL_OFFSET>,
-            OpenReader::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionInfraredFrameSource, BASE_OFFSET>(),
+            AvailableChanged: AvailableChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailableChanged: RemoveAvailableChanged::<Impl, IMPL_OFFSET>,
+            ActiveChanged: ActiveChanged::<Impl, IMPL_OFFSET>,
+            RemoveActiveChanged: RemoveActiveChanged::<Impl, IMPL_OFFSET>,
+            PropertiesChanged: PropertiesChanged::<Impl, IMPL_OFFSET>,
+            RemovePropertiesChanged: RemovePropertiesChanged::<Impl, IMPL_OFFSET>,
+            VideoProfileChanged: VideoProfileChanged::<Impl, IMPL_OFFSET>,
+            RemoveVideoProfileChanged: RemoveVideoProfileChanged::<Impl, IMPL_OFFSET>,
+            CameraIntrinsicsChanged: CameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
+            RemoveCameraIntrinsicsChanged: RemoveCameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            DeviceKind: DeviceKind::<Impl, IMPL_OFFSET>,
+            Available: Available::<Impl, IMPL_OFFSET>,
+            Active: Active::<Impl, IMPL_OFFSET>,
+            IsControlled: IsControlled::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            SupportedVideoProfiles: SupportedVideoProfiles::<Impl, IMPL_OFFSET>,
+            AvailableVideoProfiles: AvailableVideoProfiles::<Impl, IMPL_OFFSET>,
+            VideoProfile: VideoProfile::<Impl, IMPL_OFFSET>,
+            CameraIntrinsics: CameraIntrinsics::<Impl, IMPL_OFFSET>,
+            AcquireControlSession: AcquireControlSession::<Impl, IMPL_OFFSET>,
+            CanControlIndependentlyFrom: CanControlIndependentlyFrom::<Impl, IMPL_OFFSET>,
+            IsCorrelatedWith: IsCorrelatedWith::<Impl, IMPL_OFFSET>,
+            TryGetTransformTo: TryGetTransformTo::<Impl, IMPL_OFFSET>,
+            TryGetDepthCorrelatedCameraIntrinsicsAsync: TryGetDepthCorrelatedCameraIntrinsicsAsync::<Impl, IMPL_OFFSET>,
+            TryGetDepthCorrelatedCoordinateMapperAsync: TryGetDepthCorrelatedCoordinateMapperAsync::<Impl, IMPL_OFFSET>,
+            TrySetVideoProfileAsync: TrySetVideoProfileAsync::<Impl, IMPL_OFFSET>,
+            OpenReader: OpenReader::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionInfraredFrameSource as ::windows::core::Interface>::IID
@@ -2912,7 +2944,10 @@ impl IPerceptionInfraredFrameSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSource2>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionInfraredFrameSource2, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionInfraredFrameSource2 as ::windows::core::Interface>::IID
@@ -2940,7 +2975,10 @@ impl IPerceptionInfraredFrameSourceAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSourceAddedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionInfraredFrameSourceAddedEventArgs, BASE_OFFSET>(),
+            FrameSource: FrameSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionInfraredFrameSourceAddedEventArgs as ::windows::core::Interface>::IID
@@ -2968,7 +3006,10 @@ impl IPerceptionInfraredFrameSourceRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSourceRemovedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionInfraredFrameSourceRemovedEventArgs, BASE_OFFSET>(),
+            FrameSource: FrameSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionInfraredFrameSourceRemovedEventArgs as ::windows::core::Interface>::IID
@@ -3032,7 +3073,13 @@ impl IPerceptionInfraredFrameSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSourceStatics>, ::windows::core::GetTrustLevel, CreateWatcher::<Impl, IMPL_OFFSET>, FindAllAsync::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionInfraredFrameSourceStatics, BASE_OFFSET>(),
+            CreateWatcher: CreateWatcher::<Impl, IMPL_OFFSET>,
+            FindAllAsync: FindAllAsync::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionInfraredFrameSourceStatics as ::windows::core::Interface>::IID
@@ -3138,25 +3185,20 @@ impl IPerceptionInfraredFrameSourceWatcherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSourceWatcher>,
-            ::windows::core::GetTrustLevel,
-            SourceAdded::<Impl, IMPL_OFFSET>,
-            RemoveSourceAdded::<Impl, IMPL_OFFSET>,
-            SourceRemoved::<Impl, IMPL_OFFSET>,
-            RemoveSourceRemoved::<Impl, IMPL_OFFSET>,
-            Stopped::<Impl, IMPL_OFFSET>,
-            RemoveStopped::<Impl, IMPL_OFFSET>,
-            EnumerationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionInfraredFrameSourceWatcher, BASE_OFFSET>(),
+            SourceAdded: SourceAdded::<Impl, IMPL_OFFSET>,
+            RemoveSourceAdded: RemoveSourceAdded::<Impl, IMPL_OFFSET>,
+            SourceRemoved: SourceRemoved::<Impl, IMPL_OFFSET>,
+            RemoveSourceRemoved: RemoveSourceRemoved::<Impl, IMPL_OFFSET>,
+            Stopped: Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped: RemoveStopped::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionInfraredFrameSourceWatcher as ::windows::core::Interface>::IID
@@ -3244,20 +3286,15 @@ impl IPerceptionVideoProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPerceptionVideoProfile>,
-            ::windows::core::GetTrustLevel,
-            BitmapPixelFormat::<Impl, IMPL_OFFSET>,
-            BitmapAlphaMode::<Impl, IMPL_OFFSET>,
-            Width::<Impl, IMPL_OFFSET>,
-            Height::<Impl, IMPL_OFFSET>,
-            FrameDuration::<Impl, IMPL_OFFSET>,
-            IsEqual::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionVideoProfile, BASE_OFFSET>(),
+            BitmapPixelFormat: BitmapPixelFormat::<Impl, IMPL_OFFSET>,
+            BitmapAlphaMode: BitmapAlphaMode::<Impl, IMPL_OFFSET>,
+            Width: Width::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+            FrameDuration: FrameDuration::<Impl, IMPL_OFFSET>,
+            IsEqual: IsEqual::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPerceptionVideoProfile as ::windows::core::Interface>::IID

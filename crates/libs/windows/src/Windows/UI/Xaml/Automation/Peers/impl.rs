@@ -7,7 +7,7 @@ impl ::windows::core::RuntimeName for IAppBarAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IAppBarAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBarAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBarAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBarAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBarAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBarAutomationPeer as ::windows::core::Interface>::IID
@@ -35,7 +35,10 @@ impl IAppBarAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBarAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBarAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBarAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -50,7 +53,7 @@ impl ::windows::core::RuntimeName for IAppBarButtonAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IAppBarButtonAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBarButtonAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBarButtonAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBarButtonAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBarButtonAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBarButtonAutomationPeer as ::windows::core::Interface>::IID
@@ -78,7 +81,10 @@ impl IAppBarButtonAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBarButtonAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBarButtonAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBarButtonAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -93,7 +99,7 @@ impl ::windows::core::RuntimeName for IAppBarToggleButtonAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IAppBarToggleButtonAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBarToggleButtonAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBarToggleButtonAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBarToggleButtonAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBarToggleButtonAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBarToggleButtonAutomationPeer as ::windows::core::Interface>::IID
@@ -121,7 +127,10 @@ impl IAppBarToggleButtonAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBarToggleButtonAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBarToggleButtonAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBarToggleButtonAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -136,7 +145,7 @@ impl ::windows::core::RuntimeName for IAutoSuggestBoxAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IAutoSuggestBoxAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutoSuggestBoxAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutoSuggestBoxAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutoSuggestBoxAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAutoSuggestBoxAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutoSuggestBoxAutomationPeer as ::windows::core::Interface>::IID
@@ -164,7 +173,10 @@ impl IAutoSuggestBoxAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutoSuggestBoxAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutoSuggestBoxAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutoSuggestBoxAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -547,47 +559,42 @@ impl IAutomationPeerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAutomationPeer>,
-            ::windows::core::GetTrustLevel,
-            EventsSource::<Impl, IMPL_OFFSET>,
-            SetEventsSource::<Impl, IMPL_OFFSET>,
-            GetPattern::<Impl, IMPL_OFFSET>,
-            RaiseAutomationEvent::<Impl, IMPL_OFFSET>,
-            RaisePropertyChangedEvent::<Impl, IMPL_OFFSET>,
-            GetAcceleratorKey::<Impl, IMPL_OFFSET>,
-            GetAccessKey::<Impl, IMPL_OFFSET>,
-            GetAutomationControlType::<Impl, IMPL_OFFSET>,
-            GetAutomationId::<Impl, IMPL_OFFSET>,
-            GetBoundingRectangle::<Impl, IMPL_OFFSET>,
-            GetChildren::<Impl, IMPL_OFFSET>,
-            GetClassName::<Impl, IMPL_OFFSET>,
-            GetClickablePoint::<Impl, IMPL_OFFSET>,
-            GetHelpText::<Impl, IMPL_OFFSET>,
-            GetItemStatus::<Impl, IMPL_OFFSET>,
-            GetItemType::<Impl, IMPL_OFFSET>,
-            GetLabeledBy::<Impl, IMPL_OFFSET>,
-            GetLocalizedControlType::<Impl, IMPL_OFFSET>,
-            GetName::<Impl, IMPL_OFFSET>,
-            GetOrientation::<Impl, IMPL_OFFSET>,
-            HasKeyboardFocus::<Impl, IMPL_OFFSET>,
-            IsContentElement::<Impl, IMPL_OFFSET>,
-            IsControlElement::<Impl, IMPL_OFFSET>,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            IsKeyboardFocusable::<Impl, IMPL_OFFSET>,
-            IsOffscreen::<Impl, IMPL_OFFSET>,
-            IsPassword::<Impl, IMPL_OFFSET>,
-            IsRequiredForForm::<Impl, IMPL_OFFSET>,
-            SetFocus::<Impl, IMPL_OFFSET>,
-            GetParent::<Impl, IMPL_OFFSET>,
-            InvalidatePeer::<Impl, IMPL_OFFSET>,
-            GetPeerFromPoint::<Impl, IMPL_OFFSET>,
-            GetLiveSetting::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeer, BASE_OFFSET>(),
+            EventsSource: EventsSource::<Impl, IMPL_OFFSET>,
+            SetEventsSource: SetEventsSource::<Impl, IMPL_OFFSET>,
+            GetPattern: GetPattern::<Impl, IMPL_OFFSET>,
+            RaiseAutomationEvent: RaiseAutomationEvent::<Impl, IMPL_OFFSET>,
+            RaisePropertyChangedEvent: RaisePropertyChangedEvent::<Impl, IMPL_OFFSET>,
+            GetAcceleratorKey: GetAcceleratorKey::<Impl, IMPL_OFFSET>,
+            GetAccessKey: GetAccessKey::<Impl, IMPL_OFFSET>,
+            GetAutomationControlType: GetAutomationControlType::<Impl, IMPL_OFFSET>,
+            GetAutomationId: GetAutomationId::<Impl, IMPL_OFFSET>,
+            GetBoundingRectangle: GetBoundingRectangle::<Impl, IMPL_OFFSET>,
+            GetChildren: GetChildren::<Impl, IMPL_OFFSET>,
+            GetClassName: GetClassName::<Impl, IMPL_OFFSET>,
+            GetClickablePoint: GetClickablePoint::<Impl, IMPL_OFFSET>,
+            GetHelpText: GetHelpText::<Impl, IMPL_OFFSET>,
+            GetItemStatus: GetItemStatus::<Impl, IMPL_OFFSET>,
+            GetItemType: GetItemType::<Impl, IMPL_OFFSET>,
+            GetLabeledBy: GetLabeledBy::<Impl, IMPL_OFFSET>,
+            GetLocalizedControlType: GetLocalizedControlType::<Impl, IMPL_OFFSET>,
+            GetName: GetName::<Impl, IMPL_OFFSET>,
+            GetOrientation: GetOrientation::<Impl, IMPL_OFFSET>,
+            HasKeyboardFocus: HasKeyboardFocus::<Impl, IMPL_OFFSET>,
+            IsContentElement: IsContentElement::<Impl, IMPL_OFFSET>,
+            IsControlElement: IsControlElement::<Impl, IMPL_OFFSET>,
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            IsKeyboardFocusable: IsKeyboardFocusable::<Impl, IMPL_OFFSET>,
+            IsOffscreen: IsOffscreen::<Impl, IMPL_OFFSET>,
+            IsPassword: IsPassword::<Impl, IMPL_OFFSET>,
+            IsRequiredForForm: IsRequiredForForm::<Impl, IMPL_OFFSET>,
+            SetFocus: SetFocus::<Impl, IMPL_OFFSET>,
+            GetParent: GetParent::<Impl, IMPL_OFFSET>,
+            InvalidatePeer: InvalidatePeer::<Impl, IMPL_OFFSET>,
+            GetPeerFromPoint: GetPeerFromPoint::<Impl, IMPL_OFFSET>,
+            GetLiveSetting: GetLiveSetting::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeer as ::windows::core::Interface>::IID
@@ -602,7 +609,7 @@ impl ::windows::core::RuntimeName for IAutomationPeer2 {
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationPeer2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPeer2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPeer2Vtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeer2>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeer2, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeer2 as ::windows::core::Interface>::IID
@@ -734,26 +741,21 @@ impl IAutomationPeer3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RaiseStructureChangedEvent(structurechangetype, &*(&child as *const <AutomationPeer as ::windows::core::Abi>::Abi as *const <AutomationPeer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAutomationPeer3>,
-            ::windows::core::GetTrustLevel,
-            Navigate::<Impl, IMPL_OFFSET>,
-            GetElementFromPoint::<Impl, IMPL_OFFSET>,
-            GetFocusedElement::<Impl, IMPL_OFFSET>,
-            ShowContextMenu::<Impl, IMPL_OFFSET>,
-            GetControlledPeers::<Impl, IMPL_OFFSET>,
-            GetAnnotations::<Impl, IMPL_OFFSET>,
-            SetParent::<Impl, IMPL_OFFSET>,
-            RaiseTextEditTextChangedEvent::<Impl, IMPL_OFFSET>,
-            GetPositionInSet::<Impl, IMPL_OFFSET>,
-            GetSizeOfSet::<Impl, IMPL_OFFSET>,
-            GetLevel::<Impl, IMPL_OFFSET>,
-            RaiseStructureChangedEvent::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeer3, BASE_OFFSET>(),
+            Navigate: Navigate::<Impl, IMPL_OFFSET>,
+            GetElementFromPoint: GetElementFromPoint::<Impl, IMPL_OFFSET>,
+            GetFocusedElement: GetFocusedElement::<Impl, IMPL_OFFSET>,
+            ShowContextMenu: ShowContextMenu::<Impl, IMPL_OFFSET>,
+            GetControlledPeers: GetControlledPeers::<Impl, IMPL_OFFSET>,
+            GetAnnotations: GetAnnotations::<Impl, IMPL_OFFSET>,
+            SetParent: SetParent::<Impl, IMPL_OFFSET>,
+            RaiseTextEditTextChangedEvent: RaiseTextEditTextChangedEvent::<Impl, IMPL_OFFSET>,
+            GetPositionInSet: GetPositionInSet::<Impl, IMPL_OFFSET>,
+            GetSizeOfSet: GetSizeOfSet::<Impl, IMPL_OFFSET>,
+            GetLevel: GetLevel::<Impl, IMPL_OFFSET>,
+            RaiseStructureChangedEvent: RaiseStructureChangedEvent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeer3 as ::windows::core::Interface>::IID
@@ -793,7 +795,11 @@ impl IAutomationPeer4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeer4>, ::windows::core::GetTrustLevel, GetLandmarkType::<Impl, IMPL_OFFSET>, GetLocalizedLandmarkType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeer4, BASE_OFFSET>(),
+            GetLandmarkType: GetLandmarkType::<Impl, IMPL_OFFSET>,
+            GetLocalizedLandmarkType: GetLocalizedLandmarkType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeer4 as ::windows::core::Interface>::IID
@@ -845,7 +851,12 @@ impl IAutomationPeer5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeer5>, ::windows::core::GetTrustLevel, IsPeripheral::<Impl, IMPL_OFFSET>, IsDataValidForForm::<Impl, IMPL_OFFSET>, GetFullDescription::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeer5, BASE_OFFSET>(),
+            IsPeripheral: IsPeripheral::<Impl, IMPL_OFFSET>,
+            IsDataValidForForm: IsDataValidForForm::<Impl, IMPL_OFFSET>,
+            GetFullDescription: GetFullDescription::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeer5 as ::windows::core::Interface>::IID
@@ -873,7 +884,7 @@ impl IAutomationPeer6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeer6>, ::windows::core::GetTrustLevel, GetCulture::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeer6, BASE_OFFSET>(), GetCulture: GetCulture::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeer6 as ::windows::core::Interface>::IID
@@ -894,7 +905,10 @@ impl IAutomationPeer7Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RaiseNotificationEvent(notificationkind, notificationprocessing, &*(&displaystring as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&activityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeer7>, ::windows::core::GetTrustLevel, RaiseNotificationEvent::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeer7, BASE_OFFSET>(),
+            RaiseNotificationEvent: RaiseNotificationEvent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeer7 as ::windows::core::Interface>::IID
@@ -922,7 +936,7 @@ impl IAutomationPeer8Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeer8>, ::windows::core::GetTrustLevel, GetHeadingLevel::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeer8, BASE_OFFSET>(), GetHeadingLevel: GetHeadingLevel::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeer8 as ::windows::core::Interface>::IID
@@ -950,7 +964,7 @@ impl IAutomationPeer9Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeer9>, ::windows::core::GetTrustLevel, IsDialog::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeer9, BASE_OFFSET>(), IsDialog: IsDialog::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeer9 as ::windows::core::Interface>::IID
@@ -1000,7 +1014,13 @@ impl IAutomationPeerAnnotationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPeer(&*(&value as *const <AutomationPeer as ::windows::core::Abi>::Abi as *const <AutomationPeer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeerAnnotation>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, SetType::<Impl, IMPL_OFFSET>, Peer::<Impl, IMPL_OFFSET>, SetPeer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerAnnotation, BASE_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            SetType: SetType::<Impl, IMPL_OFFSET>,
+            Peer: Peer::<Impl, IMPL_OFFSET>,
+            SetPeer: SetPeer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerAnnotation as ::windows::core::Interface>::IID
@@ -1040,7 +1060,11 @@ impl IAutomationPeerAnnotationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeerAnnotationFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>, CreateWithPeerParameter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerAnnotationFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+            CreateWithPeerParameter: CreateWithPeerParameter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerAnnotationFactory as ::windows::core::Interface>::IID
@@ -1080,7 +1104,11 @@ impl IAutomationPeerAnnotationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeerAnnotationStatics>, ::windows::core::GetTrustLevel, TypeProperty::<Impl, IMPL_OFFSET>, PeerProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerAnnotationStatics, BASE_OFFSET>(),
+            TypeProperty: TypeProperty::<Impl, IMPL_OFFSET>,
+            PeerProperty: PeerProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerAnnotationStatics as ::windows::core::Interface>::IID
@@ -1108,7 +1136,10 @@ impl IAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -1441,41 +1472,36 @@ impl IAutomationPeerOverridesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAutomationPeerOverrides>,
-            ::windows::core::GetTrustLevel,
-            GetPatternCore::<Impl, IMPL_OFFSET>,
-            GetAcceleratorKeyCore::<Impl, IMPL_OFFSET>,
-            GetAccessKeyCore::<Impl, IMPL_OFFSET>,
-            GetAutomationControlTypeCore::<Impl, IMPL_OFFSET>,
-            GetAutomationIdCore::<Impl, IMPL_OFFSET>,
-            GetBoundingRectangleCore::<Impl, IMPL_OFFSET>,
-            GetChildrenCore::<Impl, IMPL_OFFSET>,
-            GetClassNameCore::<Impl, IMPL_OFFSET>,
-            GetClickablePointCore::<Impl, IMPL_OFFSET>,
-            GetHelpTextCore::<Impl, IMPL_OFFSET>,
-            GetItemStatusCore::<Impl, IMPL_OFFSET>,
-            GetItemTypeCore::<Impl, IMPL_OFFSET>,
-            GetLabeledByCore::<Impl, IMPL_OFFSET>,
-            GetLocalizedControlTypeCore::<Impl, IMPL_OFFSET>,
-            GetNameCore::<Impl, IMPL_OFFSET>,
-            GetOrientationCore::<Impl, IMPL_OFFSET>,
-            HasKeyboardFocusCore::<Impl, IMPL_OFFSET>,
-            IsContentElementCore::<Impl, IMPL_OFFSET>,
-            IsControlElementCore::<Impl, IMPL_OFFSET>,
-            IsEnabledCore::<Impl, IMPL_OFFSET>,
-            IsKeyboardFocusableCore::<Impl, IMPL_OFFSET>,
-            IsOffscreenCore::<Impl, IMPL_OFFSET>,
-            IsPasswordCore::<Impl, IMPL_OFFSET>,
-            IsRequiredForFormCore::<Impl, IMPL_OFFSET>,
-            SetFocusCore::<Impl, IMPL_OFFSET>,
-            GetPeerFromPointCore::<Impl, IMPL_OFFSET>,
-            GetLiveSettingCore::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides, BASE_OFFSET>(),
+            GetPatternCore: GetPatternCore::<Impl, IMPL_OFFSET>,
+            GetAcceleratorKeyCore: GetAcceleratorKeyCore::<Impl, IMPL_OFFSET>,
+            GetAccessKeyCore: GetAccessKeyCore::<Impl, IMPL_OFFSET>,
+            GetAutomationControlTypeCore: GetAutomationControlTypeCore::<Impl, IMPL_OFFSET>,
+            GetAutomationIdCore: GetAutomationIdCore::<Impl, IMPL_OFFSET>,
+            GetBoundingRectangleCore: GetBoundingRectangleCore::<Impl, IMPL_OFFSET>,
+            GetChildrenCore: GetChildrenCore::<Impl, IMPL_OFFSET>,
+            GetClassNameCore: GetClassNameCore::<Impl, IMPL_OFFSET>,
+            GetClickablePointCore: GetClickablePointCore::<Impl, IMPL_OFFSET>,
+            GetHelpTextCore: GetHelpTextCore::<Impl, IMPL_OFFSET>,
+            GetItemStatusCore: GetItemStatusCore::<Impl, IMPL_OFFSET>,
+            GetItemTypeCore: GetItemTypeCore::<Impl, IMPL_OFFSET>,
+            GetLabeledByCore: GetLabeledByCore::<Impl, IMPL_OFFSET>,
+            GetLocalizedControlTypeCore: GetLocalizedControlTypeCore::<Impl, IMPL_OFFSET>,
+            GetNameCore: GetNameCore::<Impl, IMPL_OFFSET>,
+            GetOrientationCore: GetOrientationCore::<Impl, IMPL_OFFSET>,
+            HasKeyboardFocusCore: HasKeyboardFocusCore::<Impl, IMPL_OFFSET>,
+            IsContentElementCore: IsContentElementCore::<Impl, IMPL_OFFSET>,
+            IsControlElementCore: IsControlElementCore::<Impl, IMPL_OFFSET>,
+            IsEnabledCore: IsEnabledCore::<Impl, IMPL_OFFSET>,
+            IsKeyboardFocusableCore: IsKeyboardFocusableCore::<Impl, IMPL_OFFSET>,
+            IsOffscreenCore: IsOffscreenCore::<Impl, IMPL_OFFSET>,
+            IsPasswordCore: IsPasswordCore::<Impl, IMPL_OFFSET>,
+            IsRequiredForFormCore: IsRequiredForFormCore::<Impl, IMPL_OFFSET>,
+            SetFocusCore: SetFocusCore::<Impl, IMPL_OFFSET>,
+            GetPeerFromPointCore: GetPeerFromPointCore::<Impl, IMPL_OFFSET>,
+            GetLiveSettingCore: GetLiveSettingCore::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerOverrides as ::windows::core::Interface>::IID
@@ -1508,7 +1534,11 @@ impl IAutomationPeerOverrides2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeerOverrides2>, ::windows::core::GetTrustLevel, ShowContextMenuCore::<Impl, IMPL_OFFSET>, GetControlledPeersCore::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides2, BASE_OFFSET>(),
+            ShowContextMenuCore: ShowContextMenuCore::<Impl, IMPL_OFFSET>,
+            GetControlledPeersCore: GetControlledPeersCore::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerOverrides2 as ::windows::core::Interface>::IID
@@ -1608,21 +1638,16 @@ impl IAutomationPeerOverrides3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAutomationPeerOverrides3>,
-            ::windows::core::GetTrustLevel,
-            NavigateCore::<Impl, IMPL_OFFSET>,
-            GetElementFromPointCore::<Impl, IMPL_OFFSET>,
-            GetFocusedElementCore::<Impl, IMPL_OFFSET>,
-            GetAnnotationsCore::<Impl, IMPL_OFFSET>,
-            GetPositionInSetCore::<Impl, IMPL_OFFSET>,
-            GetSizeOfSetCore::<Impl, IMPL_OFFSET>,
-            GetLevelCore::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides3, BASE_OFFSET>(),
+            NavigateCore: NavigateCore::<Impl, IMPL_OFFSET>,
+            GetElementFromPointCore: GetElementFromPointCore::<Impl, IMPL_OFFSET>,
+            GetFocusedElementCore: GetFocusedElementCore::<Impl, IMPL_OFFSET>,
+            GetAnnotationsCore: GetAnnotationsCore::<Impl, IMPL_OFFSET>,
+            GetPositionInSetCore: GetPositionInSetCore::<Impl, IMPL_OFFSET>,
+            GetSizeOfSetCore: GetSizeOfSetCore::<Impl, IMPL_OFFSET>,
+            GetLevelCore: GetLevelCore::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerOverrides3 as ::windows::core::Interface>::IID
@@ -1662,7 +1687,11 @@ impl IAutomationPeerOverrides4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeerOverrides4>, ::windows::core::GetTrustLevel, GetLandmarkTypeCore::<Impl, IMPL_OFFSET>, GetLocalizedLandmarkTypeCore::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides4, BASE_OFFSET>(),
+            GetLandmarkTypeCore: GetLandmarkTypeCore::<Impl, IMPL_OFFSET>,
+            GetLocalizedLandmarkTypeCore: GetLocalizedLandmarkTypeCore::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerOverrides4 as ::windows::core::Interface>::IID
@@ -1750,20 +1779,15 @@ impl IAutomationPeerOverrides5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAutomationPeerOverrides5>,
-            ::windows::core::GetTrustLevel,
-            IsPeripheralCore::<Impl, IMPL_OFFSET>,
-            IsDataValidForFormCore::<Impl, IMPL_OFFSET>,
-            GetFullDescriptionCore::<Impl, IMPL_OFFSET>,
-            GetDescribedByCore::<Impl, IMPL_OFFSET>,
-            GetFlowsToCore::<Impl, IMPL_OFFSET>,
-            GetFlowsFromCore::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides5, BASE_OFFSET>(),
+            IsPeripheralCore: IsPeripheralCore::<Impl, IMPL_OFFSET>,
+            IsDataValidForFormCore: IsDataValidForFormCore::<Impl, IMPL_OFFSET>,
+            GetFullDescriptionCore: GetFullDescriptionCore::<Impl, IMPL_OFFSET>,
+            GetDescribedByCore: GetDescribedByCore::<Impl, IMPL_OFFSET>,
+            GetFlowsToCore: GetFlowsToCore::<Impl, IMPL_OFFSET>,
+            GetFlowsFromCore: GetFlowsFromCore::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerOverrides5 as ::windows::core::Interface>::IID
@@ -1791,7 +1815,10 @@ impl IAutomationPeerOverrides6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeerOverrides6>, ::windows::core::GetTrustLevel, GetCultureCore::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides6, BASE_OFFSET>(),
+            GetCultureCore: GetCultureCore::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerOverrides6 as ::windows::core::Interface>::IID
@@ -1819,7 +1846,10 @@ impl IAutomationPeerOverrides8Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeerOverrides8>, ::windows::core::GetTrustLevel, GetHeadingLevelCore::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides8, BASE_OFFSET>(),
+            GetHeadingLevelCore: GetHeadingLevelCore::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerOverrides8 as ::windows::core::Interface>::IID
@@ -1847,7 +1877,10 @@ impl IAutomationPeerOverrides9Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeerOverrides9>, ::windows::core::GetTrustLevel, IsDialogCore::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides9, BASE_OFFSET>(),
+            IsDialogCore: IsDialogCore::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerOverrides9 as ::windows::core::Interface>::IID
@@ -1887,7 +1920,11 @@ impl IAutomationPeerProtectedVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeerProtected>, ::windows::core::GetTrustLevel, PeerFromProvider::<Impl, IMPL_OFFSET>, ProviderFromPeer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerProtected, BASE_OFFSET>(),
+            PeerFromProvider: PeerFromProvider::<Impl, IMPL_OFFSET>,
+            ProviderFromPeer: ProviderFromPeer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerProtected as ::windows::core::Interface>::IID
@@ -1915,7 +1952,10 @@ impl IAutomationPeerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeerStatics>, ::windows::core::GetTrustLevel, ListenerExists::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerStatics, BASE_OFFSET>(),
+            ListenerExists: ListenerExists::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerStatics as ::windows::core::Interface>::IID
@@ -1943,7 +1983,10 @@ impl IAutomationPeerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPeerStatics3>, ::windows::core::GetTrustLevel, GenerateRawElementProviderRuntimeId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerStatics3, BASE_OFFSET>(),
+            GenerateRawElementProviderRuntimeId: GenerateRawElementProviderRuntimeId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationPeerStatics3 as ::windows::core::Interface>::IID
@@ -1958,7 +2001,7 @@ impl ::windows::core::RuntimeName for IButtonAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IButtonAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IButtonAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IButtonAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IButtonAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IButtonAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IButtonAutomationPeer as ::windows::core::Interface>::IID
@@ -1986,7 +2029,10 @@ impl IButtonAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IButtonAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IButtonAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IButtonAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2001,7 +2047,7 @@ impl ::windows::core::RuntimeName for IButtonBaseAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IButtonBaseAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IButtonBaseAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IButtonBaseAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IButtonBaseAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IButtonBaseAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IButtonBaseAutomationPeer as ::windows::core::Interface>::IID
@@ -2029,7 +2075,10 @@ impl IButtonBaseAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IButtonBaseAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IButtonBaseAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IButtonBaseAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2044,7 +2093,7 @@ impl ::windows::core::RuntimeName for ICalendarDatePickerAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ICalendarDatePickerAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarDatePickerAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICalendarDatePickerAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarDatePickerAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICalendarDatePickerAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICalendarDatePickerAutomationPeer as ::windows::core::Interface>::IID
@@ -2072,7 +2121,10 @@ impl ICalendarDatePickerAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarDatePickerAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICalendarDatePickerAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICalendarDatePickerAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2087,7 +2139,7 @@ impl ::windows::core::RuntimeName for ICaptureElementAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ICaptureElementAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICaptureElementAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICaptureElementAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICaptureElementAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICaptureElementAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICaptureElementAutomationPeer as ::windows::core::Interface>::IID
@@ -2115,7 +2167,10 @@ impl ICaptureElementAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICaptureElementAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICaptureElementAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICaptureElementAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2130,7 +2185,7 @@ impl ::windows::core::RuntimeName for ICheckBoxAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ICheckBoxAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICheckBoxAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICheckBoxAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICheckBoxAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICheckBoxAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICheckBoxAutomationPeer as ::windows::core::Interface>::IID
@@ -2158,7 +2213,10 @@ impl ICheckBoxAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICheckBoxAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICheckBoxAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICheckBoxAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2173,7 +2231,7 @@ impl ::windows::core::RuntimeName for IColorPickerSliderAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IColorPickerSliderAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorPickerSliderAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorPickerSliderAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorPickerSliderAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IColorPickerSliderAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IColorPickerSliderAutomationPeer as ::windows::core::Interface>::IID
@@ -2201,7 +2259,10 @@ impl IColorPickerSliderAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorPickerSliderAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IColorPickerSliderAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IColorPickerSliderAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2216,7 +2277,7 @@ impl ::windows::core::RuntimeName for IColorSpectrumAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IColorSpectrumAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorSpectrumAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorSpectrumAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorSpectrumAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IColorSpectrumAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IColorSpectrumAutomationPeer as ::windows::core::Interface>::IID
@@ -2244,7 +2305,10 @@ impl IColorSpectrumAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorSpectrumAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IColorSpectrumAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IColorSpectrumAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2259,7 +2323,7 @@ impl ::windows::core::RuntimeName for IComboBoxAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IComboBoxAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComboBoxAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComboBoxAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComboBoxAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IComboBoxAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IComboBoxAutomationPeer as ::windows::core::Interface>::IID
@@ -2287,7 +2351,10 @@ impl IComboBoxAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComboBoxAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IComboBoxAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IComboBoxAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2302,7 +2369,7 @@ impl ::windows::core::RuntimeName for IComboBoxItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IComboBoxItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComboBoxItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComboBoxItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComboBoxItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IComboBoxItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IComboBoxItemAutomationPeer as ::windows::core::Interface>::IID
@@ -2330,7 +2397,10 @@ impl IComboBoxItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComboBoxItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IComboBoxItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IComboBoxItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2345,7 +2415,7 @@ impl ::windows::core::RuntimeName for IComboBoxItemDataAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IComboBoxItemDataAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComboBoxItemDataAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComboBoxItemDataAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComboBoxItemDataAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IComboBoxItemDataAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IComboBoxItemDataAutomationPeer as ::windows::core::Interface>::IID
@@ -2378,7 +2448,10 @@ impl IComboBoxItemDataAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComboBoxItemDataAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IComboBoxItemDataAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithParentAndItem: CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IComboBoxItemDataAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2393,7 +2466,7 @@ impl ::windows::core::RuntimeName for IDatePickerAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IDatePickerAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatePickerAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatePickerAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatePickerAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDatePickerAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDatePickerAutomationPeer as ::windows::core::Interface>::IID
@@ -2421,7 +2494,10 @@ impl IDatePickerAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatePickerAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDatePickerAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDatePickerAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2436,7 +2512,7 @@ impl ::windows::core::RuntimeName for IDatePickerFlyoutPresenterAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IDatePickerFlyoutPresenterAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatePickerFlyoutPresenterAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatePickerFlyoutPresenterAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatePickerFlyoutPresenterAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDatePickerFlyoutPresenterAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDatePickerFlyoutPresenterAutomationPeer as ::windows::core::Interface>::IID
@@ -2451,7 +2527,7 @@ impl ::windows::core::RuntimeName for IFlipViewAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IFlipViewAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFlipViewAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFlipViewAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlipViewAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFlipViewAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlipViewAutomationPeer as ::windows::core::Interface>::IID
@@ -2479,7 +2555,10 @@ impl IFlipViewAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlipViewAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlipViewAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlipViewAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2494,7 +2573,7 @@ impl ::windows::core::RuntimeName for IFlipViewItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IFlipViewItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFlipViewItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFlipViewItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlipViewItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFlipViewItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlipViewItemAutomationPeer as ::windows::core::Interface>::IID
@@ -2522,7 +2601,10 @@ impl IFlipViewItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlipViewItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlipViewItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlipViewItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2537,7 +2619,7 @@ impl ::windows::core::RuntimeName for IFlipViewItemDataAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IFlipViewItemDataAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFlipViewItemDataAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFlipViewItemDataAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlipViewItemDataAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFlipViewItemDataAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlipViewItemDataAutomationPeer as ::windows::core::Interface>::IID
@@ -2570,7 +2652,10 @@ impl IFlipViewItemDataAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlipViewItemDataAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlipViewItemDataAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithParentAndItem: CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlipViewItemDataAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2585,7 +2670,7 @@ impl ::windows::core::RuntimeName for IFlyoutPresenterAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IFlyoutPresenterAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFlyoutPresenterAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFlyoutPresenterAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlyoutPresenterAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutPresenterAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutPresenterAutomationPeer as ::windows::core::Interface>::IID
@@ -2613,7 +2698,10 @@ impl IFlyoutPresenterAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlyoutPresenterAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutPresenterAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFlyoutPresenterAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2641,7 +2729,7 @@ impl IFrameworkElementAutomationPeerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameworkElementAutomationPeer>, ::windows::core::GetTrustLevel, Owner::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameworkElementAutomationPeer, BASE_OFFSET>(), Owner: Owner::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameworkElementAutomationPeer as ::windows::core::Interface>::IID
@@ -2669,7 +2757,10 @@ impl IFrameworkElementAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameworkElementAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameworkElementAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameworkElementAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2709,7 +2800,11 @@ impl IFrameworkElementAutomationPeerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameworkElementAutomationPeerStatics>, ::windows::core::GetTrustLevel, FromElement::<Impl, IMPL_OFFSET>, CreatePeerForElement::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameworkElementAutomationPeerStatics, BASE_OFFSET>(),
+            FromElement: FromElement::<Impl, IMPL_OFFSET>,
+            CreatePeerForElement: CreatePeerForElement::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameworkElementAutomationPeerStatics as ::windows::core::Interface>::IID
@@ -2724,7 +2819,7 @@ impl ::windows::core::RuntimeName for IGridViewAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IGridViewAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridViewAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridViewAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridViewAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGridViewAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridViewAutomationPeer as ::windows::core::Interface>::IID
@@ -2752,7 +2847,10 @@ impl IGridViewAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridViewAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGridViewAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridViewAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2767,7 +2865,7 @@ impl ::windows::core::RuntimeName for IGridViewHeaderItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IGridViewHeaderItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridViewHeaderItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridViewHeaderItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridViewHeaderItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGridViewHeaderItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridViewHeaderItemAutomationPeer as ::windows::core::Interface>::IID
@@ -2795,7 +2893,10 @@ impl IGridViewHeaderItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridViewHeaderItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGridViewHeaderItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridViewHeaderItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2810,7 +2911,7 @@ impl ::windows::core::RuntimeName for IGridViewItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IGridViewItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridViewItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridViewItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridViewItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGridViewItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridViewItemAutomationPeer as ::windows::core::Interface>::IID
@@ -2838,7 +2939,10 @@ impl IGridViewItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridViewItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGridViewItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridViewItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2853,7 +2957,7 @@ impl ::windows::core::RuntimeName for IGridViewItemDataAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IGridViewItemDataAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridViewItemDataAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridViewItemDataAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridViewItemDataAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGridViewItemDataAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridViewItemDataAutomationPeer as ::windows::core::Interface>::IID
@@ -2886,7 +2990,10 @@ impl IGridViewItemDataAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridViewItemDataAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGridViewItemDataAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithParentAndItem: CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGridViewItemDataAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2901,7 +3008,7 @@ impl ::windows::core::RuntimeName for IGroupItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IGroupItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGroupItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGroupItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGroupItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGroupItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGroupItemAutomationPeer as ::windows::core::Interface>::IID
@@ -2929,7 +3036,10 @@ impl IGroupItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGroupItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGroupItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGroupItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2944,7 +3054,7 @@ impl ::windows::core::RuntimeName for IHubAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IHubAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHubAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHubAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHubAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHubAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHubAutomationPeer as ::windows::core::Interface>::IID
@@ -2972,7 +3082,10 @@ impl IHubAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHubAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHubAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHubAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -2987,7 +3100,7 @@ impl ::windows::core::RuntimeName for IHubSectionAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IHubSectionAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHubSectionAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHubSectionAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHubSectionAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHubSectionAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHubSectionAutomationPeer as ::windows::core::Interface>::IID
@@ -3015,7 +3128,10 @@ impl IHubSectionAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHubSectionAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHubSectionAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHubSectionAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3030,7 +3146,7 @@ impl ::windows::core::RuntimeName for IHyperlinkButtonAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IHyperlinkButtonAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHyperlinkButtonAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHyperlinkButtonAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHyperlinkButtonAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHyperlinkButtonAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHyperlinkButtonAutomationPeer as ::windows::core::Interface>::IID
@@ -3058,7 +3174,10 @@ impl IHyperlinkButtonAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHyperlinkButtonAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHyperlinkButtonAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHyperlinkButtonAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3073,7 +3192,7 @@ impl ::windows::core::RuntimeName for IImageAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IImageAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IImageAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageAutomationPeer as ::windows::core::Interface>::IID
@@ -3101,7 +3220,10 @@ impl IImageAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3116,7 +3238,7 @@ impl ::windows::core::RuntimeName for IInkToolbarAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IInkToolbarAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkToolbarAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkToolbarAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkToolbarAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInkToolbarAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkToolbarAutomationPeer as ::windows::core::Interface>::IID
@@ -3156,7 +3278,11 @@ impl IItemAutomationPeerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IItemAutomationPeer>, ::windows::core::GetTrustLevel, Item::<Impl, IMPL_OFFSET>, ItemsControlAutomationPeer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IItemAutomationPeer, BASE_OFFSET>(),
+            Item: Item::<Impl, IMPL_OFFSET>,
+            ItemsControlAutomationPeer: ItemsControlAutomationPeer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IItemAutomationPeer as ::windows::core::Interface>::IID
@@ -3189,7 +3315,10 @@ impl IItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithParentAndItem: CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3204,7 +3333,7 @@ impl ::windows::core::RuntimeName for IItemsControlAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IItemsControlAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IItemsControlAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IItemsControlAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IItemsControlAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IItemsControlAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IItemsControlAutomationPeer as ::windows::core::Interface>::IID
@@ -3232,7 +3361,10 @@ impl IItemsControlAutomationPeer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IItemsControlAutomationPeer2>, ::windows::core::GetTrustLevel, CreateItemAutomationPeer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IItemsControlAutomationPeer2, BASE_OFFSET>(),
+            CreateItemAutomationPeer: CreateItemAutomationPeer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IItemsControlAutomationPeer2 as ::windows::core::Interface>::IID
@@ -3260,7 +3392,10 @@ impl IItemsControlAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IItemsControlAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IItemsControlAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IItemsControlAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3288,7 +3423,10 @@ impl IItemsControlAutomationPeerOverrides2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IItemsControlAutomationPeerOverrides2>, ::windows::core::GetTrustLevel, OnCreateItemAutomationPeer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IItemsControlAutomationPeerOverrides2, BASE_OFFSET>(),
+            OnCreateItemAutomationPeer: OnCreateItemAutomationPeer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IItemsControlAutomationPeerOverrides2 as ::windows::core::Interface>::IID
@@ -3303,7 +3441,7 @@ impl ::windows::core::RuntimeName for IListBoxAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IListBoxAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListBoxAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListBoxAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListBoxAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IListBoxAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListBoxAutomationPeer as ::windows::core::Interface>::IID
@@ -3331,7 +3469,10 @@ impl IListBoxAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListBoxAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListBoxAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListBoxAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3346,7 +3487,7 @@ impl ::windows::core::RuntimeName for IListBoxItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IListBoxItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListBoxItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListBoxItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListBoxItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IListBoxItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListBoxItemAutomationPeer as ::windows::core::Interface>::IID
@@ -3374,7 +3515,10 @@ impl IListBoxItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListBoxItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListBoxItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListBoxItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3389,7 +3533,7 @@ impl ::windows::core::RuntimeName for IListBoxItemDataAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IListBoxItemDataAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListBoxItemDataAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListBoxItemDataAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListBoxItemDataAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IListBoxItemDataAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListBoxItemDataAutomationPeer as ::windows::core::Interface>::IID
@@ -3422,7 +3566,10 @@ impl IListBoxItemDataAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListBoxItemDataAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListBoxItemDataAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithParentAndItem: CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListBoxItemDataAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3437,7 +3584,7 @@ impl ::windows::core::RuntimeName for IListPickerFlyoutPresenterAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IListPickerFlyoutPresenterAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListPickerFlyoutPresenterAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListPickerFlyoutPresenterAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListPickerFlyoutPresenterAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IListPickerFlyoutPresenterAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListPickerFlyoutPresenterAutomationPeer as ::windows::core::Interface>::IID
@@ -3452,7 +3599,7 @@ impl ::windows::core::RuntimeName for IListViewAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IListViewAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListViewAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListViewAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewAutomationPeer as ::windows::core::Interface>::IID
@@ -3480,7 +3627,10 @@ impl IListViewAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3495,7 +3645,7 @@ impl ::windows::core::RuntimeName for IListViewBaseAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IListViewBaseAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListViewBaseAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListViewBaseAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewBaseAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewBaseAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewBaseAutomationPeer as ::windows::core::Interface>::IID
@@ -3523,7 +3673,10 @@ impl IListViewBaseAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewBaseAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewBaseAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewBaseAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3538,7 +3691,7 @@ impl ::windows::core::RuntimeName for IListViewBaseHeaderItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IListViewBaseHeaderItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListViewBaseHeaderItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListViewBaseHeaderItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewBaseHeaderItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewBaseHeaderItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewBaseHeaderItemAutomationPeer as ::windows::core::Interface>::IID
@@ -3566,7 +3719,10 @@ impl IListViewBaseHeaderItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewBaseHeaderItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewBaseHeaderItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewBaseHeaderItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3581,7 +3737,7 @@ impl ::windows::core::RuntimeName for IListViewHeaderItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IListViewHeaderItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListViewHeaderItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListViewHeaderItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewHeaderItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewHeaderItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewHeaderItemAutomationPeer as ::windows::core::Interface>::IID
@@ -3609,7 +3765,10 @@ impl IListViewHeaderItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewHeaderItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewHeaderItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewHeaderItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3624,7 +3783,7 @@ impl ::windows::core::RuntimeName for IListViewItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IListViewItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListViewItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListViewItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemAutomationPeer as ::windows::core::Interface>::IID
@@ -3652,7 +3811,10 @@ impl IListViewItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3667,7 +3829,7 @@ impl ::windows::core::RuntimeName for IListViewItemDataAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IListViewItemDataAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListViewItemDataAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListViewItemDataAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewItemDataAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemDataAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemDataAutomationPeer as ::windows::core::Interface>::IID
@@ -3700,7 +3862,10 @@ impl IListViewItemDataAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListViewItemDataAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListViewItemDataAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithParentAndItem: CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListViewItemDataAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3715,7 +3880,7 @@ impl ::windows::core::RuntimeName for ILoopingSelectorAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ILoopingSelectorAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoopingSelectorAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoopingSelectorAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoopingSelectorAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILoopingSelectorAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoopingSelectorAutomationPeer as ::windows::core::Interface>::IID
@@ -3730,7 +3895,7 @@ impl ::windows::core::RuntimeName for ILoopingSelectorItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ILoopingSelectorItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoopingSelectorItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoopingSelectorItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoopingSelectorItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILoopingSelectorItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoopingSelectorItemAutomationPeer as ::windows::core::Interface>::IID
@@ -3745,7 +3910,7 @@ impl ::windows::core::RuntimeName for ILoopingSelectorItemDataAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ILoopingSelectorItemDataAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoopingSelectorItemDataAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoopingSelectorItemDataAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoopingSelectorItemDataAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILoopingSelectorItemDataAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoopingSelectorItemDataAutomationPeer as ::windows::core::Interface>::IID
@@ -3760,7 +3925,7 @@ impl ::windows::core::RuntimeName for IMapControlAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IMapControlAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMapControlAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapControlAutomationPeer as ::windows::core::Interface>::IID
@@ -3775,7 +3940,7 @@ impl ::windows::core::RuntimeName for IMediaElementAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IMediaElementAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaElementAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaElementAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaElementAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaElementAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaElementAutomationPeer as ::windows::core::Interface>::IID
@@ -3803,7 +3968,10 @@ impl IMediaElementAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaElementAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaElementAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaElementAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3818,7 +3986,7 @@ impl ::windows::core::RuntimeName for IMediaPlayerElementAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IMediaPlayerElementAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerElementAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerElementAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayerElementAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayerElementAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayerElementAutomationPeer as ::windows::core::Interface>::IID
@@ -3846,7 +4014,10 @@ impl IMediaPlayerElementAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPlayerElementAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlayerElementAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlayerElementAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3861,7 +4032,7 @@ impl ::windows::core::RuntimeName for IMediaTransportControlsAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IMediaTransportControlsAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTransportControlsAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaTransportControlsAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaTransportControlsAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaTransportControlsAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaTransportControlsAutomationPeer as ::windows::core::Interface>::IID
@@ -3889,7 +4060,10 @@ impl IMediaTransportControlsAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaTransportControlsAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaTransportControlsAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaTransportControlsAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3904,7 +4078,7 @@ impl ::windows::core::RuntimeName for IMenuBarAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IMenuBarAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMenuBarAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMenuBarAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMenuBarAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMenuBarAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMenuBarAutomationPeer as ::windows::core::Interface>::IID
@@ -3932,7 +4106,10 @@ impl IMenuBarAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMenuBarAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMenuBarAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMenuBarAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3947,7 +4124,7 @@ impl ::windows::core::RuntimeName for IMenuBarItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IMenuBarItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMenuBarItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMenuBarItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMenuBarItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMenuBarItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMenuBarItemAutomationPeer as ::windows::core::Interface>::IID
@@ -3975,7 +4152,10 @@ impl IMenuBarItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMenuBarItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMenuBarItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMenuBarItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -3990,7 +4170,7 @@ impl ::windows::core::RuntimeName for IMenuFlyoutItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IMenuFlyoutItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMenuFlyoutItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMenuFlyoutItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMenuFlyoutItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMenuFlyoutItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMenuFlyoutItemAutomationPeer as ::windows::core::Interface>::IID
@@ -4018,7 +4198,10 @@ impl IMenuFlyoutItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMenuFlyoutItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMenuFlyoutItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMenuFlyoutItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4033,7 +4216,7 @@ impl ::windows::core::RuntimeName for IMenuFlyoutPresenterAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IMenuFlyoutPresenterAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMenuFlyoutPresenterAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMenuFlyoutPresenterAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMenuFlyoutPresenterAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMenuFlyoutPresenterAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMenuFlyoutPresenterAutomationPeer as ::windows::core::Interface>::IID
@@ -4061,7 +4244,10 @@ impl IMenuFlyoutPresenterAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMenuFlyoutPresenterAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMenuFlyoutPresenterAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMenuFlyoutPresenterAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4076,7 +4262,7 @@ impl ::windows::core::RuntimeName for INavigationViewItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl INavigationViewItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationViewItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationViewItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationViewItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, INavigationViewItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INavigationViewItemAutomationPeer as ::windows::core::Interface>::IID
@@ -4104,7 +4290,10 @@ impl INavigationViewItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationViewItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INavigationViewItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INavigationViewItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4119,7 +4308,7 @@ impl ::windows::core::RuntimeName for IPasswordBoxAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IPasswordBoxAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPasswordBoxAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPasswordBoxAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPasswordBoxAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPasswordBoxAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPasswordBoxAutomationPeer as ::windows::core::Interface>::IID
@@ -4147,7 +4336,10 @@ impl IPasswordBoxAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPasswordBoxAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPasswordBoxAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPasswordBoxAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4162,7 +4354,7 @@ impl ::windows::core::RuntimeName for IPersonPictureAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IPersonPictureAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPersonPictureAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPersonPictureAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPersonPictureAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPersonPictureAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPersonPictureAutomationPeer as ::windows::core::Interface>::IID
@@ -4190,7 +4382,10 @@ impl IPersonPictureAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPersonPictureAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPersonPictureAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPersonPictureAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4205,7 +4400,7 @@ impl ::windows::core::RuntimeName for IPickerFlyoutPresenterAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IPickerFlyoutPresenterAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerFlyoutPresenterAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPickerFlyoutPresenterAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPickerFlyoutPresenterAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPickerFlyoutPresenterAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPickerFlyoutPresenterAutomationPeer as ::windows::core::Interface>::IID
@@ -4220,7 +4415,7 @@ impl ::windows::core::RuntimeName for IPivotAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IPivotAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPivotAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPivotAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPivotAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPivotAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPivotAutomationPeer as ::windows::core::Interface>::IID
@@ -4248,7 +4443,10 @@ impl IPivotAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPivotAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPivotAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPivotAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4263,7 +4461,7 @@ impl ::windows::core::RuntimeName for IPivotItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IPivotItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPivotItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPivotItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPivotItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPivotItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPivotItemAutomationPeer as ::windows::core::Interface>::IID
@@ -4291,7 +4489,10 @@ impl IPivotItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPivotItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPivotItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPivotItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4306,7 +4507,7 @@ impl ::windows::core::RuntimeName for IPivotItemDataAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IPivotItemDataAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPivotItemDataAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPivotItemDataAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPivotItemDataAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPivotItemDataAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPivotItemDataAutomationPeer as ::windows::core::Interface>::IID
@@ -4334,7 +4535,10 @@ impl IPivotItemDataAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPivotItemDataAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPivotItemDataAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithParentAndItem: CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPivotItemDataAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4349,7 +4553,7 @@ impl ::windows::core::RuntimeName for IProgressBarAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IProgressBarAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProgressBarAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProgressBarAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProgressBarAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IProgressBarAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProgressBarAutomationPeer as ::windows::core::Interface>::IID
@@ -4377,7 +4581,10 @@ impl IProgressBarAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProgressBarAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProgressBarAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProgressBarAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4392,7 +4599,7 @@ impl ::windows::core::RuntimeName for IProgressRingAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IProgressRingAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProgressRingAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProgressRingAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProgressRingAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IProgressRingAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProgressRingAutomationPeer as ::windows::core::Interface>::IID
@@ -4420,7 +4627,10 @@ impl IProgressRingAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProgressRingAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProgressRingAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProgressRingAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4435,7 +4645,7 @@ impl ::windows::core::RuntimeName for IRadioButtonAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IRadioButtonAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadioButtonAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadioButtonAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadioButtonAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRadioButtonAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRadioButtonAutomationPeer as ::windows::core::Interface>::IID
@@ -4463,7 +4673,10 @@ impl IRadioButtonAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadioButtonAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRadioButtonAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRadioButtonAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4478,7 +4691,7 @@ impl ::windows::core::RuntimeName for IRangeBaseAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IRangeBaseAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRangeBaseAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRangeBaseAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRangeBaseAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRangeBaseAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRangeBaseAutomationPeer as ::windows::core::Interface>::IID
@@ -4506,7 +4719,10 @@ impl IRangeBaseAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRangeBaseAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRangeBaseAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRangeBaseAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4521,7 +4737,7 @@ impl ::windows::core::RuntimeName for IRatingControlAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IRatingControlAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRatingControlAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRatingControlAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRatingControlAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRatingControlAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRatingControlAutomationPeer as ::windows::core::Interface>::IID
@@ -4549,7 +4765,10 @@ impl IRatingControlAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRatingControlAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRatingControlAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRatingControlAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4564,7 +4783,7 @@ impl ::windows::core::RuntimeName for IRepeatButtonAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IRepeatButtonAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepeatButtonAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepeatButtonAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepeatButtonAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRepeatButtonAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRepeatButtonAutomationPeer as ::windows::core::Interface>::IID
@@ -4592,7 +4811,10 @@ impl IRepeatButtonAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepeatButtonAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRepeatButtonAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRepeatButtonAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4607,7 +4829,7 @@ impl ::windows::core::RuntimeName for IRichEditBoxAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IRichEditBoxAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRichEditBoxAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRichEditBoxAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRichEditBoxAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRichEditBoxAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRichEditBoxAutomationPeer as ::windows::core::Interface>::IID
@@ -4635,7 +4857,10 @@ impl IRichEditBoxAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRichEditBoxAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRichEditBoxAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRichEditBoxAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4650,7 +4875,7 @@ impl ::windows::core::RuntimeName for IRichTextBlockAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IRichTextBlockAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRichTextBlockAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRichTextBlockAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRichTextBlockAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRichTextBlockAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRichTextBlockAutomationPeer as ::windows::core::Interface>::IID
@@ -4678,7 +4903,10 @@ impl IRichTextBlockAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRichTextBlockAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRichTextBlockAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRichTextBlockAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4693,7 +4921,7 @@ impl ::windows::core::RuntimeName for IRichTextBlockOverflowAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IRichTextBlockOverflowAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRichTextBlockOverflowAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRichTextBlockOverflowAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRichTextBlockOverflowAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRichTextBlockOverflowAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRichTextBlockOverflowAutomationPeer as ::windows::core::Interface>::IID
@@ -4721,7 +4949,10 @@ impl IRichTextBlockOverflowAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRichTextBlockOverflowAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRichTextBlockOverflowAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRichTextBlockOverflowAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4736,7 +4967,7 @@ impl ::windows::core::RuntimeName for IScrollBarAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IScrollBarAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollBarAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScrollBarAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScrollBarAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollBarAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScrollBarAutomationPeer as ::windows::core::Interface>::IID
@@ -4764,7 +4995,10 @@ impl IScrollBarAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScrollBarAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollBarAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScrollBarAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4779,7 +5013,7 @@ impl ::windows::core::RuntimeName for IScrollViewerAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IScrollViewerAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollViewerAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScrollViewerAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScrollViewerAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollViewerAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScrollViewerAutomationPeer as ::windows::core::Interface>::IID
@@ -4807,7 +5041,10 @@ impl IScrollViewerAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScrollViewerAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollViewerAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScrollViewerAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4822,7 +5059,7 @@ impl ::windows::core::RuntimeName for ISearchBoxAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ISearchBoxAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchBoxAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchBoxAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchBoxAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchBoxAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchBoxAutomationPeer as ::windows::core::Interface>::IID
@@ -4850,7 +5087,10 @@ impl ISearchBoxAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchBoxAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchBoxAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchBoxAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4865,7 +5105,7 @@ impl ::windows::core::RuntimeName for ISelectorAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ISelectorAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectorAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectorAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectorAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectorAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectorAutomationPeer as ::windows::core::Interface>::IID
@@ -4893,7 +5133,10 @@ impl ISelectorAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectorAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectorAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectorAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4908,7 +5151,7 @@ impl ::windows::core::RuntimeName for ISelectorItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ISelectorItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectorItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectorItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectorItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectorItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectorItemAutomationPeer as ::windows::core::Interface>::IID
@@ -4941,7 +5184,10 @@ impl ISelectorItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectorItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectorItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithParentAndItem: CreateInstanceWithParentAndItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISelectorItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4956,7 +5202,7 @@ impl ::windows::core::RuntimeName for ISemanticZoomAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ISemanticZoomAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticZoomAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISemanticZoomAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISemanticZoomAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISemanticZoomAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISemanticZoomAutomationPeer as ::windows::core::Interface>::IID
@@ -4984,7 +5230,10 @@ impl ISemanticZoomAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISemanticZoomAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISemanticZoomAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISemanticZoomAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -4999,7 +5248,7 @@ impl ::windows::core::RuntimeName for ISettingsFlyoutAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ISettingsFlyoutAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISettingsFlyoutAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISettingsFlyoutAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISettingsFlyoutAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISettingsFlyoutAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsFlyoutAutomationPeer as ::windows::core::Interface>::IID
@@ -5027,7 +5276,10 @@ impl ISettingsFlyoutAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISettingsFlyoutAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISettingsFlyoutAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsFlyoutAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -5042,7 +5294,7 @@ impl ::windows::core::RuntimeName for ISliderAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ISliderAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISliderAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISliderAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISliderAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISliderAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISliderAutomationPeer as ::windows::core::Interface>::IID
@@ -5070,7 +5322,10 @@ impl ISliderAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISliderAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISliderAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISliderAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -5085,7 +5340,7 @@ impl ::windows::core::RuntimeName for ITextBlockAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ITextBlockAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextBlockAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextBlockAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextBlockAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITextBlockAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextBlockAutomationPeer as ::windows::core::Interface>::IID
@@ -5113,7 +5368,10 @@ impl ITextBlockAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextBlockAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextBlockAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextBlockAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -5128,7 +5386,7 @@ impl ::windows::core::RuntimeName for ITextBoxAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ITextBoxAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextBoxAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextBoxAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextBoxAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITextBoxAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextBoxAutomationPeer as ::windows::core::Interface>::IID
@@ -5156,7 +5414,10 @@ impl ITextBoxAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextBoxAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextBoxAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextBoxAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -5171,7 +5432,7 @@ impl ::windows::core::RuntimeName for IThumbAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IThumbAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThumbAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IThumbAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThumbAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IThumbAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IThumbAutomationPeer as ::windows::core::Interface>::IID
@@ -5199,7 +5460,10 @@ impl IThumbAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThumbAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IThumbAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IThumbAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -5214,7 +5478,7 @@ impl ::windows::core::RuntimeName for ITimePickerAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ITimePickerAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimePickerAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimePickerAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimePickerAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITimePickerAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimePickerAutomationPeer as ::windows::core::Interface>::IID
@@ -5242,7 +5506,10 @@ impl ITimePickerAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimePickerAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimePickerAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimePickerAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -5257,7 +5524,7 @@ impl ::windows::core::RuntimeName for ITimePickerFlyoutPresenterAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ITimePickerFlyoutPresenterAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimePickerFlyoutPresenterAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimePickerFlyoutPresenterAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimePickerFlyoutPresenterAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITimePickerFlyoutPresenterAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimePickerFlyoutPresenterAutomationPeer as ::windows::core::Interface>::IID
@@ -5272,7 +5539,7 @@ impl ::windows::core::RuntimeName for IToggleButtonAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IToggleButtonAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToggleButtonAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToggleButtonAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToggleButtonAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleButtonAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToggleButtonAutomationPeer as ::windows::core::Interface>::IID
@@ -5300,7 +5567,10 @@ impl IToggleButtonAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToggleButtonAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleButtonAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToggleButtonAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -5315,7 +5585,7 @@ impl ::windows::core::RuntimeName for IToggleMenuFlyoutItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IToggleMenuFlyoutItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToggleMenuFlyoutItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToggleMenuFlyoutItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToggleMenuFlyoutItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleMenuFlyoutItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToggleMenuFlyoutItemAutomationPeer as ::windows::core::Interface>::IID
@@ -5343,7 +5613,10 @@ impl IToggleMenuFlyoutItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToggleMenuFlyoutItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleMenuFlyoutItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToggleMenuFlyoutItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -5358,7 +5631,7 @@ impl ::windows::core::RuntimeName for IToggleSwitchAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl IToggleSwitchAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToggleSwitchAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToggleSwitchAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToggleSwitchAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleSwitchAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToggleSwitchAutomationPeer as ::windows::core::Interface>::IID
@@ -5386,7 +5659,10 @@ impl IToggleSwitchAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToggleSwitchAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleSwitchAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToggleSwitchAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -5401,7 +5677,7 @@ impl ::windows::core::RuntimeName for ITreeViewItemAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ITreeViewItemAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITreeViewItemAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITreeViewItemAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITreeViewItemAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITreeViewItemAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITreeViewItemAutomationPeer as ::windows::core::Interface>::IID
@@ -5429,7 +5705,10 @@ impl ITreeViewItemAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITreeViewItemAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITreeViewItemAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITreeViewItemAutomationPeerFactory as ::windows::core::Interface>::IID
@@ -5444,7 +5723,7 @@ impl ::windows::core::RuntimeName for ITreeViewListAutomationPeer {
 #[cfg(feature = "implement_exclusive")]
 impl ITreeViewListAutomationPeerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITreeViewListAutomationPeerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITreeViewListAutomationPeerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITreeViewListAutomationPeer>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITreeViewListAutomationPeer, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITreeViewListAutomationPeer as ::windows::core::Interface>::IID
@@ -5472,7 +5751,10 @@ impl ITreeViewListAutomationPeerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITreeViewListAutomationPeerFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithOwner::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITreeViewListAutomationPeerFactory, BASE_OFFSET>(),
+            CreateInstanceWithOwner: CreateInstanceWithOwner::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITreeViewListAutomationPeerFactory as ::windows::core::Interface>::IID

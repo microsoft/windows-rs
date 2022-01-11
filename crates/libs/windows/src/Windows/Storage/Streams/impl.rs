@@ -34,7 +34,12 @@ impl IBufferVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLength(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBuffer>, ::windows::core::GetTrustLevel, Capacity::<Impl, IMPL_OFFSET>, Length::<Impl, IMPL_OFFSET>, SetLength::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBuffer, BASE_OFFSET>(),
+            Capacity: Capacity::<Impl, IMPL_OFFSET>,
+            Length: Length::<Impl, IMPL_OFFSET>,
+            SetLength: SetLength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBuffer as ::windows::core::Interface>::IID
@@ -62,7 +67,7 @@ impl IBufferFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBufferFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBufferFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBufferFactory as ::windows::core::Interface>::IID
@@ -102,7 +107,11 @@ impl IBufferStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBufferStatics>, ::windows::core::GetTrustLevel, CreateCopyFromMemoryBuffer::<Impl, IMPL_OFFSET>, CreateMemoryBufferOverIBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBufferStatics, BASE_OFFSET>(),
+            CreateCopyFromMemoryBuffer: CreateCopyFromMemoryBuffer::<Impl, IMPL_OFFSET>,
+            CreateMemoryBufferOverIBuffer: CreateMemoryBufferOverIBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBufferStatics as ::windows::core::Interface>::IID
@@ -127,7 +136,7 @@ impl IContentTypeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentTypeProvider>, ::windows::core::GetTrustLevel, ContentType::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContentTypeProvider, BASE_OFFSET>(), ContentType: ContentType::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContentTypeProvider as ::windows::core::Interface>::IID
@@ -427,40 +436,35 @@ impl IDataReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDataReader>,
-            ::windows::core::GetTrustLevel,
-            UnconsumedBufferLength::<Impl, IMPL_OFFSET>,
-            UnicodeEncoding::<Impl, IMPL_OFFSET>,
-            SetUnicodeEncoding::<Impl, IMPL_OFFSET>,
-            ByteOrder::<Impl, IMPL_OFFSET>,
-            SetByteOrder::<Impl, IMPL_OFFSET>,
-            InputStreamOptions::<Impl, IMPL_OFFSET>,
-            SetInputStreamOptions::<Impl, IMPL_OFFSET>,
-            ReadByte::<Impl, IMPL_OFFSET>,
-            ReadBytes::<Impl, IMPL_OFFSET>,
-            ReadBuffer::<Impl, IMPL_OFFSET>,
-            ReadBoolean::<Impl, IMPL_OFFSET>,
-            ReadGuid::<Impl, IMPL_OFFSET>,
-            ReadInt16::<Impl, IMPL_OFFSET>,
-            ReadInt32::<Impl, IMPL_OFFSET>,
-            ReadInt64::<Impl, IMPL_OFFSET>,
-            ReadUInt16::<Impl, IMPL_OFFSET>,
-            ReadUInt32::<Impl, IMPL_OFFSET>,
-            ReadUInt64::<Impl, IMPL_OFFSET>,
-            ReadSingle::<Impl, IMPL_OFFSET>,
-            ReadDouble::<Impl, IMPL_OFFSET>,
-            ReadString::<Impl, IMPL_OFFSET>,
-            ReadDateTime::<Impl, IMPL_OFFSET>,
-            ReadTimeSpan::<Impl, IMPL_OFFSET>,
-            LoadAsync::<Impl, IMPL_OFFSET>,
-            DetachBuffer::<Impl, IMPL_OFFSET>,
-            DetachStream::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataReader, BASE_OFFSET>(),
+            UnconsumedBufferLength: UnconsumedBufferLength::<Impl, IMPL_OFFSET>,
+            UnicodeEncoding: UnicodeEncoding::<Impl, IMPL_OFFSET>,
+            SetUnicodeEncoding: SetUnicodeEncoding::<Impl, IMPL_OFFSET>,
+            ByteOrder: ByteOrder::<Impl, IMPL_OFFSET>,
+            SetByteOrder: SetByteOrder::<Impl, IMPL_OFFSET>,
+            InputStreamOptions: InputStreamOptions::<Impl, IMPL_OFFSET>,
+            SetInputStreamOptions: SetInputStreamOptions::<Impl, IMPL_OFFSET>,
+            ReadByte: ReadByte::<Impl, IMPL_OFFSET>,
+            ReadBytes: ReadBytes::<Impl, IMPL_OFFSET>,
+            ReadBuffer: ReadBuffer::<Impl, IMPL_OFFSET>,
+            ReadBoolean: ReadBoolean::<Impl, IMPL_OFFSET>,
+            ReadGuid: ReadGuid::<Impl, IMPL_OFFSET>,
+            ReadInt16: ReadInt16::<Impl, IMPL_OFFSET>,
+            ReadInt32: ReadInt32::<Impl, IMPL_OFFSET>,
+            ReadInt64: ReadInt64::<Impl, IMPL_OFFSET>,
+            ReadUInt16: ReadUInt16::<Impl, IMPL_OFFSET>,
+            ReadUInt32: ReadUInt32::<Impl, IMPL_OFFSET>,
+            ReadUInt64: ReadUInt64::<Impl, IMPL_OFFSET>,
+            ReadSingle: ReadSingle::<Impl, IMPL_OFFSET>,
+            ReadDouble: ReadDouble::<Impl, IMPL_OFFSET>,
+            ReadString: ReadString::<Impl, IMPL_OFFSET>,
+            ReadDateTime: ReadDateTime::<Impl, IMPL_OFFSET>,
+            ReadTimeSpan: ReadTimeSpan::<Impl, IMPL_OFFSET>,
+            LoadAsync: LoadAsync::<Impl, IMPL_OFFSET>,
+            DetachBuffer: DetachBuffer::<Impl, IMPL_OFFSET>,
+            DetachStream: DetachStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataReader as ::windows::core::Interface>::IID
@@ -488,7 +492,10 @@ impl IDataReaderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataReaderFactory>, ::windows::core::GetTrustLevel, CreateDataReader::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataReaderFactory, BASE_OFFSET>(),
+            CreateDataReader: CreateDataReader::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataReaderFactory as ::windows::core::Interface>::IID
@@ -516,7 +523,7 @@ impl IDataReaderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataReaderStatics>, ::windows::core::GetTrustLevel, FromBuffer::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDataReaderStatics, BASE_OFFSET>(), FromBuffer: FromBuffer::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataReaderStatics as ::windows::core::Interface>::IID
@@ -730,41 +737,36 @@ impl IDataWriterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDataWriter>,
-            ::windows::core::GetTrustLevel,
-            UnstoredBufferLength::<Impl, IMPL_OFFSET>,
-            UnicodeEncoding::<Impl, IMPL_OFFSET>,
-            SetUnicodeEncoding::<Impl, IMPL_OFFSET>,
-            ByteOrder::<Impl, IMPL_OFFSET>,
-            SetByteOrder::<Impl, IMPL_OFFSET>,
-            WriteByte::<Impl, IMPL_OFFSET>,
-            WriteBytes::<Impl, IMPL_OFFSET>,
-            WriteBuffer::<Impl, IMPL_OFFSET>,
-            WriteBufferRange::<Impl, IMPL_OFFSET>,
-            WriteBoolean::<Impl, IMPL_OFFSET>,
-            WriteGuid::<Impl, IMPL_OFFSET>,
-            WriteInt16::<Impl, IMPL_OFFSET>,
-            WriteInt32::<Impl, IMPL_OFFSET>,
-            WriteInt64::<Impl, IMPL_OFFSET>,
-            WriteUInt16::<Impl, IMPL_OFFSET>,
-            WriteUInt32::<Impl, IMPL_OFFSET>,
-            WriteUInt64::<Impl, IMPL_OFFSET>,
-            WriteSingle::<Impl, IMPL_OFFSET>,
-            WriteDouble::<Impl, IMPL_OFFSET>,
-            WriteDateTime::<Impl, IMPL_OFFSET>,
-            WriteTimeSpan::<Impl, IMPL_OFFSET>,
-            WriteString::<Impl, IMPL_OFFSET>,
-            MeasureString::<Impl, IMPL_OFFSET>,
-            StoreAsync::<Impl, IMPL_OFFSET>,
-            FlushAsync::<Impl, IMPL_OFFSET>,
-            DetachBuffer::<Impl, IMPL_OFFSET>,
-            DetachStream::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataWriter, BASE_OFFSET>(),
+            UnstoredBufferLength: UnstoredBufferLength::<Impl, IMPL_OFFSET>,
+            UnicodeEncoding: UnicodeEncoding::<Impl, IMPL_OFFSET>,
+            SetUnicodeEncoding: SetUnicodeEncoding::<Impl, IMPL_OFFSET>,
+            ByteOrder: ByteOrder::<Impl, IMPL_OFFSET>,
+            SetByteOrder: SetByteOrder::<Impl, IMPL_OFFSET>,
+            WriteByte: WriteByte::<Impl, IMPL_OFFSET>,
+            WriteBytes: WriteBytes::<Impl, IMPL_OFFSET>,
+            WriteBuffer: WriteBuffer::<Impl, IMPL_OFFSET>,
+            WriteBufferRange: WriteBufferRange::<Impl, IMPL_OFFSET>,
+            WriteBoolean: WriteBoolean::<Impl, IMPL_OFFSET>,
+            WriteGuid: WriteGuid::<Impl, IMPL_OFFSET>,
+            WriteInt16: WriteInt16::<Impl, IMPL_OFFSET>,
+            WriteInt32: WriteInt32::<Impl, IMPL_OFFSET>,
+            WriteInt64: WriteInt64::<Impl, IMPL_OFFSET>,
+            WriteUInt16: WriteUInt16::<Impl, IMPL_OFFSET>,
+            WriteUInt32: WriteUInt32::<Impl, IMPL_OFFSET>,
+            WriteUInt64: WriteUInt64::<Impl, IMPL_OFFSET>,
+            WriteSingle: WriteSingle::<Impl, IMPL_OFFSET>,
+            WriteDouble: WriteDouble::<Impl, IMPL_OFFSET>,
+            WriteDateTime: WriteDateTime::<Impl, IMPL_OFFSET>,
+            WriteTimeSpan: WriteTimeSpan::<Impl, IMPL_OFFSET>,
+            WriteString: WriteString::<Impl, IMPL_OFFSET>,
+            MeasureString: MeasureString::<Impl, IMPL_OFFSET>,
+            StoreAsync: StoreAsync::<Impl, IMPL_OFFSET>,
+            FlushAsync: FlushAsync::<Impl, IMPL_OFFSET>,
+            DetachBuffer: DetachBuffer::<Impl, IMPL_OFFSET>,
+            DetachStream: DetachStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataWriter as ::windows::core::Interface>::IID
@@ -792,7 +794,10 @@ impl IDataWriterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataWriterFactory>, ::windows::core::GetTrustLevel, CreateDataWriter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataWriterFactory, BASE_OFFSET>(),
+            CreateDataWriter: CreateDataWriter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataWriterFactory as ::windows::core::Interface>::IID
@@ -904,22 +909,17 @@ impl IFileRandomAccessStreamStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFileRandomAccessStreamStatics>,
-            ::windows::core::GetTrustLevel,
-            OpenAsync::<Impl, IMPL_OFFSET>,
-            OpenWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            OpenTransactedWriteAsync::<Impl, IMPL_OFFSET>,
-            OpenTransactedWriteWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            OpenForUserAsync::<Impl, IMPL_OFFSET>,
-            OpenForUserWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            OpenTransactedWriteForUserAsync::<Impl, IMPL_OFFSET>,
-            OpenTransactedWriteForUserWithOptionsAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileRandomAccessStreamStatics, BASE_OFFSET>(),
+            OpenAsync: OpenAsync::<Impl, IMPL_OFFSET>,
+            OpenWithOptionsAsync: OpenWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            OpenTransactedWriteAsync: OpenTransactedWriteAsync::<Impl, IMPL_OFFSET>,
+            OpenTransactedWriteWithOptionsAsync: OpenTransactedWriteWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            OpenForUserAsync: OpenForUserAsync::<Impl, IMPL_OFFSET>,
+            OpenForUserWithOptionsAsync: OpenForUserWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            OpenTransactedWriteForUserAsync: OpenTransactedWriteForUserAsync::<Impl, IMPL_OFFSET>,
+            OpenTransactedWriteForUserWithOptionsAsync: OpenTransactedWriteForUserWithOptionsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileRandomAccessStreamStatics as ::windows::core::Interface>::IID
@@ -947,7 +947,7 @@ impl IInputStreamVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputStream>, ::windows::core::GetTrustLevel, ReadAsync::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInputStream, BASE_OFFSET>(), ReadAsync: ReadAsync::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputStream as ::windows::core::Interface>::IID
@@ -975,7 +975,10 @@ impl IInputStreamReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputStreamReference>, ::windows::core::GetTrustLevel, OpenSequentialReadAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputStreamReference, BASE_OFFSET>(),
+            OpenSequentialReadAsync: OpenSequentialReadAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputStreamReference as ::windows::core::Interface>::IID
@@ -1015,7 +1018,11 @@ impl IOutputStreamVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOutputStream>, ::windows::core::GetTrustLevel, WriteAsync::<Impl, IMPL_OFFSET>, FlushAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOutputStream, BASE_OFFSET>(),
+            WriteAsync: WriteAsync::<Impl, IMPL_OFFSET>,
+            FlushAsync: FlushAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOutputStream as ::windows::core::Interface>::IID
@@ -1048,7 +1055,11 @@ impl IPropertySetSerializerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Deserialize(&*(&propertyset as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType), &*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPropertySetSerializer>, ::windows::core::GetTrustLevel, Serialize::<Impl, IMPL_OFFSET>, Deserialize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertySetSerializer, BASE_OFFSET>(),
+            Serialize: Serialize::<Impl, IMPL_OFFSET>,
+            Deserialize: Deserialize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPropertySetSerializer as ::windows::core::Interface>::IID
@@ -1158,23 +1169,18 @@ impl IRandomAccessStreamVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRandomAccessStream>,
-            ::windows::core::GetTrustLevel,
-            Size::<Impl, IMPL_OFFSET>,
-            SetSize::<Impl, IMPL_OFFSET>,
-            GetInputStreamAt::<Impl, IMPL_OFFSET>,
-            GetOutputStreamAt::<Impl, IMPL_OFFSET>,
-            Position::<Impl, IMPL_OFFSET>,
-            Seek::<Impl, IMPL_OFFSET>,
-            CloneStream::<Impl, IMPL_OFFSET>,
-            CanRead::<Impl, IMPL_OFFSET>,
-            CanWrite::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStream, BASE_OFFSET>(),
+            Size: Size::<Impl, IMPL_OFFSET>,
+            SetSize: SetSize::<Impl, IMPL_OFFSET>,
+            GetInputStreamAt: GetInputStreamAt::<Impl, IMPL_OFFSET>,
+            GetOutputStreamAt: GetOutputStreamAt::<Impl, IMPL_OFFSET>,
+            Position: Position::<Impl, IMPL_OFFSET>,
+            Seek: Seek::<Impl, IMPL_OFFSET>,
+            CloneStream: CloneStream::<Impl, IMPL_OFFSET>,
+            CanRead: CanRead::<Impl, IMPL_OFFSET>,
+            CanWrite: CanWrite::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRandomAccessStream as ::windows::core::Interface>::IID
@@ -1202,7 +1208,10 @@ impl IRandomAccessStreamReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRandomAccessStreamReference>, ::windows::core::GetTrustLevel, OpenReadAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStreamReference, BASE_OFFSET>(),
+            OpenReadAsync: OpenReadAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRandomAccessStreamReference as ::windows::core::Interface>::IID
@@ -1254,7 +1263,12 @@ impl IRandomAccessStreamReferenceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRandomAccessStreamReferenceStatics>, ::windows::core::GetTrustLevel, CreateFromFile::<Impl, IMPL_OFFSET>, CreateFromUri::<Impl, IMPL_OFFSET>, CreateFromStream::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStreamReferenceStatics, BASE_OFFSET>(),
+            CreateFromFile: CreateFromFile::<Impl, IMPL_OFFSET>,
+            CreateFromUri: CreateFromUri::<Impl, IMPL_OFFSET>,
+            CreateFromStream: CreateFromStream::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRandomAccessStreamReferenceStatics as ::windows::core::Interface>::IID
@@ -1306,7 +1320,12 @@ impl IRandomAccessStreamStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRandomAccessStreamStatics>, ::windows::core::GetTrustLevel, CopyAsync::<Impl, IMPL_OFFSET>, CopySizeAsync::<Impl, IMPL_OFFSET>, CopyAndCloseAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStreamStatics, BASE_OFFSET>(),
+            CopyAsync: CopyAsync::<Impl, IMPL_OFFSET>,
+            CopySizeAsync: CopySizeAsync::<Impl, IMPL_OFFSET>,
+            CopyAndCloseAsync: CopyAndCloseAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRandomAccessStreamStatics as ::windows::core::Interface>::IID
@@ -1321,7 +1340,7 @@ impl ::windows::core::RuntimeName for IRandomAccessStreamWithContentType {
 #[cfg(feature = "Foundation")]
 impl IRandomAccessStreamWithContentTypeVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamWithContentTypeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRandomAccessStreamWithContentTypeVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRandomAccessStreamWithContentType>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStreamWithContentType, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRandomAccessStreamWithContentType as ::windows::core::Interface>::IID

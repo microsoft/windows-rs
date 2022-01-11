@@ -12,7 +12,11 @@ impl IWCNConnectNotifyVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ConnectSucceeded::<Impl, IMPL_OFFSET>, ConnectFailed::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ConnectSucceeded: ConnectSucceeded::<Impl, IMPL_OFFSET>,
+            ConnectFailed: ConnectFailed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWCNConnectNotify as ::windows::core::Interface>::IID
@@ -79,22 +83,20 @@ impl IWCNDeviceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            SetPassword::<Impl, IMPL_OFFSET>,
-            Connect::<Impl, IMPL_OFFSET>,
-            GetAttribute::<Impl, IMPL_OFFSET>,
-            GetIntegerAttribute::<Impl, IMPL_OFFSET>,
-            GetStringAttribute::<Impl, IMPL_OFFSET>,
-            GetNetworkProfile::<Impl, IMPL_OFFSET>,
-            SetNetworkProfile::<Impl, IMPL_OFFSET>,
-            GetVendorExtension::<Impl, IMPL_OFFSET>,
-            SetVendorExtension::<Impl, IMPL_OFFSET>,
-            Unadvise::<Impl, IMPL_OFFSET>,
-            SetNFCPasswordParams::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetPassword: SetPassword::<Impl, IMPL_OFFSET>,
+            Connect: Connect::<Impl, IMPL_OFFSET>,
+            GetAttribute: GetAttribute::<Impl, IMPL_OFFSET>,
+            GetIntegerAttribute: GetIntegerAttribute::<Impl, IMPL_OFFSET>,
+            GetStringAttribute: GetStringAttribute::<Impl, IMPL_OFFSET>,
+            GetNetworkProfile: GetNetworkProfile::<Impl, IMPL_OFFSET>,
+            SetNetworkProfile: SetNetworkProfile::<Impl, IMPL_OFFSET>,
+            GetVendorExtension: GetVendorExtension::<Impl, IMPL_OFFSET>,
+            SetVendorExtension: SetVendorExtension::<Impl, IMPL_OFFSET>,
+            Unadvise: Unadvise::<Impl, IMPL_OFFSET>,
+            SetNFCPasswordParams: SetNFCPasswordParams::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWCNDevice as ::windows::core::Interface>::IID

@@ -9,7 +9,7 @@ impl IEffectivePermissionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetEffectivePermission::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetEffectivePermission: GetEffectivePermission::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEffectivePermission as ::windows::core::Interface>::IID
@@ -42,7 +42,10 @@ impl IEffectivePermission2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ComputeEffectivePermissionWithSecondarySecurity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ComputeEffectivePermissionWithSecondarySecurity: ComputeEffectivePermissionWithSecondarySecurity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEffectivePermission2 as ::windows::core::Interface>::IID
@@ -89,7 +92,16 @@ impl ISecurityInformationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetObjectInformation::<Impl, IMPL_OFFSET>, GetSecurity::<Impl, IMPL_OFFSET>, SetSecurity::<Impl, IMPL_OFFSET>, GetAccessRights::<Impl, IMPL_OFFSET>, MapGeneric::<Impl, IMPL_OFFSET>, GetInheritTypes::<Impl, IMPL_OFFSET>, PropertySheetPageCallback::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetObjectInformation: GetObjectInformation::<Impl, IMPL_OFFSET>,
+            GetSecurity: GetSecurity::<Impl, IMPL_OFFSET>,
+            SetSecurity: SetSecurity::<Impl, IMPL_OFFSET>,
+            GetAccessRights: GetAccessRights::<Impl, IMPL_OFFSET>,
+            MapGeneric: MapGeneric::<Impl, IMPL_OFFSET>,
+            GetInheritTypes: GetInheritTypes::<Impl, IMPL_OFFSET>,
+            PropertySheetPageCallback: PropertySheetPageCallback::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecurityInformation as ::windows::core::Interface>::IID
@@ -111,7 +123,11 @@ impl ISecurityInformation2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, IsDaclCanonical::<Impl, IMPL_OFFSET>, LookupSids::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            IsDaclCanonical: IsDaclCanonical::<Impl, IMPL_OFFSET>,
+            LookupSids: LookupSids::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecurityInformation2 as ::windows::core::Interface>::IID
@@ -133,7 +149,11 @@ impl ISecurityInformation3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetFullResourceName::<Impl, IMPL_OFFSET>, OpenElevatedEditor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetFullResourceName: GetFullResourceName::<Impl, IMPL_OFFSET>,
+            OpenElevatedEditor: OpenElevatedEditor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecurityInformation3 as ::windows::core::Interface>::IID
@@ -150,7 +170,7 @@ impl ISecurityInformation4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetSecondarySecurity::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetSecondarySecurity: GetSecondarySecurity::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecurityInformation4 as ::windows::core::Interface>::IID
@@ -167,7 +187,7 @@ impl ISecurityObjectTypeInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetInheritSource::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetInheritSource: GetInheritSource::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecurityObjectTypeInfo as ::windows::core::Interface>::IID

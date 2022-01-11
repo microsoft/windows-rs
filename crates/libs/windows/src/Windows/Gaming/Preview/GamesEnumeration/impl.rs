@@ -68,7 +68,14 @@ impl IGameListEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameListEntry>, ::windows::core::GetTrustLevel, DisplayInfo::<Impl, IMPL_OFFSET>, LaunchAsync::<Impl, IMPL_OFFSET>, Category::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>, SetCategoryAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameListEntry, BASE_OFFSET>(),
+            DisplayInfo: DisplayInfo::<Impl, IMPL_OFFSET>,
+            LaunchAsync: LaunchAsync::<Impl, IMPL_OFFSET>,
+            Category: Category::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            SetCategoryAsync: SetCategoryAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameListEntry as ::windows::core::Interface>::IID
@@ -180,22 +187,17 @@ impl IGameListEntry2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGameListEntry2>,
-            ::windows::core::GetTrustLevel,
-            LaunchableState::<Impl, IMPL_OFFSET>,
-            LauncherExecutable::<Impl, IMPL_OFFSET>,
-            LaunchParameters::<Impl, IMPL_OFFSET>,
-            SetLauncherExecutableFileAsync::<Impl, IMPL_OFFSET>,
-            SetLauncherExecutableFileWithParamsAsync::<Impl, IMPL_OFFSET>,
-            TitleId::<Impl, IMPL_OFFSET>,
-            SetTitleIdAsync::<Impl, IMPL_OFFSET>,
-            GameModeConfiguration::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameListEntry2, BASE_OFFSET>(),
+            LaunchableState: LaunchableState::<Impl, IMPL_OFFSET>,
+            LauncherExecutable: LauncherExecutable::<Impl, IMPL_OFFSET>,
+            LaunchParameters: LaunchParameters::<Impl, IMPL_OFFSET>,
+            SetLauncherExecutableFileAsync: SetLauncherExecutableFileAsync::<Impl, IMPL_OFFSET>,
+            SetLauncherExecutableFileWithParamsAsync: SetLauncherExecutableFileWithParamsAsync::<Impl, IMPL_OFFSET>,
+            TitleId: TitleId::<Impl, IMPL_OFFSET>,
+            SetTitleIdAsync: SetTitleIdAsync::<Impl, IMPL_OFFSET>,
+            GameModeConfiguration: GameModeConfiguration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameListEntry2 as ::windows::core::Interface>::IID
@@ -286,22 +288,17 @@ impl IGameListStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveGameUpdated(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGameListStatics>,
-            ::windows::core::GetTrustLevel,
-            FindAllAsync::<Impl, IMPL_OFFSET>,
-            FindAllAsyncPackageFamilyName::<Impl, IMPL_OFFSET>,
-            GameAdded::<Impl, IMPL_OFFSET>,
-            RemoveGameAdded::<Impl, IMPL_OFFSET>,
-            GameRemoved::<Impl, IMPL_OFFSET>,
-            RemoveGameRemoved::<Impl, IMPL_OFFSET>,
-            GameUpdated::<Impl, IMPL_OFFSET>,
-            RemoveGameUpdated::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameListStatics, BASE_OFFSET>(),
+            FindAllAsync: FindAllAsync::<Impl, IMPL_OFFSET>,
+            FindAllAsyncPackageFamilyName: FindAllAsyncPackageFamilyName::<Impl, IMPL_OFFSET>,
+            GameAdded: GameAdded::<Impl, IMPL_OFFSET>,
+            RemoveGameAdded: RemoveGameAdded::<Impl, IMPL_OFFSET>,
+            GameRemoved: GameRemoved::<Impl, IMPL_OFFSET>,
+            RemoveGameRemoved: RemoveGameRemoved::<Impl, IMPL_OFFSET>,
+            GameUpdated: GameUpdated::<Impl, IMPL_OFFSET>,
+            RemoveGameUpdated: RemoveGameUpdated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameListStatics as ::windows::core::Interface>::IID
@@ -341,7 +338,11 @@ impl IGameListStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameListStatics2>, ::windows::core::GetTrustLevel, MergeEntriesAsync::<Impl, IMPL_OFFSET>, UnmergeEntryAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameListStatics2, BASE_OFFSET>(),
+            MergeEntriesAsync: MergeEntriesAsync::<Impl, IMPL_OFFSET>,
+            UnmergeEntryAsync: UnmergeEntryAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameListStatics2 as ::windows::core::Interface>::IID
@@ -517,32 +518,27 @@ impl IGameModeConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGameModeConfiguration>,
-            ::windows::core::GetTrustLevel,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            SetIsEnabled::<Impl, IMPL_OFFSET>,
-            RelatedProcessNames::<Impl, IMPL_OFFSET>,
-            PercentGpuTimeAllocatedToGame::<Impl, IMPL_OFFSET>,
-            SetPercentGpuTimeAllocatedToGame::<Impl, IMPL_OFFSET>,
-            PercentGpuMemoryAllocatedToGame::<Impl, IMPL_OFFSET>,
-            SetPercentGpuMemoryAllocatedToGame::<Impl, IMPL_OFFSET>,
-            PercentGpuMemoryAllocatedToSystemCompositor::<Impl, IMPL_OFFSET>,
-            SetPercentGpuMemoryAllocatedToSystemCompositor::<Impl, IMPL_OFFSET>,
-            MaxCpuCount::<Impl, IMPL_OFFSET>,
-            SetMaxCpuCount::<Impl, IMPL_OFFSET>,
-            CpuExclusivityMaskLow::<Impl, IMPL_OFFSET>,
-            SetCpuExclusivityMaskLow::<Impl, IMPL_OFFSET>,
-            CpuExclusivityMaskHigh::<Impl, IMPL_OFFSET>,
-            SetCpuExclusivityMaskHigh::<Impl, IMPL_OFFSET>,
-            AffinitizeToExclusiveCpus::<Impl, IMPL_OFFSET>,
-            SetAffinitizeToExclusiveCpus::<Impl, IMPL_OFFSET>,
-            SaveAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameModeConfiguration, BASE_OFFSET>(),
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled: SetIsEnabled::<Impl, IMPL_OFFSET>,
+            RelatedProcessNames: RelatedProcessNames::<Impl, IMPL_OFFSET>,
+            PercentGpuTimeAllocatedToGame: PercentGpuTimeAllocatedToGame::<Impl, IMPL_OFFSET>,
+            SetPercentGpuTimeAllocatedToGame: SetPercentGpuTimeAllocatedToGame::<Impl, IMPL_OFFSET>,
+            PercentGpuMemoryAllocatedToGame: PercentGpuMemoryAllocatedToGame::<Impl, IMPL_OFFSET>,
+            SetPercentGpuMemoryAllocatedToGame: SetPercentGpuMemoryAllocatedToGame::<Impl, IMPL_OFFSET>,
+            PercentGpuMemoryAllocatedToSystemCompositor: PercentGpuMemoryAllocatedToSystemCompositor::<Impl, IMPL_OFFSET>,
+            SetPercentGpuMemoryAllocatedToSystemCompositor: SetPercentGpuMemoryAllocatedToSystemCompositor::<Impl, IMPL_OFFSET>,
+            MaxCpuCount: MaxCpuCount::<Impl, IMPL_OFFSET>,
+            SetMaxCpuCount: SetMaxCpuCount::<Impl, IMPL_OFFSET>,
+            CpuExclusivityMaskLow: CpuExclusivityMaskLow::<Impl, IMPL_OFFSET>,
+            SetCpuExclusivityMaskLow: SetCpuExclusivityMaskLow::<Impl, IMPL_OFFSET>,
+            CpuExclusivityMaskHigh: CpuExclusivityMaskHigh::<Impl, IMPL_OFFSET>,
+            SetCpuExclusivityMaskHigh: SetCpuExclusivityMaskHigh::<Impl, IMPL_OFFSET>,
+            AffinitizeToExclusiveCpus: AffinitizeToExclusiveCpus::<Impl, IMPL_OFFSET>,
+            SetAffinitizeToExclusiveCpus: SetAffinitizeToExclusiveCpus::<Impl, IMPL_OFFSET>,
+            SaveAsync: SaveAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameModeConfiguration as ::windows::core::Interface>::IID
@@ -582,7 +578,11 @@ impl IGameModeUserConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameModeUserConfiguration>, ::windows::core::GetTrustLevel, GamingRelatedProcessNames::<Impl, IMPL_OFFSET>, SaveAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameModeUserConfiguration, BASE_OFFSET>(),
+            GamingRelatedProcessNames: GamingRelatedProcessNames::<Impl, IMPL_OFFSET>,
+            SaveAsync: SaveAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameModeUserConfiguration as ::windows::core::Interface>::IID
@@ -610,7 +610,10 @@ impl IGameModeUserConfigurationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameModeUserConfigurationStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameModeUserConfigurationStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameModeUserConfigurationStatics as ::windows::core::Interface>::IID

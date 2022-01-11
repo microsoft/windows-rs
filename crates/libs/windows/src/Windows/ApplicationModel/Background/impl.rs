@@ -56,7 +56,13 @@ impl IActivitySensorTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivitySensorTrigger>, ::windows::core::GetTrustLevel, SubscribedActivities::<Impl, IMPL_OFFSET>, ReportInterval::<Impl, IMPL_OFFSET>, SupportedActivities::<Impl, IMPL_OFFSET>, MinimumReportInterval::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivitySensorTrigger, BASE_OFFSET>(),
+            SubscribedActivities: SubscribedActivities::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            SupportedActivities: SupportedActivities::<Impl, IMPL_OFFSET>,
+            MinimumReportInterval: MinimumReportInterval::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivitySensorTrigger as ::windows::core::Interface>::IID
@@ -84,7 +90,7 @@ impl IActivitySensorTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivitySensorTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IActivitySensorTriggerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivitySensorTriggerFactory as ::windows::core::Interface>::IID
@@ -124,7 +130,11 @@ impl IAlarmApplicationManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlarmApplicationManagerStatics>, ::windows::core::GetTrustLevel, RequestAccessAsync::<Impl, IMPL_OFFSET>, GetAccessStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAlarmApplicationManagerStatics, BASE_OFFSET>(),
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            GetAccessStatus: GetAccessStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAlarmApplicationManagerStatics as ::windows::core::Interface>::IID
@@ -157,7 +167,11 @@ impl IAppBroadcastTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBroadcastTrigger>, ::windows::core::GetTrustLevel, SetProviderInfo::<Impl, IMPL_OFFSET>, ProviderInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBroadcastTrigger, BASE_OFFSET>(),
+            SetProviderInfo: SetProviderInfo::<Impl, IMPL_OFFSET>,
+            ProviderInfo: ProviderInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBroadcastTrigger as ::windows::core::Interface>::IID
@@ -185,7 +199,10 @@ impl IAppBroadcastTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBroadcastTriggerFactory>, ::windows::core::GetTrustLevel, CreateAppBroadcastTrigger::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBroadcastTriggerFactory, BASE_OFFSET>(),
+            CreateAppBroadcastTrigger: CreateAppBroadcastTrigger::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBroadcastTriggerFactory as ::windows::core::Interface>::IID
@@ -303,26 +320,21 @@ impl IAppBroadcastTriggerProviderInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppBroadcastTriggerProviderInfo>,
-            ::windows::core::GetTrustLevel,
-            SetDisplayNameResource::<Impl, IMPL_OFFSET>,
-            DisplayNameResource::<Impl, IMPL_OFFSET>,
-            SetLogoResource::<Impl, IMPL_OFFSET>,
-            LogoResource::<Impl, IMPL_OFFSET>,
-            SetVideoKeyFrameInterval::<Impl, IMPL_OFFSET>,
-            VideoKeyFrameInterval::<Impl, IMPL_OFFSET>,
-            SetMaxVideoBitrate::<Impl, IMPL_OFFSET>,
-            MaxVideoBitrate::<Impl, IMPL_OFFSET>,
-            SetMaxVideoWidth::<Impl, IMPL_OFFSET>,
-            MaxVideoWidth::<Impl, IMPL_OFFSET>,
-            SetMaxVideoHeight::<Impl, IMPL_OFFSET>,
-            MaxVideoHeight::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBroadcastTriggerProviderInfo, BASE_OFFSET>(),
+            SetDisplayNameResource: SetDisplayNameResource::<Impl, IMPL_OFFSET>,
+            DisplayNameResource: DisplayNameResource::<Impl, IMPL_OFFSET>,
+            SetLogoResource: SetLogoResource::<Impl, IMPL_OFFSET>,
+            LogoResource: LogoResource::<Impl, IMPL_OFFSET>,
+            SetVideoKeyFrameInterval: SetVideoKeyFrameInterval::<Impl, IMPL_OFFSET>,
+            VideoKeyFrameInterval: VideoKeyFrameInterval::<Impl, IMPL_OFFSET>,
+            SetMaxVideoBitrate: SetMaxVideoBitrate::<Impl, IMPL_OFFSET>,
+            MaxVideoBitrate: MaxVideoBitrate::<Impl, IMPL_OFFSET>,
+            SetMaxVideoWidth: SetMaxVideoWidth::<Impl, IMPL_OFFSET>,
+            MaxVideoWidth: MaxVideoWidth::<Impl, IMPL_OFFSET>,
+            SetMaxVideoHeight: SetMaxVideoHeight::<Impl, IMPL_OFFSET>,
+            MaxVideoHeight: MaxVideoHeight::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBroadcastTriggerProviderInfo as ::windows::core::Interface>::IID
@@ -362,7 +374,11 @@ impl IApplicationTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationTrigger>, ::windows::core::GetTrustLevel, RequestAsync::<Impl, IMPL_OFFSET>, RequestAsyncWithArguments::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationTrigger, BASE_OFFSET>(),
+            RequestAsync: RequestAsync::<Impl, IMPL_OFFSET>,
+            RequestAsyncWithArguments: RequestAsyncWithArguments::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationTrigger as ::windows::core::Interface>::IID
@@ -390,7 +406,7 @@ impl IApplicationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationTriggerDetails>, ::windows::core::GetTrustLevel, Arguments::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationTriggerDetails, BASE_OFFSET>(), Arguments: Arguments::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationTriggerDetails as ::windows::core::Interface>::IID
@@ -405,7 +421,7 @@ impl ::windows::core::RuntimeName for IAppointmentStoreNotificationTrigger {
 #[cfg(feature = "implement_exclusive")]
 impl IAppointmentStoreNotificationTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentStoreNotificationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentStoreNotificationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentStoreNotificationTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentStoreNotificationTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppointmentStoreNotificationTrigger as ::windows::core::Interface>::IID
@@ -417,7 +433,7 @@ impl ::windows::core::RuntimeName for IBackgroundCondition {
 }
 impl IBackgroundConditionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundConditionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundConditionVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundCondition>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundCondition, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundCondition as ::windows::core::Interface>::IID
@@ -491,20 +507,15 @@ impl IBackgroundExecutionManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBackgroundExecutionManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            RequestAccessAsync::<Impl, IMPL_OFFSET>,
-            RequestAccessForApplicationAsync::<Impl, IMPL_OFFSET>,
-            RemoveAccess::<Impl, IMPL_OFFSET>,
-            RemoveAccessForApplication::<Impl, IMPL_OFFSET>,
-            GetAccessStatus::<Impl, IMPL_OFFSET>,
-            GetAccessStatusForApplication::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundExecutionManagerStatics, BASE_OFFSET>(),
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessForApplicationAsync: RequestAccessForApplicationAsync::<Impl, IMPL_OFFSET>,
+            RemoveAccess: RemoveAccess::<Impl, IMPL_OFFSET>,
+            RemoveAccessForApplication: RemoveAccessForApplication::<Impl, IMPL_OFFSET>,
+            GetAccessStatus: GetAccessStatus::<Impl, IMPL_OFFSET>,
+            GetAccessStatusForApplication: GetAccessStatusForApplication::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundExecutionManagerStatics as ::windows::core::Interface>::IID
@@ -532,7 +543,10 @@ impl IBackgroundExecutionManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundExecutionManagerStatics2>, ::windows::core::GetTrustLevel, RequestAccessKindAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundExecutionManagerStatics2, BASE_OFFSET>(),
+            RequestAccessKindAsync: RequestAccessKindAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundExecutionManagerStatics2 as ::windows::core::Interface>::IID
@@ -584,7 +598,12 @@ impl IBackgroundExecutionManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundExecutionManagerStatics3>, ::windows::core::GetTrustLevel, RequestAccessKindForModernStandbyAsync::<Impl, IMPL_OFFSET>, GetAccessStatusForModernStandby::<Impl, IMPL_OFFSET>, GetAccessStatusForModernStandbyForApplication::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundExecutionManagerStatics3, BASE_OFFSET>(),
+            RequestAccessKindForModernStandbyAsync: RequestAccessKindForModernStandbyAsync::<Impl, IMPL_OFFSET>,
+            GetAccessStatusForModernStandby: GetAccessStatusForModernStandby::<Impl, IMPL_OFFSET>,
+            GetAccessStatusForModernStandbyForApplication: GetAccessStatusForModernStandbyForApplication::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundExecutionManagerStatics3 as ::windows::core::Interface>::IID
@@ -602,7 +621,7 @@ impl IBackgroundTaskVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Run(&*(&taskinstance as *const <IBackgroundTaskInstance as ::windows::core::Abi>::Abi as *const <IBackgroundTaskInstance as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTask>, ::windows::core::GetTrustLevel, Run::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTask, BASE_OFFSET>(), Run: Run::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTask as ::windows::core::Interface>::IID
@@ -674,21 +693,16 @@ impl IBackgroundTaskBuilderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder>,
-            ::windows::core::GetTrustLevel,
-            SetTaskEntryPoint::<Impl, IMPL_OFFSET>,
-            TaskEntryPoint::<Impl, IMPL_OFFSET>,
-            SetTrigger::<Impl, IMPL_OFFSET>,
-            AddCondition::<Impl, IMPL_OFFSET>,
-            SetName::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            Register::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskBuilder, BASE_OFFSET>(),
+            SetTaskEntryPoint: SetTaskEntryPoint::<Impl, IMPL_OFFSET>,
+            TaskEntryPoint: TaskEntryPoint::<Impl, IMPL_OFFSET>,
+            SetTrigger: SetTrigger::<Impl, IMPL_OFFSET>,
+            AddCondition: AddCondition::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Register: Register::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskBuilder as ::windows::core::Interface>::IID
@@ -721,7 +735,11 @@ impl IBackgroundTaskBuilder2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder2>, ::windows::core::GetTrustLevel, SetCancelOnConditionLoss::<Impl, IMPL_OFFSET>, CancelOnConditionLoss::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskBuilder2, BASE_OFFSET>(),
+            SetCancelOnConditionLoss: SetCancelOnConditionLoss::<Impl, IMPL_OFFSET>,
+            CancelOnConditionLoss: CancelOnConditionLoss::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskBuilder2 as ::windows::core::Interface>::IID
@@ -754,7 +772,11 @@ impl IBackgroundTaskBuilder3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder3>, ::windows::core::GetTrustLevel, SetIsNetworkRequested::<Impl, IMPL_OFFSET>, IsNetworkRequested::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskBuilder3, BASE_OFFSET>(),
+            SetIsNetworkRequested: SetIsNetworkRequested::<Impl, IMPL_OFFSET>,
+            IsNetworkRequested: IsNetworkRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskBuilder3 as ::windows::core::Interface>::IID
@@ -787,7 +809,11 @@ impl IBackgroundTaskBuilder4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTaskGroup(&*(&value as *const <BackgroundTaskRegistrationGroup as ::windows::core::Abi>::Abi as *const <BackgroundTaskRegistrationGroup as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder4>, ::windows::core::GetTrustLevel, TaskGroup::<Impl, IMPL_OFFSET>, SetTaskGroup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskBuilder4, BASE_OFFSET>(),
+            TaskGroup: TaskGroup::<Impl, IMPL_OFFSET>,
+            SetTaskGroup: SetTaskGroup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskBuilder4 as ::windows::core::Interface>::IID
@@ -808,7 +834,10 @@ impl IBackgroundTaskBuilder5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTaskEntryPointClsid(&*(&taskentrypoint as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder5>, ::windows::core::GetTrustLevel, SetTaskEntryPointClsid::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskBuilder5, BASE_OFFSET>(),
+            SetTaskEntryPointClsid: SetTaskEntryPointClsid::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskBuilder5 as ::windows::core::Interface>::IID
@@ -841,7 +870,11 @@ impl IBackgroundTaskCompletedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CheckResult().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskCompletedEventArgs>, ::windows::core::GetTrustLevel, InstanceId::<Impl, IMPL_OFFSET>, CheckResult::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskCompletedEventArgs, BASE_OFFSET>(),
+            InstanceId: InstanceId::<Impl, IMPL_OFFSET>,
+            CheckResult: CheckResult::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskCompletedEventArgs as ::windows::core::Interface>::IID
@@ -862,7 +895,7 @@ impl IBackgroundTaskDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskDeferral, BASE_OFFSET>(), Complete: Complete::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskDeferral as ::windows::core::Interface>::IID
@@ -972,23 +1005,18 @@ impl IBackgroundTaskInstanceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBackgroundTaskInstance>,
-            ::windows::core::GetTrustLevel,
-            InstanceId::<Impl, IMPL_OFFSET>,
-            Task::<Impl, IMPL_OFFSET>,
-            Progress::<Impl, IMPL_OFFSET>,
-            SetProgress::<Impl, IMPL_OFFSET>,
-            TriggerDetails::<Impl, IMPL_OFFSET>,
-            Canceled::<Impl, IMPL_OFFSET>,
-            RemoveCanceled::<Impl, IMPL_OFFSET>,
-            SuspendedCount::<Impl, IMPL_OFFSET>,
-            GetDeferral::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskInstance, BASE_OFFSET>(),
+            InstanceId: InstanceId::<Impl, IMPL_OFFSET>,
+            Task: Task::<Impl, IMPL_OFFSET>,
+            Progress: Progress::<Impl, IMPL_OFFSET>,
+            SetProgress: SetProgress::<Impl, IMPL_OFFSET>,
+            TriggerDetails: TriggerDetails::<Impl, IMPL_OFFSET>,
+            Canceled: Canceled::<Impl, IMPL_OFFSET>,
+            RemoveCanceled: RemoveCanceled::<Impl, IMPL_OFFSET>,
+            SuspendedCount: SuspendedCount::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskInstance as ::windows::core::Interface>::IID
@@ -1016,7 +1044,10 @@ impl IBackgroundTaskInstance2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskInstance2>, ::windows::core::GetTrustLevel, GetThrottleCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskInstance2, BASE_OFFSET>(),
+            GetThrottleCount: GetThrottleCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskInstance2 as ::windows::core::Interface>::IID
@@ -1044,7 +1075,7 @@ impl IBackgroundTaskInstance4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskInstance4>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskInstance4, BASE_OFFSET>(), User: User::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskInstance4 as ::windows::core::Interface>::IID
@@ -1084,7 +1115,11 @@ impl IBackgroundTaskProgressEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskProgressEventArgs>, ::windows::core::GetTrustLevel, InstanceId::<Impl, IMPL_OFFSET>, Progress::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskProgressEventArgs, BASE_OFFSET>(),
+            InstanceId: InstanceId::<Impl, IMPL_OFFSET>,
+            Progress: Progress::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskProgressEventArgs as ::windows::core::Interface>::IID
@@ -1163,21 +1198,16 @@ impl IBackgroundTaskRegistrationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Unregister(canceltask).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistration>,
-            ::windows::core::GetTrustLevel,
-            TaskId::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            Progress::<Impl, IMPL_OFFSET>,
-            RemoveProgress::<Impl, IMPL_OFFSET>,
-            Completed::<Impl, IMPL_OFFSET>,
-            RemoveCompleted::<Impl, IMPL_OFFSET>,
-            Unregister::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskRegistration, BASE_OFFSET>(),
+            TaskId: TaskId::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Progress: Progress::<Impl, IMPL_OFFSET>,
+            RemoveProgress: RemoveProgress::<Impl, IMPL_OFFSET>,
+            Completed: Completed::<Impl, IMPL_OFFSET>,
+            RemoveCompleted: RemoveCompleted::<Impl, IMPL_OFFSET>,
+            Unregister: Unregister::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskRegistration as ::windows::core::Interface>::IID
@@ -1205,7 +1235,7 @@ impl IBackgroundTaskRegistration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistration2>, ::windows::core::GetTrustLevel, Trigger::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskRegistration2, BASE_OFFSET>(), Trigger: Trigger::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskRegistration2 as ::windows::core::Interface>::IID
@@ -1233,7 +1263,7 @@ impl IBackgroundTaskRegistration3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistration3>, ::windows::core::GetTrustLevel, TaskGroup::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskRegistration3, BASE_OFFSET>(), TaskGroup: TaskGroup::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskRegistration3 as ::windows::core::Interface>::IID
@@ -1302,7 +1332,14 @@ impl IBackgroundTaskRegistrationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistrationGroup>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, BackgroundActivated::<Impl, IMPL_OFFSET>, RemoveBackgroundActivated::<Impl, IMPL_OFFSET>, AllTasks::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskRegistrationGroup, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            BackgroundActivated: BackgroundActivated::<Impl, IMPL_OFFSET>,
+            RemoveBackgroundActivated: RemoveBackgroundActivated::<Impl, IMPL_OFFSET>,
+            AllTasks: AllTasks::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskRegistrationGroup as ::windows::core::Interface>::IID
@@ -1342,7 +1379,11 @@ impl IBackgroundTaskRegistrationGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistrationGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskRegistrationGroupFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithName: CreateWithName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskRegistrationGroupFactory as ::windows::core::Interface>::IID
@@ -1370,7 +1411,10 @@ impl IBackgroundTaskRegistrationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistrationStatics>, ::windows::core::GetTrustLevel, AllTasks::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskRegistrationStatics, BASE_OFFSET>(),
+            AllTasks: AllTasks::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskRegistrationStatics as ::windows::core::Interface>::IID
@@ -1410,7 +1454,11 @@ impl IBackgroundTaskRegistrationStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistrationStatics2>, ::windows::core::GetTrustLevel, AllTaskGroups::<Impl, IMPL_OFFSET>, GetTaskGroup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskRegistrationStatics2, BASE_OFFSET>(),
+            AllTaskGroups: AllTaskGroups::<Impl, IMPL_OFFSET>,
+            GetTaskGroup: GetTaskGroup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskRegistrationStatics2 as ::windows::core::Interface>::IID
@@ -1422,7 +1470,7 @@ impl ::windows::core::RuntimeName for IBackgroundTrigger {
 }
 impl IBackgroundTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTrigger as ::windows::core::Interface>::IID
@@ -1450,7 +1498,10 @@ impl IBackgroundWorkCostStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundWorkCostStatics>, ::windows::core::GetTrustLevel, CurrentBackgroundWorkCost::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundWorkCostStatics, BASE_OFFSET>(),
+            CurrentBackgroundWorkCost: CurrentBackgroundWorkCost::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundWorkCostStatics as ::windows::core::Interface>::IID
@@ -1478,7 +1529,10 @@ impl IBluetoothLEAdvertisementPublisherTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementPublisherTrigger>, ::windows::core::GetTrustLevel, Advertisement::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEAdvertisementPublisherTrigger, BASE_OFFSET>(),
+            Advertisement: Advertisement::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEAdvertisementPublisherTrigger as ::windows::core::Interface>::IID
@@ -1562,22 +1616,17 @@ impl IBluetoothLEAdvertisementPublisherTrigger2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIncludeTransmitPowerLevel(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementPublisherTrigger2>,
-            ::windows::core::GetTrustLevel,
-            PreferredTransmitPowerLevelInDBm::<Impl, IMPL_OFFSET>,
-            SetPreferredTransmitPowerLevelInDBm::<Impl, IMPL_OFFSET>,
-            UseExtendedFormat::<Impl, IMPL_OFFSET>,
-            SetUseExtendedFormat::<Impl, IMPL_OFFSET>,
-            IsAnonymous::<Impl, IMPL_OFFSET>,
-            SetIsAnonymous::<Impl, IMPL_OFFSET>,
-            IncludeTransmitPowerLevel::<Impl, IMPL_OFFSET>,
-            SetIncludeTransmitPowerLevel::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEAdvertisementPublisherTrigger2, BASE_OFFSET>(),
+            PreferredTransmitPowerLevelInDBm: PreferredTransmitPowerLevelInDBm::<Impl, IMPL_OFFSET>,
+            SetPreferredTransmitPowerLevelInDBm: SetPreferredTransmitPowerLevelInDBm::<Impl, IMPL_OFFSET>,
+            UseExtendedFormat: UseExtendedFormat::<Impl, IMPL_OFFSET>,
+            SetUseExtendedFormat: SetUseExtendedFormat::<Impl, IMPL_OFFSET>,
+            IsAnonymous: IsAnonymous::<Impl, IMPL_OFFSET>,
+            SetIsAnonymous: SetIsAnonymous::<Impl, IMPL_OFFSET>,
+            IncludeTransmitPowerLevel: IncludeTransmitPowerLevel::<Impl, IMPL_OFFSET>,
+            SetIncludeTransmitPowerLevel: SetIncludeTransmitPowerLevel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEAdvertisementPublisherTrigger2 as ::windows::core::Interface>::IID
@@ -1675,22 +1724,17 @@ impl IBluetoothLEAdvertisementWatcherTriggerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAdvertisementFilter(&*(&value as *const <super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter as ::windows::core::Abi>::Abi as *const <super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementWatcherTrigger>,
-            ::windows::core::GetTrustLevel,
-            MinSamplingInterval::<Impl, IMPL_OFFSET>,
-            MaxSamplingInterval::<Impl, IMPL_OFFSET>,
-            MinOutOfRangeTimeout::<Impl, IMPL_OFFSET>,
-            MaxOutOfRangeTimeout::<Impl, IMPL_OFFSET>,
-            SignalStrengthFilter::<Impl, IMPL_OFFSET>,
-            SetSignalStrengthFilter::<Impl, IMPL_OFFSET>,
-            AdvertisementFilter::<Impl, IMPL_OFFSET>,
-            SetAdvertisementFilter::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEAdvertisementWatcherTrigger, BASE_OFFSET>(),
+            MinSamplingInterval: MinSamplingInterval::<Impl, IMPL_OFFSET>,
+            MaxSamplingInterval: MaxSamplingInterval::<Impl, IMPL_OFFSET>,
+            MinOutOfRangeTimeout: MinOutOfRangeTimeout::<Impl, IMPL_OFFSET>,
+            MaxOutOfRangeTimeout: MaxOutOfRangeTimeout::<Impl, IMPL_OFFSET>,
+            SignalStrengthFilter: SignalStrengthFilter::<Impl, IMPL_OFFSET>,
+            SetSignalStrengthFilter: SetSignalStrengthFilter::<Impl, IMPL_OFFSET>,
+            AdvertisementFilter: AdvertisementFilter::<Impl, IMPL_OFFSET>,
+            SetAdvertisementFilter: SetAdvertisementFilter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEAdvertisementWatcherTrigger as ::windows::core::Interface>::IID
@@ -1723,7 +1767,11 @@ impl IBluetoothLEAdvertisementWatcherTrigger2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowExtendedAdvertisements(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementWatcherTrigger2>, ::windows::core::GetTrustLevel, AllowExtendedAdvertisements::<Impl, IMPL_OFFSET>, SetAllowExtendedAdvertisements::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEAdvertisementWatcherTrigger2, BASE_OFFSET>(),
+            AllowExtendedAdvertisements: AllowExtendedAdvertisements::<Impl, IMPL_OFFSET>,
+            SetAllowExtendedAdvertisements: SetAllowExtendedAdvertisements::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEAdvertisementWatcherTrigger2 as ::windows::core::Interface>::IID
@@ -1738,7 +1786,7 @@ impl ::windows::core::RuntimeName for ICachedFileUpdaterTrigger {
 #[cfg(feature = "implement_exclusive")]
 impl ICachedFileUpdaterTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICachedFileUpdaterTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICachedFileUpdaterTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICachedFileUpdaterTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICachedFileUpdaterTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICachedFileUpdaterTrigger as ::windows::core::Interface>::IID
@@ -1790,7 +1838,12 @@ impl ICachedFileUpdaterTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICachedFileUpdaterTriggerDetails>, ::windows::core::GetTrustLevel, UpdateTarget::<Impl, IMPL_OFFSET>, UpdateRequest::<Impl, IMPL_OFFSET>, CanRequestUserInput::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICachedFileUpdaterTriggerDetails, BASE_OFFSET>(),
+            UpdateTarget: UpdateTarget::<Impl, IMPL_OFFSET>,
+            UpdateRequest: UpdateRequest::<Impl, IMPL_OFFSET>,
+            CanRequestUserInput: CanRequestUserInput::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICachedFileUpdaterTriggerDetails as ::windows::core::Interface>::IID
@@ -1805,7 +1858,7 @@ impl ::windows::core::RuntimeName for IChatMessageNotificationTrigger {
 #[cfg(feature = "implement_exclusive")]
 impl IChatMessageNotificationTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageNotificationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageNotificationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageNotificationTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageNotificationTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageNotificationTrigger as ::windows::core::Interface>::IID
@@ -1820,7 +1873,7 @@ impl ::windows::core::RuntimeName for IChatMessageReceivedNotificationTrigger {
 #[cfg(feature = "implement_exclusive")]
 impl IChatMessageReceivedNotificationTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageReceivedNotificationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageReceivedNotificationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageReceivedNotificationTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IChatMessageReceivedNotificationTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IChatMessageReceivedNotificationTrigger as ::windows::core::Interface>::IID
@@ -1835,7 +1888,7 @@ impl ::windows::core::RuntimeName for ICommunicationBlockingAppSetAsActiveTrigge
 #[cfg(feature = "implement_exclusive")]
 impl ICommunicationBlockingAppSetAsActiveTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommunicationBlockingAppSetAsActiveTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommunicationBlockingAppSetAsActiveTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommunicationBlockingAppSetAsActiveTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICommunicationBlockingAppSetAsActiveTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommunicationBlockingAppSetAsActiveTrigger as ::windows::core::Interface>::IID
@@ -1850,7 +1903,7 @@ impl ::windows::core::RuntimeName for IContactStoreNotificationTrigger {
 #[cfg(feature = "implement_exclusive")]
 impl IContactStoreNotificationTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStoreNotificationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactStoreNotificationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactStoreNotificationTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContactStoreNotificationTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactStoreNotificationTrigger as ::windows::core::Interface>::IID
@@ -1878,7 +1931,10 @@ impl IContentPrefetchTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentPrefetchTrigger>, ::windows::core::GetTrustLevel, WaitInterval::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContentPrefetchTrigger, BASE_OFFSET>(),
+            WaitInterval: WaitInterval::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContentPrefetchTrigger as ::windows::core::Interface>::IID
@@ -1906,7 +1962,7 @@ impl IContentPrefetchTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentPrefetchTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContentPrefetchTriggerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContentPrefetchTriggerFactory as ::windows::core::Interface>::IID
@@ -1946,7 +2002,11 @@ impl ICustomSystemEventTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomSystemEventTrigger>, ::windows::core::GetTrustLevel, TriggerId::<Impl, IMPL_OFFSET>, Recurrence::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomSystemEventTrigger, BASE_OFFSET>(),
+            TriggerId: TriggerId::<Impl, IMPL_OFFSET>,
+            Recurrence: Recurrence::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICustomSystemEventTrigger as ::windows::core::Interface>::IID
@@ -1974,7 +2034,7 @@ impl ICustomSystemEventTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomSystemEventTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomSystemEventTriggerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICustomSystemEventTriggerFactory as ::windows::core::Interface>::IID
@@ -2031,7 +2091,13 @@ impl IDeviceConnectionChangeTriggerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaintainConnection(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceConnectionChangeTrigger>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, CanMaintainConnection::<Impl, IMPL_OFFSET>, MaintainConnection::<Impl, IMPL_OFFSET>, SetMaintainConnection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceConnectionChangeTrigger, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            CanMaintainConnection: CanMaintainConnection::<Impl, IMPL_OFFSET>,
+            MaintainConnection: MaintainConnection::<Impl, IMPL_OFFSET>,
+            SetMaintainConnection: SetMaintainConnection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceConnectionChangeTrigger as ::windows::core::Interface>::IID
@@ -2059,7 +2125,10 @@ impl IDeviceConnectionChangeTriggerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceConnectionChangeTriggerStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceConnectionChangeTriggerStatics, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceConnectionChangeTriggerStatics as ::windows::core::Interface>::IID
@@ -2099,7 +2168,11 @@ impl IDeviceManufacturerNotificationTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceManufacturerNotificationTrigger>, ::windows::core::GetTrustLevel, TriggerQualifier::<Impl, IMPL_OFFSET>, OneShot::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceManufacturerNotificationTrigger, BASE_OFFSET>(),
+            TriggerQualifier: TriggerQualifier::<Impl, IMPL_OFFSET>,
+            OneShot: OneShot::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceManufacturerNotificationTrigger as ::windows::core::Interface>::IID
@@ -2127,7 +2200,10 @@ impl IDeviceManufacturerNotificationTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceManufacturerNotificationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceManufacturerNotificationTriggerFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceManufacturerNotificationTriggerFactory as ::windows::core::Interface>::IID
@@ -2171,7 +2247,11 @@ impl IDeviceServicingTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceServicingTrigger>, ::windows::core::GetTrustLevel, RequestAsyncSimple::<Impl, IMPL_OFFSET>, RequestAsyncWithArguments::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceServicingTrigger, BASE_OFFSET>(),
+            RequestAsyncSimple: RequestAsyncSimple::<Impl, IMPL_OFFSET>,
+            RequestAsyncWithArguments: RequestAsyncWithArguments::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceServicingTrigger as ::windows::core::Interface>::IID
@@ -2211,7 +2291,11 @@ impl IDeviceUseTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceUseTrigger>, ::windows::core::GetTrustLevel, RequestAsyncSimple::<Impl, IMPL_OFFSET>, RequestAsyncWithArguments::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceUseTrigger, BASE_OFFSET>(),
+            RequestAsyncSimple: RequestAsyncSimple::<Impl, IMPL_OFFSET>,
+            RequestAsyncWithArguments: RequestAsyncWithArguments::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceUseTrigger as ::windows::core::Interface>::IID
@@ -2226,7 +2310,7 @@ impl ::windows::core::RuntimeName for IDeviceWatcherTrigger {
 #[cfg(feature = "implement_exclusive")]
 impl IDeviceWatcherTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceWatcherTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceWatcherTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceWatcherTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceWatcherTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceWatcherTrigger as ::windows::core::Interface>::IID
@@ -2241,7 +2325,7 @@ impl ::windows::core::RuntimeName for IEmailStoreNotificationTrigger {
 #[cfg(feature = "implement_exclusive")]
 impl IEmailStoreNotificationTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailStoreNotificationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailStoreNotificationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailStoreNotificationTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailStoreNotificationTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailStoreNotificationTrigger as ::windows::core::Interface>::IID
@@ -2269,7 +2353,10 @@ impl IGattCharacteristicNotificationTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTrigger>, ::windows::core::GetTrustLevel, Characteristic::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattCharacteristicNotificationTrigger, BASE_OFFSET>(),
+            Characteristic: Characteristic::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattCharacteristicNotificationTrigger as ::windows::core::Interface>::IID
@@ -2297,7 +2384,10 @@ impl IGattCharacteristicNotificationTrigger2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTrigger2>, ::windows::core::GetTrustLevel, EventTriggeringMode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattCharacteristicNotificationTrigger2, BASE_OFFSET>(),
+            EventTriggeringMode: EventTriggeringMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattCharacteristicNotificationTrigger2 as ::windows::core::Interface>::IID
@@ -2325,7 +2415,10 @@ impl IGattCharacteristicNotificationTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattCharacteristicNotificationTriggerFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattCharacteristicNotificationTriggerFactory as ::windows::core::Interface>::IID
@@ -2353,7 +2446,10 @@ impl IGattCharacteristicNotificationTriggerFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTriggerFactory2>, ::windows::core::GetTrustLevel, CreateWithEventTriggeringMode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattCharacteristicNotificationTriggerFactory2, BASE_OFFSET>(),
+            CreateWithEventTriggeringMode: CreateWithEventTriggeringMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattCharacteristicNotificationTriggerFactory2 as ::windows::core::Interface>::IID
@@ -2410,7 +2506,13 @@ impl IGattServiceProviderTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderTrigger>, ::windows::core::GetTrustLevel, TriggerId::<Impl, IMPL_OFFSET>, Service::<Impl, IMPL_OFFSET>, SetAdvertisingParameters::<Impl, IMPL_OFFSET>, AdvertisingParameters::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattServiceProviderTrigger, BASE_OFFSET>(),
+            TriggerId: TriggerId::<Impl, IMPL_OFFSET>,
+            Service: Service::<Impl, IMPL_OFFSET>,
+            SetAdvertisingParameters: SetAdvertisingParameters::<Impl, IMPL_OFFSET>,
+            AdvertisingParameters: AdvertisingParameters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattServiceProviderTrigger as ::windows::core::Interface>::IID
@@ -2450,7 +2552,11 @@ impl IGattServiceProviderTriggerResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderTriggerResult>, ::windows::core::GetTrustLevel, Trigger::<Impl, IMPL_OFFSET>, Error::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattServiceProviderTriggerResult, BASE_OFFSET>(),
+            Trigger: Trigger::<Impl, IMPL_OFFSET>,
+            Error: Error::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattServiceProviderTriggerResult as ::windows::core::Interface>::IID
@@ -2478,7 +2584,10 @@ impl IGattServiceProviderTriggerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderTriggerStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGattServiceProviderTriggerStatics, BASE_OFFSET>(),
+            CreateAsync: CreateAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGattServiceProviderTriggerStatics as ::windows::core::Interface>::IID
@@ -2511,7 +2620,11 @@ impl IGeovisitTriggerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMonitoringScope(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeovisitTrigger>, ::windows::core::GetTrustLevel, MonitoringScope::<Impl, IMPL_OFFSET>, SetMonitoringScope::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeovisitTrigger, BASE_OFFSET>(),
+            MonitoringScope: MonitoringScope::<Impl, IMPL_OFFSET>,
+            SetMonitoringScope: SetMonitoringScope::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeovisitTrigger as ::windows::core::Interface>::IID
@@ -2539,7 +2652,7 @@ impl ILocationTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocationTrigger>, ::windows::core::GetTrustLevel, TriggerType::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILocationTrigger, BASE_OFFSET>(), TriggerType: TriggerType::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILocationTrigger as ::windows::core::Interface>::IID
@@ -2567,7 +2680,7 @@ impl ILocationTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILocationTriggerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILocationTriggerFactory as ::windows::core::Interface>::IID
@@ -2607,7 +2720,11 @@ impl IMaintenanceTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMaintenanceTrigger>, ::windows::core::GetTrustLevel, FreshnessTime::<Impl, IMPL_OFFSET>, OneShot::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMaintenanceTrigger, BASE_OFFSET>(),
+            FreshnessTime: FreshnessTime::<Impl, IMPL_OFFSET>,
+            OneShot: OneShot::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMaintenanceTrigger as ::windows::core::Interface>::IID
@@ -2635,7 +2752,7 @@ impl IMaintenanceTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMaintenanceTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMaintenanceTriggerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMaintenanceTriggerFactory as ::windows::core::Interface>::IID
@@ -2675,7 +2792,11 @@ impl IMediaProcessingTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProcessingTrigger>, ::windows::core::GetTrustLevel, RequestAsync::<Impl, IMPL_OFFSET>, RequestAsyncWithArguments::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaProcessingTrigger, BASE_OFFSET>(),
+            RequestAsync: RequestAsync::<Impl, IMPL_OFFSET>,
+            RequestAsyncWithArguments: RequestAsyncWithArguments::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaProcessingTrigger as ::windows::core::Interface>::IID
@@ -2690,7 +2811,7 @@ impl ::windows::core::RuntimeName for INetworkOperatorHotspotAuthenticationTrigg
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorHotspotAuthenticationTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorHotspotAuthenticationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetworkOperatorHotspotAuthenticationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorHotspotAuthenticationTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorHotspotAuthenticationTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorHotspotAuthenticationTrigger as ::windows::core::Interface>::IID
@@ -2718,7 +2839,10 @@ impl INetworkOperatorNotificationTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorNotificationTrigger>, ::windows::core::GetTrustLevel, NetworkAccountId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorNotificationTrigger, BASE_OFFSET>(),
+            NetworkAccountId: NetworkAccountId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorNotificationTrigger as ::windows::core::Interface>::IID
@@ -2746,7 +2870,10 @@ impl INetworkOperatorNotificationTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorNotificationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INetworkOperatorNotificationTriggerFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkOperatorNotificationTriggerFactory as ::windows::core::Interface>::IID
@@ -2786,7 +2913,11 @@ impl IPhoneTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneTrigger>, ::windows::core::GetTrustLevel, OneShot::<Impl, IMPL_OFFSET>, TriggerType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneTrigger, BASE_OFFSET>(),
+            OneShot: OneShot::<Impl, IMPL_OFFSET>,
+            TriggerType: TriggerType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneTrigger as ::windows::core::Interface>::IID
@@ -2814,7 +2945,7 @@ impl IPhoneTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneTriggerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneTriggerFactory as ::windows::core::Interface>::IID
@@ -2842,7 +2973,7 @@ impl IPushNotificationTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPushNotificationTriggerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPushNotificationTriggerFactory as ::windows::core::Interface>::IID
@@ -2857,7 +2988,7 @@ impl ::windows::core::RuntimeName for IRcsEndUserMessageAvailableTrigger {
 #[cfg(feature = "implement_exclusive")]
 impl IRcsEndUserMessageAvailableTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsEndUserMessageAvailableTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRcsEndUserMessageAvailableTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageAvailableTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRcsEndUserMessageAvailableTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRcsEndUserMessageAvailableTrigger as ::windows::core::Interface>::IID
@@ -2948,22 +3079,17 @@ impl IRfcommConnectionTriggerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRemoteHostName(&*(&value as *const <super::super::Networking::HostName as ::windows::core::Abi>::Abi as *const <super::super::Networking::HostName as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRfcommConnectionTrigger>,
-            ::windows::core::GetTrustLevel,
-            InboundConnection::<Impl, IMPL_OFFSET>,
-            OutboundConnection::<Impl, IMPL_OFFSET>,
-            AllowMultipleConnections::<Impl, IMPL_OFFSET>,
-            SetAllowMultipleConnections::<Impl, IMPL_OFFSET>,
-            ProtectionLevel::<Impl, IMPL_OFFSET>,
-            SetProtectionLevel::<Impl, IMPL_OFFSET>,
-            RemoteHostName::<Impl, IMPL_OFFSET>,
-            SetRemoteHostName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRfcommConnectionTrigger, BASE_OFFSET>(),
+            InboundConnection: InboundConnection::<Impl, IMPL_OFFSET>,
+            OutboundConnection: OutboundConnection::<Impl, IMPL_OFFSET>,
+            AllowMultipleConnections: AllowMultipleConnections::<Impl, IMPL_OFFSET>,
+            SetAllowMultipleConnections: SetAllowMultipleConnections::<Impl, IMPL_OFFSET>,
+            ProtectionLevel: ProtectionLevel::<Impl, IMPL_OFFSET>,
+            SetProtectionLevel: SetProtectionLevel::<Impl, IMPL_OFFSET>,
+            RemoteHostName: RemoteHostName::<Impl, IMPL_OFFSET>,
+            SetRemoteHostName: SetRemoteHostName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRfcommConnectionTrigger as ::windows::core::Interface>::IID
@@ -2978,7 +3104,7 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorAuthenticati
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISecondaryAuthenticationFactorAuthenticationTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISecondaryAuthenticationFactorAuthenticationTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecondaryAuthenticationFactorAuthenticationTrigger as ::windows::core::Interface>::IID
@@ -2993,7 +3119,7 @@ impl ::windows::core::RuntimeName for ISensorDataThresholdTrigger {
 #[cfg(feature = "implement_exclusive")]
 impl ISensorDataThresholdTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensorDataThresholdTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISensorDataThresholdTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISensorDataThresholdTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISensorDataThresholdTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensorDataThresholdTrigger as ::windows::core::Interface>::IID
@@ -3021,7 +3147,7 @@ impl ISensorDataThresholdTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISensorDataThresholdTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISensorDataThresholdTriggerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensorDataThresholdTriggerFactory as ::windows::core::Interface>::IID
@@ -3049,7 +3175,7 @@ impl ISmartCardTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTrigger>, ::windows::core::GetTrustLevel, TriggerType::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardTrigger, BASE_OFFSET>(), TriggerType: TriggerType::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardTrigger as ::windows::core::Interface>::IID
@@ -3077,7 +3203,7 @@ impl ISmartCardTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISmartCardTriggerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmartCardTriggerFactory as ::windows::core::Interface>::IID
@@ -3105,7 +3231,7 @@ impl ISmsMessageReceivedTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageReceivedTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsMessageReceivedTriggerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmsMessageReceivedTriggerFactory as ::windows::core::Interface>::IID
@@ -3133,7 +3259,10 @@ impl ISocketActivityTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketActivityTrigger>, ::windows::core::GetTrustLevel, IsWakeFromLowPowerSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISocketActivityTrigger, BASE_OFFSET>(),
+            IsWakeFromLowPowerSupported: IsWakeFromLowPowerSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISocketActivityTrigger as ::windows::core::Interface>::IID
@@ -3161,7 +3290,10 @@ impl IStorageLibraryChangeTrackerTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryChangeTrackerTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageLibraryChangeTrackerTriggerFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageLibraryChangeTrackerTriggerFactory as ::windows::core::Interface>::IID
@@ -3176,7 +3308,7 @@ impl ::windows::core::RuntimeName for IStorageLibraryContentChangedTrigger {
 #[cfg(feature = "implement_exclusive")]
 impl IStorageLibraryContentChangedTriggerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryContentChangedTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageLibraryContentChangedTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryContentChangedTrigger>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageLibraryContentChangedTrigger, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageLibraryContentChangedTrigger as ::windows::core::Interface>::IID
@@ -3216,7 +3348,11 @@ impl IStorageLibraryContentChangedTriggerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryContentChangedTriggerStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateFromLibraries::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageLibraryContentChangedTriggerStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateFromLibraries: CreateFromLibraries::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageLibraryContentChangedTriggerStatics as ::windows::core::Interface>::IID
@@ -3244,7 +3380,7 @@ impl ISystemConditionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemCondition>, ::windows::core::GetTrustLevel, ConditionType::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemCondition, BASE_OFFSET>(), ConditionType: ConditionType::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemCondition as ::windows::core::Interface>::IID
@@ -3272,7 +3408,7 @@ impl ISystemConditionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemConditionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemConditionFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemConditionFactory as ::windows::core::Interface>::IID
@@ -3312,7 +3448,11 @@ impl ISystemTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemTrigger>, ::windows::core::GetTrustLevel, OneShot::<Impl, IMPL_OFFSET>, TriggerType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemTrigger, BASE_OFFSET>(),
+            OneShot: OneShot::<Impl, IMPL_OFFSET>,
+            TriggerType: TriggerType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemTrigger as ::windows::core::Interface>::IID
@@ -3340,7 +3480,7 @@ impl ISystemTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemTriggerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemTriggerFactory as ::windows::core::Interface>::IID
@@ -3380,7 +3520,11 @@ impl ITimeTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimeTrigger>, ::windows::core::GetTrustLevel, FreshnessTime::<Impl, IMPL_OFFSET>, OneShot::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimeTrigger, BASE_OFFSET>(),
+            FreshnessTime: FreshnessTime::<Impl, IMPL_OFFSET>,
+            OneShot: OneShot::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimeTrigger as ::windows::core::Interface>::IID
@@ -3408,7 +3552,7 @@ impl ITimeTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimeTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITimeTriggerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITimeTriggerFactory as ::windows::core::Interface>::IID
@@ -3436,7 +3580,10 @@ impl IToastNotificationActionTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationActionTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationActionTriggerFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationActionTriggerFactory as ::windows::core::Interface>::IID
@@ -3464,7 +3611,10 @@ impl IToastNotificationHistoryChangedTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationHistoryChangedTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationHistoryChangedTriggerFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationHistoryChangedTriggerFactory as ::windows::core::Interface>::IID
@@ -3492,7 +3642,10 @@ impl IUserNotificationChangedTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserNotificationChangedTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserNotificationChangedTriggerFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserNotificationChangedTriggerFactory as ::windows::core::Interface>::IID

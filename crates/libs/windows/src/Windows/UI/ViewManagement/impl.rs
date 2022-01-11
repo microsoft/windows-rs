@@ -49,7 +49,13 @@ impl IAccessibilitySettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveHighContrastChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccessibilitySettings>, ::windows::core::GetTrustLevel, HighContrast::<Impl, IMPL_OFFSET>, HighContrastScheme::<Impl, IMPL_OFFSET>, HighContrastChanged::<Impl, IMPL_OFFSET>, RemoveHighContrastChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccessibilitySettings, BASE_OFFSET>(),
+            HighContrast: HighContrast::<Impl, IMPL_OFFSET>,
+            HighContrastScheme: HighContrastScheme::<Impl, IMPL_OFFSET>,
+            HighContrastChanged: HighContrastChanged::<Impl, IMPL_OFFSET>,
+            RemoveHighContrastChanged: RemoveHighContrastChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccessibilitySettings as ::windows::core::Interface>::IID
@@ -101,7 +107,12 @@ impl IActivationViewSwitcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivationViewSwitcher>, ::windows::core::GetTrustLevel, ShowAsStandaloneAsync::<Impl, IMPL_OFFSET>, ShowAsStandaloneWithSizePreferenceAsync::<Impl, IMPL_OFFSET>, IsViewPresentedOnActivationVirtualDesktop::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivationViewSwitcher, BASE_OFFSET>(),
+            ShowAsStandaloneAsync: ShowAsStandaloneAsync::<Impl, IMPL_OFFSET>,
+            ShowAsStandaloneWithSizePreferenceAsync: ShowAsStandaloneWithSizePreferenceAsync::<Impl, IMPL_OFFSET>,
+            IsViewPresentedOnActivationVirtualDesktop: IsViewPresentedOnActivationVirtualDesktop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivationViewSwitcher as ::windows::core::Interface>::IID
@@ -240,26 +251,21 @@ impl IApplicationViewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveConsolidated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IApplicationView>,
-            ::windows::core::GetTrustLevel,
-            Orientation::<Impl, IMPL_OFFSET>,
-            AdjacentToLeftDisplayEdge::<Impl, IMPL_OFFSET>,
-            AdjacentToRightDisplayEdge::<Impl, IMPL_OFFSET>,
-            IsFullScreen::<Impl, IMPL_OFFSET>,
-            IsOnLockScreen::<Impl, IMPL_OFFSET>,
-            IsScreenCaptureEnabled::<Impl, IMPL_OFFSET>,
-            SetIsScreenCaptureEnabled::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            Consolidated::<Impl, IMPL_OFFSET>,
-            RemoveConsolidated::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationView, BASE_OFFSET>(),
+            Orientation: Orientation::<Impl, IMPL_OFFSET>,
+            AdjacentToLeftDisplayEdge: AdjacentToLeftDisplayEdge::<Impl, IMPL_OFFSET>,
+            AdjacentToRightDisplayEdge: AdjacentToRightDisplayEdge::<Impl, IMPL_OFFSET>,
+            IsFullScreen: IsFullScreen::<Impl, IMPL_OFFSET>,
+            IsOnLockScreen: IsOnLockScreen::<Impl, IMPL_OFFSET>,
+            IsScreenCaptureEnabled: IsScreenCaptureEnabled::<Impl, IMPL_OFFSET>,
+            SetIsScreenCaptureEnabled: SetIsScreenCaptureEnabled::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Consolidated: Consolidated::<Impl, IMPL_OFFSET>,
+            RemoveConsolidated: RemoveConsolidated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationView as ::windows::core::Interface>::IID
@@ -345,21 +351,16 @@ impl IApplicationView2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IApplicationView2>,
-            ::windows::core::GetTrustLevel,
-            SuppressSystemOverlays::<Impl, IMPL_OFFSET>,
-            SetSuppressSystemOverlays::<Impl, IMPL_OFFSET>,
-            VisibleBounds::<Impl, IMPL_OFFSET>,
-            VisibleBoundsChanged::<Impl, IMPL_OFFSET>,
-            RemoveVisibleBoundsChanged::<Impl, IMPL_OFFSET>,
-            SetDesiredBoundsMode::<Impl, IMPL_OFFSET>,
-            DesiredBoundsMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationView2, BASE_OFFSET>(),
+            SuppressSystemOverlays: SuppressSystemOverlays::<Impl, IMPL_OFFSET>,
+            SetSuppressSystemOverlays: SetSuppressSystemOverlays::<Impl, IMPL_OFFSET>,
+            VisibleBounds: VisibleBounds::<Impl, IMPL_OFFSET>,
+            VisibleBoundsChanged: VisibleBoundsChanged::<Impl, IMPL_OFFSET>,
+            RemoveVisibleBoundsChanged: RemoveVisibleBoundsChanged::<Impl, IMPL_OFFSET>,
+            SetDesiredBoundsMode: SetDesiredBoundsMode::<Impl, IMPL_OFFSET>,
+            DesiredBoundsMode: DesiredBoundsMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationView2 as ::windows::core::Interface>::IID
@@ -455,23 +456,18 @@ impl IApplicationView3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreferredMinSize(&*(&minsize as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IApplicationView3>,
-            ::windows::core::GetTrustLevel,
-            TitleBar::<Impl, IMPL_OFFSET>,
-            FullScreenSystemOverlayMode::<Impl, IMPL_OFFSET>,
-            SetFullScreenSystemOverlayMode::<Impl, IMPL_OFFSET>,
-            IsFullScreenMode::<Impl, IMPL_OFFSET>,
-            TryEnterFullScreenMode::<Impl, IMPL_OFFSET>,
-            ExitFullScreenMode::<Impl, IMPL_OFFSET>,
-            ShowStandardSystemOverlays::<Impl, IMPL_OFFSET>,
-            TryResizeView::<Impl, IMPL_OFFSET>,
-            SetPreferredMinSize::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationView3, BASE_OFFSET>(),
+            TitleBar: TitleBar::<Impl, IMPL_OFFSET>,
+            FullScreenSystemOverlayMode: FullScreenSystemOverlayMode::<Impl, IMPL_OFFSET>,
+            SetFullScreenSystemOverlayMode: SetFullScreenSystemOverlayMode::<Impl, IMPL_OFFSET>,
+            IsFullScreenMode: IsFullScreenMode::<Impl, IMPL_OFFSET>,
+            TryEnterFullScreenMode: TryEnterFullScreenMode::<Impl, IMPL_OFFSET>,
+            ExitFullScreenMode: ExitFullScreenMode::<Impl, IMPL_OFFSET>,
+            ShowStandardSystemOverlays: ShowStandardSystemOverlays::<Impl, IMPL_OFFSET>,
+            TryResizeView: TryResizeView::<Impl, IMPL_OFFSET>,
+            SetPreferredMinSize: SetPreferredMinSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationView3 as ::windows::core::Interface>::IID
@@ -547,19 +543,14 @@ impl IApplicationView4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IApplicationView4>,
-            ::windows::core::GetTrustLevel,
-            ViewMode::<Impl, IMPL_OFFSET>,
-            IsViewModeSupported::<Impl, IMPL_OFFSET>,
-            TryEnterViewModeAsync::<Impl, IMPL_OFFSET>,
-            TryEnterViewModeWithPreferencesAsync::<Impl, IMPL_OFFSET>,
-            TryConsolidateAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationView4, BASE_OFFSET>(),
+            ViewMode: ViewMode::<Impl, IMPL_OFFSET>,
+            IsViewModeSupported: IsViewModeSupported::<Impl, IMPL_OFFSET>,
+            TryEnterViewModeAsync: TryEnterViewModeAsync::<Impl, IMPL_OFFSET>,
+            TryEnterViewModeWithPreferencesAsync: TryEnterViewModeWithPreferencesAsync::<Impl, IMPL_OFFSET>,
+            TryConsolidateAsync: TryConsolidateAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationView4 as ::windows::core::Interface>::IID
@@ -592,7 +583,11 @@ impl IApplicationView7Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPersistedStateId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationView7>, ::windows::core::GetTrustLevel, PersistedStateId::<Impl, IMPL_OFFSET>, SetPersistedStateId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationView7, BASE_OFFSET>(),
+            PersistedStateId: PersistedStateId::<Impl, IMPL_OFFSET>,
+            SetPersistedStateId: SetPersistedStateId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationView7 as ::windows::core::Interface>::IID
@@ -632,7 +627,11 @@ impl IApplicationView9Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationView9>, ::windows::core::GetTrustLevel, WindowingEnvironment::<Impl, IMPL_OFFSET>, GetDisplayRegions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationView9, BASE_OFFSET>(),
+            WindowingEnvironment: WindowingEnvironment::<Impl, IMPL_OFFSET>,
+            GetDisplayRegions: GetDisplayRegions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationView9 as ::windows::core::Interface>::IID
@@ -660,7 +659,10 @@ impl IApplicationViewConsolidatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewConsolidatedEventArgs>, ::windows::core::GetTrustLevel, IsUserInitiated::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewConsolidatedEventArgs, BASE_OFFSET>(),
+            IsUserInitiated: IsUserInitiated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewConsolidatedEventArgs as ::windows::core::Interface>::IID
@@ -688,7 +690,10 @@ impl IApplicationViewConsolidatedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewConsolidatedEventArgs2>, ::windows::core::GetTrustLevel, IsAppInitiated::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewConsolidatedEventArgs2, BASE_OFFSET>(),
+            IsAppInitiated: IsAppInitiated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewConsolidatedEventArgs2 as ::windows::core::Interface>::IID
@@ -716,7 +721,10 @@ impl IApplicationViewFullscreenStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewFullscreenStatics>, ::windows::core::GetTrustLevel, TryUnsnapToFullscreen::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewFullscreenStatics, BASE_OFFSET>(),
+            TryUnsnapToFullscreen: TryUnsnapToFullscreen::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewFullscreenStatics as ::windows::core::Interface>::IID
@@ -744,7 +752,10 @@ impl IApplicationViewInteropStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewInteropStatics>, ::windows::core::GetTrustLevel, GetApplicationViewIdForWindow::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewInteropStatics, BASE_OFFSET>(),
+            GetApplicationViewIdForWindow: GetApplicationViewIdForWindow::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewInteropStatics as ::windows::core::Interface>::IID
@@ -759,7 +770,7 @@ impl ::windows::core::RuntimeName for IApplicationViewScaling {
 #[cfg(feature = "implement_exclusive")]
 impl IApplicationViewScalingVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationViewScalingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IApplicationViewScalingVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewScaling>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewScaling, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewScaling as ::windows::core::Interface>::IID
@@ -799,7 +810,11 @@ impl IApplicationViewScalingStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewScalingStatics>, ::windows::core::GetTrustLevel, DisableLayoutScaling::<Impl, IMPL_OFFSET>, TrySetDisableLayoutScaling::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewScalingStatics, BASE_OFFSET>(),
+            DisableLayoutScaling: DisableLayoutScaling::<Impl, IMPL_OFFSET>,
+            TrySetDisableLayoutScaling: TrySetDisableLayoutScaling::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewScalingStatics as ::windows::core::Interface>::IID
@@ -839,7 +854,11 @@ impl IApplicationViewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewStatics>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, TryUnsnap::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewStatics, BASE_OFFSET>(),
+            Value: Value::<Impl, IMPL_OFFSET>,
+            TryUnsnap: TryUnsnap::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewStatics as ::windows::core::Interface>::IID
@@ -884,7 +903,12 @@ impl IApplicationViewStatics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTerminateAppOnFinalViewClose(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewStatics2>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>, TerminateAppOnFinalViewClose::<Impl, IMPL_OFFSET>, SetTerminateAppOnFinalViewClose::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewStatics2, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+            TerminateAppOnFinalViewClose: TerminateAppOnFinalViewClose::<Impl, IMPL_OFFSET>,
+            SetTerminateAppOnFinalViewClose: SetTerminateAppOnFinalViewClose::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewStatics2 as ::windows::core::Interface>::IID
@@ -934,18 +958,13 @@ impl IApplicationViewStatics3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreferredLaunchViewSize(&*(&value as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IApplicationViewStatics3>,
-            ::windows::core::GetTrustLevel,
-            PreferredLaunchWindowingMode::<Impl, IMPL_OFFSET>,
-            SetPreferredLaunchWindowingMode::<Impl, IMPL_OFFSET>,
-            PreferredLaunchViewSize::<Impl, IMPL_OFFSET>,
-            SetPreferredLaunchViewSize::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewStatics3, BASE_OFFSET>(),
+            PreferredLaunchWindowingMode: PreferredLaunchWindowingMode::<Impl, IMPL_OFFSET>,
+            SetPreferredLaunchWindowingMode: SetPreferredLaunchWindowingMode::<Impl, IMPL_OFFSET>,
+            PreferredLaunchViewSize: PreferredLaunchViewSize::<Impl, IMPL_OFFSET>,
+            SetPreferredLaunchViewSize: SetPreferredLaunchViewSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewStatics3 as ::windows::core::Interface>::IID
@@ -971,7 +990,11 @@ impl IApplicationViewStatics4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearPersistedState(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewStatics4>, ::windows::core::GetTrustLevel, ClearAllPersistedState::<Impl, IMPL_OFFSET>, ClearPersistedState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewStatics4, BASE_OFFSET>(),
+            ClearAllPersistedState: ClearAllPersistedState::<Impl, IMPL_OFFSET>,
+            ClearPersistedState: ClearPersistedState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewStatics4 as ::windows::core::Interface>::IID
@@ -1076,22 +1099,17 @@ impl IApplicationViewSwitcherStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IApplicationViewSwitcherStatics>,
-            ::windows::core::GetTrustLevel,
-            DisableShowingMainViewOnActivation::<Impl, IMPL_OFFSET>,
-            TryShowAsStandaloneAsync::<Impl, IMPL_OFFSET>,
-            TryShowAsStandaloneWithSizePreferenceAsync::<Impl, IMPL_OFFSET>,
-            TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync::<Impl, IMPL_OFFSET>,
-            SwitchAsync::<Impl, IMPL_OFFSET>,
-            SwitchFromViewAsync::<Impl, IMPL_OFFSET>,
-            SwitchFromViewWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            PrepareForCustomAnimatedSwitchAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewSwitcherStatics, BASE_OFFSET>(),
+            DisableShowingMainViewOnActivation: DisableShowingMainViewOnActivation::<Impl, IMPL_OFFSET>,
+            TryShowAsStandaloneAsync: TryShowAsStandaloneAsync::<Impl, IMPL_OFFSET>,
+            TryShowAsStandaloneWithSizePreferenceAsync: TryShowAsStandaloneWithSizePreferenceAsync::<Impl, IMPL_OFFSET>,
+            TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync: TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync::<Impl, IMPL_OFFSET>,
+            SwitchAsync: SwitchAsync::<Impl, IMPL_OFFSET>,
+            SwitchFromViewAsync: SwitchFromViewAsync::<Impl, IMPL_OFFSET>,
+            SwitchFromViewWithOptionsAsync: SwitchFromViewWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            PrepareForCustomAnimatedSwitchAsync: PrepareForCustomAnimatedSwitchAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewSwitcherStatics as ::windows::core::Interface>::IID
@@ -1112,7 +1130,10 @@ impl IApplicationViewSwitcherStatics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DisableSystemViewActivationPolicy().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewSwitcherStatics2>, ::windows::core::GetTrustLevel, DisableSystemViewActivationPolicy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewSwitcherStatics2, BASE_OFFSET>(),
+            DisableSystemViewActivationPolicy: DisableSystemViewActivationPolicy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewSwitcherStatics2 as ::windows::core::Interface>::IID
@@ -1152,7 +1173,11 @@ impl IApplicationViewSwitcherStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewSwitcherStatics3>, ::windows::core::GetTrustLevel, TryShowAsViewModeAsync::<Impl, IMPL_OFFSET>, TryShowAsViewModeWithPreferencesAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewSwitcherStatics3, BASE_OFFSET>(),
+            TryShowAsViewModeAsync: TryShowAsViewModeAsync::<Impl, IMPL_OFFSET>,
+            TryShowAsViewModeWithPreferencesAsync: TryShowAsViewModeWithPreferencesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewSwitcherStatics3 as ::windows::core::Interface>::IID
@@ -1372,38 +1397,33 @@ impl IApplicationViewTitleBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IApplicationViewTitleBar>,
-            ::windows::core::GetTrustLevel,
-            SetForegroundColor::<Impl, IMPL_OFFSET>,
-            ForegroundColor::<Impl, IMPL_OFFSET>,
-            SetBackgroundColor::<Impl, IMPL_OFFSET>,
-            BackgroundColor::<Impl, IMPL_OFFSET>,
-            SetButtonForegroundColor::<Impl, IMPL_OFFSET>,
-            ButtonForegroundColor::<Impl, IMPL_OFFSET>,
-            SetButtonBackgroundColor::<Impl, IMPL_OFFSET>,
-            ButtonBackgroundColor::<Impl, IMPL_OFFSET>,
-            SetButtonHoverForegroundColor::<Impl, IMPL_OFFSET>,
-            ButtonHoverForegroundColor::<Impl, IMPL_OFFSET>,
-            SetButtonHoverBackgroundColor::<Impl, IMPL_OFFSET>,
-            ButtonHoverBackgroundColor::<Impl, IMPL_OFFSET>,
-            SetButtonPressedForegroundColor::<Impl, IMPL_OFFSET>,
-            ButtonPressedForegroundColor::<Impl, IMPL_OFFSET>,
-            SetButtonPressedBackgroundColor::<Impl, IMPL_OFFSET>,
-            ButtonPressedBackgroundColor::<Impl, IMPL_OFFSET>,
-            SetInactiveForegroundColor::<Impl, IMPL_OFFSET>,
-            InactiveForegroundColor::<Impl, IMPL_OFFSET>,
-            SetInactiveBackgroundColor::<Impl, IMPL_OFFSET>,
-            InactiveBackgroundColor::<Impl, IMPL_OFFSET>,
-            SetButtonInactiveForegroundColor::<Impl, IMPL_OFFSET>,
-            ButtonInactiveForegroundColor::<Impl, IMPL_OFFSET>,
-            SetButtonInactiveBackgroundColor::<Impl, IMPL_OFFSET>,
-            ButtonInactiveBackgroundColor::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewTitleBar, BASE_OFFSET>(),
+            SetForegroundColor: SetForegroundColor::<Impl, IMPL_OFFSET>,
+            ForegroundColor: ForegroundColor::<Impl, IMPL_OFFSET>,
+            SetBackgroundColor: SetBackgroundColor::<Impl, IMPL_OFFSET>,
+            BackgroundColor: BackgroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonForegroundColor: SetButtonForegroundColor::<Impl, IMPL_OFFSET>,
+            ButtonForegroundColor: ButtonForegroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonBackgroundColor: SetButtonBackgroundColor::<Impl, IMPL_OFFSET>,
+            ButtonBackgroundColor: ButtonBackgroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonHoverForegroundColor: SetButtonHoverForegroundColor::<Impl, IMPL_OFFSET>,
+            ButtonHoverForegroundColor: ButtonHoverForegroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonHoverBackgroundColor: SetButtonHoverBackgroundColor::<Impl, IMPL_OFFSET>,
+            ButtonHoverBackgroundColor: ButtonHoverBackgroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonPressedForegroundColor: SetButtonPressedForegroundColor::<Impl, IMPL_OFFSET>,
+            ButtonPressedForegroundColor: ButtonPressedForegroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonPressedBackgroundColor: SetButtonPressedBackgroundColor::<Impl, IMPL_OFFSET>,
+            ButtonPressedBackgroundColor: ButtonPressedBackgroundColor::<Impl, IMPL_OFFSET>,
+            SetInactiveForegroundColor: SetInactiveForegroundColor::<Impl, IMPL_OFFSET>,
+            InactiveForegroundColor: InactiveForegroundColor::<Impl, IMPL_OFFSET>,
+            SetInactiveBackgroundColor: SetInactiveBackgroundColor::<Impl, IMPL_OFFSET>,
+            InactiveBackgroundColor: InactiveBackgroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonInactiveForegroundColor: SetButtonInactiveForegroundColor::<Impl, IMPL_OFFSET>,
+            ButtonInactiveForegroundColor: ButtonInactiveForegroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonInactiveBackgroundColor: SetButtonInactiveBackgroundColor::<Impl, IMPL_OFFSET>,
+            ButtonInactiveBackgroundColor: ButtonInactiveBackgroundColor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewTitleBar as ::windows::core::Interface>::IID
@@ -1436,7 +1456,11 @@ impl IApplicationViewTransferContextVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetViewId(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewTransferContext>, ::windows::core::GetTrustLevel, ViewId::<Impl, IMPL_OFFSET>, SetViewId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewTransferContext, BASE_OFFSET>(),
+            ViewId: ViewId::<Impl, IMPL_OFFSET>,
+            SetViewId: SetViewId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewTransferContext as ::windows::core::Interface>::IID
@@ -1464,7 +1488,10 @@ impl IApplicationViewTransferContextStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewTransferContextStatics>, ::windows::core::GetTrustLevel, DataPackageFormatId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewTransferContextStatics, BASE_OFFSET>(),
+            DataPackageFormatId: DataPackageFormatId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewTransferContextStatics as ::windows::core::Interface>::IID
@@ -1492,7 +1519,7 @@ impl IApplicationViewWithContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationViewWithContext>, ::windows::core::GetTrustLevel, UIContext::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewWithContext, BASE_OFFSET>(), UIContext: UIContext::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApplicationViewWithContext as ::windows::core::Interface>::IID
@@ -1554,7 +1581,14 @@ impl IInputPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputPane>, ::windows::core::GetTrustLevel, Showing::<Impl, IMPL_OFFSET>, RemoveShowing::<Impl, IMPL_OFFSET>, Hiding::<Impl, IMPL_OFFSET>, RemoveHiding::<Impl, IMPL_OFFSET>, OccludedRect::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputPane, BASE_OFFSET>(),
+            Showing: Showing::<Impl, IMPL_OFFSET>,
+            RemoveShowing: RemoveShowing::<Impl, IMPL_OFFSET>,
+            Hiding: Hiding::<Impl, IMPL_OFFSET>,
+            RemoveHiding: RemoveHiding::<Impl, IMPL_OFFSET>,
+            OccludedRect: OccludedRect::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputPane as ::windows::core::Interface>::IID
@@ -1594,7 +1628,11 @@ impl IInputPane2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputPane2>, ::windows::core::GetTrustLevel, TryShow::<Impl, IMPL_OFFSET>, TryHide::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputPane2, BASE_OFFSET>(),
+            TryShow: TryShow::<Impl, IMPL_OFFSET>,
+            TryHide: TryHide::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputPane2 as ::windows::core::Interface>::IID
@@ -1627,7 +1665,11 @@ impl IInputPaneControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVisible(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputPaneControl>, ::windows::core::GetTrustLevel, Visible::<Impl, IMPL_OFFSET>, SetVisible::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputPaneControl, BASE_OFFSET>(),
+            Visible: Visible::<Impl, IMPL_OFFSET>,
+            SetVisible: SetVisible::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputPaneControl as ::windows::core::Interface>::IID
@@ -1655,7 +1697,10 @@ impl IInputPaneStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputPaneStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputPaneStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputPaneStatics as ::windows::core::Interface>::IID
@@ -1683,7 +1728,10 @@ impl IInputPaneStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputPaneStatics2>, ::windows::core::GetTrustLevel, GetForUIContext::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputPaneStatics2, BASE_OFFSET>(),
+            GetForUIContext: GetForUIContext::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputPaneStatics2 as ::windows::core::Interface>::IID
@@ -1728,7 +1776,12 @@ impl IInputPaneVisibilityEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputPaneVisibilityEventArgs>, ::windows::core::GetTrustLevel, OccludedRect::<Impl, IMPL_OFFSET>, SetEnsuredFocusedElementInView::<Impl, IMPL_OFFSET>, EnsuredFocusedElementInView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputPaneVisibilityEventArgs, BASE_OFFSET>(),
+            OccludedRect: OccludedRect::<Impl, IMPL_OFFSET>,
+            SetEnsuredFocusedElementInView: SetEnsuredFocusedElementInView::<Impl, IMPL_OFFSET>,
+            EnsuredFocusedElementInView: EnsuredFocusedElementInView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputPaneVisibilityEventArgs as ::windows::core::Interface>::IID
@@ -1809,20 +1862,15 @@ impl IProjectionManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveProjectionDisplayAvailableChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProjectionManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            StartProjectingAsync::<Impl, IMPL_OFFSET>,
-            SwapDisplaysForViewsAsync::<Impl, IMPL_OFFSET>,
-            StopProjectingAsync::<Impl, IMPL_OFFSET>,
-            ProjectionDisplayAvailable::<Impl, IMPL_OFFSET>,
-            ProjectionDisplayAvailableChanged::<Impl, IMPL_OFFSET>,
-            RemoveProjectionDisplayAvailableChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProjectionManagerStatics, BASE_OFFSET>(),
+            StartProjectingAsync: StartProjectingAsync::<Impl, IMPL_OFFSET>,
+            SwapDisplaysForViewsAsync: SwapDisplaysForViewsAsync::<Impl, IMPL_OFFSET>,
+            StopProjectingAsync: StopProjectingAsync::<Impl, IMPL_OFFSET>,
+            ProjectionDisplayAvailable: ProjectionDisplayAvailable::<Impl, IMPL_OFFSET>,
+            ProjectionDisplayAvailableChanged: ProjectionDisplayAvailableChanged::<Impl, IMPL_OFFSET>,
+            RemoveProjectionDisplayAvailableChanged: RemoveProjectionDisplayAvailableChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProjectionManagerStatics as ::windows::core::Interface>::IID
@@ -1886,18 +1934,13 @@ impl IProjectionManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProjectionManagerStatics2>,
-            ::windows::core::GetTrustLevel,
-            StartProjectingWithDeviceInfoAsync::<Impl, IMPL_OFFSET>,
-            RequestStartProjectingAsync::<Impl, IMPL_OFFSET>,
-            RequestStartProjectingWithPlacementAsync::<Impl, IMPL_OFFSET>,
-            GetDeviceSelector::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProjectionManagerStatics2, BASE_OFFSET>(),
+            StartProjectingWithDeviceInfoAsync: StartProjectingWithDeviceInfoAsync::<Impl, IMPL_OFFSET>,
+            RequestStartProjectingAsync: RequestStartProjectingAsync::<Impl, IMPL_OFFSET>,
+            RequestStartProjectingWithPlacementAsync: RequestStartProjectingWithPlacementAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProjectionManagerStatics2 as ::windows::core::Interface>::IID
@@ -2046,28 +2089,23 @@ impl IStatusBarVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveHiding(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStatusBar>,
-            ::windows::core::GetTrustLevel,
-            ShowAsync::<Impl, IMPL_OFFSET>,
-            HideAsync::<Impl, IMPL_OFFSET>,
-            BackgroundOpacity::<Impl, IMPL_OFFSET>,
-            SetBackgroundOpacity::<Impl, IMPL_OFFSET>,
-            ForegroundColor::<Impl, IMPL_OFFSET>,
-            SetForegroundColor::<Impl, IMPL_OFFSET>,
-            BackgroundColor::<Impl, IMPL_OFFSET>,
-            SetBackgroundColor::<Impl, IMPL_OFFSET>,
-            ProgressIndicator::<Impl, IMPL_OFFSET>,
-            OccludedRect::<Impl, IMPL_OFFSET>,
-            Showing::<Impl, IMPL_OFFSET>,
-            RemoveShowing::<Impl, IMPL_OFFSET>,
-            Hiding::<Impl, IMPL_OFFSET>,
-            RemoveHiding::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStatusBar, BASE_OFFSET>(),
+            ShowAsync: ShowAsync::<Impl, IMPL_OFFSET>,
+            HideAsync: HideAsync::<Impl, IMPL_OFFSET>,
+            BackgroundOpacity: BackgroundOpacity::<Impl, IMPL_OFFSET>,
+            SetBackgroundOpacity: SetBackgroundOpacity::<Impl, IMPL_OFFSET>,
+            ForegroundColor: ForegroundColor::<Impl, IMPL_OFFSET>,
+            SetForegroundColor: SetForegroundColor::<Impl, IMPL_OFFSET>,
+            BackgroundColor: BackgroundColor::<Impl, IMPL_OFFSET>,
+            SetBackgroundColor: SetBackgroundColor::<Impl, IMPL_OFFSET>,
+            ProgressIndicator: ProgressIndicator::<Impl, IMPL_OFFSET>,
+            OccludedRect: OccludedRect::<Impl, IMPL_OFFSET>,
+            Showing: Showing::<Impl, IMPL_OFFSET>,
+            RemoveShowing: RemoveShowing::<Impl, IMPL_OFFSET>,
+            Hiding: Hiding::<Impl, IMPL_OFFSET>,
+            RemoveHiding: RemoveHiding::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStatusBar as ::windows::core::Interface>::IID
@@ -2141,7 +2179,15 @@ impl IStatusBarProgressIndicatorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProgressValue(&*(&value as *const <super::super::Foundation::IReference<f64> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<f64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStatusBarProgressIndicator>, ::windows::core::GetTrustLevel, ShowAsync::<Impl, IMPL_OFFSET>, HideAsync::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>, ProgressValue::<Impl, IMPL_OFFSET>, SetProgressValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStatusBarProgressIndicator, BASE_OFFSET>(),
+            ShowAsync: ShowAsync::<Impl, IMPL_OFFSET>,
+            HideAsync: HideAsync::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+            SetText: SetText::<Impl, IMPL_OFFSET>,
+            ProgressValue: ProgressValue::<Impl, IMPL_OFFSET>,
+            SetProgressValue: SetProgressValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStatusBarProgressIndicator as ::windows::core::Interface>::IID
@@ -2169,7 +2215,10 @@ impl IStatusBarStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStatusBarStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStatusBarStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStatusBarStatics as ::windows::core::Interface>::IID
@@ -2341,27 +2390,22 @@ impl IUISettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUISettings>,
-            ::windows::core::GetTrustLevel,
-            HandPreference::<Impl, IMPL_OFFSET>,
-            CursorSize::<Impl, IMPL_OFFSET>,
-            ScrollBarSize::<Impl, IMPL_OFFSET>,
-            ScrollBarArrowSize::<Impl, IMPL_OFFSET>,
-            ScrollBarThumbBoxSize::<Impl, IMPL_OFFSET>,
-            MessageDuration::<Impl, IMPL_OFFSET>,
-            AnimationsEnabled::<Impl, IMPL_OFFSET>,
-            CaretBrowsingEnabled::<Impl, IMPL_OFFSET>,
-            CaretBlinkRate::<Impl, IMPL_OFFSET>,
-            CaretWidth::<Impl, IMPL_OFFSET>,
-            DoubleClickTime::<Impl, IMPL_OFFSET>,
-            MouseHoverTime::<Impl, IMPL_OFFSET>,
-            UIElementColor::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUISettings, BASE_OFFSET>(),
+            HandPreference: HandPreference::<Impl, IMPL_OFFSET>,
+            CursorSize: CursorSize::<Impl, IMPL_OFFSET>,
+            ScrollBarSize: ScrollBarSize::<Impl, IMPL_OFFSET>,
+            ScrollBarArrowSize: ScrollBarArrowSize::<Impl, IMPL_OFFSET>,
+            ScrollBarThumbBoxSize: ScrollBarThumbBoxSize::<Impl, IMPL_OFFSET>,
+            MessageDuration: MessageDuration::<Impl, IMPL_OFFSET>,
+            AnimationsEnabled: AnimationsEnabled::<Impl, IMPL_OFFSET>,
+            CaretBrowsingEnabled: CaretBrowsingEnabled::<Impl, IMPL_OFFSET>,
+            CaretBlinkRate: CaretBlinkRate::<Impl, IMPL_OFFSET>,
+            CaretWidth: CaretWidth::<Impl, IMPL_OFFSET>,
+            DoubleClickTime: DoubleClickTime::<Impl, IMPL_OFFSET>,
+            MouseHoverTime: MouseHoverTime::<Impl, IMPL_OFFSET>,
+            UIElementColor: UIElementColor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUISettings as ::windows::core::Interface>::IID
@@ -2406,7 +2450,12 @@ impl IUISettings2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTextScaleFactorChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUISettings2>, ::windows::core::GetTrustLevel, TextScaleFactor::<Impl, IMPL_OFFSET>, TextScaleFactorChanged::<Impl, IMPL_OFFSET>, RemoveTextScaleFactorChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUISettings2, BASE_OFFSET>(),
+            TextScaleFactor: TextScaleFactor::<Impl, IMPL_OFFSET>,
+            TextScaleFactorChanged: TextScaleFactorChanged::<Impl, IMPL_OFFSET>,
+            RemoveTextScaleFactorChanged: RemoveTextScaleFactorChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUISettings2 as ::windows::core::Interface>::IID
@@ -2451,7 +2500,12 @@ impl IUISettings3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveColorValuesChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUISettings3>, ::windows::core::GetTrustLevel, GetColorValue::<Impl, IMPL_OFFSET>, ColorValuesChanged::<Impl, IMPL_OFFSET>, RemoveColorValuesChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUISettings3, BASE_OFFSET>(),
+            GetColorValue: GetColorValue::<Impl, IMPL_OFFSET>,
+            ColorValuesChanged: ColorValuesChanged::<Impl, IMPL_OFFSET>,
+            RemoveColorValuesChanged: RemoveColorValuesChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUISettings3 as ::windows::core::Interface>::IID
@@ -2496,7 +2550,12 @@ impl IUISettings4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAdvancedEffectsEnabledChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUISettings4>, ::windows::core::GetTrustLevel, AdvancedEffectsEnabled::<Impl, IMPL_OFFSET>, AdvancedEffectsEnabledChanged::<Impl, IMPL_OFFSET>, RemoveAdvancedEffectsEnabledChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUISettings4, BASE_OFFSET>(),
+            AdvancedEffectsEnabled: AdvancedEffectsEnabled::<Impl, IMPL_OFFSET>,
+            AdvancedEffectsEnabledChanged: AdvancedEffectsEnabledChanged::<Impl, IMPL_OFFSET>,
+            RemoveAdvancedEffectsEnabledChanged: RemoveAdvancedEffectsEnabledChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUISettings4 as ::windows::core::Interface>::IID
@@ -2541,7 +2600,12 @@ impl IUISettings5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAutoHideScrollBarsChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUISettings5>, ::windows::core::GetTrustLevel, AutoHideScrollBars::<Impl, IMPL_OFFSET>, AutoHideScrollBarsChanged::<Impl, IMPL_OFFSET>, RemoveAutoHideScrollBarsChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUISettings5, BASE_OFFSET>(),
+            AutoHideScrollBars: AutoHideScrollBars::<Impl, IMPL_OFFSET>,
+            AutoHideScrollBarsChanged: AutoHideScrollBarsChanged::<Impl, IMPL_OFFSET>,
+            RemoveAutoHideScrollBarsChanged: RemoveAutoHideScrollBarsChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUISettings5 as ::windows::core::Interface>::IID
@@ -2591,7 +2655,13 @@ impl IUISettings6Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageDurationChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUISettings6>, ::windows::core::GetTrustLevel, AnimationsEnabledChanged::<Impl, IMPL_OFFSET>, RemoveAnimationsEnabledChanged::<Impl, IMPL_OFFSET>, MessageDurationChanged::<Impl, IMPL_OFFSET>, RemoveMessageDurationChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUISettings6, BASE_OFFSET>(),
+            AnimationsEnabledChanged: AnimationsEnabledChanged::<Impl, IMPL_OFFSET>,
+            RemoveAnimationsEnabledChanged: RemoveAnimationsEnabledChanged::<Impl, IMPL_OFFSET>,
+            MessageDurationChanged: MessageDurationChanged::<Impl, IMPL_OFFSET>,
+            RemoveMessageDurationChanged: RemoveMessageDurationChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUISettings6 as ::windows::core::Interface>::IID
@@ -2606,7 +2676,7 @@ impl ::windows::core::RuntimeName for IUISettingsAnimationsEnabledChangedEventAr
 #[cfg(feature = "implement_exclusive")]
 impl IUISettingsAnimationsEnabledChangedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUISettingsAnimationsEnabledChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUISettingsAnimationsEnabledChangedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUISettingsAnimationsEnabledChangedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUISettingsAnimationsEnabledChangedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUISettingsAnimationsEnabledChangedEventArgs as ::windows::core::Interface>::IID
@@ -2621,7 +2691,7 @@ impl ::windows::core::RuntimeName for IUISettingsAutoHideScrollBarsChangedEventA
 #[cfg(feature = "implement_exclusive")]
 impl IUISettingsAutoHideScrollBarsChangedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUISettingsAutoHideScrollBarsChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUISettingsAutoHideScrollBarsChangedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUISettingsAutoHideScrollBarsChangedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUISettingsAutoHideScrollBarsChangedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUISettingsAutoHideScrollBarsChangedEventArgs as ::windows::core::Interface>::IID
@@ -2636,7 +2706,7 @@ impl ::windows::core::RuntimeName for IUISettingsMessageDurationChangedEventArgs
 #[cfg(feature = "implement_exclusive")]
 impl IUISettingsMessageDurationChangedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUISettingsMessageDurationChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUISettingsMessageDurationChangedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUISettingsMessageDurationChangedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUISettingsMessageDurationChangedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUISettingsMessageDurationChangedEventArgs as ::windows::core::Interface>::IID
@@ -2664,7 +2734,10 @@ impl IUIViewSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUIViewSettings>, ::windows::core::GetTrustLevel, UserInteractionMode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUIViewSettings, BASE_OFFSET>(),
+            UserInteractionMode: UserInteractionMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIViewSettings as ::windows::core::Interface>::IID
@@ -2692,7 +2765,10 @@ impl IUIViewSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUIViewSettingsStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUIViewSettingsStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIViewSettingsStatics as ::windows::core::Interface>::IID
@@ -2742,7 +2818,13 @@ impl IViewModePreferencesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCustomSize(&*(&value as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IViewModePreferences>, ::windows::core::GetTrustLevel, ViewSizePreference::<Impl, IMPL_OFFSET>, SetViewSizePreference::<Impl, IMPL_OFFSET>, CustomSize::<Impl, IMPL_OFFSET>, SetCustomSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IViewModePreferences, BASE_OFFSET>(),
+            ViewSizePreference: ViewSizePreference::<Impl, IMPL_OFFSET>,
+            SetViewSizePreference: SetViewSizePreference::<Impl, IMPL_OFFSET>,
+            CustomSize: CustomSize::<Impl, IMPL_OFFSET>,
+            SetCustomSize: SetCustomSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IViewModePreferences as ::windows::core::Interface>::IID
@@ -2770,7 +2852,10 @@ impl IViewModePreferencesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IViewModePreferencesStatics>, ::windows::core::GetTrustLevel, CreateDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IViewModePreferencesStatics, BASE_OFFSET>(),
+            CreateDefault: CreateDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IViewModePreferencesStatics as ::windows::core::Interface>::IID

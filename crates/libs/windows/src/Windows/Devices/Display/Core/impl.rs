@@ -104,22 +104,17 @@ impl IDisplayAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDisplayAdapter>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            DeviceInterfacePath::<Impl, IMPL_OFFSET>,
-            SourceCount::<Impl, IMPL_OFFSET>,
-            PciVendorId::<Impl, IMPL_OFFSET>,
-            PciDeviceId::<Impl, IMPL_OFFSET>,
-            PciSubSystemId::<Impl, IMPL_OFFSET>,
-            PciRevision::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayAdapter, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DeviceInterfacePath: DeviceInterfacePath::<Impl, IMPL_OFFSET>,
+            SourceCount: SourceCount::<Impl, IMPL_OFFSET>,
+            PciVendorId: PciVendorId::<Impl, IMPL_OFFSET>,
+            PciDeviceId: PciDeviceId::<Impl, IMPL_OFFSET>,
+            PciSubSystemId: PciSubSystemId::<Impl, IMPL_OFFSET>,
+            PciRevision: PciRevision::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayAdapter as ::windows::core::Interface>::IID
@@ -147,7 +142,7 @@ impl IDisplayAdapterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayAdapterStatics>, ::windows::core::GetTrustLevel, FromId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayAdapterStatics, BASE_OFFSET>(), FromId: FromId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayAdapterStatics as ::windows::core::Interface>::IID
@@ -240,21 +235,16 @@ impl IDisplayDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDisplayDevice>,
-            ::windows::core::GetTrustLevel,
-            CreateScanoutSource::<Impl, IMPL_OFFSET>,
-            CreatePrimary::<Impl, IMPL_OFFSET>,
-            CreateTaskPool::<Impl, IMPL_OFFSET>,
-            CreatePeriodicFence::<Impl, IMPL_OFFSET>,
-            WaitForVBlank::<Impl, IMPL_OFFSET>,
-            CreateSimpleScanout::<Impl, IMPL_OFFSET>,
-            IsCapabilitySupported::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayDevice, BASE_OFFSET>(),
+            CreateScanoutSource: CreateScanoutSource::<Impl, IMPL_OFFSET>,
+            CreatePrimary: CreatePrimary::<Impl, IMPL_OFFSET>,
+            CreateTaskPool: CreateTaskPool::<Impl, IMPL_OFFSET>,
+            CreatePeriodicFence: CreatePeriodicFence::<Impl, IMPL_OFFSET>,
+            WaitForVBlank: WaitForVBlank::<Impl, IMPL_OFFSET>,
+            CreateSimpleScanout: CreateSimpleScanout::<Impl, IMPL_OFFSET>,
+            IsCapabilitySupported: IsCapabilitySupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayDevice as ::windows::core::Interface>::IID
@@ -289,7 +279,10 @@ impl IDisplayDevice2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayDevice2>, ::windows::core::GetTrustLevel, CreateSimpleScanoutWithDirtyRectsAndOptions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayDevice2, BASE_OFFSET>(),
+            CreateSimpleScanoutWithDirtyRectsAndOptions: CreateSimpleScanoutWithDirtyRectsAndOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayDevice2 as ::windows::core::Interface>::IID
@@ -304,7 +297,7 @@ impl ::windows::core::RuntimeName for IDisplayFence {
 #[cfg(feature = "implement_exclusive")]
 impl IDisplayFenceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayFenceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayFenceVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayFence>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayFence, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayFence as ::windows::core::Interface>::IID
@@ -499,33 +492,28 @@ impl IDisplayManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDisplayManager>,
-            ::windows::core::GetTrustLevel,
-            GetCurrentTargets::<Impl, IMPL_OFFSET>,
-            GetCurrentAdapters::<Impl, IMPL_OFFSET>,
-            TryAcquireTarget::<Impl, IMPL_OFFSET>,
-            ReleaseTarget::<Impl, IMPL_OFFSET>,
-            TryReadCurrentStateForAllTargets::<Impl, IMPL_OFFSET>,
-            TryAcquireTargetsAndReadCurrentState::<Impl, IMPL_OFFSET>,
-            TryAcquireTargetsAndCreateEmptyState::<Impl, IMPL_OFFSET>,
-            TryAcquireTargetsAndCreateSubstate::<Impl, IMPL_OFFSET>,
-            CreateDisplayDevice::<Impl, IMPL_OFFSET>,
-            Enabled::<Impl, IMPL_OFFSET>,
-            RemoveEnabled::<Impl, IMPL_OFFSET>,
-            Disabled::<Impl, IMPL_OFFSET>,
-            RemoveDisabled::<Impl, IMPL_OFFSET>,
-            Changed::<Impl, IMPL_OFFSET>,
-            RemoveChanged::<Impl, IMPL_OFFSET>,
-            PathsFailedOrInvalidated::<Impl, IMPL_OFFSET>,
-            RemovePathsFailedOrInvalidated::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayManager, BASE_OFFSET>(),
+            GetCurrentTargets: GetCurrentTargets::<Impl, IMPL_OFFSET>,
+            GetCurrentAdapters: GetCurrentAdapters::<Impl, IMPL_OFFSET>,
+            TryAcquireTarget: TryAcquireTarget::<Impl, IMPL_OFFSET>,
+            ReleaseTarget: ReleaseTarget::<Impl, IMPL_OFFSET>,
+            TryReadCurrentStateForAllTargets: TryReadCurrentStateForAllTargets::<Impl, IMPL_OFFSET>,
+            TryAcquireTargetsAndReadCurrentState: TryAcquireTargetsAndReadCurrentState::<Impl, IMPL_OFFSET>,
+            TryAcquireTargetsAndCreateEmptyState: TryAcquireTargetsAndCreateEmptyState::<Impl, IMPL_OFFSET>,
+            TryAcquireTargetsAndCreateSubstate: TryAcquireTargetsAndCreateSubstate::<Impl, IMPL_OFFSET>,
+            CreateDisplayDevice: CreateDisplayDevice::<Impl, IMPL_OFFSET>,
+            Enabled: Enabled::<Impl, IMPL_OFFSET>,
+            RemoveEnabled: RemoveEnabled::<Impl, IMPL_OFFSET>,
+            Disabled: Disabled::<Impl, IMPL_OFFSET>,
+            RemoveDisabled: RemoveDisabled::<Impl, IMPL_OFFSET>,
+            Changed: Changed::<Impl, IMPL_OFFSET>,
+            RemoveChanged: RemoveChanged::<Impl, IMPL_OFFSET>,
+            PathsFailedOrInvalidated: PathsFailedOrInvalidated::<Impl, IMPL_OFFSET>,
+            RemovePathsFailedOrInvalidated: RemovePathsFailedOrInvalidated::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayManager as ::windows::core::Interface>::IID
@@ -570,7 +558,12 @@ impl IDisplayManagerChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayManagerChangedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayManagerChangedEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayManagerChangedEventArgs as ::windows::core::Interface>::IID
@@ -615,7 +608,12 @@ impl IDisplayManagerDisabledEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayManagerDisabledEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayManagerDisabledEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayManagerDisabledEventArgs as ::windows::core::Interface>::IID
@@ -660,7 +658,12 @@ impl IDisplayManagerEnabledEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayManagerEnabledEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayManagerEnabledEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayManagerEnabledEventArgs as ::windows::core::Interface>::IID
@@ -705,7 +708,12 @@ impl IDisplayManagerPathsFailedOrInvalidatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayManagerPathsFailedOrInvalidatedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayManagerPathsFailedOrInvalidatedEventArgs, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayManagerPathsFailedOrInvalidatedEventArgs as ::windows::core::Interface>::IID
@@ -757,7 +765,12 @@ impl IDisplayManagerResultWithStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayManagerResultWithState>, ::windows::core::GetTrustLevel, ErrorCode::<Impl, IMPL_OFFSET>, ExtendedErrorCode::<Impl, IMPL_OFFSET>, State::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayManagerResultWithState, BASE_OFFSET>(),
+            ErrorCode: ErrorCode::<Impl, IMPL_OFFSET>,
+            ExtendedErrorCode: ExtendedErrorCode::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayManagerResultWithState as ::windows::core::Interface>::IID
@@ -785,7 +798,7 @@ impl IDisplayManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayManagerStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayManagerStatics, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayManagerStatics as ::windows::core::Interface>::IID
@@ -909,23 +922,18 @@ impl IDisplayModeInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDisplayModeInfo>,
-            ::windows::core::GetTrustLevel,
-            SourceResolution::<Impl, IMPL_OFFSET>,
-            IsStereo::<Impl, IMPL_OFFSET>,
-            SourcePixelFormat::<Impl, IMPL_OFFSET>,
-            TargetResolution::<Impl, IMPL_OFFSET>,
-            PresentationRate::<Impl, IMPL_OFFSET>,
-            IsInterlaced::<Impl, IMPL_OFFSET>,
-            GetWireFormatSupportedBitsPerChannel::<Impl, IMPL_OFFSET>,
-            IsWireFormatSupported::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayModeInfo, BASE_OFFSET>(),
+            SourceResolution: SourceResolution::<Impl, IMPL_OFFSET>,
+            IsStereo: IsStereo::<Impl, IMPL_OFFSET>,
+            SourcePixelFormat: SourcePixelFormat::<Impl, IMPL_OFFSET>,
+            TargetResolution: TargetResolution::<Impl, IMPL_OFFSET>,
+            PresentationRate: PresentationRate::<Impl, IMPL_OFFSET>,
+            IsInterlaced: IsInterlaced::<Impl, IMPL_OFFSET>,
+            GetWireFormatSupportedBitsPerChannel: GetWireFormatSupportedBitsPerChannel::<Impl, IMPL_OFFSET>,
+            IsWireFormatSupported: IsWireFormatSupported::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayModeInfo as ::windows::core::Interface>::IID
@@ -953,7 +961,10 @@ impl IDisplayModeInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayModeInfo2>, ::windows::core::GetTrustLevel, PhysicalPresentationRate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayModeInfo2, BASE_OFFSET>(),
+            PhysicalPresentationRate: PhysicalPresentationRate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayModeInfo2 as ::windows::core::Interface>::IID
@@ -1187,38 +1198,33 @@ impl IDisplayPathVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDisplayPath>,
-            ::windows::core::GetTrustLevel,
-            View::<Impl, IMPL_OFFSET>,
-            Target::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            SourceResolution::<Impl, IMPL_OFFSET>,
-            SetSourceResolution::<Impl, IMPL_OFFSET>,
-            SourcePixelFormat::<Impl, IMPL_OFFSET>,
-            SetSourcePixelFormat::<Impl, IMPL_OFFSET>,
-            IsStereo::<Impl, IMPL_OFFSET>,
-            SetIsStereo::<Impl, IMPL_OFFSET>,
-            TargetResolution::<Impl, IMPL_OFFSET>,
-            SetTargetResolution::<Impl, IMPL_OFFSET>,
-            PresentationRate::<Impl, IMPL_OFFSET>,
-            SetPresentationRate::<Impl, IMPL_OFFSET>,
-            IsInterlaced::<Impl, IMPL_OFFSET>,
-            SetIsInterlaced::<Impl, IMPL_OFFSET>,
-            WireFormat::<Impl, IMPL_OFFSET>,
-            SetWireFormat::<Impl, IMPL_OFFSET>,
-            Rotation::<Impl, IMPL_OFFSET>,
-            SetRotation::<Impl, IMPL_OFFSET>,
-            Scaling::<Impl, IMPL_OFFSET>,
-            SetScaling::<Impl, IMPL_OFFSET>,
-            FindModes::<Impl, IMPL_OFFSET>,
-            ApplyPropertiesFromMode::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayPath, BASE_OFFSET>(),
+            View: View::<Impl, IMPL_OFFSET>,
+            Target: Target::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            SourceResolution: SourceResolution::<Impl, IMPL_OFFSET>,
+            SetSourceResolution: SetSourceResolution::<Impl, IMPL_OFFSET>,
+            SourcePixelFormat: SourcePixelFormat::<Impl, IMPL_OFFSET>,
+            SetSourcePixelFormat: SetSourcePixelFormat::<Impl, IMPL_OFFSET>,
+            IsStereo: IsStereo::<Impl, IMPL_OFFSET>,
+            SetIsStereo: SetIsStereo::<Impl, IMPL_OFFSET>,
+            TargetResolution: TargetResolution::<Impl, IMPL_OFFSET>,
+            SetTargetResolution: SetTargetResolution::<Impl, IMPL_OFFSET>,
+            PresentationRate: PresentationRate::<Impl, IMPL_OFFSET>,
+            SetPresentationRate: SetPresentationRate::<Impl, IMPL_OFFSET>,
+            IsInterlaced: IsInterlaced::<Impl, IMPL_OFFSET>,
+            SetIsInterlaced: SetIsInterlaced::<Impl, IMPL_OFFSET>,
+            WireFormat: WireFormat::<Impl, IMPL_OFFSET>,
+            SetWireFormat: SetWireFormat::<Impl, IMPL_OFFSET>,
+            Rotation: Rotation::<Impl, IMPL_OFFSET>,
+            SetRotation: SetRotation::<Impl, IMPL_OFFSET>,
+            Scaling: Scaling::<Impl, IMPL_OFFSET>,
+            SetScaling: SetScaling::<Impl, IMPL_OFFSET>,
+            FindModes: FindModes::<Impl, IMPL_OFFSET>,
+            ApplyPropertiesFromMode: ApplyPropertiesFromMode::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayPath as ::windows::core::Interface>::IID
@@ -1251,7 +1257,11 @@ impl IDisplayPath2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPhysicalPresentationRate(&*(&value as *const <super::super::super::Foundation::IReference<DisplayPresentationRate> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<DisplayPresentationRate> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayPath2>, ::windows::core::GetTrustLevel, PhysicalPresentationRate::<Impl, IMPL_OFFSET>, SetPhysicalPresentationRate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayPath2, BASE_OFFSET>(),
+            PhysicalPresentationRate: PhysicalPresentationRate::<Impl, IMPL_OFFSET>,
+            SetPhysicalPresentationRate: SetPhysicalPresentationRate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayPath2 as ::windows::core::Interface>::IID
@@ -1351,21 +1361,16 @@ impl IDisplayPrimaryDescriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDisplayPrimaryDescription>,
-            ::windows::core::GetTrustLevel,
-            Width::<Impl, IMPL_OFFSET>,
-            Height::<Impl, IMPL_OFFSET>,
-            Format::<Impl, IMPL_OFFSET>,
-            ColorSpace::<Impl, IMPL_OFFSET>,
-            IsStereo::<Impl, IMPL_OFFSET>,
-            MultisampleDescription::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayPrimaryDescription, BASE_OFFSET>(),
+            Width: Width::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+            Format: Format::<Impl, IMPL_OFFSET>,
+            ColorSpace: ColorSpace::<Impl, IMPL_OFFSET>,
+            IsStereo: IsStereo::<Impl, IMPL_OFFSET>,
+            MultisampleDescription: MultisampleDescription::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayPrimaryDescription as ::windows::core::Interface>::IID
@@ -1393,7 +1398,10 @@ impl IDisplayPrimaryDescriptionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayPrimaryDescriptionFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayPrimaryDescriptionFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayPrimaryDescriptionFactory as ::windows::core::Interface>::IID
@@ -1429,7 +1437,10 @@ impl IDisplayPrimaryDescriptionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayPrimaryDescriptionStatics>, ::windows::core::GetTrustLevel, CreateWithProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayPrimaryDescriptionStatics, BASE_OFFSET>(),
+            CreateWithProperties: CreateWithProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayPrimaryDescriptionStatics as ::windows::core::Interface>::IID
@@ -1444,7 +1455,7 @@ impl ::windows::core::RuntimeName for IDisplayScanout {
 #[cfg(feature = "implement_exclusive")]
 impl IDisplayScanoutVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayScanoutImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayScanoutVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayScanout>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayScanout, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayScanout as ::windows::core::Interface>::IID
@@ -1496,7 +1507,12 @@ impl IDisplaySourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplaySource>, ::windows::core::GetTrustLevel, AdapterId::<Impl, IMPL_OFFSET>, SourceId::<Impl, IMPL_OFFSET>, GetMetadata::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplaySource, BASE_OFFSET>(),
+            AdapterId: AdapterId::<Impl, IMPL_OFFSET>,
+            SourceId: SourceId::<Impl, IMPL_OFFSET>,
+            GetMetadata: GetMetadata::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplaySource as ::windows::core::Interface>::IID
@@ -1541,7 +1557,12 @@ impl IDisplaySource2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplaySource2>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, StatusChanged::<Impl, IMPL_OFFSET>, RemoveStatusChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplaySource2, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            StatusChanged: StatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged: RemoveStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplaySource2 as ::windows::core::Interface>::IID
@@ -1718,28 +1739,23 @@ impl IDisplayStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDisplayState>,
-            ::windows::core::GetTrustLevel,
-            IsReadOnly::<Impl, IMPL_OFFSET>,
-            IsStale::<Impl, IMPL_OFFSET>,
-            Targets::<Impl, IMPL_OFFSET>,
-            Views::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            ConnectTarget::<Impl, IMPL_OFFSET>,
-            ConnectTargetToView::<Impl, IMPL_OFFSET>,
-            CanConnectTargetToView::<Impl, IMPL_OFFSET>,
-            GetViewForTarget::<Impl, IMPL_OFFSET>,
-            GetPathForTarget::<Impl, IMPL_OFFSET>,
-            DisconnectTarget::<Impl, IMPL_OFFSET>,
-            TryFunctionalize::<Impl, IMPL_OFFSET>,
-            TryApply::<Impl, IMPL_OFFSET>,
-            Clone::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayState, BASE_OFFSET>(),
+            IsReadOnly: IsReadOnly::<Impl, IMPL_OFFSET>,
+            IsStale: IsStale::<Impl, IMPL_OFFSET>,
+            Targets: Targets::<Impl, IMPL_OFFSET>,
+            Views: Views::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            ConnectTarget: ConnectTarget::<Impl, IMPL_OFFSET>,
+            ConnectTargetToView: ConnectTargetToView::<Impl, IMPL_OFFSET>,
+            CanConnectTargetToView: CanConnectTargetToView::<Impl, IMPL_OFFSET>,
+            GetViewForTarget: GetViewForTarget::<Impl, IMPL_OFFSET>,
+            GetPathForTarget: GetPathForTarget::<Impl, IMPL_OFFSET>,
+            DisconnectTarget: DisconnectTarget::<Impl, IMPL_OFFSET>,
+            TryFunctionalize: TryFunctionalize::<Impl, IMPL_OFFSET>,
+            TryApply: TryApply::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayState as ::windows::core::Interface>::IID
@@ -1779,7 +1795,11 @@ impl IDisplayStateOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayStateOperationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedErrorCode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayStateOperationResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedErrorCode: ExtendedErrorCode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayStateOperationResult as ::windows::core::Interface>::IID
@@ -1794,7 +1814,7 @@ impl ::windows::core::RuntimeName for IDisplaySurface {
 #[cfg(feature = "implement_exclusive")]
 impl IDisplaySurfaceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplaySurfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplaySurfaceVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplaySurface>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplaySurface, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplaySurface as ::windows::core::Interface>::IID
@@ -1978,28 +1998,23 @@ impl IDisplayTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDisplayTarget>,
-            ::windows::core::GetTrustLevel,
-            Adapter::<Impl, IMPL_OFFSET>,
-            DeviceInterfacePath::<Impl, IMPL_OFFSET>,
-            AdapterRelativeId::<Impl, IMPL_OFFSET>,
-            IsConnected::<Impl, IMPL_OFFSET>,
-            IsVirtualModeEnabled::<Impl, IMPL_OFFSET>,
-            IsVirtualTopologyEnabled::<Impl, IMPL_OFFSET>,
-            UsageKind::<Impl, IMPL_OFFSET>,
-            MonitorPersistence::<Impl, IMPL_OFFSET>,
-            StableMonitorId::<Impl, IMPL_OFFSET>,
-            TryGetMonitor::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            IsStale::<Impl, IMPL_OFFSET>,
-            IsSame::<Impl, IMPL_OFFSET>,
-            IsEqual::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayTarget, BASE_OFFSET>(),
+            Adapter: Adapter::<Impl, IMPL_OFFSET>,
+            DeviceInterfacePath: DeviceInterfacePath::<Impl, IMPL_OFFSET>,
+            AdapterRelativeId: AdapterRelativeId::<Impl, IMPL_OFFSET>,
+            IsConnected: IsConnected::<Impl, IMPL_OFFSET>,
+            IsVirtualModeEnabled: IsVirtualModeEnabled::<Impl, IMPL_OFFSET>,
+            IsVirtualTopologyEnabled: IsVirtualTopologyEnabled::<Impl, IMPL_OFFSET>,
+            UsageKind: UsageKind::<Impl, IMPL_OFFSET>,
+            MonitorPersistence: MonitorPersistence::<Impl, IMPL_OFFSET>,
+            StableMonitorId: StableMonitorId::<Impl, IMPL_OFFSET>,
+            TryGetMonitor: TryGetMonitor::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            IsStale: IsStale::<Impl, IMPL_OFFSET>,
+            IsSame: IsSame::<Impl, IMPL_OFFSET>,
+            IsEqual: IsEqual::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayTarget as ::windows::core::Interface>::IID
@@ -2025,7 +2040,11 @@ impl IDisplayTaskVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWait(&*(&readyfence as *const <DisplayFence as ::windows::core::Abi>::Abi as *const <DisplayFence as ::windows::core::DefaultType>::DefaultType), readyfencevalue).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayTask>, ::windows::core::GetTrustLevel, SetScanout::<Impl, IMPL_OFFSET>, SetWait::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayTask, BASE_OFFSET>(),
+            SetScanout: SetScanout::<Impl, IMPL_OFFSET>,
+            SetWait: SetWait::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayTask as ::windows::core::Interface>::IID
@@ -2046,7 +2065,7 @@ impl IDisplayTask2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignal(signalkind, &*(&fence as *const <DisplayFence as ::windows::core::Abi>::Abi as *const <DisplayFence as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayTask2>, ::windows::core::GetTrustLevel, SetSignal::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayTask2, BASE_OFFSET>(), SetSignal: SetSignal::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayTask2 as ::windows::core::Interface>::IID
@@ -2079,7 +2098,11 @@ impl IDisplayTaskPoolVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ExecuteTask(&*(&task as *const <DisplayTask as ::windows::core::Abi>::Abi as *const <DisplayTask as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayTaskPool>, ::windows::core::GetTrustLevel, CreateTask::<Impl, IMPL_OFFSET>, ExecuteTask::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayTaskPool, BASE_OFFSET>(),
+            CreateTask: CreateTask::<Impl, IMPL_OFFSET>,
+            ExecuteTask: ExecuteTask::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayTaskPool as ::windows::core::Interface>::IID
@@ -2107,7 +2130,7 @@ impl IDisplayTaskPool2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayTaskPool2>, ::windows::core::GetTrustLevel, TryExecuteTask::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayTaskPool2, BASE_OFFSET>(), TryExecuteTask: TryExecuteTask::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayTaskPool2 as ::windows::core::Interface>::IID
@@ -2159,7 +2182,12 @@ impl IDisplayTaskResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayTaskResult>, ::windows::core::GetTrustLevel, PresentStatus::<Impl, IMPL_OFFSET>, PresentId::<Impl, IMPL_OFFSET>, SourceStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayTaskResult, BASE_OFFSET>(),
+            PresentStatus: PresentStatus::<Impl, IMPL_OFFSET>,
+            PresentId: PresentId::<Impl, IMPL_OFFSET>,
+            SourceStatus: SourceStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayTaskResult as ::windows::core::Interface>::IID
@@ -2221,7 +2249,14 @@ impl IDisplayViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayView>, ::windows::core::GetTrustLevel, Paths::<Impl, IMPL_OFFSET>, ContentResolution::<Impl, IMPL_OFFSET>, SetContentResolution::<Impl, IMPL_OFFSET>, SetPrimaryPath::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayView, BASE_OFFSET>(),
+            Paths: Paths::<Impl, IMPL_OFFSET>,
+            ContentResolution: ContentResolution::<Impl, IMPL_OFFSET>,
+            SetContentResolution: SetContentResolution::<Impl, IMPL_OFFSET>,
+            SetPrimaryPath: SetPrimaryPath::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayView as ::windows::core::Interface>::IID
@@ -2309,7 +2344,15 @@ impl IDisplayWireFormatVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayWireFormat>, ::windows::core::GetTrustLevel, PixelEncoding::<Impl, IMPL_OFFSET>, BitsPerChannel::<Impl, IMPL_OFFSET>, ColorSpace::<Impl, IMPL_OFFSET>, Eotf::<Impl, IMPL_OFFSET>, HdrMetadata::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayWireFormat, BASE_OFFSET>(),
+            PixelEncoding: PixelEncoding::<Impl, IMPL_OFFSET>,
+            BitsPerChannel: BitsPerChannel::<Impl, IMPL_OFFSET>,
+            ColorSpace: ColorSpace::<Impl, IMPL_OFFSET>,
+            Eotf: Eotf::<Impl, IMPL_OFFSET>,
+            HdrMetadata: HdrMetadata::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayWireFormat as ::windows::core::Interface>::IID
@@ -2337,7 +2380,10 @@ impl IDisplayWireFormatFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayWireFormatFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayWireFormatFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayWireFormatFactory as ::windows::core::Interface>::IID
@@ -2372,7 +2418,10 @@ impl IDisplayWireFormatStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayWireFormatStatics>, ::windows::core::GetTrustLevel, CreateWithProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDisplayWireFormatStatics, BASE_OFFSET>(),
+            CreateWithProperties: CreateWithProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDisplayWireFormatStatics as ::windows::core::Interface>::IID

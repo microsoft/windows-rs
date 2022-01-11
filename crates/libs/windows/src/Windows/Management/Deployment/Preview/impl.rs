@@ -20,7 +20,10 @@ impl IClassicAppManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClassicAppManagerStatics>, ::windows::core::GetTrustLevel, FindInstalledApp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IClassicAppManagerStatics, BASE_OFFSET>(),
+            FindInstalledApp: FindInstalledApp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IClassicAppManagerStatics as ::windows::core::Interface>::IID
@@ -60,7 +63,11 @@ impl IInstalledClassicAppInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledClassicAppInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, DisplayVersion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInstalledClassicAppInfo, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            DisplayVersion: DisplayVersion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstalledClassicAppInfo as ::windows::core::Interface>::IID

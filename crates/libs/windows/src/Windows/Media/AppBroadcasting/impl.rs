@@ -37,7 +37,12 @@ impl IAppBroadcastingMonitorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsCurrentAppBroadcastingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBroadcastingMonitor>, ::windows::core::GetTrustLevel, IsCurrentAppBroadcasting::<Impl, IMPL_OFFSET>, IsCurrentAppBroadcastingChanged::<Impl, IMPL_OFFSET>, RemoveIsCurrentAppBroadcastingChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBroadcastingMonitor, BASE_OFFSET>(),
+            IsCurrentAppBroadcasting: IsCurrentAppBroadcasting::<Impl, IMPL_OFFSET>,
+            IsCurrentAppBroadcastingChanged: IsCurrentAppBroadcastingChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsCurrentAppBroadcastingChanged: RemoveIsCurrentAppBroadcastingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBroadcastingMonitor as ::windows::core::Interface>::IID
@@ -77,7 +82,11 @@ impl IAppBroadcastingStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBroadcastingStatus>, ::windows::core::GetTrustLevel, CanStartBroadcast::<Impl, IMPL_OFFSET>, Details::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBroadcastingStatus, BASE_OFFSET>(),
+            CanStartBroadcast: CanStartBroadcast::<Impl, IMPL_OFFSET>,
+            Details: Details::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBroadcastingStatus as ::windows::core::Interface>::IID
@@ -189,22 +198,17 @@ impl IAppBroadcastingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppBroadcastingStatusDetails>,
-            ::windows::core::GetTrustLevel,
-            IsAnyAppBroadcasting::<Impl, IMPL_OFFSET>,
-            IsCaptureResourceUnavailable::<Impl, IMPL_OFFSET>,
-            IsGameStreamInProgress::<Impl, IMPL_OFFSET>,
-            IsGpuConstrained::<Impl, IMPL_OFFSET>,
-            IsAppInactive::<Impl, IMPL_OFFSET>,
-            IsBlockedForApp::<Impl, IMPL_OFFSET>,
-            IsDisabledByUser::<Impl, IMPL_OFFSET>,
-            IsDisabledBySystem::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBroadcastingStatusDetails, BASE_OFFSET>(),
+            IsAnyAppBroadcasting: IsAnyAppBroadcasting::<Impl, IMPL_OFFSET>,
+            IsCaptureResourceUnavailable: IsCaptureResourceUnavailable::<Impl, IMPL_OFFSET>,
+            IsGameStreamInProgress: IsGameStreamInProgress::<Impl, IMPL_OFFSET>,
+            IsGpuConstrained: IsGpuConstrained::<Impl, IMPL_OFFSET>,
+            IsAppInactive: IsAppInactive::<Impl, IMPL_OFFSET>,
+            IsBlockedForApp: IsBlockedForApp::<Impl, IMPL_OFFSET>,
+            IsDisabledByUser: IsDisabledByUser::<Impl, IMPL_OFFSET>,
+            IsDisabledBySystem: IsDisabledBySystem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBroadcastingStatusDetails as ::windows::core::Interface>::IID
@@ -237,7 +241,11 @@ impl IAppBroadcastingUIVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowBroadcastUI().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBroadcastingUI>, ::windows::core::GetTrustLevel, GetStatus::<Impl, IMPL_OFFSET>, ShowBroadcastUI::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBroadcastingUI, BASE_OFFSET>(),
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            ShowBroadcastUI: ShowBroadcastUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBroadcastingUI as ::windows::core::Interface>::IID
@@ -277,7 +285,11 @@ impl IAppBroadcastingUIStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBroadcastingUIStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBroadcastingUIStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppBroadcastingUIStatics as ::windows::core::Interface>::IID

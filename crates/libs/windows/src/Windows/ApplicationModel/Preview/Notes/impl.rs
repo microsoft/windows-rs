@@ -20,7 +20,10 @@ impl INotePlacementChangedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotePlacementChangedPreviewEventArgs>, ::windows::core::GetTrustLevel, ViewId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INotePlacementChangedPreviewEventArgs, BASE_OFFSET>(),
+            ViewId: ViewId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotePlacementChangedPreviewEventArgs as ::windows::core::Interface>::IID
@@ -60,7 +63,11 @@ impl INoteVisibilityChangedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INoteVisibilityChangedPreviewEventArgs>, ::windows::core::GetTrustLevel, ViewId::<Impl, IMPL_OFFSET>, IsVisible::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INoteVisibilityChangedPreviewEventArgs, BASE_OFFSET>(),
+            ViewId: ViewId::<Impl, IMPL_OFFSET>,
+            IsVisible: IsVisible::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INoteVisibilityChangedPreviewEventArgs as ::windows::core::Interface>::IID
@@ -200,29 +207,24 @@ impl INotesWindowManagerPreviewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveNoteVisibilityChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INotesWindowManagerPreview>,
-            ::windows::core::GetTrustLevel,
-            IsScreenLocked::<Impl, IMPL_OFFSET>,
-            ShowNote::<Impl, IMPL_OFFSET>,
-            ShowNoteRelativeTo::<Impl, IMPL_OFFSET>,
-            ShowNoteWithPlacement::<Impl, IMPL_OFFSET>,
-            HideNote::<Impl, IMPL_OFFSET>,
-            GetNotePlacement::<Impl, IMPL_OFFSET>,
-            TrySetNoteSize::<Impl, IMPL_OFFSET>,
-            SetFocusToNextView::<Impl, IMPL_OFFSET>,
-            SetNotesThumbnailAsync::<Impl, IMPL_OFFSET>,
-            SystemLockStateChanged::<Impl, IMPL_OFFSET>,
-            RemoveSystemLockStateChanged::<Impl, IMPL_OFFSET>,
-            NotePlacementChanged::<Impl, IMPL_OFFSET>,
-            RemoveNotePlacementChanged::<Impl, IMPL_OFFSET>,
-            NoteVisibilityChanged::<Impl, IMPL_OFFSET>,
-            RemoveNoteVisibilityChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INotesWindowManagerPreview, BASE_OFFSET>(),
+            IsScreenLocked: IsScreenLocked::<Impl, IMPL_OFFSET>,
+            ShowNote: ShowNote::<Impl, IMPL_OFFSET>,
+            ShowNoteRelativeTo: ShowNoteRelativeTo::<Impl, IMPL_OFFSET>,
+            ShowNoteWithPlacement: ShowNoteWithPlacement::<Impl, IMPL_OFFSET>,
+            HideNote: HideNote::<Impl, IMPL_OFFSET>,
+            GetNotePlacement: GetNotePlacement::<Impl, IMPL_OFFSET>,
+            TrySetNoteSize: TrySetNoteSize::<Impl, IMPL_OFFSET>,
+            SetFocusToNextView: SetFocusToNextView::<Impl, IMPL_OFFSET>,
+            SetNotesThumbnailAsync: SetNotesThumbnailAsync::<Impl, IMPL_OFFSET>,
+            SystemLockStateChanged: SystemLockStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveSystemLockStateChanged: RemoveSystemLockStateChanged::<Impl, IMPL_OFFSET>,
+            NotePlacementChanged: NotePlacementChanged::<Impl, IMPL_OFFSET>,
+            RemoveNotePlacementChanged: RemoveNotePlacementChanged::<Impl, IMPL_OFFSET>,
+            NoteVisibilityChanged: NoteVisibilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveNoteVisibilityChanged: RemoveNoteVisibilityChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotesWindowManagerPreview as ::windows::core::Interface>::IID
@@ -265,18 +267,13 @@ impl INotesWindowManagerPreview2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<INotesWindowManagerPreview2>,
-            ::windows::core::GetTrustLevel,
-            ShowNoteRelativeToWithOptions::<Impl, IMPL_OFFSET>,
-            ShowNoteWithPlacementWithOptions::<Impl, IMPL_OFFSET>,
-            SetFocusToPreviousView::<Impl, IMPL_OFFSET>,
-            SetThumbnailImageForTaskSwitcherAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INotesWindowManagerPreview2, BASE_OFFSET>(),
+            ShowNoteRelativeToWithOptions: ShowNoteRelativeToWithOptions::<Impl, IMPL_OFFSET>,
+            ShowNoteWithPlacementWithOptions: ShowNoteWithPlacementWithOptions::<Impl, IMPL_OFFSET>,
+            SetFocusToPreviousView: SetFocusToPreviousView::<Impl, IMPL_OFFSET>,
+            SetThumbnailImageForTaskSwitcherAsync: SetThumbnailImageForTaskSwitcherAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotesWindowManagerPreview2 as ::windows::core::Interface>::IID
@@ -309,7 +306,11 @@ impl INotesWindowManagerPreviewShowNoteOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShowWithFocus(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotesWindowManagerPreviewShowNoteOptions>, ::windows::core::GetTrustLevel, ShowWithFocus::<Impl, IMPL_OFFSET>, SetShowWithFocus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INotesWindowManagerPreviewShowNoteOptions, BASE_OFFSET>(),
+            ShowWithFocus: ShowWithFocus::<Impl, IMPL_OFFSET>,
+            SetShowWithFocus: SetShowWithFocus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotesWindowManagerPreviewShowNoteOptions as ::windows::core::Interface>::IID
@@ -337,7 +338,10 @@ impl INotesWindowManagerPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotesWindowManagerPreviewStatics>, ::windows::core::GetTrustLevel, GetForCurrentApp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INotesWindowManagerPreviewStatics, BASE_OFFSET>(),
+            GetForCurrentApp: GetForCurrentApp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotesWindowManagerPreviewStatics as ::windows::core::Interface>::IID

@@ -73,20 +73,15 @@ impl IAppCapabilityVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAccessChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAppCapability>,
-            ::windows::core::GetTrustLevel,
-            CapabilityName::<Impl, IMPL_OFFSET>,
-            User::<Impl, IMPL_OFFSET>,
-            RequestAccessAsync::<Impl, IMPL_OFFSET>,
-            CheckAccess::<Impl, IMPL_OFFSET>,
-            AccessChanged::<Impl, IMPL_OFFSET>,
-            RemoveAccessChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppCapability, BASE_OFFSET>(),
+            CapabilityName: CapabilityName::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            CheckAccess: CheckAccess::<Impl, IMPL_OFFSET>,
+            AccessChanged: AccessChanged::<Impl, IMPL_OFFSET>,
+            RemoveAccessChanged: RemoveAccessChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppCapability as ::windows::core::Interface>::IID
@@ -101,7 +96,7 @@ impl ::windows::core::RuntimeName for IAppCapabilityAccessChangedEventArgs {
 #[cfg(feature = "implement_exclusive")]
 impl IAppCapabilityAccessChangedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCapabilityAccessChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCapabilityAccessChangedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppCapabilityAccessChangedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAppCapabilityAccessChangedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppCapabilityAccessChangedEventArgs as ::windows::core::Interface>::IID
@@ -165,7 +160,13 @@ impl IAppCapabilityStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppCapabilityStatics>, ::windows::core::GetTrustLevel, RequestAccessForCapabilitiesAsync::<Impl, IMPL_OFFSET>, RequestAccessForCapabilitiesForUserAsync::<Impl, IMPL_OFFSET>, Create::<Impl, IMPL_OFFSET>, CreateWithProcessIdForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppCapabilityStatics, BASE_OFFSET>(),
+            RequestAccessForCapabilitiesAsync: RequestAccessForCapabilitiesAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessForCapabilitiesForUserAsync: RequestAccessForCapabilitiesForUserAsync::<Impl, IMPL_OFFSET>,
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithProcessIdForUser: CreateWithProcessIdForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppCapabilityStatics as ::windows::core::Interface>::IID

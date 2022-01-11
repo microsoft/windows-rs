@@ -10,16 +10,13 @@ unsafe impl ::windows::core::Interface for IInputActivationListenerPreviewStatic
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInputActivationListenerPreviewStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_WindowManagement")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_WindowManagement"))] usize,
-);
+pub struct IInputActivationListenerPreviewStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "UI_WindowManagement")]
+    pub CreateForApplicationWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_WindowManagement"))]
+    CreateForApplicationWindow: usize,
+}
 #[doc = "*Required features: 'UI_Input_Preview'*"]
 pub struct InputActivationListenerPreview {}
 impl InputActivationListenerPreview {
@@ -28,7 +25,7 @@ impl InputActivationListenerPreview {
     pub fn CreateForApplicationWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::WindowManagement::AppWindow>>(window: Param0) -> ::windows::core::Result<super::InputActivationListener> {
         Self::IInputActivationListenerPreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), window.into_param().abi(), &mut result__).from_abi::<super::InputActivationListener>(result__)
+            (::windows::core::Interface::vtable(this).CreateForApplicationWindow)(::core::mem::transmute_copy(this), window.into_param().abi(), &mut result__).from_abi::<super::InputActivationListener>(result__)
         })
     }
     #[doc(hidden)]

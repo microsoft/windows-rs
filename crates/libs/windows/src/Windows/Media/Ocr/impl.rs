@@ -32,7 +32,11 @@ impl IOcrEngineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOcrEngine>, ::windows::core::GetTrustLevel, RecognizeAsync::<Impl, IMPL_OFFSET>, RecognizerLanguage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOcrEngine, BASE_OFFSET>(),
+            RecognizeAsync: RecognizeAsync::<Impl, IMPL_OFFSET>,
+            RecognizerLanguage: RecognizerLanguage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOcrEngine as ::windows::core::Interface>::IID
@@ -108,19 +112,14 @@ impl IOcrEngineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IOcrEngineStatics>,
-            ::windows::core::GetTrustLevel,
-            MaxImageDimension::<Impl, IMPL_OFFSET>,
-            AvailableRecognizerLanguages::<Impl, IMPL_OFFSET>,
-            IsLanguageSupported::<Impl, IMPL_OFFSET>,
-            TryCreateFromLanguage::<Impl, IMPL_OFFSET>,
-            TryCreateFromUserProfileLanguages::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOcrEngineStatics, BASE_OFFSET>(),
+            MaxImageDimension: MaxImageDimension::<Impl, IMPL_OFFSET>,
+            AvailableRecognizerLanguages: AvailableRecognizerLanguages::<Impl, IMPL_OFFSET>,
+            IsLanguageSupported: IsLanguageSupported::<Impl, IMPL_OFFSET>,
+            TryCreateFromLanguage: TryCreateFromLanguage::<Impl, IMPL_OFFSET>,
+            TryCreateFromUserProfileLanguages: TryCreateFromUserProfileLanguages::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOcrEngineStatics as ::windows::core::Interface>::IID
@@ -160,7 +159,11 @@ impl IOcrLineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOcrLine>, ::windows::core::GetTrustLevel, Words::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOcrLine, BASE_OFFSET>(),
+            Words: Words::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOcrLine as ::windows::core::Interface>::IID
@@ -212,7 +215,12 @@ impl IOcrResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOcrResult>, ::windows::core::GetTrustLevel, Lines::<Impl, IMPL_OFFSET>, TextAngle::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOcrResult, BASE_OFFSET>(),
+            Lines: Lines::<Impl, IMPL_OFFSET>,
+            TextAngle: TextAngle::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOcrResult as ::windows::core::Interface>::IID
@@ -252,7 +260,11 @@ impl IOcrWordVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOcrWord>, ::windows::core::GetTrustLevel, BoundingRect::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOcrWord, BASE_OFFSET>(),
+            BoundingRect: BoundingRect::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOcrWord as ::windows::core::Interface>::IID

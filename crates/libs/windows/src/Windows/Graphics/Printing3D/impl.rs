@@ -25,7 +25,11 @@ impl IPrint3DManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTaskRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DManager>, ::windows::core::GetTrustLevel, TaskRequested::<Impl, IMPL_OFFSET>, RemoveTaskRequested::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrint3DManager, BASE_OFFSET>(),
+            TaskRequested: TaskRequested::<Impl, IMPL_OFFSET>,
+            RemoveTaskRequested: RemoveTaskRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrint3DManager as ::windows::core::Interface>::IID
@@ -65,7 +69,11 @@ impl IPrint3DManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>, ShowPrintUIAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrint3DManagerStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+            ShowPrintUIAsync: ShowPrintUIAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrint3DManagerStatics as ::windows::core::Interface>::IID
@@ -144,21 +152,16 @@ impl IPrint3DTaskVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSourceChanged(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrint3DTask>,
-            ::windows::core::GetTrustLevel,
-            Source::<Impl, IMPL_OFFSET>,
-            Submitting::<Impl, IMPL_OFFSET>,
-            RemoveSubmitting::<Impl, IMPL_OFFSET>,
-            Completed::<Impl, IMPL_OFFSET>,
-            RemoveCompleted::<Impl, IMPL_OFFSET>,
-            SourceChanged::<Impl, IMPL_OFFSET>,
-            RemoveSourceChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrint3DTask, BASE_OFFSET>(),
+            Source: Source::<Impl, IMPL_OFFSET>,
+            Submitting: Submitting::<Impl, IMPL_OFFSET>,
+            RemoveSubmitting: RemoveSubmitting::<Impl, IMPL_OFFSET>,
+            Completed: Completed::<Impl, IMPL_OFFSET>,
+            RemoveCompleted: RemoveCompleted::<Impl, IMPL_OFFSET>,
+            SourceChanged: SourceChanged::<Impl, IMPL_OFFSET>,
+            RemoveSourceChanged: RemoveSourceChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrint3DTask as ::windows::core::Interface>::IID
@@ -198,7 +201,11 @@ impl IPrint3DTaskCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskCompletedEventArgs>, ::windows::core::GetTrustLevel, Completion::<Impl, IMPL_OFFSET>, ExtendedStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrint3DTaskCompletedEventArgs, BASE_OFFSET>(),
+            Completion: Completion::<Impl, IMPL_OFFSET>,
+            ExtendedStatus: ExtendedStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrint3DTaskCompletedEventArgs as ::windows::core::Interface>::IID
@@ -230,7 +237,7 @@ impl IPrint3DTaskRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskRequest>, ::windows::core::GetTrustLevel, CreateTask::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPrint3DTaskRequest, BASE_OFFSET>(), CreateTask: CreateTask::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrint3DTaskRequest as ::windows::core::Interface>::IID
@@ -258,7 +265,7 @@ impl IPrint3DTaskRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPrint3DTaskRequestedEventArgs, BASE_OFFSET>(), Request: Request::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrint3DTaskRequestedEventArgs as ::windows::core::Interface>::IID
@@ -286,7 +293,7 @@ impl IPrint3DTaskSourceChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskSourceChangedEventArgs>, ::windows::core::GetTrustLevel, Source::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPrint3DTaskSourceChangedEventArgs, BASE_OFFSET>(), Source: Source::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrint3DTaskSourceChangedEventArgs as ::windows::core::Interface>::IID
@@ -307,7 +314,10 @@ impl IPrint3DTaskSourceRequestedArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSource(&*(&source as *const <Printing3D3MFPackage as ::windows::core::Abi>::Abi as *const <Printing3D3MFPackage as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskSourceRequestedArgs>, ::windows::core::GetTrustLevel, SetSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrint3DTaskSourceRequestedArgs, BASE_OFFSET>(),
+            SetSource: SetSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrint3DTaskSourceRequestedArgs as ::windows::core::Interface>::IID
@@ -422,24 +432,19 @@ impl IPrinting3D3MFPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrinting3D3MFPackage>,
-            ::windows::core::GetTrustLevel,
-            SaveAsync::<Impl, IMPL_OFFSET>,
-            PrintTicket::<Impl, IMPL_OFFSET>,
-            SetPrintTicket::<Impl, IMPL_OFFSET>,
-            ModelPart::<Impl, IMPL_OFFSET>,
-            SetModelPart::<Impl, IMPL_OFFSET>,
-            Thumbnail::<Impl, IMPL_OFFSET>,
-            SetThumbnail::<Impl, IMPL_OFFSET>,
-            Textures::<Impl, IMPL_OFFSET>,
-            LoadModelFromPackageAsync::<Impl, IMPL_OFFSET>,
-            SaveModelToPackageAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3D3MFPackage, BASE_OFFSET>(),
+            SaveAsync: SaveAsync::<Impl, IMPL_OFFSET>,
+            PrintTicket: PrintTicket::<Impl, IMPL_OFFSET>,
+            SetPrintTicket: SetPrintTicket::<Impl, IMPL_OFFSET>,
+            ModelPart: ModelPart::<Impl, IMPL_OFFSET>,
+            SetModelPart: SetModelPart::<Impl, IMPL_OFFSET>,
+            Thumbnail: Thumbnail::<Impl, IMPL_OFFSET>,
+            SetThumbnail: SetThumbnail::<Impl, IMPL_OFFSET>,
+            Textures: Textures::<Impl, IMPL_OFFSET>,
+            LoadModelFromPackageAsync: LoadModelFromPackageAsync::<Impl, IMPL_OFFSET>,
+            SaveModelToPackageAsync: SaveModelToPackageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3D3MFPackage as ::windows::core::Interface>::IID
@@ -472,7 +477,11 @@ impl IPrinting3D3MFPackage2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCompression(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3D3MFPackage2>, ::windows::core::GetTrustLevel, Compression::<Impl, IMPL_OFFSET>, SetCompression::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3D3MFPackage2, BASE_OFFSET>(),
+            Compression: Compression::<Impl, IMPL_OFFSET>,
+            SetCompression: SetCompression::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3D3MFPackage2 as ::windows::core::Interface>::IID
@@ -500,7 +509,7 @@ impl IPrinting3D3MFPackageStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3D3MFPackageStatics>, ::windows::core::GetTrustLevel, LoadAsync::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3D3MFPackageStatics, BASE_OFFSET>(), LoadAsync: LoadAsync::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3D3MFPackageStatics as ::windows::core::Interface>::IID
@@ -550,7 +559,13 @@ impl IPrinting3DBaseMaterialVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColor(&*(&value as *const <Printing3DColorMaterial as ::windows::core::Abi>::Abi as *const <Printing3DColorMaterial as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DBaseMaterial>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, Color::<Impl, IMPL_OFFSET>, SetColor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DBaseMaterial, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            Color: Color::<Impl, IMPL_OFFSET>,
+            SetColor: SetColor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DBaseMaterial as ::windows::core::Interface>::IID
@@ -590,7 +605,11 @@ impl IPrinting3DBaseMaterialGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DBaseMaterialGroup>, ::windows::core::GetTrustLevel, Bases::<Impl, IMPL_OFFSET>, MaterialGroupId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DBaseMaterialGroup, BASE_OFFSET>(),
+            Bases: Bases::<Impl, IMPL_OFFSET>,
+            MaterialGroupId: MaterialGroupId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DBaseMaterialGroup as ::windows::core::Interface>::IID
@@ -618,7 +637,10 @@ impl IPrinting3DBaseMaterialGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DBaseMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DBaseMaterialGroupFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DBaseMaterialGroupFactory as ::windows::core::Interface>::IID
@@ -658,7 +680,11 @@ impl IPrinting3DBaseMaterialStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DBaseMaterialStatics>, ::windows::core::GetTrustLevel, Abs::<Impl, IMPL_OFFSET>, Pla::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DBaseMaterialStatics, BASE_OFFSET>(),
+            Abs: Abs::<Impl, IMPL_OFFSET>,
+            Pla: Pla::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DBaseMaterialStatics as ::windows::core::Interface>::IID
@@ -691,7 +717,11 @@ impl IPrinting3DColorMaterialVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DColorMaterial>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DColorMaterial, BASE_OFFSET>(),
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DColorMaterial as ::windows::core::Interface>::IID
@@ -724,7 +754,11 @@ impl IPrinting3DColorMaterial2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColor(&*(&value as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DColorMaterial2>, ::windows::core::GetTrustLevel, Color::<Impl, IMPL_OFFSET>, SetColor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DColorMaterial2, BASE_OFFSET>(),
+            Color: Color::<Impl, IMPL_OFFSET>,
+            SetColor: SetColor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DColorMaterial2 as ::windows::core::Interface>::IID
@@ -764,7 +798,11 @@ impl IPrinting3DColorMaterialGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DColorMaterialGroup>, ::windows::core::GetTrustLevel, Colors::<Impl, IMPL_OFFSET>, MaterialGroupId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DColorMaterialGroup, BASE_OFFSET>(),
+            Colors: Colors::<Impl, IMPL_OFFSET>,
+            MaterialGroupId: MaterialGroupId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DColorMaterialGroup as ::windows::core::Interface>::IID
@@ -792,7 +830,10 @@ impl IPrinting3DColorMaterialGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DColorMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DColorMaterialGroupFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DColorMaterialGroupFactory as ::windows::core::Interface>::IID
@@ -905,25 +946,20 @@ impl IPrinting3DComponentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPartNumber(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrinting3DComponent>,
-            ::windows::core::GetTrustLevel,
-            Mesh::<Impl, IMPL_OFFSET>,
-            SetMesh::<Impl, IMPL_OFFSET>,
-            Components::<Impl, IMPL_OFFSET>,
-            Thumbnail::<Impl, IMPL_OFFSET>,
-            SetThumbnail::<Impl, IMPL_OFFSET>,
-            Type::<Impl, IMPL_OFFSET>,
-            SetType::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            SetName::<Impl, IMPL_OFFSET>,
-            PartNumber::<Impl, IMPL_OFFSET>,
-            SetPartNumber::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DComponent, BASE_OFFSET>(),
+            Mesh: Mesh::<Impl, IMPL_OFFSET>,
+            SetMesh: SetMesh::<Impl, IMPL_OFFSET>,
+            Components: Components::<Impl, IMPL_OFFSET>,
+            Thumbnail: Thumbnail::<Impl, IMPL_OFFSET>,
+            SetThumbnail: SetThumbnail::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+            SetType: SetType::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            PartNumber: PartNumber::<Impl, IMPL_OFFSET>,
+            SetPartNumber: SetPartNumber::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DComponent as ::windows::core::Interface>::IID
@@ -973,7 +1009,13 @@ impl IPrinting3DComponentWithMatrixVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMatrix(&*(&value as *const <super::super::Foundation::Numerics::Matrix4x4 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Matrix4x4 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DComponentWithMatrix>, ::windows::core::GetTrustLevel, Component::<Impl, IMPL_OFFSET>, SetComponent::<Impl, IMPL_OFFSET>, Matrix::<Impl, IMPL_OFFSET>, SetMatrix::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DComponentWithMatrix, BASE_OFFSET>(),
+            Component: Component::<Impl, IMPL_OFFSET>,
+            SetComponent: SetComponent::<Impl, IMPL_OFFSET>,
+            Matrix: Matrix::<Impl, IMPL_OFFSET>,
+            SetMatrix: SetMatrix::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DComponentWithMatrix as ::windows::core::Interface>::IID
@@ -1001,7 +1043,7 @@ impl IPrinting3DCompositeMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DCompositeMaterial>, ::windows::core::GetTrustLevel, Values::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DCompositeMaterial, BASE_OFFSET>(), Values: Values::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DCompositeMaterial as ::windows::core::Interface>::IID
@@ -1053,7 +1095,12 @@ impl IPrinting3DCompositeMaterialGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DCompositeMaterialGroup>, ::windows::core::GetTrustLevel, Composites::<Impl, IMPL_OFFSET>, MaterialGroupId::<Impl, IMPL_OFFSET>, MaterialIndices::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DCompositeMaterialGroup, BASE_OFFSET>(),
+            Composites: Composites::<Impl, IMPL_OFFSET>,
+            MaterialGroupId: MaterialGroupId::<Impl, IMPL_OFFSET>,
+            MaterialIndices: MaterialIndices::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DCompositeMaterialGroup as ::windows::core::Interface>::IID
@@ -1086,7 +1133,11 @@ impl IPrinting3DCompositeMaterialGroup2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBaseMaterialGroup(&*(&value as *const <Printing3DBaseMaterialGroup as ::windows::core::Abi>::Abi as *const <Printing3DBaseMaterialGroup as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DCompositeMaterialGroup2>, ::windows::core::GetTrustLevel, BaseMaterialGroup::<Impl, IMPL_OFFSET>, SetBaseMaterialGroup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DCompositeMaterialGroup2, BASE_OFFSET>(),
+            BaseMaterialGroup: BaseMaterialGroup::<Impl, IMPL_OFFSET>,
+            SetBaseMaterialGroup: SetBaseMaterialGroup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DCompositeMaterialGroup2 as ::windows::core::Interface>::IID
@@ -1114,7 +1165,10 @@ impl IPrinting3DCompositeMaterialGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DCompositeMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DCompositeMaterialGroupFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DCompositeMaterialGroupFactory as ::windows::core::Interface>::IID
@@ -1181,20 +1235,15 @@ impl IPrinting3DFaceReductionOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxEdgeLength(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrinting3DFaceReductionOptions>,
-            ::windows::core::GetTrustLevel,
-            MaxReductionArea::<Impl, IMPL_OFFSET>,
-            SetMaxReductionArea::<Impl, IMPL_OFFSET>,
-            TargetTriangleCount::<Impl, IMPL_OFFSET>,
-            SetTargetTriangleCount::<Impl, IMPL_OFFSET>,
-            MaxEdgeLength::<Impl, IMPL_OFFSET>,
-            SetMaxEdgeLength::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DFaceReductionOptions, BASE_OFFSET>(),
+            MaxReductionArea: MaxReductionArea::<Impl, IMPL_OFFSET>,
+            SetMaxReductionArea: SetMaxReductionArea::<Impl, IMPL_OFFSET>,
+            TargetTriangleCount: TargetTriangleCount::<Impl, IMPL_OFFSET>,
+            SetTargetTriangleCount: SetTargetTriangleCount::<Impl, IMPL_OFFSET>,
+            MaxEdgeLength: MaxEdgeLength::<Impl, IMPL_OFFSET>,
+            SetMaxEdgeLength: SetMaxEdgeLength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DFaceReductionOptions as ::windows::core::Interface>::IID
@@ -1270,7 +1319,14 @@ impl IPrinting3DMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMaterial>, ::windows::core::GetTrustLevel, BaseGroups::<Impl, IMPL_OFFSET>, ColorGroups::<Impl, IMPL_OFFSET>, Texture2CoordGroups::<Impl, IMPL_OFFSET>, CompositeGroups::<Impl, IMPL_OFFSET>, MultiplePropertyGroups::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DMaterial, BASE_OFFSET>(),
+            BaseGroups: BaseGroups::<Impl, IMPL_OFFSET>,
+            ColorGroups: ColorGroups::<Impl, IMPL_OFFSET>,
+            Texture2CoordGroups: Texture2CoordGroups::<Impl, IMPL_OFFSET>,
+            CompositeGroups: CompositeGroups::<Impl, IMPL_OFFSET>,
+            MultiplePropertyGroups: MultiplePropertyGroups::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DMaterial as ::windows::core::Interface>::IID
@@ -1492,37 +1548,32 @@ impl IPrinting3DMeshVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrinting3DMesh>,
-            ::windows::core::GetTrustLevel,
-            VertexCount::<Impl, IMPL_OFFSET>,
-            SetVertexCount::<Impl, IMPL_OFFSET>,
-            IndexCount::<Impl, IMPL_OFFSET>,
-            SetIndexCount::<Impl, IMPL_OFFSET>,
-            VertexPositionsDescription::<Impl, IMPL_OFFSET>,
-            SetVertexPositionsDescription::<Impl, IMPL_OFFSET>,
-            VertexNormalsDescription::<Impl, IMPL_OFFSET>,
-            SetVertexNormalsDescription::<Impl, IMPL_OFFSET>,
-            TriangleIndicesDescription::<Impl, IMPL_OFFSET>,
-            SetTriangleIndicesDescription::<Impl, IMPL_OFFSET>,
-            TriangleMaterialIndicesDescription::<Impl, IMPL_OFFSET>,
-            SetTriangleMaterialIndicesDescription::<Impl, IMPL_OFFSET>,
-            GetVertexPositions::<Impl, IMPL_OFFSET>,
-            CreateVertexPositions::<Impl, IMPL_OFFSET>,
-            GetVertexNormals::<Impl, IMPL_OFFSET>,
-            CreateVertexNormals::<Impl, IMPL_OFFSET>,
-            GetTriangleIndices::<Impl, IMPL_OFFSET>,
-            CreateTriangleIndices::<Impl, IMPL_OFFSET>,
-            GetTriangleMaterialIndices::<Impl, IMPL_OFFSET>,
-            CreateTriangleMaterialIndices::<Impl, IMPL_OFFSET>,
-            BufferDescriptionSet::<Impl, IMPL_OFFSET>,
-            BufferSet::<Impl, IMPL_OFFSET>,
-            VerifyAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DMesh, BASE_OFFSET>(),
+            VertexCount: VertexCount::<Impl, IMPL_OFFSET>,
+            SetVertexCount: SetVertexCount::<Impl, IMPL_OFFSET>,
+            IndexCount: IndexCount::<Impl, IMPL_OFFSET>,
+            SetIndexCount: SetIndexCount::<Impl, IMPL_OFFSET>,
+            VertexPositionsDescription: VertexPositionsDescription::<Impl, IMPL_OFFSET>,
+            SetVertexPositionsDescription: SetVertexPositionsDescription::<Impl, IMPL_OFFSET>,
+            VertexNormalsDescription: VertexNormalsDescription::<Impl, IMPL_OFFSET>,
+            SetVertexNormalsDescription: SetVertexNormalsDescription::<Impl, IMPL_OFFSET>,
+            TriangleIndicesDescription: TriangleIndicesDescription::<Impl, IMPL_OFFSET>,
+            SetTriangleIndicesDescription: SetTriangleIndicesDescription::<Impl, IMPL_OFFSET>,
+            TriangleMaterialIndicesDescription: TriangleMaterialIndicesDescription::<Impl, IMPL_OFFSET>,
+            SetTriangleMaterialIndicesDescription: SetTriangleMaterialIndicesDescription::<Impl, IMPL_OFFSET>,
+            GetVertexPositions: GetVertexPositions::<Impl, IMPL_OFFSET>,
+            CreateVertexPositions: CreateVertexPositions::<Impl, IMPL_OFFSET>,
+            GetVertexNormals: GetVertexNormals::<Impl, IMPL_OFFSET>,
+            CreateVertexNormals: CreateVertexNormals::<Impl, IMPL_OFFSET>,
+            GetTriangleIndices: GetTriangleIndices::<Impl, IMPL_OFFSET>,
+            CreateTriangleIndices: CreateTriangleIndices::<Impl, IMPL_OFFSET>,
+            GetTriangleMaterialIndices: GetTriangleMaterialIndices::<Impl, IMPL_OFFSET>,
+            CreateTriangleMaterialIndices: CreateTriangleMaterialIndices::<Impl, IMPL_OFFSET>,
+            BufferDescriptionSet: BufferDescriptionSet::<Impl, IMPL_OFFSET>,
+            BufferSet: BufferSet::<Impl, IMPL_OFFSET>,
+            VerifyAsync: VerifyAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DMesh as ::windows::core::Interface>::IID
@@ -1574,7 +1625,12 @@ impl IPrinting3DMeshVerificationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMeshVerificationResult>, ::windows::core::GetTrustLevel, IsValid::<Impl, IMPL_OFFSET>, NonmanifoldTriangles::<Impl, IMPL_OFFSET>, ReversedNormalTriangles::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DMeshVerificationResult, BASE_OFFSET>(),
+            IsValid: IsValid::<Impl, IMPL_OFFSET>,
+            NonmanifoldTriangles: NonmanifoldTriangles::<Impl, IMPL_OFFSET>,
+            ReversedNormalTriangles: ReversedNormalTriangles::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DMeshVerificationResult as ::windows::core::Interface>::IID
@@ -1742,29 +1798,24 @@ impl IPrinting3DModelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrinting3DModel>,
-            ::windows::core::GetTrustLevel,
-            Unit::<Impl, IMPL_OFFSET>,
-            SetUnit::<Impl, IMPL_OFFSET>,
-            Textures::<Impl, IMPL_OFFSET>,
-            Meshes::<Impl, IMPL_OFFSET>,
-            Components::<Impl, IMPL_OFFSET>,
-            Material::<Impl, IMPL_OFFSET>,
-            SetMaterial::<Impl, IMPL_OFFSET>,
-            Build::<Impl, IMPL_OFFSET>,
-            SetBuild::<Impl, IMPL_OFFSET>,
-            Version::<Impl, IMPL_OFFSET>,
-            SetVersion::<Impl, IMPL_OFFSET>,
-            RequiredExtensions::<Impl, IMPL_OFFSET>,
-            Metadata::<Impl, IMPL_OFFSET>,
-            RepairAsync::<Impl, IMPL_OFFSET>,
-            Clone::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DModel, BASE_OFFSET>(),
+            Unit: Unit::<Impl, IMPL_OFFSET>,
+            SetUnit: SetUnit::<Impl, IMPL_OFFSET>,
+            Textures: Textures::<Impl, IMPL_OFFSET>,
+            Meshes: Meshes::<Impl, IMPL_OFFSET>,
+            Components: Components::<Impl, IMPL_OFFSET>,
+            Material: Material::<Impl, IMPL_OFFSET>,
+            SetMaterial: SetMaterial::<Impl, IMPL_OFFSET>,
+            Build: Build::<Impl, IMPL_OFFSET>,
+            SetBuild: SetBuild::<Impl, IMPL_OFFSET>,
+            Version: Version::<Impl, IMPL_OFFSET>,
+            SetVersion: SetVersion::<Impl, IMPL_OFFSET>,
+            RequiredExtensions: RequiredExtensions::<Impl, IMPL_OFFSET>,
+            Metadata: Metadata::<Impl, IMPL_OFFSET>,
+            RepairAsync: RepairAsync::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DModel as ::windows::core::Interface>::IID
@@ -1852,20 +1903,15 @@ impl IPrinting3DModel2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrinting3DModel2>,
-            ::windows::core::GetTrustLevel,
-            TryPartialRepairAsync::<Impl, IMPL_OFFSET>,
-            TryPartialRepairWithTimeAsync::<Impl, IMPL_OFFSET>,
-            TryReduceFacesAsync::<Impl, IMPL_OFFSET>,
-            TryReduceFacesWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            TryReduceFacesWithOptionsAndTimeAsync::<Impl, IMPL_OFFSET>,
-            RepairWithProgressAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DModel2, BASE_OFFSET>(),
+            TryPartialRepairAsync: TryPartialRepairAsync::<Impl, IMPL_OFFSET>,
+            TryPartialRepairWithTimeAsync: TryPartialRepairWithTimeAsync::<Impl, IMPL_OFFSET>,
+            TryReduceFacesAsync: TryReduceFacesAsync::<Impl, IMPL_OFFSET>,
+            TryReduceFacesWithOptionsAsync: TryReduceFacesWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            TryReduceFacesWithOptionsAndTimeAsync: TryReduceFacesWithOptionsAndTimeAsync::<Impl, IMPL_OFFSET>,
+            RepairWithProgressAsync: RepairWithProgressAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DModel2 as ::windows::core::Interface>::IID
@@ -1932,20 +1978,15 @@ impl IPrinting3DModelTextureVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTileStyleV(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrinting3DModelTexture>,
-            ::windows::core::GetTrustLevel,
-            TextureResource::<Impl, IMPL_OFFSET>,
-            SetTextureResource::<Impl, IMPL_OFFSET>,
-            TileStyleU::<Impl, IMPL_OFFSET>,
-            SetTileStyleU::<Impl, IMPL_OFFSET>,
-            TileStyleV::<Impl, IMPL_OFFSET>,
-            SetTileStyleV::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DModelTexture, BASE_OFFSET>(),
+            TextureResource: TextureResource::<Impl, IMPL_OFFSET>,
+            SetTextureResource: SetTextureResource::<Impl, IMPL_OFFSET>,
+            TileStyleU: TileStyleU::<Impl, IMPL_OFFSET>,
+            SetTileStyleU: SetTileStyleU::<Impl, IMPL_OFFSET>,
+            TileStyleV: TileStyleV::<Impl, IMPL_OFFSET>,
+            SetTileStyleV: SetTileStyleV::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DModelTexture as ::windows::core::Interface>::IID
@@ -1973,7 +2014,10 @@ impl IPrinting3DMultiplePropertyMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMultiplePropertyMaterial>, ::windows::core::GetTrustLevel, MaterialIndices::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DMultiplePropertyMaterial, BASE_OFFSET>(),
+            MaterialIndices: MaterialIndices::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DMultiplePropertyMaterial as ::windows::core::Interface>::IID
@@ -2025,7 +2069,12 @@ impl IPrinting3DMultiplePropertyMaterialGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMultiplePropertyMaterialGroup>, ::windows::core::GetTrustLevel, MultipleProperties::<Impl, IMPL_OFFSET>, MaterialGroupIndices::<Impl, IMPL_OFFSET>, MaterialGroupId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DMultiplePropertyMaterialGroup, BASE_OFFSET>(),
+            MultipleProperties: MultipleProperties::<Impl, IMPL_OFFSET>,
+            MaterialGroupIndices: MaterialGroupIndices::<Impl, IMPL_OFFSET>,
+            MaterialGroupId: MaterialGroupId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DMultiplePropertyMaterialGroup as ::windows::core::Interface>::IID
@@ -2053,7 +2102,10 @@ impl IPrinting3DMultiplePropertyMaterialGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMultiplePropertyMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DMultiplePropertyMaterialGroupFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DMultiplePropertyMaterialGroupFactory as ::windows::core::Interface>::IID
@@ -2120,7 +2172,15 @@ impl IPrinting3DTexture2CoordMaterialVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetV(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTexture2CoordMaterial>, ::windows::core::GetTrustLevel, Texture::<Impl, IMPL_OFFSET>, SetTexture::<Impl, IMPL_OFFSET>, U::<Impl, IMPL_OFFSET>, SetU::<Impl, IMPL_OFFSET>, V::<Impl, IMPL_OFFSET>, SetV::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DTexture2CoordMaterial, BASE_OFFSET>(),
+            Texture: Texture::<Impl, IMPL_OFFSET>,
+            SetTexture: SetTexture::<Impl, IMPL_OFFSET>,
+            U: U::<Impl, IMPL_OFFSET>,
+            SetU: SetU::<Impl, IMPL_OFFSET>,
+            V: V::<Impl, IMPL_OFFSET>,
+            SetV: SetV::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DTexture2CoordMaterial as ::windows::core::Interface>::IID
@@ -2160,7 +2220,11 @@ impl IPrinting3DTexture2CoordMaterialGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTexture2CoordMaterialGroup>, ::windows::core::GetTrustLevel, Texture2Coords::<Impl, IMPL_OFFSET>, MaterialGroupId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DTexture2CoordMaterialGroup, BASE_OFFSET>(),
+            Texture2Coords: Texture2Coords::<Impl, IMPL_OFFSET>,
+            MaterialGroupId: MaterialGroupId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DTexture2CoordMaterialGroup as ::windows::core::Interface>::IID
@@ -2193,7 +2257,11 @@ impl IPrinting3DTexture2CoordMaterialGroup2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTexture(&*(&value as *const <Printing3DModelTexture as ::windows::core::Abi>::Abi as *const <Printing3DModelTexture as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTexture2CoordMaterialGroup2>, ::windows::core::GetTrustLevel, Texture::<Impl, IMPL_OFFSET>, SetTexture::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DTexture2CoordMaterialGroup2, BASE_OFFSET>(),
+            Texture: Texture::<Impl, IMPL_OFFSET>,
+            SetTexture: SetTexture::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DTexture2CoordMaterialGroup2 as ::windows::core::Interface>::IID
@@ -2221,7 +2289,10 @@ impl IPrinting3DTexture2CoordMaterialGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTexture2CoordMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DTexture2CoordMaterialGroupFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DTexture2CoordMaterialGroupFactory as ::windows::core::Interface>::IID
@@ -2271,7 +2342,13 @@ impl IPrinting3DTextureResourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTextureResource>, ::windows::core::GetTrustLevel, TextureData::<Impl, IMPL_OFFSET>, SetTextureData::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DTextureResource, BASE_OFFSET>(),
+            TextureData: TextureData::<Impl, IMPL_OFFSET>,
+            SetTextureData: SetTextureData::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinting3DTextureResource as ::windows::core::Interface>::IID

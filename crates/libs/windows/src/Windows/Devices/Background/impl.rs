@@ -44,7 +44,12 @@ impl IDeviceServicingDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceServicingDetails>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, Arguments::<Impl, IMPL_OFFSET>, ExpectedDuration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceServicingDetails, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            Arguments: Arguments::<Impl, IMPL_OFFSET>,
+            ExpectedDuration: ExpectedDuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceServicingDetails as ::windows::core::Interface>::IID
@@ -84,7 +89,11 @@ impl IDeviceUseDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceUseDetails>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, Arguments::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceUseDetails, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            Arguments: Arguments::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceUseDetails as ::windows::core::Interface>::IID

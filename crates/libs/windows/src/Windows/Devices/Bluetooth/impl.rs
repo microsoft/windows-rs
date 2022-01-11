@@ -104,22 +104,17 @@ impl IBluetoothAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBluetoothAdapter>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            BluetoothAddress::<Impl, IMPL_OFFSET>,
-            IsClassicSupported::<Impl, IMPL_OFFSET>,
-            IsLowEnergySupported::<Impl, IMPL_OFFSET>,
-            IsPeripheralRoleSupported::<Impl, IMPL_OFFSET>,
-            IsCentralRoleSupported::<Impl, IMPL_OFFSET>,
-            IsAdvertisementOffloadSupported::<Impl, IMPL_OFFSET>,
-            GetRadioAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothAdapter, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            BluetoothAddress: BluetoothAddress::<Impl, IMPL_OFFSET>,
+            IsClassicSupported: IsClassicSupported::<Impl, IMPL_OFFSET>,
+            IsLowEnergySupported: IsLowEnergySupported::<Impl, IMPL_OFFSET>,
+            IsPeripheralRoleSupported: IsPeripheralRoleSupported::<Impl, IMPL_OFFSET>,
+            IsCentralRoleSupported: IsCentralRoleSupported::<Impl, IMPL_OFFSET>,
+            IsAdvertisementOffloadSupported: IsAdvertisementOffloadSupported::<Impl, IMPL_OFFSET>,
+            GetRadioAsync: GetRadioAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothAdapter as ::windows::core::Interface>::IID
@@ -159,7 +154,11 @@ impl IBluetoothAdapter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothAdapter2>, ::windows::core::GetTrustLevel, AreClassicSecureConnectionsSupported::<Impl, IMPL_OFFSET>, AreLowEnergySecureConnectionsSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothAdapter2, BASE_OFFSET>(),
+            AreClassicSecureConnectionsSupported: AreClassicSecureConnectionsSupported::<Impl, IMPL_OFFSET>,
+            AreLowEnergySecureConnectionsSupported: AreLowEnergySecureConnectionsSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothAdapter2 as ::windows::core::Interface>::IID
@@ -199,7 +198,11 @@ impl IBluetoothAdapter3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothAdapter3>, ::windows::core::GetTrustLevel, IsExtendedAdvertisingSupported::<Impl, IMPL_OFFSET>, MaxAdvertisementDataLength::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothAdapter3, BASE_OFFSET>(),
+            IsExtendedAdvertisingSupported: IsExtendedAdvertisingSupported::<Impl, IMPL_OFFSET>,
+            MaxAdvertisementDataLength: MaxAdvertisementDataLength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothAdapter3 as ::windows::core::Interface>::IID
@@ -251,7 +254,12 @@ impl IBluetoothAdapterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothAdapterStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothAdapterStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothAdapterStatics as ::windows::core::Interface>::IID
@@ -315,7 +323,13 @@ impl IBluetoothClassOfDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothClassOfDevice>, ::windows::core::GetTrustLevel, RawValue::<Impl, IMPL_OFFSET>, MajorClass::<Impl, IMPL_OFFSET>, MinorClass::<Impl, IMPL_OFFSET>, ServiceCapabilities::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothClassOfDevice, BASE_OFFSET>(),
+            RawValue: RawValue::<Impl, IMPL_OFFSET>,
+            MajorClass: MajorClass::<Impl, IMPL_OFFSET>,
+            MinorClass: MinorClass::<Impl, IMPL_OFFSET>,
+            ServiceCapabilities: ServiceCapabilities::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothClassOfDevice as ::windows::core::Interface>::IID
@@ -355,7 +369,11 @@ impl IBluetoothClassOfDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothClassOfDeviceStatics>, ::windows::core::GetTrustLevel, FromRawValue::<Impl, IMPL_OFFSET>, FromParts::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothClassOfDeviceStatics, BASE_OFFSET>(),
+            FromRawValue: FromRawValue::<Impl, IMPL_OFFSET>,
+            FromParts: FromParts::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothClassOfDeviceStatics as ::windows::core::Interface>::IID
@@ -518,28 +536,23 @@ impl IBluetoothDeviceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveConnectionStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBluetoothDevice>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            HostName::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            ClassOfDevice::<Impl, IMPL_OFFSET>,
-            SdpRecords::<Impl, IMPL_OFFSET>,
-            RfcommServices::<Impl, IMPL_OFFSET>,
-            ConnectionStatus::<Impl, IMPL_OFFSET>,
-            BluetoothAddress::<Impl, IMPL_OFFSET>,
-            NameChanged::<Impl, IMPL_OFFSET>,
-            RemoveNameChanged::<Impl, IMPL_OFFSET>,
-            SdpRecordsChanged::<Impl, IMPL_OFFSET>,
-            RemoveSdpRecordsChanged::<Impl, IMPL_OFFSET>,
-            ConnectionStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveConnectionStatusChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothDevice, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            HostName: HostName::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            ClassOfDevice: ClassOfDevice::<Impl, IMPL_OFFSET>,
+            SdpRecords: SdpRecords::<Impl, IMPL_OFFSET>,
+            RfcommServices: RfcommServices::<Impl, IMPL_OFFSET>,
+            ConnectionStatus: ConnectionStatus::<Impl, IMPL_OFFSET>,
+            BluetoothAddress: BluetoothAddress::<Impl, IMPL_OFFSET>,
+            NameChanged: NameChanged::<Impl, IMPL_OFFSET>,
+            RemoveNameChanged: RemoveNameChanged::<Impl, IMPL_OFFSET>,
+            SdpRecordsChanged: SdpRecordsChanged::<Impl, IMPL_OFFSET>,
+            RemoveSdpRecordsChanged: RemoveSdpRecordsChanged::<Impl, IMPL_OFFSET>,
+            ConnectionStatusChanged: ConnectionStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveConnectionStatusChanged: RemoveConnectionStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothDevice as ::windows::core::Interface>::IID
@@ -567,7 +580,10 @@ impl IBluetoothDevice2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDevice2>, ::windows::core::GetTrustLevel, DeviceInformation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothDevice2, BASE_OFFSET>(),
+            DeviceInformation: DeviceInformation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothDevice2 as ::windows::core::Interface>::IID
@@ -655,20 +671,15 @@ impl IBluetoothDevice3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBluetoothDevice3>,
-            ::windows::core::GetTrustLevel,
-            DeviceAccessInformation::<Impl, IMPL_OFFSET>,
-            RequestAccessAsync::<Impl, IMPL_OFFSET>,
-            GetRfcommServicesAsync::<Impl, IMPL_OFFSET>,
-            GetRfcommServicesWithCacheModeAsync::<Impl, IMPL_OFFSET>,
-            GetRfcommServicesForIdAsync::<Impl, IMPL_OFFSET>,
-            GetRfcommServicesForIdWithCacheModeAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothDevice3, BASE_OFFSET>(),
+            DeviceAccessInformation: DeviceAccessInformation::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            GetRfcommServicesAsync: GetRfcommServicesAsync::<Impl, IMPL_OFFSET>,
+            GetRfcommServicesWithCacheModeAsync: GetRfcommServicesWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+            GetRfcommServicesForIdAsync: GetRfcommServicesForIdAsync::<Impl, IMPL_OFFSET>,
+            GetRfcommServicesForIdWithCacheModeAsync: GetRfcommServicesForIdWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothDevice3 as ::windows::core::Interface>::IID
@@ -696,7 +707,10 @@ impl IBluetoothDevice4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDevice4>, ::windows::core::GetTrustLevel, BluetoothDeviceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothDevice4, BASE_OFFSET>(),
+            BluetoothDeviceId: BluetoothDeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothDevice4 as ::windows::core::Interface>::IID
@@ -724,7 +738,10 @@ impl IBluetoothDevice5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDevice5>, ::windows::core::GetTrustLevel, WasSecureConnectionUsedForPairing::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothDevice5, BASE_OFFSET>(),
+            WasSecureConnectionUsedForPairing: WasSecureConnectionUsedForPairing::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothDevice5 as ::windows::core::Interface>::IID
@@ -776,7 +793,12 @@ impl IBluetoothDeviceIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDeviceId>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, IsClassicDevice::<Impl, IMPL_OFFSET>, IsLowEnergyDevice::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothDeviceId, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            IsClassicDevice: IsClassicDevice::<Impl, IMPL_OFFSET>,
+            IsLowEnergyDevice: IsLowEnergyDevice::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothDeviceId as ::windows::core::Interface>::IID
@@ -804,7 +826,7 @@ impl IBluetoothDeviceIdStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDeviceIdStatics>, ::windows::core::GetTrustLevel, FromId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothDeviceIdStatics, BASE_OFFSET>(), FromId: FromId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothDeviceIdStatics as ::windows::core::Interface>::IID
@@ -868,7 +890,13 @@ impl IBluetoothDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDeviceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, FromHostNameAsync::<Impl, IMPL_OFFSET>, FromBluetoothAddressAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothDeviceStatics, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            FromHostNameAsync: FromHostNameAsync::<Impl, IMPL_OFFSET>,
+            FromBluetoothAddressAsync: FromBluetoothAddressAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothDeviceStatics as ::windows::core::Interface>::IID
@@ -944,19 +972,14 @@ impl IBluetoothDeviceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBluetoothDeviceStatics2>,
-            ::windows::core::GetTrustLevel,
-            GetDeviceSelectorFromPairingState::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorFromConnectionStatus::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorFromDeviceName::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorFromBluetoothAddress::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorFromClassOfDevice::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothDeviceStatics2, BASE_OFFSET>(),
+            GetDeviceSelectorFromPairingState: GetDeviceSelectorFromPairingState::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromConnectionStatus: GetDeviceSelectorFromConnectionStatus::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromDeviceName: GetDeviceSelectorFromDeviceName::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromBluetoothAddress: GetDeviceSelectorFromBluetoothAddress::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromClassOfDevice: GetDeviceSelectorFromClassOfDevice::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothDeviceStatics2 as ::windows::core::Interface>::IID
@@ -1008,7 +1031,12 @@ impl IBluetoothLEAppearanceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAppearance>, ::windows::core::GetTrustLevel, RawValue::<Impl, IMPL_OFFSET>, Category::<Impl, IMPL_OFFSET>, SubCategory::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEAppearance, BASE_OFFSET>(),
+            RawValue: RawValue::<Impl, IMPL_OFFSET>,
+            Category: Category::<Impl, IMPL_OFFSET>,
+            SubCategory: SubCategory::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEAppearance as ::windows::core::Interface>::IID
@@ -1288,36 +1316,31 @@ impl IBluetoothLEAppearanceCategoriesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBluetoothLEAppearanceCategoriesStatics>,
-            ::windows::core::GetTrustLevel,
-            Uncategorized::<Impl, IMPL_OFFSET>,
-            Phone::<Impl, IMPL_OFFSET>,
-            Computer::<Impl, IMPL_OFFSET>,
-            Watch::<Impl, IMPL_OFFSET>,
-            Clock::<Impl, IMPL_OFFSET>,
-            Display::<Impl, IMPL_OFFSET>,
-            RemoteControl::<Impl, IMPL_OFFSET>,
-            EyeGlasses::<Impl, IMPL_OFFSET>,
-            Tag::<Impl, IMPL_OFFSET>,
-            Keyring::<Impl, IMPL_OFFSET>,
-            MediaPlayer::<Impl, IMPL_OFFSET>,
-            BarcodeScanner::<Impl, IMPL_OFFSET>,
-            Thermometer::<Impl, IMPL_OFFSET>,
-            HeartRate::<Impl, IMPL_OFFSET>,
-            BloodPressure::<Impl, IMPL_OFFSET>,
-            HumanInterfaceDevice::<Impl, IMPL_OFFSET>,
-            GlucoseMeter::<Impl, IMPL_OFFSET>,
-            RunningWalking::<Impl, IMPL_OFFSET>,
-            Cycling::<Impl, IMPL_OFFSET>,
-            PulseOximeter::<Impl, IMPL_OFFSET>,
-            WeightScale::<Impl, IMPL_OFFSET>,
-            OutdoorSportActivity::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEAppearanceCategoriesStatics, BASE_OFFSET>(),
+            Uncategorized: Uncategorized::<Impl, IMPL_OFFSET>,
+            Phone: Phone::<Impl, IMPL_OFFSET>,
+            Computer: Computer::<Impl, IMPL_OFFSET>,
+            Watch: Watch::<Impl, IMPL_OFFSET>,
+            Clock: Clock::<Impl, IMPL_OFFSET>,
+            Display: Display::<Impl, IMPL_OFFSET>,
+            RemoteControl: RemoteControl::<Impl, IMPL_OFFSET>,
+            EyeGlasses: EyeGlasses::<Impl, IMPL_OFFSET>,
+            Tag: Tag::<Impl, IMPL_OFFSET>,
+            Keyring: Keyring::<Impl, IMPL_OFFSET>,
+            MediaPlayer: MediaPlayer::<Impl, IMPL_OFFSET>,
+            BarcodeScanner: BarcodeScanner::<Impl, IMPL_OFFSET>,
+            Thermometer: Thermometer::<Impl, IMPL_OFFSET>,
+            HeartRate: HeartRate::<Impl, IMPL_OFFSET>,
+            BloodPressure: BloodPressure::<Impl, IMPL_OFFSET>,
+            HumanInterfaceDevice: HumanInterfaceDevice::<Impl, IMPL_OFFSET>,
+            GlucoseMeter: GlucoseMeter::<Impl, IMPL_OFFSET>,
+            RunningWalking: RunningWalking::<Impl, IMPL_OFFSET>,
+            Cycling: Cycling::<Impl, IMPL_OFFSET>,
+            PulseOximeter: PulseOximeter::<Impl, IMPL_OFFSET>,
+            WeightScale: WeightScale::<Impl, IMPL_OFFSET>,
+            OutdoorSportActivity: OutdoorSportActivity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEAppearanceCategoriesStatics as ::windows::core::Interface>::IID
@@ -1357,7 +1380,11 @@ impl IBluetoothLEAppearanceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAppearanceStatics>, ::windows::core::GetTrustLevel, FromRawValue::<Impl, IMPL_OFFSET>, FromParts::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEAppearanceStatics, BASE_OFFSET>(),
+            FromRawValue: FromRawValue::<Impl, IMPL_OFFSET>,
+            FromParts: FromParts::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEAppearanceStatics as ::windows::core::Interface>::IID
@@ -1709,42 +1736,37 @@ impl IBluetoothLEAppearanceSubcategoriesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBluetoothLEAppearanceSubcategoriesStatics>,
-            ::windows::core::GetTrustLevel,
-            Generic::<Impl, IMPL_OFFSET>,
-            SportsWatch::<Impl, IMPL_OFFSET>,
-            ThermometerEar::<Impl, IMPL_OFFSET>,
-            HeartRateBelt::<Impl, IMPL_OFFSET>,
-            BloodPressureArm::<Impl, IMPL_OFFSET>,
-            BloodPressureWrist::<Impl, IMPL_OFFSET>,
-            Keyboard::<Impl, IMPL_OFFSET>,
-            Mouse::<Impl, IMPL_OFFSET>,
-            Joystick::<Impl, IMPL_OFFSET>,
-            Gamepad::<Impl, IMPL_OFFSET>,
-            DigitizerTablet::<Impl, IMPL_OFFSET>,
-            CardReader::<Impl, IMPL_OFFSET>,
-            DigitalPen::<Impl, IMPL_OFFSET>,
-            BarcodeScanner::<Impl, IMPL_OFFSET>,
-            RunningWalkingInShoe::<Impl, IMPL_OFFSET>,
-            RunningWalkingOnShoe::<Impl, IMPL_OFFSET>,
-            RunningWalkingOnHip::<Impl, IMPL_OFFSET>,
-            CyclingComputer::<Impl, IMPL_OFFSET>,
-            CyclingSpeedSensor::<Impl, IMPL_OFFSET>,
-            CyclingCadenceSensor::<Impl, IMPL_OFFSET>,
-            CyclingPowerSensor::<Impl, IMPL_OFFSET>,
-            CyclingSpeedCadenceSensor::<Impl, IMPL_OFFSET>,
-            OximeterFingertip::<Impl, IMPL_OFFSET>,
-            OximeterWristWorn::<Impl, IMPL_OFFSET>,
-            LocationDisplay::<Impl, IMPL_OFFSET>,
-            LocationNavigationDisplay::<Impl, IMPL_OFFSET>,
-            LocationPod::<Impl, IMPL_OFFSET>,
-            LocationNavigationPod::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEAppearanceSubcategoriesStatics, BASE_OFFSET>(),
+            Generic: Generic::<Impl, IMPL_OFFSET>,
+            SportsWatch: SportsWatch::<Impl, IMPL_OFFSET>,
+            ThermometerEar: ThermometerEar::<Impl, IMPL_OFFSET>,
+            HeartRateBelt: HeartRateBelt::<Impl, IMPL_OFFSET>,
+            BloodPressureArm: BloodPressureArm::<Impl, IMPL_OFFSET>,
+            BloodPressureWrist: BloodPressureWrist::<Impl, IMPL_OFFSET>,
+            Keyboard: Keyboard::<Impl, IMPL_OFFSET>,
+            Mouse: Mouse::<Impl, IMPL_OFFSET>,
+            Joystick: Joystick::<Impl, IMPL_OFFSET>,
+            Gamepad: Gamepad::<Impl, IMPL_OFFSET>,
+            DigitizerTablet: DigitizerTablet::<Impl, IMPL_OFFSET>,
+            CardReader: CardReader::<Impl, IMPL_OFFSET>,
+            DigitalPen: DigitalPen::<Impl, IMPL_OFFSET>,
+            BarcodeScanner: BarcodeScanner::<Impl, IMPL_OFFSET>,
+            RunningWalkingInShoe: RunningWalkingInShoe::<Impl, IMPL_OFFSET>,
+            RunningWalkingOnShoe: RunningWalkingOnShoe::<Impl, IMPL_OFFSET>,
+            RunningWalkingOnHip: RunningWalkingOnHip::<Impl, IMPL_OFFSET>,
+            CyclingComputer: CyclingComputer::<Impl, IMPL_OFFSET>,
+            CyclingSpeedSensor: CyclingSpeedSensor::<Impl, IMPL_OFFSET>,
+            CyclingCadenceSensor: CyclingCadenceSensor::<Impl, IMPL_OFFSET>,
+            CyclingPowerSensor: CyclingPowerSensor::<Impl, IMPL_OFFSET>,
+            CyclingSpeedCadenceSensor: CyclingSpeedCadenceSensor::<Impl, IMPL_OFFSET>,
+            OximeterFingertip: OximeterFingertip::<Impl, IMPL_OFFSET>,
+            OximeterWristWorn: OximeterWristWorn::<Impl, IMPL_OFFSET>,
+            LocationDisplay: LocationDisplay::<Impl, IMPL_OFFSET>,
+            LocationNavigationDisplay: LocationNavigationDisplay::<Impl, IMPL_OFFSET>,
+            LocationPod: LocationPod::<Impl, IMPL_OFFSET>,
+            LocationNavigationPod: LocationNavigationPod::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEAppearanceSubcategoriesStatics as ::windows::core::Interface>::IID
@@ -1796,7 +1818,12 @@ impl IBluetoothLEConnectionParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEConnectionParameters>, ::windows::core::GetTrustLevel, LinkTimeout::<Impl, IMPL_OFFSET>, ConnectionLatency::<Impl, IMPL_OFFSET>, ConnectionInterval::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEConnectionParameters, BASE_OFFSET>(),
+            LinkTimeout: LinkTimeout::<Impl, IMPL_OFFSET>,
+            ConnectionLatency: ConnectionLatency::<Impl, IMPL_OFFSET>,
+            ConnectionInterval: ConnectionInterval::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEConnectionParameters as ::windows::core::Interface>::IID
@@ -1836,7 +1863,11 @@ impl IBluetoothLEConnectionPhyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEConnectionPhy>, ::windows::core::GetTrustLevel, TransmitInfo::<Impl, IMPL_OFFSET>, ReceiveInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEConnectionPhy, BASE_OFFSET>(),
+            TransmitInfo: TransmitInfo::<Impl, IMPL_OFFSET>,
+            ReceiveInfo: ReceiveInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEConnectionPhy as ::windows::core::Interface>::IID
@@ -1888,7 +1919,12 @@ impl IBluetoothLEConnectionPhyInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEConnectionPhyInfo>, ::windows::core::GetTrustLevel, IsUncoded1MPhy::<Impl, IMPL_OFFSET>, IsUncoded2MPhy::<Impl, IMPL_OFFSET>, IsCodedPhy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEConnectionPhyInfo, BASE_OFFSET>(),
+            IsUncoded1MPhy: IsUncoded1MPhy::<Impl, IMPL_OFFSET>,
+            IsUncoded2MPhy: IsUncoded2MPhy::<Impl, IMPL_OFFSET>,
+            IsCodedPhy: IsCodedPhy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEConnectionPhyInfo as ::windows::core::Interface>::IID
@@ -2027,26 +2063,21 @@ impl IBluetoothLEDeviceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveConnectionStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            GattServices::<Impl, IMPL_OFFSET>,
-            ConnectionStatus::<Impl, IMPL_OFFSET>,
-            BluetoothAddress::<Impl, IMPL_OFFSET>,
-            GetGattService::<Impl, IMPL_OFFSET>,
-            NameChanged::<Impl, IMPL_OFFSET>,
-            RemoveNameChanged::<Impl, IMPL_OFFSET>,
-            GattServicesChanged::<Impl, IMPL_OFFSET>,
-            RemoveGattServicesChanged::<Impl, IMPL_OFFSET>,
-            ConnectionStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveConnectionStatusChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEDevice, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            GattServices: GattServices::<Impl, IMPL_OFFSET>,
+            ConnectionStatus: ConnectionStatus::<Impl, IMPL_OFFSET>,
+            BluetoothAddress: BluetoothAddress::<Impl, IMPL_OFFSET>,
+            GetGattService: GetGattService::<Impl, IMPL_OFFSET>,
+            NameChanged: NameChanged::<Impl, IMPL_OFFSET>,
+            RemoveNameChanged: RemoveNameChanged::<Impl, IMPL_OFFSET>,
+            GattServicesChanged: GattServicesChanged::<Impl, IMPL_OFFSET>,
+            RemoveGattServicesChanged: RemoveGattServicesChanged::<Impl, IMPL_OFFSET>,
+            ConnectionStatusChanged: ConnectionStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveConnectionStatusChanged: RemoveConnectionStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEDevice as ::windows::core::Interface>::IID
@@ -2098,7 +2129,12 @@ impl IBluetoothLEDevice2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice2>, ::windows::core::GetTrustLevel, DeviceInformation::<Impl, IMPL_OFFSET>, Appearance::<Impl, IMPL_OFFSET>, BluetoothAddressType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEDevice2, BASE_OFFSET>(),
+            DeviceInformation: DeviceInformation::<Impl, IMPL_OFFSET>,
+            Appearance: Appearance::<Impl, IMPL_OFFSET>,
+            BluetoothAddressType: BluetoothAddressType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEDevice2 as ::windows::core::Interface>::IID
@@ -2186,20 +2222,15 @@ impl IBluetoothLEDevice3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice3>,
-            ::windows::core::GetTrustLevel,
-            DeviceAccessInformation::<Impl, IMPL_OFFSET>,
-            RequestAccessAsync::<Impl, IMPL_OFFSET>,
-            GetGattServicesAsync::<Impl, IMPL_OFFSET>,
-            GetGattServicesWithCacheModeAsync::<Impl, IMPL_OFFSET>,
-            GetGattServicesForUuidAsync::<Impl, IMPL_OFFSET>,
-            GetGattServicesForUuidWithCacheModeAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEDevice3, BASE_OFFSET>(),
+            DeviceAccessInformation: DeviceAccessInformation::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            GetGattServicesAsync: GetGattServicesAsync::<Impl, IMPL_OFFSET>,
+            GetGattServicesWithCacheModeAsync: GetGattServicesWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+            GetGattServicesForUuidAsync: GetGattServicesForUuidAsync::<Impl, IMPL_OFFSET>,
+            GetGattServicesForUuidWithCacheModeAsync: GetGattServicesForUuidWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEDevice3 as ::windows::core::Interface>::IID
@@ -2227,7 +2258,10 @@ impl IBluetoothLEDevice4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice4>, ::windows::core::GetTrustLevel, BluetoothDeviceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEDevice4, BASE_OFFSET>(),
+            BluetoothDeviceId: BluetoothDeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEDevice4 as ::windows::core::Interface>::IID
@@ -2255,7 +2289,10 @@ impl IBluetoothLEDevice5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice5>, ::windows::core::GetTrustLevel, WasSecureConnectionUsedForPairing::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEDevice5, BASE_OFFSET>(),
+            WasSecureConnectionUsedForPairing: WasSecureConnectionUsedForPairing::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEDevice5 as ::windows::core::Interface>::IID
@@ -2341,21 +2378,16 @@ impl IBluetoothLEDevice6Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveConnectionPhyChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice6>,
-            ::windows::core::GetTrustLevel,
-            GetConnectionParameters::<Impl, IMPL_OFFSET>,
-            GetConnectionPhy::<Impl, IMPL_OFFSET>,
-            RequestPreferredConnectionParameters::<Impl, IMPL_OFFSET>,
-            ConnectionParametersChanged::<Impl, IMPL_OFFSET>,
-            RemoveConnectionParametersChanged::<Impl, IMPL_OFFSET>,
-            ConnectionPhyChanged::<Impl, IMPL_OFFSET>,
-            RemoveConnectionPhyChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEDevice6, BASE_OFFSET>(),
+            GetConnectionParameters: GetConnectionParameters::<Impl, IMPL_OFFSET>,
+            GetConnectionPhy: GetConnectionPhy::<Impl, IMPL_OFFSET>,
+            RequestPreferredConnectionParameters: RequestPreferredConnectionParameters::<Impl, IMPL_OFFSET>,
+            ConnectionParametersChanged: ConnectionParametersChanged::<Impl, IMPL_OFFSET>,
+            RemoveConnectionParametersChanged: RemoveConnectionParametersChanged::<Impl, IMPL_OFFSET>,
+            ConnectionPhyChanged: ConnectionPhyChanged::<Impl, IMPL_OFFSET>,
+            RemoveConnectionPhyChanged: RemoveConnectionPhyChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEDevice6 as ::windows::core::Interface>::IID
@@ -2407,7 +2439,12 @@ impl IBluetoothLEDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEDeviceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, FromBluetoothAddressAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEDeviceStatics, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            FromBluetoothAddressAsync: FromBluetoothAddressAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEDeviceStatics as ::windows::core::Interface>::IID
@@ -2507,21 +2544,16 @@ impl IBluetoothLEDeviceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBluetoothLEDeviceStatics2>,
-            ::windows::core::GetTrustLevel,
-            GetDeviceSelectorFromPairingState::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorFromConnectionStatus::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorFromDeviceName::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorFromBluetoothAddress::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType::<Impl, IMPL_OFFSET>,
-            GetDeviceSelectorFromAppearance::<Impl, IMPL_OFFSET>,
-            FromBluetoothAddressWithBluetoothAddressTypeAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEDeviceStatics2, BASE_OFFSET>(),
+            GetDeviceSelectorFromPairingState: GetDeviceSelectorFromPairingState::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromConnectionStatus: GetDeviceSelectorFromConnectionStatus::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromDeviceName: GetDeviceSelectorFromDeviceName::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromBluetoothAddress: GetDeviceSelectorFromBluetoothAddress::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType: GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromAppearance: GetDeviceSelectorFromAppearance::<Impl, IMPL_OFFSET>,
+            FromBluetoothAddressWithBluetoothAddressTypeAsync: FromBluetoothAddressWithBluetoothAddressTypeAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEDeviceStatics2 as ::windows::core::Interface>::IID
@@ -2585,7 +2617,13 @@ impl IBluetoothLEPreferredConnectionParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEPreferredConnectionParameters>, ::windows::core::GetTrustLevel, LinkTimeout::<Impl, IMPL_OFFSET>, ConnectionLatency::<Impl, IMPL_OFFSET>, MinConnectionInterval::<Impl, IMPL_OFFSET>, MaxConnectionInterval::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEPreferredConnectionParameters, BASE_OFFSET>(),
+            LinkTimeout: LinkTimeout::<Impl, IMPL_OFFSET>,
+            ConnectionLatency: ConnectionLatency::<Impl, IMPL_OFFSET>,
+            MinConnectionInterval: MinConnectionInterval::<Impl, IMPL_OFFSET>,
+            MaxConnectionInterval: MaxConnectionInterval::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEPreferredConnectionParameters as ::windows::core::Interface>::IID
@@ -2613,7 +2651,10 @@ impl IBluetoothLEPreferredConnectionParametersRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEPreferredConnectionParametersRequest>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEPreferredConnectionParametersRequest, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEPreferredConnectionParametersRequest as ::windows::core::Interface>::IID
@@ -2665,7 +2706,12 @@ impl IBluetoothLEPreferredConnectionParametersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEPreferredConnectionParametersStatics>, ::windows::core::GetTrustLevel, Balanced::<Impl, IMPL_OFFSET>, ThroughputOptimized::<Impl, IMPL_OFFSET>, PowerOptimized::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothLEPreferredConnectionParametersStatics, BASE_OFFSET>(),
+            Balanced: Balanced::<Impl, IMPL_OFFSET>,
+            ThroughputOptimized: ThroughputOptimized::<Impl, IMPL_OFFSET>,
+            PowerOptimized: PowerOptimized::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothLEPreferredConnectionParametersStatics as ::windows::core::Interface>::IID
@@ -2749,22 +2795,17 @@ impl IBluetoothSignalStrengthFilterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSamplingInterval(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBluetoothSignalStrengthFilter>,
-            ::windows::core::GetTrustLevel,
-            InRangeThresholdInDBm::<Impl, IMPL_OFFSET>,
-            SetInRangeThresholdInDBm::<Impl, IMPL_OFFSET>,
-            OutOfRangeThresholdInDBm::<Impl, IMPL_OFFSET>,
-            SetOutOfRangeThresholdInDBm::<Impl, IMPL_OFFSET>,
-            OutOfRangeTimeout::<Impl, IMPL_OFFSET>,
-            SetOutOfRangeTimeout::<Impl, IMPL_OFFSET>,
-            SamplingInterval::<Impl, IMPL_OFFSET>,
-            SetSamplingInterval::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothSignalStrengthFilter, BASE_OFFSET>(),
+            InRangeThresholdInDBm: InRangeThresholdInDBm::<Impl, IMPL_OFFSET>,
+            SetInRangeThresholdInDBm: SetInRangeThresholdInDBm::<Impl, IMPL_OFFSET>,
+            OutOfRangeThresholdInDBm: OutOfRangeThresholdInDBm::<Impl, IMPL_OFFSET>,
+            SetOutOfRangeThresholdInDBm: SetOutOfRangeThresholdInDBm::<Impl, IMPL_OFFSET>,
+            OutOfRangeTimeout: OutOfRangeTimeout::<Impl, IMPL_OFFSET>,
+            SetOutOfRangeTimeout: SetOutOfRangeTimeout::<Impl, IMPL_OFFSET>,
+            SamplingInterval: SamplingInterval::<Impl, IMPL_OFFSET>,
+            SetSamplingInterval: SetSamplingInterval::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothSignalStrengthFilter as ::windows::core::Interface>::IID
@@ -2804,7 +2845,11 @@ impl IBluetoothUuidHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothUuidHelperStatics>, ::windows::core::GetTrustLevel, FromShortId::<Impl, IMPL_OFFSET>, TryGetShortId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBluetoothUuidHelperStatics, BASE_OFFSET>(),
+            FromShortId: FromShortId::<Impl, IMPL_OFFSET>,
+            TryGetShortId: TryGetShortId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBluetoothUuidHelperStatics as ::windows::core::Interface>::IID

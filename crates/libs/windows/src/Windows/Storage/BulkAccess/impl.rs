@@ -116,23 +116,18 @@ impl IFileInformationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFileInformationFactory>,
-            ::windows::core::GetTrustLevel,
-            GetItemsAsync::<Impl, IMPL_OFFSET>,
-            GetItemsAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>,
-            GetFilesAsync::<Impl, IMPL_OFFSET>,
-            GetFilesAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>,
-            GetFoldersAsync::<Impl, IMPL_OFFSET>,
-            GetFoldersAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>,
-            GetVirtualizedItemsVector::<Impl, IMPL_OFFSET>,
-            GetVirtualizedFilesVector::<Impl, IMPL_OFFSET>,
-            GetVirtualizedFoldersVector::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileInformationFactory, BASE_OFFSET>(),
+            GetItemsAsync: GetItemsAsync::<Impl, IMPL_OFFSET>,
+            GetItemsAsyncDefaultStartAndCount: GetItemsAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>,
+            GetFilesAsync: GetFilesAsync::<Impl, IMPL_OFFSET>,
+            GetFilesAsyncDefaultStartAndCount: GetFilesAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>,
+            GetFoldersAsync: GetFoldersAsync::<Impl, IMPL_OFFSET>,
+            GetFoldersAsyncDefaultStartAndCount: GetFoldersAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>,
+            GetVirtualizedItemsVector: GetVirtualizedItemsVector::<Impl, IMPL_OFFSET>,
+            GetVirtualizedFilesVector: GetVirtualizedFilesVector::<Impl, IMPL_OFFSET>,
+            GetVirtualizedFoldersVector: GetVirtualizedFoldersVector::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileInformationFactory as ::windows::core::Interface>::IID
@@ -196,18 +191,13 @@ impl IFileInformationFactoryFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFileInformationFactoryFactory>,
-            ::windows::core::GetTrustLevel,
-            CreateWithMode::<Impl, IMPL_OFFSET>,
-            CreateWithModeAndSize::<Impl, IMPL_OFFSET>,
-            CreateWithModeAndSizeAndOptions::<Impl, IMPL_OFFSET>,
-            CreateWithModeAndSizeAndOptionsAndFlags::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileInformationFactoryFactory, BASE_OFFSET>(),
+            CreateWithMode: CreateWithMode::<Impl, IMPL_OFFSET>,
+            CreateWithModeAndSize: CreateWithModeAndSize::<Impl, IMPL_OFFSET>,
+            CreateWithModeAndSizeAndOptions: CreateWithModeAndSizeAndOptions::<Impl, IMPL_OFFSET>,
+            CreateWithModeAndSizeAndOptionsAndFlags: CreateWithModeAndSizeAndOptionsAndFlags::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileInformationFactoryFactory as ::windows::core::Interface>::IID
@@ -329,24 +319,19 @@ impl IStorageItemInformationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePropertiesUpdated(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IStorageItemInformation>,
-            ::windows::core::GetTrustLevel,
-            MusicProperties::<Impl, IMPL_OFFSET>,
-            VideoProperties::<Impl, IMPL_OFFSET>,
-            ImageProperties::<Impl, IMPL_OFFSET>,
-            DocumentProperties::<Impl, IMPL_OFFSET>,
-            BasicProperties::<Impl, IMPL_OFFSET>,
-            Thumbnail::<Impl, IMPL_OFFSET>,
-            ThumbnailUpdated::<Impl, IMPL_OFFSET>,
-            RemoveThumbnailUpdated::<Impl, IMPL_OFFSET>,
-            PropertiesUpdated::<Impl, IMPL_OFFSET>,
-            RemovePropertiesUpdated::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemInformation, BASE_OFFSET>(),
+            MusicProperties: MusicProperties::<Impl, IMPL_OFFSET>,
+            VideoProperties: VideoProperties::<Impl, IMPL_OFFSET>,
+            ImageProperties: ImageProperties::<Impl, IMPL_OFFSET>,
+            DocumentProperties: DocumentProperties::<Impl, IMPL_OFFSET>,
+            BasicProperties: BasicProperties::<Impl, IMPL_OFFSET>,
+            Thumbnail: Thumbnail::<Impl, IMPL_OFFSET>,
+            ThumbnailUpdated: ThumbnailUpdated::<Impl, IMPL_OFFSET>,
+            RemoveThumbnailUpdated: RemoveThumbnailUpdated::<Impl, IMPL_OFFSET>,
+            PropertiesUpdated: PropertiesUpdated::<Impl, IMPL_OFFSET>,
+            RemovePropertiesUpdated: RemovePropertiesUpdated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageItemInformation as ::windows::core::Interface>::IID

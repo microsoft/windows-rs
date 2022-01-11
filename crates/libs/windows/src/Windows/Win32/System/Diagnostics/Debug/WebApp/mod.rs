@@ -5,7 +5,7 @@ pub struct IWebApplicationActivation(::windows::core::IUnknown);
 impl IWebApplicationActivation {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
     pub unsafe fn CancelPendingActivation(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CancelPendingActivation)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IWebApplicationActivation> for ::windows::core::IUnknown {
@@ -50,7 +50,10 @@ unsafe impl ::windows::core::Interface for IWebApplicationActivation {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationActivationVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub struct IWebApplicationActivationVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub CancelPendingActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 #[repr(transparent)]
 pub struct IWebApplicationAuthoringMode(::windows::core::IUnknown);
@@ -58,13 +61,13 @@ impl IWebApplicationAuthoringMode {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryService(&self, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+        (::windows::core::Interface::vtable(self).QueryService)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AuthoringClientBinary(&self) -> ::windows::core::Result<super::super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).AuthoringClientBinary)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -133,15 +136,13 @@ unsafe impl ::windows::core::Interface for IWebApplicationAuthoringMode {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationAuthoringModeVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, designmodedllpath: *mut super::super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IWebApplicationAuthoringModeVtbl {
+    pub base: IServiceProviderVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub AuthoringClientBinary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, designmodedllpath: *mut super::super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    AuthoringClientBinary: usize,
+}
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 #[repr(transparent)]
 pub struct IWebApplicationHost(::windows::core::IUnknown);
@@ -149,25 +150,25 @@ impl IWebApplicationHost {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HWND(&self, hwnd: *mut super::super::super::super::Foundation::HWND) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
+        (::windows::core::Interface::vtable(self).HWND)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp', 'Win32_Web_MsHtml'*"]
     #[cfg(feature = "Win32_Web_MsHtml")]
     pub unsafe fn Document(&self) -> ::windows::core::Result<super::super::super::super::Web::MsHtml::IHTMLDocument2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::super::Web::MsHtml::IHTMLDocument2>(result__)
+        (::windows::core::Interface::vtable(self).Document)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::super::Web::MsHtml::IHTMLDocument2>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
     pub unsafe fn Advise<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, interfaceid: *const ::windows::core::GUID, callback: Param1, cookie: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(interfaceid), callback.into_param().abi(), ::core::mem::transmute(cookie)).ok()
+        (::windows::core::Interface::vtable(self).Advise)(::core::mem::transmute_copy(self), ::core::mem::transmute(interfaceid), callback.into_param().abi(), ::core::mem::transmute(cookie)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
     pub unsafe fn Unadvise(&self, cookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(cookie)).ok()
+        (::windows::core::Interface::vtable(self).Unadvise)(::core::mem::transmute_copy(self), ::core::mem::transmute(cookie)).ok()
     }
 }
 impl ::core::convert::From<IWebApplicationHost> for ::windows::core::IUnknown {
@@ -212,18 +213,20 @@ unsafe impl ::windows::core::Interface for IWebApplicationHost {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationHostVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: *mut super::super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Web_MsHtml")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmldocument: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Web_MsHtml"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: *const ::windows::core::GUID, callback: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT,
-);
+pub struct IWebApplicationHostVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub HWND: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: *mut super::super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    HWND: usize,
+    #[cfg(feature = "Win32_Web_MsHtml")]
+    pub Document: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmldocument: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Web_MsHtml"))]
+    Document: usize,
+    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: *const ::windows::core::GUID, callback: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows::core::HRESULT,
+    pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 #[repr(transparent)]
 pub struct IWebApplicationNavigationEvents(::windows::core::IUnknown);
@@ -231,30 +234,30 @@ impl IWebApplicationNavigationEvents {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp', 'Win32_Foundation', 'Win32_Web_MsHtml'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))]
     pub unsafe fn BeforeNavigate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::PWSTR>>(&self, htmlwindow: Param0, url: Param1, navigationflags: u32, targetframename: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), htmlwindow.into_param().abi(), url.into_param().abi(), ::core::mem::transmute(navigationflags), targetframename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).BeforeNavigate)(::core::mem::transmute_copy(self), htmlwindow.into_param().abi(), url.into_param().abi(), ::core::mem::transmute(navigationflags), targetframename.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp', 'Win32_Foundation', 'Win32_Web_MsHtml'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))]
     pub unsafe fn NavigateComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::PWSTR>>(&self, htmlwindow: Param0, url: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), htmlwindow.into_param().abi(), url.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).NavigateComplete)(::core::mem::transmute_copy(self), htmlwindow.into_param().abi(), url.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp', 'Win32_Foundation', 'Win32_Web_MsHtml'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))]
     pub unsafe fn NavigateError<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::PWSTR>>(&self, htmlwindow: Param0, url: Param1, targetframename: Param2, statuscode: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), htmlwindow.into_param().abi(), url.into_param().abi(), targetframename.into_param().abi(), ::core::mem::transmute(statuscode)).ok()
+        (::windows::core::Interface::vtable(self).NavigateError)(::core::mem::transmute_copy(self), htmlwindow.into_param().abi(), url.into_param().abi(), targetframename.into_param().abi(), ::core::mem::transmute(statuscode)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp', 'Win32_Foundation', 'Win32_Web_MsHtml'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))]
     pub unsafe fn DocumentComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::PWSTR>>(&self, htmlwindow: Param0, url: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), htmlwindow.into_param().abi(), url.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DocumentComplete)(::core::mem::transmute_copy(self), htmlwindow.into_param().abi(), url.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
     pub unsafe fn DownloadBegin(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DownloadBegin)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
     pub unsafe fn DownloadComplete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DownloadComplete)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IWebApplicationNavigationEvents> for ::windows::core::IUnknown {
@@ -299,21 +302,27 @@ unsafe impl ::windows::core::Interface for IWebApplicationNavigationEvents {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationNavigationEventsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR, navigationflags: u32, targetframename: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR, targetframename: super::super::super::super::Foundation::PWSTR, statuscode: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IWebApplicationNavigationEventsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))]
+    pub BeforeNavigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR, navigationflags: u32, targetframename: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml")))]
+    BeforeNavigate: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))]
+    pub NavigateComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml")))]
+    NavigateComplete: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))]
+    pub NavigateError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR, targetframename: super::super::super::super::Foundation::PWSTR, statuscode: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml")))]
+    NavigateError: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))]
+    pub DocumentComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml")))]
+    DocumentComplete: usize,
+    pub DownloadBegin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DownloadComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 #[repr(transparent)]
 pub struct IWebApplicationScriptEvents(::windows::core::IUnknown);
@@ -321,12 +330,12 @@ impl IWebApplicationScriptEvents {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp', 'Win32_Web_MsHtml'*"]
     #[cfg(feature = "Win32_Web_MsHtml")]
     pub unsafe fn BeforeScriptExecute<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>(&self, htmlwindow: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), htmlwindow.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).BeforeScriptExecute)(::core::mem::transmute_copy(self), htmlwindow.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp', 'Win32_Foundation', 'Win32_Web_MsHtml'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))]
     pub unsafe fn ScriptError<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>, Param1: ::windows::core::IntoParam<'a, super::IActiveScriptError>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::BOOL>>(&self, htmlwindow: Param0, scripterror: Param1, url: Param2, errorhandled: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), htmlwindow.into_param().abi(), scripterror.into_param().abi(), url.into_param().abi(), errorhandled.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ScriptError)(::core::mem::transmute_copy(self), htmlwindow.into_param().abi(), scripterror.into_param().abi(), url.into_param().abi(), errorhandled.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IWebApplicationScriptEvents> for ::windows::core::IUnknown {
@@ -371,22 +380,24 @@ unsafe impl ::windows::core::Interface for IWebApplicationScriptEvents {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationScriptEventsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Web_MsHtml")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Web_MsHtml"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, scripterror: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml")))] usize,
-);
+pub struct IWebApplicationScriptEventsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Web_MsHtml")]
+    pub BeforeScriptExecute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Web_MsHtml"))]
+    BeforeScriptExecute: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))]
+    pub ScriptError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, scripterror: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml")))]
+    ScriptError: usize,
+}
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 #[repr(transparent)]
 pub struct IWebApplicationUIEvents(::windows::core::IUnknown);
 impl IWebApplicationUIEvents {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
     pub unsafe fn SecurityProblem(&self, securityproblem: u32, result: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(securityproblem), ::core::mem::transmute(result)).ok()
+        (::windows::core::Interface::vtable(self).SecurityProblem)(::core::mem::transmute_copy(self), ::core::mem::transmute(securityproblem), ::core::mem::transmute(result)).ok()
     }
 }
 impl ::core::convert::From<IWebApplicationUIEvents> for ::windows::core::IUnknown {
@@ -431,18 +442,21 @@ unsafe impl ::windows::core::Interface for IWebApplicationUIEvents {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationUIEventsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, securityproblem: u32, result: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT);
+pub struct IWebApplicationUIEventsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub SecurityProblem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, securityproblem: u32, result: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 #[repr(transparent)]
 pub struct IWebApplicationUpdateEvents(::windows::core::IUnknown);
 impl IWebApplicationUpdateEvents {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
     pub unsafe fn OnPaint(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnPaint)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
     pub unsafe fn OnCssChanged(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnCssChanged)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IWebApplicationUpdateEvents> for ::windows::core::IUnknown {
@@ -487,13 +501,11 @@ unsafe impl ::windows::core::Interface for IWebApplicationUpdateEvents {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationUpdateEventsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IWebApplicationUpdateEventsVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub OnPaint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub OnCssChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 pub type RegisterAuthoringClientFunctionType = ::core::option::Option<unsafe extern "system" fn(authoringmodeobject: ::core::option::Option<IWebApplicationAuthoringMode>, host: ::core::option::Option<IWebApplicationHost>) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]

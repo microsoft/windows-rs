@@ -44,7 +44,12 @@ impl IAutomationConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationConnection>, ::windows::core::GetTrustLevel, IsRemoteSystem::<Impl, IMPL_OFFSET>, AppUserModelId::<Impl, IMPL_OFFSET>, ExecutableFileName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationConnection, BASE_OFFSET>(),
+            IsRemoteSystem: IsRemoteSystem::<Impl, IMPL_OFFSET>,
+            AppUserModelId: AppUserModelId::<Impl, IMPL_OFFSET>,
+            ExecutableFileName: ExecutableFileName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationConnection as ::windows::core::Interface>::IID
@@ -72,7 +77,10 @@ impl IAutomationConnectionBoundObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationConnectionBoundObject>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationConnectionBoundObject, BASE_OFFSET>(),
+            Connection: Connection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationConnectionBoundObject as ::windows::core::Interface>::IID
@@ -124,7 +132,12 @@ impl IAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElement>, ::windows::core::GetTrustLevel, IsRemoteSystem::<Impl, IMPL_OFFSET>, AppUserModelId::<Impl, IMPL_OFFSET>, ExecutableFileName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationElement, BASE_OFFSET>(),
+            IsRemoteSystem: IsRemoteSystem::<Impl, IMPL_OFFSET>,
+            AppUserModelId: AppUserModelId::<Impl, IMPL_OFFSET>,
+            ExecutableFileName: ExecutableFileName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationElement as ::windows::core::Interface>::IID
@@ -139,7 +152,7 @@ impl ::windows::core::RuntimeName for IAutomationTextRange {
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationTextRangeVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationTextRangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationTextRangeVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationTextRange>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationTextRange, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationTextRange as ::windows::core::Interface>::IID

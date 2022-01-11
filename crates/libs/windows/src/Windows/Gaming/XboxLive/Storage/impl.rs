@@ -32,7 +32,11 @@ impl IGameSaveBlobGetResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameSaveBlobGetResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameSaveBlobGetResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameSaveBlobGetResult as ::windows::core::Interface>::IID
@@ -72,7 +76,11 @@ impl IGameSaveBlobInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameSaveBlobInfo>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Size::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameSaveBlobInfo, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Size: Size::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameSaveBlobInfo as ::windows::core::Interface>::IID
@@ -112,7 +120,11 @@ impl IGameSaveBlobInfoGetResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameSaveBlobInfoGetResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameSaveBlobInfoGetResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameSaveBlobInfoGetResult as ::windows::core::Interface>::IID
@@ -164,7 +176,12 @@ impl IGameSaveBlobInfoQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameSaveBlobInfoQuery>, ::windows::core::GetTrustLevel, GetBlobInfoAsync::<Impl, IMPL_OFFSET>, GetBlobInfoWithIndexAndMaxAsync::<Impl, IMPL_OFFSET>, GetItemCountAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameSaveBlobInfoQuery, BASE_OFFSET>(),
+            GetBlobInfoAsync: GetBlobInfoAsync::<Impl, IMPL_OFFSET>,
+            GetBlobInfoWithIndexAndMaxAsync: GetBlobInfoWithIndexAndMaxAsync::<Impl, IMPL_OFFSET>,
+            GetItemCountAsync: GetItemCountAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameSaveBlobInfoQuery as ::windows::core::Interface>::IID
@@ -272,21 +289,16 @@ impl IGameSaveContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGameSaveContainer>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            Provider::<Impl, IMPL_OFFSET>,
-            SubmitUpdatesAsync::<Impl, IMPL_OFFSET>,
-            ReadAsync::<Impl, IMPL_OFFSET>,
-            GetAsync::<Impl, IMPL_OFFSET>,
-            SubmitPropertySetUpdatesAsync::<Impl, IMPL_OFFSET>,
-            CreateBlobInfoQuery::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameSaveContainer, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Provider: Provider::<Impl, IMPL_OFFSET>,
+            SubmitUpdatesAsync: SubmitUpdatesAsync::<Impl, IMPL_OFFSET>,
+            ReadAsync: ReadAsync::<Impl, IMPL_OFFSET>,
+            GetAsync: GetAsync::<Impl, IMPL_OFFSET>,
+            SubmitPropertySetUpdatesAsync: SubmitPropertySetUpdatesAsync::<Impl, IMPL_OFFSET>,
+            CreateBlobInfoQuery: CreateBlobInfoQuery::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameSaveContainer as ::windows::core::Interface>::IID
@@ -362,7 +374,14 @@ impl IGameSaveContainerInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameSaveContainerInfo>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, TotalSize::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, LastModifiedTime::<Impl, IMPL_OFFSET>, NeedsSync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameSaveContainerInfo, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            TotalSize: TotalSize::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            LastModifiedTime: LastModifiedTime::<Impl, IMPL_OFFSET>,
+            NeedsSync: NeedsSync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameSaveContainerInfo as ::windows::core::Interface>::IID
@@ -402,7 +421,11 @@ impl IGameSaveContainerInfoGetResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameSaveContainerInfoGetResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameSaveContainerInfoGetResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameSaveContainerInfoGetResult as ::windows::core::Interface>::IID
@@ -454,7 +477,12 @@ impl IGameSaveContainerInfoQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameSaveContainerInfoQuery>, ::windows::core::GetTrustLevel, GetContainerInfoAsync::<Impl, IMPL_OFFSET>, GetContainerInfoWithIndexAndMaxAsync::<Impl, IMPL_OFFSET>, GetItemCountAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameSaveContainerInfoQuery, BASE_OFFSET>(),
+            GetContainerInfoAsync: GetContainerInfoAsync::<Impl, IMPL_OFFSET>,
+            GetContainerInfoWithIndexAndMaxAsync: GetContainerInfoWithIndexAndMaxAsync::<Impl, IMPL_OFFSET>,
+            GetItemCountAsync: GetItemCountAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameSaveContainerInfoQuery as ::windows::core::Interface>::IID
@@ -482,7 +510,7 @@ impl IGameSaveOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameSaveOperationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGameSaveOperationResult, BASE_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameSaveOperationResult as ::windows::core::Interface>::IID
@@ -582,21 +610,16 @@ impl IGameSaveProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGameSaveProvider>,
-            ::windows::core::GetTrustLevel,
-            User::<Impl, IMPL_OFFSET>,
-            CreateContainer::<Impl, IMPL_OFFSET>,
-            DeleteContainerAsync::<Impl, IMPL_OFFSET>,
-            CreateContainerInfoQuery::<Impl, IMPL_OFFSET>,
-            CreateContainerInfoQueryWithName::<Impl, IMPL_OFFSET>,
-            GetRemainingBytesInQuotaAsync::<Impl, IMPL_OFFSET>,
-            ContainersChangedSinceLastSync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameSaveProvider, BASE_OFFSET>(),
+            User: User::<Impl, IMPL_OFFSET>,
+            CreateContainer: CreateContainer::<Impl, IMPL_OFFSET>,
+            DeleteContainerAsync: DeleteContainerAsync::<Impl, IMPL_OFFSET>,
+            CreateContainerInfoQuery: CreateContainerInfoQuery::<Impl, IMPL_OFFSET>,
+            CreateContainerInfoQueryWithName: CreateContainerInfoQueryWithName::<Impl, IMPL_OFFSET>,
+            GetRemainingBytesInQuotaAsync: GetRemainingBytesInQuotaAsync::<Impl, IMPL_OFFSET>,
+            ContainersChangedSinceLastSync: ContainersChangedSinceLastSync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameSaveProvider as ::windows::core::Interface>::IID
@@ -636,7 +659,11 @@ impl IGameSaveProviderGetResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameSaveProviderGetResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameSaveProviderGetResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameSaveProviderGetResult as ::windows::core::Interface>::IID
@@ -676,7 +703,11 @@ impl IGameSaveProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameSaveProviderStatics>, ::windows::core::GetTrustLevel, GetForUserAsync::<Impl, IMPL_OFFSET>, GetSyncOnDemandForUserAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameSaveProviderStatics, BASE_OFFSET>(),
+            GetForUserAsync: GetForUserAsync::<Impl, IMPL_OFFSET>,
+            GetSyncOnDemandForUserAsync: GetSyncOnDemandForUserAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameSaveProviderStatics as ::windows::core::Interface>::IID

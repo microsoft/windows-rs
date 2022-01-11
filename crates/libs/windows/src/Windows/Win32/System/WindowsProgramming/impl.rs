@@ -44,7 +44,17 @@ impl ICameraUIControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Show::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>, Suspend::<Impl, IMPL_OFFSET>, Resume::<Impl, IMPL_OFFSET>, GetCurrentViewType::<Impl, IMPL_OFFSET>, GetActiveItem::<Impl, IMPL_OFFSET>, GetSelectedItems::<Impl, IMPL_OFFSET>, RemoveCapturedItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Show: Show::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+            Suspend: Suspend::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+            GetCurrentViewType: GetCurrentViewType::<Impl, IMPL_OFFSET>,
+            GetActiveItem: GetActiveItem::<Impl, IMPL_OFFSET>,
+            GetSelectedItems: GetSelectedItems::<Impl, IMPL_OFFSET>,
+            RemoveCapturedItem: RemoveCapturedItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICameraUIControl as ::windows::core::Interface>::IID
@@ -81,7 +91,14 @@ impl ICameraUIControlEventCallbackVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnStartupComplete::<Impl, IMPL_OFFSET>, OnSuspendComplete::<Impl, IMPL_OFFSET>, OnItemCaptured::<Impl, IMPL_OFFSET>, OnItemDeleted::<Impl, IMPL_OFFSET>, OnClosed::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnStartupComplete: OnStartupComplete::<Impl, IMPL_OFFSET>,
+            OnSuspendComplete: OnSuspendComplete::<Impl, IMPL_OFFSET>,
+            OnItemCaptured: OnItemCaptured::<Impl, IMPL_OFFSET>,
+            OnItemDeleted: OnItemDeleted::<Impl, IMPL_OFFSET>,
+            OnClosed: OnClosed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICameraUIControlEventCallback as ::windows::core::Interface>::IID
@@ -98,7 +115,7 @@ impl IClipServiceNotificationHelperVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ShowToast::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), ShowToast: ShowToast::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IClipServiceNotificationHelper as ::windows::core::Interface>::IID
@@ -113,7 +130,7 @@ impl IContainerActivationHelperVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CanActivateClientVM::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CanActivateClientVM: CanActivateClientVM::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContainerActivationHelper as ::windows::core::Interface>::IID
@@ -130,7 +147,7 @@ impl IDefaultBrowserSyncSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, IsEnabled::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), IsEnabled: IsEnabled::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDefaultBrowserSyncSettings as ::windows::core::Interface>::IID
@@ -145,7 +162,7 @@ impl IDeleteBrowsingHistoryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, DeleteBrowsingHistory::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), DeleteBrowsingHistory: DeleteBrowsingHistory::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeleteBrowsingHistory as ::windows::core::Interface>::IID
@@ -177,7 +194,13 @@ impl IEditionUpgradeBrokerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, InitializeParentWindow::<Impl, IMPL_OFFSET>, UpdateOperatingSystem::<Impl, IMPL_OFFSET>, ShowProductKeyUI::<Impl, IMPL_OFFSET>, CanUpgrade::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            InitializeParentWindow: InitializeParentWindow::<Impl, IMPL_OFFSET>,
+            UpdateOperatingSystem: UpdateOperatingSystem::<Impl, IMPL_OFFSET>,
+            ShowProductKeyUI: ShowProductKeyUI::<Impl, IMPL_OFFSET>,
+            CanUpgrade: CanUpgrade::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEditionUpgradeBroker as ::windows::core::Interface>::IID
@@ -214,7 +237,14 @@ impl IEditionUpgradeHelperVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, CanUpgrade::<Impl, IMPL_OFFSET>, UpdateOperatingSystem::<Impl, IMPL_OFFSET>, ShowProductKeyUI::<Impl, IMPL_OFFSET>, GetOsProductContentId::<Impl, IMPL_OFFSET>, GetGenuineLocalStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CanUpgrade: CanUpgrade::<Impl, IMPL_OFFSET>,
+            UpdateOperatingSystem: UpdateOperatingSystem::<Impl, IMPL_OFFSET>,
+            ShowProductKeyUI: ShowProductKeyUI::<Impl, IMPL_OFFSET>,
+            GetOsProductContentId: GetOsProductContentId::<Impl, IMPL_OFFSET>,
+            GetGenuineLocalStatus: GetGenuineLocalStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEditionUpgradeHelper as ::windows::core::Interface>::IID
@@ -231,7 +261,7 @@ impl IWindowsLockModeHelperVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetSMode::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetSMode: GetSMode::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowsLockModeHelper as ::windows::core::Interface>::IID

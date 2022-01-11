@@ -32,7 +32,11 @@ impl IInstalledVoicesStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledVoicesStatic>, ::windows::core::GetTrustLevel, AllVoices::<Impl, IMPL_OFFSET>, DefaultVoice::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInstalledVoicesStatic, BASE_OFFSET>(),
+            AllVoices: AllVoices::<Impl, IMPL_OFFSET>,
+            DefaultVoice: DefaultVoice::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstalledVoicesStatic as ::windows::core::Interface>::IID
@@ -60,7 +64,10 @@ impl IInstalledVoicesStatic2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledVoicesStatic2>, ::windows::core::GetTrustLevel, TrySetDefaultVoiceAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInstalledVoicesStatic2, BASE_OFFSET>(),
+            TrySetDefaultVoiceAsync: TrySetDefaultVoiceAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstalledVoicesStatic2 as ::windows::core::Interface>::IID
@@ -88,7 +95,7 @@ impl ISpeechSynthesisStreamVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesisStream>, ::windows::core::GetTrustLevel, Markers::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechSynthesisStream, BASE_OFFSET>(), Markers: Markers::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechSynthesisStream as ::windows::core::Interface>::IID
@@ -145,7 +152,13 @@ impl ISpeechSynthesizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizer>, ::windows::core::GetTrustLevel, SynthesizeTextToStreamAsync::<Impl, IMPL_OFFSET>, SynthesizeSsmlToStreamAsync::<Impl, IMPL_OFFSET>, SetVoice::<Impl, IMPL_OFFSET>, Voice::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechSynthesizer, BASE_OFFSET>(),
+            SynthesizeTextToStreamAsync: SynthesizeTextToStreamAsync::<Impl, IMPL_OFFSET>,
+            SynthesizeSsmlToStreamAsync: SynthesizeSsmlToStreamAsync::<Impl, IMPL_OFFSET>,
+            SetVoice: SetVoice::<Impl, IMPL_OFFSET>,
+            Voice: Voice::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechSynthesizer as ::windows::core::Interface>::IID
@@ -173,7 +186,7 @@ impl ISpeechSynthesizer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizer2>, ::windows::core::GetTrustLevel, Options::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechSynthesizer2, BASE_OFFSET>(), Options: Options::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechSynthesizer2 as ::windows::core::Interface>::IID
@@ -223,18 +236,13 @@ impl ISpeechSynthesizerOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIncludeSentenceBoundaryMetadata(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions>,
-            ::windows::core::GetTrustLevel,
-            IncludeWordBoundaryMetadata::<Impl, IMPL_OFFSET>,
-            SetIncludeWordBoundaryMetadata::<Impl, IMPL_OFFSET>,
-            IncludeSentenceBoundaryMetadata::<Impl, IMPL_OFFSET>,
-            SetIncludeSentenceBoundaryMetadata::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechSynthesizerOptions, BASE_OFFSET>(),
+            IncludeWordBoundaryMetadata: IncludeWordBoundaryMetadata::<Impl, IMPL_OFFSET>,
+            SetIncludeWordBoundaryMetadata: SetIncludeWordBoundaryMetadata::<Impl, IMPL_OFFSET>,
+            IncludeSentenceBoundaryMetadata: IncludeSentenceBoundaryMetadata::<Impl, IMPL_OFFSET>,
+            SetIncludeSentenceBoundaryMetadata: SetIncludeSentenceBoundaryMetadata::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechSynthesizerOptions as ::windows::core::Interface>::IID
@@ -301,20 +309,15 @@ impl ISpeechSynthesizerOptions2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioPitch(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions2>,
-            ::windows::core::GetTrustLevel,
-            AudioVolume::<Impl, IMPL_OFFSET>,
-            SetAudioVolume::<Impl, IMPL_OFFSET>,
-            SpeakingRate::<Impl, IMPL_OFFSET>,
-            SetSpeakingRate::<Impl, IMPL_OFFSET>,
-            AudioPitch::<Impl, IMPL_OFFSET>,
-            SetAudioPitch::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechSynthesizerOptions2, BASE_OFFSET>(),
+            AudioVolume: AudioVolume::<Impl, IMPL_OFFSET>,
+            SetAudioVolume: SetAudioVolume::<Impl, IMPL_OFFSET>,
+            SpeakingRate: SpeakingRate::<Impl, IMPL_OFFSET>,
+            SetSpeakingRate: SetSpeakingRate::<Impl, IMPL_OFFSET>,
+            AudioPitch: AudioPitch::<Impl, IMPL_OFFSET>,
+            SetAudioPitch: SetAudioPitch::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechSynthesizerOptions2 as ::windows::core::Interface>::IID
@@ -364,7 +367,13 @@ impl ISpeechSynthesizerOptions3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPunctuationSilence(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions3>, ::windows::core::GetTrustLevel, AppendedSilence::<Impl, IMPL_OFFSET>, SetAppendedSilence::<Impl, IMPL_OFFSET>, PunctuationSilence::<Impl, IMPL_OFFSET>, SetPunctuationSilence::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechSynthesizerOptions3, BASE_OFFSET>(),
+            AppendedSilence: AppendedSilence::<Impl, IMPL_OFFSET>,
+            SetAppendedSilence: SetAppendedSilence::<Impl, IMPL_OFFSET>,
+            PunctuationSilence: PunctuationSilence::<Impl, IMPL_OFFSET>,
+            SetPunctuationSilence: SetPunctuationSilence::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechSynthesizerOptions3 as ::windows::core::Interface>::IID
@@ -440,7 +449,14 @@ impl IVoiceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceInformation>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, Gender::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceInformation, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            Gender: Gender::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceInformation as ::windows::core::Interface>::IID

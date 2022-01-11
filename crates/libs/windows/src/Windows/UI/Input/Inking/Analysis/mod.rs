@@ -8,15 +8,10 @@ unsafe impl ::windows::core::Interface for IInkAnalysisInkBullet {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkAnalysisInkBulletVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-);
+pub struct IInkAnalysisInkBulletVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkAnalysisInkDrawing(::windows::core::IUnknown);
@@ -26,19 +21,18 @@ unsafe impl ::windows::core::Interface for IInkAnalysisInkDrawing {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkAnalysisInkDrawingVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisDrawingKind) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-);
+pub struct IInkAnalysisInkDrawingVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub DrawingKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisDrawingKind) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub Center: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Center: usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    pub Points: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    Points: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkAnalysisInkWord(::windows::core::IUnknown);
@@ -48,17 +42,14 @@ unsafe impl ::windows::core::Interface for IInkAnalysisInkWord {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkAnalysisInkWordVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
-);
+pub struct IInkAnalysisInkWordVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub TextAlternates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    TextAlternates: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkAnalysisLine(::windows::core::IUnknown);
@@ -68,16 +59,11 @@ unsafe impl ::windows::core::Interface for IInkAnalysisLine {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkAnalysisLineVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IInkAnalysisLineVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub IndentLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkAnalysisListItem(::windows::core::IUnknown);
@@ -87,15 +73,10 @@ unsafe impl ::windows::core::Interface for IInkAnalysisListItem {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkAnalysisListItemVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-);
+pub struct IInkAnalysisListItemVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct IInkAnalysisNode(::windows::core::IUnknown);
@@ -105,7 +86,7 @@ impl IInkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -113,7 +94,7 @@ impl IInkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation'*"]
@@ -122,7 +103,7 @@ impl IInkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation', 'Foundation_Collections'*"]
@@ -131,7 +112,7 @@ impl IInkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Interface::vtable(this).RotatedBoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -140,7 +121,7 @@ impl IInkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -148,7 +129,7 @@ impl IInkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            (::windows::core::Interface::vtable(this).Parent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -157,7 +138,7 @@ impl IInkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).GetStrokeIds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -226,25 +207,28 @@ unsafe impl ::windows::core::Interface for IInkAnalysisNode {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkAnalysisNodeVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisNodeKind) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
-);
+pub struct IInkAnalysisNodeVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisNodeKind) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub BoundingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    BoundingRect: usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    pub RotatedBoundingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    RotatedBoundingRect: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Children: usize,
+    pub Parent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetStrokeIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetStrokeIds: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkAnalysisParagraph(::windows::core::IUnknown);
@@ -254,15 +238,10 @@ unsafe impl ::windows::core::Interface for IInkAnalysisParagraph {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkAnalysisParagraphVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-);
+pub struct IInkAnalysisParagraphVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkAnalysisResult(::windows::core::IUnknown);
@@ -272,15 +251,10 @@ unsafe impl ::windows::core::Interface for IInkAnalysisResult {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkAnalysisResultVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisStatus) -> ::windows::core::HRESULT,
-);
+pub struct IInkAnalysisResultVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisStatus) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkAnalysisRoot(::windows::core::IUnknown);
@@ -290,17 +264,14 @@ unsafe impl ::windows::core::Interface for IInkAnalysisRoot {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkAnalysisRootVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodekind: InkAnalysisNodeKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
-);
+pub struct IInkAnalysisRootVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub FindNodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodekind: InkAnalysisNodeKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    FindNodes: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkAnalysisWritingRegion(::windows::core::IUnknown);
@@ -310,15 +281,10 @@ unsafe impl ::windows::core::Interface for IInkAnalysisWritingRegion {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkAnalysisWritingRegionVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-);
+pub struct IInkAnalysisWritingRegionVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkAnalyzer(::windows::core::IUnknown);
@@ -328,27 +294,28 @@ unsafe impl ::windows::core::Interface for IInkAnalyzer {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkAnalyzerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stroke: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokeid: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokeids: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stroke: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokeid: u32, strokekind: InkAnalysisStrokeKind) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-);
+pub struct IInkAnalyzerVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub AnalysisRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsAnalyzing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub AddDataForStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stroke: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AddDataForStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AddDataForStrokes: usize,
+    pub ClearDataForAllStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RemoveDataForStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokeid: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub RemoveDataForStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokeids: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    RemoveDataForStrokes: usize,
+    pub ReplaceDataForStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stroke: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetStrokeDataKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokeid: u32, strokekind: InkAnalysisStrokeKind) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub AnalyzeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AnalyzeAsync: usize,
+}
 #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct IInkAnalyzerFactory(::windows::core::IUnknown);
@@ -358,7 +325,7 @@ impl IInkAnalyzerFactory {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalyzer>(result__)
+            (::windows::core::Interface::vtable(this).CreateAnalyzer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalyzer>(result__)
         }
     }
 }
@@ -427,15 +394,10 @@ unsafe impl ::windows::core::Interface for IInkAnalyzerFactory {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkAnalyzerFactoryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IInkAnalyzerFactoryVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub CreateAnalyzer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisDrawingKind(pub i32);
@@ -491,7 +453,7 @@ impl InkAnalysisInkBullet {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RecognizedText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -499,7 +461,7 @@ impl InkAnalysisInkBullet {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -507,7 +469,7 @@ impl InkAnalysisInkBullet {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation'*"]
@@ -516,7 +478,7 @@ impl InkAnalysisInkBullet {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation', 'Foundation_Collections'*"]
@@ -525,7 +487,7 @@ impl InkAnalysisInkBullet {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Interface::vtable(this).RotatedBoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -534,7 +496,7 @@ impl InkAnalysisInkBullet {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -542,7 +504,7 @@ impl InkAnalysisInkBullet {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            (::windows::core::Interface::vtable(this).Parent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -551,7 +513,7 @@ impl InkAnalysisInkBullet {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).GetStrokeIds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -654,7 +616,7 @@ impl InkAnalysisInkDrawing {
         let this = self;
         unsafe {
             let mut result__: InkAnalysisDrawingKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisDrawingKind>(result__)
+            (::windows::core::Interface::vtable(this).DrawingKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisDrawingKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation'*"]
@@ -663,7 +625,7 @@ impl InkAnalysisInkDrawing {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Center)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation', 'Foundation_Collections'*"]
@@ -672,7 +634,7 @@ impl InkAnalysisInkDrawing {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Interface::vtable(this).Points)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -680,7 +642,7 @@ impl InkAnalysisInkDrawing {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -688,7 +650,7 @@ impl InkAnalysisInkDrawing {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation'*"]
@@ -697,7 +659,7 @@ impl InkAnalysisInkDrawing {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation', 'Foundation_Collections'*"]
@@ -706,7 +668,7 @@ impl InkAnalysisInkDrawing {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Interface::vtable(this).RotatedBoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -715,7 +677,7 @@ impl InkAnalysisInkDrawing {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -723,7 +685,7 @@ impl InkAnalysisInkDrawing {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            (::windows::core::Interface::vtable(this).Parent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -732,7 +694,7 @@ impl InkAnalysisInkDrawing {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).GetStrokeIds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -835,7 +797,7 @@ impl InkAnalysisInkWord {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RecognizedText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -844,7 +806,7 @@ impl InkAnalysisInkWord {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).TextAlternates)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -852,7 +814,7 @@ impl InkAnalysisInkWord {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -860,7 +822,7 @@ impl InkAnalysisInkWord {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation'*"]
@@ -869,7 +831,7 @@ impl InkAnalysisInkWord {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation', 'Foundation_Collections'*"]
@@ -878,7 +840,7 @@ impl InkAnalysisInkWord {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Interface::vtable(this).RotatedBoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -887,7 +849,7 @@ impl InkAnalysisInkWord {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -895,7 +857,7 @@ impl InkAnalysisInkWord {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            (::windows::core::Interface::vtable(this).Parent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -904,7 +866,7 @@ impl InkAnalysisInkWord {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).GetStrokeIds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -1007,7 +969,7 @@ impl InkAnalysisLine {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RecognizedText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1015,7 +977,7 @@ impl InkAnalysisLine {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).IndentLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1023,7 +985,7 @@ impl InkAnalysisLine {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1031,7 +993,7 @@ impl InkAnalysisLine {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation'*"]
@@ -1040,7 +1002,7 @@ impl InkAnalysisLine {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation', 'Foundation_Collections'*"]
@@ -1049,7 +1011,7 @@ impl InkAnalysisLine {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Interface::vtable(this).RotatedBoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -1058,7 +1020,7 @@ impl InkAnalysisLine {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1066,7 +1028,7 @@ impl InkAnalysisLine {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            (::windows::core::Interface::vtable(this).Parent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -1075,7 +1037,7 @@ impl InkAnalysisLine {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).GetStrokeIds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -1178,7 +1140,7 @@ impl InkAnalysisListItem {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RecognizedText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1186,7 +1148,7 @@ impl InkAnalysisListItem {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1194,7 +1156,7 @@ impl InkAnalysisListItem {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation'*"]
@@ -1203,7 +1165,7 @@ impl InkAnalysisListItem {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation', 'Foundation_Collections'*"]
@@ -1212,7 +1174,7 @@ impl InkAnalysisListItem {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Interface::vtable(this).RotatedBoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -1221,7 +1183,7 @@ impl InkAnalysisListItem {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1229,7 +1191,7 @@ impl InkAnalysisListItem {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            (::windows::core::Interface::vtable(this).Parent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -1238,7 +1200,7 @@ impl InkAnalysisListItem {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).GetStrokeIds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -1341,7 +1303,7 @@ impl InkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1349,7 +1311,7 @@ impl InkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation'*"]
@@ -1358,7 +1320,7 @@ impl InkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation', 'Foundation_Collections'*"]
@@ -1367,7 +1329,7 @@ impl InkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Interface::vtable(this).RotatedBoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -1376,7 +1338,7 @@ impl InkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1384,7 +1346,7 @@ impl InkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            (::windows::core::Interface::vtable(this).Parent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -1393,7 +1355,7 @@ impl InkAnalysisNode {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).GetStrokeIds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -1536,7 +1498,7 @@ impl InkAnalysisParagraph {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1544,7 +1506,7 @@ impl InkAnalysisParagraph {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation'*"]
@@ -1553,7 +1515,7 @@ impl InkAnalysisParagraph {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation', 'Foundation_Collections'*"]
@@ -1562,7 +1524,7 @@ impl InkAnalysisParagraph {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Interface::vtable(this).RotatedBoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -1571,7 +1533,7 @@ impl InkAnalysisParagraph {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1579,7 +1541,7 @@ impl InkAnalysisParagraph {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            (::windows::core::Interface::vtable(this).Parent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -1588,7 +1550,7 @@ impl InkAnalysisParagraph {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).GetStrokeIds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1596,7 +1558,7 @@ impl InkAnalysisParagraph {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RecognizedText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1699,7 +1661,7 @@ impl InkAnalysisResult {
         let this = self;
         unsafe {
             let mut result__: InkAnalysisStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisStatus>(result__)
         }
     }
 }
@@ -1780,7 +1742,7 @@ impl InkAnalysisRoot {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1788,7 +1750,7 @@ impl InkAnalysisRoot {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation'*"]
@@ -1797,7 +1759,7 @@ impl InkAnalysisRoot {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation', 'Foundation_Collections'*"]
@@ -1806,7 +1768,7 @@ impl InkAnalysisRoot {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Interface::vtable(this).RotatedBoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -1815,7 +1777,7 @@ impl InkAnalysisRoot {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1823,7 +1785,7 @@ impl InkAnalysisRoot {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            (::windows::core::Interface::vtable(this).Parent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -1832,7 +1794,7 @@ impl InkAnalysisRoot {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).GetStrokeIds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -1840,7 +1802,7 @@ impl InkAnalysisRoot {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RecognizedText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -1849,7 +1811,7 @@ impl InkAnalysisRoot {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), nodekind, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            (::windows::core::Interface::vtable(this).FindNodes)(::core::mem::transmute_copy(this), nodekind, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
 }
@@ -2019,7 +1981,7 @@ impl InkAnalysisWritingRegion {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -2027,7 +1989,7 @@ impl InkAnalysisWritingRegion {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation'*"]
@@ -2036,7 +1998,7 @@ impl InkAnalysisWritingRegion {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation', 'Foundation_Collections'*"]
@@ -2045,7 +2007,7 @@ impl InkAnalysisWritingRegion {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Interface::vtable(this).RotatedBoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -2054,7 +2016,7 @@ impl InkAnalysisWritingRegion {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -2062,7 +2024,7 @@ impl InkAnalysisWritingRegion {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            (::windows::core::Interface::vtable(this).Parent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
@@ -2071,7 +2033,7 @@ impl InkAnalysisWritingRegion {
         let this = &::windows::core::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).GetStrokeIds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -2079,7 +2041,7 @@ impl InkAnalysisWritingRegion {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RecognizedText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -2189,7 +2151,7 @@ impl InkAnalyzer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisRoot>(result__)
+            (::windows::core::Interface::vtable(this).AnalysisRoot)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisRoot>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
@@ -2197,45 +2159,45 @@ impl InkAnalyzer {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAnalyzing)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
     pub fn AddDataForStroke<'a, Param0: ::windows::core::IntoParam<'a, super::InkStroke>>(&self, stroke: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), stroke.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDataForStroke)(::core::mem::transmute_copy(this), stroke.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddDataForStrokes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::InkStroke>>>(&self, strokes: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), strokes.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDataForStrokes)(::core::mem::transmute_copy(this), strokes.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
     pub fn ClearDataForAllStrokes(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ClearDataForAllStrokes)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
     pub fn RemoveDataForStroke(&self, strokeid: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), strokeid).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDataForStroke)(::core::mem::transmute_copy(this), strokeid).ok() }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveDataForStrokes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<u32>>>(&self, strokeids: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), strokeids.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDataForStrokes)(::core::mem::transmute_copy(this), strokeids.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
     pub fn ReplaceDataForStroke<'a, Param0: ::windows::core::IntoParam<'a, super::InkStroke>>(&self, stroke: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), stroke.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReplaceDataForStroke)(::core::mem::transmute_copy(this), stroke.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
     pub fn SetStrokeDataKind(&self, strokeid: u32, strokekind: InkAnalysisStrokeKind) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), strokeid, strokekind).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeDataKind)(::core::mem::transmute_copy(this), strokeid, strokekind).ok() }
     }
     #[doc = "*Required features: 'UI_Input_Inking_Analysis', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
@@ -2243,7 +2205,7 @@ impl InkAnalyzer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<InkAnalysisResult>>(result__)
+            (::windows::core::Interface::vtable(this).AnalyzeAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<InkAnalysisResult>>(result__)
         }
     }
 }

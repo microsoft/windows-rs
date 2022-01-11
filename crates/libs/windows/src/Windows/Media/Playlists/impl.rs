@@ -56,7 +56,13 @@ impl IPlaylistVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaylist>, ::windows::core::GetTrustLevel, Files::<Impl, IMPL_OFFSET>, SaveAsync::<Impl, IMPL_OFFSET>, SaveAsAsync::<Impl, IMPL_OFFSET>, SaveAsWithFormatAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlaylist, BASE_OFFSET>(),
+            Files: Files::<Impl, IMPL_OFFSET>,
+            SaveAsync: SaveAsync::<Impl, IMPL_OFFSET>,
+            SaveAsAsync: SaveAsAsync::<Impl, IMPL_OFFSET>,
+            SaveAsWithFormatAsync: SaveAsWithFormatAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlaylist as ::windows::core::Interface>::IID
@@ -84,7 +90,7 @@ impl IPlaylistStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaylistStatics>, ::windows::core::GetTrustLevel, LoadAsync::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPlaylistStatics, BASE_OFFSET>(), LoadAsync: LoadAsync::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPlaylistStatics as ::windows::core::Interface>::IID

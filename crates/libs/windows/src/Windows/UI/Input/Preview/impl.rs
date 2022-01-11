@@ -20,7 +20,10 @@ impl IInputActivationListenerPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputActivationListenerPreviewStatics>, ::windows::core::GetTrustLevel, CreateForApplicationWindow::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputActivationListenerPreviewStatics, BASE_OFFSET>(),
+            CreateForApplicationWindow: CreateForApplicationWindow::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputActivationListenerPreviewStatics as ::windows::core::Interface>::IID

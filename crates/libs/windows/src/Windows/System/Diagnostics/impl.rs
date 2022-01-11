@@ -32,7 +32,11 @@ impl IDiagnosticActionResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticActionResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, Results::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDiagnosticActionResult, BASE_OFFSET>(),
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            Results: Results::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDiagnosticActionResult as ::windows::core::Interface>::IID
@@ -60,7 +64,10 @@ impl IDiagnosticInvokerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticInvoker>, ::windows::core::GetTrustLevel, RunDiagnosticActionAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDiagnosticInvoker, BASE_OFFSET>(),
+            RunDiagnosticActionAsync: RunDiagnosticActionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDiagnosticInvoker as ::windows::core::Interface>::IID
@@ -88,7 +95,10 @@ impl IDiagnosticInvoker2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticInvoker2>, ::windows::core::GetTrustLevel, RunDiagnosticActionFromStringAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDiagnosticInvoker2, BASE_OFFSET>(),
+            RunDiagnosticActionFromStringAsync: RunDiagnosticActionFromStringAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDiagnosticInvoker2 as ::windows::core::Interface>::IID
@@ -140,7 +150,12 @@ impl IDiagnosticInvokerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticInvokerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>, IsSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDiagnosticInvokerStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDiagnosticInvokerStatics as ::windows::core::Interface>::IID
@@ -168,7 +183,7 @@ impl IProcessCpuUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessCpuUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IProcessCpuUsage, BASE_OFFSET>(), GetReport: GetReport::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProcessCpuUsage as ::windows::core::Interface>::IID
@@ -208,7 +223,11 @@ impl IProcessCpuUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessCpuUsageReport>, ::windows::core::GetTrustLevel, KernelTime::<Impl, IMPL_OFFSET>, UserTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProcessCpuUsageReport, BASE_OFFSET>(),
+            KernelTime: KernelTime::<Impl, IMPL_OFFSET>,
+            UserTime: UserTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProcessCpuUsageReport as ::windows::core::Interface>::IID
@@ -308,21 +327,16 @@ impl IProcessDiagnosticInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfo>,
-            ::windows::core::GetTrustLevel,
-            ProcessId::<Impl, IMPL_OFFSET>,
-            ExecutableFileName::<Impl, IMPL_OFFSET>,
-            Parent::<Impl, IMPL_OFFSET>,
-            ProcessStartTime::<Impl, IMPL_OFFSET>,
-            DiskUsage::<Impl, IMPL_OFFSET>,
-            MemoryUsage::<Impl, IMPL_OFFSET>,
-            CpuUsage::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProcessDiagnosticInfo, BASE_OFFSET>(),
+            ProcessId: ProcessId::<Impl, IMPL_OFFSET>,
+            ExecutableFileName: ExecutableFileName::<Impl, IMPL_OFFSET>,
+            Parent: Parent::<Impl, IMPL_OFFSET>,
+            ProcessStartTime: ProcessStartTime::<Impl, IMPL_OFFSET>,
+            DiskUsage: DiskUsage::<Impl, IMPL_OFFSET>,
+            MemoryUsage: MemoryUsage::<Impl, IMPL_OFFSET>,
+            CpuUsage: CpuUsage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProcessDiagnosticInfo as ::windows::core::Interface>::IID
@@ -362,7 +376,11 @@ impl IProcessDiagnosticInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfo2>, ::windows::core::GetTrustLevel, GetAppDiagnosticInfos::<Impl, IMPL_OFFSET>, IsPackaged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProcessDiagnosticInfo2, BASE_OFFSET>(),
+            GetAppDiagnosticInfos: GetAppDiagnosticInfos::<Impl, IMPL_OFFSET>,
+            IsPackaged: IsPackaged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProcessDiagnosticInfo2 as ::windows::core::Interface>::IID
@@ -402,7 +420,11 @@ impl IProcessDiagnosticInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfoStatics>, ::windows::core::GetTrustLevel, GetForProcesses::<Impl, IMPL_OFFSET>, GetForCurrentProcess::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProcessDiagnosticInfoStatics, BASE_OFFSET>(),
+            GetForProcesses: GetForProcesses::<Impl, IMPL_OFFSET>,
+            GetForCurrentProcess: GetForCurrentProcess::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProcessDiagnosticInfoStatics as ::windows::core::Interface>::IID
@@ -430,7 +452,10 @@ impl IProcessDiagnosticInfoStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfoStatics2>, ::windows::core::GetTrustLevel, TryGetForProcessId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProcessDiagnosticInfoStatics2, BASE_OFFSET>(),
+            TryGetForProcessId: TryGetForProcessId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProcessDiagnosticInfoStatics2 as ::windows::core::Interface>::IID
@@ -458,7 +483,7 @@ impl IProcessDiskUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiskUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IProcessDiskUsage, BASE_OFFSET>(), GetReport: GetReport::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProcessDiskUsage as ::windows::core::Interface>::IID
@@ -546,20 +571,15 @@ impl IProcessDiskUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProcessDiskUsageReport>,
-            ::windows::core::GetTrustLevel,
-            ReadOperationCount::<Impl, IMPL_OFFSET>,
-            WriteOperationCount::<Impl, IMPL_OFFSET>,
-            OtherOperationCount::<Impl, IMPL_OFFSET>,
-            BytesReadCount::<Impl, IMPL_OFFSET>,
-            BytesWrittenCount::<Impl, IMPL_OFFSET>,
-            OtherBytesCount::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProcessDiskUsageReport, BASE_OFFSET>(),
+            ReadOperationCount: ReadOperationCount::<Impl, IMPL_OFFSET>,
+            WriteOperationCount: WriteOperationCount::<Impl, IMPL_OFFSET>,
+            OtherOperationCount: OtherOperationCount::<Impl, IMPL_OFFSET>,
+            BytesReadCount: BytesReadCount::<Impl, IMPL_OFFSET>,
+            BytesWrittenCount: BytesWrittenCount::<Impl, IMPL_OFFSET>,
+            OtherBytesCount: OtherBytesCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProcessDiskUsageReport as ::windows::core::Interface>::IID
@@ -587,7 +607,7 @@ impl IProcessMemoryUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessMemoryUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IProcessMemoryUsage, BASE_OFFSET>(), GetReport: GetReport::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProcessMemoryUsage as ::windows::core::Interface>::IID
@@ -747,26 +767,21 @@ impl IProcessMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProcessMemoryUsageReport>,
-            ::windows::core::GetTrustLevel,
-            NonPagedPoolSizeInBytes::<Impl, IMPL_OFFSET>,
-            PageFaultCount::<Impl, IMPL_OFFSET>,
-            PageFileSizeInBytes::<Impl, IMPL_OFFSET>,
-            PagedPoolSizeInBytes::<Impl, IMPL_OFFSET>,
-            PeakNonPagedPoolSizeInBytes::<Impl, IMPL_OFFSET>,
-            PeakPageFileSizeInBytes::<Impl, IMPL_OFFSET>,
-            PeakPagedPoolSizeInBytes::<Impl, IMPL_OFFSET>,
-            PeakVirtualMemorySizeInBytes::<Impl, IMPL_OFFSET>,
-            PeakWorkingSetSizeInBytes::<Impl, IMPL_OFFSET>,
-            PrivatePageCount::<Impl, IMPL_OFFSET>,
-            VirtualMemorySizeInBytes::<Impl, IMPL_OFFSET>,
-            WorkingSetSizeInBytes::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProcessMemoryUsageReport, BASE_OFFSET>(),
+            NonPagedPoolSizeInBytes: NonPagedPoolSizeInBytes::<Impl, IMPL_OFFSET>,
+            PageFaultCount: PageFaultCount::<Impl, IMPL_OFFSET>,
+            PageFileSizeInBytes: PageFileSizeInBytes::<Impl, IMPL_OFFSET>,
+            PagedPoolSizeInBytes: PagedPoolSizeInBytes::<Impl, IMPL_OFFSET>,
+            PeakNonPagedPoolSizeInBytes: PeakNonPagedPoolSizeInBytes::<Impl, IMPL_OFFSET>,
+            PeakPageFileSizeInBytes: PeakPageFileSizeInBytes::<Impl, IMPL_OFFSET>,
+            PeakPagedPoolSizeInBytes: PeakPagedPoolSizeInBytes::<Impl, IMPL_OFFSET>,
+            PeakVirtualMemorySizeInBytes: PeakVirtualMemorySizeInBytes::<Impl, IMPL_OFFSET>,
+            PeakWorkingSetSizeInBytes: PeakWorkingSetSizeInBytes::<Impl, IMPL_OFFSET>,
+            PrivatePageCount: PrivatePageCount::<Impl, IMPL_OFFSET>,
+            VirtualMemorySizeInBytes: VirtualMemorySizeInBytes::<Impl, IMPL_OFFSET>,
+            WorkingSetSizeInBytes: WorkingSetSizeInBytes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProcessMemoryUsageReport as ::windows::core::Interface>::IID
@@ -794,7 +809,7 @@ impl ISystemCpuUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemCpuUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemCpuUsage, BASE_OFFSET>(), GetReport: GetReport::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemCpuUsage as ::windows::core::Interface>::IID
@@ -846,7 +861,12 @@ impl ISystemCpuUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemCpuUsageReport>, ::windows::core::GetTrustLevel, KernelTime::<Impl, IMPL_OFFSET>, UserTime::<Impl, IMPL_OFFSET>, IdleTime::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemCpuUsageReport, BASE_OFFSET>(),
+            KernelTime: KernelTime::<Impl, IMPL_OFFSET>,
+            UserTime: UserTime::<Impl, IMPL_OFFSET>,
+            IdleTime: IdleTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemCpuUsageReport as ::windows::core::Interface>::IID
@@ -886,7 +906,11 @@ impl ISystemDiagnosticInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfo>, ::windows::core::GetTrustLevel, MemoryUsage::<Impl, IMPL_OFFSET>, CpuUsage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemDiagnosticInfo, BASE_OFFSET>(),
+            MemoryUsage: MemoryUsage::<Impl, IMPL_OFFSET>,
+            CpuUsage: CpuUsage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemDiagnosticInfo as ::windows::core::Interface>::IID
@@ -914,7 +938,10 @@ impl ISystemDiagnosticInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfoStatics>, ::windows::core::GetTrustLevel, GetForCurrentSystem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemDiagnosticInfoStatics, BASE_OFFSET>(),
+            GetForCurrentSystem: GetForCurrentSystem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemDiagnosticInfoStatics as ::windows::core::Interface>::IID
@@ -954,7 +981,11 @@ impl ISystemDiagnosticInfoStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfoStatics2>, ::windows::core::GetTrustLevel, IsArchitectureSupported::<Impl, IMPL_OFFSET>, PreferredArchitecture::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemDiagnosticInfoStatics2, BASE_OFFSET>(),
+            IsArchitectureSupported: IsArchitectureSupported::<Impl, IMPL_OFFSET>,
+            PreferredArchitecture: PreferredArchitecture::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemDiagnosticInfoStatics2 as ::windows::core::Interface>::IID
@@ -982,7 +1013,7 @@ impl ISystemMemoryUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMemoryUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemMemoryUsage, BASE_OFFSET>(), GetReport: GetReport::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemMemoryUsage as ::windows::core::Interface>::IID
@@ -1034,7 +1065,12 @@ impl ISystemMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMemoryUsageReport>, ::windows::core::GetTrustLevel, TotalPhysicalSizeInBytes::<Impl, IMPL_OFFSET>, AvailableSizeInBytes::<Impl, IMPL_OFFSET>, CommittedSizeInBytes::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemMemoryUsageReport, BASE_OFFSET>(),
+            TotalPhysicalSizeInBytes: TotalPhysicalSizeInBytes::<Impl, IMPL_OFFSET>,
+            AvailableSizeInBytes: AvailableSizeInBytes::<Impl, IMPL_OFFSET>,
+            CommittedSizeInBytes: CommittedSizeInBytes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemMemoryUsageReport as ::windows::core::Interface>::IID

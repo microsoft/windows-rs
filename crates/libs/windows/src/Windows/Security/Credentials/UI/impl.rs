@@ -178,34 +178,29 @@ impl ICredentialPickerOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICredentialPickerOptions>,
-            ::windows::core::GetTrustLevel,
-            SetCaption::<Impl, IMPL_OFFSET>,
-            Caption::<Impl, IMPL_OFFSET>,
-            SetMessage::<Impl, IMPL_OFFSET>,
-            Message::<Impl, IMPL_OFFSET>,
-            SetErrorCode::<Impl, IMPL_OFFSET>,
-            ErrorCode::<Impl, IMPL_OFFSET>,
-            SetTargetName::<Impl, IMPL_OFFSET>,
-            TargetName::<Impl, IMPL_OFFSET>,
-            SetAuthenticationProtocol::<Impl, IMPL_OFFSET>,
-            AuthenticationProtocol::<Impl, IMPL_OFFSET>,
-            SetCustomAuthenticationProtocol::<Impl, IMPL_OFFSET>,
-            CustomAuthenticationProtocol::<Impl, IMPL_OFFSET>,
-            SetPreviousCredential::<Impl, IMPL_OFFSET>,
-            PreviousCredential::<Impl, IMPL_OFFSET>,
-            SetAlwaysDisplayDialog::<Impl, IMPL_OFFSET>,
-            AlwaysDisplayDialog::<Impl, IMPL_OFFSET>,
-            SetCallerSavesCredential::<Impl, IMPL_OFFSET>,
-            CallerSavesCredential::<Impl, IMPL_OFFSET>,
-            SetCredentialSaveOption::<Impl, IMPL_OFFSET>,
-            CredentialSaveOption::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICredentialPickerOptions, BASE_OFFSET>(),
+            SetCaption: SetCaption::<Impl, IMPL_OFFSET>,
+            Caption: Caption::<Impl, IMPL_OFFSET>,
+            SetMessage: SetMessage::<Impl, IMPL_OFFSET>,
+            Message: Message::<Impl, IMPL_OFFSET>,
+            SetErrorCode: SetErrorCode::<Impl, IMPL_OFFSET>,
+            ErrorCode: ErrorCode::<Impl, IMPL_OFFSET>,
+            SetTargetName: SetTargetName::<Impl, IMPL_OFFSET>,
+            TargetName: TargetName::<Impl, IMPL_OFFSET>,
+            SetAuthenticationProtocol: SetAuthenticationProtocol::<Impl, IMPL_OFFSET>,
+            AuthenticationProtocol: AuthenticationProtocol::<Impl, IMPL_OFFSET>,
+            SetCustomAuthenticationProtocol: SetCustomAuthenticationProtocol::<Impl, IMPL_OFFSET>,
+            CustomAuthenticationProtocol: CustomAuthenticationProtocol::<Impl, IMPL_OFFSET>,
+            SetPreviousCredential: SetPreviousCredential::<Impl, IMPL_OFFSET>,
+            PreviousCredential: PreviousCredential::<Impl, IMPL_OFFSET>,
+            SetAlwaysDisplayDialog: SetAlwaysDisplayDialog::<Impl, IMPL_OFFSET>,
+            AlwaysDisplayDialog: AlwaysDisplayDialog::<Impl, IMPL_OFFSET>,
+            SetCallerSavesCredential: SetCallerSavesCredential::<Impl, IMPL_OFFSET>,
+            CallerSavesCredential: CallerSavesCredential::<Impl, IMPL_OFFSET>,
+            SetCredentialSaveOption: SetCredentialSaveOption::<Impl, IMPL_OFFSET>,
+            CredentialSaveOption: CredentialSaveOption::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICredentialPickerOptions as ::windows::core::Interface>::IID
@@ -305,21 +300,16 @@ impl ICredentialPickerResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICredentialPickerResults>,
-            ::windows::core::GetTrustLevel,
-            ErrorCode::<Impl, IMPL_OFFSET>,
-            CredentialSaveOption::<Impl, IMPL_OFFSET>,
-            CredentialSaved::<Impl, IMPL_OFFSET>,
-            Credential::<Impl, IMPL_OFFSET>,
-            CredentialDomainName::<Impl, IMPL_OFFSET>,
-            CredentialUserName::<Impl, IMPL_OFFSET>,
-            CredentialPassword::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICredentialPickerResults, BASE_OFFSET>(),
+            ErrorCode: ErrorCode::<Impl, IMPL_OFFSET>,
+            CredentialSaveOption: CredentialSaveOption::<Impl, IMPL_OFFSET>,
+            CredentialSaved: CredentialSaved::<Impl, IMPL_OFFSET>,
+            Credential: Credential::<Impl, IMPL_OFFSET>,
+            CredentialDomainName: CredentialDomainName::<Impl, IMPL_OFFSET>,
+            CredentialUserName: CredentialUserName::<Impl, IMPL_OFFSET>,
+            CredentialPassword: CredentialPassword::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICredentialPickerResults as ::windows::core::Interface>::IID
@@ -375,7 +365,12 @@ impl ICredentialPickerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICredentialPickerStatics>, ::windows::core::GetTrustLevel, PickWithOptionsAsync::<Impl, IMPL_OFFSET>, PickWithMessageAsync::<Impl, IMPL_OFFSET>, PickWithCaptionAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICredentialPickerStatics, BASE_OFFSET>(),
+            PickWithOptionsAsync: PickWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            PickWithMessageAsync: PickWithMessageAsync::<Impl, IMPL_OFFSET>,
+            PickWithCaptionAsync: PickWithCaptionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICredentialPickerStatics as ::windows::core::Interface>::IID
@@ -415,7 +410,11 @@ impl IUserConsentVerifierStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserConsentVerifierStatics>, ::windows::core::GetTrustLevel, CheckAvailabilityAsync::<Impl, IMPL_OFFSET>, RequestVerificationAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserConsentVerifierStatics, BASE_OFFSET>(),
+            CheckAvailabilityAsync: CheckAvailabilityAsync::<Impl, IMPL_OFFSET>,
+            RequestVerificationAsync: RequestVerificationAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUserConsentVerifierStatics as ::windows::core::Interface>::IID

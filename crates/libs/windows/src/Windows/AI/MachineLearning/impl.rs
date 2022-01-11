@@ -56,7 +56,13 @@ impl IImageFeatureDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageFeatureDescriptor>, ::windows::core::GetTrustLevel, BitmapPixelFormat::<Impl, IMPL_OFFSET>, BitmapAlphaMode::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>, Height::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageFeatureDescriptor, BASE_OFFSET>(),
+            BitmapPixelFormat: BitmapPixelFormat::<Impl, IMPL_OFFSET>,
+            BitmapAlphaMode: BitmapAlphaMode::<Impl, IMPL_OFFSET>,
+            Width: Width::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageFeatureDescriptor as ::windows::core::Interface>::IID
@@ -84,7 +90,7 @@ impl IImageFeatureDescriptor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageFeatureDescriptor2>, ::windows::core::GetTrustLevel, PixelRange::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IImageFeatureDescriptor2, BASE_OFFSET>(), PixelRange: PixelRange::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageFeatureDescriptor2 as ::windows::core::Interface>::IID
@@ -112,7 +118,7 @@ impl IImageFeatureValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageFeatureValue>, ::windows::core::GetTrustLevel, VideoFrame::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IImageFeatureValue, BASE_OFFSET>(), VideoFrame: VideoFrame::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageFeatureValue as ::windows::core::Interface>::IID
@@ -140,7 +146,10 @@ impl IImageFeatureValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageFeatureValueStatics>, ::windows::core::GetTrustLevel, CreateFromVideoFrame::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageFeatureValueStatics, BASE_OFFSET>(),
+            CreateFromVideoFrame: CreateFromVideoFrame::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageFeatureValueStatics as ::windows::core::Interface>::IID
@@ -252,22 +261,17 @@ impl ILearningModelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILearningModel>,
-            ::windows::core::GetTrustLevel,
-            Author::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            Domain::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            Version::<Impl, IMPL_OFFSET>,
-            Metadata::<Impl, IMPL_OFFSET>,
-            InputFeatures::<Impl, IMPL_OFFSET>,
-            OutputFeatures::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModel, BASE_OFFSET>(),
+            Author: Author::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Domain: Domain::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            Version: Version::<Impl, IMPL_OFFSET>,
+            Metadata: Metadata::<Impl, IMPL_OFFSET>,
+            InputFeatures: InputFeatures::<Impl, IMPL_OFFSET>,
+            OutputFeatures: OutputFeatures::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModel as ::windows::core::Interface>::IID
@@ -304,7 +308,12 @@ impl ILearningModelBindingVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelBinding>, ::windows::core::GetTrustLevel, Bind::<Impl, IMPL_OFFSET>, BindWithProperties::<Impl, IMPL_OFFSET>, Clear::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelBinding, BASE_OFFSET>(),
+            Bind: Bind::<Impl, IMPL_OFFSET>,
+            BindWithProperties: BindWithProperties::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelBinding as ::windows::core::Interface>::IID
@@ -332,7 +341,10 @@ impl ILearningModelBindingFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelBindingFactory>, ::windows::core::GetTrustLevel, CreateFromSession::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelBindingFactory, BASE_OFFSET>(),
+            CreateFromSession: CreateFromSession::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelBindingFactory as ::windows::core::Interface>::IID
@@ -372,7 +384,11 @@ impl ILearningModelDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelDevice>, ::windows::core::GetTrustLevel, AdapterId::<Impl, IMPL_OFFSET>, Direct3D11Device::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelDevice, BASE_OFFSET>(),
+            AdapterId: AdapterId::<Impl, IMPL_OFFSET>,
+            Direct3D11Device: Direct3D11Device::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelDevice as ::windows::core::Interface>::IID
@@ -400,7 +416,7 @@ impl ILearningModelDeviceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelDeviceFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelDeviceFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelDeviceFactory as ::windows::core::Interface>::IID
@@ -428,7 +444,10 @@ impl ILearningModelDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelDeviceStatics>, ::windows::core::GetTrustLevel, CreateFromDirect3D11Device::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelDeviceStatics, BASE_OFFSET>(),
+            CreateFromDirect3D11Device: CreateFromDirect3D11Device::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelDeviceStatics as ::windows::core::Interface>::IID
@@ -492,7 +511,13 @@ impl ILearningModelEvaluationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelEvaluationResult>, ::windows::core::GetTrustLevel, CorrelationId::<Impl, IMPL_OFFSET>, ErrorStatus::<Impl, IMPL_OFFSET>, Succeeded::<Impl, IMPL_OFFSET>, Outputs::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelEvaluationResult, BASE_OFFSET>(),
+            CorrelationId: CorrelationId::<Impl, IMPL_OFFSET>,
+            ErrorStatus: ErrorStatus::<Impl, IMPL_OFFSET>,
+            Succeeded: Succeeded::<Impl, IMPL_OFFSET>,
+            Outputs: Outputs::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelEvaluationResult as ::windows::core::Interface>::IID
@@ -553,7 +578,13 @@ impl ILearningModelFeatureDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelFeatureDescriptor>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>, IsRequired::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelFeatureDescriptor, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            IsRequired: IsRequired::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelFeatureDescriptor as ::windows::core::Interface>::IID
@@ -578,7 +609,7 @@ impl ILearningModelFeatureValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelFeatureValue>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelFeatureValue, BASE_OFFSET>(), Kind: Kind::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelFeatureValue as ::windows::core::Interface>::IID
@@ -590,7 +621,7 @@ impl ::windows::core::RuntimeName for ILearningModelOperatorProvider {
 }
 impl ILearningModelOperatorProviderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelOperatorProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILearningModelOperatorProviderVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelOperatorProvider>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelOperatorProvider, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelOperatorProvider as ::windows::core::Interface>::IID
@@ -696,21 +727,16 @@ impl ILearningModelSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILearningModelSession>,
-            ::windows::core::GetTrustLevel,
-            Model::<Impl, IMPL_OFFSET>,
-            Device::<Impl, IMPL_OFFSET>,
-            EvaluationProperties::<Impl, IMPL_OFFSET>,
-            EvaluateAsync::<Impl, IMPL_OFFSET>,
-            EvaluateFeaturesAsync::<Impl, IMPL_OFFSET>,
-            Evaluate::<Impl, IMPL_OFFSET>,
-            EvaluateFeatures::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelSession, BASE_OFFSET>(),
+            Model: Model::<Impl, IMPL_OFFSET>,
+            Device: Device::<Impl, IMPL_OFFSET>,
+            EvaluationProperties: EvaluationProperties::<Impl, IMPL_OFFSET>,
+            EvaluateAsync: EvaluateAsync::<Impl, IMPL_OFFSET>,
+            EvaluateFeaturesAsync: EvaluateFeaturesAsync::<Impl, IMPL_OFFSET>,
+            Evaluate: Evaluate::<Impl, IMPL_OFFSET>,
+            EvaluateFeatures: EvaluateFeatures::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelSession as ::windows::core::Interface>::IID
@@ -750,7 +776,11 @@ impl ILearningModelSessionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelSessionFactory>, ::windows::core::GetTrustLevel, CreateFromModel::<Impl, IMPL_OFFSET>, CreateFromModelOnDevice::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelSessionFactory, BASE_OFFSET>(),
+            CreateFromModel: CreateFromModel::<Impl, IMPL_OFFSET>,
+            CreateFromModelOnDevice: CreateFromModelOnDevice::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelSessionFactory as ::windows::core::Interface>::IID
@@ -782,7 +812,10 @@ impl ILearningModelSessionFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelSessionFactory2>, ::windows::core::GetTrustLevel, CreateFromModelOnDeviceWithSessionOptions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelSessionFactory2, BASE_OFFSET>(),
+            CreateFromModelOnDeviceWithSessionOptions: CreateFromModelOnDeviceWithSessionOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelSessionFactory2 as ::windows::core::Interface>::IID
@@ -815,7 +848,11 @@ impl ILearningModelSessionOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBatchSizeOverride(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelSessionOptions>, ::windows::core::GetTrustLevel, BatchSizeOverride::<Impl, IMPL_OFFSET>, SetBatchSizeOverride::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelSessionOptions, BASE_OFFSET>(),
+            BatchSizeOverride: BatchSizeOverride::<Impl, IMPL_OFFSET>,
+            SetBatchSizeOverride: SetBatchSizeOverride::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelSessionOptions as ::windows::core::Interface>::IID
@@ -848,7 +885,11 @@ impl ILearningModelSessionOptions2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCloseModelOnSessionCreation(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelSessionOptions2>, ::windows::core::GetTrustLevel, CloseModelOnSessionCreation::<Impl, IMPL_OFFSET>, SetCloseModelOnSessionCreation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelSessionOptions2, BASE_OFFSET>(),
+            CloseModelOnSessionCreation: CloseModelOnSessionCreation::<Impl, IMPL_OFFSET>,
+            SetCloseModelOnSessionCreation: SetCloseModelOnSessionCreation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelSessionOptions2 as ::windows::core::Interface>::IID
@@ -869,7 +910,10 @@ impl ILearningModelSessionOptions3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OverrideNamedDimension(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), dimension).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelSessionOptions3>, ::windows::core::GetTrustLevel, OverrideNamedDimension::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelSessionOptions3, BASE_OFFSET>(),
+            OverrideNamedDimension: OverrideNamedDimension::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelSessionOptions3 as ::windows::core::Interface>::IID
@@ -981,22 +1025,17 @@ impl ILearningModelStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILearningModelStatics>,
-            ::windows::core::GetTrustLevel,
-            LoadFromStorageFileAsync::<Impl, IMPL_OFFSET>,
-            LoadFromStreamAsync::<Impl, IMPL_OFFSET>,
-            LoadFromFilePath::<Impl, IMPL_OFFSET>,
-            LoadFromStream::<Impl, IMPL_OFFSET>,
-            LoadFromStorageFileWithOperatorProviderAsync::<Impl, IMPL_OFFSET>,
-            LoadFromStreamWithOperatorProviderAsync::<Impl, IMPL_OFFSET>,
-            LoadFromFilePathWithOperatorProvider::<Impl, IMPL_OFFSET>,
-            LoadFromStreamWithOperatorProvider::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelStatics, BASE_OFFSET>(),
+            LoadFromStorageFileAsync: LoadFromStorageFileAsync::<Impl, IMPL_OFFSET>,
+            LoadFromStreamAsync: LoadFromStreamAsync::<Impl, IMPL_OFFSET>,
+            LoadFromFilePath: LoadFromFilePath::<Impl, IMPL_OFFSET>,
+            LoadFromStream: LoadFromStream::<Impl, IMPL_OFFSET>,
+            LoadFromStorageFileWithOperatorProviderAsync: LoadFromStorageFileWithOperatorProviderAsync::<Impl, IMPL_OFFSET>,
+            LoadFromStreamWithOperatorProviderAsync: LoadFromStreamWithOperatorProviderAsync::<Impl, IMPL_OFFSET>,
+            LoadFromFilePathWithOperatorProvider: LoadFromFilePathWithOperatorProvider::<Impl, IMPL_OFFSET>,
+            LoadFromStreamWithOperatorProvider: LoadFromStreamWithOperatorProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelStatics as ::windows::core::Interface>::IID
@@ -1036,7 +1075,11 @@ impl IMapFeatureDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapFeatureDescriptor>, ::windows::core::GetTrustLevel, KeyKind::<Impl, IMPL_OFFSET>, ValueDescriptor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapFeatureDescriptor, BASE_OFFSET>(),
+            KeyKind: KeyKind::<Impl, IMPL_OFFSET>,
+            ValueDescriptor: ValueDescriptor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapFeatureDescriptor as ::windows::core::Interface>::IID
@@ -1064,7 +1107,10 @@ impl ISequenceFeatureDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISequenceFeatureDescriptor>, ::windows::core::GetTrustLevel, ElementDescriptor::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISequenceFeatureDescriptor, BASE_OFFSET>(),
+            ElementDescriptor: ElementDescriptor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISequenceFeatureDescriptor as ::windows::core::Interface>::IID
@@ -1104,7 +1150,11 @@ impl ITensorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensor>, ::windows::core::GetTrustLevel, TensorKind::<Impl, IMPL_OFFSET>, Shape::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensor, BASE_OFFSET>(),
+            TensorKind: TensorKind::<Impl, IMPL_OFFSET>,
+            Shape: Shape::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensor as ::windows::core::Interface>::IID
@@ -1132,7 +1182,7 @@ impl ITensorBooleanVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorBoolean>, ::windows::core::GetTrustLevel, GetAsVectorView::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorBoolean, BASE_OFFSET>(), GetAsVectorView: GetAsVectorView::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorBoolean as ::windows::core::Interface>::IID
@@ -1196,7 +1246,13 @@ impl ITensorBooleanStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorBooleanStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, Create2::<Impl, IMPL_OFFSET>, CreateFromArray::<Impl, IMPL_OFFSET>, CreateFromIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorBooleanStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Create2: Create2::<Impl, IMPL_OFFSET>,
+            CreateFromArray: CreateFromArray::<Impl, IMPL_OFFSET>,
+            CreateFromIterable: CreateFromIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorBooleanStatics as ::windows::core::Interface>::IID
@@ -1236,7 +1292,11 @@ impl ITensorBooleanStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorBooleanStatics2>, ::windows::core::GetTrustLevel, CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>, CreateFromBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorBooleanStatics2, BASE_OFFSET>(),
+            CreateFromShapeArrayAndDataArray: CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>,
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorBooleanStatics2 as ::windows::core::Interface>::IID
@@ -1264,7 +1324,7 @@ impl ITensorDoubleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorDouble>, ::windows::core::GetTrustLevel, GetAsVectorView::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorDouble, BASE_OFFSET>(), GetAsVectorView: GetAsVectorView::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorDouble as ::windows::core::Interface>::IID
@@ -1328,7 +1388,13 @@ impl ITensorDoubleStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorDoubleStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, Create2::<Impl, IMPL_OFFSET>, CreateFromArray::<Impl, IMPL_OFFSET>, CreateFromIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorDoubleStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Create2: Create2::<Impl, IMPL_OFFSET>,
+            CreateFromArray: CreateFromArray::<Impl, IMPL_OFFSET>,
+            CreateFromIterable: CreateFromIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorDoubleStatics as ::windows::core::Interface>::IID
@@ -1368,7 +1434,11 @@ impl ITensorDoubleStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorDoubleStatics2>, ::windows::core::GetTrustLevel, CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>, CreateFromBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorDoubleStatics2, BASE_OFFSET>(),
+            CreateFromShapeArrayAndDataArray: CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>,
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorDoubleStatics2 as ::windows::core::Interface>::IID
@@ -1408,7 +1478,11 @@ impl ITensorFeatureDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorFeatureDescriptor>, ::windows::core::GetTrustLevel, TensorKind::<Impl, IMPL_OFFSET>, Shape::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorFeatureDescriptor, BASE_OFFSET>(),
+            TensorKind: TensorKind::<Impl, IMPL_OFFSET>,
+            Shape: Shape::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorFeatureDescriptor as ::windows::core::Interface>::IID
@@ -1436,7 +1510,7 @@ impl ITensorFloatVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorFloat>, ::windows::core::GetTrustLevel, GetAsVectorView::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorFloat, BASE_OFFSET>(), GetAsVectorView: GetAsVectorView::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorFloat as ::windows::core::Interface>::IID
@@ -1464,7 +1538,10 @@ impl ITensorFloat16BitVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorFloat16Bit>, ::windows::core::GetTrustLevel, GetAsVectorView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorFloat16Bit, BASE_OFFSET>(),
+            GetAsVectorView: GetAsVectorView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorFloat16Bit as ::windows::core::Interface>::IID
@@ -1528,7 +1605,13 @@ impl ITensorFloat16BitStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorFloat16BitStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, Create2::<Impl, IMPL_OFFSET>, CreateFromArray::<Impl, IMPL_OFFSET>, CreateFromIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorFloat16BitStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Create2: Create2::<Impl, IMPL_OFFSET>,
+            CreateFromArray: CreateFromArray::<Impl, IMPL_OFFSET>,
+            CreateFromIterable: CreateFromIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorFloat16BitStatics as ::windows::core::Interface>::IID
@@ -1568,7 +1651,11 @@ impl ITensorFloat16BitStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorFloat16BitStatics2>, ::windows::core::GetTrustLevel, CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>, CreateFromBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorFloat16BitStatics2, BASE_OFFSET>(),
+            CreateFromShapeArrayAndDataArray: CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>,
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorFloat16BitStatics2 as ::windows::core::Interface>::IID
@@ -1632,7 +1719,13 @@ impl ITensorFloatStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorFloatStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, Create2::<Impl, IMPL_OFFSET>, CreateFromArray::<Impl, IMPL_OFFSET>, CreateFromIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorFloatStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Create2: Create2::<Impl, IMPL_OFFSET>,
+            CreateFromArray: CreateFromArray::<Impl, IMPL_OFFSET>,
+            CreateFromIterable: CreateFromIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorFloatStatics as ::windows::core::Interface>::IID
@@ -1672,7 +1765,11 @@ impl ITensorFloatStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorFloatStatics2>, ::windows::core::GetTrustLevel, CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>, CreateFromBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorFloatStatics2, BASE_OFFSET>(),
+            CreateFromShapeArrayAndDataArray: CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>,
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorFloatStatics2 as ::windows::core::Interface>::IID
@@ -1700,7 +1797,7 @@ impl ITensorInt16BitVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorInt16Bit>, ::windows::core::GetTrustLevel, GetAsVectorView::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorInt16Bit, BASE_OFFSET>(), GetAsVectorView: GetAsVectorView::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorInt16Bit as ::windows::core::Interface>::IID
@@ -1764,7 +1861,13 @@ impl ITensorInt16BitStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorInt16BitStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, Create2::<Impl, IMPL_OFFSET>, CreateFromArray::<Impl, IMPL_OFFSET>, CreateFromIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorInt16BitStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Create2: Create2::<Impl, IMPL_OFFSET>,
+            CreateFromArray: CreateFromArray::<Impl, IMPL_OFFSET>,
+            CreateFromIterable: CreateFromIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorInt16BitStatics as ::windows::core::Interface>::IID
@@ -1804,7 +1907,11 @@ impl ITensorInt16BitStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorInt16BitStatics2>, ::windows::core::GetTrustLevel, CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>, CreateFromBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorInt16BitStatics2, BASE_OFFSET>(),
+            CreateFromShapeArrayAndDataArray: CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>,
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorInt16BitStatics2 as ::windows::core::Interface>::IID
@@ -1832,7 +1939,7 @@ impl ITensorInt32BitVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorInt32Bit>, ::windows::core::GetTrustLevel, GetAsVectorView::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorInt32Bit, BASE_OFFSET>(), GetAsVectorView: GetAsVectorView::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorInt32Bit as ::windows::core::Interface>::IID
@@ -1896,7 +2003,13 @@ impl ITensorInt32BitStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorInt32BitStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, Create2::<Impl, IMPL_OFFSET>, CreateFromArray::<Impl, IMPL_OFFSET>, CreateFromIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorInt32BitStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Create2: Create2::<Impl, IMPL_OFFSET>,
+            CreateFromArray: CreateFromArray::<Impl, IMPL_OFFSET>,
+            CreateFromIterable: CreateFromIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorInt32BitStatics as ::windows::core::Interface>::IID
@@ -1936,7 +2049,11 @@ impl ITensorInt32BitStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorInt32BitStatics2>, ::windows::core::GetTrustLevel, CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>, CreateFromBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorInt32BitStatics2, BASE_OFFSET>(),
+            CreateFromShapeArrayAndDataArray: CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>,
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorInt32BitStatics2 as ::windows::core::Interface>::IID
@@ -1964,7 +2081,7 @@ impl ITensorInt64BitVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorInt64Bit>, ::windows::core::GetTrustLevel, GetAsVectorView::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorInt64Bit, BASE_OFFSET>(), GetAsVectorView: GetAsVectorView::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorInt64Bit as ::windows::core::Interface>::IID
@@ -2028,7 +2145,13 @@ impl ITensorInt64BitStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorInt64BitStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, Create2::<Impl, IMPL_OFFSET>, CreateFromArray::<Impl, IMPL_OFFSET>, CreateFromIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorInt64BitStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Create2: Create2::<Impl, IMPL_OFFSET>,
+            CreateFromArray: CreateFromArray::<Impl, IMPL_OFFSET>,
+            CreateFromIterable: CreateFromIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorInt64BitStatics as ::windows::core::Interface>::IID
@@ -2068,7 +2191,11 @@ impl ITensorInt64BitStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorInt64BitStatics2>, ::windows::core::GetTrustLevel, CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>, CreateFromBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorInt64BitStatics2, BASE_OFFSET>(),
+            CreateFromShapeArrayAndDataArray: CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>,
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorInt64BitStatics2 as ::windows::core::Interface>::IID
@@ -2096,7 +2223,7 @@ impl ITensorInt8BitVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorInt8Bit>, ::windows::core::GetTrustLevel, GetAsVectorView::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorInt8Bit, BASE_OFFSET>(), GetAsVectorView: GetAsVectorView::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorInt8Bit as ::windows::core::Interface>::IID
@@ -2160,7 +2287,13 @@ impl ITensorInt8BitStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorInt8BitStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, Create2::<Impl, IMPL_OFFSET>, CreateFromArray::<Impl, IMPL_OFFSET>, CreateFromIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorInt8BitStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Create2: Create2::<Impl, IMPL_OFFSET>,
+            CreateFromArray: CreateFromArray::<Impl, IMPL_OFFSET>,
+            CreateFromIterable: CreateFromIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorInt8BitStatics as ::windows::core::Interface>::IID
@@ -2200,7 +2333,11 @@ impl ITensorInt8BitStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorInt8BitStatics2>, ::windows::core::GetTrustLevel, CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>, CreateFromBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorInt8BitStatics2, BASE_OFFSET>(),
+            CreateFromShapeArrayAndDataArray: CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>,
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorInt8BitStatics2 as ::windows::core::Interface>::IID
@@ -2228,7 +2365,7 @@ impl ITensorStringVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorString>, ::windows::core::GetTrustLevel, GetAsVectorView::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorString, BASE_OFFSET>(), GetAsVectorView: GetAsVectorView::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorString as ::windows::core::Interface>::IID
@@ -2292,7 +2429,13 @@ impl ITensorStringStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorStringStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, Create2::<Impl, IMPL_OFFSET>, CreateFromArray::<Impl, IMPL_OFFSET>, CreateFromIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorStringStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Create2: Create2::<Impl, IMPL_OFFSET>,
+            CreateFromArray: CreateFromArray::<Impl, IMPL_OFFSET>,
+            CreateFromIterable: CreateFromIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorStringStatics as ::windows::core::Interface>::IID
@@ -2320,7 +2463,10 @@ impl ITensorStringStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorStringStatics2>, ::windows::core::GetTrustLevel, CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorStringStatics2, BASE_OFFSET>(),
+            CreateFromShapeArrayAndDataArray: CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorStringStatics2 as ::windows::core::Interface>::IID
@@ -2348,7 +2494,7 @@ impl ITensorUInt16BitVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorUInt16Bit>, ::windows::core::GetTrustLevel, GetAsVectorView::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorUInt16Bit, BASE_OFFSET>(), GetAsVectorView: GetAsVectorView::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorUInt16Bit as ::windows::core::Interface>::IID
@@ -2412,7 +2558,13 @@ impl ITensorUInt16BitStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorUInt16BitStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, Create2::<Impl, IMPL_OFFSET>, CreateFromArray::<Impl, IMPL_OFFSET>, CreateFromIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorUInt16BitStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Create2: Create2::<Impl, IMPL_OFFSET>,
+            CreateFromArray: CreateFromArray::<Impl, IMPL_OFFSET>,
+            CreateFromIterable: CreateFromIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorUInt16BitStatics as ::windows::core::Interface>::IID
@@ -2452,7 +2604,11 @@ impl ITensorUInt16BitStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorUInt16BitStatics2>, ::windows::core::GetTrustLevel, CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>, CreateFromBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorUInt16BitStatics2, BASE_OFFSET>(),
+            CreateFromShapeArrayAndDataArray: CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>,
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorUInt16BitStatics2 as ::windows::core::Interface>::IID
@@ -2480,7 +2636,7 @@ impl ITensorUInt32BitVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorUInt32Bit>, ::windows::core::GetTrustLevel, GetAsVectorView::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorUInt32Bit, BASE_OFFSET>(), GetAsVectorView: GetAsVectorView::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorUInt32Bit as ::windows::core::Interface>::IID
@@ -2544,7 +2700,13 @@ impl ITensorUInt32BitStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorUInt32BitStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, Create2::<Impl, IMPL_OFFSET>, CreateFromArray::<Impl, IMPL_OFFSET>, CreateFromIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorUInt32BitStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Create2: Create2::<Impl, IMPL_OFFSET>,
+            CreateFromArray: CreateFromArray::<Impl, IMPL_OFFSET>,
+            CreateFromIterable: CreateFromIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorUInt32BitStatics as ::windows::core::Interface>::IID
@@ -2584,7 +2746,11 @@ impl ITensorUInt32BitStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorUInt32BitStatics2>, ::windows::core::GetTrustLevel, CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>, CreateFromBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorUInt32BitStatics2, BASE_OFFSET>(),
+            CreateFromShapeArrayAndDataArray: CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>,
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorUInt32BitStatics2 as ::windows::core::Interface>::IID
@@ -2612,7 +2778,7 @@ impl ITensorUInt64BitVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorUInt64Bit>, ::windows::core::GetTrustLevel, GetAsVectorView::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorUInt64Bit, BASE_OFFSET>(), GetAsVectorView: GetAsVectorView::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorUInt64Bit as ::windows::core::Interface>::IID
@@ -2676,7 +2842,13 @@ impl ITensorUInt64BitStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorUInt64BitStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, Create2::<Impl, IMPL_OFFSET>, CreateFromArray::<Impl, IMPL_OFFSET>, CreateFromIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorUInt64BitStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Create2: Create2::<Impl, IMPL_OFFSET>,
+            CreateFromArray: CreateFromArray::<Impl, IMPL_OFFSET>,
+            CreateFromIterable: CreateFromIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorUInt64BitStatics as ::windows::core::Interface>::IID
@@ -2716,7 +2888,11 @@ impl ITensorUInt64BitStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorUInt64BitStatics2>, ::windows::core::GetTrustLevel, CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>, CreateFromBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorUInt64BitStatics2, BASE_OFFSET>(),
+            CreateFromShapeArrayAndDataArray: CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>,
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorUInt64BitStatics2 as ::windows::core::Interface>::IID
@@ -2744,7 +2920,7 @@ impl ITensorUInt8BitVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorUInt8Bit>, ::windows::core::GetTrustLevel, GetAsVectorView::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorUInt8Bit, BASE_OFFSET>(), GetAsVectorView: GetAsVectorView::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorUInt8Bit as ::windows::core::Interface>::IID
@@ -2808,7 +2984,13 @@ impl ITensorUInt8BitStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorUInt8BitStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, Create2::<Impl, IMPL_OFFSET>, CreateFromArray::<Impl, IMPL_OFFSET>, CreateFromIterable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorUInt8BitStatics, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            Create2: Create2::<Impl, IMPL_OFFSET>,
+            CreateFromArray: CreateFromArray::<Impl, IMPL_OFFSET>,
+            CreateFromIterable: CreateFromIterable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorUInt8BitStatics as ::windows::core::Interface>::IID
@@ -2848,7 +3030,11 @@ impl ITensorUInt8BitStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorUInt8BitStatics2>, ::windows::core::GetTrustLevel, CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>, CreateFromBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorUInt8BitStatics2, BASE_OFFSET>(),
+            CreateFromShapeArrayAndDataArray: CreateFromShapeArrayAndDataArray::<Impl, IMPL_OFFSET>,
+            CreateFromBuffer: CreateFromBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorUInt8BitStatics2 as ::windows::core::Interface>::IID

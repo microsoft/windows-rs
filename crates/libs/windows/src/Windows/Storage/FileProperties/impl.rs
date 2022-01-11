@@ -44,7 +44,12 @@ impl IBasicPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBasicProperties>, ::windows::core::GetTrustLevel, Size::<Impl, IMPL_OFFSET>, DateModified::<Impl, IMPL_OFFSET>, ItemDate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBasicProperties, BASE_OFFSET>(),
+            Size: Size::<Impl, IMPL_OFFSET>,
+            DateModified: DateModified::<Impl, IMPL_OFFSET>,
+            ItemDate: ItemDate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBasicProperties as ::windows::core::Interface>::IID
@@ -118,7 +123,15 @@ impl IDocumentPropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetComment(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDocumentProperties>, ::windows::core::GetTrustLevel, Author::<Impl, IMPL_OFFSET>, Title::<Impl, IMPL_OFFSET>, SetTitle::<Impl, IMPL_OFFSET>, Keywords::<Impl, IMPL_OFFSET>, Comment::<Impl, IMPL_OFFSET>, SetComment::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDocumentProperties, BASE_OFFSET>(),
+            Author: Author::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            Keywords: Keywords::<Impl, IMPL_OFFSET>,
+            Comment: Comment::<Impl, IMPL_OFFSET>,
+            SetComment: SetComment::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDocumentProperties as ::windows::core::Interface>::IID
@@ -170,7 +183,12 @@ impl IGeotagHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeotagHelperStatics>, ::windows::core::GetTrustLevel, GetGeotagAsync::<Impl, IMPL_OFFSET>, SetGeotagFromGeolocatorAsync::<Impl, IMPL_OFFSET>, SetGeotagAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeotagHelperStatics, BASE_OFFSET>(),
+            GetGeotagAsync: GetGeotagAsync::<Impl, IMPL_OFFSET>,
+            SetGeotagFromGeolocatorAsync: SetGeotagFromGeolocatorAsync::<Impl, IMPL_OFFSET>,
+            SetGeotagAsync: SetGeotagAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGeotagHelperStatics as ::windows::core::Interface>::IID
@@ -355,31 +373,26 @@ impl IImagePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IImageProperties>,
-            ::windows::core::GetTrustLevel,
-            Rating::<Impl, IMPL_OFFSET>,
-            SetRating::<Impl, IMPL_OFFSET>,
-            Keywords::<Impl, IMPL_OFFSET>,
-            DateTaken::<Impl, IMPL_OFFSET>,
-            SetDateTaken::<Impl, IMPL_OFFSET>,
-            Width::<Impl, IMPL_OFFSET>,
-            Height::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            Latitude::<Impl, IMPL_OFFSET>,
-            Longitude::<Impl, IMPL_OFFSET>,
-            CameraManufacturer::<Impl, IMPL_OFFSET>,
-            SetCameraManufacturer::<Impl, IMPL_OFFSET>,
-            CameraModel::<Impl, IMPL_OFFSET>,
-            SetCameraModel::<Impl, IMPL_OFFSET>,
-            Orientation::<Impl, IMPL_OFFSET>,
-            PeopleNames::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageProperties, BASE_OFFSET>(),
+            Rating: Rating::<Impl, IMPL_OFFSET>,
+            SetRating: SetRating::<Impl, IMPL_OFFSET>,
+            Keywords: Keywords::<Impl, IMPL_OFFSET>,
+            DateTaken: DateTaken::<Impl, IMPL_OFFSET>,
+            SetDateTaken: SetDateTaken::<Impl, IMPL_OFFSET>,
+            Width: Width::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            Latitude: Latitude::<Impl, IMPL_OFFSET>,
+            Longitude: Longitude::<Impl, IMPL_OFFSET>,
+            CameraManufacturer: CameraManufacturer::<Impl, IMPL_OFFSET>,
+            SetCameraManufacturer: SetCameraManufacturer::<Impl, IMPL_OFFSET>,
+            CameraModel: CameraModel::<Impl, IMPL_OFFSET>,
+            SetCameraModel: SetCameraModel::<Impl, IMPL_OFFSET>,
+            Orientation: Orientation::<Impl, IMPL_OFFSET>,
+            PeopleNames: PeopleNames::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageProperties as ::windows::core::Interface>::IID
@@ -632,39 +645,34 @@ impl IMusicPropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetYear(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMusicProperties>,
-            ::windows::core::GetTrustLevel,
-            Album::<Impl, IMPL_OFFSET>,
-            SetAlbum::<Impl, IMPL_OFFSET>,
-            Artist::<Impl, IMPL_OFFSET>,
-            SetArtist::<Impl, IMPL_OFFSET>,
-            Genre::<Impl, IMPL_OFFSET>,
-            TrackNumber::<Impl, IMPL_OFFSET>,
-            SetTrackNumber::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            Rating::<Impl, IMPL_OFFSET>,
-            SetRating::<Impl, IMPL_OFFSET>,
-            Duration::<Impl, IMPL_OFFSET>,
-            Bitrate::<Impl, IMPL_OFFSET>,
-            AlbumArtist::<Impl, IMPL_OFFSET>,
-            SetAlbumArtist::<Impl, IMPL_OFFSET>,
-            Composers::<Impl, IMPL_OFFSET>,
-            Conductors::<Impl, IMPL_OFFSET>,
-            Subtitle::<Impl, IMPL_OFFSET>,
-            SetSubtitle::<Impl, IMPL_OFFSET>,
-            Producers::<Impl, IMPL_OFFSET>,
-            Publisher::<Impl, IMPL_OFFSET>,
-            SetPublisher::<Impl, IMPL_OFFSET>,
-            Writers::<Impl, IMPL_OFFSET>,
-            Year::<Impl, IMPL_OFFSET>,
-            SetYear::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMusicProperties, BASE_OFFSET>(),
+            Album: Album::<Impl, IMPL_OFFSET>,
+            SetAlbum: SetAlbum::<Impl, IMPL_OFFSET>,
+            Artist: Artist::<Impl, IMPL_OFFSET>,
+            SetArtist: SetArtist::<Impl, IMPL_OFFSET>,
+            Genre: Genre::<Impl, IMPL_OFFSET>,
+            TrackNumber: TrackNumber::<Impl, IMPL_OFFSET>,
+            SetTrackNumber: SetTrackNumber::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            Rating: Rating::<Impl, IMPL_OFFSET>,
+            SetRating: SetRating::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            Bitrate: Bitrate::<Impl, IMPL_OFFSET>,
+            AlbumArtist: AlbumArtist::<Impl, IMPL_OFFSET>,
+            SetAlbumArtist: SetAlbumArtist::<Impl, IMPL_OFFSET>,
+            Composers: Composers::<Impl, IMPL_OFFSET>,
+            Conductors: Conductors::<Impl, IMPL_OFFSET>,
+            Subtitle: Subtitle::<Impl, IMPL_OFFSET>,
+            SetSubtitle: SetSubtitle::<Impl, IMPL_OFFSET>,
+            Producers: Producers::<Impl, IMPL_OFFSET>,
+            Publisher: Publisher::<Impl, IMPL_OFFSET>,
+            SetPublisher: SetPublisher::<Impl, IMPL_OFFSET>,
+            Writers: Writers::<Impl, IMPL_OFFSET>,
+            Year: Year::<Impl, IMPL_OFFSET>,
+            SetYear: SetYear::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMusicProperties as ::windows::core::Interface>::IID
@@ -728,7 +736,13 @@ impl IStorageItemContentPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemContentProperties>, ::windows::core::GetTrustLevel, GetMusicPropertiesAsync::<Impl, IMPL_OFFSET>, GetVideoPropertiesAsync::<Impl, IMPL_OFFSET>, GetImagePropertiesAsync::<Impl, IMPL_OFFSET>, GetDocumentPropertiesAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemContentProperties, BASE_OFFSET>(),
+            GetMusicPropertiesAsync: GetMusicPropertiesAsync::<Impl, IMPL_OFFSET>,
+            GetVideoPropertiesAsync: GetVideoPropertiesAsync::<Impl, IMPL_OFFSET>,
+            GetImagePropertiesAsync: GetImagePropertiesAsync::<Impl, IMPL_OFFSET>,
+            GetDocumentPropertiesAsync: GetDocumentPropertiesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageItemContentProperties as ::windows::core::Interface>::IID
@@ -780,7 +794,12 @@ impl IStorageItemExtraPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemExtraProperties>, ::windows::core::GetTrustLevel, RetrievePropertiesAsync::<Impl, IMPL_OFFSET>, SavePropertiesAsync::<Impl, IMPL_OFFSET>, SavePropertiesAsyncOverloadDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemExtraProperties, BASE_OFFSET>(),
+            RetrievePropertiesAsync: RetrievePropertiesAsync::<Impl, IMPL_OFFSET>,
+            SavePropertiesAsync: SavePropertiesAsync::<Impl, IMPL_OFFSET>,
+            SavePropertiesAsyncOverloadDefault: SavePropertiesAsyncOverloadDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageItemExtraProperties as ::windows::core::Interface>::IID
@@ -844,7 +863,13 @@ impl IThumbnailPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThumbnailProperties>, ::windows::core::GetTrustLevel, OriginalWidth::<Impl, IMPL_OFFSET>, OriginalHeight::<Impl, IMPL_OFFSET>, ReturnedSmallerCachedSize::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IThumbnailProperties, BASE_OFFSET>(),
+            OriginalWidth: OriginalWidth::<Impl, IMPL_OFFSET>,
+            OriginalHeight: OriginalHeight::<Impl, IMPL_OFFSET>,
+            ReturnedSmallerCachedSize: ReturnedSmallerCachedSize::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IThumbnailProperties as ::windows::core::Interface>::IID
@@ -1077,35 +1102,30 @@ impl IVideoPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVideoProperties>,
-            ::windows::core::GetTrustLevel,
-            Rating::<Impl, IMPL_OFFSET>,
-            SetRating::<Impl, IMPL_OFFSET>,
-            Keywords::<Impl, IMPL_OFFSET>,
-            Width::<Impl, IMPL_OFFSET>,
-            Height::<Impl, IMPL_OFFSET>,
-            Duration::<Impl, IMPL_OFFSET>,
-            Latitude::<Impl, IMPL_OFFSET>,
-            Longitude::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            SetTitle::<Impl, IMPL_OFFSET>,
-            Subtitle::<Impl, IMPL_OFFSET>,
-            SetSubtitle::<Impl, IMPL_OFFSET>,
-            Producers::<Impl, IMPL_OFFSET>,
-            Publisher::<Impl, IMPL_OFFSET>,
-            SetPublisher::<Impl, IMPL_OFFSET>,
-            Writers::<Impl, IMPL_OFFSET>,
-            Year::<Impl, IMPL_OFFSET>,
-            SetYear::<Impl, IMPL_OFFSET>,
-            Bitrate::<Impl, IMPL_OFFSET>,
-            Directors::<Impl, IMPL_OFFSET>,
-            Orientation::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoProperties, BASE_OFFSET>(),
+            Rating: Rating::<Impl, IMPL_OFFSET>,
+            SetRating: SetRating::<Impl, IMPL_OFFSET>,
+            Keywords: Keywords::<Impl, IMPL_OFFSET>,
+            Width: Width::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            Latitude: Latitude::<Impl, IMPL_OFFSET>,
+            Longitude: Longitude::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            SetTitle: SetTitle::<Impl, IMPL_OFFSET>,
+            Subtitle: Subtitle::<Impl, IMPL_OFFSET>,
+            SetSubtitle: SetSubtitle::<Impl, IMPL_OFFSET>,
+            Producers: Producers::<Impl, IMPL_OFFSET>,
+            Publisher: Publisher::<Impl, IMPL_OFFSET>,
+            SetPublisher: SetPublisher::<Impl, IMPL_OFFSET>,
+            Writers: Writers::<Impl, IMPL_OFFSET>,
+            Year: Year::<Impl, IMPL_OFFSET>,
+            SetYear: SetYear::<Impl, IMPL_OFFSET>,
+            Bitrate: Bitrate::<Impl, IMPL_OFFSET>,
+            Directors: Directors::<Impl, IMPL_OFFSET>,
+            Orientation: Orientation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVideoProperties as ::windows::core::Interface>::IID

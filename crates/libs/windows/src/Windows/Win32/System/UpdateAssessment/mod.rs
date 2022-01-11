@@ -7,7 +7,7 @@ impl IWaaSAssessor {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows::core::Result<OSUpdateAssessment> {
         let mut result__: OSUpdateAssessment = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<OSUpdateAssessment>(result__)
+        (::windows::core::Interface::vtable(self).GetOSUpdateAssessment)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<OSUpdateAssessment>(result__)
     }
 }
 impl ::core::convert::From<IWaaSAssessor> for ::windows::core::IUnknown {
@@ -52,13 +52,13 @@ unsafe impl ::windows::core::Interface for IWaaSAssessor {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWaaSAssessorVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result: *mut OSUpdateAssessment) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IWaaSAssessorVtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetOSUpdateAssessment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result: *mut OSUpdateAssessment) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetOSUpdateAssessment: usize,
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_UpdateAssessment', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

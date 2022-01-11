@@ -496,71 +496,66 @@ impl IWebViewControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveWebResourceRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebViewControl>,
-            ::windows::core::GetTrustLevel,
-            Source::<Impl, IMPL_OFFSET>,
-            SetSource::<Impl, IMPL_OFFSET>,
-            DocumentTitle::<Impl, IMPL_OFFSET>,
-            CanGoBack::<Impl, IMPL_OFFSET>,
-            CanGoForward::<Impl, IMPL_OFFSET>,
-            SetDefaultBackgroundColor::<Impl, IMPL_OFFSET>,
-            DefaultBackgroundColor::<Impl, IMPL_OFFSET>,
-            ContainsFullScreenElement::<Impl, IMPL_OFFSET>,
-            Settings::<Impl, IMPL_OFFSET>,
-            DeferredPermissionRequests::<Impl, IMPL_OFFSET>,
-            GoForward::<Impl, IMPL_OFFSET>,
-            GoBack::<Impl, IMPL_OFFSET>,
-            Refresh::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            Navigate::<Impl, IMPL_OFFSET>,
-            NavigateToString::<Impl, IMPL_OFFSET>,
-            NavigateToLocalStreamUri::<Impl, IMPL_OFFSET>,
-            NavigateWithHttpRequestMessage::<Impl, IMPL_OFFSET>,
-            InvokeScriptAsync::<Impl, IMPL_OFFSET>,
-            CapturePreviewToStreamAsync::<Impl, IMPL_OFFSET>,
-            CaptureSelectedContentToDataPackageAsync::<Impl, IMPL_OFFSET>,
-            BuildLocalStreamUri::<Impl, IMPL_OFFSET>,
-            GetDeferredPermissionRequestById::<Impl, IMPL_OFFSET>,
-            NavigationStarting::<Impl, IMPL_OFFSET>,
-            RemoveNavigationStarting::<Impl, IMPL_OFFSET>,
-            ContentLoading::<Impl, IMPL_OFFSET>,
-            RemoveContentLoading::<Impl, IMPL_OFFSET>,
-            DOMContentLoaded::<Impl, IMPL_OFFSET>,
-            RemoveDOMContentLoaded::<Impl, IMPL_OFFSET>,
-            NavigationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveNavigationCompleted::<Impl, IMPL_OFFSET>,
-            FrameNavigationStarting::<Impl, IMPL_OFFSET>,
-            RemoveFrameNavigationStarting::<Impl, IMPL_OFFSET>,
-            FrameContentLoading::<Impl, IMPL_OFFSET>,
-            RemoveFrameContentLoading::<Impl, IMPL_OFFSET>,
-            FrameDOMContentLoaded::<Impl, IMPL_OFFSET>,
-            RemoveFrameDOMContentLoaded::<Impl, IMPL_OFFSET>,
-            FrameNavigationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveFrameNavigationCompleted::<Impl, IMPL_OFFSET>,
-            ScriptNotify::<Impl, IMPL_OFFSET>,
-            RemoveScriptNotify::<Impl, IMPL_OFFSET>,
-            LongRunningScriptDetected::<Impl, IMPL_OFFSET>,
-            RemoveLongRunningScriptDetected::<Impl, IMPL_OFFSET>,
-            UnsafeContentWarningDisplaying::<Impl, IMPL_OFFSET>,
-            RemoveUnsafeContentWarningDisplaying::<Impl, IMPL_OFFSET>,
-            UnviewableContentIdentified::<Impl, IMPL_OFFSET>,
-            RemoveUnviewableContentIdentified::<Impl, IMPL_OFFSET>,
-            PermissionRequested::<Impl, IMPL_OFFSET>,
-            RemovePermissionRequested::<Impl, IMPL_OFFSET>,
-            UnsupportedUriSchemeIdentified::<Impl, IMPL_OFFSET>,
-            RemoveUnsupportedUriSchemeIdentified::<Impl, IMPL_OFFSET>,
-            NewWindowRequested::<Impl, IMPL_OFFSET>,
-            RemoveNewWindowRequested::<Impl, IMPL_OFFSET>,
-            ContainsFullScreenElementChanged::<Impl, IMPL_OFFSET>,
-            RemoveContainsFullScreenElementChanged::<Impl, IMPL_OFFSET>,
-            WebResourceRequested::<Impl, IMPL_OFFSET>,
-            RemoveWebResourceRequested::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControl, BASE_OFFSET>(),
+            Source: Source::<Impl, IMPL_OFFSET>,
+            SetSource: SetSource::<Impl, IMPL_OFFSET>,
+            DocumentTitle: DocumentTitle::<Impl, IMPL_OFFSET>,
+            CanGoBack: CanGoBack::<Impl, IMPL_OFFSET>,
+            CanGoForward: CanGoForward::<Impl, IMPL_OFFSET>,
+            SetDefaultBackgroundColor: SetDefaultBackgroundColor::<Impl, IMPL_OFFSET>,
+            DefaultBackgroundColor: DefaultBackgroundColor::<Impl, IMPL_OFFSET>,
+            ContainsFullScreenElement: ContainsFullScreenElement::<Impl, IMPL_OFFSET>,
+            Settings: Settings::<Impl, IMPL_OFFSET>,
+            DeferredPermissionRequests: DeferredPermissionRequests::<Impl, IMPL_OFFSET>,
+            GoForward: GoForward::<Impl, IMPL_OFFSET>,
+            GoBack: GoBack::<Impl, IMPL_OFFSET>,
+            Refresh: Refresh::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            Navigate: Navigate::<Impl, IMPL_OFFSET>,
+            NavigateToString: NavigateToString::<Impl, IMPL_OFFSET>,
+            NavigateToLocalStreamUri: NavigateToLocalStreamUri::<Impl, IMPL_OFFSET>,
+            NavigateWithHttpRequestMessage: NavigateWithHttpRequestMessage::<Impl, IMPL_OFFSET>,
+            InvokeScriptAsync: InvokeScriptAsync::<Impl, IMPL_OFFSET>,
+            CapturePreviewToStreamAsync: CapturePreviewToStreamAsync::<Impl, IMPL_OFFSET>,
+            CaptureSelectedContentToDataPackageAsync: CaptureSelectedContentToDataPackageAsync::<Impl, IMPL_OFFSET>,
+            BuildLocalStreamUri: BuildLocalStreamUri::<Impl, IMPL_OFFSET>,
+            GetDeferredPermissionRequestById: GetDeferredPermissionRequestById::<Impl, IMPL_OFFSET>,
+            NavigationStarting: NavigationStarting::<Impl, IMPL_OFFSET>,
+            RemoveNavigationStarting: RemoveNavigationStarting::<Impl, IMPL_OFFSET>,
+            ContentLoading: ContentLoading::<Impl, IMPL_OFFSET>,
+            RemoveContentLoading: RemoveContentLoading::<Impl, IMPL_OFFSET>,
+            DOMContentLoaded: DOMContentLoaded::<Impl, IMPL_OFFSET>,
+            RemoveDOMContentLoaded: RemoveDOMContentLoaded::<Impl, IMPL_OFFSET>,
+            NavigationCompleted: NavigationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveNavigationCompleted: RemoveNavigationCompleted::<Impl, IMPL_OFFSET>,
+            FrameNavigationStarting: FrameNavigationStarting::<Impl, IMPL_OFFSET>,
+            RemoveFrameNavigationStarting: RemoveFrameNavigationStarting::<Impl, IMPL_OFFSET>,
+            FrameContentLoading: FrameContentLoading::<Impl, IMPL_OFFSET>,
+            RemoveFrameContentLoading: RemoveFrameContentLoading::<Impl, IMPL_OFFSET>,
+            FrameDOMContentLoaded: FrameDOMContentLoaded::<Impl, IMPL_OFFSET>,
+            RemoveFrameDOMContentLoaded: RemoveFrameDOMContentLoaded::<Impl, IMPL_OFFSET>,
+            FrameNavigationCompleted: FrameNavigationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveFrameNavigationCompleted: RemoveFrameNavigationCompleted::<Impl, IMPL_OFFSET>,
+            ScriptNotify: ScriptNotify::<Impl, IMPL_OFFSET>,
+            RemoveScriptNotify: RemoveScriptNotify::<Impl, IMPL_OFFSET>,
+            LongRunningScriptDetected: LongRunningScriptDetected::<Impl, IMPL_OFFSET>,
+            RemoveLongRunningScriptDetected: RemoveLongRunningScriptDetected::<Impl, IMPL_OFFSET>,
+            UnsafeContentWarningDisplaying: UnsafeContentWarningDisplaying::<Impl, IMPL_OFFSET>,
+            RemoveUnsafeContentWarningDisplaying: RemoveUnsafeContentWarningDisplaying::<Impl, IMPL_OFFSET>,
+            UnviewableContentIdentified: UnviewableContentIdentified::<Impl, IMPL_OFFSET>,
+            RemoveUnviewableContentIdentified: RemoveUnviewableContentIdentified::<Impl, IMPL_OFFSET>,
+            PermissionRequested: PermissionRequested::<Impl, IMPL_OFFSET>,
+            RemovePermissionRequested: RemovePermissionRequested::<Impl, IMPL_OFFSET>,
+            UnsupportedUriSchemeIdentified: UnsupportedUriSchemeIdentified::<Impl, IMPL_OFFSET>,
+            RemoveUnsupportedUriSchemeIdentified: RemoveUnsupportedUriSchemeIdentified::<Impl, IMPL_OFFSET>,
+            NewWindowRequested: NewWindowRequested::<Impl, IMPL_OFFSET>,
+            RemoveNewWindowRequested: RemoveNewWindowRequested::<Impl, IMPL_OFFSET>,
+            ContainsFullScreenElementChanged: ContainsFullScreenElementChanged::<Impl, IMPL_OFFSET>,
+            RemoveContainsFullScreenElementChanged: RemoveContainsFullScreenElementChanged::<Impl, IMPL_OFFSET>,
+            WebResourceRequested: WebResourceRequested::<Impl, IMPL_OFFSET>,
+            RemoveWebResourceRequested: RemoveWebResourceRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControl as ::windows::core::Interface>::IID
@@ -578,7 +573,10 @@ impl IWebViewControl2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInitializeScript(&*(&script as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControl2>, ::windows::core::GetTrustLevel, AddInitializeScript::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControl2, BASE_OFFSET>(),
+            AddInitializeScript: AddInitializeScript::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControl2 as ::windows::core::Interface>::IID
@@ -606,7 +604,7 @@ impl IWebViewControlContentLoadingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlContentLoadingEventArgs>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlContentLoadingEventArgs, BASE_OFFSET>(), Uri: Uri::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlContentLoadingEventArgs as ::windows::core::Interface>::IID
@@ -634,7 +632,7 @@ impl IWebViewControlDOMContentLoadedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlDOMContentLoadedEventArgs>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlDOMContentLoadedEventArgs, BASE_OFFSET>(), Uri: Uri::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlDOMContentLoadedEventArgs as ::windows::core::Interface>::IID
@@ -696,7 +694,14 @@ impl IWebViewControlDeferredPermissionRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Deny().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlDeferredPermissionRequest>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>, PermissionType::<Impl, IMPL_OFFSET>, Allow::<Impl, IMPL_OFFSET>, Deny::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlDeferredPermissionRequest, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            PermissionType: PermissionType::<Impl, IMPL_OFFSET>,
+            Allow: Allow::<Impl, IMPL_OFFSET>,
+            Deny: Deny::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlDeferredPermissionRequest as ::windows::core::Interface>::IID
@@ -741,7 +746,12 @@ impl IWebViewControlLongRunningScriptDetectedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStopPageScriptExecution(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlLongRunningScriptDetectedEventArgs>, ::windows::core::GetTrustLevel, ExecutionTime::<Impl, IMPL_OFFSET>, StopPageScriptExecution::<Impl, IMPL_OFFSET>, SetStopPageScriptExecution::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlLongRunningScriptDetectedEventArgs, BASE_OFFSET>(),
+            ExecutionTime: ExecutionTime::<Impl, IMPL_OFFSET>,
+            StopPageScriptExecution: StopPageScriptExecution::<Impl, IMPL_OFFSET>,
+            SetStopPageScriptExecution: SetStopPageScriptExecution::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlLongRunningScriptDetectedEventArgs as ::windows::core::Interface>::IID
@@ -793,7 +803,12 @@ impl IWebViewControlNavigationCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlNavigationCompletedEventArgs>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, IsSuccess::<Impl, IMPL_OFFSET>, WebErrorStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlNavigationCompletedEventArgs, BASE_OFFSET>(),
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            IsSuccess: IsSuccess::<Impl, IMPL_OFFSET>,
+            WebErrorStatus: WebErrorStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlNavigationCompletedEventArgs as ::windows::core::Interface>::IID
@@ -838,7 +853,12 @@ impl IWebViewControlNavigationStartingEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCancel(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlNavigationStartingEventArgs>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, Cancel::<Impl, IMPL_OFFSET>, SetCancel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlNavigationStartingEventArgs, BASE_OFFSET>(),
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+            SetCancel: SetCancel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlNavigationStartingEventArgs as ::windows::core::Interface>::IID
@@ -895,7 +915,13 @@ impl IWebViewControlNewWindowRequestedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlNewWindowRequestedEventArgs>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, Referrer::<Impl, IMPL_OFFSET>, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlNewWindowRequestedEventArgs, BASE_OFFSET>(),
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            Referrer: Referrer::<Impl, IMPL_OFFSET>,
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlNewWindowRequestedEventArgs as ::windows::core::Interface>::IID
@@ -940,7 +966,12 @@ impl IWebViewControlNewWindowRequestedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlNewWindowRequestedEventArgs2>, ::windows::core::GetTrustLevel, NewWindow::<Impl, IMPL_OFFSET>, SetNewWindow::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlNewWindowRequestedEventArgs2, BASE_OFFSET>(),
+            NewWindow: NewWindow::<Impl, IMPL_OFFSET>,
+            SetNewWindow: SetNewWindow::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlNewWindowRequestedEventArgs2 as ::windows::core::Interface>::IID
@@ -1019,21 +1050,16 @@ impl IWebViewControlPermissionRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Deny().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebViewControlPermissionRequest>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            Uri::<Impl, IMPL_OFFSET>,
-            PermissionType::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            Defer::<Impl, IMPL_OFFSET>,
-            Allow::<Impl, IMPL_OFFSET>,
-            Deny::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlPermissionRequest, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            PermissionType: PermissionType::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            Defer: Defer::<Impl, IMPL_OFFSET>,
+            Allow: Allow::<Impl, IMPL_OFFSET>,
+            Deny: Deny::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlPermissionRequest as ::windows::core::Interface>::IID
@@ -1061,7 +1087,10 @@ impl IWebViewControlPermissionRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlPermissionRequestedEventArgs>, ::windows::core::GetTrustLevel, PermissionRequest::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlPermissionRequestedEventArgs, BASE_OFFSET>(),
+            PermissionRequest: PermissionRequest::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlPermissionRequestedEventArgs as ::windows::core::Interface>::IID
@@ -1101,7 +1130,11 @@ impl IWebViewControlScriptNotifyEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlScriptNotifyEventArgs>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlScriptNotifyEventArgs, BASE_OFFSET>(),
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlScriptNotifyEventArgs as ::windows::core::Interface>::IID
@@ -1168,20 +1201,15 @@ impl IWebViewControlSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebViewControlSettings>,
-            ::windows::core::GetTrustLevel,
-            SetIsJavaScriptEnabled::<Impl, IMPL_OFFSET>,
-            IsJavaScriptEnabled::<Impl, IMPL_OFFSET>,
-            SetIsIndexedDBEnabled::<Impl, IMPL_OFFSET>,
-            IsIndexedDBEnabled::<Impl, IMPL_OFFSET>,
-            SetIsScriptNotifyAllowed::<Impl, IMPL_OFFSET>,
-            IsScriptNotifyAllowed::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlSettings, BASE_OFFSET>(),
+            SetIsJavaScriptEnabled: SetIsJavaScriptEnabled::<Impl, IMPL_OFFSET>,
+            IsJavaScriptEnabled: IsJavaScriptEnabled::<Impl, IMPL_OFFSET>,
+            SetIsIndexedDBEnabled: SetIsIndexedDBEnabled::<Impl, IMPL_OFFSET>,
+            IsIndexedDBEnabled: IsIndexedDBEnabled::<Impl, IMPL_OFFSET>,
+            SetIsScriptNotifyAllowed: SetIsScriptNotifyAllowed::<Impl, IMPL_OFFSET>,
+            IsScriptNotifyAllowed: IsScriptNotifyAllowed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlSettings as ::windows::core::Interface>::IID
@@ -1226,7 +1254,12 @@ impl IWebViewControlUnsupportedUriSchemeIdentifiedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs, BASE_OFFSET>(),
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            SetHandled: SetHandled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs as ::windows::core::Interface>::IID
@@ -1278,7 +1311,12 @@ impl IWebViewControlUnviewableContentIdentifiedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlUnviewableContentIdentifiedEventArgs>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, Referrer::<Impl, IMPL_OFFSET>, MediaType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlUnviewableContentIdentifiedEventArgs, BASE_OFFSET>(),
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            Referrer: Referrer::<Impl, IMPL_OFFSET>,
+            MediaType: MediaType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlUnviewableContentIdentifiedEventArgs as ::windows::core::Interface>::IID
@@ -1335,7 +1373,13 @@ impl IWebViewControlWebResourceRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebViewControlWebResourceRequestedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>, Request::<Impl, IMPL_OFFSET>, SetResponse::<Impl, IMPL_OFFSET>, Response::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControlWebResourceRequestedEventArgs, BASE_OFFSET>(),
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            Request: Request::<Impl, IMPL_OFFSET>,
+            SetResponse: SetResponse::<Impl, IMPL_OFFSET>,
+            Response: Response::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebViewControlWebResourceRequestedEventArgs as ::windows::core::Interface>::IID

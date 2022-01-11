@@ -29,7 +29,14 @@ impl IFilterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Init::<Impl, IMPL_OFFSET>, GetChunk::<Impl, IMPL_OFFSET>, GetText::<Impl, IMPL_OFFSET>, GetValue::<Impl, IMPL_OFFSET>, BindRegion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Init: Init::<Impl, IMPL_OFFSET>,
+            GetChunk: GetChunk::<Impl, IMPL_OFFSET>,
+            GetText: GetText::<Impl, IMPL_OFFSET>,
+            GetValue: GetValue::<Impl, IMPL_OFFSET>,
+            BindRegion: BindRegion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFilter as ::windows::core::Interface>::IID
@@ -51,7 +58,11 @@ impl IPhraseSinkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, PutSmallPhrase::<Impl, IMPL_OFFSET>, PutPhrase::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            PutSmallPhrase: PutSmallPhrase::<Impl, IMPL_OFFSET>,
+            PutPhrase: PutPhrase::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhraseSink as ::windows::core::Interface>::IID

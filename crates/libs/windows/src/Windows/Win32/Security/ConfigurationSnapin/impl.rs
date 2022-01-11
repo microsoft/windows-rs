@@ -22,7 +22,13 @@ impl ISceSvcAttachmentDataVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetData::<Impl, IMPL_OFFSET>, Initialize::<Impl, IMPL_OFFSET>, FreeBuffer::<Impl, IMPL_OFFSET>, CloseHandle::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetData: GetData::<Impl, IMPL_OFFSET>,
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            FreeBuffer: FreeBuffer::<Impl, IMPL_OFFSET>,
+            CloseHandle: CloseHandle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceSvcAttachmentData as ::windows::core::Interface>::IID
@@ -49,7 +55,12 @@ impl ISceSvcAttachmentPersistInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Save::<Impl, IMPL_OFFSET>, IsDirty::<Impl, IMPL_OFFSET>, FreeBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Save: Save::<Impl, IMPL_OFFSET>,
+            IsDirty: IsDirty::<Impl, IMPL_OFFSET>,
+            FreeBuffer: FreeBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISceSvcAttachmentPersistInfo as ::windows::core::Interface>::IID

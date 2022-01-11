@@ -7,7 +7,7 @@ impl IInkCommitRequestHandlerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnCommitRequested::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnCommitRequested: OnCommitRequested::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkCommitRequestHandler as ::windows::core::Interface>::IID
@@ -24,7 +24,7 @@ impl IInkD2DRendererVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Draw::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Draw: Draw::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkD2DRenderer as ::windows::core::Interface>::IID
@@ -39,7 +39,7 @@ impl IInkD2DRenderer2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Draw::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Draw: Draw::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkD2DRenderer2 as ::windows::core::Interface>::IID
@@ -64,7 +64,12 @@ impl IInkDesktopHostVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, QueueWorkItem::<Impl, IMPL_OFFSET>, CreateInkPresenter::<Impl, IMPL_OFFSET>, CreateAndInitializeInkPresenter::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            QueueWorkItem: QueueWorkItem::<Impl, IMPL_OFFSET>,
+            CreateInkPresenter: CreateInkPresenter::<Impl, IMPL_OFFSET>,
+            CreateAndInitializeInkPresenter: CreateAndInitializeInkPresenter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkDesktopHost as ::windows::core::Interface>::IID
@@ -79,7 +84,7 @@ impl IInkHostWorkItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Invoke::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Invoke: Invoke::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkHostWorkItem as ::windows::core::Interface>::IID
@@ -114,7 +119,14 @@ impl IInkPresenterDesktopVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetRootVisual::<Impl, IMPL_OFFSET>, SetCommitRequestHandler::<Impl, IMPL_OFFSET>, GetSize::<Impl, IMPL_OFFSET>, SetSize::<Impl, IMPL_OFFSET>, OnHighContrastChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetRootVisual: SetRootVisual::<Impl, IMPL_OFFSET>,
+            SetCommitRequestHandler: SetCommitRequestHandler::<Impl, IMPL_OFFSET>,
+            GetSize: GetSize::<Impl, IMPL_OFFSET>,
+            SetSize: SetSize::<Impl, IMPL_OFFSET>,
+            OnHighContrastChanged: OnHighContrastChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPresenterDesktop as ::windows::core::Interface>::IID

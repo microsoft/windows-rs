@@ -13,35 +13,35 @@ impl AnnotationPatternIdentifiers {
     pub fn AnnotationTypeIdProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAnnotationPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).AnnotationTypeIdProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn AnnotationTypeNameProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAnnotationPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).AnnotationTypeNameProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn AuthorProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAnnotationPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).AuthorProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn DateTimeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAnnotationPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).DateTimeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn TargetProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAnnotationPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).TargetProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -261,53 +261,53 @@ impl AutomationAnnotation {
         let this = self;
         unsafe {
             let mut result__: AnnotationType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AnnotationType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AnnotationType>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetType(&self, value: AnnotationType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetType)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn Element(&self) -> ::windows::core::Result<super::UIElement> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UIElement>(result__)
+            (::windows::core::Interface::vtable(this).Element)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UIElement>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetElement<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetElement)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn CreateInstance(r#type: AnnotationType) -> ::windows::core::Result<AutomationAnnotation> {
         Self::IAutomationAnnotationFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<AutomationAnnotation>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<AutomationAnnotation>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn CreateWithElementParameter<'a, Param1: ::windows::core::IntoParam<'a, super::UIElement>>(r#type: AnnotationType, element: Param1) -> ::windows::core::Result<AutomationAnnotation> {
         Self::IAutomationAnnotationFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), r#type, element.into_param().abi(), &mut result__).from_abi::<AutomationAnnotation>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithElementParameter)(::core::mem::transmute_copy(this), r#type, element.into_param().abi(), &mut result__).from_abi::<AutomationAnnotation>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn TypeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationAnnotationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).TypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ElementProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationAnnotationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ElementProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -522,273 +522,273 @@ impl AutomationElementIdentifiers {
     pub fn AcceleratorKeyProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).AcceleratorKeyProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn AccessKeyProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).AccessKeyProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn AutomationIdProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).AutomationIdProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn BoundingRectangleProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).BoundingRectangleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ClassNameProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ClassNameProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ClickablePointProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ClickablePointProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ControlTypeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ControlTypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn HasKeyboardFocusProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).HasKeyboardFocusProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn HelpTextProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).HelpTextProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsContentElementProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsContentElementProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsControlElementProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsControlElementProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsEnabledProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsKeyboardFocusableProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsKeyboardFocusableProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsOffscreenProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsOffscreenProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsPasswordProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsPasswordProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsRequiredForFormProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsRequiredForFormProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ItemStatusProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ItemStatusProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ItemTypeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ItemTypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn LabeledByProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).LabeledByProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn LocalizedControlTypeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).LocalizedControlTypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn NameProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).NameProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn OrientationProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).OrientationProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn LiveSettingProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).LiveSettingProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ControlledPeersProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ControlledPeersProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn PositionInSetProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).PositionInSetProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SizeOfSetProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).SizeOfSetProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn LevelProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).LevelProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn AnnotationsProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).AnnotationsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn LandmarkTypeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).LandmarkTypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn LocalizedLandmarkTypeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).LocalizedLandmarkTypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsPeripheralProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsPeripheralProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsDataValidForFormProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsDataValidForFormProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn FullDescriptionProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).FullDescriptionProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn DescribedByProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).DescribedByProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn FlowsToProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).FlowsToProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn FlowsFromProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).FlowsFromProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn CultureProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics6(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).CultureProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn HeadingLevelProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics7(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).HeadingLevelProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsDialogProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics8(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsDialogProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -979,169 +979,169 @@ impl AutomationProperties {
     pub fn AcceleratorKeyProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).AcceleratorKeyProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetAcceleratorKey<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetAcceleratorKey)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetAcceleratorKey<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetAcceleratorKey)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn AccessKeyProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).AccessKeyProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetAccessKey)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetAccessKey)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn AutomationIdProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).AutomationIdProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetAutomationId<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetAutomationId)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetAutomationId<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetAutomationId)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn HelpTextProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).HelpTextProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetHelpText<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetHelpText)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetHelpText<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetHelpText)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsRequiredForFormProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsRequiredForFormProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetIsRequiredForForm<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<bool> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetIsRequiredForForm)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetIsRequiredForForm<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
+        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetIsRequiredForForm)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ItemStatusProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ItemStatusProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetItemStatus<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetItemStatus)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetItemStatus<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetItemStatus)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ItemTypeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ItemTypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetItemType<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetItemType)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetItemType<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetItemType)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn LabeledByProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LabeledByProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetLabeledBy<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<super::UIElement> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::UIElement>(result__)
+            (::windows::core::Interface::vtable(this).GetLabeledBy)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::UIElement>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetLabeledBy<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, super::UIElement>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetLabeledBy)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn NameProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).NameProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetName<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetName)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetName)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn LiveSettingProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LiveSettingProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'UI_Xaml_Automation_Peers'*"]
@@ -1149,19 +1149,19 @@ impl AutomationProperties {
     pub fn GetLiveSetting<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<Peers::AutomationLiveSetting> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: Peers::AutomationLiveSetting = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<Peers::AutomationLiveSetting>(result__)
+            (::windows::core::Interface::vtable(this).GetLiveSetting)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<Peers::AutomationLiveSetting>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'UI_Xaml_Automation_Peers'*"]
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
     pub fn SetLiveSetting<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0, value: Peers::AutomationLiveSetting) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
+        Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetLiveSetting)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn AccessibilityViewProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).AccessibilityViewProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'UI_Xaml_Automation_Peers'*"]
@@ -1169,19 +1169,19 @@ impl AutomationProperties {
     pub fn GetAccessibilityView<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<Peers::AccessibilityView> {
         Self::IAutomationPropertiesStatics2(|this| unsafe {
             let mut result__: Peers::AccessibilityView = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<Peers::AccessibilityView>(result__)
+            (::windows::core::Interface::vtable(this).GetAccessibilityView)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<Peers::AccessibilityView>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'UI_Xaml_Automation_Peers'*"]
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
     pub fn SetAccessibilityView<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0, value: Peers::AccessibilityView) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
+        Self::IAutomationPropertiesStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetAccessibilityView)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ControlledPeersProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ControlledPeersProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'Foundation_Collections'*"]
@@ -1189,68 +1189,68 @@ impl AutomationProperties {
     pub fn GetControlledPeers<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::UIElement>> {
         Self::IAutomationPropertiesStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::UIElement>>(result__)
+            (::windows::core::Interface::vtable(this).GetControlledPeers)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::UIElement>>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn PositionInSetProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PositionInSetProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetPositionInSet<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<i32> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).GetPositionInSet)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetPositionInSet<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0, value: i32) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
+        Self::IAutomationPropertiesStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetPositionInSet)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SizeOfSetProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SizeOfSetProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetSizeOfSet<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<i32> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).GetSizeOfSet)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetSizeOfSet<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0, value: i32) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
+        Self::IAutomationPropertiesStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetSizeOfSet)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn LevelProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LevelProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetLevel<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<i32> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).GetLevel)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetLevel<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0, value: i32) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
+        Self::IAutomationPropertiesStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetLevel)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn AnnotationsProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).AnnotationsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'Foundation_Collections'*"]
@@ -1258,14 +1258,14 @@ impl AutomationProperties {
     pub fn GetAnnotations<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<AutomationAnnotation>> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<AutomationAnnotation>>(result__)
+            (::windows::core::Interface::vtable(this).GetAnnotations)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<AutomationAnnotation>>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn LandmarkTypeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LandmarkTypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'UI_Xaml_Automation_Peers'*"]
@@ -1273,109 +1273,109 @@ impl AutomationProperties {
     pub fn GetLandmarkType<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<Peers::AutomationLandmarkType> {
         Self::IAutomationPropertiesStatics4(|this| unsafe {
             let mut result__: Peers::AutomationLandmarkType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<Peers::AutomationLandmarkType>(result__)
+            (::windows::core::Interface::vtable(this).GetLandmarkType)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<Peers::AutomationLandmarkType>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'UI_Xaml_Automation_Peers'*"]
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
     pub fn SetLandmarkType<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0, value: Peers::AutomationLandmarkType) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
+        Self::IAutomationPropertiesStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).SetLandmarkType)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn LocalizedLandmarkTypeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LocalizedLandmarkTypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetLocalizedLandmarkType<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAutomationPropertiesStatics4(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetLocalizedLandmarkType)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetLocalizedLandmarkType<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IAutomationPropertiesStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).SetLocalizedLandmarkType)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsPeripheralProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsPeripheralProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetIsPeripheral<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<bool> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetIsPeripheral)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetIsPeripheral<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics5(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
+        Self::IAutomationPropertiesStatics5(|this| unsafe { (::windows::core::Interface::vtable(this).SetIsPeripheral)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsDataValidForFormProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsDataValidForFormProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetIsDataValidForForm<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<bool> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetIsDataValidForForm)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetIsDataValidForForm<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics5(|this| unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
+        Self::IAutomationPropertiesStatics5(|this| unsafe { (::windows::core::Interface::vtable(this).SetIsDataValidForForm)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn FullDescriptionProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).FullDescriptionProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetFullDescription<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetFullDescription)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetFullDescription<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics5(|this| unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IAutomationPropertiesStatics5(|this| unsafe { (::windows::core::Interface::vtable(this).SetFullDescription)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn LocalizedControlTypeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LocalizedControlTypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetLocalizedControlType<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetLocalizedControlType)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetLocalizedControlType<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics5(|this| unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IAutomationPropertiesStatics5(|this| unsafe { (::windows::core::Interface::vtable(this).SetLocalizedControlType)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn DescribedByProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DescribedByProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'Foundation_Collections'*"]
@@ -1383,14 +1383,14 @@ impl AutomationProperties {
     pub fn GetDescribedBy<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>(result__)
+            (::windows::core::Interface::vtable(this).GetDescribedBy)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn FlowsToProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).FlowsToProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'Foundation_Collections'*"]
@@ -1398,14 +1398,14 @@ impl AutomationProperties {
     pub fn GetFlowsTo<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>(result__)
+            (::windows::core::Interface::vtable(this).GetFlowsTo)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn FlowsFromProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).FlowsFromProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'Foundation_Collections'*"]
@@ -1413,32 +1413,32 @@ impl AutomationProperties {
     pub fn GetFlowsFrom<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>(result__)
+            (::windows::core::Interface::vtable(this).GetFlowsFrom)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn CultureProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics6(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CultureProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetCulture<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<i32> {
         Self::IAutomationPropertiesStatics6(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).GetCulture)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetCulture<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0, value: i32) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics6(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
+        Self::IAutomationPropertiesStatics6(|this| unsafe { (::windows::core::Interface::vtable(this).SetCulture)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn HeadingLevelProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics7(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).HeadingLevelProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'UI_Xaml_Automation_Peers'*"]
@@ -1446,37 +1446,37 @@ impl AutomationProperties {
     pub fn GetHeadingLevel<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<Peers::AutomationHeadingLevel> {
         Self::IAutomationPropertiesStatics7(|this| unsafe {
             let mut result__: Peers::AutomationHeadingLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<Peers::AutomationHeadingLevel>(result__)
+            (::windows::core::Interface::vtable(this).GetHeadingLevel)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<Peers::AutomationHeadingLevel>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'UI_Xaml_Automation_Peers'*"]
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
     pub fn SetHeadingLevel<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0, value: Peers::AutomationHeadingLevel) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics7(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
+        Self::IAutomationPropertiesStatics7(|this| unsafe { (::windows::core::Interface::vtable(this).SetHeadingLevel)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsDialogProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics8(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsDialogProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GetIsDialog<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::core::Result<bool> {
         Self::IAutomationPropertiesStatics8(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetIsDialog)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SetIsDialog<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics8(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
+        Self::IAutomationPropertiesStatics8(|this| unsafe { (::windows::core::Interface::vtable(this).SetIsDialog)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn AutomationControlTypeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics9(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).AutomationControlTypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'UI_Xaml_Automation_Peers'*"]
@@ -1484,13 +1484,13 @@ impl AutomationProperties {
     pub fn GetAutomationControlType<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(element: Param0) -> ::windows::core::Result<Peers::AutomationControlType> {
         Self::IAutomationPropertiesStatics9(|this| unsafe {
             let mut result__: Peers::AutomationControlType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<Peers::AutomationControlType>(result__)
+            (::windows::core::Interface::vtable(this).GetAutomationControlType)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<Peers::AutomationControlType>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation', 'UI_Xaml_Automation_Peers'*"]
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
     pub fn SetAutomationControlType<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(element: Param0, value: Peers::AutomationControlType) -> ::windows::core::Result<()> {
-        Self::IAutomationPropertiesStatics9(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
+        Self::IAutomationPropertiesStatics9(|this| unsafe { (::windows::core::Interface::vtable(this).SetAutomationControlType)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
     #[doc(hidden)]
     pub fn IAutomationPropertiesStatics<R, F: FnOnce(&IAutomationPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -1817,7 +1817,7 @@ impl DockPatternIdentifiers {
     pub fn DockPositionProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IDockPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).DockPositionProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -1939,28 +1939,28 @@ impl DragPatternIdentifiers {
     pub fn DropEffectProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IDragPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).DropEffectProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn DropEffectsProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IDragPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).DropEffectsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn GrabbedItemsProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IDragPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).GrabbedItemsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsGrabbedProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IDragPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsGrabbedProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -2045,14 +2045,14 @@ impl DropTargetPatternIdentifiers {
     pub fn DropTargetEffectProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IDropTargetPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).DropTargetEffectProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn DropTargetEffectsProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IDropTargetPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).DropTargetEffectsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -2137,7 +2137,7 @@ impl ExpandCollapsePatternIdentifiers {
     pub fn ExpandCollapseStateProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IExpandCollapsePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ExpandCollapseStateProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -2257,35 +2257,35 @@ impl GridItemPatternIdentifiers {
     pub fn ColumnProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IGridItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ColumnProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ColumnSpanProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IGridItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ColumnSpanProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ContainingGridProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IGridItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ContainingGridProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn RowProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IGridItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).RowProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn RowSpanProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IGridItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).RowSpanProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -2370,14 +2370,14 @@ impl GridPatternIdentifiers {
     pub fn ColumnCountProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IGridPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ColumnCountProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn RowCountProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IGridPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).RowCountProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -2463,14 +2463,9 @@ unsafe impl ::windows::core::Interface for IAnnotationPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAnnotationPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IAnnotationPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAnnotationPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -2480,19 +2475,14 @@ unsafe impl ::windows::core::Interface for IAnnotationPatternIdentifiersStatics 
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAnnotationPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAnnotationPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub AnnotationTypeIdProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub AnnotationTypeNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub AuthorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub DateTimeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub TargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationAnnotation(::windows::core::IUnknown);
@@ -2502,18 +2492,13 @@ unsafe impl ::windows::core::Interface for IAutomationAnnotation {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationAnnotationVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AnnotationType) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AnnotationType) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationAnnotationVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AnnotationType) -> ::windows::core::HRESULT,
+    pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AnnotationType) -> ::windows::core::HRESULT,
+    pub Element: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationAnnotationFactory(::windows::core::IUnknown);
@@ -2523,16 +2508,11 @@ unsafe impl ::windows::core::Interface for IAutomationAnnotationFactory {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationAnnotationFactoryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: AnnotationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: AnnotationType, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationAnnotationFactoryVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: AnnotationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateWithElementParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: AnnotationType, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationAnnotationStatics(::windows::core::IUnknown);
@@ -2542,16 +2522,11 @@ unsafe impl ::windows::core::Interface for IAutomationAnnotationStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationAnnotationStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationAnnotationStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub TypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiers(::windows::core::IUnknown);
@@ -2561,14 +2536,9 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationElementIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics(::windows::core::IUnknown);
@@ -2578,37 +2548,32 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics 
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationElementIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub AcceleratorKeyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub AccessKeyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub AutomationIdProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub BoundingRectangleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ClassNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ClickablePointProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ControlTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub HasKeyboardFocusProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub HelpTextProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsContentElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsControlElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsKeyboardFocusableProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsOffscreenProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsPasswordProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsRequiredForFormProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ItemStatusProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ItemTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub LabeledByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub LocalizedControlTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub NameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub OrientationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub LiveSettingProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics2(::windows::core::IUnknown);
@@ -2618,15 +2583,10 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics2
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationElementIdentifiersStatics2Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub ControlledPeersProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics3(::windows::core::IUnknown);
@@ -2636,18 +2596,13 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics3
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics3Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationElementIdentifiersStatics3Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub PositionInSetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SizeOfSetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub LevelProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub AnnotationsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics4(::windows::core::IUnknown);
@@ -2657,16 +2612,11 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics4
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics4Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationElementIdentifiersStatics4Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub LandmarkTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub LocalizedLandmarkTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics5(::windows::core::IUnknown);
@@ -2676,20 +2626,15 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics5
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics5Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationElementIdentifiersStatics5Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub IsPeripheralProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsDataValidForFormProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FullDescriptionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub DescribedByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FlowsToProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FlowsFromProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics6(::windows::core::IUnknown);
@@ -2699,15 +2644,10 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics6
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics6Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationElementIdentifiersStatics6Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub CultureProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics7(::windows::core::IUnknown);
@@ -2717,15 +2657,10 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics7
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics7Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationElementIdentifiersStatics7Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub HeadingLevelProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics8(::windows::core::IUnknown);
@@ -2735,15 +2670,10 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics8
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics8Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationElementIdentifiersStatics8Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub IsDialogProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationProperties(::windows::core::IUnknown);
@@ -2753,14 +2683,9 @@ unsafe impl ::windows::core::Interface for IAutomationProperties {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationPropertiesVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics(::windows::core::IUnknown);
@@ -2770,46 +2695,45 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Automation_Peers")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationLiveSetting) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
-    #[cfg(feature = "UI_Xaml_Automation_Peers")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AutomationLiveSetting) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
-);
+pub struct IAutomationPropertiesStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub AcceleratorKeyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetAcceleratorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetAcceleratorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub AccessKeyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetAccessKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetAccessKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub AutomationIdProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetAutomationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetAutomationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub HelpTextProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetHelpText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetHelpText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub IsRequiredForFormProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetIsRequiredForForm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIsRequiredForForm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub ItemStatusProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetItemStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetItemStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ItemTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetItemType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetItemType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub LabeledByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetLabeledBy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetLabeledBy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub NameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub LiveSettingProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    pub GetLiveSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationLiveSetting) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))]
+    GetLiveSetting: usize,
+    #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    pub SetLiveSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AutomationLiveSetting) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))]
+    SetLiveSetting: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics2(::windows::core::IUnknown);
@@ -2819,22 +2743,23 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics2 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Automation_Peers")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AccessibilityView) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
-    #[cfg(feature = "UI_Xaml_Automation_Peers")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AccessibilityView) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
-);
+pub struct IAutomationPropertiesStatics2Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub AccessibilityViewProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    pub GetAccessibilityView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AccessibilityView) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))]
+    GetAccessibilityView: usize,
+    #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    pub SetAccessibilityView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AccessibilityView) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))]
+    SetAccessibilityView: usize,
+    pub ControlledPeersProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetControlledPeers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetControlledPeers: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics3(::windows::core::IUnknown);
@@ -2844,26 +2769,23 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics3 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics3Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
-);
+pub struct IAutomationPropertiesStatics3Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub PositionInSetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetPositionInSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub SetPositionInSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
+    pub SizeOfSetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetSizeOfSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub SetSizeOfSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
+    pub LevelProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub SetLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
+    pub AnnotationsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetAnnotations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetAnnotations: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics4(::windows::core::IUnknown);
@@ -2873,22 +2795,21 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics4 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics4Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Automation_Peers")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationLandmarkType) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
-    #[cfg(feature = "UI_Xaml_Automation_Peers")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AutomationLandmarkType) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationPropertiesStatics4Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub LandmarkTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    pub GetLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationLandmarkType) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))]
+    GetLandmarkType: usize,
+    #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    pub SetLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AutomationLandmarkType) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))]
+    SetLandmarkType: usize,
+    pub LocalizedLandmarkTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetLocalizedLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetLocalizedLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics5(::windows::core::IUnknown);
@@ -2898,35 +2819,36 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics5 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics5Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
-);
+pub struct IAutomationPropertiesStatics5Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub IsPeripheralProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetIsPeripheral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIsPeripheral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub IsDataValidForFormProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetIsDataValidForForm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIsDataValidForForm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub FullDescriptionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetFullDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetFullDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub LocalizedControlTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetLocalizedControlType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetLocalizedControlType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub DescribedByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetDescribedBy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetDescribedBy: usize,
+    pub FlowsToProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetFlowsTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetFlowsTo: usize,
+    pub FlowsFromProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetFlowsFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetFlowsFrom: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics6(::windows::core::IUnknown);
@@ -2936,17 +2858,12 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics6 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics6Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationPropertiesStatics6Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub CultureProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetCulture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub SetCulture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics7(::windows::core::IUnknown);
@@ -2956,19 +2873,18 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics7 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics7Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Automation_Peers")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationHeadingLevel) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
-    #[cfg(feature = "UI_Xaml_Automation_Peers")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AutomationHeadingLevel) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
-);
+pub struct IAutomationPropertiesStatics7Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub HeadingLevelProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    pub GetHeadingLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationHeadingLevel) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))]
+    GetHeadingLevel: usize,
+    #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    pub SetHeadingLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AutomationHeadingLevel) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))]
+    SetHeadingLevel: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics8(::windows::core::IUnknown);
@@ -2978,17 +2894,12 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics8 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics8Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationPropertiesStatics8Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub IsDialogProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetIsDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIsDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics9(::windows::core::IUnknown);
@@ -2998,19 +2909,18 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics9 {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics9Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Automation_Peers")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationControlType) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
-    #[cfg(feature = "UI_Xaml_Automation_Peers")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AutomationControlType) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
-);
+pub struct IAutomationPropertiesStatics9Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub AutomationControlTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    pub GetAutomationControlType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationControlType) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))]
+    GetAutomationControlType: usize,
+    #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    pub SetAutomationControlType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AutomationControlType) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Xaml_Automation_Peers"))]
+    SetAutomationControlType: usize,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationProperty(::windows::core::IUnknown);
@@ -3020,14 +2930,9 @@ unsafe impl ::windows::core::Interface for IAutomationProperty {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationPropertyVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IAutomationPropertyVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDockPatternIdentifiers(::windows::core::IUnknown);
@@ -3037,14 +2942,9 @@ unsafe impl ::windows::core::Interface for IDockPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDockPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IDockPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDockPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3054,15 +2954,10 @@ unsafe impl ::windows::core::Interface for IDockPatternIdentifiersStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDockPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDockPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub DockPositionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDragPatternIdentifiers(::windows::core::IUnknown);
@@ -3072,14 +2967,9 @@ unsafe impl ::windows::core::Interface for IDragPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDragPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IDragPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDragPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3089,18 +2979,13 @@ unsafe impl ::windows::core::Interface for IDragPatternIdentifiersStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDragPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDragPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub DropEffectProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub DropEffectsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GrabbedItemsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsGrabbedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDropTargetPatternIdentifiers(::windows::core::IUnknown);
@@ -3110,14 +2995,9 @@ unsafe impl ::windows::core::Interface for IDropTargetPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDropTargetPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IDropTargetPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDropTargetPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3127,16 +3007,11 @@ unsafe impl ::windows::core::Interface for IDropTargetPatternIdentifiersStatics 
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDropTargetPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDropTargetPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub DropTargetEffectProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub DropTargetEffectsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IExpandCollapsePatternIdentifiers(::windows::core::IUnknown);
@@ -3146,14 +3021,9 @@ unsafe impl ::windows::core::Interface for IExpandCollapsePatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExpandCollapsePatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IExpandCollapsePatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IExpandCollapsePatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3163,15 +3033,10 @@ unsafe impl ::windows::core::Interface for IExpandCollapsePatternIdentifiersStat
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExpandCollapsePatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IExpandCollapsePatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub ExpandCollapseStateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGridItemPatternIdentifiers(::windows::core::IUnknown);
@@ -3181,14 +3046,9 @@ unsafe impl ::windows::core::Interface for IGridItemPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGridItemPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IGridItemPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGridItemPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3198,19 +3058,14 @@ unsafe impl ::windows::core::Interface for IGridItemPatternIdentifiersStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGridItemPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IGridItemPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub ColumnProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ColumnSpanProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ContainingGridProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub RowProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub RowSpanProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGridPatternIdentifiers(::windows::core::IUnknown);
@@ -3220,14 +3075,9 @@ unsafe impl ::windows::core::Interface for IGridPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGridPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IGridPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGridPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3237,16 +3087,11 @@ unsafe impl ::windows::core::Interface for IGridPatternIdentifiersStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGridPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IGridPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub ColumnCountProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub RowCountProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMultipleViewPatternIdentifiers(::windows::core::IUnknown);
@@ -3256,14 +3101,9 @@ unsafe impl ::windows::core::Interface for IMultipleViewPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMultipleViewPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IMultipleViewPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMultipleViewPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3273,16 +3113,11 @@ unsafe impl ::windows::core::Interface for IMultipleViewPatternIdentifiersStatic
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMultipleViewPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMultipleViewPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub CurrentViewProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SupportedViewsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRangeValuePatternIdentifiers(::windows::core::IUnknown);
@@ -3292,14 +3127,9 @@ unsafe impl ::windows::core::Interface for IRangeValuePatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRangeValuePatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IRangeValuePatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRangeValuePatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3309,20 +3139,15 @@ unsafe impl ::windows::core::Interface for IRangeValuePatternIdentifiersStatics 
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRangeValuePatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IRangeValuePatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub IsReadOnlyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub LargeChangeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub MaximumProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub MinimumProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SmallChangeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IScrollPatternIdentifiers(::windows::core::IUnknown);
@@ -3332,14 +3157,9 @@ unsafe impl ::windows::core::Interface for IScrollPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IScrollPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IScrollPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IScrollPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3349,21 +3169,16 @@ unsafe impl ::windows::core::Interface for IScrollPatternIdentifiersStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IScrollPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IScrollPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub HorizontallyScrollableProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub HorizontalScrollPercentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub HorizontalViewSizeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub NoScroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub VerticallyScrollableProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub VerticalScrollPercentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub VerticalViewSizeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISelectionItemPatternIdentifiers(::windows::core::IUnknown);
@@ -3373,14 +3188,9 @@ unsafe impl ::windows::core::Interface for ISelectionItemPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISelectionItemPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct ISelectionItemPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISelectionItemPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3390,16 +3200,11 @@ unsafe impl ::windows::core::Interface for ISelectionItemPatternIdentifiersStati
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISelectionItemPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ISelectionItemPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub IsSelectedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectionContainerProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISelectionPatternIdentifiers(::windows::core::IUnknown);
@@ -3409,14 +3214,9 @@ unsafe impl ::windows::core::Interface for ISelectionPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISelectionPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct ISelectionPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISelectionPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3426,17 +3226,12 @@ unsafe impl ::windows::core::Interface for ISelectionPatternIdentifiersStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISelectionPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ISelectionPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub CanSelectMultipleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsSelectionRequiredProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISpreadsheetItemPatternIdentifiers(::windows::core::IUnknown);
@@ -3446,14 +3241,9 @@ unsafe impl ::windows::core::Interface for ISpreadsheetItemPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpreadsheetItemPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct ISpreadsheetItemPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISpreadsheetItemPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3463,15 +3253,10 @@ unsafe impl ::windows::core::Interface for ISpreadsheetItemPatternIdentifiersSta
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpreadsheetItemPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ISpreadsheetItemPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub FormulaProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStylesPatternIdentifiers(::windows::core::IUnknown);
@@ -3481,14 +3266,9 @@ unsafe impl ::windows::core::Interface for IStylesPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStylesPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IStylesPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStylesPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3498,21 +3278,16 @@ unsafe impl ::windows::core::Interface for IStylesPatternIdentifiersStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStylesPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IStylesPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub ExtendedPropertiesProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FillColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FillPatternColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FillPatternStyleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ShapeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub StyleIdProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub StyleNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITableItemPatternIdentifiers(::windows::core::IUnknown);
@@ -3522,14 +3297,9 @@ unsafe impl ::windows::core::Interface for ITableItemPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITableItemPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct ITableItemPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITableItemPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3539,16 +3309,11 @@ unsafe impl ::windows::core::Interface for ITableItemPatternIdentifiersStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITableItemPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ITableItemPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub ColumnHeaderItemsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub RowHeaderItemsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITablePatternIdentifiers(::windows::core::IUnknown);
@@ -3558,14 +3323,9 @@ unsafe impl ::windows::core::Interface for ITablePatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITablePatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct ITablePatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITablePatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3575,17 +3335,12 @@ unsafe impl ::windows::core::Interface for ITablePatternIdentifiersStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITablePatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ITablePatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub ColumnHeadersProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub RowHeadersProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub RowOrColumnMajorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITogglePatternIdentifiers(::windows::core::IUnknown);
@@ -3595,14 +3350,9 @@ unsafe impl ::windows::core::Interface for ITogglePatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITogglePatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct ITogglePatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITogglePatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3612,15 +3362,10 @@ unsafe impl ::windows::core::Interface for ITogglePatternIdentifiersStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITogglePatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ITogglePatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub ToggleStateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITransformPattern2Identifiers(::windows::core::IUnknown);
@@ -3630,14 +3375,9 @@ unsafe impl ::windows::core::Interface for ITransformPattern2Identifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITransformPattern2IdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct ITransformPattern2IdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITransformPattern2IdentifiersStatics(::windows::core::IUnknown);
@@ -3647,18 +3387,13 @@ unsafe impl ::windows::core::Interface for ITransformPattern2IdentifiersStatics 
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITransformPattern2IdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ITransformPattern2IdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub CanZoomProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ZoomLevelProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub MaxZoomProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub MinZoomProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITransformPatternIdentifiers(::windows::core::IUnknown);
@@ -3668,14 +3403,9 @@ unsafe impl ::windows::core::Interface for ITransformPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITransformPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct ITransformPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITransformPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3685,17 +3415,12 @@ unsafe impl ::windows::core::Interface for ITransformPatternIdentifiersStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITransformPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ITransformPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub CanMoveProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CanResizeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CanRotateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IValuePatternIdentifiers(::windows::core::IUnknown);
@@ -3705,14 +3430,9 @@ unsafe impl ::windows::core::Interface for IValuePatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IValuePatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IValuePatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IValuePatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3722,16 +3442,11 @@ unsafe impl ::windows::core::Interface for IValuePatternIdentifiersStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IValuePatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IValuePatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub IsReadOnlyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowPatternIdentifiers(::windows::core::IUnknown);
@@ -3741,14 +3456,9 @@ unsafe impl ::windows::core::Interface for IWindowPatternIdentifiers {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowPatternIdentifiersVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IWindowPatternIdentifiersVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowPatternIdentifiersStatics(::windows::core::IUnknown);
@@ -3758,20 +3468,15 @@ unsafe impl ::windows::core::Interface for IWindowPatternIdentifiersStatics {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowPatternIdentifiersStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IWindowPatternIdentifiersStaticsVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+    pub CanMaximizeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CanMinimizeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsModalProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsTopmostProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub WindowInteractionStateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub WindowVisualStateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct MultipleViewPatternIdentifiers(::windows::core::IUnknown);
@@ -3780,14 +3485,14 @@ impl MultipleViewPatternIdentifiers {
     pub fn CurrentViewProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IMultipleViewPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).CurrentViewProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SupportedViewsProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IMultipleViewPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).SupportedViewsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -3872,42 +3577,42 @@ impl RangeValuePatternIdentifiers {
     pub fn IsReadOnlyProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IRangeValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsReadOnlyProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn LargeChangeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IRangeValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).LargeChangeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn MaximumProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IRangeValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).MaximumProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn MinimumProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IRangeValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).MinimumProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SmallChangeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IRangeValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).SmallChangeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ValueProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IRangeValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ValueProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -4062,49 +3767,49 @@ impl ScrollPatternIdentifiers {
     pub fn HorizontallyScrollableProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).HorizontallyScrollableProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn HorizontalScrollPercentProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalScrollPercentProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn HorizontalViewSizeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalViewSizeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn NoScroll() -> ::windows::core::Result<f64> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).NoScroll)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn VerticallyScrollableProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).VerticallyScrollableProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn VerticalScrollPercentProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).VerticalScrollPercentProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn VerticalViewSizeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).VerticalViewSizeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -4189,14 +3894,14 @@ impl SelectionItemPatternIdentifiers {
     pub fn IsSelectedProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ISelectionItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsSelectedProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SelectionContainerProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ISelectionItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectionContainerProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -4281,21 +3986,21 @@ impl SelectionPatternIdentifiers {
     pub fn CanSelectMultipleProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ISelectionPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).CanSelectMultipleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsSelectionRequiredProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ISelectionPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsSelectionRequiredProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn SelectionProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ISelectionPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectionProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -4380,7 +4085,7 @@ impl SpreadsheetItemPatternIdentifiers {
     pub fn FormulaProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ISpreadsheetItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).FormulaProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -4465,49 +4170,49 @@ impl StylesPatternIdentifiers {
     pub fn ExtendedPropertiesProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedPropertiesProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn FillColorProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).FillColorProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn FillPatternColorProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).FillPatternColorProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn FillPatternStyleProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).FillPatternStyleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ShapeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ShapeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn StyleIdProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).StyleIdProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn StyleNameProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).StyleNameProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -4663,14 +4368,14 @@ impl TableItemPatternIdentifiers {
     pub fn ColumnHeaderItemsProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ITableItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ColumnHeaderItemsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn RowHeaderItemsProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ITableItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).RowHeaderItemsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -4755,21 +4460,21 @@ impl TablePatternIdentifiers {
     pub fn ColumnHeadersProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ITablePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ColumnHeadersProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn RowHeadersProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ITablePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).RowHeadersProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn RowOrColumnMajorProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ITablePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).RowOrColumnMajorProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -4854,7 +4559,7 @@ impl TogglePatternIdentifiers {
     pub fn ToggleStateProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ITogglePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ToggleStateProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -4973,28 +4678,28 @@ impl TransformPattern2Identifiers {
     pub fn CanZoomProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ITransformPattern2IdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).CanZoomProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ZoomLevelProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ITransformPattern2IdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ZoomLevelProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn MaxZoomProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ITransformPattern2IdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).MaxZoomProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn MinZoomProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ITransformPattern2IdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).MinZoomProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -5079,21 +4784,21 @@ impl TransformPatternIdentifiers {
     pub fn CanMoveProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ITransformPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).CanMoveProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn CanResizeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ITransformPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).CanResizeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn CanRotateProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::ITransformPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).CanRotateProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -5178,14 +4883,14 @@ impl ValuePatternIdentifiers {
     pub fn IsReadOnlyProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsReadOnlyProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn ValueProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).ValueProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -5306,42 +5011,42 @@ impl WindowPatternIdentifiers {
     pub fn CanMaximizeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IWindowPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).CanMaximizeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn CanMinimizeProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IWindowPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).CanMinimizeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsModalProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IWindowPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsModalProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn IsTopmostProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IWindowPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsTopmostProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn WindowInteractionStateProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IWindowPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).WindowInteractionStateProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Automation'*"]
     pub fn WindowVisualStateProperty() -> ::windows::core::Result<AutomationProperty> {
         Self::IWindowPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
+            (::windows::core::Interface::vtable(this).WindowVisualStateProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
     #[doc(hidden)]

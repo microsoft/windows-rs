@@ -76,22 +76,17 @@ impl IEndpointPairVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRemoteServiceName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEndpointPair>,
-            ::windows::core::GetTrustLevel,
-            LocalHostName::<Impl, IMPL_OFFSET>,
-            SetLocalHostName::<Impl, IMPL_OFFSET>,
-            LocalServiceName::<Impl, IMPL_OFFSET>,
-            SetLocalServiceName::<Impl, IMPL_OFFSET>,
-            RemoteHostName::<Impl, IMPL_OFFSET>,
-            SetRemoteHostName::<Impl, IMPL_OFFSET>,
-            RemoteServiceName::<Impl, IMPL_OFFSET>,
-            SetRemoteServiceName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEndpointPair, BASE_OFFSET>(),
+            LocalHostName: LocalHostName::<Impl, IMPL_OFFSET>,
+            SetLocalHostName: SetLocalHostName::<Impl, IMPL_OFFSET>,
+            LocalServiceName: LocalServiceName::<Impl, IMPL_OFFSET>,
+            SetLocalServiceName: SetLocalServiceName::<Impl, IMPL_OFFSET>,
+            RemoteHostName: RemoteHostName::<Impl, IMPL_OFFSET>,
+            SetRemoteHostName: SetRemoteHostName::<Impl, IMPL_OFFSET>,
+            RemoteServiceName: RemoteServiceName::<Impl, IMPL_OFFSET>,
+            SetRemoteServiceName: SetRemoteServiceName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEndpointPair as ::windows::core::Interface>::IID
@@ -124,7 +119,10 @@ impl IEndpointPairFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEndpointPairFactory>, ::windows::core::GetTrustLevel, CreateEndpointPair::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEndpointPairFactory, BASE_OFFSET>(),
+            CreateEndpointPair: CreateEndpointPair::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEndpointPairFactory as ::windows::core::Interface>::IID
@@ -212,7 +210,15 @@ impl IHostNameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHostName>, ::windows::core::GetTrustLevel, IPInformation::<Impl, IMPL_OFFSET>, RawName::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, CanonicalName::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>, IsEqual::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHostName, BASE_OFFSET>(),
+            IPInformation: IPInformation::<Impl, IMPL_OFFSET>,
+            RawName: RawName::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            CanonicalName: CanonicalName::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+            IsEqual: IsEqual::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHostName as ::windows::core::Interface>::IID
@@ -240,7 +246,7 @@ impl IHostNameFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHostNameFactory>, ::windows::core::GetTrustLevel, CreateHostName::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHostNameFactory, BASE_OFFSET>(), CreateHostName: CreateHostName::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHostNameFactory as ::windows::core::Interface>::IID
@@ -268,7 +274,7 @@ impl IHostNameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHostNameStatics>, ::windows::core::GetTrustLevel, Compare::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHostNameStatics, BASE_OFFSET>(), Compare: Compare::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHostNameStatics as ::windows::core::Interface>::IID

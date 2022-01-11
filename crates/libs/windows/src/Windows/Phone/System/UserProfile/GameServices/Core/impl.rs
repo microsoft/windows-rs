@@ -83,22 +83,17 @@ impl IGameServiceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PostResult(gamevariant, scorekind, scorevalue, gameoutcome, &*(&buffer as *const <super::super::super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGameService>,
-            ::windows::core::GetTrustLevel,
-            ServiceUri::<Impl, IMPL_OFFSET>,
-            GetGamerProfileAsync::<Impl, IMPL_OFFSET>,
-            GetInstalledGameItemsAsync::<Impl, IMPL_OFFSET>,
-            GetPartnerTokenAsync::<Impl, IMPL_OFFSET>,
-            GetPrivilegesAsync::<Impl, IMPL_OFFSET>,
-            GrantAchievement::<Impl, IMPL_OFFSET>,
-            GrantAvatarAward::<Impl, IMPL_OFFSET>,
-            PostResult::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameService, BASE_OFFSET>(),
+            ServiceUri: ServiceUri::<Impl, IMPL_OFFSET>,
+            GetGamerProfileAsync: GetGamerProfileAsync::<Impl, IMPL_OFFSET>,
+            GetInstalledGameItemsAsync: GetInstalledGameItemsAsync::<Impl, IMPL_OFFSET>,
+            GetPartnerTokenAsync: GetPartnerTokenAsync::<Impl, IMPL_OFFSET>,
+            GetPrivilegesAsync: GetPrivilegesAsync::<Impl, IMPL_OFFSET>,
+            GrantAchievement: GrantAchievement::<Impl, IMPL_OFFSET>,
+            GrantAvatarAward: GrantAvatarAward::<Impl, IMPL_OFFSET>,
+            PostResult: PostResult::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameService as ::windows::core::Interface>::IID
@@ -131,7 +126,11 @@ impl IGameService2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameService2>, ::windows::core::GetTrustLevel, NotifyPartnerTokenExpired::<Impl, IMPL_OFFSET>, GetAuthenticationStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameService2, BASE_OFFSET>(),
+            NotifyPartnerTokenExpired: NotifyPartnerTokenExpired::<Impl, IMPL_OFFSET>,
+            GetAuthenticationStatus: GetAuthenticationStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameService2 as ::windows::core::Interface>::IID
@@ -159,7 +158,10 @@ impl IGameServicePropertyCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameServicePropertyCollection>, ::windows::core::GetTrustLevel, GetPropertyAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameServicePropertyCollection, BASE_OFFSET>(),
+            GetPropertyAsync: GetPropertyAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameServicePropertyCollection as ::windows::core::Interface>::IID

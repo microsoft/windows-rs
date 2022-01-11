@@ -42,7 +42,13 @@ impl IVpnAppIdVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnAppId>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, SetType::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnAppId, BASE_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            SetType: SetType::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnAppId as ::windows::core::Interface>::IID
@@ -70,7 +76,7 @@ impl IVpnAppIdFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnAppIdFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnAppIdFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnAppIdFactory as ::windows::core::Interface>::IID
@@ -221,30 +227,25 @@ impl IVpnChannelVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowedSslTlsVersions(&*(&tunneltransport as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), usetls12).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVpnChannel>,
-            ::windows::core::GetTrustLevel,
-            AssociateTransport::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            RequestCredentials::<Impl, IMPL_OFFSET>,
-            RequestVpnPacketBuffer::<Impl, IMPL_OFFSET>,
-            LogDiagnosticMessage::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            Configuration::<Impl, IMPL_OFFSET>,
-            ActivityChange::<Impl, IMPL_OFFSET>,
-            RemoveActivityChange::<Impl, IMPL_OFFSET>,
-            SetPlugInContext::<Impl, IMPL_OFFSET>,
-            PlugInContext::<Impl, IMPL_OFFSET>,
-            SystemHealth::<Impl, IMPL_OFFSET>,
-            RequestCustomPrompt::<Impl, IMPL_OFFSET>,
-            SetErrorMessage::<Impl, IMPL_OFFSET>,
-            SetAllowedSslTlsVersions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnChannel, BASE_OFFSET>(),
+            AssociateTransport: AssociateTransport::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            RequestCredentials: RequestCredentials::<Impl, IMPL_OFFSET>,
+            RequestVpnPacketBuffer: RequestVpnPacketBuffer::<Impl, IMPL_OFFSET>,
+            LogDiagnosticMessage: LogDiagnosticMessage::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Configuration: Configuration::<Impl, IMPL_OFFSET>,
+            ActivityChange: ActivityChange::<Impl, IMPL_OFFSET>,
+            RemoveActivityChange: RemoveActivityChange::<Impl, IMPL_OFFSET>,
+            SetPlugInContext: SetPlugInContext::<Impl, IMPL_OFFSET>,
+            PlugInContext: PlugInContext::<Impl, IMPL_OFFSET>,
+            SystemHealth: SystemHealth::<Impl, IMPL_OFFSET>,
+            RequestCustomPrompt: RequestCustomPrompt::<Impl, IMPL_OFFSET>,
+            SetErrorMessage: SetErrorMessage::<Impl, IMPL_OFFSET>,
+            SetAllowedSslTlsVersions: SetAllowedSslTlsVersions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnChannel as ::windows::core::Interface>::IID
@@ -406,26 +407,21 @@ impl IVpnChannel2Vtbl {
                 )
                 .into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVpnChannel2>,
-            ::windows::core::GetTrustLevel,
-            StartWithMainTransport::<Impl, IMPL_OFFSET>,
-            StartExistingTransports::<Impl, IMPL_OFFSET>,
-            ActivityStateChange::<Impl, IMPL_OFFSET>,
-            RemoveActivityStateChange::<Impl, IMPL_OFFSET>,
-            GetVpnSendPacketBuffer::<Impl, IMPL_OFFSET>,
-            GetVpnReceivePacketBuffer::<Impl, IMPL_OFFSET>,
-            RequestCustomPromptAsync::<Impl, IMPL_OFFSET>,
-            RequestCredentialsWithCertificateAsync::<Impl, IMPL_OFFSET>,
-            RequestCredentialsWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            RequestCredentialsSimpleAsync::<Impl, IMPL_OFFSET>,
-            TerminateConnection::<Impl, IMPL_OFFSET>,
-            StartWithTrafficFilter::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnChannel2, BASE_OFFSET>(),
+            StartWithMainTransport: StartWithMainTransport::<Impl, IMPL_OFFSET>,
+            StartExistingTransports: StartExistingTransports::<Impl, IMPL_OFFSET>,
+            ActivityStateChange: ActivityStateChange::<Impl, IMPL_OFFSET>,
+            RemoveActivityStateChange: RemoveActivityStateChange::<Impl, IMPL_OFFSET>,
+            GetVpnSendPacketBuffer: GetVpnSendPacketBuffer::<Impl, IMPL_OFFSET>,
+            GetVpnReceivePacketBuffer: GetVpnReceivePacketBuffer::<Impl, IMPL_OFFSET>,
+            RequestCustomPromptAsync: RequestCustomPromptAsync::<Impl, IMPL_OFFSET>,
+            RequestCredentialsWithCertificateAsync: RequestCredentialsWithCertificateAsync::<Impl, IMPL_OFFSET>,
+            RequestCredentialsWithOptionsAsync: RequestCredentialsWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            RequestCredentialsSimpleAsync: RequestCredentialsSimpleAsync::<Impl, IMPL_OFFSET>,
+            TerminateConnection: TerminateConnection::<Impl, IMPL_OFFSET>,
+            StartWithTrafficFilter: StartWithTrafficFilter::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnChannel2 as ::windows::core::Interface>::IID
@@ -498,20 +494,15 @@ impl IVpnChannel4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVpnChannel4>,
-            ::windows::core::GetTrustLevel,
-            AddAndAssociateTransport::<Impl, IMPL_OFFSET>,
-            StartWithMultipleTransports::<Impl, IMPL_OFFSET>,
-            ReplaceAndAssociateTransport::<Impl, IMPL_OFFSET>,
-            StartReconnectingTransport::<Impl, IMPL_OFFSET>,
-            GetSlotTypeForTransportContext::<Impl, IMPL_OFFSET>,
-            CurrentRequestTransportContext::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnChannel4, BASE_OFFSET>(),
+            AddAndAssociateTransport: AddAndAssociateTransport::<Impl, IMPL_OFFSET>,
+            StartWithMultipleTransports: StartWithMultipleTransports::<Impl, IMPL_OFFSET>,
+            ReplaceAndAssociateTransport: ReplaceAndAssociateTransport::<Impl, IMPL_OFFSET>,
+            StartReconnectingTransport: StartReconnectingTransport::<Impl, IMPL_OFFSET>,
+            GetSlotTypeForTransportContext: GetSlotTypeForTransportContext::<Impl, IMPL_OFFSET>,
+            CurrentRequestTransportContext: CurrentRequestTransportContext::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnChannel4 as ::windows::core::Interface>::IID
@@ -547,7 +538,13 @@ impl IVpnChannel5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FlushVpnSendPacketBuffers().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannel5>, ::windows::core::GetTrustLevel, AppendVpnReceivePacketBuffer::<Impl, IMPL_OFFSET>, AppendVpnSendPacketBuffer::<Impl, IMPL_OFFSET>, FlushVpnReceivePacketBuffers::<Impl, IMPL_OFFSET>, FlushVpnSendPacketBuffers::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnChannel5, BASE_OFFSET>(),
+            AppendVpnReceivePacketBuffer: AppendVpnReceivePacketBuffer::<Impl, IMPL_OFFSET>,
+            AppendVpnSendPacketBuffer: AppendVpnSendPacketBuffer::<Impl, IMPL_OFFSET>,
+            FlushVpnReceivePacketBuffers: FlushVpnReceivePacketBuffers::<Impl, IMPL_OFFSET>,
+            FlushVpnSendPacketBuffers: FlushVpnSendPacketBuffers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnChannel5 as ::windows::core::Interface>::IID
@@ -575,7 +572,10 @@ impl IVpnChannel6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannel6>, ::windows::core::GetTrustLevel, ActivateForeground::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnChannel6, BASE_OFFSET>(),
+            ActivateForeground: ActivateForeground::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnChannel6 as ::windows::core::Interface>::IID
@@ -603,7 +603,7 @@ impl IVpnChannelActivityEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelActivityEventArgs>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnChannelActivityEventArgs, BASE_OFFSET>(), Type: Type::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnChannelActivityEventArgs as ::windows::core::Interface>::IID
@@ -631,7 +631,10 @@ impl IVpnChannelActivityStateChangedArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelActivityStateChangedArgs>, ::windows::core::GetTrustLevel, ActivityState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnChannelActivityStateChangedArgs, BASE_OFFSET>(),
+            ActivityState: ActivityState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnChannelActivityStateChangedArgs as ::windows::core::Interface>::IID
@@ -683,7 +686,12 @@ impl IVpnChannelConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelConfiguration>, ::windows::core::GetTrustLevel, ServerServiceName::<Impl, IMPL_OFFSET>, ServerHostNameList::<Impl, IMPL_OFFSET>, CustomField::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnChannelConfiguration, BASE_OFFSET>(),
+            ServerServiceName: ServerServiceName::<Impl, IMPL_OFFSET>,
+            ServerHostNameList: ServerHostNameList::<Impl, IMPL_OFFSET>,
+            CustomField: CustomField::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnChannelConfiguration as ::windows::core::Interface>::IID
@@ -711,7 +719,7 @@ impl IVpnChannelConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelConfiguration2>, ::windows::core::GetTrustLevel, ServerUris::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnChannelConfiguration2, BASE_OFFSET>(), ServerUris: ServerUris::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnChannelConfiguration2 as ::windows::core::Interface>::IID
@@ -729,7 +737,10 @@ impl IVpnChannelStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ProcessEventAsync(&*(&thirdpartyplugin as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&event as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelStatics>, ::windows::core::GetTrustLevel, ProcessEventAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnChannelStatics, BASE_OFFSET>(),
+            ProcessEventAsync: ProcessEventAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnChannelStatics as ::windows::core::Interface>::IID
@@ -793,7 +804,13 @@ impl IVpnCredentialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCredential>, ::windows::core::GetTrustLevel, PasskeyCredential::<Impl, IMPL_OFFSET>, CertificateCredential::<Impl, IMPL_OFFSET>, AdditionalPin::<Impl, IMPL_OFFSET>, OldPasswordCredential::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCredential, BASE_OFFSET>(),
+            PasskeyCredential: PasskeyCredential::<Impl, IMPL_OFFSET>,
+            CertificateCredential: CertificateCredential::<Impl, IMPL_OFFSET>,
+            AdditionalPin: AdditionalPin::<Impl, IMPL_OFFSET>,
+            OldPasswordCredential: OldPasswordCredential::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnCredential as ::windows::core::Interface>::IID
@@ -838,7 +855,12 @@ impl IVpnCustomCheckBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomCheckBox>, ::windows::core::GetTrustLevel, SetInitialCheckState::<Impl, IMPL_OFFSET>, InitialCheckState::<Impl, IMPL_OFFSET>, Checked::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomCheckBox, BASE_OFFSET>(),
+            SetInitialCheckState: SetInitialCheckState::<Impl, IMPL_OFFSET>,
+            InitialCheckState: InitialCheckState::<Impl, IMPL_OFFSET>,
+            Checked: Checked::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnCustomCheckBox as ::windows::core::Interface>::IID
@@ -883,7 +905,12 @@ impl IVpnCustomComboBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomComboBox>, ::windows::core::GetTrustLevel, SetOptionsText::<Impl, IMPL_OFFSET>, OptionsText::<Impl, IMPL_OFFSET>, Selected::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomComboBox, BASE_OFFSET>(),
+            SetOptionsText: SetOptionsText::<Impl, IMPL_OFFSET>,
+            OptionsText: OptionsText::<Impl, IMPL_OFFSET>,
+            Selected: Selected::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnCustomComboBox as ::windows::core::Interface>::IID
@@ -945,7 +972,14 @@ impl IVpnCustomEditBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomEditBox>, ::windows::core::GetTrustLevel, SetDefaultText::<Impl, IMPL_OFFSET>, DefaultText::<Impl, IMPL_OFFSET>, SetNoEcho::<Impl, IMPL_OFFSET>, NoEcho::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomEditBox, BASE_OFFSET>(),
+            SetDefaultText: SetDefaultText::<Impl, IMPL_OFFSET>,
+            DefaultText: DefaultText::<Impl, IMPL_OFFSET>,
+            SetNoEcho: SetNoEcho::<Impl, IMPL_OFFSET>,
+            NoEcho: NoEcho::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnCustomEditBox as ::windows::core::Interface>::IID
@@ -960,7 +994,7 @@ impl ::windows::core::RuntimeName for IVpnCustomErrorBox {
 #[cfg(feature = "implement_exclusive")]
 impl IVpnCustomErrorBoxVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomErrorBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomErrorBoxVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomErrorBox>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomErrorBox, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnCustomErrorBox as ::windows::core::Interface>::IID
@@ -1024,7 +1058,15 @@ impl IVpnCustomPromptVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPrompt>, ::windows::core::GetTrustLevel, SetLabel::<Impl, IMPL_OFFSET>, Label::<Impl, IMPL_OFFSET>, SetCompulsory::<Impl, IMPL_OFFSET>, Compulsory::<Impl, IMPL_OFFSET>, SetBordered::<Impl, IMPL_OFFSET>, Bordered::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomPrompt, BASE_OFFSET>(),
+            SetLabel: SetLabel::<Impl, IMPL_OFFSET>,
+            Label: Label::<Impl, IMPL_OFFSET>,
+            SetCompulsory: SetCompulsory::<Impl, IMPL_OFFSET>,
+            Compulsory: Compulsory::<Impl, IMPL_OFFSET>,
+            SetBordered: SetBordered::<Impl, IMPL_OFFSET>,
+            Bordered: Bordered::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnCustomPrompt as ::windows::core::Interface>::IID
@@ -1069,7 +1111,12 @@ impl IVpnCustomPromptBooleanInputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPromptBooleanInput>, ::windows::core::GetTrustLevel, SetInitialValue::<Impl, IMPL_OFFSET>, InitialValue::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomPromptBooleanInput, BASE_OFFSET>(),
+            SetInitialValue: SetInitialValue::<Impl, IMPL_OFFSET>,
+            InitialValue: InitialValue::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnCustomPromptBooleanInput as ::windows::core::Interface>::IID
@@ -1133,20 +1180,15 @@ impl IVpnCustomPromptElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVpnCustomPromptElement>,
-            ::windows::core::GetTrustLevel,
-            SetDisplayName::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            SetCompulsory::<Impl, IMPL_OFFSET>,
-            Compulsory::<Impl, IMPL_OFFSET>,
-            SetEmphasized::<Impl, IMPL_OFFSET>,
-            Emphasized::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomPromptElement, BASE_OFFSET>(),
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            SetCompulsory: SetCompulsory::<Impl, IMPL_OFFSET>,
+            Compulsory: Compulsory::<Impl, IMPL_OFFSET>,
+            SetEmphasized: SetEmphasized::<Impl, IMPL_OFFSET>,
+            Emphasized: Emphasized::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnCustomPromptElement as ::windows::core::Interface>::IID
@@ -1186,7 +1228,11 @@ impl IVpnCustomPromptOptionSelectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPromptOptionSelector>, ::windows::core::GetTrustLevel, Options::<Impl, IMPL_OFFSET>, SelectedIndex::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomPromptOptionSelector, BASE_OFFSET>(),
+            Options: Options::<Impl, IMPL_OFFSET>,
+            SelectedIndex: SelectedIndex::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnCustomPromptOptionSelector as ::windows::core::Interface>::IID
@@ -1219,7 +1265,11 @@ impl IVpnCustomPromptTextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPromptText>, ::windows::core::GetTrustLevel, SetText::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomPromptText, BASE_OFFSET>(),
+            SetText: SetText::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnCustomPromptText as ::windows::core::Interface>::IID
@@ -1281,7 +1331,14 @@ impl IVpnCustomPromptTextInputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPromptTextInput>, ::windows::core::GetTrustLevel, SetPlaceholderText::<Impl, IMPL_OFFSET>, PlaceholderText::<Impl, IMPL_OFFSET>, SetIsTextHidden::<Impl, IMPL_OFFSET>, IsTextHidden::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomPromptTextInput, BASE_OFFSET>(),
+            SetPlaceholderText: SetPlaceholderText::<Impl, IMPL_OFFSET>,
+            PlaceholderText: PlaceholderText::<Impl, IMPL_OFFSET>,
+            SetIsTextHidden: SetIsTextHidden::<Impl, IMPL_OFFSET>,
+            IsTextHidden: IsTextHidden::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnCustomPromptTextInput as ::windows::core::Interface>::IID
@@ -1314,7 +1371,11 @@ impl IVpnCustomTextBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomTextBox>, ::windows::core::GetTrustLevel, SetDisplayText::<Impl, IMPL_OFFSET>, DisplayText::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomTextBox, BASE_OFFSET>(),
+            SetDisplayText: SetDisplayText::<Impl, IMPL_OFFSET>,
+            DisplayText: DisplayText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnCustomTextBox as ::windows::core::Interface>::IID
@@ -1359,7 +1420,12 @@ impl IVpnDomainNameAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnDomainNameAssignment>, ::windows::core::GetTrustLevel, DomainNameList::<Impl, IMPL_OFFSET>, SetProxyAutoConfigurationUri::<Impl, IMPL_OFFSET>, ProxyAutoConfigurationUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnDomainNameAssignment, BASE_OFFSET>(),
+            DomainNameList: DomainNameList::<Impl, IMPL_OFFSET>,
+            SetProxyAutoConfigurationUri: SetProxyAutoConfigurationUri::<Impl, IMPL_OFFSET>,
+            ProxyAutoConfigurationUri: ProxyAutoConfigurationUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnDomainNameAssignment as ::windows::core::Interface>::IID
@@ -1433,20 +1499,15 @@ impl IVpnDomainNameInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVpnDomainNameInfo>,
-            ::windows::core::GetTrustLevel,
-            SetDomainName::<Impl, IMPL_OFFSET>,
-            DomainName::<Impl, IMPL_OFFSET>,
-            SetDomainNameType::<Impl, IMPL_OFFSET>,
-            DomainNameType::<Impl, IMPL_OFFSET>,
-            DnsServers::<Impl, IMPL_OFFSET>,
-            WebProxyServers::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnDomainNameInfo, BASE_OFFSET>(),
+            SetDomainName: SetDomainName::<Impl, IMPL_OFFSET>,
+            DomainName: DomainName::<Impl, IMPL_OFFSET>,
+            SetDomainNameType: SetDomainNameType::<Impl, IMPL_OFFSET>,
+            DomainNameType: DomainNameType::<Impl, IMPL_OFFSET>,
+            DnsServers: DnsServers::<Impl, IMPL_OFFSET>,
+            WebProxyServers: WebProxyServers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnDomainNameInfo as ::windows::core::Interface>::IID
@@ -1474,7 +1535,7 @@ impl IVpnDomainNameInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnDomainNameInfo2>, ::windows::core::GetTrustLevel, WebProxyUris::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnDomainNameInfo2, BASE_OFFSET>(), WebProxyUris: WebProxyUris::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnDomainNameInfo2 as ::windows::core::Interface>::IID
@@ -1507,7 +1568,10 @@ impl IVpnDomainNameInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnDomainNameInfoFactory>, ::windows::core::GetTrustLevel, CreateVpnDomainNameInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnDomainNameInfoFactory, BASE_OFFSET>(),
+            CreateVpnDomainNameInfo: CreateVpnDomainNameInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnDomainNameInfoFactory as ::windows::core::Interface>::IID
@@ -1559,7 +1623,12 @@ impl IVpnForegroundActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnForegroundActivatedEventArgs>, ::windows::core::GetTrustLevel, ProfileName::<Impl, IMPL_OFFSET>, SharedContext::<Impl, IMPL_OFFSET>, ActivationOperation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnForegroundActivatedEventArgs, BASE_OFFSET>(),
+            ProfileName: ProfileName::<Impl, IMPL_OFFSET>,
+            SharedContext: SharedContext::<Impl, IMPL_OFFSET>,
+            ActivationOperation: ActivationOperation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnForegroundActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1580,7 +1649,10 @@ impl IVpnForegroundActivationOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete(&*(&result as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnForegroundActivationOperation>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnForegroundActivationOperation, BASE_OFFSET>(),
+            Complete: Complete::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnForegroundActivationOperation as ::windows::core::Interface>::IID
@@ -1601,7 +1673,7 @@ impl IVpnInterfaceIdVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetAddressInfo(::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&id), id_array_size).as_array()).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnInterfaceId>, ::windows::core::GetTrustLevel, GetAddressInfo::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnInterfaceId, BASE_OFFSET>(), GetAddressInfo: GetAddressInfo::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnInterfaceId as ::windows::core::Interface>::IID
@@ -1626,7 +1698,10 @@ impl IVpnInterfaceIdFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnInterfaceIdFactory>, ::windows::core::GetTrustLevel, CreateVpnInterfaceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnInterfaceIdFactory, BASE_OFFSET>(),
+            CreateVpnInterfaceId: CreateVpnInterfaceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnInterfaceIdFactory as ::windows::core::Interface>::IID
@@ -1750,23 +1825,18 @@ impl IVpnManagementAgentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVpnManagementAgent>,
-            ::windows::core::GetTrustLevel,
-            AddProfileFromXmlAsync::<Impl, IMPL_OFFSET>,
-            AddProfileFromObjectAsync::<Impl, IMPL_OFFSET>,
-            UpdateProfileFromXmlAsync::<Impl, IMPL_OFFSET>,
-            UpdateProfileFromObjectAsync::<Impl, IMPL_OFFSET>,
-            GetProfilesAsync::<Impl, IMPL_OFFSET>,
-            DeleteProfileAsync::<Impl, IMPL_OFFSET>,
-            ConnectProfileAsync::<Impl, IMPL_OFFSET>,
-            ConnectProfileWithPasswordCredentialAsync::<Impl, IMPL_OFFSET>,
-            DisconnectProfileAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnManagementAgent, BASE_OFFSET>(),
+            AddProfileFromXmlAsync: AddProfileFromXmlAsync::<Impl, IMPL_OFFSET>,
+            AddProfileFromObjectAsync: AddProfileFromObjectAsync::<Impl, IMPL_OFFSET>,
+            UpdateProfileFromXmlAsync: UpdateProfileFromXmlAsync::<Impl, IMPL_OFFSET>,
+            UpdateProfileFromObjectAsync: UpdateProfileFromObjectAsync::<Impl, IMPL_OFFSET>,
+            GetProfilesAsync: GetProfilesAsync::<Impl, IMPL_OFFSET>,
+            DeleteProfileAsync: DeleteProfileAsync::<Impl, IMPL_OFFSET>,
+            ConnectProfileAsync: ConnectProfileAsync::<Impl, IMPL_OFFSET>,
+            ConnectProfileWithPasswordCredentialAsync: ConnectProfileWithPasswordCredentialAsync::<Impl, IMPL_OFFSET>,
+            DisconnectProfileAsync: DisconnectProfileAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnManagementAgent as ::windows::core::Interface>::IID
@@ -1816,7 +1886,13 @@ impl IVpnNamespaceAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnNamespaceAssignment>, ::windows::core::GetTrustLevel, SetNamespaceList::<Impl, IMPL_OFFSET>, NamespaceList::<Impl, IMPL_OFFSET>, SetProxyAutoConfigUri::<Impl, IMPL_OFFSET>, ProxyAutoConfigUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnNamespaceAssignment, BASE_OFFSET>(),
+            SetNamespaceList: SetNamespaceList::<Impl, IMPL_OFFSET>,
+            NamespaceList: NamespaceList::<Impl, IMPL_OFFSET>,
+            SetProxyAutoConfigUri: SetProxyAutoConfigUri::<Impl, IMPL_OFFSET>,
+            ProxyAutoConfigUri: ProxyAutoConfigUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnNamespaceAssignment as ::windows::core::Interface>::IID
@@ -1883,20 +1959,15 @@ impl IVpnNamespaceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVpnNamespaceInfo>,
-            ::windows::core::GetTrustLevel,
-            SetNamespace::<Impl, IMPL_OFFSET>,
-            Namespace::<Impl, IMPL_OFFSET>,
-            SetDnsServers::<Impl, IMPL_OFFSET>,
-            DnsServers::<Impl, IMPL_OFFSET>,
-            SetWebProxyServers::<Impl, IMPL_OFFSET>,
-            WebProxyServers::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnNamespaceInfo, BASE_OFFSET>(),
+            SetNamespace: SetNamespace::<Impl, IMPL_OFFSET>,
+            Namespace: Namespace::<Impl, IMPL_OFFSET>,
+            SetDnsServers: SetDnsServers::<Impl, IMPL_OFFSET>,
+            DnsServers: DnsServers::<Impl, IMPL_OFFSET>,
+            SetWebProxyServers: SetWebProxyServers::<Impl, IMPL_OFFSET>,
+            WebProxyServers: WebProxyServers::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnNamespaceInfo as ::windows::core::Interface>::IID
@@ -1928,7 +1999,10 @@ impl IVpnNamespaceInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnNamespaceInfoFactory>, ::windows::core::GetTrustLevel, CreateVpnNamespaceInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnNamespaceInfoFactory, BASE_OFFSET>(),
+            CreateVpnNamespaceInfo: CreateVpnNamespaceInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnNamespaceInfoFactory as ::windows::core::Interface>::IID
@@ -2041,25 +2115,20 @@ impl IVpnNativeProfileVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEapConfiguration(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVpnNativeProfile>,
-            ::windows::core::GetTrustLevel,
-            Servers::<Impl, IMPL_OFFSET>,
-            RoutingPolicyType::<Impl, IMPL_OFFSET>,
-            SetRoutingPolicyType::<Impl, IMPL_OFFSET>,
-            NativeProtocolType::<Impl, IMPL_OFFSET>,
-            SetNativeProtocolType::<Impl, IMPL_OFFSET>,
-            UserAuthenticationMethod::<Impl, IMPL_OFFSET>,
-            SetUserAuthenticationMethod::<Impl, IMPL_OFFSET>,
-            TunnelAuthenticationMethod::<Impl, IMPL_OFFSET>,
-            SetTunnelAuthenticationMethod::<Impl, IMPL_OFFSET>,
-            EapConfiguration::<Impl, IMPL_OFFSET>,
-            SetEapConfiguration::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnNativeProfile, BASE_OFFSET>(),
+            Servers: Servers::<Impl, IMPL_OFFSET>,
+            RoutingPolicyType: RoutingPolicyType::<Impl, IMPL_OFFSET>,
+            SetRoutingPolicyType: SetRoutingPolicyType::<Impl, IMPL_OFFSET>,
+            NativeProtocolType: NativeProtocolType::<Impl, IMPL_OFFSET>,
+            SetNativeProtocolType: SetNativeProtocolType::<Impl, IMPL_OFFSET>,
+            UserAuthenticationMethod: UserAuthenticationMethod::<Impl, IMPL_OFFSET>,
+            SetUserAuthenticationMethod: SetUserAuthenticationMethod::<Impl, IMPL_OFFSET>,
+            TunnelAuthenticationMethod: TunnelAuthenticationMethod::<Impl, IMPL_OFFSET>,
+            SetTunnelAuthenticationMethod: SetTunnelAuthenticationMethod::<Impl, IMPL_OFFSET>,
+            EapConfiguration: EapConfiguration::<Impl, IMPL_OFFSET>,
+            SetEapConfiguration: SetEapConfiguration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnNativeProfile as ::windows::core::Interface>::IID
@@ -2104,7 +2173,12 @@ impl IVpnNativeProfile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnNativeProfile2>, ::windows::core::GetTrustLevel, RequireVpnClientAppUI::<Impl, IMPL_OFFSET>, SetRequireVpnClientAppUI::<Impl, IMPL_OFFSET>, ConnectionStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnNativeProfile2, BASE_OFFSET>(),
+            RequireVpnClientAppUI: RequireVpnClientAppUI::<Impl, IMPL_OFFSET>,
+            SetRequireVpnClientAppUI: SetRequireVpnClientAppUI::<Impl, IMPL_OFFSET>,
+            ConnectionStatus: ConnectionStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnNativeProfile2 as ::windows::core::Interface>::IID
@@ -2166,7 +2240,14 @@ impl IVpnPacketBufferVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBuffer>, ::windows::core::GetTrustLevel, Buffer::<Impl, IMPL_OFFSET>, SetStatus::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, SetTransportAffinity::<Impl, IMPL_OFFSET>, TransportAffinity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPacketBuffer, BASE_OFFSET>(),
+            Buffer: Buffer::<Impl, IMPL_OFFSET>,
+            SetStatus: SetStatus::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            SetTransportAffinity: SetTransportAffinity::<Impl, IMPL_OFFSET>,
+            TransportAffinity: TransportAffinity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnPacketBuffer as ::windows::core::Interface>::IID
@@ -2194,7 +2275,7 @@ impl IVpnPacketBuffer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBuffer2>, ::windows::core::GetTrustLevel, AppId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPacketBuffer2, BASE_OFFSET>(), AppId: AppId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnPacketBuffer2 as ::windows::core::Interface>::IID
@@ -2227,7 +2308,11 @@ impl IVpnPacketBuffer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBuffer3>, ::windows::core::GetTrustLevel, SetTransportContext::<Impl, IMPL_OFFSET>, TransportContext::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPacketBuffer3, BASE_OFFSET>(),
+            SetTransportContext: SetTransportContext::<Impl, IMPL_OFFSET>,
+            TransportContext: TransportContext::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnPacketBuffer3 as ::windows::core::Interface>::IID
@@ -2252,7 +2337,10 @@ impl IVpnPacketBufferFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBufferFactory>, ::windows::core::GetTrustLevel, CreateVpnPacketBuffer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPacketBufferFactory, BASE_OFFSET>(),
+            CreateVpnPacketBuffer: CreateVpnPacketBuffer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnPacketBufferFactory as ::windows::core::Interface>::IID
@@ -2336,22 +2424,17 @@ impl IVpnPacketBufferListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVpnPacketBufferList>,
-            ::windows::core::GetTrustLevel,
-            Append::<Impl, IMPL_OFFSET>,
-            AddAtBegin::<Impl, IMPL_OFFSET>,
-            RemoveAtEnd::<Impl, IMPL_OFFSET>,
-            RemoveAtBegin::<Impl, IMPL_OFFSET>,
-            Clear::<Impl, IMPL_OFFSET>,
-            SetStatus::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Size::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPacketBufferList, BASE_OFFSET>(),
+            Append: Append::<Impl, IMPL_OFFSET>,
+            AddAtBegin: AddAtBegin::<Impl, IMPL_OFFSET>,
+            RemoveAtEnd: RemoveAtEnd::<Impl, IMPL_OFFSET>,
+            RemoveAtBegin: RemoveAtBegin::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+            SetStatus: SetStatus::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Size: Size::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnPacketBufferList as ::windows::core::Interface>::IID
@@ -2401,7 +2484,13 @@ impl IVpnPacketBufferList2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBufferList2>, ::windows::core::GetTrustLevel, AddLeadingPacket::<Impl, IMPL_OFFSET>, RemoveLeadingPacket::<Impl, IMPL_OFFSET>, AddTrailingPacket::<Impl, IMPL_OFFSET>, RemoveTrailingPacket::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPacketBufferList2, BASE_OFFSET>(),
+            AddLeadingPacket: AddLeadingPacket::<Impl, IMPL_OFFSET>,
+            RemoveLeadingPacket: RemoveLeadingPacket::<Impl, IMPL_OFFSET>,
+            AddTrailingPacket: AddTrailingPacket::<Impl, IMPL_OFFSET>,
+            RemoveTrailingPacket: RemoveTrailingPacket::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnPacketBufferList2 as ::windows::core::Interface>::IID
@@ -2453,7 +2542,12 @@ impl IVpnPickedCredentialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPickedCredential>, ::windows::core::GetTrustLevel, PasskeyCredential::<Impl, IMPL_OFFSET>, AdditionalPin::<Impl, IMPL_OFFSET>, OldPasswordCredential::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPickedCredential, BASE_OFFSET>(),
+            PasskeyCredential: PasskeyCredential::<Impl, IMPL_OFFSET>,
+            AdditionalPin: AdditionalPin::<Impl, IMPL_OFFSET>,
+            OldPasswordCredential: OldPasswordCredential::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnPickedCredential as ::windows::core::Interface>::IID
@@ -2498,7 +2592,14 @@ impl IVpnPlugInVtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPlugIn>, ::windows::core::GetTrustLevel, Connect::<Impl, IMPL_OFFSET>, Disconnect::<Impl, IMPL_OFFSET>, GetKeepAlivePayload::<Impl, IMPL_OFFSET>, Encapsulate::<Impl, IMPL_OFFSET>, Decapsulate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPlugIn, BASE_OFFSET>(),
+            Connect: Connect::<Impl, IMPL_OFFSET>,
+            Disconnect: Disconnect::<Impl, IMPL_OFFSET>,
+            GetKeepAlivePayload: GetKeepAlivePayload::<Impl, IMPL_OFFSET>,
+            Encapsulate: Encapsulate::<Impl, IMPL_OFFSET>,
+            Decapsulate: Decapsulate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnPlugIn as ::windows::core::Interface>::IID
@@ -2560,19 +2661,14 @@ impl IVpnPlugInProfileVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVpnPluginPackageFamilyName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVpnPlugInProfile>,
-            ::windows::core::GetTrustLevel,
-            ServerUris::<Impl, IMPL_OFFSET>,
-            CustomConfiguration::<Impl, IMPL_OFFSET>,
-            SetCustomConfiguration::<Impl, IMPL_OFFSET>,
-            VpnPluginPackageFamilyName::<Impl, IMPL_OFFSET>,
-            SetVpnPluginPackageFamilyName::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPlugInProfile, BASE_OFFSET>(),
+            ServerUris: ServerUris::<Impl, IMPL_OFFSET>,
+            CustomConfiguration: CustomConfiguration::<Impl, IMPL_OFFSET>,
+            SetCustomConfiguration: SetCustomConfiguration::<Impl, IMPL_OFFSET>,
+            VpnPluginPackageFamilyName: VpnPluginPackageFamilyName::<Impl, IMPL_OFFSET>,
+            SetVpnPluginPackageFamilyName: SetVpnPluginPackageFamilyName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnPlugInProfile as ::windows::core::Interface>::IID
@@ -2617,7 +2713,12 @@ impl IVpnPlugInProfile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPlugInProfile2>, ::windows::core::GetTrustLevel, RequireVpnClientAppUI::<Impl, IMPL_OFFSET>, SetRequireVpnClientAppUI::<Impl, IMPL_OFFSET>, ConnectionStatus::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPlugInProfile2, BASE_OFFSET>(),
+            RequireVpnClientAppUI: RequireVpnClientAppUI::<Impl, IMPL_OFFSET>,
+            SetRequireVpnClientAppUI: SetRequireVpnClientAppUI::<Impl, IMPL_OFFSET>,
+            ConnectionStatus: ConnectionStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnPlugInProfile2 as ::windows::core::Interface>::IID
@@ -2732,24 +2833,19 @@ impl IVpnProfileVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAlwaysOn(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVpnProfile>,
-            ::windows::core::GetTrustLevel,
-            ProfileName::<Impl, IMPL_OFFSET>,
-            SetProfileName::<Impl, IMPL_OFFSET>,
-            AppTriggers::<Impl, IMPL_OFFSET>,
-            Routes::<Impl, IMPL_OFFSET>,
-            DomainNameInfoList::<Impl, IMPL_OFFSET>,
-            TrafficFilters::<Impl, IMPL_OFFSET>,
-            RememberCredentials::<Impl, IMPL_OFFSET>,
-            SetRememberCredentials::<Impl, IMPL_OFFSET>,
-            AlwaysOn::<Impl, IMPL_OFFSET>,
-            SetAlwaysOn::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnProfile, BASE_OFFSET>(),
+            ProfileName: ProfileName::<Impl, IMPL_OFFSET>,
+            SetProfileName: SetProfileName::<Impl, IMPL_OFFSET>,
+            AppTriggers: AppTriggers::<Impl, IMPL_OFFSET>,
+            Routes: Routes::<Impl, IMPL_OFFSET>,
+            DomainNameInfoList: DomainNameInfoList::<Impl, IMPL_OFFSET>,
+            TrafficFilters: TrafficFilters::<Impl, IMPL_OFFSET>,
+            RememberCredentials: RememberCredentials::<Impl, IMPL_OFFSET>,
+            SetRememberCredentials: SetRememberCredentials::<Impl, IMPL_OFFSET>,
+            AlwaysOn: AlwaysOn::<Impl, IMPL_OFFSET>,
+            SetAlwaysOn: SetAlwaysOn::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnProfile as ::windows::core::Interface>::IID
@@ -2799,7 +2895,13 @@ impl IVpnRouteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnRoute>, ::windows::core::GetTrustLevel, SetAddress::<Impl, IMPL_OFFSET>, Address::<Impl, IMPL_OFFSET>, SetPrefixSize::<Impl, IMPL_OFFSET>, PrefixSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnRoute, BASE_OFFSET>(),
+            SetAddress: SetAddress::<Impl, IMPL_OFFSET>,
+            Address: Address::<Impl, IMPL_OFFSET>,
+            SetPrefixSize: SetPrefixSize::<Impl, IMPL_OFFSET>,
+            PrefixSize: PrefixSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnRoute as ::windows::core::Interface>::IID
@@ -2900,24 +3002,19 @@ impl IVpnRouteAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVpnRouteAssignment>,
-            ::windows::core::GetTrustLevel,
-            SetIpv4InclusionRoutes::<Impl, IMPL_OFFSET>,
-            SetIpv6InclusionRoutes::<Impl, IMPL_OFFSET>,
-            Ipv4InclusionRoutes::<Impl, IMPL_OFFSET>,
-            Ipv6InclusionRoutes::<Impl, IMPL_OFFSET>,
-            SetIpv4ExclusionRoutes::<Impl, IMPL_OFFSET>,
-            SetIpv6ExclusionRoutes::<Impl, IMPL_OFFSET>,
-            Ipv4ExclusionRoutes::<Impl, IMPL_OFFSET>,
-            Ipv6ExclusionRoutes::<Impl, IMPL_OFFSET>,
-            SetExcludeLocalSubnets::<Impl, IMPL_OFFSET>,
-            ExcludeLocalSubnets::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnRouteAssignment, BASE_OFFSET>(),
+            SetIpv4InclusionRoutes: SetIpv4InclusionRoutes::<Impl, IMPL_OFFSET>,
+            SetIpv6InclusionRoutes: SetIpv6InclusionRoutes::<Impl, IMPL_OFFSET>,
+            Ipv4InclusionRoutes: Ipv4InclusionRoutes::<Impl, IMPL_OFFSET>,
+            Ipv6InclusionRoutes: Ipv6InclusionRoutes::<Impl, IMPL_OFFSET>,
+            SetIpv4ExclusionRoutes: SetIpv4ExclusionRoutes::<Impl, IMPL_OFFSET>,
+            SetIpv6ExclusionRoutes: SetIpv6ExclusionRoutes::<Impl, IMPL_OFFSET>,
+            Ipv4ExclusionRoutes: Ipv4ExclusionRoutes::<Impl, IMPL_OFFSET>,
+            Ipv6ExclusionRoutes: Ipv6ExclusionRoutes::<Impl, IMPL_OFFSET>,
+            SetExcludeLocalSubnets: SetExcludeLocalSubnets::<Impl, IMPL_OFFSET>,
+            ExcludeLocalSubnets: ExcludeLocalSubnets::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnRouteAssignment as ::windows::core::Interface>::IID
@@ -2942,7 +3039,7 @@ impl IVpnRouteFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnRouteFactory>, ::windows::core::GetTrustLevel, CreateVpnRoute::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnRouteFactory, BASE_OFFSET>(), CreateVpnRoute: CreateVpnRoute::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnRouteFactory as ::windows::core::Interface>::IID
@@ -2970,7 +3067,10 @@ impl IVpnSystemHealthVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnSystemHealth>, ::windows::core::GetTrustLevel, StatementOfHealth::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnSystemHealth, BASE_OFFSET>(),
+            StatementOfHealth: StatementOfHealth::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnSystemHealth as ::windows::core::Interface>::IID
@@ -3097,25 +3197,20 @@ impl IVpnTrafficFilterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRoutingPolicyType(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVpnTrafficFilter>,
-            ::windows::core::GetTrustLevel,
-            AppId::<Impl, IMPL_OFFSET>,
-            SetAppId::<Impl, IMPL_OFFSET>,
-            AppClaims::<Impl, IMPL_OFFSET>,
-            Protocol::<Impl, IMPL_OFFSET>,
-            SetProtocol::<Impl, IMPL_OFFSET>,
-            LocalPortRanges::<Impl, IMPL_OFFSET>,
-            RemotePortRanges::<Impl, IMPL_OFFSET>,
-            LocalAddressRanges::<Impl, IMPL_OFFSET>,
-            RemoteAddressRanges::<Impl, IMPL_OFFSET>,
-            RoutingPolicyType::<Impl, IMPL_OFFSET>,
-            SetRoutingPolicyType::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnTrafficFilter, BASE_OFFSET>(),
+            AppId: AppId::<Impl, IMPL_OFFSET>,
+            SetAppId: SetAppId::<Impl, IMPL_OFFSET>,
+            AppClaims: AppClaims::<Impl, IMPL_OFFSET>,
+            Protocol: Protocol::<Impl, IMPL_OFFSET>,
+            SetProtocol: SetProtocol::<Impl, IMPL_OFFSET>,
+            LocalPortRanges: LocalPortRanges::<Impl, IMPL_OFFSET>,
+            RemotePortRanges: RemotePortRanges::<Impl, IMPL_OFFSET>,
+            LocalAddressRanges: LocalAddressRanges::<Impl, IMPL_OFFSET>,
+            RemoteAddressRanges: RemoteAddressRanges::<Impl, IMPL_OFFSET>,
+            RoutingPolicyType: RoutingPolicyType::<Impl, IMPL_OFFSET>,
+            SetRoutingPolicyType: SetRoutingPolicyType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnTrafficFilter as ::windows::core::Interface>::IID
@@ -3177,7 +3272,14 @@ impl IVpnTrafficFilterAssignmentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowInbound(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnTrafficFilterAssignment>, ::windows::core::GetTrustLevel, TrafficFilterList::<Impl, IMPL_OFFSET>, AllowOutbound::<Impl, IMPL_OFFSET>, SetAllowOutbound::<Impl, IMPL_OFFSET>, AllowInbound::<Impl, IMPL_OFFSET>, SetAllowInbound::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnTrafficFilterAssignment, BASE_OFFSET>(),
+            TrafficFilterList: TrafficFilterList::<Impl, IMPL_OFFSET>,
+            AllowOutbound: AllowOutbound::<Impl, IMPL_OFFSET>,
+            SetAllowOutbound: SetAllowOutbound::<Impl, IMPL_OFFSET>,
+            AllowInbound: AllowInbound::<Impl, IMPL_OFFSET>,
+            SetAllowInbound: SetAllowInbound::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnTrafficFilterAssignment as ::windows::core::Interface>::IID
@@ -3205,7 +3307,7 @@ impl IVpnTrafficFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnTrafficFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnTrafficFilterFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnTrafficFilterFactory as ::windows::core::Interface>::IID

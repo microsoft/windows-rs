@@ -68,7 +68,14 @@ impl IAutomationRemoteOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationRemoteOperationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, ErrorLocation::<Impl, IMPL_OFFSET>, HasOperand::<Impl, IMPL_OFFSET>, GetOperand::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationRemoteOperationResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ExtendedError: ExtendedError::<Impl, IMPL_OFFSET>,
+            ErrorLocation: ErrorLocation::<Impl, IMPL_OFFSET>,
+            HasOperand: HasOperand::<Impl, IMPL_OFFSET>,
+            GetOperand: GetOperand::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomationRemoteOperationResult as ::windows::core::Interface>::IID
@@ -93,7 +100,10 @@ impl ICoreAutomationConnectionBoundObjectProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreAutomationConnectionBoundObjectProvider>, ::windows::core::GetTrustLevel, IsComThreadingRequired::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAutomationConnectionBoundObjectProvider, BASE_OFFSET>(),
+            IsComThreadingRequired: IsComThreadingRequired::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreAutomationConnectionBoundObjectProvider as ::windows::core::Interface>::IID
@@ -126,7 +136,11 @@ impl ICoreAutomationRegistrarStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnregisterAnnotationType(&*(&registration as *const <AutomationAnnotationTypeRegistration as ::windows::core::Abi>::Abi as *const <AutomationAnnotationTypeRegistration as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreAutomationRegistrarStatics>, ::windows::core::GetTrustLevel, RegisterAnnotationType::<Impl, IMPL_OFFSET>, UnregisterAnnotationType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAutomationRegistrarStatics, BASE_OFFSET>(),
+            RegisterAnnotationType: RegisterAnnotationType::<Impl, IMPL_OFFSET>,
+            UnregisterAnnotationType: UnregisterAnnotationType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreAutomationRegistrarStatics as ::windows::core::Interface>::IID
@@ -181,7 +195,14 @@ impl ICoreAutomationRemoteOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreAutomationRemoteOperation>, ::windows::core::GetTrustLevel, IsOpcodeSupported::<Impl, IMPL_OFFSET>, ImportElement::<Impl, IMPL_OFFSET>, ImportTextRange::<Impl, IMPL_OFFSET>, AddToResults::<Impl, IMPL_OFFSET>, Execute::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAutomationRemoteOperation, BASE_OFFSET>(),
+            IsOpcodeSupported: IsOpcodeSupported::<Impl, IMPL_OFFSET>,
+            ImportElement: ImportElement::<Impl, IMPL_OFFSET>,
+            ImportTextRange: ImportTextRange::<Impl, IMPL_OFFSET>,
+            AddToResults: AddToResults::<Impl, IMPL_OFFSET>,
+            Execute: Execute::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreAutomationRemoteOperation as ::windows::core::Interface>::IID
@@ -202,7 +223,10 @@ impl ICoreAutomationRemoteOperation2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ImportConnectionBoundObject(&*(&operandid as *const <AutomationRemoteOperationOperandId as ::windows::core::Abi>::Abi as *const <AutomationRemoteOperationOperandId as ::windows::core::DefaultType>::DefaultType), &*(&connectionboundobject as *const <super::AutomationConnectionBoundObject as ::windows::core::Abi>::Abi as *const <super::AutomationConnectionBoundObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreAutomationRemoteOperation2>, ::windows::core::GetTrustLevel, ImportConnectionBoundObject::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAutomationRemoteOperation2, BASE_OFFSET>(),
+            ImportConnectionBoundObject: ImportConnectionBoundObject::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreAutomationRemoteOperation2 as ::windows::core::Interface>::IID
@@ -246,7 +270,12 @@ impl ICoreAutomationRemoteOperationContextVtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreAutomationRemoteOperationContext>, ::windows::core::GetTrustLevel, GetOperand::<Impl, IMPL_OFFSET>, SetOperand::<Impl, IMPL_OFFSET>, SetOperand2::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAutomationRemoteOperationContext, BASE_OFFSET>(),
+            GetOperand: GetOperand::<Impl, IMPL_OFFSET>,
+            SetOperand: SetOperand::<Impl, IMPL_OFFSET>,
+            SetOperand2: SetOperand2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreAutomationRemoteOperationContext as ::windows::core::Interface>::IID
@@ -276,7 +305,11 @@ impl ICoreAutomationRemoteOperationExtensionProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreAutomationRemoteOperationExtensionProvider>, ::windows::core::GetTrustLevel, CallExtension::<Impl, IMPL_OFFSET>, IsExtensionSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAutomationRemoteOperationExtensionProvider, BASE_OFFSET>(),
+            CallExtension: CallExtension::<Impl, IMPL_OFFSET>,
+            IsExtensionSupported: IsExtensionSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreAutomationRemoteOperationExtensionProvider as ::windows::core::Interface>::IID
@@ -360,22 +393,17 @@ impl IRemoteAutomationClientSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDisconnected(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRemoteAutomationClientSession>,
-            ::windows::core::GetTrustLevel,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            CreateWindowAsync::<Impl, IMPL_OFFSET>,
-            SessionId::<Impl, IMPL_OFFSET>,
-            ConnectionRequested::<Impl, IMPL_OFFSET>,
-            RemoveConnectionRequested::<Impl, IMPL_OFFSET>,
-            Disconnected::<Impl, IMPL_OFFSET>,
-            RemoveDisconnected::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteAutomationClientSession, BASE_OFFSET>(),
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            CreateWindowAsync: CreateWindowAsync::<Impl, IMPL_OFFSET>,
+            SessionId: SessionId::<Impl, IMPL_OFFSET>,
+            ConnectionRequested: ConnectionRequested::<Impl, IMPL_OFFSET>,
+            RemoveConnectionRequested: RemoveConnectionRequested::<Impl, IMPL_OFFSET>,
+            Disconnected: Disconnected::<Impl, IMPL_OFFSET>,
+            RemoveDisconnected: RemoveDisconnected::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteAutomationClientSession as ::windows::core::Interface>::IID
@@ -415,7 +443,11 @@ impl IRemoteAutomationClientSessionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteAutomationClientSessionFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>, CreateInstance2::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteAutomationClientSessionFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+            CreateInstance2: CreateInstance2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteAutomationClientSessionFactory as ::windows::core::Interface>::IID
@@ -455,7 +487,11 @@ impl IRemoteAutomationConnectionRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteAutomationConnectionRequestedEventArgs>, ::windows::core::GetTrustLevel, LocalPipeName::<Impl, IMPL_OFFSET>, RemoteProcessId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteAutomationConnectionRequestedEventArgs, BASE_OFFSET>(),
+            LocalPipeName: LocalPipeName::<Impl, IMPL_OFFSET>,
+            RemoteProcessId: RemoteProcessId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteAutomationConnectionRequestedEventArgs as ::windows::core::Interface>::IID
@@ -483,7 +519,10 @@ impl IRemoteAutomationDisconnectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteAutomationDisconnectedEventArgs>, ::windows::core::GetTrustLevel, LocalPipeName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteAutomationDisconnectedEventArgs, BASE_OFFSET>(),
+            LocalPipeName: LocalPipeName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteAutomationDisconnectedEventArgs as ::windows::core::Interface>::IID
@@ -504,7 +543,10 @@ impl IRemoteAutomationServerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportSession(&*(&sessionid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteAutomationServerStatics>, ::windows::core::GetTrustLevel, ReportSession::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteAutomationServerStatics, BASE_OFFSET>(),
+            ReportSession: ReportSession::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteAutomationServerStatics as ::windows::core::Interface>::IID
@@ -544,7 +586,11 @@ impl IRemoteAutomationWindowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteAutomationWindow>, ::windows::core::GetTrustLevel, AutomationProvider::<Impl, IMPL_OFFSET>, UnregisterAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteAutomationWindow, BASE_OFFSET>(),
+            AutomationProvider: AutomationProvider::<Impl, IMPL_OFFSET>,
+            UnregisterAsync: UnregisterAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteAutomationWindow as ::windows::core::Interface>::IID

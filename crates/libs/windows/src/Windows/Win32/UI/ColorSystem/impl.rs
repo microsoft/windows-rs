@@ -59,22 +59,20 @@ impl IDeviceModelPlugInVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Initialize::<Impl, IMPL_OFFSET>,
-            GetNumChannels::<Impl, IMPL_OFFSET>,
-            DeviceToColorimetricColors::<Impl, IMPL_OFFSET>,
-            ColorimetricToDeviceColors::<Impl, IMPL_OFFSET>,
-            ColorimetricToDeviceColorsWithBlack::<Impl, IMPL_OFFSET>,
-            SetTransformDeviceModelInfo::<Impl, IMPL_OFFSET>,
-            GetPrimarySamples::<Impl, IMPL_OFFSET>,
-            GetGamutBoundaryMeshSize::<Impl, IMPL_OFFSET>,
-            GetGamutBoundaryMesh::<Impl, IMPL_OFFSET>,
-            GetNeutralAxisSize::<Impl, IMPL_OFFSET>,
-            GetNeutralAxis::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            GetNumChannels: GetNumChannels::<Impl, IMPL_OFFSET>,
+            DeviceToColorimetricColors: DeviceToColorimetricColors::<Impl, IMPL_OFFSET>,
+            ColorimetricToDeviceColors: ColorimetricToDeviceColors::<Impl, IMPL_OFFSET>,
+            ColorimetricToDeviceColorsWithBlack: ColorimetricToDeviceColorsWithBlack::<Impl, IMPL_OFFSET>,
+            SetTransformDeviceModelInfo: SetTransformDeviceModelInfo::<Impl, IMPL_OFFSET>,
+            GetPrimarySamples: GetPrimarySamples::<Impl, IMPL_OFFSET>,
+            GetGamutBoundaryMeshSize: GetGamutBoundaryMeshSize::<Impl, IMPL_OFFSET>,
+            GetGamutBoundaryMesh: GetGamutBoundaryMesh::<Impl, IMPL_OFFSET>,
+            GetNeutralAxisSize: GetNeutralAxisSize::<Impl, IMPL_OFFSET>,
+            GetNeutralAxis: GetNeutralAxis::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceModelPlugIn as ::windows::core::Interface>::IID
@@ -96,7 +94,11 @@ impl IGamutMapModelPlugInVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Initialize::<Impl, IMPL_OFFSET>, SourceToDestinationAppearanceColors::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            SourceToDestinationAppearanceColors: SourceToDestinationAppearanceColors::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGamutMapModelPlugIn as ::windows::core::Interface>::IID

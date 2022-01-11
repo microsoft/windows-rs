@@ -44,7 +44,12 @@ impl IWebAuthenticationBrokerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAuthenticationBrokerStatics>, ::windows::core::GetTrustLevel, AuthenticateWithCallbackUriAsync::<Impl, IMPL_OFFSET>, AuthenticateWithoutCallbackUriAsync::<Impl, IMPL_OFFSET>, GetCurrentApplicationCallbackUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAuthenticationBrokerStatics, BASE_OFFSET>(),
+            AuthenticateWithCallbackUriAsync: AuthenticateWithCallbackUriAsync::<Impl, IMPL_OFFSET>,
+            AuthenticateWithoutCallbackUriAsync: AuthenticateWithoutCallbackUriAsync::<Impl, IMPL_OFFSET>,
+            GetCurrentApplicationCallbackUri: GetCurrentApplicationCallbackUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAuthenticationBrokerStatics as ::windows::core::Interface>::IID
@@ -106,19 +111,14 @@ impl IWebAuthenticationBrokerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IWebAuthenticationBrokerStatics2>,
-            ::windows::core::GetTrustLevel,
-            AuthenticateAndContinue::<Impl, IMPL_OFFSET>,
-            AuthenticateWithCallbackUriAndContinue::<Impl, IMPL_OFFSET>,
-            AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue::<Impl, IMPL_OFFSET>,
-            AuthenticateSilentlyAsync::<Impl, IMPL_OFFSET>,
-            AuthenticateSilentlyWithOptionsAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAuthenticationBrokerStatics2, BASE_OFFSET>(),
+            AuthenticateAndContinue: AuthenticateAndContinue::<Impl, IMPL_OFFSET>,
+            AuthenticateWithCallbackUriAndContinue: AuthenticateWithCallbackUriAndContinue::<Impl, IMPL_OFFSET>,
+            AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue: AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue::<Impl, IMPL_OFFSET>,
+            AuthenticateSilentlyAsync: AuthenticateSilentlyAsync::<Impl, IMPL_OFFSET>,
+            AuthenticateSilentlyWithOptionsAsync: AuthenticateSilentlyWithOptionsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAuthenticationBrokerStatics2 as ::windows::core::Interface>::IID
@@ -170,7 +170,12 @@ impl IWebAuthenticationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAuthenticationResult>, ::windows::core::GetTrustLevel, ResponseData::<Impl, IMPL_OFFSET>, ResponseStatus::<Impl, IMPL_OFFSET>, ResponseErrorDetail::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAuthenticationResult, BASE_OFFSET>(),
+            ResponseData: ResponseData::<Impl, IMPL_OFFSET>,
+            ResponseStatus: ResponseStatus::<Impl, IMPL_OFFSET>,
+            ResponseErrorDetail: ResponseErrorDetail::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAuthenticationResult as ::windows::core::Interface>::IID

@@ -32,7 +32,11 @@ impl IComponentLoadFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComponentLoadFailedEventArgs>, ::windows::core::GetTrustLevel, Information::<Impl, IMPL_OFFSET>, Completion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IComponentLoadFailedEventArgs, BASE_OFFSET>(),
+            Information: Information::<Impl, IMPL_OFFSET>,
+            Completion: Completion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IComponentLoadFailedEventArgs as ::windows::core::Interface>::IID
@@ -60,7 +64,10 @@ impl IComponentRenewalStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComponentRenewalStatics>, ::windows::core::GetTrustLevel, RenewSystemComponentsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IComponentRenewalStatics, BASE_OFFSET>(),
+            RenewSystemComponentsAsync: RenewSystemComponentsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IComponentRenewalStatics as ::windows::core::Interface>::IID
@@ -129,19 +136,14 @@ impl IHdcpSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveProtectionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHdcpSession>,
-            ::windows::core::GetTrustLevel,
-            IsEffectiveProtectionAtLeast::<Impl, IMPL_OFFSET>,
-            GetEffectiveProtection::<Impl, IMPL_OFFSET>,
-            SetDesiredMinProtectionAsync::<Impl, IMPL_OFFSET>,
-            ProtectionChanged::<Impl, IMPL_OFFSET>,
-            RemoveProtectionChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHdcpSession, BASE_OFFSET>(),
+            IsEffectiveProtectionAtLeast: IsEffectiveProtectionAtLeast::<Impl, IMPL_OFFSET>,
+            GetEffectiveProtection: GetEffectiveProtection::<Impl, IMPL_OFFSET>,
+            SetDesiredMinProtectionAsync: SetDesiredMinProtectionAsync::<Impl, IMPL_OFFSET>,
+            ProtectionChanged: ProtectionChanged::<Impl, IMPL_OFFSET>,
+            RemoveProtectionChanged: RemoveProtectionChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHdcpSession as ::windows::core::Interface>::IID
@@ -220,21 +222,16 @@ impl IMediaProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMediaProtectionManager>,
-            ::windows::core::GetTrustLevel,
-            ServiceRequested::<Impl, IMPL_OFFSET>,
-            RemoveServiceRequested::<Impl, IMPL_OFFSET>,
-            RebootNeeded::<Impl, IMPL_OFFSET>,
-            RemoveRebootNeeded::<Impl, IMPL_OFFSET>,
-            ComponentLoadFailed::<Impl, IMPL_OFFSET>,
-            RemoveComponentLoadFailed::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaProtectionManager, BASE_OFFSET>(),
+            ServiceRequested: ServiceRequested::<Impl, IMPL_OFFSET>,
+            RemoveServiceRequested: RemoveServiceRequested::<Impl, IMPL_OFFSET>,
+            RebootNeeded: RebootNeeded::<Impl, IMPL_OFFSET>,
+            RemoveRebootNeeded: RemoveRebootNeeded::<Impl, IMPL_OFFSET>,
+            ComponentLoadFailed: ComponentLoadFailed::<Impl, IMPL_OFFSET>,
+            RemoveComponentLoadFailed: RemoveComponentLoadFailed::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaProtectionManager as ::windows::core::Interface>::IID
@@ -262,7 +259,7 @@ impl IMediaProtectionPMPServerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionPMPServer>, ::windows::core::GetTrustLevel, Properties::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaProtectionPMPServer, BASE_OFFSET>(), Properties: Properties::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaProtectionPMPServer as ::windows::core::Interface>::IID
@@ -290,7 +287,10 @@ impl IMediaProtectionPMPServerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionPMPServerFactory>, ::windows::core::GetTrustLevel, CreatePMPServer::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaProtectionPMPServerFactory, BASE_OFFSET>(),
+            CreatePMPServer: CreatePMPServer::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaProtectionPMPServerFactory as ::windows::core::Interface>::IID
@@ -311,7 +311,10 @@ impl IMediaProtectionServiceCompletionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete(success).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionServiceCompletion>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaProtectionServiceCompletion, BASE_OFFSET>(),
+            Complete: Complete::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaProtectionServiceCompletion as ::windows::core::Interface>::IID
@@ -348,7 +351,11 @@ impl IMediaProtectionServiceRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionServiceRequest>, ::windows::core::GetTrustLevel, ProtectionSystem::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaProtectionServiceRequest, BASE_OFFSET>(),
+            ProtectionSystem: ProtectionSystem::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaProtectionServiceRequest as ::windows::core::Interface>::IID
@@ -376,7 +383,10 @@ impl IProtectionCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionCapabilities>, ::windows::core::GetTrustLevel, IsTypeSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionCapabilities, BASE_OFFSET>(),
+            IsTypeSupported: IsTypeSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtectionCapabilities as ::windows::core::Interface>::IID
@@ -404,7 +414,7 @@ impl IRevocationAndRenewalInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRevocationAndRenewalInformation>, ::windows::core::GetTrustLevel, Items::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRevocationAndRenewalInformation, BASE_OFFSET>(), Items: Items::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRevocationAndRenewalInformation as ::windows::core::Interface>::IID
@@ -480,7 +490,14 @@ impl IRevocationAndRenewalItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRevocationAndRenewalItem>, ::windows::core::GetTrustLevel, Reasons::<Impl, IMPL_OFFSET>, HeaderHash::<Impl, IMPL_OFFSET>, PublicKeyHash::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, RenewalId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRevocationAndRenewalItem, BASE_OFFSET>(),
+            Reasons: Reasons::<Impl, IMPL_OFFSET>,
+            HeaderHash: HeaderHash::<Impl, IMPL_OFFSET>,
+            PublicKeyHash: PublicKeyHash::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            RenewalId: RenewalId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRevocationAndRenewalItem as ::windows::core::Interface>::IID
@@ -520,7 +537,11 @@ impl IServiceRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServiceRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, Completion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IServiceRequestedEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            Completion: Completion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IServiceRequestedEventArgs as ::windows::core::Interface>::IID
@@ -548,7 +569,10 @@ impl IServiceRequestedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServiceRequestedEventArgs2>, ::windows::core::GetTrustLevel, MediaPlaybackItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IServiceRequestedEventArgs2, BASE_OFFSET>(),
+            MediaPlaybackItem: MediaPlaybackItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IServiceRequestedEventArgs2 as ::windows::core::Interface>::IID

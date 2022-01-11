@@ -56,7 +56,13 @@ impl IKnownRemoteSystemCapabilitiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownRemoteSystemCapabilitiesStatics>, ::windows::core::GetTrustLevel, AppService::<Impl, IMPL_OFFSET>, LaunchUri::<Impl, IMPL_OFFSET>, RemoteSession::<Impl, IMPL_OFFSET>, SpatialEntity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKnownRemoteSystemCapabilitiesStatics, BASE_OFFSET>(),
+            AppService: AppService::<Impl, IMPL_OFFSET>,
+            LaunchUri: LaunchUri::<Impl, IMPL_OFFSET>,
+            RemoteSession: RemoteSession::<Impl, IMPL_OFFSET>,
+            SpatialEntity: SpatialEntity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKnownRemoteSystemCapabilitiesStatics as ::windows::core::Interface>::IID
@@ -132,7 +138,14 @@ impl IRemoteSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, IsAvailableByProximity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystem, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            IsAvailableByProximity: IsAvailableByProximity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystem as ::windows::core::Interface>::IID
@@ -172,7 +185,11 @@ impl IRemoteSystem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem2>, ::windows::core::GetTrustLevel, IsAvailableBySpatialProximity::<Impl, IMPL_OFFSET>, GetCapabilitySupportedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystem2, BASE_OFFSET>(),
+            IsAvailableBySpatialProximity: IsAvailableBySpatialProximity::<Impl, IMPL_OFFSET>,
+            GetCapabilitySupportedAsync: GetCapabilitySupportedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystem2 as ::windows::core::Interface>::IID
@@ -212,7 +229,11 @@ impl IRemoteSystem3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem3>, ::windows::core::GetTrustLevel, ManufacturerDisplayName::<Impl, IMPL_OFFSET>, ModelDisplayName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystem3, BASE_OFFSET>(),
+            ManufacturerDisplayName: ManufacturerDisplayName::<Impl, IMPL_OFFSET>,
+            ModelDisplayName: ModelDisplayName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystem3 as ::windows::core::Interface>::IID
@@ -240,7 +261,7 @@ impl IRemoteSystem4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem4>, ::windows::core::GetTrustLevel, Platform::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystem4, BASE_OFFSET>(), Platform: Platform::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystem4 as ::windows::core::Interface>::IID
@@ -268,7 +289,7 @@ impl IRemoteSystem5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem5>, ::windows::core::GetTrustLevel, Apps::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystem5, BASE_OFFSET>(), Apps: Apps::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystem5 as ::windows::core::Interface>::IID
@@ -296,7 +317,7 @@ impl IRemoteSystem6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem6>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystem6, BASE_OFFSET>(), User: User::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystem6 as ::windows::core::Interface>::IID
@@ -324,7 +345,10 @@ impl IRemoteSystemAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAddedEventArgs>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemAddedEventArgs, BASE_OFFSET>(),
+            RemoteSystem: RemoteSystem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemAddedEventArgs as ::windows::core::Interface>::IID
@@ -400,7 +424,14 @@ impl IRemoteSystemAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemApp>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, IsAvailableByProximity::<Impl, IMPL_OFFSET>, IsAvailableBySpatialProximity::<Impl, IMPL_OFFSET>, Attributes::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemApp, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            IsAvailableByProximity: IsAvailableByProximity::<Impl, IMPL_OFFSET>,
+            IsAvailableBySpatialProximity: IsAvailableBySpatialProximity::<Impl, IMPL_OFFSET>,
+            Attributes: Attributes::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemApp as ::windows::core::Interface>::IID
@@ -440,7 +471,11 @@ impl IRemoteSystemApp2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemApp2>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>, ConnectionToken::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemApp2, BASE_OFFSET>(),
+            User: User::<Impl, IMPL_OFFSET>,
+            ConnectionToken: ConnectionToken::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemApp2 as ::windows::core::Interface>::IID
@@ -492,7 +527,12 @@ impl IRemoteSystemAppRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAppRegistration>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>, Attributes::<Impl, IMPL_OFFSET>, SaveAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemAppRegistration, BASE_OFFSET>(),
+            User: User::<Impl, IMPL_OFFSET>,
+            Attributes: Attributes::<Impl, IMPL_OFFSET>,
+            SaveAsync: SaveAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemAppRegistration as ::windows::core::Interface>::IID
@@ -532,7 +572,11 @@ impl IRemoteSystemAppRegistrationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAppRegistrationStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemAppRegistrationStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemAppRegistrationStatics as ::windows::core::Interface>::IID
@@ -560,7 +604,10 @@ impl IRemoteSystemAuthorizationKindFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAuthorizationKindFilter>, ::windows::core::GetTrustLevel, RemoteSystemAuthorizationKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemAuthorizationKindFilter, BASE_OFFSET>(),
+            RemoteSystemAuthorizationKind: RemoteSystemAuthorizationKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemAuthorizationKindFilter as ::windows::core::Interface>::IID
@@ -588,7 +635,10 @@ impl IRemoteSystemAuthorizationKindFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAuthorizationKindFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemAuthorizationKindFilterFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemAuthorizationKindFilterFactory as ::windows::core::Interface>::IID
@@ -616,7 +666,10 @@ impl IRemoteSystemConnectionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionInfo>, ::windows::core::GetTrustLevel, IsProximal::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemConnectionInfo, BASE_OFFSET>(),
+            IsProximal: IsProximal::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemConnectionInfo as ::windows::core::Interface>::IID
@@ -644,7 +697,10 @@ impl IRemoteSystemConnectionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionInfoStatics>, ::windows::core::GetTrustLevel, TryCreateFromAppServiceConnection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemConnectionInfoStatics, BASE_OFFSET>(),
+            TryCreateFromAppServiceConnection: TryCreateFromAppServiceConnection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemConnectionInfoStatics as ::windows::core::Interface>::IID
@@ -672,7 +728,10 @@ impl IRemoteSystemConnectionRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemConnectionRequest, BASE_OFFSET>(),
+            RemoteSystem: RemoteSystem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemConnectionRequest as ::windows::core::Interface>::IID
@@ -700,7 +759,10 @@ impl IRemoteSystemConnectionRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest2>, ::windows::core::GetTrustLevel, RemoteSystemApp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemConnectionRequest2, BASE_OFFSET>(),
+            RemoteSystemApp: RemoteSystemApp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemConnectionRequest2 as ::windows::core::Interface>::IID
@@ -728,7 +790,10 @@ impl IRemoteSystemConnectionRequest3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest3>, ::windows::core::GetTrustLevel, ConnectionToken::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemConnectionRequest3, BASE_OFFSET>(),
+            ConnectionToken: ConnectionToken::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemConnectionRequest3 as ::windows::core::Interface>::IID
@@ -756,7 +821,10 @@ impl IRemoteSystemConnectionRequestFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemConnectionRequestFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemConnectionRequestFactory as ::windows::core::Interface>::IID
@@ -784,7 +852,10 @@ impl IRemoteSystemConnectionRequestStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestStatics>, ::windows::core::GetTrustLevel, CreateForApp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemConnectionRequestStatics, BASE_OFFSET>(),
+            CreateForApp: CreateForApp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemConnectionRequestStatics as ::windows::core::Interface>::IID
@@ -824,7 +895,11 @@ impl IRemoteSystemConnectionRequestStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestStatics2>, ::windows::core::GetTrustLevel, CreateFromConnectionToken::<Impl, IMPL_OFFSET>, CreateFromConnectionTokenForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemConnectionRequestStatics2, BASE_OFFSET>(),
+            CreateFromConnectionToken: CreateFromConnectionToken::<Impl, IMPL_OFFSET>,
+            CreateFromConnectionTokenForUser: CreateFromConnectionTokenForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemConnectionRequestStatics2 as ::windows::core::Interface>::IID
@@ -852,7 +927,10 @@ impl IRemoteSystemDiscoveryTypeFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemDiscoveryTypeFilter>, ::windows::core::GetTrustLevel, RemoteSystemDiscoveryType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemDiscoveryTypeFilter, BASE_OFFSET>(),
+            RemoteSystemDiscoveryType: RemoteSystemDiscoveryType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemDiscoveryTypeFilter as ::windows::core::Interface>::IID
@@ -880,7 +958,10 @@ impl IRemoteSystemDiscoveryTypeFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemDiscoveryTypeFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemDiscoveryTypeFilterFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemDiscoveryTypeFilterFactory as ::windows::core::Interface>::IID
@@ -895,7 +976,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemEnumerationCompletedEventArgs
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemEnumerationCompletedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemEnumerationCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemEnumerationCompletedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemEnumerationCompletedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemEnumerationCompletedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemEnumerationCompletedEventArgs as ::windows::core::Interface>::IID
@@ -907,7 +988,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemFilter {
 }
 impl IRemoteSystemFilterVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemFilterVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemFilter>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemFilter, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemFilter as ::windows::core::Interface>::IID
@@ -935,7 +1016,10 @@ impl IRemoteSystemKindFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindFilter>, ::windows::core::GetTrustLevel, RemoteSystemKinds::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemKindFilter, BASE_OFFSET>(),
+            RemoteSystemKinds: RemoteSystemKinds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemKindFilter as ::windows::core::Interface>::IID
@@ -963,7 +1047,7 @@ impl IRemoteSystemKindFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemKindFilterFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemKindFilterFactory as ::windows::core::Interface>::IID
@@ -1039,7 +1123,14 @@ impl IRemoteSystemKindStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindStatics>, ::windows::core::GetTrustLevel, Phone::<Impl, IMPL_OFFSET>, Hub::<Impl, IMPL_OFFSET>, Holographic::<Impl, IMPL_OFFSET>, Desktop::<Impl, IMPL_OFFSET>, Xbox::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemKindStatics, BASE_OFFSET>(),
+            Phone: Phone::<Impl, IMPL_OFFSET>,
+            Hub: Hub::<Impl, IMPL_OFFSET>,
+            Holographic: Holographic::<Impl, IMPL_OFFSET>,
+            Desktop: Desktop::<Impl, IMPL_OFFSET>,
+            Xbox: Xbox::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemKindStatics as ::windows::core::Interface>::IID
@@ -1091,7 +1182,12 @@ impl IRemoteSystemKindStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindStatics2>, ::windows::core::GetTrustLevel, Iot::<Impl, IMPL_OFFSET>, Tablet::<Impl, IMPL_OFFSET>, Laptop::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemKindStatics2, BASE_OFFSET>(),
+            Iot: Iot::<Impl, IMPL_OFFSET>,
+            Tablet: Tablet::<Impl, IMPL_OFFSET>,
+            Laptop: Laptop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemKindStatics2 as ::windows::core::Interface>::IID
@@ -1119,7 +1215,10 @@ impl IRemoteSystemRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemRemovedEventArgs>, ::windows::core::GetTrustLevel, RemoteSystemId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemRemovedEventArgs, BASE_OFFSET>(),
+            RemoteSystemId: RemoteSystemId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemRemovedEventArgs as ::windows::core::Interface>::IID
@@ -1212,21 +1311,16 @@ impl IRemoteSystemSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRemoteSystemSession>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            ControllerDisplayName::<Impl, IMPL_OFFSET>,
-            Disconnected::<Impl, IMPL_OFFSET>,
-            RemoveDisconnected::<Impl, IMPL_OFFSET>,
-            CreateParticipantWatcher::<Impl, IMPL_OFFSET>,
-            SendInvitationAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSession, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            ControllerDisplayName: ControllerDisplayName::<Impl, IMPL_OFFSET>,
+            Disconnected: Disconnected::<Impl, IMPL_OFFSET>,
+            RemoveDisconnected: RemoveDisconnected::<Impl, IMPL_OFFSET>,
+            CreateParticipantWatcher: CreateParticipantWatcher::<Impl, IMPL_OFFSET>,
+            SendInvitationAsync: SendInvitationAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSession as ::windows::core::Interface>::IID
@@ -1254,7 +1348,10 @@ impl IRemoteSystemSessionAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionAddedEventArgs>, ::windows::core::GetTrustLevel, SessionInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionAddedEventArgs, BASE_OFFSET>(),
+            SessionInfo: SessionInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionAddedEventArgs as ::windows::core::Interface>::IID
@@ -1311,7 +1408,13 @@ impl IRemoteSystemSessionControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionController>, ::windows::core::GetTrustLevel, JoinRequested::<Impl, IMPL_OFFSET>, RemoveJoinRequested::<Impl, IMPL_OFFSET>, RemoveParticipantAsync::<Impl, IMPL_OFFSET>, CreateSessionAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionController, BASE_OFFSET>(),
+            JoinRequested: JoinRequested::<Impl, IMPL_OFFSET>,
+            RemoveJoinRequested: RemoveJoinRequested::<Impl, IMPL_OFFSET>,
+            RemoveParticipantAsync: RemoveParticipantAsync::<Impl, IMPL_OFFSET>,
+            CreateSessionAsync: CreateSessionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionController as ::windows::core::Interface>::IID
@@ -1351,7 +1454,11 @@ impl IRemoteSystemSessionControllerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionControllerFactory>, ::windows::core::GetTrustLevel, CreateController::<Impl, IMPL_OFFSET>, CreateControllerWithSessionOptions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionControllerFactory, BASE_OFFSET>(),
+            CreateController: CreateController::<Impl, IMPL_OFFSET>,
+            CreateControllerWithSessionOptions: CreateControllerWithSessionOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionControllerFactory as ::windows::core::Interface>::IID
@@ -1391,7 +1498,11 @@ impl IRemoteSystemSessionCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionCreationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Session::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionCreationResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Session: Session::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionCreationResult as ::windows::core::Interface>::IID
@@ -1419,7 +1530,10 @@ impl IRemoteSystemSessionDisconnectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionDisconnectedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionDisconnectedEventArgs, BASE_OFFSET>(),
+            Reason: Reason::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionDisconnectedEventArgs as ::windows::core::Interface>::IID
@@ -1471,7 +1585,12 @@ impl IRemoteSystemSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, ControllerDisplayName::<Impl, IMPL_OFFSET>, JoinAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionInfo, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            ControllerDisplayName: ControllerDisplayName::<Impl, IMPL_OFFSET>,
+            JoinAsync: JoinAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionInfo as ::windows::core::Interface>::IID
@@ -1511,7 +1630,11 @@ impl IRemoteSystemSessionInvitationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitation>, ::windows::core::GetTrustLevel, Sender::<Impl, IMPL_OFFSET>, SessionInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionInvitation, BASE_OFFSET>(),
+            Sender: Sender::<Impl, IMPL_OFFSET>,
+            SessionInfo: SessionInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionInvitation as ::windows::core::Interface>::IID
@@ -1544,7 +1667,11 @@ impl IRemoteSystemSessionInvitationListenerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveInvitationReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitationListener>, ::windows::core::GetTrustLevel, InvitationReceived::<Impl, IMPL_OFFSET>, RemoveInvitationReceived::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionInvitationListener, BASE_OFFSET>(),
+            InvitationReceived: InvitationReceived::<Impl, IMPL_OFFSET>,
+            RemoveInvitationReceived: RemoveInvitationReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionInvitationListener as ::windows::core::Interface>::IID
@@ -1572,7 +1699,10 @@ impl IRemoteSystemSessionInvitationReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitationReceivedEventArgs>, ::windows::core::GetTrustLevel, Invitation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionInvitationReceivedEventArgs, BASE_OFFSET>(),
+            Invitation: Invitation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionInvitationReceivedEventArgs as ::windows::core::Interface>::IID
@@ -1605,7 +1735,11 @@ impl IRemoteSystemSessionJoinRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Accept().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinRequest>, ::windows::core::GetTrustLevel, Participant::<Impl, IMPL_OFFSET>, Accept::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionJoinRequest, BASE_OFFSET>(),
+            Participant: Participant::<Impl, IMPL_OFFSET>,
+            Accept: Accept::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionJoinRequest as ::windows::core::Interface>::IID
@@ -1645,7 +1779,11 @@ impl IRemoteSystemSessionJoinRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinRequestedEventArgs>, ::windows::core::GetTrustLevel, JoinRequest::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionJoinRequestedEventArgs, BASE_OFFSET>(),
+            JoinRequest: JoinRequest::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionJoinRequestedEventArgs as ::windows::core::Interface>::IID
@@ -1685,7 +1823,11 @@ impl IRemoteSystemSessionJoinResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Session::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionJoinResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Session: Session::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionJoinResult as ::windows::core::Interface>::IID
@@ -1769,20 +1911,15 @@ impl IRemoteSystemSessionMessageChannelVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveValueSetReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionMessageChannel>,
-            ::windows::core::GetTrustLevel,
-            Session::<Impl, IMPL_OFFSET>,
-            BroadcastValueSetAsync::<Impl, IMPL_OFFSET>,
-            SendValueSetAsync::<Impl, IMPL_OFFSET>,
-            SendValueSetToParticipantsAsync::<Impl, IMPL_OFFSET>,
-            ValueSetReceived::<Impl, IMPL_OFFSET>,
-            RemoveValueSetReceived::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionMessageChannel, BASE_OFFSET>(),
+            Session: Session::<Impl, IMPL_OFFSET>,
+            BroadcastValueSetAsync: BroadcastValueSetAsync::<Impl, IMPL_OFFSET>,
+            SendValueSetAsync: SendValueSetAsync::<Impl, IMPL_OFFSET>,
+            SendValueSetToParticipantsAsync: SendValueSetToParticipantsAsync::<Impl, IMPL_OFFSET>,
+            ValueSetReceived: ValueSetReceived::<Impl, IMPL_OFFSET>,
+            RemoveValueSetReceived: RemoveValueSetReceived::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionMessageChannel as ::windows::core::Interface>::IID
@@ -1822,7 +1959,11 @@ impl IRemoteSystemSessionMessageChannelFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionMessageChannelFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithReliability::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionMessageChannelFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithReliability: CreateWithReliability::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionMessageChannelFactory as ::windows::core::Interface>::IID
@@ -1855,7 +1996,11 @@ impl IRemoteSystemSessionOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsInviteOnly(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionOptions>, ::windows::core::GetTrustLevel, IsInviteOnly::<Impl, IMPL_OFFSET>, SetIsInviteOnly::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionOptions, BASE_OFFSET>(),
+            IsInviteOnly: IsInviteOnly::<Impl, IMPL_OFFSET>,
+            SetIsInviteOnly: SetIsInviteOnly::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionOptions as ::windows::core::Interface>::IID
@@ -1895,7 +2040,11 @@ impl IRemoteSystemSessionParticipantVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipant>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, IMPL_OFFSET>, GetHostNames::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionParticipant, BASE_OFFSET>(),
+            RemoteSystem: RemoteSystem::<Impl, IMPL_OFFSET>,
+            GetHostNames: GetHostNames::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionParticipant as ::windows::core::Interface>::IID
@@ -1923,7 +2072,10 @@ impl IRemoteSystemSessionParticipantAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantAddedEventArgs>, ::windows::core::GetTrustLevel, Participant::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionParticipantAddedEventArgs, BASE_OFFSET>(),
+            Participant: Participant::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionParticipantAddedEventArgs as ::windows::core::Interface>::IID
@@ -1951,7 +2103,10 @@ impl IRemoteSystemSessionParticipantRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantRemovedEventArgs>, ::windows::core::GetTrustLevel, Participant::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionParticipantRemovedEventArgs, BASE_OFFSET>(),
+            Participant: Participant::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionParticipantRemovedEventArgs as ::windows::core::Interface>::IID
@@ -2040,23 +2195,18 @@ impl IRemoteSystemSessionParticipantWatcherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEnumerationCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantWatcher>,
-            ::windows::core::GetTrustLevel,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Added::<Impl, IMPL_OFFSET>,
-            RemoveAdded::<Impl, IMPL_OFFSET>,
-            Removed::<Impl, IMPL_OFFSET>,
-            RemoveRemoved::<Impl, IMPL_OFFSET>,
-            EnumerationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionParticipantWatcher, BASE_OFFSET>(),
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Added: Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded: RemoveAdded::<Impl, IMPL_OFFSET>,
+            Removed: Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved: RemoveRemoved::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionParticipantWatcher as ::windows::core::Interface>::IID
@@ -2084,7 +2234,10 @@ impl IRemoteSystemSessionRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionRemovedEventArgs>, ::windows::core::GetTrustLevel, SessionInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionRemovedEventArgs, BASE_OFFSET>(),
+            SessionInfo: SessionInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionRemovedEventArgs as ::windows::core::Interface>::IID
@@ -2112,7 +2265,10 @@ impl IRemoteSystemSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionStatics>, ::windows::core::GetTrustLevel, CreateWatcher::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionStatics, BASE_OFFSET>(),
+            CreateWatcher: CreateWatcher::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionStatics as ::windows::core::Interface>::IID
@@ -2140,7 +2296,10 @@ impl IRemoteSystemSessionUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionUpdatedEventArgs>, ::windows::core::GetTrustLevel, SessionInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionUpdatedEventArgs, BASE_OFFSET>(),
+            SessionInfo: SessionInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionUpdatedEventArgs as ::windows::core::Interface>::IID
@@ -2180,7 +2339,11 @@ impl IRemoteSystemSessionValueSetReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionValueSetReceivedEventArgs>, ::windows::core::GetTrustLevel, Sender::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionValueSetReceivedEventArgs, BASE_OFFSET>(),
+            Sender: Sender::<Impl, IMPL_OFFSET>,
+            Message: Message::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionValueSetReceivedEventArgs as ::windows::core::Interface>::IID
@@ -2269,23 +2432,18 @@ impl IRemoteSystemSessionWatcherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionWatcher>,
-            ::windows::core::GetTrustLevel,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Added::<Impl, IMPL_OFFSET>,
-            RemoveAdded::<Impl, IMPL_OFFSET>,
-            Updated::<Impl, IMPL_OFFSET>,
-            RemoveUpdated::<Impl, IMPL_OFFSET>,
-            Removed::<Impl, IMPL_OFFSET>,
-            RemoveRemoved::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemSessionWatcher, BASE_OFFSET>(),
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Added: Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded: RemoveAdded::<Impl, IMPL_OFFSET>,
+            Updated: Updated::<Impl, IMPL_OFFSET>,
+            RemoveUpdated: RemoveUpdated::<Impl, IMPL_OFFSET>,
+            Removed: Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved: RemoveRemoved::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemSessionWatcher as ::windows::core::Interface>::IID
@@ -2349,7 +2507,13 @@ impl IRemoteSystemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics>, ::windows::core::GetTrustLevel, FindByHostNameAsync::<Impl, IMPL_OFFSET>, CreateWatcher::<Impl, IMPL_OFFSET>, CreateWatcherWithFilters::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemStatics, BASE_OFFSET>(),
+            FindByHostNameAsync: FindByHostNameAsync::<Impl, IMPL_OFFSET>,
+            CreateWatcher: CreateWatcher::<Impl, IMPL_OFFSET>,
+            CreateWatcherWithFilters: CreateWatcherWithFilters::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemStatics as ::windows::core::Interface>::IID
@@ -2377,7 +2541,10 @@ impl IRemoteSystemStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics2>, ::windows::core::GetTrustLevel, IsAuthorizationKindEnabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemStatics2, BASE_OFFSET>(),
+            IsAuthorizationKindEnabled: IsAuthorizationKindEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemStatics2 as ::windows::core::Interface>::IID
@@ -2417,7 +2584,11 @@ impl IRemoteSystemStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics3>, ::windows::core::GetTrustLevel, CreateWatcherForUser::<Impl, IMPL_OFFSET>, CreateWatcherWithFiltersForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemStatics3, BASE_OFFSET>(),
+            CreateWatcherForUser: CreateWatcherForUser::<Impl, IMPL_OFFSET>,
+            CreateWatcherWithFiltersForUser: CreateWatcherWithFiltersForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemStatics3 as ::windows::core::Interface>::IID
@@ -2445,7 +2616,10 @@ impl IRemoteSystemStatusTypeFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatusTypeFilter>, ::windows::core::GetTrustLevel, RemoteSystemStatusType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemStatusTypeFilter, BASE_OFFSET>(),
+            RemoteSystemStatusType: RemoteSystemStatusType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemStatusTypeFilter as ::windows::core::Interface>::IID
@@ -2473,7 +2647,10 @@ impl IRemoteSystemStatusTypeFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatusTypeFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemStatusTypeFilterFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemStatusTypeFilterFactory as ::windows::core::Interface>::IID
@@ -2501,7 +2678,10 @@ impl IRemoteSystemUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemUpdatedEventArgs>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemUpdatedEventArgs, BASE_OFFSET>(),
+            RemoteSystem: RemoteSystem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemUpdatedEventArgs as ::windows::core::Interface>::IID
@@ -2578,22 +2758,17 @@ impl IRemoteSystemWatcherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemoteSystemRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher>,
-            ::windows::core::GetTrustLevel,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            RemoteSystemAdded::<Impl, IMPL_OFFSET>,
-            RemoveRemoteSystemAdded::<Impl, IMPL_OFFSET>,
-            RemoteSystemUpdated::<Impl, IMPL_OFFSET>,
-            RemoveRemoteSystemUpdated::<Impl, IMPL_OFFSET>,
-            RemoteSystemRemoved::<Impl, IMPL_OFFSET>,
-            RemoveRemoteSystemRemoved::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemWatcher, BASE_OFFSET>(),
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            RemoteSystemAdded: RemoteSystemAdded::<Impl, IMPL_OFFSET>,
+            RemoveRemoteSystemAdded: RemoveRemoteSystemAdded::<Impl, IMPL_OFFSET>,
+            RemoteSystemUpdated: RemoteSystemUpdated::<Impl, IMPL_OFFSET>,
+            RemoveRemoteSystemUpdated: RemoveRemoteSystemUpdated::<Impl, IMPL_OFFSET>,
+            RemoteSystemRemoved: RemoteSystemRemoved::<Impl, IMPL_OFFSET>,
+            RemoveRemoteSystemRemoved: RemoveRemoteSystemRemoved::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemWatcher as ::windows::core::Interface>::IID
@@ -2643,7 +2818,13 @@ impl IRemoteSystemWatcher2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveErrorOccurred(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher2>, ::windows::core::GetTrustLevel, EnumerationCompleted::<Impl, IMPL_OFFSET>, RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>, ErrorOccurred::<Impl, IMPL_OFFSET>, RemoveErrorOccurred::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemWatcher2, BASE_OFFSET>(),
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            ErrorOccurred: ErrorOccurred::<Impl, IMPL_OFFSET>,
+            RemoveErrorOccurred: RemoveErrorOccurred::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemWatcher2 as ::windows::core::Interface>::IID
@@ -2671,7 +2852,7 @@ impl IRemoteSystemWatcher3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher3>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemWatcher3, BASE_OFFSET>(), User: User::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemWatcher3 as ::windows::core::Interface>::IID
@@ -2699,7 +2880,10 @@ impl IRemoteSystemWatcherErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcherErrorOccurredEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemWatcherErrorOccurredEventArgs, BASE_OFFSET>(),
+            Error: Error::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemWatcherErrorOccurredEventArgs as ::windows::core::Interface>::IID
@@ -2727,7 +2911,7 @@ impl IRemoteSystemWebAccountFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWebAccountFilter>, ::windows::core::GetTrustLevel, Account::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemWebAccountFilter, BASE_OFFSET>(), Account: Account::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemWebAccountFilter as ::windows::core::Interface>::IID
@@ -2755,7 +2939,10 @@ impl IRemoteSystemWebAccountFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWebAccountFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRemoteSystemWebAccountFilterFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemWebAccountFilterFactory as ::windows::core::Interface>::IID

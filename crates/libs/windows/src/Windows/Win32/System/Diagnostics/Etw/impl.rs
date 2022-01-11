@@ -62,23 +62,21 @@ impl ITraceEventVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            Clone::<Impl, IMPL_OFFSET>,
-            GetUserContext::<Impl, IMPL_OFFSET>,
-            GetEventRecord::<Impl, IMPL_OFFSET>,
-            SetPayload::<Impl, IMPL_OFFSET>,
-            SetEventDescriptor::<Impl, IMPL_OFFSET>,
-            SetProcessId::<Impl, IMPL_OFFSET>,
-            SetProcessorIndex::<Impl, IMPL_OFFSET>,
-            SetThreadId::<Impl, IMPL_OFFSET>,
-            SetThreadTimes::<Impl, IMPL_OFFSET>,
-            SetActivityId::<Impl, IMPL_OFFSET>,
-            SetTimeStamp::<Impl, IMPL_OFFSET>,
-            SetProviderId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            GetUserContext: GetUserContext::<Impl, IMPL_OFFSET>,
+            GetEventRecord: GetEventRecord::<Impl, IMPL_OFFSET>,
+            SetPayload: SetPayload::<Impl, IMPL_OFFSET>,
+            SetEventDescriptor: SetEventDescriptor::<Impl, IMPL_OFFSET>,
+            SetProcessId: SetProcessId::<Impl, IMPL_OFFSET>,
+            SetProcessorIndex: SetProcessorIndex::<Impl, IMPL_OFFSET>,
+            SetThreadId: SetThreadId::<Impl, IMPL_OFFSET>,
+            SetThreadTimes: SetThreadTimes::<Impl, IMPL_OFFSET>,
+            SetActivityId: SetActivityId::<Impl, IMPL_OFFSET>,
+            SetTimeStamp: SetTimeStamp::<Impl, IMPL_OFFSET>,
+            SetProviderId: SetProviderId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITraceEvent as ::windows::core::Interface>::IID
@@ -103,7 +101,12 @@ impl ITraceEventCallbackVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnBeginProcessTrace::<Impl, IMPL_OFFSET>, OnFinalizeProcessTrace::<Impl, IMPL_OFFSET>, OnEvent::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnBeginProcessTrace: OnBeginProcessTrace::<Impl, IMPL_OFFSET>,
+            OnFinalizeProcessTrace: OnFinalizeProcessTrace::<Impl, IMPL_OFFSET>,
+            OnEvent: OnEvent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITraceEventCallback as ::windows::core::Interface>::IID
@@ -160,20 +163,18 @@ impl ITraceReloggerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            AddLogfileTraceStream::<Impl, IMPL_OFFSET>,
-            AddRealtimeTraceStream::<Impl, IMPL_OFFSET>,
-            RegisterCallback::<Impl, IMPL_OFFSET>,
-            Inject::<Impl, IMPL_OFFSET>,
-            CreateEventInstance::<Impl, IMPL_OFFSET>,
-            ProcessTrace::<Impl, IMPL_OFFSET>,
-            SetOutputFilename::<Impl, IMPL_OFFSET>,
-            SetCompressionMode::<Impl, IMPL_OFFSET>,
-            Cancel::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddLogfileTraceStream: AddLogfileTraceStream::<Impl, IMPL_OFFSET>,
+            AddRealtimeTraceStream: AddRealtimeTraceStream::<Impl, IMPL_OFFSET>,
+            RegisterCallback: RegisterCallback::<Impl, IMPL_OFFSET>,
+            Inject: Inject::<Impl, IMPL_OFFSET>,
+            CreateEventInstance: CreateEventInstance::<Impl, IMPL_OFFSET>,
+            ProcessTrace: ProcessTrace::<Impl, IMPL_OFFSET>,
+            SetOutputFilename: SetOutputFilename::<Impl, IMPL_OFFSET>,
+            SetCompressionMode: SetCompressionMode::<Impl, IMPL_OFFSET>,
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITraceRelogger as ::windows::core::Interface>::IID

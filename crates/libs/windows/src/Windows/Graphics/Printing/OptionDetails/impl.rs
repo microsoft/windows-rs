@@ -42,7 +42,13 @@ impl IPrintBindingOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintBindingOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintBindingOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintBindingOptionDetails as ::windows::core::Interface>::IID
@@ -92,7 +98,13 @@ impl IPrintBorderingOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintBorderingOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintBorderingOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintBorderingOptionDetails as ::windows::core::Interface>::IID
@@ -142,7 +154,13 @@ impl IPrintCollationOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCollationOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintCollationOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintCollationOptionDetails as ::windows::core::Interface>::IID
@@ -192,7 +210,13 @@ impl IPrintColorModeOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintColorModeOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintColorModeOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintColorModeOptionDetails as ::windows::core::Interface>::IID
@@ -242,7 +266,13 @@ impl IPrintCopiesOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCopiesOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintCopiesOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintCopiesOptionDetails as ::windows::core::Interface>::IID
@@ -287,7 +317,12 @@ impl IPrintCustomItemDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomItemDetails>, ::windows::core::GetTrustLevel, ItemId::<Impl, IMPL_OFFSET>, SetItemDisplayName::<Impl, IMPL_OFFSET>, ItemDisplayName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintCustomItemDetails, BASE_OFFSET>(),
+            ItemId: ItemId::<Impl, IMPL_OFFSET>,
+            SetItemDisplayName: SetItemDisplayName::<Impl, IMPL_OFFSET>,
+            ItemDisplayName: ItemDisplayName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintCustomItemDetails as ::windows::core::Interface>::IID
@@ -308,7 +343,10 @@ impl IPrintCustomItemListOptionDetailsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddItem(&*(&itemid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomItemListOptionDetails>, ::windows::core::GetTrustLevel, AddItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintCustomItemListOptionDetails, BASE_OFFSET>(),
+            AddItem: AddItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintCustomItemListOptionDetails as ::windows::core::Interface>::IID
@@ -336,7 +374,10 @@ impl IPrintCustomItemListOptionDetails2Vtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomItemListOptionDetails2>, ::windows::core::GetTrustLevel, AddItem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintCustomItemListOptionDetails2, BASE_OFFSET>(),
+            AddItem: AddItem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintCustomItemListOptionDetails2 as ::windows::core::Interface>::IID
@@ -386,7 +427,13 @@ impl IPrintCustomItemListOptionDetails3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomItemListOptionDetails3>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintCustomItemListOptionDetails3, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintCustomItemListOptionDetails3 as ::windows::core::Interface>::IID
@@ -416,7 +463,11 @@ impl IPrintCustomOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomOptionDetails>, ::windows::core::GetTrustLevel, SetDisplayName::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintCustomOptionDetails, BASE_OFFSET>(),
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintCustomOptionDetails as ::windows::core::Interface>::IID
@@ -449,7 +500,11 @@ impl IPrintCustomTextOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomTextOptionDetails>, ::windows::core::GetTrustLevel, SetMaxCharacters::<Impl, IMPL_OFFSET>, MaxCharacters::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintCustomTextOptionDetails, BASE_OFFSET>(),
+            SetMaxCharacters: SetMaxCharacters::<Impl, IMPL_OFFSET>,
+            MaxCharacters: MaxCharacters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintCustomTextOptionDetails as ::windows::core::Interface>::IID
@@ -499,7 +554,13 @@ impl IPrintCustomTextOptionDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomTextOptionDetails2>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintCustomTextOptionDetails2, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintCustomTextOptionDetails2 as ::windows::core::Interface>::IID
@@ -549,7 +610,13 @@ impl IPrintCustomToggleOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomToggleOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintCustomToggleOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintCustomToggleOptionDetails as ::windows::core::Interface>::IID
@@ -599,7 +666,13 @@ impl IPrintDuplexOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintDuplexOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintDuplexOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintDuplexOptionDetails as ::windows::core::Interface>::IID
@@ -649,7 +722,13 @@ impl IPrintHolePunchOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintHolePunchOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintHolePunchOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintHolePunchOptionDetails as ::windows::core::Interface>::IID
@@ -677,7 +756,7 @@ impl IPrintItemListOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintItemListOptionDetails>, ::windows::core::GetTrustLevel, Items::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintItemListOptionDetails, BASE_OFFSET>(), Items: Items::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintItemListOptionDetails as ::windows::core::Interface>::IID
@@ -727,7 +806,13 @@ impl IPrintMediaSizeOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintMediaSizeOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintMediaSizeOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintMediaSizeOptionDetails as ::windows::core::Interface>::IID
@@ -777,7 +862,13 @@ impl IPrintMediaTypeOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintMediaTypeOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintMediaTypeOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintMediaTypeOptionDetails as ::windows::core::Interface>::IID
@@ -814,7 +905,11 @@ impl IPrintNumberOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintNumberOptionDetails>, ::windows::core::GetTrustLevel, MinValue::<Impl, IMPL_OFFSET>, MaxValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintNumberOptionDetails, BASE_OFFSET>(),
+            MinValue: MinValue::<Impl, IMPL_OFFSET>,
+            MaxValue: MaxValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintNumberOptionDetails as ::windows::core::Interface>::IID
@@ -909,22 +1004,17 @@ impl IPrintOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintOptionDetails>,
-            ::windows::core::GetTrustLevel,
-            OptionId::<Impl, IMPL_OFFSET>,
-            OptionType::<Impl, IMPL_OFFSET>,
-            SetErrorText::<Impl, IMPL_OFFSET>,
-            ErrorText::<Impl, IMPL_OFFSET>,
-            SetState::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            Value::<Impl, IMPL_OFFSET>,
-            TrySetValue::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintOptionDetails, BASE_OFFSET>(),
+            OptionId: OptionId::<Impl, IMPL_OFFSET>,
+            OptionType: OptionType::<Impl, IMPL_OFFSET>,
+            SetErrorText: SetErrorText::<Impl, IMPL_OFFSET>,
+            ErrorText: ErrorText::<Impl, IMPL_OFFSET>,
+            SetState: SetState::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            TrySetValue: TrySetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintOptionDetails as ::windows::core::Interface>::IID
@@ -974,7 +1064,13 @@ impl IPrintOrientationOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintOrientationOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintOrientationOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintOrientationOptionDetails as ::windows::core::Interface>::IID
@@ -1024,7 +1120,13 @@ impl IPrintPageRangeOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintPageRangeOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintPageRangeOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintPageRangeOptionDetails as ::windows::core::Interface>::IID
@@ -1074,7 +1176,13 @@ impl IPrintQualityOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintQualityOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintQualityOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintQualityOptionDetails as ::windows::core::Interface>::IID
@@ -1124,7 +1232,13 @@ impl IPrintStapleOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintStapleOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintStapleOptionDetails, BASE_OFFSET>(),
+            SetWarningText: SetWarningText::<Impl, IMPL_OFFSET>,
+            WarningText: WarningText::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintStapleOptionDetails as ::windows::core::Interface>::IID
@@ -1152,7 +1266,10 @@ impl IPrintTaskOptionChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskOptionChangedEventArgs>, ::windows::core::GetTrustLevel, OptionId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTaskOptionChangedEventArgs, BASE_OFFSET>(),
+            OptionId: OptionId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintTaskOptionChangedEventArgs as ::windows::core::Interface>::IID
@@ -1238,21 +1355,16 @@ impl IPrintTaskOptionDetailsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBeginValidation(&*(&eventcookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintTaskOptionDetails>,
-            ::windows::core::GetTrustLevel,
-            Options::<Impl, IMPL_OFFSET>,
-            CreateItemListOption::<Impl, IMPL_OFFSET>,
-            CreateTextOption::<Impl, IMPL_OFFSET>,
-            OptionChanged::<Impl, IMPL_OFFSET>,
-            RemoveOptionChanged::<Impl, IMPL_OFFSET>,
-            BeginValidation::<Impl, IMPL_OFFSET>,
-            RemoveBeginValidation::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTaskOptionDetails, BASE_OFFSET>(),
+            Options: Options::<Impl, IMPL_OFFSET>,
+            CreateItemListOption: CreateItemListOption::<Impl, IMPL_OFFSET>,
+            CreateTextOption: CreateTextOption::<Impl, IMPL_OFFSET>,
+            OptionChanged: OptionChanged::<Impl, IMPL_OFFSET>,
+            RemoveOptionChanged: RemoveOptionChanged::<Impl, IMPL_OFFSET>,
+            BeginValidation: BeginValidation::<Impl, IMPL_OFFSET>,
+            RemoveBeginValidation: RemoveBeginValidation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintTaskOptionDetails as ::windows::core::Interface>::IID
@@ -1280,7 +1392,10 @@ impl IPrintTaskOptionDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskOptionDetails2>, ::windows::core::GetTrustLevel, CreateToggleOption::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTaskOptionDetails2, BASE_OFFSET>(),
+            CreateToggleOption: CreateToggleOption::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintTaskOptionDetails2 as ::windows::core::Interface>::IID
@@ -1308,7 +1423,10 @@ impl IPrintTaskOptionDetailsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskOptionDetailsStatic>, ::windows::core::GetTrustLevel, GetFromPrintTaskOptions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTaskOptionDetailsStatic, BASE_OFFSET>(),
+            GetFromPrintTaskOptions: GetFromPrintTaskOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintTaskOptionDetailsStatic as ::windows::core::Interface>::IID
@@ -1333,7 +1451,10 @@ impl IPrintTextOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTextOptionDetails>, ::windows::core::GetTrustLevel, MaxCharacters::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTextOptionDetails, BASE_OFFSET>(),
+            MaxCharacters: MaxCharacters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintTextOptionDetails as ::windows::core::Interface>::IID

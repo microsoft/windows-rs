@@ -47,19 +47,14 @@ impl IContactDataProviderConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IContactDataProviderConnection>,
-            ::windows::core::GetTrustLevel,
-            SyncRequested::<Impl, IMPL_OFFSET>,
-            RemoveSyncRequested::<Impl, IMPL_OFFSET>,
-            ServerSearchReadBatchRequested::<Impl, IMPL_OFFSET>,
-            RemoveServerSearchReadBatchRequested::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactDataProviderConnection, BASE_OFFSET>(),
+            SyncRequested: SyncRequested::<Impl, IMPL_OFFSET>,
+            RemoveSyncRequested: RemoveSyncRequested::<Impl, IMPL_OFFSET>,
+            ServerSearchReadBatchRequested: ServerSearchReadBatchRequested::<Impl, IMPL_OFFSET>,
+            RemoveServerSearchReadBatchRequested: RemoveServerSearchReadBatchRequested::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactDataProviderConnection as ::windows::core::Interface>::IID
@@ -109,18 +104,13 @@ impl IContactDataProviderConnection2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDeleteContactRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IContactDataProviderConnection2>,
-            ::windows::core::GetTrustLevel,
-            CreateOrUpdateContactRequested::<Impl, IMPL_OFFSET>,
-            RemoveCreateOrUpdateContactRequested::<Impl, IMPL_OFFSET>,
-            DeleteContactRequested::<Impl, IMPL_OFFSET>,
-            RemoveDeleteContactRequested::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactDataProviderConnection2, BASE_OFFSET>(),
+            CreateOrUpdateContactRequested: CreateOrUpdateContactRequested::<Impl, IMPL_OFFSET>,
+            RemoveCreateOrUpdateContactRequested: RemoveCreateOrUpdateContactRequested::<Impl, IMPL_OFFSET>,
+            DeleteContactRequested: DeleteContactRequested::<Impl, IMPL_OFFSET>,
+            RemoveDeleteContactRequested: RemoveDeleteContactRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactDataProviderConnection2 as ::windows::core::Interface>::IID
@@ -148,7 +138,10 @@ impl IContactDataProviderTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactDataProviderTriggerDetails>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactDataProviderTriggerDetails, BASE_OFFSET>(),
+            Connection: Connection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactDataProviderTriggerDetails as ::windows::core::Interface>::IID
@@ -212,7 +205,13 @@ impl IContactListCreateOrUpdateContactRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactListCreateOrUpdateContactRequest>, ::windows::core::GetTrustLevel, ContactListId::<Impl, IMPL_OFFSET>, Contact::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactListCreateOrUpdateContactRequest, BASE_OFFSET>(),
+            ContactListId: ContactListId::<Impl, IMPL_OFFSET>,
+            Contact: Contact::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactListCreateOrUpdateContactRequest as ::windows::core::Interface>::IID
@@ -252,7 +251,11 @@ impl IContactListCreateOrUpdateContactRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactListCreateOrUpdateContactRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactListCreateOrUpdateContactRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactListCreateOrUpdateContactRequestEventArgs as ::windows::core::Interface>::IID
@@ -316,7 +319,13 @@ impl IContactListDeleteContactRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactListDeleteContactRequest>, ::windows::core::GetTrustLevel, ContactListId::<Impl, IMPL_OFFSET>, ContactId::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactListDeleteContactRequest, BASE_OFFSET>(),
+            ContactListId: ContactListId::<Impl, IMPL_OFFSET>,
+            ContactId: ContactId::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactListDeleteContactRequest as ::windows::core::Interface>::IID
@@ -356,7 +365,11 @@ impl IContactListDeleteContactRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactListDeleteContactRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactListDeleteContactRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactListDeleteContactRequestEventArgs as ::windows::core::Interface>::IID
@@ -456,21 +469,16 @@ impl IContactListServerSearchReadBatchRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IContactListServerSearchReadBatchRequest>,
-            ::windows::core::GetTrustLevel,
-            SessionId::<Impl, IMPL_OFFSET>,
-            ContactListId::<Impl, IMPL_OFFSET>,
-            Options::<Impl, IMPL_OFFSET>,
-            SuggestedBatchSize::<Impl, IMPL_OFFSET>,
-            SaveContactAsync::<Impl, IMPL_OFFSET>,
-            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
-            ReportFailedAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactListServerSearchReadBatchRequest, BASE_OFFSET>(),
+            SessionId: SessionId::<Impl, IMPL_OFFSET>,
+            ContactListId: ContactListId::<Impl, IMPL_OFFSET>,
+            Options: Options::<Impl, IMPL_OFFSET>,
+            SuggestedBatchSize: SuggestedBatchSize::<Impl, IMPL_OFFSET>,
+            SaveContactAsync: SaveContactAsync::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactListServerSearchReadBatchRequest as ::windows::core::Interface>::IID
@@ -510,7 +518,11 @@ impl IContactListServerSearchReadBatchRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactListServerSearchReadBatchRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactListServerSearchReadBatchRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactListServerSearchReadBatchRequestEventArgs as ::windows::core::Interface>::IID
@@ -562,7 +574,12 @@ impl IContactListSyncManagerSyncRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactListSyncManagerSyncRequest>, ::windows::core::GetTrustLevel, ContactListId::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactListSyncManagerSyncRequest, BASE_OFFSET>(),
+            ContactListId: ContactListId::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync: ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync: ReportFailedAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactListSyncManagerSyncRequest as ::windows::core::Interface>::IID
@@ -602,7 +619,11 @@ impl IContactListSyncManagerSyncRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactListSyncManagerSyncRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactListSyncManagerSyncRequestEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactListSyncManagerSyncRequestEventArgs as ::windows::core::Interface>::IID

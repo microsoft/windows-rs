@@ -104,22 +104,17 @@ impl ICurrentAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICurrentApp>,
-            ::windows::core::GetTrustLevel,
-            LicenseInformation::<Impl, IMPL_OFFSET>,
-            LinkUri::<Impl, IMPL_OFFSET>,
-            AppId::<Impl, IMPL_OFFSET>,
-            RequestAppPurchaseAsync::<Impl, IMPL_OFFSET>,
-            RequestProductPurchaseAsync::<Impl, IMPL_OFFSET>,
-            LoadListingInformationAsync::<Impl, IMPL_OFFSET>,
-            GetAppReceiptAsync::<Impl, IMPL_OFFSET>,
-            GetProductReceiptAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrentApp, BASE_OFFSET>(),
+            LicenseInformation: LicenseInformation::<Impl, IMPL_OFFSET>,
+            LinkUri: LinkUri::<Impl, IMPL_OFFSET>,
+            AppId: AppId::<Impl, IMPL_OFFSET>,
+            RequestAppPurchaseAsync: RequestAppPurchaseAsync::<Impl, IMPL_OFFSET>,
+            RequestProductPurchaseAsync: RequestProductPurchaseAsync::<Impl, IMPL_OFFSET>,
+            LoadListingInformationAsync: LoadListingInformationAsync::<Impl, IMPL_OFFSET>,
+            GetAppReceiptAsync: GetAppReceiptAsync::<Impl, IMPL_OFFSET>,
+            GetProductReceiptAsync: GetProductReceiptAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrentApp as ::windows::core::Interface>::IID
@@ -159,7 +154,11 @@ impl ICurrentApp2StaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrentApp2Statics>, ::windows::core::GetTrustLevel, GetCustomerPurchaseIdAsync::<Impl, IMPL_OFFSET>, GetCustomerCollectionsIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrentApp2Statics, BASE_OFFSET>(),
+            GetCustomerPurchaseIdAsync: GetCustomerPurchaseIdAsync::<Impl, IMPL_OFFSET>,
+            GetCustomerCollectionsIdAsync: GetCustomerCollectionsIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrentApp2Statics as ::windows::core::Interface>::IID
@@ -283,23 +282,18 @@ impl ICurrentAppSimulatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICurrentAppSimulator>,
-            ::windows::core::GetTrustLevel,
-            LicenseInformation::<Impl, IMPL_OFFSET>,
-            LinkUri::<Impl, IMPL_OFFSET>,
-            AppId::<Impl, IMPL_OFFSET>,
-            RequestAppPurchaseAsync::<Impl, IMPL_OFFSET>,
-            RequestProductPurchaseAsync::<Impl, IMPL_OFFSET>,
-            LoadListingInformationAsync::<Impl, IMPL_OFFSET>,
-            GetAppReceiptAsync::<Impl, IMPL_OFFSET>,
-            GetProductReceiptAsync::<Impl, IMPL_OFFSET>,
-            ReloadSimulatorAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrentAppSimulator, BASE_OFFSET>(),
+            LicenseInformation: LicenseInformation::<Impl, IMPL_OFFSET>,
+            LinkUri: LinkUri::<Impl, IMPL_OFFSET>,
+            AppId: AppId::<Impl, IMPL_OFFSET>,
+            RequestAppPurchaseAsync: RequestAppPurchaseAsync::<Impl, IMPL_OFFSET>,
+            RequestProductPurchaseAsync: RequestProductPurchaseAsync::<Impl, IMPL_OFFSET>,
+            LoadListingInformationAsync: LoadListingInformationAsync::<Impl, IMPL_OFFSET>,
+            GetAppReceiptAsync: GetAppReceiptAsync::<Impl, IMPL_OFFSET>,
+            GetProductReceiptAsync: GetProductReceiptAsync::<Impl, IMPL_OFFSET>,
+            ReloadSimulatorAsync: ReloadSimulatorAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrentAppSimulator as ::windows::core::Interface>::IID
@@ -339,7 +333,11 @@ impl ICurrentAppSimulatorStaticsWithFilteringVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrentAppSimulatorStaticsWithFiltering>, ::windows::core::GetTrustLevel, LoadListingInformationByProductIdsAsync::<Impl, IMPL_OFFSET>, LoadListingInformationByKeywordsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrentAppSimulatorStaticsWithFiltering, BASE_OFFSET>(),
+            LoadListingInformationByProductIdsAsync: LoadListingInformationByProductIdsAsync::<Impl, IMPL_OFFSET>,
+            LoadListingInformationByKeywordsAsync: LoadListingInformationByKeywordsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrentAppSimulatorStaticsWithFiltering as ::windows::core::Interface>::IID
@@ -367,7 +365,10 @@ impl ICurrentAppSimulatorWithCampaignIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrentAppSimulatorWithCampaignId>, ::windows::core::GetTrustLevel, GetAppPurchaseCampaignIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrentAppSimulatorWithCampaignId, BASE_OFFSET>(),
+            GetAppPurchaseCampaignIdAsync: GetAppPurchaseCampaignIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrentAppSimulatorWithCampaignId as ::windows::core::Interface>::IID
@@ -435,18 +436,13 @@ impl ICurrentAppSimulatorWithConsumablesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICurrentAppSimulatorWithConsumables>,
-            ::windows::core::GetTrustLevel,
-            ReportConsumableFulfillmentAsync::<Impl, IMPL_OFFSET>,
-            RequestProductPurchaseWithResultsAsync::<Impl, IMPL_OFFSET>,
-            RequestProductPurchaseWithDisplayPropertiesAsync::<Impl, IMPL_OFFSET>,
-            GetUnfulfilledConsumablesAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrentAppSimulatorWithConsumables, BASE_OFFSET>(),
+            ReportConsumableFulfillmentAsync: ReportConsumableFulfillmentAsync::<Impl, IMPL_OFFSET>,
+            RequestProductPurchaseWithResultsAsync: RequestProductPurchaseWithResultsAsync::<Impl, IMPL_OFFSET>,
+            RequestProductPurchaseWithDisplayPropertiesAsync: RequestProductPurchaseWithDisplayPropertiesAsync::<Impl, IMPL_OFFSET>,
+            GetUnfulfilledConsumablesAsync: GetUnfulfilledConsumablesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrentAppSimulatorWithConsumables as ::windows::core::Interface>::IID
@@ -491,7 +487,12 @@ impl ICurrentAppStaticsWithFilteringVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportProductFulfillment(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrentAppStaticsWithFiltering>, ::windows::core::GetTrustLevel, LoadListingInformationByProductIdsAsync::<Impl, IMPL_OFFSET>, LoadListingInformationByKeywordsAsync::<Impl, IMPL_OFFSET>, ReportProductFulfillment::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrentAppStaticsWithFiltering, BASE_OFFSET>(),
+            LoadListingInformationByProductIdsAsync: LoadListingInformationByProductIdsAsync::<Impl, IMPL_OFFSET>,
+            LoadListingInformationByKeywordsAsync: LoadListingInformationByKeywordsAsync::<Impl, IMPL_OFFSET>,
+            ReportProductFulfillment: ReportProductFulfillment::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrentAppStaticsWithFiltering as ::windows::core::Interface>::IID
@@ -519,7 +520,10 @@ impl ICurrentAppWithCampaignIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrentAppWithCampaignId>, ::windows::core::GetTrustLevel, GetAppPurchaseCampaignIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrentAppWithCampaignId, BASE_OFFSET>(),
+            GetAppPurchaseCampaignIdAsync: GetAppPurchaseCampaignIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrentAppWithCampaignId as ::windows::core::Interface>::IID
@@ -587,18 +591,13 @@ impl ICurrentAppWithConsumablesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICurrentAppWithConsumables>,
-            ::windows::core::GetTrustLevel,
-            ReportConsumableFulfillmentAsync::<Impl, IMPL_OFFSET>,
-            RequestProductPurchaseWithResultsAsync::<Impl, IMPL_OFFSET>,
-            RequestProductPurchaseWithDisplayPropertiesAsync::<Impl, IMPL_OFFSET>,
-            GetUnfulfilledConsumablesAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrentAppWithConsumables, BASE_OFFSET>(),
+            ReportConsumableFulfillmentAsync: ReportConsumableFulfillmentAsync::<Impl, IMPL_OFFSET>,
+            RequestProductPurchaseWithResultsAsync: RequestProductPurchaseWithResultsAsync::<Impl, IMPL_OFFSET>,
+            RequestProductPurchaseWithDisplayPropertiesAsync: RequestProductPurchaseWithDisplayPropertiesAsync::<Impl, IMPL_OFFSET>,
+            GetUnfulfilledConsumablesAsync: GetUnfulfilledConsumablesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICurrentAppWithConsumables as ::windows::core::Interface>::IID
@@ -679,20 +678,15 @@ impl ILicenseInformationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLicenseChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILicenseInformation>,
-            ::windows::core::GetTrustLevel,
-            ProductLicenses::<Impl, IMPL_OFFSET>,
-            IsActive::<Impl, IMPL_OFFSET>,
-            IsTrial::<Impl, IMPL_OFFSET>,
-            ExpirationDate::<Impl, IMPL_OFFSET>,
-            LicenseChanged::<Impl, IMPL_OFFSET>,
-            RemoveLicenseChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILicenseInformation, BASE_OFFSET>(),
+            ProductLicenses: ProductLicenses::<Impl, IMPL_OFFSET>,
+            IsActive: IsActive::<Impl, IMPL_OFFSET>,
+            IsTrial: IsTrial::<Impl, IMPL_OFFSET>,
+            ExpirationDate: ExpirationDate::<Impl, IMPL_OFFSET>,
+            LicenseChanged: LicenseChanged::<Impl, IMPL_OFFSET>,
+            RemoveLicenseChanged: RemoveLicenseChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILicenseInformation as ::windows::core::Interface>::IID
@@ -780,7 +774,15 @@ impl IListingInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListingInformation>, ::windows::core::GetTrustLevel, CurrentMarket::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, ProductListings::<Impl, IMPL_OFFSET>, FormattedPrice::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, AgeRating::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListingInformation, BASE_OFFSET>(),
+            CurrentMarket: CurrentMarket::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            ProductListings: ProductListings::<Impl, IMPL_OFFSET>,
+            FormattedPrice: FormattedPrice::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            AgeRating: AgeRating::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListingInformation as ::windows::core::Interface>::IID
@@ -844,7 +846,13 @@ impl IListingInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IListingInformation2>, ::windows::core::GetTrustLevel, FormattedBasePrice::<Impl, IMPL_OFFSET>, SaleEndDate::<Impl, IMPL_OFFSET>, IsOnSale::<Impl, IMPL_OFFSET>, CurrencyCode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IListingInformation2, BASE_OFFSET>(),
+            FormattedBasePrice: FormattedBasePrice::<Impl, IMPL_OFFSET>,
+            SaleEndDate: SaleEndDate::<Impl, IMPL_OFFSET>,
+            IsOnSale: IsOnSale::<Impl, IMPL_OFFSET>,
+            CurrencyCode: CurrencyCode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IListingInformation2 as ::windows::core::Interface>::IID
@@ -896,7 +904,12 @@ impl IProductLicenseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProductLicense>, ::windows::core::GetTrustLevel, ProductId::<Impl, IMPL_OFFSET>, IsActive::<Impl, IMPL_OFFSET>, ExpirationDate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProductLicense, BASE_OFFSET>(),
+            ProductId: ProductId::<Impl, IMPL_OFFSET>,
+            IsActive: IsActive::<Impl, IMPL_OFFSET>,
+            ExpirationDate: ExpirationDate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProductLicense as ::windows::core::Interface>::IID
@@ -924,7 +937,10 @@ impl IProductLicenseWithFulfillmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProductLicenseWithFulfillment>, ::windows::core::GetTrustLevel, IsConsumable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProductLicenseWithFulfillment, BASE_OFFSET>(),
+            IsConsumable: IsConsumable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProductLicenseWithFulfillment as ::windows::core::Interface>::IID
@@ -976,7 +992,12 @@ impl IProductListingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProductListing>, ::windows::core::GetTrustLevel, ProductId::<Impl, IMPL_OFFSET>, FormattedPrice::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProductListing, BASE_OFFSET>(),
+            ProductId: ProductId::<Impl, IMPL_OFFSET>,
+            FormattedPrice: FormattedPrice::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProductListing as ::windows::core::Interface>::IID
@@ -1040,7 +1061,13 @@ impl IProductListing2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProductListing2>, ::windows::core::GetTrustLevel, FormattedBasePrice::<Impl, IMPL_OFFSET>, SaleEndDate::<Impl, IMPL_OFFSET>, IsOnSale::<Impl, IMPL_OFFSET>, CurrencyCode::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProductListing2, BASE_OFFSET>(),
+            FormattedBasePrice: FormattedBasePrice::<Impl, IMPL_OFFSET>,
+            SaleEndDate: SaleEndDate::<Impl, IMPL_OFFSET>,
+            IsOnSale: IsOnSale::<Impl, IMPL_OFFSET>,
+            CurrencyCode: CurrencyCode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProductListing2 as ::windows::core::Interface>::IID
@@ -1068,7 +1095,10 @@ impl IProductListingWithConsumablesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProductListingWithConsumables>, ::windows::core::GetTrustLevel, ProductType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProductListingWithConsumables, BASE_OFFSET>(),
+            ProductType: ProductType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProductListingWithConsumables as ::windows::core::Interface>::IID
@@ -1144,7 +1174,14 @@ impl IProductListingWithMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProductListingWithMetadata>, ::windows::core::GetTrustLevel, Description::<Impl, IMPL_OFFSET>, Keywords::<Impl, IMPL_OFFSET>, ProductType::<Impl, IMPL_OFFSET>, Tag::<Impl, IMPL_OFFSET>, ImageUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProductListingWithMetadata, BASE_OFFSET>(),
+            Description: Description::<Impl, IMPL_OFFSET>,
+            Keywords: Keywords::<Impl, IMPL_OFFSET>,
+            ProductType: ProductType::<Impl, IMPL_OFFSET>,
+            Tag: Tag::<Impl, IMPL_OFFSET>,
+            ImageUri: ImageUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProductListingWithMetadata as ::windows::core::Interface>::IID
@@ -1211,7 +1248,15 @@ impl IProductPurchaseDisplayPropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetImage(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProductPurchaseDisplayProperties>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Image::<Impl, IMPL_OFFSET>, SetImage::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProductPurchaseDisplayProperties, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            Image: Image::<Impl, IMPL_OFFSET>,
+            SetImage: SetImage::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProductPurchaseDisplayProperties as ::windows::core::Interface>::IID
@@ -1239,7 +1284,10 @@ impl IProductPurchaseDisplayPropertiesFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProductPurchaseDisplayPropertiesFactory>, ::windows::core::GetTrustLevel, CreateProductPurchaseDisplayProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProductPurchaseDisplayPropertiesFactory, BASE_OFFSET>(),
+            CreateProductPurchaseDisplayProperties: CreateProductPurchaseDisplayProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProductPurchaseDisplayPropertiesFactory as ::windows::core::Interface>::IID
@@ -1303,7 +1351,13 @@ impl IPurchaseResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPurchaseResults>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, TransactionId::<Impl, IMPL_OFFSET>, ReceiptXml::<Impl, IMPL_OFFSET>, OfferId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPurchaseResults, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            TransactionId: TransactionId::<Impl, IMPL_OFFSET>,
+            ReceiptXml: ReceiptXml::<Impl, IMPL_OFFSET>,
+            OfferId: OfferId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPurchaseResults as ::windows::core::Interface>::IID
@@ -1355,7 +1409,12 @@ impl IUnfulfilledConsumableVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUnfulfilledConsumable>, ::windows::core::GetTrustLevel, ProductId::<Impl, IMPL_OFFSET>, TransactionId::<Impl, IMPL_OFFSET>, OfferId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUnfulfilledConsumable, BASE_OFFSET>(),
+            ProductId: ProductId::<Impl, IMPL_OFFSET>,
+            TransactionId: TransactionId::<Impl, IMPL_OFFSET>,
+            OfferId: OfferId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUnfulfilledConsumable as ::windows::core::Interface>::IID

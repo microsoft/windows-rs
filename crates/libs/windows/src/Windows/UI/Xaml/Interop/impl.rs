@@ -17,7 +17,7 @@ impl IBindableIterableVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBindableIterable>, ::windows::core::GetTrustLevel, First::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBindableIterable, BASE_OFFSET>(), First: First::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBindableIterable as ::windows::core::Interface>::IID
@@ -66,7 +66,12 @@ impl IBindableIteratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBindableIterator>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>, HasCurrent::<Impl, IMPL_OFFSET>, MoveNext::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBindableIterator, BASE_OFFSET>(),
+            Current: Current::<Impl, IMPL_OFFSET>,
+            HasCurrent: HasCurrent::<Impl, IMPL_OFFSET>,
+            MoveNext: MoveNext::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBindableIterator as ::windows::core::Interface>::IID
@@ -99,7 +104,11 @@ impl IBindableObservableVectorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVectorChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBindableObservableVector>, ::windows::core::GetTrustLevel, VectorChanged::<Impl, IMPL_OFFSET>, RemoveVectorChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBindableObservableVector, BASE_OFFSET>(),
+            VectorChanged: VectorChanged::<Impl, IMPL_OFFSET>,
+            RemoveVectorChanged: RemoveVectorChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBindableObservableVector as ::windows::core::Interface>::IID
@@ -190,24 +199,19 @@ impl IBindableVectorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBindableVector>,
-            ::windows::core::GetTrustLevel,
-            GetAt::<Impl, IMPL_OFFSET>,
-            Size::<Impl, IMPL_OFFSET>,
-            GetView::<Impl, IMPL_OFFSET>,
-            IndexOf::<Impl, IMPL_OFFSET>,
-            SetAt::<Impl, IMPL_OFFSET>,
-            InsertAt::<Impl, IMPL_OFFSET>,
-            RemoveAt::<Impl, IMPL_OFFSET>,
-            Append::<Impl, IMPL_OFFSET>,
-            RemoveAtEnd::<Impl, IMPL_OFFSET>,
-            Clear::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBindableVector, BASE_OFFSET>(),
+            GetAt: GetAt::<Impl, IMPL_OFFSET>,
+            Size: Size::<Impl, IMPL_OFFSET>,
+            GetView: GetView::<Impl, IMPL_OFFSET>,
+            IndexOf: IndexOf::<Impl, IMPL_OFFSET>,
+            SetAt: SetAt::<Impl, IMPL_OFFSET>,
+            InsertAt: InsertAt::<Impl, IMPL_OFFSET>,
+            RemoveAt: RemoveAt::<Impl, IMPL_OFFSET>,
+            Append: Append::<Impl, IMPL_OFFSET>,
+            RemoveAtEnd: RemoveAtEnd::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBindableVector as ::windows::core::Interface>::IID
@@ -256,7 +260,12 @@ impl IBindableVectorViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBindableVectorView>, ::windows::core::GetTrustLevel, GetAt::<Impl, IMPL_OFFSET>, Size::<Impl, IMPL_OFFSET>, IndexOf::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBindableVectorView, BASE_OFFSET>(),
+            GetAt: GetAt::<Impl, IMPL_OFFSET>,
+            Size: Size::<Impl, IMPL_OFFSET>,
+            IndexOf: IndexOf::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBindableVectorView as ::windows::core::Interface>::IID
@@ -289,7 +298,11 @@ impl INotifyCollectionChangedVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCollectionChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotifyCollectionChanged>, ::windows::core::GetTrustLevel, CollectionChanged::<Impl, IMPL_OFFSET>, RemoveCollectionChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INotifyCollectionChanged, BASE_OFFSET>(),
+            CollectionChanged: CollectionChanged::<Impl, IMPL_OFFSET>,
+            RemoveCollectionChanged: RemoveCollectionChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotifyCollectionChanged as ::windows::core::Interface>::IID
@@ -365,7 +378,14 @@ impl INotifyCollectionChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotifyCollectionChangedEventArgs>, ::windows::core::GetTrustLevel, Action::<Impl, IMPL_OFFSET>, NewItems::<Impl, IMPL_OFFSET>, OldItems::<Impl, IMPL_OFFSET>, NewStartingIndex::<Impl, IMPL_OFFSET>, OldStartingIndex::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INotifyCollectionChangedEventArgs, BASE_OFFSET>(),
+            Action: Action::<Impl, IMPL_OFFSET>,
+            NewItems: NewItems::<Impl, IMPL_OFFSET>,
+            OldItems: OldItems::<Impl, IMPL_OFFSET>,
+            NewStartingIndex: NewStartingIndex::<Impl, IMPL_OFFSET>,
+            OldStartingIndex: OldStartingIndex::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotifyCollectionChangedEventArgs as ::windows::core::Interface>::IID
@@ -401,7 +421,10 @@ impl INotifyCollectionChangedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotifyCollectionChangedEventArgsFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithAllParameters::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, INotifyCollectionChangedEventArgsFactory, BASE_OFFSET>(),
+            CreateInstanceWithAllParameters: CreateInstanceWithAllParameters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotifyCollectionChangedEventArgsFactory as ::windows::core::Interface>::IID

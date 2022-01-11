@@ -37,7 +37,12 @@ impl IPowerManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePowerSavingModeChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPowerManagerStatics>, ::windows::core::GetTrustLevel, PowerSavingMode::<Impl, IMPL_OFFSET>, PowerSavingModeChanged::<Impl, IMPL_OFFSET>, RemovePowerSavingModeChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPowerManagerStatics, BASE_OFFSET>(),
+            PowerSavingMode: PowerSavingMode::<Impl, IMPL_OFFSET>,
+            PowerSavingModeChanged: PowerSavingModeChanged::<Impl, IMPL_OFFSET>,
+            RemovePowerSavingModeChanged: RemovePowerSavingModeChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPowerManagerStatics as ::windows::core::Interface>::IID
@@ -65,7 +70,10 @@ impl IPowerManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPowerManagerStatics2>, ::windows::core::GetTrustLevel, PowerSavingModeEnabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPowerManagerStatics2, BASE_OFFSET>(),
+            PowerSavingModeEnabled: PowerSavingModeEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPowerManagerStatics2 as ::windows::core::Interface>::IID

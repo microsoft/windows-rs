@@ -25,7 +25,11 @@ impl IAccountsSettingsPaneVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAccountCommandsRequested(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccountsSettingsPane>, ::windows::core::GetTrustLevel, AccountCommandsRequested::<Impl, IMPL_OFFSET>, RemoveAccountCommandsRequested::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccountsSettingsPane, BASE_OFFSET>(),
+            AccountCommandsRequested: AccountCommandsRequested::<Impl, IMPL_OFFSET>,
+            RemoveAccountCommandsRequested: RemoveAccountCommandsRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccountsSettingsPane as ::windows::core::Interface>::IID
@@ -118,21 +122,16 @@ impl IAccountsSettingsPaneCommandsRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAccountsSettingsPaneCommandsRequestedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            WebAccountProviderCommands::<Impl, IMPL_OFFSET>,
-            WebAccountCommands::<Impl, IMPL_OFFSET>,
-            CredentialCommands::<Impl, IMPL_OFFSET>,
-            Commands::<Impl, IMPL_OFFSET>,
-            HeaderText::<Impl, IMPL_OFFSET>,
-            SetHeaderText::<Impl, IMPL_OFFSET>,
-            GetDeferral::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccountsSettingsPaneCommandsRequestedEventArgs, BASE_OFFSET>(),
+            WebAccountProviderCommands: WebAccountProviderCommands::<Impl, IMPL_OFFSET>,
+            WebAccountCommands: WebAccountCommands::<Impl, IMPL_OFFSET>,
+            CredentialCommands: CredentialCommands::<Impl, IMPL_OFFSET>,
+            Commands: Commands::<Impl, IMPL_OFFSET>,
+            HeaderText: HeaderText::<Impl, IMPL_OFFSET>,
+            SetHeaderText: SetHeaderText::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccountsSettingsPaneCommandsRequestedEventArgs as ::windows::core::Interface>::IID
@@ -160,7 +159,10 @@ impl IAccountsSettingsPaneCommandsRequestedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccountsSettingsPaneCommandsRequestedEventArgs2>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccountsSettingsPaneCommandsRequestedEventArgs2, BASE_OFFSET>(),
+            User: User::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccountsSettingsPaneCommandsRequestedEventArgs2 as ::windows::core::Interface>::IID
@@ -181,7 +183,10 @@ impl IAccountsSettingsPaneEventDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccountsSettingsPaneEventDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccountsSettingsPaneEventDeferral, BASE_OFFSET>(),
+            Complete: Complete::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccountsSettingsPaneEventDeferral as ::windows::core::Interface>::IID
@@ -214,7 +219,11 @@ impl IAccountsSettingsPaneStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Show().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccountsSettingsPaneStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>, Show::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccountsSettingsPaneStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+            Show: Show::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccountsSettingsPaneStatics as ::windows::core::Interface>::IID
@@ -254,7 +263,11 @@ impl IAccountsSettingsPaneStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccountsSettingsPaneStatics2>, ::windows::core::GetTrustLevel, ShowManageAccountsAsync::<Impl, IMPL_OFFSET>, ShowAddAccountAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccountsSettingsPaneStatics2, BASE_OFFSET>(),
+            ShowManageAccountsAsync: ShowManageAccountsAsync::<Impl, IMPL_OFFSET>,
+            ShowAddAccountAsync: ShowAddAccountAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccountsSettingsPaneStatics2 as ::windows::core::Interface>::IID
@@ -294,7 +307,11 @@ impl IAccountsSettingsPaneStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccountsSettingsPaneStatics3>, ::windows::core::GetTrustLevel, ShowManageAccountsForUserAsync::<Impl, IMPL_OFFSET>, ShowAddAccountForUserAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccountsSettingsPaneStatics3, BASE_OFFSET>(),
+            ShowManageAccountsForUserAsync: ShowManageAccountsForUserAsync::<Impl, IMPL_OFFSET>,
+            ShowAddAccountForUserAsync: ShowAddAccountForUserAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccountsSettingsPaneStatics3 as ::windows::core::Interface>::IID
@@ -334,7 +351,11 @@ impl ICredentialCommandVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICredentialCommand>, ::windows::core::GetTrustLevel, PasswordCredential::<Impl, IMPL_OFFSET>, CredentialDeleted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICredentialCommand, BASE_OFFSET>(),
+            PasswordCredential: PasswordCredential::<Impl, IMPL_OFFSET>,
+            CredentialDeleted: CredentialDeleted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICredentialCommand as ::windows::core::Interface>::IID
@@ -374,7 +395,11 @@ impl ICredentialCommandFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICredentialCommandFactory>, ::windows::core::GetTrustLevel, CreateCredentialCommand::<Impl, IMPL_OFFSET>, CreateCredentialCommandWithHandler::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICredentialCommandFactory, BASE_OFFSET>(),
+            CreateCredentialCommand: CreateCredentialCommand::<Impl, IMPL_OFFSET>,
+            CreateCredentialCommandWithHandler: CreateCredentialCommandWithHandler::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICredentialCommandFactory as ::windows::core::Interface>::IID
@@ -406,7 +431,10 @@ impl ISettingsCommandFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISettingsCommandFactory>, ::windows::core::GetTrustLevel, CreateSettingsCommand::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISettingsCommandFactory, BASE_OFFSET>(),
+            CreateSettingsCommand: CreateSettingsCommand::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsCommandFactory as ::windows::core::Interface>::IID
@@ -434,7 +462,10 @@ impl ISettingsCommandStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISettingsCommandStatics>, ::windows::core::GetTrustLevel, AccountsCommand::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISettingsCommandStatics, BASE_OFFSET>(),
+            AccountsCommand: AccountsCommand::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsCommandStatics as ::windows::core::Interface>::IID
@@ -467,7 +498,11 @@ impl ISettingsPaneVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCommandsRequested(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISettingsPane>, ::windows::core::GetTrustLevel, CommandsRequested::<Impl, IMPL_OFFSET>, RemoveCommandsRequested::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISettingsPane, BASE_OFFSET>(),
+            CommandsRequested: CommandsRequested::<Impl, IMPL_OFFSET>,
+            RemoveCommandsRequested: RemoveCommandsRequested::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsPane as ::windows::core::Interface>::IID
@@ -495,7 +530,10 @@ impl ISettingsPaneCommandsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISettingsPaneCommandsRequest>, ::windows::core::GetTrustLevel, ApplicationCommands::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISettingsPaneCommandsRequest, BASE_OFFSET>(),
+            ApplicationCommands: ApplicationCommands::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsPaneCommandsRequest as ::windows::core::Interface>::IID
@@ -523,7 +561,10 @@ impl ISettingsPaneCommandsRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISettingsPaneCommandsRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISettingsPaneCommandsRequestedEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsPaneCommandsRequestedEventArgs as ::windows::core::Interface>::IID
@@ -568,7 +609,12 @@ impl ISettingsPaneStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISettingsPaneStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>, Show::<Impl, IMPL_OFFSET>, Edge::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISettingsPaneStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+            Show: Show::<Impl, IMPL_OFFSET>,
+            Edge: Edge::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISettingsPaneStatics as ::windows::core::Interface>::IID
@@ -620,7 +666,12 @@ impl IWebAccountCommandVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountCommand>, ::windows::core::GetTrustLevel, WebAccount::<Impl, IMPL_OFFSET>, Invoked::<Impl, IMPL_OFFSET>, Actions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountCommand, BASE_OFFSET>(),
+            WebAccount: WebAccount::<Impl, IMPL_OFFSET>,
+            Invoked: Invoked::<Impl, IMPL_OFFSET>,
+            Actions: Actions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountCommand as ::windows::core::Interface>::IID
@@ -648,7 +699,10 @@ impl IWebAccountCommandFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountCommandFactory>, ::windows::core::GetTrustLevel, CreateWebAccountCommand::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountCommandFactory, BASE_OFFSET>(),
+            CreateWebAccountCommand: CreateWebAccountCommand::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountCommandFactory as ::windows::core::Interface>::IID
@@ -676,7 +730,7 @@ impl IWebAccountInvokedArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountInvokedArgs>, ::windows::core::GetTrustLevel, Action::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountInvokedArgs, BASE_OFFSET>(), Action: Action::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountInvokedArgs as ::windows::core::Interface>::IID
@@ -716,7 +770,11 @@ impl IWebAccountProviderCommandVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderCommand>, ::windows::core::GetTrustLevel, WebAccountProvider::<Impl, IMPL_OFFSET>, Invoked::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderCommand, BASE_OFFSET>(),
+            WebAccountProvider: WebAccountProvider::<Impl, IMPL_OFFSET>,
+            Invoked: Invoked::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderCommand as ::windows::core::Interface>::IID
@@ -744,7 +802,10 @@ impl IWebAccountProviderCommandFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderCommandFactory>, ::windows::core::GetTrustLevel, CreateWebAccountProviderCommand::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderCommandFactory, BASE_OFFSET>(),
+            CreateWebAccountProviderCommand: CreateWebAccountProviderCommand::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderCommandFactory as ::windows::core::Interface>::IID

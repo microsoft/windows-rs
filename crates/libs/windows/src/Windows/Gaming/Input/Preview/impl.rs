@@ -32,7 +32,11 @@ impl IGameControllerProviderInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameControllerProviderInfoStatics>, ::windows::core::GetTrustLevel, GetParentProviderId::<Impl, IMPL_OFFSET>, GetProviderId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameControllerProviderInfoStatics, BASE_OFFSET>(),
+            GetParentProviderId: GetParentProviderId::<Impl, IMPL_OFFSET>,
+            GetProviderId: GetProviderId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGameControllerProviderInfoStatics as ::windows::core::Interface>::IID

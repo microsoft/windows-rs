@@ -32,7 +32,11 @@ impl IAppListEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppListEntry>, ::windows::core::GetTrustLevel, DisplayInfo::<Impl, IMPL_OFFSET>, LaunchAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppListEntry, BASE_OFFSET>(),
+            DisplayInfo: DisplayInfo::<Impl, IMPL_OFFSET>,
+            LaunchAsync: LaunchAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppListEntry as ::windows::core::Interface>::IID
@@ -60,7 +64,7 @@ impl IAppListEntry2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppListEntry2>, ::windows::core::GetTrustLevel, AppUserModelId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAppListEntry2, BASE_OFFSET>(), AppUserModelId: AppUserModelId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppListEntry2 as ::windows::core::Interface>::IID
@@ -88,7 +92,10 @@ impl IAppListEntry3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppListEntry3>, ::windows::core::GetTrustLevel, LaunchForUserAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppListEntry3, BASE_OFFSET>(),
+            LaunchForUserAsync: LaunchForUserAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppListEntry3 as ::windows::core::Interface>::IID
@@ -116,7 +123,7 @@ impl IAppListEntry4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppListEntry4>, ::windows::core::GetTrustLevel, AppInfo::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAppListEntry4, BASE_OFFSET>(), AppInfo: AppInfo::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppListEntry4 as ::windows::core::Interface>::IID
@@ -212,23 +219,18 @@ impl ICoreApplicationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RunWithActivationFactories(&*(&activationfactorycallback as *const <super::super::Foundation::IGetActivationFactory as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IGetActivationFactory as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreApplication>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            Suspending::<Impl, IMPL_OFFSET>,
-            RemoveSuspending::<Impl, IMPL_OFFSET>,
-            Resuming::<Impl, IMPL_OFFSET>,
-            RemoveResuming::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            GetCurrentView::<Impl, IMPL_OFFSET>,
-            Run::<Impl, IMPL_OFFSET>,
-            RunWithActivationFactories::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplication, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Suspending: Suspending::<Impl, IMPL_OFFSET>,
+            RemoveSuspending: RemoveSuspending::<Impl, IMPL_OFFSET>,
+            Resuming: Resuming::<Impl, IMPL_OFFSET>,
+            RemoveResuming: RemoveResuming::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            GetCurrentView: GetCurrentView::<Impl, IMPL_OFFSET>,
+            Run: Run::<Impl, IMPL_OFFSET>,
+            RunWithActivationFactories: RunWithActivationFactories::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreApplication as ::windows::core::Interface>::IID
@@ -300,21 +302,16 @@ impl ICoreApplication2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnablePrelaunch(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreApplication2>,
-            ::windows::core::GetTrustLevel,
-            BackgroundActivated::<Impl, IMPL_OFFSET>,
-            RemoveBackgroundActivated::<Impl, IMPL_OFFSET>,
-            LeavingBackground::<Impl, IMPL_OFFSET>,
-            RemoveLeavingBackground::<Impl, IMPL_OFFSET>,
-            EnteredBackground::<Impl, IMPL_OFFSET>,
-            RemoveEnteredBackground::<Impl, IMPL_OFFSET>,
-            EnablePrelaunch::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplication2, BASE_OFFSET>(),
+            BackgroundActivated: BackgroundActivated::<Impl, IMPL_OFFSET>,
+            RemoveBackgroundActivated: RemoveBackgroundActivated::<Impl, IMPL_OFFSET>,
+            LeavingBackground: LeavingBackground::<Impl, IMPL_OFFSET>,
+            RemoveLeavingBackground: RemoveLeavingBackground::<Impl, IMPL_OFFSET>,
+            EnteredBackground: EnteredBackground::<Impl, IMPL_OFFSET>,
+            RemoveEnteredBackground: RemoveEnteredBackground::<Impl, IMPL_OFFSET>,
+            EnablePrelaunch: EnablePrelaunch::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreApplication2 as ::windows::core::Interface>::IID
@@ -354,7 +351,11 @@ impl ICoreApplication3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreApplication3>, ::windows::core::GetTrustLevel, RequestRestartAsync::<Impl, IMPL_OFFSET>, RequestRestartForUserAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplication3, BASE_OFFSET>(),
+            RequestRestartAsync: RequestRestartAsync::<Impl, IMPL_OFFSET>,
+            RequestRestartForUserAsync: RequestRestartForUserAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreApplication3 as ::windows::core::Interface>::IID
@@ -392,7 +393,12 @@ impl ICoreApplicationExitVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveExiting(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreApplicationExit>, ::windows::core::GetTrustLevel, Exit::<Impl, IMPL_OFFSET>, Exiting::<Impl, IMPL_OFFSET>, RemoveExiting::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplicationExit, BASE_OFFSET>(),
+            Exit: Exit::<Impl, IMPL_OFFSET>,
+            Exiting: Exiting::<Impl, IMPL_OFFSET>,
+            RemoveExiting: RemoveExiting::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreApplicationExit as ::windows::core::Interface>::IID
@@ -425,7 +431,11 @@ impl ICoreApplicationUnhandledErrorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUnhandledErrorDetected(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreApplicationUnhandledError>, ::windows::core::GetTrustLevel, UnhandledErrorDetected::<Impl, IMPL_OFFSET>, RemoveUnhandledErrorDetected::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplicationUnhandledError, BASE_OFFSET>(),
+            UnhandledErrorDetected: UnhandledErrorDetected::<Impl, IMPL_OFFSET>,
+            RemoveUnhandledErrorDetected: RemoveUnhandledErrorDetected::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreApplicationUnhandledError as ::windows::core::Interface>::IID
@@ -451,7 +461,11 @@ impl ICoreApplicationUseCountVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DecrementApplicationUseCount().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreApplicationUseCount>, ::windows::core::GetTrustLevel, IncrementApplicationUseCount::<Impl, IMPL_OFFSET>, DecrementApplicationUseCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplicationUseCount, BASE_OFFSET>(),
+            IncrementApplicationUseCount: IncrementApplicationUseCount::<Impl, IMPL_OFFSET>,
+            DecrementApplicationUseCount: DecrementApplicationUseCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreApplicationUseCount as ::windows::core::Interface>::IID
@@ -520,7 +534,14 @@ impl ICoreApplicationViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreApplicationView>, ::windows::core::GetTrustLevel, CoreWindow::<Impl, IMPL_OFFSET>, Activated::<Impl, IMPL_OFFSET>, RemoveActivated::<Impl, IMPL_OFFSET>, IsMain::<Impl, IMPL_OFFSET>, IsHosted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplicationView, BASE_OFFSET>(),
+            CoreWindow: CoreWindow::<Impl, IMPL_OFFSET>,
+            Activated: Activated::<Impl, IMPL_OFFSET>,
+            RemoveActivated: RemoveActivated::<Impl, IMPL_OFFSET>,
+            IsMain: IsMain::<Impl, IMPL_OFFSET>,
+            IsHosted: IsHosted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreApplicationView as ::windows::core::Interface>::IID
@@ -548,7 +569,7 @@ impl ICoreApplicationView2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreApplicationView2>, ::windows::core::GetTrustLevel, Dispatcher::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplicationView2, BASE_OFFSET>(), Dispatcher: Dispatcher::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreApplicationView2 as ::windows::core::Interface>::IID
@@ -605,7 +626,13 @@ impl ICoreApplicationView3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveHostedViewClosing(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreApplicationView3>, ::windows::core::GetTrustLevel, IsComponent::<Impl, IMPL_OFFSET>, TitleBar::<Impl, IMPL_OFFSET>, HostedViewClosing::<Impl, IMPL_OFFSET>, RemoveHostedViewClosing::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplicationView3, BASE_OFFSET>(),
+            IsComponent: IsComponent::<Impl, IMPL_OFFSET>,
+            TitleBar: TitleBar::<Impl, IMPL_OFFSET>,
+            HostedViewClosing: HostedViewClosing::<Impl, IMPL_OFFSET>,
+            RemoveHostedViewClosing: RemoveHostedViewClosing::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreApplicationView3 as ::windows::core::Interface>::IID
@@ -633,7 +660,7 @@ impl ICoreApplicationView5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreApplicationView5>, ::windows::core::GetTrustLevel, Properties::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplicationView5, BASE_OFFSET>(), Properties: Properties::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreApplicationView5 as ::windows::core::Interface>::IID
@@ -661,7 +688,10 @@ impl ICoreApplicationView6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreApplicationView6>, ::windows::core::GetTrustLevel, DispatcherQueue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplicationView6, BASE_OFFSET>(),
+            DispatcherQueue: DispatcherQueue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreApplicationView6 as ::windows::core::Interface>::IID
@@ -776,24 +806,19 @@ impl ICoreApplicationViewTitleBarVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsVisibleChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICoreApplicationViewTitleBar>,
-            ::windows::core::GetTrustLevel,
-            SetExtendViewIntoTitleBar::<Impl, IMPL_OFFSET>,
-            ExtendViewIntoTitleBar::<Impl, IMPL_OFFSET>,
-            SystemOverlayLeftInset::<Impl, IMPL_OFFSET>,
-            SystemOverlayRightInset::<Impl, IMPL_OFFSET>,
-            Height::<Impl, IMPL_OFFSET>,
-            LayoutMetricsChanged::<Impl, IMPL_OFFSET>,
-            RemoveLayoutMetricsChanged::<Impl, IMPL_OFFSET>,
-            IsVisible::<Impl, IMPL_OFFSET>,
-            IsVisibleChanged::<Impl, IMPL_OFFSET>,
-            RemoveIsVisibleChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplicationViewTitleBar, BASE_OFFSET>(),
+            SetExtendViewIntoTitleBar: SetExtendViewIntoTitleBar::<Impl, IMPL_OFFSET>,
+            ExtendViewIntoTitleBar: ExtendViewIntoTitleBar::<Impl, IMPL_OFFSET>,
+            SystemOverlayLeftInset: SystemOverlayLeftInset::<Impl, IMPL_OFFSET>,
+            SystemOverlayRightInset: SystemOverlayRightInset::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+            LayoutMetricsChanged: LayoutMetricsChanged::<Impl, IMPL_OFFSET>,
+            RemoveLayoutMetricsChanged: RemoveLayoutMetricsChanged::<Impl, IMPL_OFFSET>,
+            IsVisible: IsVisible::<Impl, IMPL_OFFSET>,
+            IsVisibleChanged: IsVisibleChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsVisibleChanged: RemoveIsVisibleChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreApplicationViewTitleBar as ::windows::core::Interface>::IID
@@ -845,7 +870,12 @@ impl ICoreImmersiveApplicationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreImmersiveApplication>, ::windows::core::GetTrustLevel, Views::<Impl, IMPL_OFFSET>, CreateNewView::<Impl, IMPL_OFFSET>, MainView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreImmersiveApplication, BASE_OFFSET>(),
+            Views: Views::<Impl, IMPL_OFFSET>,
+            CreateNewView: CreateNewView::<Impl, IMPL_OFFSET>,
+            MainView: MainView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreImmersiveApplication as ::windows::core::Interface>::IID
@@ -873,7 +903,10 @@ impl ICoreImmersiveApplication2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreImmersiveApplication2>, ::windows::core::GetTrustLevel, CreateNewViewFromMainView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreImmersiveApplication2, BASE_OFFSET>(),
+            CreateNewViewFromMainView: CreateNewViewFromMainView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreImmersiveApplication2 as ::windows::core::Interface>::IID
@@ -901,7 +934,10 @@ impl ICoreImmersiveApplication3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreImmersiveApplication3>, ::windows::core::GetTrustLevel, CreateNewViewWithViewSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreImmersiveApplication3, BASE_OFFSET>(),
+            CreateNewViewWithViewSource: CreateNewViewWithViewSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreImmersiveApplication3 as ::windows::core::Interface>::IID
@@ -942,7 +978,14 @@ impl IFrameworkViewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Uninitialize().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameworkView>, ::windows::core::GetTrustLevel, Initialize::<Impl, IMPL_OFFSET>, SetWindow::<Impl, IMPL_OFFSET>, Load::<Impl, IMPL_OFFSET>, Run::<Impl, IMPL_OFFSET>, Uninitialize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameworkView, BASE_OFFSET>(),
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            SetWindow: SetWindow::<Impl, IMPL_OFFSET>,
+            Load: Load::<Impl, IMPL_OFFSET>,
+            Run: Run::<Impl, IMPL_OFFSET>,
+            Uninitialize: Uninitialize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameworkView as ::windows::core::Interface>::IID
@@ -967,7 +1010,7 @@ impl IFrameworkViewSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameworkViewSource>, ::windows::core::GetTrustLevel, CreateView::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameworkViewSource, BASE_OFFSET>(), CreateView: CreateView::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameworkViewSource as ::windows::core::Interface>::IID
@@ -995,7 +1038,10 @@ impl IHostedViewClosingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHostedViewClosingEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHostedViewClosingEventArgs, BASE_OFFSET>(),
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHostedViewClosingEventArgs as ::windows::core::Interface>::IID
@@ -1028,7 +1074,11 @@ impl IUnhandledErrorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Propagate().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUnhandledError>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, Propagate::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUnhandledError, BASE_OFFSET>(),
+            Handled: Handled::<Impl, IMPL_OFFSET>,
+            Propagate: Propagate::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUnhandledError as ::windows::core::Interface>::IID
@@ -1056,7 +1106,10 @@ impl IUnhandledErrorDetectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUnhandledErrorDetectedEventArgs>, ::windows::core::GetTrustLevel, UnhandledError::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUnhandledErrorDetectedEventArgs, BASE_OFFSET>(),
+            UnhandledError: UnhandledError::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUnhandledErrorDetectedEventArgs as ::windows::core::Interface>::IID

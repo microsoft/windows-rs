@@ -37,7 +37,16 @@ impl ID2D1SimplifiedGeometrySinkVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             panic!()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetFillMode::<Impl, IMPL_OFFSET>, SetSegmentFlags::<Impl, IMPL_OFFSET>, BeginFigure::<Impl, IMPL_OFFSET>, AddLines::<Impl, IMPL_OFFSET>, AddBeziers::<Impl, IMPL_OFFSET>, EndFigure::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetFillMode: SetFillMode::<Impl, IMPL_OFFSET>,
+            SetSegmentFlags: SetSegmentFlags::<Impl, IMPL_OFFSET>,
+            BeginFigure: BeginFigure::<Impl, IMPL_OFFSET>,
+            AddLines: AddLines::<Impl, IMPL_OFFSET>,
+            AddBeziers: AddBeziers::<Impl, IMPL_OFFSET>,
+            EndFigure: EndFigure::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1SimplifiedGeometrySink as ::windows::core::Interface>::IID

@@ -44,7 +44,12 @@ impl IOemSupportInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOemSupportInfo>, ::windows::core::GetTrustLevel, SupportLink::<Impl, IMPL_OFFSET>, SupportAppLink::<Impl, IMPL_OFFSET>, SupportProvider::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOemSupportInfo, BASE_OFFSET>(),
+            SupportLink: SupportLink::<Impl, IMPL_OFFSET>,
+            SupportAppLink: SupportAppLink::<Impl, IMPL_OFFSET>,
+            SupportProvider: SupportProvider::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOemSupportInfo as ::windows::core::Interface>::IID
@@ -72,7 +77,10 @@ impl ISmbiosInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmbiosInformationStatics>, ::windows::core::GetTrustLevel, SerialNumber::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmbiosInformationStatics, BASE_OFFSET>(),
+            SerialNumber: SerialNumber::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISmbiosInformationStatics as ::windows::core::Interface>::IID
@@ -172,21 +180,16 @@ impl ISystemSupportDeviceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISystemSupportDeviceInfo>,
-            ::windows::core::GetTrustLevel,
-            OperatingSystem::<Impl, IMPL_OFFSET>,
-            FriendlyName::<Impl, IMPL_OFFSET>,
-            SystemManufacturer::<Impl, IMPL_OFFSET>,
-            SystemProductName::<Impl, IMPL_OFFSET>,
-            SystemSku::<Impl, IMPL_OFFSET>,
-            SystemHardwareVersion::<Impl, IMPL_OFFSET>,
-            SystemFirmwareVersion::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemSupportDeviceInfo, BASE_OFFSET>(),
+            OperatingSystem: OperatingSystem::<Impl, IMPL_OFFSET>,
+            FriendlyName: FriendlyName::<Impl, IMPL_OFFSET>,
+            SystemManufacturer: SystemManufacturer::<Impl, IMPL_OFFSET>,
+            SystemProductName: SystemProductName::<Impl, IMPL_OFFSET>,
+            SystemSku: SystemSku::<Impl, IMPL_OFFSET>,
+            SystemHardwareVersion: SystemHardwareVersion::<Impl, IMPL_OFFSET>,
+            SystemFirmwareVersion: SystemFirmwareVersion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemSupportDeviceInfo as ::windows::core::Interface>::IID
@@ -226,7 +229,11 @@ impl ISystemSupportInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemSupportInfoStatics>, ::windows::core::GetTrustLevel, LocalSystemEdition::<Impl, IMPL_OFFSET>, OemSupportInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemSupportInfoStatics, BASE_OFFSET>(),
+            LocalSystemEdition: LocalSystemEdition::<Impl, IMPL_OFFSET>,
+            OemSupportInfo: OemSupportInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemSupportInfoStatics as ::windows::core::Interface>::IID
@@ -254,7 +261,10 @@ impl ISystemSupportInfoStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemSupportInfoStatics2>, ::windows::core::GetTrustLevel, LocalDeviceInfo::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemSupportInfoStatics2, BASE_OFFSET>(),
+            LocalDeviceInfo: LocalDeviceInfo::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISystemSupportInfoStatics2 as ::windows::core::Interface>::IID

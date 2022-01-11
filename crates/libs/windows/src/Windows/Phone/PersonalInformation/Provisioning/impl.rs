@@ -36,7 +36,11 @@ impl IContactPartnerProvisioningManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPartnerProvisioningManagerStatics>, ::windows::core::GetTrustLevel, AssociateNetworkAccountAsync::<Impl, IMPL_OFFSET>, ImportVcardToSystemAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactPartnerProvisioningManagerStatics, BASE_OFFSET>(),
+            AssociateNetworkAccountAsync: AssociateNetworkAccountAsync::<Impl, IMPL_OFFSET>,
+            ImportVcardToSystemAsync: ImportVcardToSystemAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactPartnerProvisioningManagerStatics as ::windows::core::Interface>::IID
@@ -68,7 +72,10 @@ impl IContactPartnerProvisioningManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPartnerProvisioningManagerStatics2>, ::windows::core::GetTrustLevel, AssociateSocialNetworkAccountAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactPartnerProvisioningManagerStatics2, BASE_OFFSET>(),
+            AssociateSocialNetworkAccountAsync: AssociateSocialNetworkAccountAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactPartnerProvisioningManagerStatics2 as ::windows::core::Interface>::IID
@@ -123,7 +130,11 @@ impl IMessagePartnerProvisioningManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessagePartnerProvisioningManagerStatics>, ::windows::core::GetTrustLevel, ImportSmsToSystemAsync::<Impl, IMPL_OFFSET>, ImportMmsToSystemAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMessagePartnerProvisioningManagerStatics, BASE_OFFSET>(),
+            ImportSmsToSystemAsync: ImportSmsToSystemAsync::<Impl, IMPL_OFFSET>,
+            ImportMmsToSystemAsync: ImportMmsToSystemAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMessagePartnerProvisioningManagerStatics as ::windows::core::Interface>::IID

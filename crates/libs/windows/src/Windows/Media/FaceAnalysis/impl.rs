@@ -20,7 +20,7 @@ impl IDetectedFaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDetectedFace>, ::windows::core::GetTrustLevel, FaceBox::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDetectedFace, BASE_OFFSET>(), FaceBox: FaceBox::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDetectedFace as ::windows::core::Interface>::IID
@@ -94,20 +94,15 @@ impl IFaceDetectorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxDetectableFaceSize(&*(&value as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFaceDetector>,
-            ::windows::core::GetTrustLevel,
-            DetectFacesAsync::<Impl, IMPL_OFFSET>,
-            DetectFacesWithSearchAreaAsync::<Impl, IMPL_OFFSET>,
-            MinDetectableFaceSize::<Impl, IMPL_OFFSET>,
-            SetMinDetectableFaceSize::<Impl, IMPL_OFFSET>,
-            MaxDetectableFaceSize::<Impl, IMPL_OFFSET>,
-            SetMaxDetectableFaceSize::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFaceDetector, BASE_OFFSET>(),
+            DetectFacesAsync: DetectFacesAsync::<Impl, IMPL_OFFSET>,
+            DetectFacesWithSearchAreaAsync: DetectFacesWithSearchAreaAsync::<Impl, IMPL_OFFSET>,
+            MinDetectableFaceSize: MinDetectableFaceSize::<Impl, IMPL_OFFSET>,
+            SetMinDetectableFaceSize: SetMinDetectableFaceSize::<Impl, IMPL_OFFSET>,
+            MaxDetectableFaceSize: MaxDetectableFaceSize::<Impl, IMPL_OFFSET>,
+            SetMaxDetectableFaceSize: SetMaxDetectableFaceSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFaceDetector as ::windows::core::Interface>::IID
@@ -171,7 +166,13 @@ impl IFaceDetectorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFaceDetectorStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>, GetSupportedBitmapPixelFormats::<Impl, IMPL_OFFSET>, IsBitmapPixelFormatSupported::<Impl, IMPL_OFFSET>, IsSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFaceDetectorStatics, BASE_OFFSET>(),
+            CreateAsync: CreateAsync::<Impl, IMPL_OFFSET>,
+            GetSupportedBitmapPixelFormats: GetSupportedBitmapPixelFormats::<Impl, IMPL_OFFSET>,
+            IsBitmapPixelFormatSupported: IsBitmapPixelFormatSupported::<Impl, IMPL_OFFSET>,
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFaceDetectorStatics as ::windows::core::Interface>::IID
@@ -233,19 +234,14 @@ impl IFaceTrackerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxDetectableFaceSize(&*(&value as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFaceTracker>,
-            ::windows::core::GetTrustLevel,
-            ProcessNextFrameAsync::<Impl, IMPL_OFFSET>,
-            MinDetectableFaceSize::<Impl, IMPL_OFFSET>,
-            SetMinDetectableFaceSize::<Impl, IMPL_OFFSET>,
-            MaxDetectableFaceSize::<Impl, IMPL_OFFSET>,
-            SetMaxDetectableFaceSize::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFaceTracker, BASE_OFFSET>(),
+            ProcessNextFrameAsync: ProcessNextFrameAsync::<Impl, IMPL_OFFSET>,
+            MinDetectableFaceSize: MinDetectableFaceSize::<Impl, IMPL_OFFSET>,
+            SetMinDetectableFaceSize: SetMinDetectableFaceSize::<Impl, IMPL_OFFSET>,
+            MaxDetectableFaceSize: MaxDetectableFaceSize::<Impl, IMPL_OFFSET>,
+            SetMaxDetectableFaceSize: SetMaxDetectableFaceSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFaceTracker as ::windows::core::Interface>::IID
@@ -309,7 +305,13 @@ impl IFaceTrackerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFaceTrackerStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>, GetSupportedBitmapPixelFormats::<Impl, IMPL_OFFSET>, IsBitmapPixelFormatSupported::<Impl, IMPL_OFFSET>, IsSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFaceTrackerStatics, BASE_OFFSET>(),
+            CreateAsync: CreateAsync::<Impl, IMPL_OFFSET>,
+            GetSupportedBitmapPixelFormats: GetSupportedBitmapPixelFormats::<Impl, IMPL_OFFSET>,
+            IsBitmapPixelFormatSupported: IsBitmapPixelFormatSupported::<Impl, IMPL_OFFSET>,
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFaceTrackerStatics as ::windows::core::Interface>::IID

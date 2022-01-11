@@ -44,7 +44,12 @@ impl IImageVariableDescriptorPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageVariableDescriptorPreview>, ::windows::core::GetTrustLevel, BitmapPixelFormat::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>, Height::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageVariableDescriptorPreview, BASE_OFFSET>(),
+            BitmapPixelFormat: BitmapPixelFormat::<Impl, IMPL_OFFSET>,
+            Width: Width::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImageVariableDescriptorPreview as ::windows::core::Interface>::IID
@@ -145,24 +150,19 @@ impl IInferencingOptionsPreviewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReclaimMemoryAfterEvaluation(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInferencingOptionsPreview>,
-            ::windows::core::GetTrustLevel,
-            PreferredDeviceKind::<Impl, IMPL_OFFSET>,
-            SetPreferredDeviceKind::<Impl, IMPL_OFFSET>,
-            IsTracingEnabled::<Impl, IMPL_OFFSET>,
-            SetIsTracingEnabled::<Impl, IMPL_OFFSET>,
-            MaxBatchSize::<Impl, IMPL_OFFSET>,
-            SetMaxBatchSize::<Impl, IMPL_OFFSET>,
-            MinimizeMemoryAllocation::<Impl, IMPL_OFFSET>,
-            SetMinimizeMemoryAllocation::<Impl, IMPL_OFFSET>,
-            ReclaimMemoryAfterEvaluation::<Impl, IMPL_OFFSET>,
-            SetReclaimMemoryAfterEvaluation::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInferencingOptionsPreview, BASE_OFFSET>(),
+            PreferredDeviceKind: PreferredDeviceKind::<Impl, IMPL_OFFSET>,
+            SetPreferredDeviceKind: SetPreferredDeviceKind::<Impl, IMPL_OFFSET>,
+            IsTracingEnabled: IsTracingEnabled::<Impl, IMPL_OFFSET>,
+            SetIsTracingEnabled: SetIsTracingEnabled::<Impl, IMPL_OFFSET>,
+            MaxBatchSize: MaxBatchSize::<Impl, IMPL_OFFSET>,
+            SetMaxBatchSize: SetMaxBatchSize::<Impl, IMPL_OFFSET>,
+            MinimizeMemoryAllocation: MinimizeMemoryAllocation::<Impl, IMPL_OFFSET>,
+            SetMinimizeMemoryAllocation: SetMinimizeMemoryAllocation::<Impl, IMPL_OFFSET>,
+            ReclaimMemoryAfterEvaluation: ReclaimMemoryAfterEvaluation::<Impl, IMPL_OFFSET>,
+            SetReclaimMemoryAfterEvaluation: SetReclaimMemoryAfterEvaluation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInferencingOptionsPreview as ::windows::core::Interface>::IID
@@ -199,7 +199,12 @@ impl ILearningModelBindingPreviewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelBindingPreview>, ::windows::core::GetTrustLevel, Bind::<Impl, IMPL_OFFSET>, BindWithProperties::<Impl, IMPL_OFFSET>, Clear::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelBindingPreview, BASE_OFFSET>(),
+            Bind: Bind::<Impl, IMPL_OFFSET>,
+            BindWithProperties: BindWithProperties::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelBindingPreview as ::windows::core::Interface>::IID
@@ -227,7 +232,10 @@ impl ILearningModelBindingPreviewFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelBindingPreviewFactory>, ::windows::core::GetTrustLevel, CreateFromModel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelBindingPreviewFactory, BASE_OFFSET>(),
+            CreateFromModel: CreateFromModel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelBindingPreviewFactory as ::windows::core::Interface>::IID
@@ -339,22 +347,17 @@ impl ILearningModelDescriptionPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILearningModelDescriptionPreview>,
-            ::windows::core::GetTrustLevel,
-            Author::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            Domain::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            Version::<Impl, IMPL_OFFSET>,
-            Metadata::<Impl, IMPL_OFFSET>,
-            InputFeatures::<Impl, IMPL_OFFSET>,
-            OutputFeatures::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelDescriptionPreview, BASE_OFFSET>(),
+            Author: Author::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Domain: Domain::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            Version: Version::<Impl, IMPL_OFFSET>,
+            Metadata: Metadata::<Impl, IMPL_OFFSET>,
+            InputFeatures: InputFeatures::<Impl, IMPL_OFFSET>,
+            OutputFeatures: OutputFeatures::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelDescriptionPreview as ::windows::core::Interface>::IID
@@ -394,7 +397,11 @@ impl ILearningModelEvaluationResultPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelEvaluationResultPreview>, ::windows::core::GetTrustLevel, CorrelationId::<Impl, IMPL_OFFSET>, Outputs::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelEvaluationResultPreview, BASE_OFFSET>(),
+            CorrelationId: CorrelationId::<Impl, IMPL_OFFSET>,
+            Outputs: Outputs::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelEvaluationResultPreview as ::windows::core::Interface>::IID
@@ -466,7 +473,14 @@ impl ILearningModelPreviewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInferencingOptions(&*(&value as *const <InferencingOptionsPreview as ::windows::core::Abi>::Abi as *const <InferencingOptionsPreview as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelPreview>, ::windows::core::GetTrustLevel, EvaluateAsync::<Impl, IMPL_OFFSET>, EvaluateFeaturesAsync::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, InferencingOptions::<Impl, IMPL_OFFSET>, SetInferencingOptions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelPreview, BASE_OFFSET>(),
+            EvaluateAsync: EvaluateAsync::<Impl, IMPL_OFFSET>,
+            EvaluateFeaturesAsync: EvaluateFeaturesAsync::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            InferencingOptions: InferencingOptions::<Impl, IMPL_OFFSET>,
+            SetInferencingOptions: SetInferencingOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelPreview as ::windows::core::Interface>::IID
@@ -506,7 +520,11 @@ impl ILearningModelPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelPreviewStatics>, ::windows::core::GetTrustLevel, LoadModelFromStorageFileAsync::<Impl, IMPL_OFFSET>, LoadModelFromStreamAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelPreviewStatics, BASE_OFFSET>(),
+            LoadModelFromStorageFileAsync: LoadModelFromStorageFileAsync::<Impl, IMPL_OFFSET>,
+            LoadModelFromStreamAsync: LoadModelFromStreamAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelPreviewStatics as ::windows::core::Interface>::IID
@@ -570,7 +588,13 @@ impl ILearningModelVariableDescriptorPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelVariableDescriptorPreview>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, ModelFeatureKind::<Impl, IMPL_OFFSET>, IsRequired::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelVariableDescriptorPreview, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            ModelFeatureKind: ModelFeatureKind::<Impl, IMPL_OFFSET>,
+            IsRequired: IsRequired::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelVariableDescriptorPreview as ::windows::core::Interface>::IID
@@ -634,7 +658,13 @@ impl IMapVariableDescriptorPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapVariableDescriptorPreview>, ::windows::core::GetTrustLevel, KeyKind::<Impl, IMPL_OFFSET>, ValidStringKeys::<Impl, IMPL_OFFSET>, ValidIntegerKeys::<Impl, IMPL_OFFSET>, Fields::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapVariableDescriptorPreview, BASE_OFFSET>(),
+            KeyKind: KeyKind::<Impl, IMPL_OFFSET>,
+            ValidStringKeys: ValidStringKeys::<Impl, IMPL_OFFSET>,
+            ValidIntegerKeys: ValidIntegerKeys::<Impl, IMPL_OFFSET>,
+            Fields: Fields::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapVariableDescriptorPreview as ::windows::core::Interface>::IID
@@ -662,7 +692,10 @@ impl ISequenceVariableDescriptorPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISequenceVariableDescriptorPreview>, ::windows::core::GetTrustLevel, ElementType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISequenceVariableDescriptorPreview, BASE_OFFSET>(),
+            ElementType: ElementType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISequenceVariableDescriptorPreview as ::windows::core::Interface>::IID
@@ -702,7 +735,11 @@ impl ITensorVariableDescriptorPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorVariableDescriptorPreview>, ::windows::core::GetTrustLevel, DataType::<Impl, IMPL_OFFSET>, Shape::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensorVariableDescriptorPreview, BASE_OFFSET>(),
+            DataType: DataType::<Impl, IMPL_OFFSET>,
+            Shape: Shape::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorVariableDescriptorPreview as ::windows::core::Interface>::IID

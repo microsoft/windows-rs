@@ -44,7 +44,12 @@ impl IAdcChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdcChannel>, ::windows::core::GetTrustLevel, Controller::<Impl, IMPL_OFFSET>, ReadValue::<Impl, IMPL_OFFSET>, ReadRatio::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdcChannel, BASE_OFFSET>(),
+            Controller: Controller::<Impl, IMPL_OFFSET>,
+            ReadValue: ReadValue::<Impl, IMPL_OFFSET>,
+            ReadRatio: ReadRatio::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdcChannel as ::windows::core::Interface>::IID
@@ -149,22 +154,17 @@ impl IAdcControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAdcController>,
-            ::windows::core::GetTrustLevel,
-            ChannelCount::<Impl, IMPL_OFFSET>,
-            ResolutionInBits::<Impl, IMPL_OFFSET>,
-            MinValue::<Impl, IMPL_OFFSET>,
-            MaxValue::<Impl, IMPL_OFFSET>,
-            ChannelMode::<Impl, IMPL_OFFSET>,
-            SetChannelMode::<Impl, IMPL_OFFSET>,
-            IsChannelModeSupported::<Impl, IMPL_OFFSET>,
-            OpenChannel::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdcController, BASE_OFFSET>(),
+            ChannelCount: ChannelCount::<Impl, IMPL_OFFSET>,
+            ResolutionInBits: ResolutionInBits::<Impl, IMPL_OFFSET>,
+            MinValue: MinValue::<Impl, IMPL_OFFSET>,
+            MaxValue: MaxValue::<Impl, IMPL_OFFSET>,
+            ChannelMode: ChannelMode::<Impl, IMPL_OFFSET>,
+            SetChannelMode: SetChannelMode::<Impl, IMPL_OFFSET>,
+            IsChannelModeSupported: IsChannelModeSupported::<Impl, IMPL_OFFSET>,
+            OpenChannel: OpenChannel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdcController as ::windows::core::Interface>::IID
@@ -192,7 +192,10 @@ impl IAdcControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdcControllerStatics>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdcControllerStatics, BASE_OFFSET>(),
+            GetControllersAsync: GetControllersAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdcControllerStatics as ::windows::core::Interface>::IID
@@ -220,7 +223,10 @@ impl IAdcControllerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdcControllerStatics2>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdcControllerStatics2, BASE_OFFSET>(),
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdcControllerStatics2 as ::windows::core::Interface>::IID

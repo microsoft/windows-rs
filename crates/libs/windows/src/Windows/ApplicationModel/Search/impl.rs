@@ -66,20 +66,15 @@ impl ILocalContentSuggestionSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILocalContentSuggestionSettings>,
-            ::windows::core::GetTrustLevel,
-            SetEnabled::<Impl, IMPL_OFFSET>,
-            Enabled::<Impl, IMPL_OFFSET>,
-            Locations::<Impl, IMPL_OFFSET>,
-            SetAqsFilter::<Impl, IMPL_OFFSET>,
-            AqsFilter::<Impl, IMPL_OFFSET>,
-            PropertiesToMatch::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILocalContentSuggestionSettings, BASE_OFFSET>(),
+            SetEnabled: SetEnabled::<Impl, IMPL_OFFSET>,
+            Enabled: Enabled::<Impl, IMPL_OFFSET>,
+            Locations: Locations::<Impl, IMPL_OFFSET>,
+            SetAqsFilter: SetAqsFilter::<Impl, IMPL_OFFSET>,
+            AqsFilter: AqsFilter::<Impl, IMPL_OFFSET>,
+            PropertiesToMatch: PropertiesToMatch::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILocalContentSuggestionSettings as ::windows::core::Interface>::IID
@@ -311,39 +306,34 @@ impl ISearchPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISearchPane>,
-            ::windows::core::GetTrustLevel,
-            SetSearchHistoryEnabled::<Impl, IMPL_OFFSET>,
-            SearchHistoryEnabled::<Impl, IMPL_OFFSET>,
-            SetSearchHistoryContext::<Impl, IMPL_OFFSET>,
-            SearchHistoryContext::<Impl, IMPL_OFFSET>,
-            SetPlaceholderText::<Impl, IMPL_OFFSET>,
-            PlaceholderText::<Impl, IMPL_OFFSET>,
-            QueryText::<Impl, IMPL_OFFSET>,
-            Language::<Impl, IMPL_OFFSET>,
-            Visible::<Impl, IMPL_OFFSET>,
-            VisibilityChanged::<Impl, IMPL_OFFSET>,
-            RemoveVisibilityChanged::<Impl, IMPL_OFFSET>,
-            QueryChanged::<Impl, IMPL_OFFSET>,
-            RemoveQueryChanged::<Impl, IMPL_OFFSET>,
-            SuggestionsRequested::<Impl, IMPL_OFFSET>,
-            RemoveSuggestionsRequested::<Impl, IMPL_OFFSET>,
-            QuerySubmitted::<Impl, IMPL_OFFSET>,
-            RemoveQuerySubmitted::<Impl, IMPL_OFFSET>,
-            ResultSuggestionChosen::<Impl, IMPL_OFFSET>,
-            RemoveResultSuggestionChosen::<Impl, IMPL_OFFSET>,
-            SetLocalContentSuggestionSettings::<Impl, IMPL_OFFSET>,
-            ShowOverloadDefault::<Impl, IMPL_OFFSET>,
-            ShowOverloadWithQuery::<Impl, IMPL_OFFSET>,
-            SetShowOnKeyboardInput::<Impl, IMPL_OFFSET>,
-            ShowOnKeyboardInput::<Impl, IMPL_OFFSET>,
-            TrySetQueryText::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPane, BASE_OFFSET>(),
+            SetSearchHistoryEnabled: SetSearchHistoryEnabled::<Impl, IMPL_OFFSET>,
+            SearchHistoryEnabled: SearchHistoryEnabled::<Impl, IMPL_OFFSET>,
+            SetSearchHistoryContext: SetSearchHistoryContext::<Impl, IMPL_OFFSET>,
+            SearchHistoryContext: SearchHistoryContext::<Impl, IMPL_OFFSET>,
+            SetPlaceholderText: SetPlaceholderText::<Impl, IMPL_OFFSET>,
+            PlaceholderText: PlaceholderText::<Impl, IMPL_OFFSET>,
+            QueryText: QueryText::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+            Visible: Visible::<Impl, IMPL_OFFSET>,
+            VisibilityChanged: VisibilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveVisibilityChanged: RemoveVisibilityChanged::<Impl, IMPL_OFFSET>,
+            QueryChanged: QueryChanged::<Impl, IMPL_OFFSET>,
+            RemoveQueryChanged: RemoveQueryChanged::<Impl, IMPL_OFFSET>,
+            SuggestionsRequested: SuggestionsRequested::<Impl, IMPL_OFFSET>,
+            RemoveSuggestionsRequested: RemoveSuggestionsRequested::<Impl, IMPL_OFFSET>,
+            QuerySubmitted: QuerySubmitted::<Impl, IMPL_OFFSET>,
+            RemoveQuerySubmitted: RemoveQuerySubmitted::<Impl, IMPL_OFFSET>,
+            ResultSuggestionChosen: ResultSuggestionChosen::<Impl, IMPL_OFFSET>,
+            RemoveResultSuggestionChosen: RemoveResultSuggestionChosen::<Impl, IMPL_OFFSET>,
+            SetLocalContentSuggestionSettings: SetLocalContentSuggestionSettings::<Impl, IMPL_OFFSET>,
+            ShowOverloadDefault: ShowOverloadDefault::<Impl, IMPL_OFFSET>,
+            ShowOverloadWithQuery: ShowOverloadWithQuery::<Impl, IMPL_OFFSET>,
+            SetShowOnKeyboardInput: SetShowOnKeyboardInput::<Impl, IMPL_OFFSET>,
+            ShowOnKeyboardInput: ShowOnKeyboardInput::<Impl, IMPL_OFFSET>,
+            TrySetQueryText: TrySetQueryText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchPane as ::windows::core::Interface>::IID
@@ -395,7 +385,12 @@ impl ISearchPaneQueryChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneQueryChangedEventArgs>, ::windows::core::GetTrustLevel, QueryText::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>, LinguisticDetails::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneQueryChangedEventArgs, BASE_OFFSET>(),
+            QueryText: QueryText::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+            LinguisticDetails: LinguisticDetails::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchPaneQueryChangedEventArgs as ::windows::core::Interface>::IID
@@ -447,7 +442,12 @@ impl ISearchPaneQueryLinguisticDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneQueryLinguisticDetails>, ::windows::core::GetTrustLevel, QueryTextAlternatives::<Impl, IMPL_OFFSET>, QueryTextCompositionStart::<Impl, IMPL_OFFSET>, QueryTextCompositionLength::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneQueryLinguisticDetails, BASE_OFFSET>(),
+            QueryTextAlternatives: QueryTextAlternatives::<Impl, IMPL_OFFSET>,
+            QueryTextCompositionStart: QueryTextCompositionStart::<Impl, IMPL_OFFSET>,
+            QueryTextCompositionLength: QueryTextCompositionLength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchPaneQueryLinguisticDetails as ::windows::core::Interface>::IID
@@ -487,7 +487,11 @@ impl ISearchPaneQuerySubmittedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneQuerySubmittedEventArgs>, ::windows::core::GetTrustLevel, QueryText::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneQuerySubmittedEventArgs, BASE_OFFSET>(),
+            QueryText: QueryText::<Impl, IMPL_OFFSET>,
+            Language: Language::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchPaneQuerySubmittedEventArgs as ::windows::core::Interface>::IID
@@ -515,7 +519,10 @@ impl ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails>, ::windows::core::GetTrustLevel, LinguisticDetails::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails, BASE_OFFSET>(),
+            LinguisticDetails: LinguisticDetails::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails as ::windows::core::Interface>::IID
@@ -543,7 +550,10 @@ impl ISearchPaneResultSuggestionChosenEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneResultSuggestionChosenEventArgs>, ::windows::core::GetTrustLevel, Tag::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneResultSuggestionChosenEventArgs, BASE_OFFSET>(),
+            Tag: Tag::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchPaneResultSuggestionChosenEventArgs as ::windows::core::Interface>::IID
@@ -571,7 +581,10 @@ impl ISearchPaneStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchPaneStatics as ::windows::core::Interface>::IID
@@ -592,7 +605,10 @@ impl ISearchPaneStaticsWithHideThisApplicationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HideThisApplication().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneStaticsWithHideThisApplication>, ::windows::core::GetTrustLevel, HideThisApplication::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneStaticsWithHideThisApplication, BASE_OFFSET>(),
+            HideThisApplication: HideThisApplication::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchPaneStaticsWithHideThisApplication as ::windows::core::Interface>::IID
@@ -644,7 +660,12 @@ impl ISearchPaneSuggestionsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneSuggestionsRequest>, ::windows::core::GetTrustLevel, IsCanceled::<Impl, IMPL_OFFSET>, SearchSuggestionCollection::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneSuggestionsRequest, BASE_OFFSET>(),
+            IsCanceled: IsCanceled::<Impl, IMPL_OFFSET>,
+            SearchSuggestionCollection: SearchSuggestionCollection::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchPaneSuggestionsRequest as ::windows::core::Interface>::IID
@@ -665,7 +686,10 @@ impl ISearchPaneSuggestionsRequestDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneSuggestionsRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneSuggestionsRequestDeferral, BASE_OFFSET>(),
+            Complete: Complete::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchPaneSuggestionsRequestDeferral as ::windows::core::Interface>::IID
@@ -693,7 +717,10 @@ impl ISearchPaneSuggestionsRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneSuggestionsRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneSuggestionsRequestedEventArgs, BASE_OFFSET>(),
+            Request: Request::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchPaneSuggestionsRequestedEventArgs as ::windows::core::Interface>::IID
@@ -721,7 +748,10 @@ impl ISearchPaneVisibilityChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneVisibilityChangedEventArgs>, ::windows::core::GetTrustLevel, Visible::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneVisibilityChangedEventArgs, BASE_OFFSET>(),
+            Visible: Visible::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchPaneVisibilityChangedEventArgs as ::windows::core::Interface>::IID
@@ -773,7 +803,12 @@ impl ISearchQueryLinguisticDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchQueryLinguisticDetails>, ::windows::core::GetTrustLevel, QueryTextAlternatives::<Impl, IMPL_OFFSET>, QueryTextCompositionStart::<Impl, IMPL_OFFSET>, QueryTextCompositionLength::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchQueryLinguisticDetails, BASE_OFFSET>(),
+            QueryTextAlternatives: QueryTextAlternatives::<Impl, IMPL_OFFSET>,
+            QueryTextCompositionStart: QueryTextCompositionStart::<Impl, IMPL_OFFSET>,
+            QueryTextCompositionLength: QueryTextCompositionLength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchQueryLinguisticDetails as ::windows::core::Interface>::IID
@@ -801,7 +836,10 @@ impl ISearchQueryLinguisticDetailsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchQueryLinguisticDetailsFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchQueryLinguisticDetailsFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchQueryLinguisticDetailsFactory as ::windows::core::Interface>::IID
@@ -857,19 +895,14 @@ impl ISearchSuggestionCollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AppendSearchSeparator(&*(&label as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISearchSuggestionCollection>,
-            ::windows::core::GetTrustLevel,
-            Size::<Impl, IMPL_OFFSET>,
-            AppendQuerySuggestion::<Impl, IMPL_OFFSET>,
-            AppendQuerySuggestions::<Impl, IMPL_OFFSET>,
-            AppendResultSuggestion::<Impl, IMPL_OFFSET>,
-            AppendSearchSeparator::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchSuggestionCollection, BASE_OFFSET>(),
+            Size: Size::<Impl, IMPL_OFFSET>,
+            AppendQuerySuggestion: AppendQuerySuggestion::<Impl, IMPL_OFFSET>,
+            AppendQuerySuggestions: AppendQuerySuggestions::<Impl, IMPL_OFFSET>,
+            AppendResultSuggestion: AppendResultSuggestion::<Impl, IMPL_OFFSET>,
+            AppendSearchSeparator: AppendSearchSeparator::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchSuggestionCollection as ::windows::core::Interface>::IID
@@ -921,7 +954,12 @@ impl ISearchSuggestionsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchSuggestionsRequest>, ::windows::core::GetTrustLevel, IsCanceled::<Impl, IMPL_OFFSET>, SearchSuggestionCollection::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchSuggestionsRequest, BASE_OFFSET>(),
+            IsCanceled: IsCanceled::<Impl, IMPL_OFFSET>,
+            SearchSuggestionCollection: SearchSuggestionCollection::<Impl, IMPL_OFFSET>,
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchSuggestionsRequest as ::windows::core::Interface>::IID
@@ -942,7 +980,10 @@ impl ISearchSuggestionsRequestDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchSuggestionsRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchSuggestionsRequestDeferral, BASE_OFFSET>(),
+            Complete: Complete::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchSuggestionsRequestDeferral as ::windows::core::Interface>::IID

@@ -78,21 +78,16 @@ impl ICustomSensorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadingChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICustomSensor>,
-            ::windows::core::GetTrustLevel,
-            GetCurrentReading::<Impl, IMPL_OFFSET>,
-            MinimumReportInterval::<Impl, IMPL_OFFSET>,
-            SetReportInterval::<Impl, IMPL_OFFSET>,
-            ReportInterval::<Impl, IMPL_OFFSET>,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomSensor, BASE_OFFSET>(),
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+            MinimumReportInterval: MinimumReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICustomSensor as ::windows::core::Interface>::IID
@@ -137,7 +132,12 @@ impl ICustomSensor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomSensor2>, ::windows::core::GetTrustLevel, SetReportLatency::<Impl, IMPL_OFFSET>, ReportLatency::<Impl, IMPL_OFFSET>, MaxBatchSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomSensor2, BASE_OFFSET>(),
+            SetReportLatency: SetReportLatency::<Impl, IMPL_OFFSET>,
+            ReportLatency: ReportLatency::<Impl, IMPL_OFFSET>,
+            MaxBatchSize: MaxBatchSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICustomSensor2 as ::windows::core::Interface>::IID
@@ -177,7 +177,11 @@ impl ICustomSensorReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomSensorReading>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomSensorReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICustomSensorReading as ::windows::core::Interface>::IID
@@ -205,7 +209,10 @@ impl ICustomSensorReading2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomSensorReading2>, ::windows::core::GetTrustLevel, PerformanceCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomSensorReading2, BASE_OFFSET>(),
+            PerformanceCount: PerformanceCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICustomSensorReading2 as ::windows::core::Interface>::IID
@@ -233,7 +240,10 @@ impl ICustomSensorReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomSensorReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomSensorReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICustomSensorReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -273,7 +283,11 @@ impl ICustomSensorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomSensorStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomSensorStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICustomSensorStatics as ::windows::core::Interface>::IID

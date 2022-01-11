@@ -347,58 +347,53 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAccessoryManager>,
-            ::windows::core::GetTrustLevel,
-            RegisterAccessoryApp::<Impl, IMPL_OFFSET>,
-            GetNextTriggerDetails::<Impl, IMPL_OFFSET>,
-            ProcessTriggerDetails::<Impl, IMPL_OFFSET>,
-            PhoneLineDetails::<Impl, IMPL_OFFSET>,
-            GetPhoneLineDetails::<Impl, IMPL_OFFSET>,
-            AcceptPhoneCall::<Impl, IMPL_OFFSET>,
-            AcceptPhoneCallOnEndpoint::<Impl, IMPL_OFFSET>,
-            AcceptPhoneCallWithVideo::<Impl, IMPL_OFFSET>,
-            AcceptPhoneCallWithVideoOnAudioEndpoint::<Impl, IMPL_OFFSET>,
-            RejectPhoneCall::<Impl, IMPL_OFFSET>,
-            RejectPhoneCallWithText::<Impl, IMPL_OFFSET>,
-            MakePhoneCall::<Impl, IMPL_OFFSET>,
-            MakePhoneCallOnAudioEndpoint::<Impl, IMPL_OFFSET>,
-            MakePhoneCallWithVideo::<Impl, IMPL_OFFSET>,
-            MakePhoneCallWithVideoOnAudioEndpoint::<Impl, IMPL_OFFSET>,
-            SwapPhoneCalls::<Impl, IMPL_OFFSET>,
-            HoldPhoneCall::<Impl, IMPL_OFFSET>,
-            EndPhoneCall::<Impl, IMPL_OFFSET>,
-            SetPhoneMute::<Impl, IMPL_OFFSET>,
-            PhoneMute::<Impl, IMPL_OFFSET>,
-            SetPhoneCallAudioEndpoint::<Impl, IMPL_OFFSET>,
-            PhoneCallAudioEndpoint::<Impl, IMPL_OFFSET>,
-            SnoozeAlarm::<Impl, IMPL_OFFSET>,
-            SnoozeAlarmForSpecifiedTime::<Impl, IMPL_OFFSET>,
-            DismissAlarm::<Impl, IMPL_OFFSET>,
-            SnoozeReminder::<Impl, IMPL_OFFSET>,
-            SnoozeReminderForSpecifiedTime::<Impl, IMPL_OFFSET>,
-            DismissReminder::<Impl, IMPL_OFFSET>,
-            GetMediaMetadata::<Impl, IMPL_OFFSET>,
-            MediaPlaybackCapabilities::<Impl, IMPL_OFFSET>,
-            MediaPlaybackStatus::<Impl, IMPL_OFFSET>,
-            PerformMediaPlaybackCommand::<Impl, IMPL_OFFSET>,
-            DoNotDisturbEnabled::<Impl, IMPL_OFFSET>,
-            DrivingModeEnabled::<Impl, IMPL_OFFSET>,
-            BatterySaverState::<Impl, IMPL_OFFSET>,
-            GetApps::<Impl, IMPL_OFFSET>,
-            EnableNotificationsForApplication::<Impl, IMPL_OFFSET>,
-            DisableNotificationsForApplication::<Impl, IMPL_OFFSET>,
-            IsNotificationEnabledForApplication::<Impl, IMPL_OFFSET>,
-            GetEnabledAccessoryNotificationTypes::<Impl, IMPL_OFFSET>,
-            EnableAccessoryNotificationTypes::<Impl, IMPL_OFFSET>,
-            DisableAllAccessoryNotificationTypes::<Impl, IMPL_OFFSET>,
-            GetUserConsent::<Impl, IMPL_OFFSET>,
-            GetAppIcon::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccessoryManager, BASE_OFFSET>(),
+            RegisterAccessoryApp: RegisterAccessoryApp::<Impl, IMPL_OFFSET>,
+            GetNextTriggerDetails: GetNextTriggerDetails::<Impl, IMPL_OFFSET>,
+            ProcessTriggerDetails: ProcessTriggerDetails::<Impl, IMPL_OFFSET>,
+            PhoneLineDetails: PhoneLineDetails::<Impl, IMPL_OFFSET>,
+            GetPhoneLineDetails: GetPhoneLineDetails::<Impl, IMPL_OFFSET>,
+            AcceptPhoneCall: AcceptPhoneCall::<Impl, IMPL_OFFSET>,
+            AcceptPhoneCallOnEndpoint: AcceptPhoneCallOnEndpoint::<Impl, IMPL_OFFSET>,
+            AcceptPhoneCallWithVideo: AcceptPhoneCallWithVideo::<Impl, IMPL_OFFSET>,
+            AcceptPhoneCallWithVideoOnAudioEndpoint: AcceptPhoneCallWithVideoOnAudioEndpoint::<Impl, IMPL_OFFSET>,
+            RejectPhoneCall: RejectPhoneCall::<Impl, IMPL_OFFSET>,
+            RejectPhoneCallWithText: RejectPhoneCallWithText::<Impl, IMPL_OFFSET>,
+            MakePhoneCall: MakePhoneCall::<Impl, IMPL_OFFSET>,
+            MakePhoneCallOnAudioEndpoint: MakePhoneCallOnAudioEndpoint::<Impl, IMPL_OFFSET>,
+            MakePhoneCallWithVideo: MakePhoneCallWithVideo::<Impl, IMPL_OFFSET>,
+            MakePhoneCallWithVideoOnAudioEndpoint: MakePhoneCallWithVideoOnAudioEndpoint::<Impl, IMPL_OFFSET>,
+            SwapPhoneCalls: SwapPhoneCalls::<Impl, IMPL_OFFSET>,
+            HoldPhoneCall: HoldPhoneCall::<Impl, IMPL_OFFSET>,
+            EndPhoneCall: EndPhoneCall::<Impl, IMPL_OFFSET>,
+            SetPhoneMute: SetPhoneMute::<Impl, IMPL_OFFSET>,
+            PhoneMute: PhoneMute::<Impl, IMPL_OFFSET>,
+            SetPhoneCallAudioEndpoint: SetPhoneCallAudioEndpoint::<Impl, IMPL_OFFSET>,
+            PhoneCallAudioEndpoint: PhoneCallAudioEndpoint::<Impl, IMPL_OFFSET>,
+            SnoozeAlarm: SnoozeAlarm::<Impl, IMPL_OFFSET>,
+            SnoozeAlarmForSpecifiedTime: SnoozeAlarmForSpecifiedTime::<Impl, IMPL_OFFSET>,
+            DismissAlarm: DismissAlarm::<Impl, IMPL_OFFSET>,
+            SnoozeReminder: SnoozeReminder::<Impl, IMPL_OFFSET>,
+            SnoozeReminderForSpecifiedTime: SnoozeReminderForSpecifiedTime::<Impl, IMPL_OFFSET>,
+            DismissReminder: DismissReminder::<Impl, IMPL_OFFSET>,
+            GetMediaMetadata: GetMediaMetadata::<Impl, IMPL_OFFSET>,
+            MediaPlaybackCapabilities: MediaPlaybackCapabilities::<Impl, IMPL_OFFSET>,
+            MediaPlaybackStatus: MediaPlaybackStatus::<Impl, IMPL_OFFSET>,
+            PerformMediaPlaybackCommand: PerformMediaPlaybackCommand::<Impl, IMPL_OFFSET>,
+            DoNotDisturbEnabled: DoNotDisturbEnabled::<Impl, IMPL_OFFSET>,
+            DrivingModeEnabled: DrivingModeEnabled::<Impl, IMPL_OFFSET>,
+            BatterySaverState: BatterySaverState::<Impl, IMPL_OFFSET>,
+            GetApps: GetApps::<Impl, IMPL_OFFSET>,
+            EnableNotificationsForApplication: EnableNotificationsForApplication::<Impl, IMPL_OFFSET>,
+            DisableNotificationsForApplication: DisableNotificationsForApplication::<Impl, IMPL_OFFSET>,
+            IsNotificationEnabledForApplication: IsNotificationEnabledForApplication::<Impl, IMPL_OFFSET>,
+            GetEnabledAccessoryNotificationTypes: GetEnabledAccessoryNotificationTypes::<Impl, IMPL_OFFSET>,
+            EnableAccessoryNotificationTypes: EnableAccessoryNotificationTypes::<Impl, IMPL_OFFSET>,
+            DisableAllAccessoryNotificationTypes: DisableAllAccessoryNotificationTypes::<Impl, IMPL_OFFSET>,
+            GetUserConsent: GetUserConsent::<Impl, IMPL_OFFSET>,
+            GetAppIcon: GetAppIcon::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccessoryManager as ::windows::core::Interface>::IID
@@ -526,29 +521,24 @@ impl IAccessoryManager2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateEmailReadStatus(&*(&messageentryid as *const <BinaryId as ::windows::core::Abi>::Abi as *const <BinaryId as ::windows::core::DefaultType>::DefaultType), isread).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAccessoryManager2>,
-            ::windows::core::GetTrustLevel,
-            RingDevice::<Impl, IMPL_OFFSET>,
-            SpeedDialList::<Impl, IMPL_OFFSET>,
-            ClearToast::<Impl, IMPL_OFFSET>,
-            IsPhonePinLocked::<Impl, IMPL_OFFSET>,
-            IncreaseVolume::<Impl, IMPL_OFFSET>,
-            DecreaseVolume::<Impl, IMPL_OFFSET>,
-            SetMute::<Impl, IMPL_OFFSET>,
-            SetRingerVibrate::<Impl, IMPL_OFFSET>,
-            VolumeInfo::<Impl, IMPL_OFFSET>,
-            GetAllEmailAccounts::<Impl, IMPL_OFFSET>,
-            GetFolders::<Impl, IMPL_OFFSET>,
-            EnableEmailNotificationEmailAccount::<Impl, IMPL_OFFSET>,
-            DisableEmailNotificationEmailAccount::<Impl, IMPL_OFFSET>,
-            EnableEmailNotificationFolderFilter::<Impl, IMPL_OFFSET>,
-            UpdateEmailReadStatus::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccessoryManager2, BASE_OFFSET>(),
+            RingDevice: RingDevice::<Impl, IMPL_OFFSET>,
+            SpeedDialList: SpeedDialList::<Impl, IMPL_OFFSET>,
+            ClearToast: ClearToast::<Impl, IMPL_OFFSET>,
+            IsPhonePinLocked: IsPhonePinLocked::<Impl, IMPL_OFFSET>,
+            IncreaseVolume: IncreaseVolume::<Impl, IMPL_OFFSET>,
+            DecreaseVolume: DecreaseVolume::<Impl, IMPL_OFFSET>,
+            SetMute: SetMute::<Impl, IMPL_OFFSET>,
+            SetRingerVibrate: SetRingerVibrate::<Impl, IMPL_OFFSET>,
+            VolumeInfo: VolumeInfo::<Impl, IMPL_OFFSET>,
+            GetAllEmailAccounts: GetAllEmailAccounts::<Impl, IMPL_OFFSET>,
+            GetFolders: GetFolders::<Impl, IMPL_OFFSET>,
+            EnableEmailNotificationEmailAccount: EnableEmailNotificationEmailAccount::<Impl, IMPL_OFFSET>,
+            DisableEmailNotificationEmailAccount: DisableEmailNotificationEmailAccount::<Impl, IMPL_OFFSET>,
+            EnableEmailNotificationFolderFilter: EnableEmailNotificationFolderFilter::<Impl, IMPL_OFFSET>,
+            UpdateEmailReadStatus: UpdateEmailReadStatus::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccessoryManager2 as ::windows::core::Interface>::IID
@@ -584,7 +574,13 @@ impl IAccessoryManager3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissReminderByInstanceId(&*(&instanceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccessoryManager3>, ::windows::core::GetTrustLevel, SnoozeAlarmByInstanceId::<Impl, IMPL_OFFSET>, DismissAlarmByInstanceId::<Impl, IMPL_OFFSET>, SnoozeReminderByInstanceId::<Impl, IMPL_OFFSET>, DismissReminderByInstanceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccessoryManager3, BASE_OFFSET>(),
+            SnoozeAlarmByInstanceId: SnoozeAlarmByInstanceId::<Impl, IMPL_OFFSET>,
+            DismissAlarmByInstanceId: DismissAlarmByInstanceId::<Impl, IMPL_OFFSET>,
+            SnoozeReminderByInstanceId: SnoozeReminderByInstanceId::<Impl, IMPL_OFFSET>,
+            DismissReminderByInstanceId: DismissReminderByInstanceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccessoryManager3 as ::windows::core::Interface>::IID
@@ -665,20 +661,15 @@ impl IAccessoryNotificationTriggerDetailsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStartedProcessing(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAccessoryNotificationTriggerDetails>,
-            ::windows::core::GetTrustLevel,
-            TimeCreated::<Impl, IMPL_OFFSET>,
-            AppDisplayName::<Impl, IMPL_OFFSET>,
-            AppId::<Impl, IMPL_OFFSET>,
-            AccessoryNotificationType::<Impl, IMPL_OFFSET>,
-            StartedProcessing::<Impl, IMPL_OFFSET>,
-            SetStartedProcessing::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccessoryNotificationTriggerDetails, BASE_OFFSET>(),
+            TimeCreated: TimeCreated::<Impl, IMPL_OFFSET>,
+            AppDisplayName: AppDisplayName::<Impl, IMPL_OFFSET>,
+            AppId: AppId::<Impl, IMPL_OFFSET>,
+            AccessoryNotificationType: AccessoryNotificationType::<Impl, IMPL_OFFSET>,
+            StartedProcessing: StartedProcessing::<Impl, IMPL_OFFSET>,
+            SetStartedProcessing: SetStartedProcessing::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccessoryNotificationTriggerDetails as ::windows::core::Interface>::IID
@@ -742,7 +733,13 @@ impl IAlarmNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlarmNotificationTriggerDetails>, ::windows::core::GetTrustLevel, AlarmId::<Impl, IMPL_OFFSET>, Title::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>, ReminderState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAlarmNotificationTriggerDetails, BASE_OFFSET>(),
+            AlarmId: AlarmId::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            ReminderState: ReminderState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAlarmNotificationTriggerDetails as ::windows::core::Interface>::IID
@@ -770,7 +767,10 @@ impl IAlarmNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlarmNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, InstanceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAlarmNotificationTriggerDetails2, BASE_OFFSET>(),
+            InstanceId: InstanceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAlarmNotificationTriggerDetails2 as ::windows::core::Interface>::IID
@@ -810,7 +810,11 @@ impl IAppNotificationInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppNotificationInfo>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppNotificationInfo, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppNotificationInfo as ::windows::core::Interface>::IID
@@ -850,7 +854,11 @@ impl IBinaryIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBinaryId>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Length::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBinaryId, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Length: Length::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBinaryId as ::windows::core::Interface>::IID
@@ -890,7 +898,11 @@ impl ICalendarChangedNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarChangedNotificationTriggerDetails>, ::windows::core::GetTrustLevel, EventType::<Impl, IMPL_OFFSET>, ItemId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICalendarChangedNotificationTriggerDetails, BASE_OFFSET>(),
+            EventType: EventType::<Impl, IMPL_OFFSET>,
+            ItemId: ItemId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICalendarChangedNotificationTriggerDetails as ::windows::core::Interface>::IID
@@ -1026,24 +1038,19 @@ impl ICortanaTileNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICortanaTileNotificationTriggerDetails>,
-            ::windows::core::GetTrustLevel,
-            TileId::<Impl, IMPL_OFFSET>,
-            Content::<Impl, IMPL_OFFSET>,
-            LargeContent1::<Impl, IMPL_OFFSET>,
-            LargeContent2::<Impl, IMPL_OFFSET>,
-            EmphasizedText::<Impl, IMPL_OFFSET>,
-            NonWrappedSmallContent1::<Impl, IMPL_OFFSET>,
-            NonWrappedSmallContent2::<Impl, IMPL_OFFSET>,
-            NonWrappedSmallContent3::<Impl, IMPL_OFFSET>,
-            NonWrappedSmallContent4::<Impl, IMPL_OFFSET>,
-            Source::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICortanaTileNotificationTriggerDetails, BASE_OFFSET>(),
+            TileId: TileId::<Impl, IMPL_OFFSET>,
+            Content: Content::<Impl, IMPL_OFFSET>,
+            LargeContent1: LargeContent1::<Impl, IMPL_OFFSET>,
+            LargeContent2: LargeContent2::<Impl, IMPL_OFFSET>,
+            EmphasizedText: EmphasizedText::<Impl, IMPL_OFFSET>,
+            NonWrappedSmallContent1: NonWrappedSmallContent1::<Impl, IMPL_OFFSET>,
+            NonWrappedSmallContent2: NonWrappedSmallContent2::<Impl, IMPL_OFFSET>,
+            NonWrappedSmallContent3: NonWrappedSmallContent3::<Impl, IMPL_OFFSET>,
+            NonWrappedSmallContent4: NonWrappedSmallContent4::<Impl, IMPL_OFFSET>,
+            Source: Source::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICortanaTileNotificationTriggerDetails as ::windows::core::Interface>::IID
@@ -1083,7 +1090,11 @@ impl IEmailAccountInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailAccountInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, IsNotificationEnabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailAccountInfo, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            IsNotificationEnabled: IsNotificationEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailAccountInfo as ::windows::core::Interface>::IID
@@ -1123,7 +1134,11 @@ impl IEmailFolderInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailFolderInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, IsNotificationEnabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailFolderInfo, BASE_OFFSET>(),
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            IsNotificationEnabled: IsNotificationEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailFolderInfo as ::windows::core::Interface>::IID
@@ -1211,20 +1226,15 @@ impl IEmailNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IEmailNotificationTriggerDetails>,
-            ::windows::core::GetTrustLevel,
-            AccountName::<Impl, IMPL_OFFSET>,
-            ParentFolderName::<Impl, IMPL_OFFSET>,
-            SenderName::<Impl, IMPL_OFFSET>,
-            SenderAddress::<Impl, IMPL_OFFSET>,
-            EmailMessage::<Impl, IMPL_OFFSET>,
-            Timestamp::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailNotificationTriggerDetails, BASE_OFFSET>(),
+            AccountName: AccountName::<Impl, IMPL_OFFSET>,
+            ParentFolderName: ParentFolderName::<Impl, IMPL_OFFSET>,
+            SenderName: SenderName::<Impl, IMPL_OFFSET>,
+            SenderAddress: SenderAddress::<Impl, IMPL_OFFSET>,
+            EmailMessage: EmailMessage::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailNotificationTriggerDetails as ::windows::core::Interface>::IID
@@ -1252,7 +1262,10 @@ impl IEmailNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, MessageEntryId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailNotificationTriggerDetails2, BASE_OFFSET>(),
+            MessageEntryId: MessageEntryId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailNotificationTriggerDetails2 as ::windows::core::Interface>::IID
@@ -1316,7 +1329,13 @@ impl IEmailReadNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailReadNotificationTriggerDetails>, ::windows::core::GetTrustLevel, AccountName::<Impl, IMPL_OFFSET>, ParentFolderName::<Impl, IMPL_OFFSET>, MessageEntryId::<Impl, IMPL_OFFSET>, IsRead::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEmailReadNotificationTriggerDetails, BASE_OFFSET>(),
+            AccountName: AccountName::<Impl, IMPL_OFFSET>,
+            ParentFolderName: ParentFolderName::<Impl, IMPL_OFFSET>,
+            MessageEntryId: MessageEntryId::<Impl, IMPL_OFFSET>,
+            IsRead: IsRead::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEmailReadNotificationTriggerDetails as ::windows::core::Interface>::IID
@@ -1356,7 +1375,11 @@ impl IMediaControlsTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaControlsTriggerDetails>, ::windows::core::GetTrustLevel, PlaybackStatus::<Impl, IMPL_OFFSET>, MediaMetadata::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaControlsTriggerDetails, BASE_OFFSET>(),
+            PlaybackStatus: PlaybackStatus::<Impl, IMPL_OFFSET>,
+            MediaMetadata: MediaMetadata::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaControlsTriggerDetails as ::windows::core::Interface>::IID
@@ -1456,7 +1479,16 @@ impl IMediaMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaMetadata>, ::windows::core::GetTrustLevel, Title::<Impl, IMPL_OFFSET>, Subtitle::<Impl, IMPL_OFFSET>, Artist::<Impl, IMPL_OFFSET>, Album::<Impl, IMPL_OFFSET>, Track::<Impl, IMPL_OFFSET>, Duration::<Impl, IMPL_OFFSET>, Thumbnail::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaMetadata, BASE_OFFSET>(),
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Subtitle: Subtitle::<Impl, IMPL_OFFSET>,
+            Artist: Artist::<Impl, IMPL_OFFSET>,
+            Album: Album::<Impl, IMPL_OFFSET>,
+            Track: Track::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            Thumbnail: Thumbnail::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaMetadata as ::windows::core::Interface>::IID
@@ -1616,26 +1648,21 @@ impl IPhoneCallDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneCallDetails>,
-            ::windows::core::GetTrustLevel,
-            PhoneLine::<Impl, IMPL_OFFSET>,
-            CallId::<Impl, IMPL_OFFSET>,
-            CallTransport::<Impl, IMPL_OFFSET>,
-            CallMediaType::<Impl, IMPL_OFFSET>,
-            CallDirection::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            ConferenceCallId::<Impl, IMPL_OFFSET>,
-            StartTime::<Impl, IMPL_OFFSET>,
-            EndTime::<Impl, IMPL_OFFSET>,
-            PhoneNumber::<Impl, IMPL_OFFSET>,
-            ContactName::<Impl, IMPL_OFFSET>,
-            PresetTextResponses::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallDetails, BASE_OFFSET>(),
+            PhoneLine: PhoneLine::<Impl, IMPL_OFFSET>,
+            CallId: CallId::<Impl, IMPL_OFFSET>,
+            CallTransport: CallTransport::<Impl, IMPL_OFFSET>,
+            CallMediaType: CallMediaType::<Impl, IMPL_OFFSET>,
+            CallDirection: CallDirection::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            ConferenceCallId: ConferenceCallId::<Impl, IMPL_OFFSET>,
+            StartTime: StartTime::<Impl, IMPL_OFFSET>,
+            EndTime: EndTime::<Impl, IMPL_OFFSET>,
+            PhoneNumber: PhoneNumber::<Impl, IMPL_OFFSET>,
+            ContactName: ContactName::<Impl, IMPL_OFFSET>,
+            PresetTextResponses: PresetTextResponses::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallDetails as ::windows::core::Interface>::IID
@@ -1723,20 +1750,15 @@ impl IPhoneLineDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneLineDetails>,
-            ::windows::core::GetTrustLevel,
-            LineId::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            LineNumber::<Impl, IMPL_OFFSET>,
-            DefaultOutgoingLine::<Impl, IMPL_OFFSET>,
-            VoicemailCount::<Impl, IMPL_OFFSET>,
-            RegistrationState::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLineDetails, BASE_OFFSET>(),
+            LineId: LineId::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            LineNumber: LineNumber::<Impl, IMPL_OFFSET>,
+            DefaultOutgoingLine: DefaultOutgoingLine::<Impl, IMPL_OFFSET>,
+            VoicemailCount: VoicemailCount::<Impl, IMPL_OFFSET>,
+            RegistrationState: RegistrationState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLineDetails as ::windows::core::Interface>::IID
@@ -1764,7 +1786,10 @@ impl IPhoneLineDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineDetails2>, ::windows::core::GetTrustLevel, MissedCallCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLineDetails2, BASE_OFFSET>(),
+            MissedCallCount: MissedCallCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLineDetails2 as ::windows::core::Interface>::IID
@@ -1816,7 +1841,12 @@ impl IPhoneNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNotificationTriggerDetails>, ::windows::core::GetTrustLevel, PhoneNotificationType::<Impl, IMPL_OFFSET>, CallDetails::<Impl, IMPL_OFFSET>, PhoneLineChangedId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneNotificationTriggerDetails, BASE_OFFSET>(),
+            PhoneNotificationType: PhoneNotificationType::<Impl, IMPL_OFFSET>,
+            CallDetails: CallDetails::<Impl, IMPL_OFFSET>,
+            PhoneLineChangedId: PhoneLineChangedId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneNotificationTriggerDetails as ::windows::core::Interface>::IID
@@ -1916,21 +1946,16 @@ impl IReminderNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IReminderNotificationTriggerDetails>,
-            ::windows::core::GetTrustLevel,
-            ReminderId::<Impl, IMPL_OFFSET>,
-            Title::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            Details::<Impl, IMPL_OFFSET>,
-            Timestamp::<Impl, IMPL_OFFSET>,
-            Appointment::<Impl, IMPL_OFFSET>,
-            ReminderState::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IReminderNotificationTriggerDetails, BASE_OFFSET>(),
+            ReminderId: ReminderId::<Impl, IMPL_OFFSET>,
+            Title: Title::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            Details: Details::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            Appointment: Appointment::<Impl, IMPL_OFFSET>,
+            ReminderState: ReminderState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IReminderNotificationTriggerDetails as ::windows::core::Interface>::IID
@@ -1958,7 +1983,10 @@ impl IReminderNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReminderNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, InstanceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IReminderNotificationTriggerDetails2, BASE_OFFSET>(),
+            InstanceId: InstanceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IReminderNotificationTriggerDetails2 as ::windows::core::Interface>::IID
@@ -2010,7 +2038,12 @@ impl ISpeedDialEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeedDialEntry>, ::windows::core::GetTrustLevel, PhoneNumber::<Impl, IMPL_OFFSET>, NumberType::<Impl, IMPL_OFFSET>, ContactName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeedDialEntry, BASE_OFFSET>(),
+            PhoneNumber: PhoneNumber::<Impl, IMPL_OFFSET>,
+            NumberType: NumberType::<Impl, IMPL_OFFSET>,
+            ContactName: ContactName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeedDialEntry as ::windows::core::Interface>::IID
@@ -2050,7 +2083,11 @@ impl ITextResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextResponse>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Content::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextResponse, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Content: Content::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextResponse as ::windows::core::Interface>::IID
@@ -2126,7 +2163,14 @@ impl IToastNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationTriggerDetails>, ::windows::core::GetTrustLevel, Text1::<Impl, IMPL_OFFSET>, Text2::<Impl, IMPL_OFFSET>, Text3::<Impl, IMPL_OFFSET>, Text4::<Impl, IMPL_OFFSET>, SuppressPopup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationTriggerDetails, BASE_OFFSET>(),
+            Text1: Text1::<Impl, IMPL_OFFSET>,
+            Text2: Text2::<Impl, IMPL_OFFSET>,
+            Text3: Text3::<Impl, IMPL_OFFSET>,
+            Text4: Text4::<Impl, IMPL_OFFSET>,
+            SuppressPopup: SuppressPopup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationTriggerDetails as ::windows::core::Interface>::IID
@@ -2154,7 +2198,10 @@ impl IToastNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, InstanceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationTriggerDetails2, BASE_OFFSET>(),
+            InstanceId: InstanceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToastNotificationTriggerDetails2 as ::windows::core::Interface>::IID
@@ -2230,7 +2277,14 @@ impl IVolumeInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVolumeInfo>, ::windows::core::GetTrustLevel, SystemVolume::<Impl, IMPL_OFFSET>, CallVolume::<Impl, IMPL_OFFSET>, MediaVolume::<Impl, IMPL_OFFSET>, IsMuted::<Impl, IMPL_OFFSET>, IsVibrateEnabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVolumeInfo, BASE_OFFSET>(),
+            SystemVolume: SystemVolume::<Impl, IMPL_OFFSET>,
+            CallVolume: CallVolume::<Impl, IMPL_OFFSET>,
+            MediaVolume: MediaVolume::<Impl, IMPL_OFFSET>,
+            IsMuted: IsMuted::<Impl, IMPL_OFFSET>,
+            IsVibrateEnabled: IsVibrateEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVolumeInfo as ::windows::core::Interface>::IID

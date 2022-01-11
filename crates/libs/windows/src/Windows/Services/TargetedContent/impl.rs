@@ -20,7 +20,7 @@ impl ITargetedContentActionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentAction>, ::windows::core::GetTrustLevel, InvokeAsync::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentAction, BASE_OFFSET>(), InvokeAsync: InvokeAsync::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentAction as ::windows::core::Interface>::IID
@@ -48,7 +48,10 @@ impl ITargetedContentAvailabilityChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentAvailabilityChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentAvailabilityChangedEventArgs, BASE_OFFSET>(),
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentAvailabilityChangedEventArgs as ::windows::core::Interface>::IID
@@ -88,7 +91,11 @@ impl ITargetedContentChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>, HasPreviousContentExpired::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentChangedEventArgs, BASE_OFFSET>(),
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            HasPreviousContentExpired: HasPreviousContentExpired::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentChangedEventArgs as ::windows::core::Interface>::IID
@@ -174,21 +181,16 @@ impl ITargetedContentCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITargetedContentCollection>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            ReportInteraction::<Impl, IMPL_OFFSET>,
-            ReportCustomInteraction::<Impl, IMPL_OFFSET>,
-            Path::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            Collections::<Impl, IMPL_OFFSET>,
-            Items::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentCollection, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            ReportInteraction: ReportInteraction::<Impl, IMPL_OFFSET>,
+            ReportCustomInteraction: ReportCustomInteraction::<Impl, IMPL_OFFSET>,
+            Path: Path::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            Collections: Collections::<Impl, IMPL_OFFSET>,
+            Items: Items::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentCollection as ::windows::core::Interface>::IID
@@ -264,7 +266,14 @@ impl ITargetedContentContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentContainer>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>, Availability::<Impl, IMPL_OFFSET>, Content::<Impl, IMPL_OFFSET>, SelectSingleObject::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentContainer, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            Availability: Availability::<Impl, IMPL_OFFSET>,
+            Content: Content::<Impl, IMPL_OFFSET>,
+            SelectSingleObject: SelectSingleObject::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentContainer as ::windows::core::Interface>::IID
@@ -292,7 +301,10 @@ impl ITargetedContentContainerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentContainerStatics>, ::windows::core::GetTrustLevel, GetAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentContainerStatics, BASE_OFFSET>(),
+            GetAsync: GetAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentContainerStatics as ::windows::core::Interface>::IID
@@ -332,7 +344,11 @@ impl ITargetedContentImageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentImage>, ::windows::core::GetTrustLevel, Height::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentImage, BASE_OFFSET>(),
+            Height: Height::<Impl, IMPL_OFFSET>,
+            Width: Width::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentImage as ::windows::core::Interface>::IID
@@ -406,20 +422,15 @@ impl ITargetedContentItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITargetedContentItem>,
-            ::windows::core::GetTrustLevel,
-            Path::<Impl, IMPL_OFFSET>,
-            ReportInteraction::<Impl, IMPL_OFFSET>,
-            ReportCustomInteraction::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            Properties::<Impl, IMPL_OFFSET>,
-            Collections::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentItem, BASE_OFFSET>(),
+            Path: Path::<Impl, IMPL_OFFSET>,
+            ReportInteraction: ReportInteraction::<Impl, IMPL_OFFSET>,
+            ReportCustomInteraction: ReportCustomInteraction::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            Collections: Collections::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentItem as ::windows::core::Interface>::IID
@@ -459,7 +470,11 @@ impl ITargetedContentItemStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentItemState>, ::windows::core::GetTrustLevel, ShouldDisplay::<Impl, IMPL_OFFSET>, AppInstallationState::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentItemState, BASE_OFFSET>(),
+            ShouldDisplay: ShouldDisplay::<Impl, IMPL_OFFSET>,
+            AppInstallationState: AppInstallationState::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentItemState as ::windows::core::Interface>::IID
@@ -523,7 +538,13 @@ impl ITargetedContentObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentObject>, ::windows::core::GetTrustLevel, ObjectKind::<Impl, IMPL_OFFSET>, Collection::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentObject, BASE_OFFSET>(),
+            ObjectKind: ObjectKind::<Impl, IMPL_OFFSET>,
+            Collection: Collection::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentObject as ::windows::core::Interface>::IID
@@ -551,7 +572,10 @@ impl ITargetedContentStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentStateChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentStateChangedEventArgs, BASE_OFFSET>(),
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentStateChangedEventArgs as ::windows::core::Interface>::IID
@@ -642,22 +666,17 @@ impl ITargetedContentSubscriptionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStateChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITargetedContentSubscription>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            GetContentContainerAsync::<Impl, IMPL_OFFSET>,
-            ContentChanged::<Impl, IMPL_OFFSET>,
-            RemoveContentChanged::<Impl, IMPL_OFFSET>,
-            AvailabilityChanged::<Impl, IMPL_OFFSET>,
-            RemoveAvailabilityChanged::<Impl, IMPL_OFFSET>,
-            StateChanged::<Impl, IMPL_OFFSET>,
-            RemoveStateChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentSubscription, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            GetContentContainerAsync: GetContentContainerAsync::<Impl, IMPL_OFFSET>,
+            ContentChanged: ContentChanged::<Impl, IMPL_OFFSET>,
+            RemoveContentChanged: RemoveContentChanged::<Impl, IMPL_OFFSET>,
+            AvailabilityChanged: AvailabilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailabilityChanged: RemoveAvailabilityChanged::<Impl, IMPL_OFFSET>,
+            StateChanged: StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged: RemoveStateChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentSubscription as ::windows::core::Interface>::IID
@@ -731,20 +750,15 @@ impl ITargetedContentSubscriptionOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Update().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITargetedContentSubscriptionOptions>,
-            ::windows::core::GetTrustLevel,
-            SubscriptionId::<Impl, IMPL_OFFSET>,
-            AllowPartialContentAvailability::<Impl, IMPL_OFFSET>,
-            SetAllowPartialContentAvailability::<Impl, IMPL_OFFSET>,
-            CloudQueryParameters::<Impl, IMPL_OFFSET>,
-            LocalFilters::<Impl, IMPL_OFFSET>,
-            Update::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentSubscriptionOptions, BASE_OFFSET>(),
+            SubscriptionId: SubscriptionId::<Impl, IMPL_OFFSET>,
+            AllowPartialContentAvailability: AllowPartialContentAvailability::<Impl, IMPL_OFFSET>,
+            SetAllowPartialContentAvailability: SetAllowPartialContentAvailability::<Impl, IMPL_OFFSET>,
+            CloudQueryParameters: CloudQueryParameters::<Impl, IMPL_OFFSET>,
+            LocalFilters: LocalFilters::<Impl, IMPL_OFFSET>,
+            Update: Update::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentSubscriptionOptions as ::windows::core::Interface>::IID
@@ -784,7 +798,11 @@ impl ITargetedContentSubscriptionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentSubscriptionStatics>, ::windows::core::GetTrustLevel, GetAsync::<Impl, IMPL_OFFSET>, GetOptions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentSubscriptionStatics, BASE_OFFSET>(),
+            GetAsync: GetAsync::<Impl, IMPL_OFFSET>,
+            GetOptions: GetOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentSubscriptionStatics as ::windows::core::Interface>::IID
@@ -992,30 +1010,25 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITargetedContentValue>,
-            ::windows::core::GetTrustLevel,
-            ValueKind::<Impl, IMPL_OFFSET>,
-            Path::<Impl, IMPL_OFFSET>,
-            String::<Impl, IMPL_OFFSET>,
-            Uri::<Impl, IMPL_OFFSET>,
-            Number::<Impl, IMPL_OFFSET>,
-            Boolean::<Impl, IMPL_OFFSET>,
-            File::<Impl, IMPL_OFFSET>,
-            ImageFile::<Impl, IMPL_OFFSET>,
-            Action::<Impl, IMPL_OFFSET>,
-            Strings::<Impl, IMPL_OFFSET>,
-            Uris::<Impl, IMPL_OFFSET>,
-            Numbers::<Impl, IMPL_OFFSET>,
-            Booleans::<Impl, IMPL_OFFSET>,
-            Files::<Impl, IMPL_OFFSET>,
-            ImageFiles::<Impl, IMPL_OFFSET>,
-            Actions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITargetedContentValue, BASE_OFFSET>(),
+            ValueKind: ValueKind::<Impl, IMPL_OFFSET>,
+            Path: Path::<Impl, IMPL_OFFSET>,
+            String: String::<Impl, IMPL_OFFSET>,
+            Uri: Uri::<Impl, IMPL_OFFSET>,
+            Number: Number::<Impl, IMPL_OFFSET>,
+            Boolean: Boolean::<Impl, IMPL_OFFSET>,
+            File: File::<Impl, IMPL_OFFSET>,
+            ImageFile: ImageFile::<Impl, IMPL_OFFSET>,
+            Action: Action::<Impl, IMPL_OFFSET>,
+            Strings: Strings::<Impl, IMPL_OFFSET>,
+            Uris: Uris::<Impl, IMPL_OFFSET>,
+            Numbers: Numbers::<Impl, IMPL_OFFSET>,
+            Booleans: Booleans::<Impl, IMPL_OFFSET>,
+            Files: Files::<Impl, IMPL_OFFSET>,
+            ImageFiles: ImageFiles::<Impl, IMPL_OFFSET>,
+            Actions: Actions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITargetedContentValue as ::windows::core::Interface>::IID

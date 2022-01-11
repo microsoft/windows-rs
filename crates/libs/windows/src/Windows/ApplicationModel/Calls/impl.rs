@@ -20,7 +20,7 @@ impl ICallAnswerEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICallAnswerEventArgs>, ::windows::core::GetTrustLevel, AcceptedMedia::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICallAnswerEventArgs, BASE_OFFSET>(), AcceptedMedia: AcceptedMedia::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICallAnswerEventArgs as ::windows::core::Interface>::IID
@@ -48,7 +48,7 @@ impl ICallRejectEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICallRejectEventArgs>, ::windows::core::GetTrustLevel, RejectReason::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICallRejectEventArgs, BASE_OFFSET>(), RejectReason: RejectReason::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICallRejectEventArgs as ::windows::core::Interface>::IID
@@ -76,7 +76,7 @@ impl ICallStateChangeEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICallStateChangeEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICallStateChangeEventArgs, BASE_OFFSET>(), State: State::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICallStateChangeEventArgs as ::windows::core::Interface>::IID
@@ -97,7 +97,7 @@ impl ILockScreenCallEndCallDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenCallEndCallDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenCallEndCallDeferral, BASE_OFFSET>(), Complete: Complete::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockScreenCallEndCallDeferral as ::windows::core::Interface>::IID
@@ -137,7 +137,11 @@ impl ILockScreenCallEndRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenCallEndRequestedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>, Deadline::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenCallEndRequestedEventArgs, BASE_OFFSET>(),
+            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            Deadline: Deadline::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockScreenCallEndRequestedEventArgs as ::windows::core::Interface>::IID
@@ -209,21 +213,16 @@ impl ILockScreenCallUIVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCallTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILockScreenCallUI>,
-            ::windows::core::GetTrustLevel,
-            Dismiss::<Impl, IMPL_OFFSET>,
-            EndRequested::<Impl, IMPL_OFFSET>,
-            RemoveEndRequested::<Impl, IMPL_OFFSET>,
-            Closed::<Impl, IMPL_OFFSET>,
-            RemoveClosed::<Impl, IMPL_OFFSET>,
-            CallTitle::<Impl, IMPL_OFFSET>,
-            SetCallTitle::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenCallUI, BASE_OFFSET>(),
+            Dismiss: Dismiss::<Impl, IMPL_OFFSET>,
+            EndRequested: EndRequested::<Impl, IMPL_OFFSET>,
+            RemoveEndRequested: RemoveEndRequested::<Impl, IMPL_OFFSET>,
+            Closed: Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed: RemoveClosed::<Impl, IMPL_OFFSET>,
+            CallTitle: CallTitle::<Impl, IMPL_OFFSET>,
+            SetCallTitle: SetCallTitle::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockScreenCallUI as ::windows::core::Interface>::IID
@@ -251,7 +250,7 @@ impl IMuteChangeEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMuteChangeEventArgs>, ::windows::core::GetTrustLevel, Muted::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMuteChangeEventArgs, BASE_OFFSET>(), Muted: Muted::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMuteChangeEventArgs as ::windows::core::Interface>::IID
@@ -606,44 +605,39 @@ impl IPhoneCallVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneCall>,
-            ::windows::core::GetTrustLevel,
-            StatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
-            AudioDeviceChanged::<Impl, IMPL_OFFSET>,
-            RemoveAudioDeviceChanged::<Impl, IMPL_OFFSET>,
-            IsMutedChanged::<Impl, IMPL_OFFSET>,
-            RemoveIsMutedChanged::<Impl, IMPL_OFFSET>,
-            CallId::<Impl, IMPL_OFFSET>,
-            IsMuted::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            AudioDevice::<Impl, IMPL_OFFSET>,
-            GetPhoneCallInfo::<Impl, IMPL_OFFSET>,
-            GetPhoneCallInfoAsync::<Impl, IMPL_OFFSET>,
-            End::<Impl, IMPL_OFFSET>,
-            EndAsync::<Impl, IMPL_OFFSET>,
-            SendDtmfKey::<Impl, IMPL_OFFSET>,
-            SendDtmfKeyAsync::<Impl, IMPL_OFFSET>,
-            AcceptIncoming::<Impl, IMPL_OFFSET>,
-            AcceptIncomingAsync::<Impl, IMPL_OFFSET>,
-            Hold::<Impl, IMPL_OFFSET>,
-            HoldAsync::<Impl, IMPL_OFFSET>,
-            ResumeFromHold::<Impl, IMPL_OFFSET>,
-            ResumeFromHoldAsync::<Impl, IMPL_OFFSET>,
-            Mute::<Impl, IMPL_OFFSET>,
-            MuteAsync::<Impl, IMPL_OFFSET>,
-            Unmute::<Impl, IMPL_OFFSET>,
-            UnmuteAsync::<Impl, IMPL_OFFSET>,
-            RejectIncoming::<Impl, IMPL_OFFSET>,
-            RejectIncomingAsync::<Impl, IMPL_OFFSET>,
-            ChangeAudioDevice::<Impl, IMPL_OFFSET>,
-            ChangeAudioDeviceAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCall, BASE_OFFSET>(),
+            StatusChanged: StatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged: RemoveStatusChanged::<Impl, IMPL_OFFSET>,
+            AudioDeviceChanged: AudioDeviceChanged::<Impl, IMPL_OFFSET>,
+            RemoveAudioDeviceChanged: RemoveAudioDeviceChanged::<Impl, IMPL_OFFSET>,
+            IsMutedChanged: IsMutedChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsMutedChanged: RemoveIsMutedChanged::<Impl, IMPL_OFFSET>,
+            CallId: CallId::<Impl, IMPL_OFFSET>,
+            IsMuted: IsMuted::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            AudioDevice: AudioDevice::<Impl, IMPL_OFFSET>,
+            GetPhoneCallInfo: GetPhoneCallInfo::<Impl, IMPL_OFFSET>,
+            GetPhoneCallInfoAsync: GetPhoneCallInfoAsync::<Impl, IMPL_OFFSET>,
+            End: End::<Impl, IMPL_OFFSET>,
+            EndAsync: EndAsync::<Impl, IMPL_OFFSET>,
+            SendDtmfKey: SendDtmfKey::<Impl, IMPL_OFFSET>,
+            SendDtmfKeyAsync: SendDtmfKeyAsync::<Impl, IMPL_OFFSET>,
+            AcceptIncoming: AcceptIncoming::<Impl, IMPL_OFFSET>,
+            AcceptIncomingAsync: AcceptIncomingAsync::<Impl, IMPL_OFFSET>,
+            Hold: Hold::<Impl, IMPL_OFFSET>,
+            HoldAsync: HoldAsync::<Impl, IMPL_OFFSET>,
+            ResumeFromHold: ResumeFromHold::<Impl, IMPL_OFFSET>,
+            ResumeFromHoldAsync: ResumeFromHoldAsync::<Impl, IMPL_OFFSET>,
+            Mute: Mute::<Impl, IMPL_OFFSET>,
+            MuteAsync: MuteAsync::<Impl, IMPL_OFFSET>,
+            Unmute: Unmute::<Impl, IMPL_OFFSET>,
+            UnmuteAsync: UnmuteAsync::<Impl, IMPL_OFFSET>,
+            RejectIncoming: RejectIncoming::<Impl, IMPL_OFFSET>,
+            RejectIncomingAsync: RejectIncomingAsync::<Impl, IMPL_OFFSET>,
+            ChangeAudioDevice: ChangeAudioDevice::<Impl, IMPL_OFFSET>,
+            ChangeAudioDeviceAsync: ChangeAudioDeviceAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCall as ::windows::core::Interface>::IID
@@ -705,19 +699,14 @@ impl IPhoneCallBlockingStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneCallBlockingStatics>,
-            ::windows::core::GetTrustLevel,
-            BlockUnknownNumbers::<Impl, IMPL_OFFSET>,
-            SetBlockUnknownNumbers::<Impl, IMPL_OFFSET>,
-            BlockPrivateNumbers::<Impl, IMPL_OFFSET>,
-            SetBlockPrivateNumbers::<Impl, IMPL_OFFSET>,
-            SetCallBlockingListAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallBlockingStatics, BASE_OFFSET>(),
+            BlockUnknownNumbers: BlockUnknownNumbers::<Impl, IMPL_OFFSET>,
+            SetBlockUnknownNumbers: SetBlockUnknownNumbers::<Impl, IMPL_OFFSET>,
+            BlockPrivateNumbers: BlockPrivateNumbers::<Impl, IMPL_OFFSET>,
+            SetBlockPrivateNumbers: SetBlockPrivateNumbers::<Impl, IMPL_OFFSET>,
+            SetCallBlockingListAsync: SetCallBlockingListAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallBlockingStatics as ::windows::core::Interface>::IID
@@ -1029,48 +1018,43 @@ impl IPhoneCallHistoryEntryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStartTime(&*(&value as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryEntry>,
-            ::windows::core::GetTrustLevel,
-            Id::<Impl, IMPL_OFFSET>,
-            Address::<Impl, IMPL_OFFSET>,
-            SetAddress::<Impl, IMPL_OFFSET>,
-            Duration::<Impl, IMPL_OFFSET>,
-            SetDuration::<Impl, IMPL_OFFSET>,
-            IsCallerIdBlocked::<Impl, IMPL_OFFSET>,
-            SetIsCallerIdBlocked::<Impl, IMPL_OFFSET>,
-            IsEmergency::<Impl, IMPL_OFFSET>,
-            SetIsEmergency::<Impl, IMPL_OFFSET>,
-            IsIncoming::<Impl, IMPL_OFFSET>,
-            SetIsIncoming::<Impl, IMPL_OFFSET>,
-            IsMissed::<Impl, IMPL_OFFSET>,
-            SetIsMissed::<Impl, IMPL_OFFSET>,
-            IsRinging::<Impl, IMPL_OFFSET>,
-            SetIsRinging::<Impl, IMPL_OFFSET>,
-            IsSeen::<Impl, IMPL_OFFSET>,
-            SetIsSeen::<Impl, IMPL_OFFSET>,
-            IsSuppressed::<Impl, IMPL_OFFSET>,
-            SetIsSuppressed::<Impl, IMPL_OFFSET>,
-            IsVoicemail::<Impl, IMPL_OFFSET>,
-            SetIsVoicemail::<Impl, IMPL_OFFSET>,
-            Media::<Impl, IMPL_OFFSET>,
-            SetMedia::<Impl, IMPL_OFFSET>,
-            OtherAppReadAccess::<Impl, IMPL_OFFSET>,
-            SetOtherAppReadAccess::<Impl, IMPL_OFFSET>,
-            RemoteId::<Impl, IMPL_OFFSET>,
-            SetRemoteId::<Impl, IMPL_OFFSET>,
-            SourceDisplayName::<Impl, IMPL_OFFSET>,
-            SourceId::<Impl, IMPL_OFFSET>,
-            SetSourceId::<Impl, IMPL_OFFSET>,
-            SourceIdKind::<Impl, IMPL_OFFSET>,
-            SetSourceIdKind::<Impl, IMPL_OFFSET>,
-            StartTime::<Impl, IMPL_OFFSET>,
-            SetStartTime::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallHistoryEntry, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Address: Address::<Impl, IMPL_OFFSET>,
+            SetAddress: SetAddress::<Impl, IMPL_OFFSET>,
+            Duration: Duration::<Impl, IMPL_OFFSET>,
+            SetDuration: SetDuration::<Impl, IMPL_OFFSET>,
+            IsCallerIdBlocked: IsCallerIdBlocked::<Impl, IMPL_OFFSET>,
+            SetIsCallerIdBlocked: SetIsCallerIdBlocked::<Impl, IMPL_OFFSET>,
+            IsEmergency: IsEmergency::<Impl, IMPL_OFFSET>,
+            SetIsEmergency: SetIsEmergency::<Impl, IMPL_OFFSET>,
+            IsIncoming: IsIncoming::<Impl, IMPL_OFFSET>,
+            SetIsIncoming: SetIsIncoming::<Impl, IMPL_OFFSET>,
+            IsMissed: IsMissed::<Impl, IMPL_OFFSET>,
+            SetIsMissed: SetIsMissed::<Impl, IMPL_OFFSET>,
+            IsRinging: IsRinging::<Impl, IMPL_OFFSET>,
+            SetIsRinging: SetIsRinging::<Impl, IMPL_OFFSET>,
+            IsSeen: IsSeen::<Impl, IMPL_OFFSET>,
+            SetIsSeen: SetIsSeen::<Impl, IMPL_OFFSET>,
+            IsSuppressed: IsSuppressed::<Impl, IMPL_OFFSET>,
+            SetIsSuppressed: SetIsSuppressed::<Impl, IMPL_OFFSET>,
+            IsVoicemail: IsVoicemail::<Impl, IMPL_OFFSET>,
+            SetIsVoicemail: SetIsVoicemail::<Impl, IMPL_OFFSET>,
+            Media: Media::<Impl, IMPL_OFFSET>,
+            SetMedia: SetMedia::<Impl, IMPL_OFFSET>,
+            OtherAppReadAccess: OtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            SetOtherAppReadAccess: SetOtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            RemoteId: RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId: SetRemoteId::<Impl, IMPL_OFFSET>,
+            SourceDisplayName: SourceDisplayName::<Impl, IMPL_OFFSET>,
+            SourceId: SourceId::<Impl, IMPL_OFFSET>,
+            SetSourceId: SetSourceId::<Impl, IMPL_OFFSET>,
+            SourceIdKind: SourceIdKind::<Impl, IMPL_OFFSET>,
+            SetSourceIdKind: SetSourceIdKind::<Impl, IMPL_OFFSET>,
+            StartTime: StartTime::<Impl, IMPL_OFFSET>,
+            SetStartTime: SetStartTime::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallHistoryEntry as ::windows::core::Interface>::IID
@@ -1154,22 +1138,17 @@ impl IPhoneCallHistoryEntryAddressVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRawAddressKind(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryEntryAddress>,
-            ::windows::core::GetTrustLevel,
-            ContactId::<Impl, IMPL_OFFSET>,
-            SetContactId::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            SetDisplayName::<Impl, IMPL_OFFSET>,
-            RawAddress::<Impl, IMPL_OFFSET>,
-            SetRawAddress::<Impl, IMPL_OFFSET>,
-            RawAddressKind::<Impl, IMPL_OFFSET>,
-            SetRawAddressKind::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallHistoryEntryAddress, BASE_OFFSET>(),
+            ContactId: ContactId::<Impl, IMPL_OFFSET>,
+            SetContactId: SetContactId::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            RawAddress: RawAddress::<Impl, IMPL_OFFSET>,
+            SetRawAddress: SetRawAddress::<Impl, IMPL_OFFSET>,
+            RawAddressKind: RawAddressKind::<Impl, IMPL_OFFSET>,
+            SetRawAddressKind: SetRawAddressKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallHistoryEntryAddress as ::windows::core::Interface>::IID
@@ -1197,7 +1176,10 @@ impl IPhoneCallHistoryEntryAddressFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryEntryAddressFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallHistoryEntryAddressFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallHistoryEntryAddressFactory as ::windows::core::Interface>::IID
@@ -1242,7 +1224,12 @@ impl IPhoneCallHistoryEntryQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryEntryQueryOptions>, ::windows::core::GetTrustLevel, DesiredMedia::<Impl, IMPL_OFFSET>, SetDesiredMedia::<Impl, IMPL_OFFSET>, SourceIds::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallHistoryEntryQueryOptions, BASE_OFFSET>(),
+            DesiredMedia: DesiredMedia::<Impl, IMPL_OFFSET>,
+            SetDesiredMedia: SetDesiredMedia::<Impl, IMPL_OFFSET>,
+            SourceIds: SourceIds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallHistoryEntryQueryOptions as ::windows::core::Interface>::IID
@@ -1270,7 +1257,10 @@ impl IPhoneCallHistoryEntryReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryEntryReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallHistoryEntryReader, BASE_OFFSET>(),
+            ReadBatchAsync: ReadBatchAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallHistoryEntryReader as ::windows::core::Interface>::IID
@@ -1310,7 +1300,11 @@ impl IPhoneCallHistoryManagerForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryManagerForUser>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallHistoryManagerForUser, BASE_OFFSET>(),
+            RequestStoreAsync: RequestStoreAsync::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallHistoryManagerForUser as ::windows::core::Interface>::IID
@@ -1338,7 +1332,10 @@ impl IPhoneCallHistoryManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryManagerStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallHistoryManagerStatics, BASE_OFFSET>(),
+            RequestStoreAsync: RequestStoreAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallHistoryManagerStatics as ::windows::core::Interface>::IID
@@ -1366,7 +1363,10 @@ impl IPhoneCallHistoryManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallHistoryManagerStatics2, BASE_OFFSET>(),
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallHistoryManagerStatics2 as ::windows::core::Interface>::IID
@@ -1526,26 +1526,21 @@ impl IPhoneCallHistoryStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryStore>,
-            ::windows::core::GetTrustLevel,
-            GetEntryAsync::<Impl, IMPL_OFFSET>,
-            GetEntryReader::<Impl, IMPL_OFFSET>,
-            GetEntryReaderWithOptions::<Impl, IMPL_OFFSET>,
-            SaveEntryAsync::<Impl, IMPL_OFFSET>,
-            DeleteEntryAsync::<Impl, IMPL_OFFSET>,
-            DeleteEntriesAsync::<Impl, IMPL_OFFSET>,
-            MarkEntryAsSeenAsync::<Impl, IMPL_OFFSET>,
-            MarkEntriesAsSeenAsync::<Impl, IMPL_OFFSET>,
-            GetUnseenCountAsync::<Impl, IMPL_OFFSET>,
-            MarkAllAsSeenAsync::<Impl, IMPL_OFFSET>,
-            GetSourcesUnseenCountAsync::<Impl, IMPL_OFFSET>,
-            MarkSourcesAsSeenAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallHistoryStore, BASE_OFFSET>(),
+            GetEntryAsync: GetEntryAsync::<Impl, IMPL_OFFSET>,
+            GetEntryReader: GetEntryReader::<Impl, IMPL_OFFSET>,
+            GetEntryReaderWithOptions: GetEntryReaderWithOptions::<Impl, IMPL_OFFSET>,
+            SaveEntryAsync: SaveEntryAsync::<Impl, IMPL_OFFSET>,
+            DeleteEntryAsync: DeleteEntryAsync::<Impl, IMPL_OFFSET>,
+            DeleteEntriesAsync: DeleteEntriesAsync::<Impl, IMPL_OFFSET>,
+            MarkEntryAsSeenAsync: MarkEntryAsSeenAsync::<Impl, IMPL_OFFSET>,
+            MarkEntriesAsSeenAsync: MarkEntriesAsSeenAsync::<Impl, IMPL_OFFSET>,
+            GetUnseenCountAsync: GetUnseenCountAsync::<Impl, IMPL_OFFSET>,
+            MarkAllAsSeenAsync: MarkAllAsSeenAsync::<Impl, IMPL_OFFSET>,
+            GetSourcesUnseenCountAsync: GetSourcesUnseenCountAsync::<Impl, IMPL_OFFSET>,
+            MarkSourcesAsSeenAsync: MarkSourcesAsSeenAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallHistoryStore as ::windows::core::Interface>::IID
@@ -1633,7 +1628,15 @@ impl IPhoneCallInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallInfo>, ::windows::core::GetTrustLevel, LineId::<Impl, IMPL_OFFSET>, IsHoldSupported::<Impl, IMPL_OFFSET>, StartTime::<Impl, IMPL_OFFSET>, PhoneNumber::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, CallDirection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallInfo, BASE_OFFSET>(),
+            LineId: LineId::<Impl, IMPL_OFFSET>,
+            IsHoldSupported: IsHoldSupported::<Impl, IMPL_OFFSET>,
+            StartTime: StartTime::<Impl, IMPL_OFFSET>,
+            PhoneNumber: PhoneNumber::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            CallDirection: CallDirection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallInfo as ::windows::core::Interface>::IID
@@ -1654,7 +1657,10 @@ impl IPhoneCallManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowPhoneCallUI(&*(&phonenumber as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallManagerStatics>, ::windows::core::GetTrustLevel, ShowPhoneCallUI::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallManagerStatics, BASE_OFFSET>(),
+            ShowPhoneCallUI: ShowPhoneCallUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallManagerStatics as ::windows::core::Interface>::IID
@@ -1728,20 +1734,15 @@ impl IPhoneCallManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneCallManagerStatics2>,
-            ::windows::core::GetTrustLevel,
-            CallStateChanged::<Impl, IMPL_OFFSET>,
-            RemoveCallStateChanged::<Impl, IMPL_OFFSET>,
-            IsCallActive::<Impl, IMPL_OFFSET>,
-            IsCallIncoming::<Impl, IMPL_OFFSET>,
-            ShowPhoneCallSettingsUI::<Impl, IMPL_OFFSET>,
-            RequestStoreAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallManagerStatics2, BASE_OFFSET>(),
+            CallStateChanged: CallStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveCallStateChanged: RemoveCallStateChanged::<Impl, IMPL_OFFSET>,
+            IsCallActive: IsCallActive::<Impl, IMPL_OFFSET>,
+            IsCallIncoming: IsCallIncoming::<Impl, IMPL_OFFSET>,
+            ShowPhoneCallSettingsUI: ShowPhoneCallSettingsUI::<Impl, IMPL_OFFSET>,
+            RequestStoreAsync: RequestStoreAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallManagerStatics2 as ::windows::core::Interface>::IID
@@ -1769,7 +1770,7 @@ impl IPhoneCallStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallStatics>, ::windows::core::GetTrustLevel, GetFromId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallStatics, BASE_OFFSET>(), GetFromId: GetFromId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallStatics as ::windows::core::Interface>::IID
@@ -1821,7 +1822,12 @@ impl IPhoneCallStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallStore>, ::windows::core::GetTrustLevel, IsEmergencyPhoneNumberAsync::<Impl, IMPL_OFFSET>, GetDefaultLineAsync::<Impl, IMPL_OFFSET>, RequestLineWatcher::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallStore, BASE_OFFSET>(),
+            IsEmergencyPhoneNumberAsync: IsEmergencyPhoneNumberAsync::<Impl, IMPL_OFFSET>,
+            GetDefaultLineAsync: GetDefaultLineAsync::<Impl, IMPL_OFFSET>,
+            RequestLineWatcher: RequestLineWatcher::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallStore as ::windows::core::Interface>::IID
@@ -1849,7 +1855,10 @@ impl IPhoneCallVideoCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallVideoCapabilities>, ::windows::core::GetTrustLevel, IsVideoCallingCapable::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallVideoCapabilities, BASE_OFFSET>(),
+            IsVideoCallingCapable: IsVideoCallingCapable::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallVideoCapabilities as ::windows::core::Interface>::IID
@@ -1877,7 +1886,10 @@ impl IPhoneCallVideoCapabilitiesManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallVideoCapabilitiesManagerStatics>, ::windows::core::GetTrustLevel, GetCapabilitiesAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallVideoCapabilitiesManagerStatics, BASE_OFFSET>(),
+            GetCapabilitiesAsync: GetCapabilitiesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallVideoCapabilitiesManagerStatics as ::windows::core::Interface>::IID
@@ -1917,7 +1929,11 @@ impl IPhoneCallsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallsResult>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, IMPL_OFFSET>, AllActivePhoneCalls::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallsResult, BASE_OFFSET>(),
+            OperationStatus: OperationStatus::<Impl, IMPL_OFFSET>,
+            AllActivePhoneCalls: AllActivePhoneCalls::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallsResult as ::windows::core::Interface>::IID
@@ -2035,26 +2051,21 @@ impl IPhoneDialOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioEndpoint(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneDialOptions>,
-            ::windows::core::GetTrustLevel,
-            Number::<Impl, IMPL_OFFSET>,
-            SetNumber::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            SetDisplayName::<Impl, IMPL_OFFSET>,
-            Contact::<Impl, IMPL_OFFSET>,
-            SetContact::<Impl, IMPL_OFFSET>,
-            ContactPhone::<Impl, IMPL_OFFSET>,
-            SetContactPhone::<Impl, IMPL_OFFSET>,
-            Media::<Impl, IMPL_OFFSET>,
-            SetMedia::<Impl, IMPL_OFFSET>,
-            AudioEndpoint::<Impl, IMPL_OFFSET>,
-            SetAudioEndpoint::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneDialOptions, BASE_OFFSET>(),
+            Number: Number::<Impl, IMPL_OFFSET>,
+            SetNumber: SetNumber::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
+            Contact: Contact::<Impl, IMPL_OFFSET>,
+            SetContact: SetContact::<Impl, IMPL_OFFSET>,
+            ContactPhone: ContactPhone::<Impl, IMPL_OFFSET>,
+            SetContactPhone: SetContactPhone::<Impl, IMPL_OFFSET>,
+            Media: Media::<Impl, IMPL_OFFSET>,
+            SetMedia: SetMedia::<Impl, IMPL_OFFSET>,
+            AudioEndpoint: AudioEndpoint::<Impl, IMPL_OFFSET>,
+            SetAudioEndpoint: SetAudioEndpoint::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneDialOptions as ::windows::core::Interface>::IID
@@ -2253,31 +2264,26 @@ impl IPhoneLineVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DialWithOptions(&*(&options as *const <PhoneDialOptions as ::windows::core::Abi>::Abi as *const <PhoneDialOptions as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneLine>,
-            ::windows::core::GetTrustLevel,
-            LineChanged::<Impl, IMPL_OFFSET>,
-            RemoveLineChanged::<Impl, IMPL_OFFSET>,
-            Id::<Impl, IMPL_OFFSET>,
-            DisplayColor::<Impl, IMPL_OFFSET>,
-            NetworkState::<Impl, IMPL_OFFSET>,
-            DisplayName::<Impl, IMPL_OFFSET>,
-            Voicemail::<Impl, IMPL_OFFSET>,
-            NetworkName::<Impl, IMPL_OFFSET>,
-            CellularDetails::<Impl, IMPL_OFFSET>,
-            Transport::<Impl, IMPL_OFFSET>,
-            CanDial::<Impl, IMPL_OFFSET>,
-            SupportsTile::<Impl, IMPL_OFFSET>,
-            VideoCallingCapabilities::<Impl, IMPL_OFFSET>,
-            LineConfiguration::<Impl, IMPL_OFFSET>,
-            IsImmediateDialNumberAsync::<Impl, IMPL_OFFSET>,
-            Dial::<Impl, IMPL_OFFSET>,
-            DialWithOptions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLine, BASE_OFFSET>(),
+            LineChanged: LineChanged::<Impl, IMPL_OFFSET>,
+            RemoveLineChanged: RemoveLineChanged::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DisplayColor: DisplayColor::<Impl, IMPL_OFFSET>,
+            NetworkState: NetworkState::<Impl, IMPL_OFFSET>,
+            DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
+            Voicemail: Voicemail::<Impl, IMPL_OFFSET>,
+            NetworkName: NetworkName::<Impl, IMPL_OFFSET>,
+            CellularDetails: CellularDetails::<Impl, IMPL_OFFSET>,
+            Transport: Transport::<Impl, IMPL_OFFSET>,
+            CanDial: CanDial::<Impl, IMPL_OFFSET>,
+            SupportsTile: SupportsTile::<Impl, IMPL_OFFSET>,
+            VideoCallingCapabilities: VideoCallingCapabilities::<Impl, IMPL_OFFSET>,
+            LineConfiguration: LineConfiguration::<Impl, IMPL_OFFSET>,
+            IsImmediateDialNumberAsync: IsImmediateDialNumberAsync::<Impl, IMPL_OFFSET>,
+            Dial: Dial::<Impl, IMPL_OFFSET>,
+            DialWithOptions: DialWithOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLine as ::windows::core::Interface>::IID
@@ -2310,7 +2316,11 @@ impl IPhoneLine2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLine2>, ::windows::core::GetTrustLevel, EnableTextReply::<Impl, IMPL_OFFSET>, TransportDeviceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLine2, BASE_OFFSET>(),
+            EnableTextReply: EnableTextReply::<Impl, IMPL_OFFSET>,
+            TransportDeviceId: TransportDeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLine2 as ::windows::core::Interface>::IID
@@ -2374,7 +2384,13 @@ impl IPhoneLine3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLine3>, ::windows::core::GetTrustLevel, DialWithResult::<Impl, IMPL_OFFSET>, DialWithResultAsync::<Impl, IMPL_OFFSET>, GetAllActivePhoneCalls::<Impl, IMPL_OFFSET>, GetAllActivePhoneCallsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLine3, BASE_OFFSET>(),
+            DialWithResult: DialWithResult::<Impl, IMPL_OFFSET>,
+            DialWithResultAsync: DialWithResultAsync::<Impl, IMPL_OFFSET>,
+            GetAllActivePhoneCalls: GetAllActivePhoneCalls::<Impl, IMPL_OFFSET>,
+            GetAllActivePhoneCallsAsync: GetAllActivePhoneCallsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLine3 as ::windows::core::Interface>::IID
@@ -2450,7 +2466,14 @@ impl IPhoneLineCellularDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineCellularDetails>, ::windows::core::GetTrustLevel, SimState::<Impl, IMPL_OFFSET>, SimSlotIndex::<Impl, IMPL_OFFSET>, IsModemOn::<Impl, IMPL_OFFSET>, RegistrationRejectCode::<Impl, IMPL_OFFSET>, GetNetworkOperatorDisplayText::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLineCellularDetails, BASE_OFFSET>(),
+            SimState: SimState::<Impl, IMPL_OFFSET>,
+            SimSlotIndex: SimSlotIndex::<Impl, IMPL_OFFSET>,
+            IsModemOn: IsModemOn::<Impl, IMPL_OFFSET>,
+            RegistrationRejectCode: RegistrationRejectCode::<Impl, IMPL_OFFSET>,
+            GetNetworkOperatorDisplayText: GetNetworkOperatorDisplayText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLineCellularDetails as ::windows::core::Interface>::IID
@@ -2490,7 +2513,11 @@ impl IPhoneLineConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineConfiguration>, ::windows::core::GetTrustLevel, IsVideoCallingEnabled::<Impl, IMPL_OFFSET>, ExtendedProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLineConfiguration, BASE_OFFSET>(),
+            IsVideoCallingEnabled: IsVideoCallingEnabled::<Impl, IMPL_OFFSET>,
+            ExtendedProperties: ExtendedProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLineConfiguration as ::windows::core::Interface>::IID
@@ -2530,7 +2557,11 @@ impl IPhoneLineDialResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineDialResult>, ::windows::core::GetTrustLevel, DialCallStatus::<Impl, IMPL_OFFSET>, DialedCall::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLineDialResult, BASE_OFFSET>(),
+            DialCallStatus: DialCallStatus::<Impl, IMPL_OFFSET>,
+            DialedCall: DialedCall::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLineDialResult as ::windows::core::Interface>::IID
@@ -2558,7 +2589,7 @@ impl IPhoneLineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLineStatics, BASE_OFFSET>(), FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLineStatics as ::windows::core::Interface>::IID
@@ -2666,24 +2697,19 @@ impl IPhoneLineTransportDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneLineTransportDevice>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            Transport::<Impl, IMPL_OFFSET>,
-            RequestAccessAsync::<Impl, IMPL_OFFSET>,
-            RegisterApp::<Impl, IMPL_OFFSET>,
-            RegisterAppForUser::<Impl, IMPL_OFFSET>,
-            UnregisterApp::<Impl, IMPL_OFFSET>,
-            UnregisterAppForUser::<Impl, IMPL_OFFSET>,
-            IsRegistered::<Impl, IMPL_OFFSET>,
-            Connect::<Impl, IMPL_OFFSET>,
-            ConnectAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLineTransportDevice, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            Transport: Transport::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync: RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            RegisterApp: RegisterApp::<Impl, IMPL_OFFSET>,
+            RegisterAppForUser: RegisterAppForUser::<Impl, IMPL_OFFSET>,
+            UnregisterApp: UnregisterApp::<Impl, IMPL_OFFSET>,
+            UnregisterAppForUser: UnregisterAppForUser::<Impl, IMPL_OFFSET>,
+            IsRegistered: IsRegistered::<Impl, IMPL_OFFSET>,
+            Connect: Connect::<Impl, IMPL_OFFSET>,
+            ConnectAsync: ConnectAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLineTransportDevice as ::windows::core::Interface>::IID
@@ -2757,20 +2783,15 @@ impl IPhoneLineTransportDevice2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveInBandRingingEnabledChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneLineTransportDevice2>,
-            ::windows::core::GetTrustLevel,
-            AudioRoutingStatus::<Impl, IMPL_OFFSET>,
-            AudioRoutingStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveAudioRoutingStatusChanged::<Impl, IMPL_OFFSET>,
-            InBandRingingEnabled::<Impl, IMPL_OFFSET>,
-            InBandRingingEnabledChanged::<Impl, IMPL_OFFSET>,
-            RemoveInBandRingingEnabledChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLineTransportDevice2, BASE_OFFSET>(),
+            AudioRoutingStatus: AudioRoutingStatus::<Impl, IMPL_OFFSET>,
+            AudioRoutingStatusChanged: AudioRoutingStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveAudioRoutingStatusChanged: RemoveAudioRoutingStatusChanged::<Impl, IMPL_OFFSET>,
+            InBandRingingEnabled: InBandRingingEnabled::<Impl, IMPL_OFFSET>,
+            InBandRingingEnabledChanged: InBandRingingEnabledChanged::<Impl, IMPL_OFFSET>,
+            RemoveInBandRingingEnabledChanged: RemoveInBandRingingEnabledChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLineTransportDevice2 as ::windows::core::Interface>::IID
@@ -2822,7 +2843,12 @@ impl IPhoneLineTransportDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineTransportDeviceStatics>, ::windows::core::GetTrustLevel, FromId::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorForPhoneLineTransport::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLineTransportDeviceStatics, BASE_OFFSET>(),
+            FromId: FromId::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorForPhoneLineTransport: GetDeviceSelectorForPhoneLineTransport::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLineTransportDeviceStatics as ::windows::core::Interface>::IID
@@ -2945,27 +2971,22 @@ impl IPhoneLineWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPhoneLineWatcher>,
-            ::windows::core::GetTrustLevel,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-            LineAdded::<Impl, IMPL_OFFSET>,
-            RemoveLineAdded::<Impl, IMPL_OFFSET>,
-            LineRemoved::<Impl, IMPL_OFFSET>,
-            RemoveLineRemoved::<Impl, IMPL_OFFSET>,
-            LineUpdated::<Impl, IMPL_OFFSET>,
-            RemoveLineUpdated::<Impl, IMPL_OFFSET>,
-            EnumerationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
-            Stopped::<Impl, IMPL_OFFSET>,
-            RemoveStopped::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLineWatcher, BASE_OFFSET>(),
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            LineAdded: LineAdded::<Impl, IMPL_OFFSET>,
+            RemoveLineAdded: RemoveLineAdded::<Impl, IMPL_OFFSET>,
+            LineRemoved: LineRemoved::<Impl, IMPL_OFFSET>,
+            RemoveLineRemoved: RemoveLineRemoved::<Impl, IMPL_OFFSET>,
+            LineUpdated: LineUpdated::<Impl, IMPL_OFFSET>,
+            RemoveLineUpdated: RemoveLineUpdated::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Stopped: Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped: RemoveStopped::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLineWatcher as ::windows::core::Interface>::IID
@@ -2993,7 +3014,7 @@ impl IPhoneLineWatcherEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineWatcherEventArgs>, ::windows::core::GetTrustLevel, LineId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneLineWatcherEventArgs, BASE_OFFSET>(), LineId: LineId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneLineWatcherEventArgs as ::windows::core::Interface>::IID
@@ -3057,7 +3078,13 @@ impl IPhoneVoicemailVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneVoicemail>, ::windows::core::GetTrustLevel, Number::<Impl, IMPL_OFFSET>, MessageCount::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>, DialVoicemailAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneVoicemail, BASE_OFFSET>(),
+            Number: Number::<Impl, IMPL_OFFSET>,
+            MessageCount: MessageCount::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+            DialVoicemailAsync: DialVoicemailAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneVoicemail as ::windows::core::Interface>::IID
@@ -3201,25 +3228,20 @@ impl IVoipCallCoordinatorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CancelUpgrade(&*(&callupgradeguid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVoipCallCoordinator>,
-            ::windows::core::GetTrustLevel,
-            ReserveCallResourcesAsync::<Impl, IMPL_OFFSET>,
-            MuteStateChanged::<Impl, IMPL_OFFSET>,
-            RemoveMuteStateChanged::<Impl, IMPL_OFFSET>,
-            RequestNewIncomingCall::<Impl, IMPL_OFFSET>,
-            RequestNewOutgoingCall::<Impl, IMPL_OFFSET>,
-            NotifyMuted::<Impl, IMPL_OFFSET>,
-            NotifyUnmuted::<Impl, IMPL_OFFSET>,
-            RequestOutgoingUpgradeToVideoCall::<Impl, IMPL_OFFSET>,
-            RequestIncomingUpgradeToVideoCall::<Impl, IMPL_OFFSET>,
-            TerminateCellularCall::<Impl, IMPL_OFFSET>,
-            CancelUpgrade::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoipCallCoordinator, BASE_OFFSET>(),
+            ReserveCallResourcesAsync: ReserveCallResourcesAsync::<Impl, IMPL_OFFSET>,
+            MuteStateChanged: MuteStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveMuteStateChanged: RemoveMuteStateChanged::<Impl, IMPL_OFFSET>,
+            RequestNewIncomingCall: RequestNewIncomingCall::<Impl, IMPL_OFFSET>,
+            RequestNewOutgoingCall: RequestNewOutgoingCall::<Impl, IMPL_OFFSET>,
+            NotifyMuted: NotifyMuted::<Impl, IMPL_OFFSET>,
+            NotifyUnmuted: NotifyUnmuted::<Impl, IMPL_OFFSET>,
+            RequestOutgoingUpgradeToVideoCall: RequestOutgoingUpgradeToVideoCall::<Impl, IMPL_OFFSET>,
+            RequestIncomingUpgradeToVideoCall: RequestIncomingUpgradeToVideoCall::<Impl, IMPL_OFFSET>,
+            TerminateCellularCall: TerminateCellularCall::<Impl, IMPL_OFFSET>,
+            CancelUpgrade: CancelUpgrade::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoipCallCoordinator as ::windows::core::Interface>::IID
@@ -3253,7 +3275,10 @@ impl IVoipCallCoordinator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipCallCoordinator2>, ::windows::core::GetTrustLevel, SetupNewAcceptedCall::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoipCallCoordinator2, BASE_OFFSET>(),
+            SetupNewAcceptedCall: SetupNewAcceptedCall::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoipCallCoordinator2 as ::windows::core::Interface>::IID
@@ -3325,7 +3350,11 @@ impl IVoipCallCoordinator3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipCallCoordinator3>, ::windows::core::GetTrustLevel, RequestNewAppInitiatedCall::<Impl, IMPL_OFFSET>, RequestNewIncomingCallWithContactRemoteId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoipCallCoordinator3, BASE_OFFSET>(),
+            RequestNewAppInitiatedCall: RequestNewAppInitiatedCall::<Impl, IMPL_OFFSET>,
+            RequestNewIncomingCallWithContactRemoteId: RequestNewIncomingCallWithContactRemoteId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoipCallCoordinator3 as ::windows::core::Interface>::IID
@@ -3353,7 +3382,10 @@ impl IVoipCallCoordinator4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipCallCoordinator4>, ::windows::core::GetTrustLevel, ReserveOneProcessCallResourcesAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoipCallCoordinator4, BASE_OFFSET>(),
+            ReserveOneProcessCallResourcesAsync: ReserveOneProcessCallResourcesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoipCallCoordinator4 as ::windows::core::Interface>::IID
@@ -3381,7 +3413,10 @@ impl IVoipCallCoordinatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipCallCoordinatorStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoipCallCoordinatorStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoipCallCoordinatorStatics as ::windows::core::Interface>::IID
@@ -3553,34 +3588,29 @@ impl IVoipPhoneCallVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).NotifyCallReady().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVoipPhoneCall>,
-            ::windows::core::GetTrustLevel,
-            EndRequested::<Impl, IMPL_OFFSET>,
-            RemoveEndRequested::<Impl, IMPL_OFFSET>,
-            HoldRequested::<Impl, IMPL_OFFSET>,
-            RemoveHoldRequested::<Impl, IMPL_OFFSET>,
-            ResumeRequested::<Impl, IMPL_OFFSET>,
-            RemoveResumeRequested::<Impl, IMPL_OFFSET>,
-            AnswerRequested::<Impl, IMPL_OFFSET>,
-            RemoveAnswerRequested::<Impl, IMPL_OFFSET>,
-            RejectRequested::<Impl, IMPL_OFFSET>,
-            RemoveRejectRequested::<Impl, IMPL_OFFSET>,
-            NotifyCallHeld::<Impl, IMPL_OFFSET>,
-            NotifyCallActive::<Impl, IMPL_OFFSET>,
-            NotifyCallEnded::<Impl, IMPL_OFFSET>,
-            ContactName::<Impl, IMPL_OFFSET>,
-            SetContactName::<Impl, IMPL_OFFSET>,
-            StartTime::<Impl, IMPL_OFFSET>,
-            SetStartTime::<Impl, IMPL_OFFSET>,
-            CallMedia::<Impl, IMPL_OFFSET>,
-            SetCallMedia::<Impl, IMPL_OFFSET>,
-            NotifyCallReady::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoipPhoneCall, BASE_OFFSET>(),
+            EndRequested: EndRequested::<Impl, IMPL_OFFSET>,
+            RemoveEndRequested: RemoveEndRequested::<Impl, IMPL_OFFSET>,
+            HoldRequested: HoldRequested::<Impl, IMPL_OFFSET>,
+            RemoveHoldRequested: RemoveHoldRequested::<Impl, IMPL_OFFSET>,
+            ResumeRequested: ResumeRequested::<Impl, IMPL_OFFSET>,
+            RemoveResumeRequested: RemoveResumeRequested::<Impl, IMPL_OFFSET>,
+            AnswerRequested: AnswerRequested::<Impl, IMPL_OFFSET>,
+            RemoveAnswerRequested: RemoveAnswerRequested::<Impl, IMPL_OFFSET>,
+            RejectRequested: RejectRequested::<Impl, IMPL_OFFSET>,
+            RemoveRejectRequested: RemoveRejectRequested::<Impl, IMPL_OFFSET>,
+            NotifyCallHeld: NotifyCallHeld::<Impl, IMPL_OFFSET>,
+            NotifyCallActive: NotifyCallActive::<Impl, IMPL_OFFSET>,
+            NotifyCallEnded: NotifyCallEnded::<Impl, IMPL_OFFSET>,
+            ContactName: ContactName::<Impl, IMPL_OFFSET>,
+            SetContactName: SetContactName::<Impl, IMPL_OFFSET>,
+            StartTime: StartTime::<Impl, IMPL_OFFSET>,
+            SetStartTime: SetStartTime::<Impl, IMPL_OFFSET>,
+            CallMedia: CallMedia::<Impl, IMPL_OFFSET>,
+            SetCallMedia: SetCallMedia::<Impl, IMPL_OFFSET>,
+            NotifyCallReady: NotifyCallReady::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoipPhoneCall as ::windows::core::Interface>::IID
@@ -3601,7 +3631,7 @@ impl IVoipPhoneCall2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TryShowAppUI().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipPhoneCall2>, ::windows::core::GetTrustLevel, TryShowAppUI::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVoipPhoneCall2, BASE_OFFSET>(), TryShowAppUI: TryShowAppUI::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoipPhoneCall2 as ::windows::core::Interface>::IID
@@ -3622,7 +3652,10 @@ impl IVoipPhoneCall3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).NotifyCallAccepted(media).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipPhoneCall3>, ::windows::core::GetTrustLevel, NotifyCallAccepted::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoipPhoneCall3, BASE_OFFSET>(),
+            NotifyCallAccepted: NotifyCallAccepted::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoipPhoneCall3 as ::windows::core::Interface>::IID

@@ -56,7 +56,13 @@ impl IDataProtectionProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataProtectionProvider>, ::windows::core::GetTrustLevel, ProtectAsync::<Impl, IMPL_OFFSET>, UnprotectAsync::<Impl, IMPL_OFFSET>, ProtectStreamAsync::<Impl, IMPL_OFFSET>, UnprotectStreamAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataProtectionProvider, BASE_OFFSET>(),
+            ProtectAsync: ProtectAsync::<Impl, IMPL_OFFSET>,
+            UnprotectAsync: UnprotectAsync::<Impl, IMPL_OFFSET>,
+            ProtectStreamAsync: ProtectStreamAsync::<Impl, IMPL_OFFSET>,
+            UnprotectStreamAsync: UnprotectStreamAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataProtectionProvider as ::windows::core::Interface>::IID
@@ -84,7 +90,10 @@ impl IDataProtectionProviderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataProtectionProviderFactory>, ::windows::core::GetTrustLevel, CreateOverloadExplicit::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataProtectionProviderFactory, BASE_OFFSET>(),
+            CreateOverloadExplicit: CreateOverloadExplicit::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataProtectionProviderFactory as ::windows::core::Interface>::IID

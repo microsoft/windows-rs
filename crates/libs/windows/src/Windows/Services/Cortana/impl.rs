@@ -104,22 +104,17 @@ impl ICortanaActionableInsightsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICortanaActionableInsights>,
-            ::windows::core::GetTrustLevel,
-            User::<Impl, IMPL_OFFSET>,
-            IsAvailableAsync::<Impl, IMPL_OFFSET>,
-            ShowInsightsForImageAsync::<Impl, IMPL_OFFSET>,
-            ShowInsightsForImageWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            ShowInsightsForTextAsync::<Impl, IMPL_OFFSET>,
-            ShowInsightsForTextWithOptionsAsync::<Impl, IMPL_OFFSET>,
-            ShowInsightsAsync::<Impl, IMPL_OFFSET>,
-            ShowInsightsWithOptionsAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICortanaActionableInsights, BASE_OFFSET>(),
+            User: User::<Impl, IMPL_OFFSET>,
+            IsAvailableAsync: IsAvailableAsync::<Impl, IMPL_OFFSET>,
+            ShowInsightsForImageAsync: ShowInsightsForImageAsync::<Impl, IMPL_OFFSET>,
+            ShowInsightsForImageWithOptionsAsync: ShowInsightsForImageWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            ShowInsightsForTextAsync: ShowInsightsForTextAsync::<Impl, IMPL_OFFSET>,
+            ShowInsightsForTextWithOptionsAsync: ShowInsightsForTextWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            ShowInsightsAsync: ShowInsightsAsync::<Impl, IMPL_OFFSET>,
+            ShowInsightsWithOptionsAsync: ShowInsightsWithOptionsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICortanaActionableInsights as ::windows::core::Interface>::IID
@@ -169,7 +164,13 @@ impl ICortanaActionableInsightsOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSurroundingText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaActionableInsightsOptions>, ::windows::core::GetTrustLevel, ContentSourceWebLink::<Impl, IMPL_OFFSET>, SetContentSourceWebLink::<Impl, IMPL_OFFSET>, SurroundingText::<Impl, IMPL_OFFSET>, SetSurroundingText::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICortanaActionableInsightsOptions, BASE_OFFSET>(),
+            ContentSourceWebLink: ContentSourceWebLink::<Impl, IMPL_OFFSET>,
+            SetContentSourceWebLink: SetContentSourceWebLink::<Impl, IMPL_OFFSET>,
+            SurroundingText: SurroundingText::<Impl, IMPL_OFFSET>,
+            SetSurroundingText: SetSurroundingText::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICortanaActionableInsightsOptions as ::windows::core::Interface>::IID
@@ -209,7 +210,11 @@ impl ICortanaActionableInsightsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaActionableInsightsStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICortanaActionableInsightsStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+            GetForUser: GetForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICortanaActionableInsightsStatics as ::windows::core::Interface>::IID
@@ -273,7 +278,13 @@ impl ICortanaPermissionsManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaPermissionsManager>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>, ArePermissionsGrantedAsync::<Impl, IMPL_OFFSET>, GrantPermissionsAsync::<Impl, IMPL_OFFSET>, RevokePermissionsAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICortanaPermissionsManager, BASE_OFFSET>(),
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+            ArePermissionsGrantedAsync: ArePermissionsGrantedAsync::<Impl, IMPL_OFFSET>,
+            GrantPermissionsAsync: GrantPermissionsAsync::<Impl, IMPL_OFFSET>,
+            RevokePermissionsAsync: RevokePermissionsAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICortanaPermissionsManager as ::windows::core::Interface>::IID
@@ -301,7 +312,10 @@ impl ICortanaPermissionsManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaPermissionsManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICortanaPermissionsManagerStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICortanaPermissionsManagerStatics as ::windows::core::Interface>::IID
@@ -346,7 +360,12 @@ impl ICortanaSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsVoiceActivationEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaSettings>, ::windows::core::GetTrustLevel, HasUserConsentToVoiceActivation::<Impl, IMPL_OFFSET>, IsVoiceActivationEnabled::<Impl, IMPL_OFFSET>, SetIsVoiceActivationEnabled::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICortanaSettings, BASE_OFFSET>(),
+            HasUserConsentToVoiceActivation: HasUserConsentToVoiceActivation::<Impl, IMPL_OFFSET>,
+            IsVoiceActivationEnabled: IsVoiceActivationEnabled::<Impl, IMPL_OFFSET>,
+            SetIsVoiceActivationEnabled: SetIsVoiceActivationEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICortanaSettings as ::windows::core::Interface>::IID
@@ -386,7 +405,11 @@ impl ICortanaSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaSettingsStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICortanaSettingsStatics, BASE_OFFSET>(),
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICortanaSettingsStatics as ::windows::core::Interface>::IID

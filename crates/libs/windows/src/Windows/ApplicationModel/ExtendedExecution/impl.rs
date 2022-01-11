@@ -20,7 +20,7 @@ impl IExtendedExecutionRevokedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExtendedExecutionRevokedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IExtendedExecutionRevokedEventArgs, BASE_OFFSET>(), Reason: Reason::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IExtendedExecutionRevokedEventArgs as ::windows::core::Interface>::IID
@@ -116,23 +116,18 @@ impl IExtendedExecutionSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IExtendedExecutionSession>,
-            ::windows::core::GetTrustLevel,
-            Reason::<Impl, IMPL_OFFSET>,
-            SetReason::<Impl, IMPL_OFFSET>,
-            Description::<Impl, IMPL_OFFSET>,
-            SetDescription::<Impl, IMPL_OFFSET>,
-            PercentProgress::<Impl, IMPL_OFFSET>,
-            SetPercentProgress::<Impl, IMPL_OFFSET>,
-            Revoked::<Impl, IMPL_OFFSET>,
-            RemoveRevoked::<Impl, IMPL_OFFSET>,
-            RequestExtensionAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IExtendedExecutionSession, BASE_OFFSET>(),
+            Reason: Reason::<Impl, IMPL_OFFSET>,
+            SetReason: SetReason::<Impl, IMPL_OFFSET>,
+            Description: Description::<Impl, IMPL_OFFSET>,
+            SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
+            PercentProgress: PercentProgress::<Impl, IMPL_OFFSET>,
+            SetPercentProgress: SetPercentProgress::<Impl, IMPL_OFFSET>,
+            Revoked: Revoked::<Impl, IMPL_OFFSET>,
+            RemoveRevoked: RemoveRevoked::<Impl, IMPL_OFFSET>,
+            RequestExtensionAsync: RequestExtensionAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IExtendedExecutionSession as ::windows::core::Interface>::IID

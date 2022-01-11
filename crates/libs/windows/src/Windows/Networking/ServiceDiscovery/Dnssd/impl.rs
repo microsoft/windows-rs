@@ -44,7 +44,12 @@ impl IDnssdRegistrationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDnssdRegistrationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, IPAddress::<Impl, IMPL_OFFSET>, HasInstanceNameChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDnssdRegistrationResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            IPAddress: IPAddress::<Impl, IMPL_OFFSET>,
+            HasInstanceNameChanged: HasInstanceNameChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDnssdRegistrationResult as ::windows::core::Interface>::IID
@@ -205,29 +210,24 @@ impl IDnssdServiceInstanceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDnssdServiceInstance>,
-            ::windows::core::GetTrustLevel,
-            DnssdServiceInstanceName::<Impl, IMPL_OFFSET>,
-            SetDnssdServiceInstanceName::<Impl, IMPL_OFFSET>,
-            HostName::<Impl, IMPL_OFFSET>,
-            SetHostName::<Impl, IMPL_OFFSET>,
-            Port::<Impl, IMPL_OFFSET>,
-            SetPort::<Impl, IMPL_OFFSET>,
-            Priority::<Impl, IMPL_OFFSET>,
-            SetPriority::<Impl, IMPL_OFFSET>,
-            Weight::<Impl, IMPL_OFFSET>,
-            SetWeight::<Impl, IMPL_OFFSET>,
-            TextAttributes::<Impl, IMPL_OFFSET>,
-            RegisterStreamSocketListenerAsync1::<Impl, IMPL_OFFSET>,
-            RegisterStreamSocketListenerAsync2::<Impl, IMPL_OFFSET>,
-            RegisterDatagramSocketAsync1::<Impl, IMPL_OFFSET>,
-            RegisterDatagramSocketAsync2::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDnssdServiceInstance, BASE_OFFSET>(),
+            DnssdServiceInstanceName: DnssdServiceInstanceName::<Impl, IMPL_OFFSET>,
+            SetDnssdServiceInstanceName: SetDnssdServiceInstanceName::<Impl, IMPL_OFFSET>,
+            HostName: HostName::<Impl, IMPL_OFFSET>,
+            SetHostName: SetHostName::<Impl, IMPL_OFFSET>,
+            Port: Port::<Impl, IMPL_OFFSET>,
+            SetPort: SetPort::<Impl, IMPL_OFFSET>,
+            Priority: Priority::<Impl, IMPL_OFFSET>,
+            SetPriority: SetPriority::<Impl, IMPL_OFFSET>,
+            Weight: Weight::<Impl, IMPL_OFFSET>,
+            SetWeight: SetWeight::<Impl, IMPL_OFFSET>,
+            TextAttributes: TextAttributes::<Impl, IMPL_OFFSET>,
+            RegisterStreamSocketListenerAsync1: RegisterStreamSocketListenerAsync1::<Impl, IMPL_OFFSET>,
+            RegisterStreamSocketListenerAsync2: RegisterStreamSocketListenerAsync2::<Impl, IMPL_OFFSET>,
+            RegisterDatagramSocketAsync1: RegisterDatagramSocketAsync1::<Impl, IMPL_OFFSET>,
+            RegisterDatagramSocketAsync2: RegisterDatagramSocketAsync2::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDnssdServiceInstance as ::windows::core::Interface>::IID
@@ -255,7 +255,7 @@ impl IDnssdServiceInstanceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDnssdServiceInstanceFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDnssdServiceInstanceFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDnssdServiceInstanceFactory as ::windows::core::Interface>::IID
@@ -344,23 +344,18 @@ impl IDnssdServiceWatcherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IDnssdServiceWatcher>,
-            ::windows::core::GetTrustLevel,
-            Added::<Impl, IMPL_OFFSET>,
-            RemoveAdded::<Impl, IMPL_OFFSET>,
-            EnumerationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
-            Stopped::<Impl, IMPL_OFFSET>,
-            RemoveStopped::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-            Start::<Impl, IMPL_OFFSET>,
-            Stop::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDnssdServiceWatcher, BASE_OFFSET>(),
+            Added: Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded: RemoveAdded::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted: EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted: RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Stopped: Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped: RemoveStopped::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDnssdServiceWatcher as ::windows::core::Interface>::IID

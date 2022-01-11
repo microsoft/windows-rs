@@ -20,7 +20,10 @@ impl IAddPagesEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAddPagesEventArgs>, ::windows::core::GetTrustLevel, PrintTaskOptions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAddPagesEventArgs, BASE_OFFSET>(),
+            PrintTaskOptions: PrintTaskOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAddPagesEventArgs as ::windows::core::Interface>::IID
@@ -48,7 +51,7 @@ impl IGetPreviewPageEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGetPreviewPageEventArgs>, ::windows::core::GetTrustLevel, PageNumber::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGetPreviewPageEventArgs, BASE_OFFSET>(), PageNumber: PageNumber::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetPreviewPageEventArgs as ::windows::core::Interface>::IID
@@ -88,7 +91,11 @@ impl IPaginateEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaginateEventArgs>, ::windows::core::GetTrustLevel, PrintTaskOptions::<Impl, IMPL_OFFSET>, CurrentPreviewPageNumber::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPaginateEventArgs, BASE_OFFSET>(),
+            PrintTaskOptions: PrintTaskOptions::<Impl, IMPL_OFFSET>,
+            CurrentPreviewPageNumber: CurrentPreviewPageNumber::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPaginateEventArgs as ::windows::core::Interface>::IID
@@ -192,26 +199,21 @@ impl IPrintDocumentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InvalidatePreview().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPrintDocument>,
-            ::windows::core::GetTrustLevel,
-            DocumentSource::<Impl, IMPL_OFFSET>,
-            Paginate::<Impl, IMPL_OFFSET>,
-            RemovePaginate::<Impl, IMPL_OFFSET>,
-            GetPreviewPage::<Impl, IMPL_OFFSET>,
-            RemoveGetPreviewPage::<Impl, IMPL_OFFSET>,
-            AddPages::<Impl, IMPL_OFFSET>,
-            RemoveAddPages::<Impl, IMPL_OFFSET>,
-            AddPage::<Impl, IMPL_OFFSET>,
-            AddPagesComplete::<Impl, IMPL_OFFSET>,
-            SetPreviewPageCount::<Impl, IMPL_OFFSET>,
-            SetPreviewPage::<Impl, IMPL_OFFSET>,
-            InvalidatePreview::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintDocument, BASE_OFFSET>(),
+            DocumentSource: DocumentSource::<Impl, IMPL_OFFSET>,
+            Paginate: Paginate::<Impl, IMPL_OFFSET>,
+            RemovePaginate: RemovePaginate::<Impl, IMPL_OFFSET>,
+            GetPreviewPage: GetPreviewPage::<Impl, IMPL_OFFSET>,
+            RemoveGetPreviewPage: RemoveGetPreviewPage::<Impl, IMPL_OFFSET>,
+            AddPages: AddPages::<Impl, IMPL_OFFSET>,
+            RemoveAddPages: RemoveAddPages::<Impl, IMPL_OFFSET>,
+            AddPage: AddPage::<Impl, IMPL_OFFSET>,
+            AddPagesComplete: AddPagesComplete::<Impl, IMPL_OFFSET>,
+            SetPreviewPageCount: SetPreviewPageCount::<Impl, IMPL_OFFSET>,
+            SetPreviewPage: SetPreviewPage::<Impl, IMPL_OFFSET>,
+            InvalidatePreview: InvalidatePreview::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintDocument as ::windows::core::Interface>::IID
@@ -239,7 +241,10 @@ impl IPrintDocumentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintDocumentFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintDocumentFactory, BASE_OFFSET>(),
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintDocumentFactory as ::windows::core::Interface>::IID
@@ -267,7 +272,10 @@ impl IPrintDocumentStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintDocumentStatics>, ::windows::core::GetTrustLevel, DocumentSourceProperty::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintDocumentStatics, BASE_OFFSET>(),
+            DocumentSourceProperty: DocumentSourceProperty::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintDocumentStatics as ::windows::core::Interface>::IID

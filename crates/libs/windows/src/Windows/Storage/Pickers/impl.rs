@@ -112,25 +112,20 @@ impl IFileOpenPickerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFileOpenPicker>,
-            ::windows::core::GetTrustLevel,
-            ViewMode::<Impl, IMPL_OFFSET>,
-            SetViewMode::<Impl, IMPL_OFFSET>,
-            SettingsIdentifier::<Impl, IMPL_OFFSET>,
-            SetSettingsIdentifier::<Impl, IMPL_OFFSET>,
-            SuggestedStartLocation::<Impl, IMPL_OFFSET>,
-            SetSuggestedStartLocation::<Impl, IMPL_OFFSET>,
-            CommitButtonText::<Impl, IMPL_OFFSET>,
-            SetCommitButtonText::<Impl, IMPL_OFFSET>,
-            FileTypeFilter::<Impl, IMPL_OFFSET>,
-            PickSingleFileAsync::<Impl, IMPL_OFFSET>,
-            PickMultipleFilesAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPicker, BASE_OFFSET>(),
+            ViewMode: ViewMode::<Impl, IMPL_OFFSET>,
+            SetViewMode: SetViewMode::<Impl, IMPL_OFFSET>,
+            SettingsIdentifier: SettingsIdentifier::<Impl, IMPL_OFFSET>,
+            SetSettingsIdentifier: SetSettingsIdentifier::<Impl, IMPL_OFFSET>,
+            SuggestedStartLocation: SuggestedStartLocation::<Impl, IMPL_OFFSET>,
+            SetSuggestedStartLocation: SetSuggestedStartLocation::<Impl, IMPL_OFFSET>,
+            CommitButtonText: CommitButtonText::<Impl, IMPL_OFFSET>,
+            SetCommitButtonText: SetCommitButtonText::<Impl, IMPL_OFFSET>,
+            FileTypeFilter: FileTypeFilter::<Impl, IMPL_OFFSET>,
+            PickSingleFileAsync: PickSingleFileAsync::<Impl, IMPL_OFFSET>,
+            PickMultipleFilesAsync: PickMultipleFilesAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileOpenPicker as ::windows::core::Interface>::IID
@@ -168,7 +163,12 @@ impl IFileOpenPicker2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PickMultipleFilesAndContinue().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPicker2>, ::windows::core::GetTrustLevel, ContinuationData::<Impl, IMPL_OFFSET>, PickSingleFileAndContinue::<Impl, IMPL_OFFSET>, PickMultipleFilesAndContinue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPicker2, BASE_OFFSET>(),
+            ContinuationData: ContinuationData::<Impl, IMPL_OFFSET>,
+            PickSingleFileAndContinue: PickSingleFileAndContinue::<Impl, IMPL_OFFSET>,
+            PickMultipleFilesAndContinue: PickMultipleFilesAndContinue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileOpenPicker2 as ::windows::core::Interface>::IID
@@ -196,7 +196,7 @@ impl IFileOpenPicker3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPicker3>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPicker3, BASE_OFFSET>(), User: User::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileOpenPicker3 as ::windows::core::Interface>::IID
@@ -224,7 +224,10 @@ impl IFileOpenPickerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPickerStatics>, ::windows::core::GetTrustLevel, ResumePickSingleFileAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPickerStatics, BASE_OFFSET>(),
+            ResumePickSingleFileAsync: ResumePickSingleFileAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileOpenPickerStatics as ::windows::core::Interface>::IID
@@ -252,7 +255,10 @@ impl IFileOpenPickerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPickerStatics2>, ::windows::core::GetTrustLevel, CreateForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPickerStatics2, BASE_OFFSET>(),
+            CreateForUser: CreateForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileOpenPickerStatics2 as ::windows::core::Interface>::IID
@@ -280,7 +286,10 @@ impl IFileOpenPickerWithOperationIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPickerWithOperationId>, ::windows::core::GetTrustLevel, PickSingleFileAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPickerWithOperationId, BASE_OFFSET>(),
+            PickSingleFileAsync: PickSingleFileAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileOpenPickerWithOperationId as ::windows::core::Interface>::IID
@@ -422,28 +431,23 @@ impl IFileSavePickerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFileSavePicker>,
-            ::windows::core::GetTrustLevel,
-            SettingsIdentifier::<Impl, IMPL_OFFSET>,
-            SetSettingsIdentifier::<Impl, IMPL_OFFSET>,
-            SuggestedStartLocation::<Impl, IMPL_OFFSET>,
-            SetSuggestedStartLocation::<Impl, IMPL_OFFSET>,
-            CommitButtonText::<Impl, IMPL_OFFSET>,
-            SetCommitButtonText::<Impl, IMPL_OFFSET>,
-            FileTypeChoices::<Impl, IMPL_OFFSET>,
-            DefaultFileExtension::<Impl, IMPL_OFFSET>,
-            SetDefaultFileExtension::<Impl, IMPL_OFFSET>,
-            SuggestedSaveFile::<Impl, IMPL_OFFSET>,
-            SetSuggestedSaveFile::<Impl, IMPL_OFFSET>,
-            SuggestedFileName::<Impl, IMPL_OFFSET>,
-            SetSuggestedFileName::<Impl, IMPL_OFFSET>,
-            PickSaveFileAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePicker, BASE_OFFSET>(),
+            SettingsIdentifier: SettingsIdentifier::<Impl, IMPL_OFFSET>,
+            SetSettingsIdentifier: SetSettingsIdentifier::<Impl, IMPL_OFFSET>,
+            SuggestedStartLocation: SuggestedStartLocation::<Impl, IMPL_OFFSET>,
+            SetSuggestedStartLocation: SetSuggestedStartLocation::<Impl, IMPL_OFFSET>,
+            CommitButtonText: CommitButtonText::<Impl, IMPL_OFFSET>,
+            SetCommitButtonText: SetCommitButtonText::<Impl, IMPL_OFFSET>,
+            FileTypeChoices: FileTypeChoices::<Impl, IMPL_OFFSET>,
+            DefaultFileExtension: DefaultFileExtension::<Impl, IMPL_OFFSET>,
+            SetDefaultFileExtension: SetDefaultFileExtension::<Impl, IMPL_OFFSET>,
+            SuggestedSaveFile: SuggestedSaveFile::<Impl, IMPL_OFFSET>,
+            SetSuggestedSaveFile: SetSuggestedSaveFile::<Impl, IMPL_OFFSET>,
+            SuggestedFileName: SuggestedFileName::<Impl, IMPL_OFFSET>,
+            SetSuggestedFileName: SetSuggestedFileName::<Impl, IMPL_OFFSET>,
+            PickSaveFileAsync: PickSaveFileAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileSavePicker as ::windows::core::Interface>::IID
@@ -476,7 +480,11 @@ impl IFileSavePicker2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PickSaveFileAndContinue().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePicker2>, ::windows::core::GetTrustLevel, ContinuationData::<Impl, IMPL_OFFSET>, PickSaveFileAndContinue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePicker2, BASE_OFFSET>(),
+            ContinuationData: ContinuationData::<Impl, IMPL_OFFSET>,
+            PickSaveFileAndContinue: PickSaveFileAndContinue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileSavePicker2 as ::windows::core::Interface>::IID
@@ -509,7 +517,11 @@ impl IFileSavePicker3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnterpriseId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePicker3>, ::windows::core::GetTrustLevel, EnterpriseId::<Impl, IMPL_OFFSET>, SetEnterpriseId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePicker3, BASE_OFFSET>(),
+            EnterpriseId: EnterpriseId::<Impl, IMPL_OFFSET>,
+            SetEnterpriseId: SetEnterpriseId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileSavePicker3 as ::windows::core::Interface>::IID
@@ -537,7 +549,7 @@ impl IFileSavePicker4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePicker4>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePicker4, BASE_OFFSET>(), User: User::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileSavePicker4 as ::windows::core::Interface>::IID
@@ -565,7 +577,10 @@ impl IFileSavePickerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePickerStatics>, ::windows::core::GetTrustLevel, CreateForUser::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePickerStatics, BASE_OFFSET>(),
+            CreateForUser: CreateForUser::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileSavePickerStatics as ::windows::core::Interface>::IID
@@ -673,24 +688,19 @@ impl IFolderPickerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFolderPicker>,
-            ::windows::core::GetTrustLevel,
-            ViewMode::<Impl, IMPL_OFFSET>,
-            SetViewMode::<Impl, IMPL_OFFSET>,
-            SettingsIdentifier::<Impl, IMPL_OFFSET>,
-            SetSettingsIdentifier::<Impl, IMPL_OFFSET>,
-            SuggestedStartLocation::<Impl, IMPL_OFFSET>,
-            SetSuggestedStartLocation::<Impl, IMPL_OFFSET>,
-            CommitButtonText::<Impl, IMPL_OFFSET>,
-            SetCommitButtonText::<Impl, IMPL_OFFSET>,
-            FileTypeFilter::<Impl, IMPL_OFFSET>,
-            PickSingleFolderAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFolderPicker, BASE_OFFSET>(),
+            ViewMode: ViewMode::<Impl, IMPL_OFFSET>,
+            SetViewMode: SetViewMode::<Impl, IMPL_OFFSET>,
+            SettingsIdentifier: SettingsIdentifier::<Impl, IMPL_OFFSET>,
+            SetSettingsIdentifier: SetSettingsIdentifier::<Impl, IMPL_OFFSET>,
+            SuggestedStartLocation: SuggestedStartLocation::<Impl, IMPL_OFFSET>,
+            SetSuggestedStartLocation: SetSuggestedStartLocation::<Impl, IMPL_OFFSET>,
+            CommitButtonText: CommitButtonText::<Impl, IMPL_OFFSET>,
+            SetCommitButtonText: SetCommitButtonText::<Impl, IMPL_OFFSET>,
+            FileTypeFilter: FileTypeFilter::<Impl, IMPL_OFFSET>,
+            PickSingleFolderAsync: PickSingleFolderAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFolderPicker as ::windows::core::Interface>::IID
@@ -723,7 +733,11 @@ impl IFolderPicker2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PickFolderAndContinue().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFolderPicker2>, ::windows::core::GetTrustLevel, ContinuationData::<Impl, IMPL_OFFSET>, PickFolderAndContinue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFolderPicker2, BASE_OFFSET>(),
+            ContinuationData: ContinuationData::<Impl, IMPL_OFFSET>,
+            PickFolderAndContinue: PickFolderAndContinue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFolderPicker2 as ::windows::core::Interface>::IID
@@ -751,7 +765,7 @@ impl IFolderPicker3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFolderPicker3>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFolderPicker3, BASE_OFFSET>(), User: User::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFolderPicker3 as ::windows::core::Interface>::IID
@@ -779,7 +793,7 @@ impl IFolderPickerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFolderPickerStatics>, ::windows::core::GetTrustLevel, CreateForUser::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFolderPickerStatics, BASE_OFFSET>(), CreateForUser: CreateForUser::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFolderPickerStatics as ::windows::core::Interface>::IID

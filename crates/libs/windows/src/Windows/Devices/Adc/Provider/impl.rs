@@ -104,24 +104,19 @@ impl IAdcControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAdcControllerProvider>,
-            ::windows::core::GetTrustLevel,
-            ChannelCount::<Impl, IMPL_OFFSET>,
-            ResolutionInBits::<Impl, IMPL_OFFSET>,
-            MinValue::<Impl, IMPL_OFFSET>,
-            MaxValue::<Impl, IMPL_OFFSET>,
-            ChannelMode::<Impl, IMPL_OFFSET>,
-            SetChannelMode::<Impl, IMPL_OFFSET>,
-            IsChannelModeSupported::<Impl, IMPL_OFFSET>,
-            AcquireChannel::<Impl, IMPL_OFFSET>,
-            ReleaseChannel::<Impl, IMPL_OFFSET>,
-            ReadValue::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdcControllerProvider, BASE_OFFSET>(),
+            ChannelCount: ChannelCount::<Impl, IMPL_OFFSET>,
+            ResolutionInBits: ResolutionInBits::<Impl, IMPL_OFFSET>,
+            MinValue: MinValue::<Impl, IMPL_OFFSET>,
+            MaxValue: MaxValue::<Impl, IMPL_OFFSET>,
+            ChannelMode: ChannelMode::<Impl, IMPL_OFFSET>,
+            SetChannelMode: SetChannelMode::<Impl, IMPL_OFFSET>,
+            IsChannelModeSupported: IsChannelModeSupported::<Impl, IMPL_OFFSET>,
+            AcquireChannel: AcquireChannel::<Impl, IMPL_OFFSET>,
+            ReleaseChannel: ReleaseChannel::<Impl, IMPL_OFFSET>,
+            ReadValue: ReadValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdcControllerProvider as ::windows::core::Interface>::IID
@@ -149,7 +144,7 @@ impl IAdcProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdcProvider>, ::windows::core::GetTrustLevel, GetControllers::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAdcProvider, BASE_OFFSET>(), GetControllers: GetControllers::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdcProvider as ::windows::core::Interface>::IID

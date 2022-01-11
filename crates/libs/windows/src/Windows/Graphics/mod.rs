@@ -157,14 +157,9 @@ unsafe impl ::windows::core::Interface for IGeometrySource2D {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGeometrySource2DVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IGeometrySource2DVtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[repr(C)]
 #[doc = "*Required features: 'Graphics'*"]
 pub struct PointInt32 {

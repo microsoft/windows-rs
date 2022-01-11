@@ -56,7 +56,13 @@ impl ISpiBusInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiBusInfo>, ::windows::core::GetTrustLevel, ChipSelectLineCount::<Impl, IMPL_OFFSET>, MinClockFrequency::<Impl, IMPL_OFFSET>, MaxClockFrequency::<Impl, IMPL_OFFSET>, SupportedDataBitLengths::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpiBusInfo, BASE_OFFSET>(),
+            ChipSelectLineCount: ChipSelectLineCount::<Impl, IMPL_OFFSET>,
+            MinClockFrequency: MinClockFrequency::<Impl, IMPL_OFFSET>,
+            MaxClockFrequency: MaxClockFrequency::<Impl, IMPL_OFFSET>,
+            SupportedDataBitLengths: SupportedDataBitLengths::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpiBusInfo as ::windows::core::Interface>::IID
@@ -157,24 +163,19 @@ impl ISpiConnectionSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSharingMode(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpiConnectionSettings>,
-            ::windows::core::GetTrustLevel,
-            ChipSelectLine::<Impl, IMPL_OFFSET>,
-            SetChipSelectLine::<Impl, IMPL_OFFSET>,
-            Mode::<Impl, IMPL_OFFSET>,
-            SetMode::<Impl, IMPL_OFFSET>,
-            DataBitLength::<Impl, IMPL_OFFSET>,
-            SetDataBitLength::<Impl, IMPL_OFFSET>,
-            ClockFrequency::<Impl, IMPL_OFFSET>,
-            SetClockFrequency::<Impl, IMPL_OFFSET>,
-            SharingMode::<Impl, IMPL_OFFSET>,
-            SetSharingMode::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpiConnectionSettings, BASE_OFFSET>(),
+            ChipSelectLine: ChipSelectLine::<Impl, IMPL_OFFSET>,
+            SetChipSelectLine: SetChipSelectLine::<Impl, IMPL_OFFSET>,
+            Mode: Mode::<Impl, IMPL_OFFSET>,
+            SetMode: SetMode::<Impl, IMPL_OFFSET>,
+            DataBitLength: DataBitLength::<Impl, IMPL_OFFSET>,
+            SetDataBitLength: SetDataBitLength::<Impl, IMPL_OFFSET>,
+            ClockFrequency: ClockFrequency::<Impl, IMPL_OFFSET>,
+            SetClockFrequency: SetClockFrequency::<Impl, IMPL_OFFSET>,
+            SharingMode: SharingMode::<Impl, IMPL_OFFSET>,
+            SetSharingMode: SetSharingMode::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpiConnectionSettings as ::windows::core::Interface>::IID
@@ -202,7 +203,7 @@ impl ISpiConnectionSettingsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiConnectionSettingsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpiConnectionSettingsFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpiConnectionSettingsFactory as ::windows::core::Interface>::IID
@@ -230,7 +231,7 @@ impl ISpiControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiController>, ::windows::core::GetTrustLevel, GetDevice::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpiController, BASE_OFFSET>(), GetDevice: GetDevice::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpiController as ::windows::core::Interface>::IID
@@ -270,7 +271,11 @@ impl ISpiControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiControllerStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, IMPL_OFFSET>, GetControllersAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpiControllerStatics, BASE_OFFSET>(),
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+            GetControllersAsync: GetControllersAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpiControllerStatics as ::windows::core::Interface>::IID
@@ -330,7 +335,15 @@ impl ISpiDeviceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TransferFullDuplex(::core::slice::from_raw_parts(::core::mem::transmute_copy(&writebuffer), writeBuffer_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&readbuffer), readBuffer_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiDevice>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, ConnectionSettings::<Impl, IMPL_OFFSET>, Write::<Impl, IMPL_OFFSET>, Read::<Impl, IMPL_OFFSET>, TransferSequential::<Impl, IMPL_OFFSET>, TransferFullDuplex::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpiDevice, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            ConnectionSettings: ConnectionSettings::<Impl, IMPL_OFFSET>,
+            Write: Write::<Impl, IMPL_OFFSET>,
+            Read: Read::<Impl, IMPL_OFFSET>,
+            TransferSequential: TransferSequential::<Impl, IMPL_OFFSET>,
+            TransferFullDuplex: TransferFullDuplex::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpiDevice as ::windows::core::Interface>::IID
@@ -394,7 +407,13 @@ impl ISpiDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromFriendlyName::<Impl, IMPL_OFFSET>, GetBusInfo::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpiDeviceStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromFriendlyName: GetDeviceSelectorFromFriendlyName::<Impl, IMPL_OFFSET>,
+            GetBusInfo: GetBusInfo::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpiDeviceStatics as ::windows::core::Interface>::IID

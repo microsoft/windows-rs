@@ -49,7 +49,13 @@ impl IBatteryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReportUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBattery>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, GetReport::<Impl, IMPL_OFFSET>, ReportUpdated::<Impl, IMPL_OFFSET>, RemoveReportUpdated::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBattery, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            GetReport: GetReport::<Impl, IMPL_OFFSET>,
+            ReportUpdated: ReportUpdated::<Impl, IMPL_OFFSET>,
+            RemoveReportUpdated: RemoveReportUpdated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBattery as ::windows::core::Interface>::IID
@@ -125,19 +131,14 @@ impl IBatteryReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBatteryReport>,
-            ::windows::core::GetTrustLevel,
-            ChargeRateInMilliwatts::<Impl, IMPL_OFFSET>,
-            DesignCapacityInMilliwattHours::<Impl, IMPL_OFFSET>,
-            FullChargeCapacityInMilliwattHours::<Impl, IMPL_OFFSET>,
-            RemainingCapacityInMilliwattHours::<Impl, IMPL_OFFSET>,
-            Status::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBatteryReport, BASE_OFFSET>(),
+            ChargeRateInMilliwatts: ChargeRateInMilliwatts::<Impl, IMPL_OFFSET>,
+            DesignCapacityInMilliwattHours: DesignCapacityInMilliwattHours::<Impl, IMPL_OFFSET>,
+            FullChargeCapacityInMilliwattHours: FullChargeCapacityInMilliwattHours::<Impl, IMPL_OFFSET>,
+            RemainingCapacityInMilliwattHours: RemainingCapacityInMilliwattHours::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBatteryReport as ::windows::core::Interface>::IID
@@ -189,7 +190,12 @@ impl IBatteryStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBatteryStatics>, ::windows::core::GetTrustLevel, AggregateBattery::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBatteryStatics, BASE_OFFSET>(),
+            AggregateBattery: AggregateBattery::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBatteryStatics as ::windows::core::Interface>::IID

@@ -66,20 +66,15 @@ impl ICommunicationBlockingAccessManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowBlockedMessagesUI().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICommunicationBlockingAccessManagerStatics>,
-            ::windows::core::GetTrustLevel,
-            IsBlockingActive::<Impl, IMPL_OFFSET>,
-            IsBlockedNumberAsync::<Impl, IMPL_OFFSET>,
-            ShowBlockNumbersUI::<Impl, IMPL_OFFSET>,
-            ShowUnblockNumbersUI::<Impl, IMPL_OFFSET>,
-            ShowBlockedCallsUI::<Impl, IMPL_OFFSET>,
-            ShowBlockedMessagesUI::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommunicationBlockingAccessManagerStatics, BASE_OFFSET>(),
+            IsBlockingActive: IsBlockingActive::<Impl, IMPL_OFFSET>,
+            IsBlockedNumberAsync: IsBlockedNumberAsync::<Impl, IMPL_OFFSET>,
+            ShowBlockNumbersUI: ShowBlockNumbersUI::<Impl, IMPL_OFFSET>,
+            ShowUnblockNumbersUI: ShowUnblockNumbersUI::<Impl, IMPL_OFFSET>,
+            ShowBlockedCallsUI: ShowBlockedCallsUI::<Impl, IMPL_OFFSET>,
+            ShowBlockedMessagesUI: ShowBlockedMessagesUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommunicationBlockingAccessManagerStatics as ::windows::core::Interface>::IID
@@ -112,7 +107,11 @@ impl ICommunicationBlockingAppManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowCommunicationBlockingSettingsUI().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommunicationBlockingAppManagerStatics>, ::windows::core::GetTrustLevel, IsCurrentAppActiveBlockingApp::<Impl, IMPL_OFFSET>, ShowCommunicationBlockingSettingsUI::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommunicationBlockingAppManagerStatics, BASE_OFFSET>(),
+            IsCurrentAppActiveBlockingApp: IsCurrentAppActiveBlockingApp::<Impl, IMPL_OFFSET>,
+            ShowCommunicationBlockingSettingsUI: ShowCommunicationBlockingSettingsUI::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommunicationBlockingAppManagerStatics as ::windows::core::Interface>::IID
@@ -140,7 +139,10 @@ impl ICommunicationBlockingAppManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommunicationBlockingAppManagerStatics2>, ::windows::core::GetTrustLevel, RequestSetAsActiveBlockingAppAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommunicationBlockingAppManagerStatics2, BASE_OFFSET>(),
+            RequestSetAsActiveBlockingAppAsync: RequestSetAsActiveBlockingAppAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommunicationBlockingAppManagerStatics2 as ::windows::core::Interface>::IID

@@ -83,22 +83,17 @@ impl IAccelerometerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveShaken(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAccelerometer>,
-            ::windows::core::GetTrustLevel,
-            GetCurrentReading::<Impl, IMPL_OFFSET>,
-            MinimumReportInterval::<Impl, IMPL_OFFSET>,
-            SetReportInterval::<Impl, IMPL_OFFSET>,
-            ReportInterval::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-            Shaken::<Impl, IMPL_OFFSET>,
-            RemoveShaken::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometer, BASE_OFFSET>(),
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+            MinimumReportInterval: MinimumReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+            Shaken: Shaken::<Impl, IMPL_OFFSET>,
+            RemoveShaken: RemoveShaken::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometer as ::windows::core::Interface>::IID
@@ -131,7 +126,11 @@ impl IAccelerometer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccelerometer2>, ::windows::core::GetTrustLevel, SetReadingTransform::<Impl, IMPL_OFFSET>, ReadingTransform::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometer2, BASE_OFFSET>(),
+            SetReadingTransform: SetReadingTransform::<Impl, IMPL_OFFSET>,
+            ReadingTransform: ReadingTransform::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometer2 as ::windows::core::Interface>::IID
@@ -176,7 +175,12 @@ impl IAccelerometer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccelerometer3>, ::windows::core::GetTrustLevel, SetReportLatency::<Impl, IMPL_OFFSET>, ReportLatency::<Impl, IMPL_OFFSET>, MaxBatchSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometer3, BASE_OFFSET>(),
+            SetReportLatency: SetReportLatency::<Impl, IMPL_OFFSET>,
+            ReportLatency: ReportLatency::<Impl, IMPL_OFFSET>,
+            MaxBatchSize: MaxBatchSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometer3 as ::windows::core::Interface>::IID
@@ -204,7 +208,7 @@ impl IAccelerometer4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccelerometer4>, ::windows::core::GetTrustLevel, ReadingType::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometer4, BASE_OFFSET>(), ReadingType: ReadingType::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometer4 as ::windows::core::Interface>::IID
@@ -232,7 +236,7 @@ impl IAccelerometer5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccelerometer5>, ::windows::core::GetTrustLevel, ReportThreshold::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometer5, BASE_OFFSET>(), ReportThreshold: ReportThreshold::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometer5 as ::windows::core::Interface>::IID
@@ -299,20 +303,15 @@ impl IAccelerometerDataThresholdVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetZAxisInGForce(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAccelerometerDataThreshold>,
-            ::windows::core::GetTrustLevel,
-            XAxisInGForce::<Impl, IMPL_OFFSET>,
-            SetXAxisInGForce::<Impl, IMPL_OFFSET>,
-            YAxisInGForce::<Impl, IMPL_OFFSET>,
-            SetYAxisInGForce::<Impl, IMPL_OFFSET>,
-            ZAxisInGForce::<Impl, IMPL_OFFSET>,
-            SetZAxisInGForce::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometerDataThreshold, BASE_OFFSET>(),
+            XAxisInGForce: XAxisInGForce::<Impl, IMPL_OFFSET>,
+            SetXAxisInGForce: SetXAxisInGForce::<Impl, IMPL_OFFSET>,
+            YAxisInGForce: YAxisInGForce::<Impl, IMPL_OFFSET>,
+            SetYAxisInGForce: SetYAxisInGForce::<Impl, IMPL_OFFSET>,
+            ZAxisInGForce: ZAxisInGForce::<Impl, IMPL_OFFSET>,
+            SetZAxisInGForce: SetZAxisInGForce::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometerDataThreshold as ::windows::core::Interface>::IID
@@ -340,7 +339,7 @@ impl IAccelerometerDeviceIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccelerometerDeviceId>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometerDeviceId, BASE_OFFSET>(), DeviceId: DeviceId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometerDeviceId as ::windows::core::Interface>::IID
@@ -404,7 +403,13 @@ impl IAccelerometerReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccelerometerReading>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, AccelerationX::<Impl, IMPL_OFFSET>, AccelerationY::<Impl, IMPL_OFFSET>, AccelerationZ::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometerReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            AccelerationX: AccelerationX::<Impl, IMPL_OFFSET>,
+            AccelerationY: AccelerationY::<Impl, IMPL_OFFSET>,
+            AccelerationZ: AccelerationZ::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometerReading as ::windows::core::Interface>::IID
@@ -444,7 +449,11 @@ impl IAccelerometerReading2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccelerometerReading2>, ::windows::core::GetTrustLevel, PerformanceCount::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometerReading2, BASE_OFFSET>(),
+            PerformanceCount: PerformanceCount::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometerReading2 as ::windows::core::Interface>::IID
@@ -472,7 +481,10 @@ impl IAccelerometerReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccelerometerReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometerReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometerReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -500,7 +512,10 @@ impl IAccelerometerShakenEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccelerometerShakenEventArgs>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometerShakenEventArgs, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometerShakenEventArgs as ::windows::core::Interface>::IID
@@ -528,7 +543,7 @@ impl IAccelerometerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccelerometerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometerStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometerStatics as ::windows::core::Interface>::IID
@@ -556,7 +571,10 @@ impl IAccelerometerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccelerometerStatics2>, ::windows::core::GetTrustLevel, GetDefaultWithAccelerometerReadingType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometerStatics2, BASE_OFFSET>(),
+            GetDefaultWithAccelerometerReadingType: GetDefaultWithAccelerometerReadingType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometerStatics2 as ::windows::core::Interface>::IID
@@ -596,7 +614,11 @@ impl IAccelerometerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccelerometerStatics3>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccelerometerStatics3, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccelerometerStatics3 as ::windows::core::Interface>::IID
@@ -701,22 +723,17 @@ impl IActivitySensorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IActivitySensor>,
-            ::windows::core::GetTrustLevel,
-            GetCurrentReadingAsync::<Impl, IMPL_OFFSET>,
-            SubscribedActivities::<Impl, IMPL_OFFSET>,
-            PowerInMilliwatts::<Impl, IMPL_OFFSET>,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            SupportedActivities::<Impl, IMPL_OFFSET>,
-            MinimumReportInterval::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivitySensor, BASE_OFFSET>(),
+            GetCurrentReadingAsync: GetCurrentReadingAsync::<Impl, IMPL_OFFSET>,
+            SubscribedActivities: SubscribedActivities::<Impl, IMPL_OFFSET>,
+            PowerInMilliwatts: PowerInMilliwatts::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            SupportedActivities: SupportedActivities::<Impl, IMPL_OFFSET>,
+            MinimumReportInterval: MinimumReportInterval::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivitySensor as ::windows::core::Interface>::IID
@@ -768,7 +785,12 @@ impl IActivitySensorReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivitySensorReading>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, Activity::<Impl, IMPL_OFFSET>, Confidence::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivitySensorReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            Activity: Activity::<Impl, IMPL_OFFSET>,
+            Confidence: Confidence::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivitySensorReading as ::windows::core::Interface>::IID
@@ -796,7 +818,10 @@ impl IActivitySensorReadingChangeReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivitySensorReadingChangeReport>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivitySensorReadingChangeReport, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivitySensorReadingChangeReport as ::windows::core::Interface>::IID
@@ -824,7 +849,10 @@ impl IActivitySensorReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivitySensorReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivitySensorReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivitySensorReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -900,19 +928,14 @@ impl IActivitySensorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IActivitySensorStatics>,
-            ::windows::core::GetTrustLevel,
-            GetDefaultAsync::<Impl, IMPL_OFFSET>,
-            GetDeviceSelector::<Impl, IMPL_OFFSET>,
-            FromIdAsync::<Impl, IMPL_OFFSET>,
-            GetSystemHistoryAsync::<Impl, IMPL_OFFSET>,
-            GetSystemHistoryWithDurationAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivitySensorStatics, BASE_OFFSET>(),
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetSystemHistoryAsync: GetSystemHistoryAsync::<Impl, IMPL_OFFSET>,
+            GetSystemHistoryWithDurationAsync: GetSystemHistoryWithDurationAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivitySensorStatics as ::windows::core::Interface>::IID
@@ -940,7 +963,10 @@ impl IActivitySensorTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivitySensorTriggerDetails>, ::windows::core::GetTrustLevel, ReadReports::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivitySensorTriggerDetails, BASE_OFFSET>(),
+            ReadReports: ReadReports::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivitySensorTriggerDetails as ::windows::core::Interface>::IID
@@ -1026,21 +1052,16 @@ impl IAltimeterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAltimeter>,
-            ::windows::core::GetTrustLevel,
-            GetCurrentReading::<Impl, IMPL_OFFSET>,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            MinimumReportInterval::<Impl, IMPL_OFFSET>,
-            SetReportInterval::<Impl, IMPL_OFFSET>,
-            ReportInterval::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAltimeter, BASE_OFFSET>(),
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            MinimumReportInterval: MinimumReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAltimeter as ::windows::core::Interface>::IID
@@ -1085,7 +1106,12 @@ impl IAltimeter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAltimeter2>, ::windows::core::GetTrustLevel, SetReportLatency::<Impl, IMPL_OFFSET>, ReportLatency::<Impl, IMPL_OFFSET>, MaxBatchSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAltimeter2, BASE_OFFSET>(),
+            SetReportLatency: SetReportLatency::<Impl, IMPL_OFFSET>,
+            ReportLatency: ReportLatency::<Impl, IMPL_OFFSET>,
+            MaxBatchSize: MaxBatchSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAltimeter2 as ::windows::core::Interface>::IID
@@ -1125,7 +1151,11 @@ impl IAltimeterReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAltimeterReading>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, AltitudeChangeInMeters::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAltimeterReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            AltitudeChangeInMeters: AltitudeChangeInMeters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAltimeterReading as ::windows::core::Interface>::IID
@@ -1165,7 +1195,11 @@ impl IAltimeterReading2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAltimeterReading2>, ::windows::core::GetTrustLevel, PerformanceCount::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAltimeterReading2, BASE_OFFSET>(),
+            PerformanceCount: PerformanceCount::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAltimeterReading2 as ::windows::core::Interface>::IID
@@ -1193,7 +1227,10 @@ impl IAltimeterReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAltimeterReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAltimeterReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAltimeterReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -1221,7 +1258,7 @@ impl IAltimeterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAltimeterStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAltimeterStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAltimeterStatics as ::windows::core::Interface>::IID
@@ -1307,21 +1344,16 @@ impl IBarometerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IBarometer>,
-            ::windows::core::GetTrustLevel,
-            GetCurrentReading::<Impl, IMPL_OFFSET>,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            MinimumReportInterval::<Impl, IMPL_OFFSET>,
-            SetReportInterval::<Impl, IMPL_OFFSET>,
-            ReportInterval::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarometer, BASE_OFFSET>(),
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            MinimumReportInterval: MinimumReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarometer as ::windows::core::Interface>::IID
@@ -1366,7 +1398,12 @@ impl IBarometer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarometer2>, ::windows::core::GetTrustLevel, SetReportLatency::<Impl, IMPL_OFFSET>, ReportLatency::<Impl, IMPL_OFFSET>, MaxBatchSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarometer2, BASE_OFFSET>(),
+            SetReportLatency: SetReportLatency::<Impl, IMPL_OFFSET>,
+            ReportLatency: ReportLatency::<Impl, IMPL_OFFSET>,
+            MaxBatchSize: MaxBatchSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarometer2 as ::windows::core::Interface>::IID
@@ -1394,7 +1431,7 @@ impl IBarometer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarometer3>, ::windows::core::GetTrustLevel, ReportThreshold::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBarometer3, BASE_OFFSET>(), ReportThreshold: ReportThreshold::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarometer3 as ::windows::core::Interface>::IID
@@ -1427,7 +1464,11 @@ impl IBarometerDataThresholdVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHectopascals(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarometerDataThreshold>, ::windows::core::GetTrustLevel, Hectopascals::<Impl, IMPL_OFFSET>, SetHectopascals::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarometerDataThreshold, BASE_OFFSET>(),
+            Hectopascals: Hectopascals::<Impl, IMPL_OFFSET>,
+            SetHectopascals: SetHectopascals::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarometerDataThreshold as ::windows::core::Interface>::IID
@@ -1467,7 +1508,11 @@ impl IBarometerReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarometerReading>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, StationPressureInHectopascals::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarometerReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            StationPressureInHectopascals: StationPressureInHectopascals::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarometerReading as ::windows::core::Interface>::IID
@@ -1507,7 +1552,11 @@ impl IBarometerReading2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarometerReading2>, ::windows::core::GetTrustLevel, PerformanceCount::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarometerReading2, BASE_OFFSET>(),
+            PerformanceCount: PerformanceCount::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarometerReading2 as ::windows::core::Interface>::IID
@@ -1535,7 +1584,10 @@ impl IBarometerReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarometerReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarometerReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarometerReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -1563,7 +1615,7 @@ impl IBarometerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarometerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBarometerStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarometerStatics as ::windows::core::Interface>::IID
@@ -1603,7 +1655,11 @@ impl IBarometerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarometerStatics2>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarometerStatics2, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBarometerStatics2 as ::windows::core::Interface>::IID
@@ -1677,20 +1733,15 @@ impl ICompassVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ICompass>,
-            ::windows::core::GetTrustLevel,
-            GetCurrentReading::<Impl, IMPL_OFFSET>,
-            MinimumReportInterval::<Impl, IMPL_OFFSET>,
-            SetReportInterval::<Impl, IMPL_OFFSET>,
-            ReportInterval::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompass, BASE_OFFSET>(),
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+            MinimumReportInterval: MinimumReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompass as ::windows::core::Interface>::IID
@@ -1723,7 +1774,11 @@ impl ICompass2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompass2>, ::windows::core::GetTrustLevel, SetReadingTransform::<Impl, IMPL_OFFSET>, ReadingTransform::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompass2, BASE_OFFSET>(),
+            SetReadingTransform: SetReadingTransform::<Impl, IMPL_OFFSET>,
+            ReadingTransform: ReadingTransform::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompass2 as ::windows::core::Interface>::IID
@@ -1768,7 +1823,12 @@ impl ICompass3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompass3>, ::windows::core::GetTrustLevel, SetReportLatency::<Impl, IMPL_OFFSET>, ReportLatency::<Impl, IMPL_OFFSET>, MaxBatchSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompass3, BASE_OFFSET>(),
+            SetReportLatency: SetReportLatency::<Impl, IMPL_OFFSET>,
+            ReportLatency: ReportLatency::<Impl, IMPL_OFFSET>,
+            MaxBatchSize: MaxBatchSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompass3 as ::windows::core::Interface>::IID
@@ -1796,7 +1856,7 @@ impl ICompass4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompass4>, ::windows::core::GetTrustLevel, ReportThreshold::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompass4, BASE_OFFSET>(), ReportThreshold: ReportThreshold::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompass4 as ::windows::core::Interface>::IID
@@ -1829,7 +1889,11 @@ impl ICompassDataThresholdVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDegrees(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompassDataThreshold>, ::windows::core::GetTrustLevel, Degrees::<Impl, IMPL_OFFSET>, SetDegrees::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompassDataThreshold, BASE_OFFSET>(),
+            Degrees: Degrees::<Impl, IMPL_OFFSET>,
+            SetDegrees: SetDegrees::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompassDataThreshold as ::windows::core::Interface>::IID
@@ -1857,7 +1921,7 @@ impl ICompassDeviceIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompassDeviceId>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompassDeviceId, BASE_OFFSET>(), DeviceId: DeviceId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompassDeviceId as ::windows::core::Interface>::IID
@@ -1909,7 +1973,12 @@ impl ICompassReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompassReading>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, HeadingMagneticNorth::<Impl, IMPL_OFFSET>, HeadingTrueNorth::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompassReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            HeadingMagneticNorth: HeadingMagneticNorth::<Impl, IMPL_OFFSET>,
+            HeadingTrueNorth: HeadingTrueNorth::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompassReading as ::windows::core::Interface>::IID
@@ -1949,7 +2018,11 @@ impl ICompassReading2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompassReading2>, ::windows::core::GetTrustLevel, PerformanceCount::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompassReading2, BASE_OFFSET>(),
+            PerformanceCount: PerformanceCount::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompassReading2 as ::windows::core::Interface>::IID
@@ -1977,7 +2050,7 @@ impl ICompassReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompassReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompassReadingChangedEventArgs, BASE_OFFSET>(), Reading: Reading::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompassReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -2005,7 +2078,10 @@ impl ICompassReadingHeadingAccuracyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompassReadingHeadingAccuracy>, ::windows::core::GetTrustLevel, HeadingAccuracy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompassReadingHeadingAccuracy, BASE_OFFSET>(),
+            HeadingAccuracy: HeadingAccuracy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompassReadingHeadingAccuracy as ::windows::core::Interface>::IID
@@ -2033,7 +2109,7 @@ impl ICompassStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompassStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompassStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompassStatics as ::windows::core::Interface>::IID
@@ -2073,7 +2149,11 @@ impl ICompassStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompassStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompassStatics2, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompassStatics2 as ::windows::core::Interface>::IID
@@ -2147,20 +2227,15 @@ impl IGyrometerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGyrometer>,
-            ::windows::core::GetTrustLevel,
-            GetCurrentReading::<Impl, IMPL_OFFSET>,
-            MinimumReportInterval::<Impl, IMPL_OFFSET>,
-            SetReportInterval::<Impl, IMPL_OFFSET>,
-            ReportInterval::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGyrometer, BASE_OFFSET>(),
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+            MinimumReportInterval: MinimumReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGyrometer as ::windows::core::Interface>::IID
@@ -2193,7 +2268,11 @@ impl IGyrometer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGyrometer2>, ::windows::core::GetTrustLevel, SetReadingTransform::<Impl, IMPL_OFFSET>, ReadingTransform::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGyrometer2, BASE_OFFSET>(),
+            SetReadingTransform: SetReadingTransform::<Impl, IMPL_OFFSET>,
+            ReadingTransform: ReadingTransform::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGyrometer2 as ::windows::core::Interface>::IID
@@ -2238,7 +2317,12 @@ impl IGyrometer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGyrometer3>, ::windows::core::GetTrustLevel, SetReportLatency::<Impl, IMPL_OFFSET>, ReportLatency::<Impl, IMPL_OFFSET>, MaxBatchSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGyrometer3, BASE_OFFSET>(),
+            SetReportLatency: SetReportLatency::<Impl, IMPL_OFFSET>,
+            ReportLatency: ReportLatency::<Impl, IMPL_OFFSET>,
+            MaxBatchSize: MaxBatchSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGyrometer3 as ::windows::core::Interface>::IID
@@ -2266,7 +2350,7 @@ impl IGyrometer4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGyrometer4>, ::windows::core::GetTrustLevel, ReportThreshold::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGyrometer4, BASE_OFFSET>(), ReportThreshold: ReportThreshold::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGyrometer4 as ::windows::core::Interface>::IID
@@ -2333,20 +2417,15 @@ impl IGyrometerDataThresholdVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetZAxisInDegreesPerSecond(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IGyrometerDataThreshold>,
-            ::windows::core::GetTrustLevel,
-            XAxisInDegreesPerSecond::<Impl, IMPL_OFFSET>,
-            SetXAxisInDegreesPerSecond::<Impl, IMPL_OFFSET>,
-            YAxisInDegreesPerSecond::<Impl, IMPL_OFFSET>,
-            SetYAxisInDegreesPerSecond::<Impl, IMPL_OFFSET>,
-            ZAxisInDegreesPerSecond::<Impl, IMPL_OFFSET>,
-            SetZAxisInDegreesPerSecond::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGyrometerDataThreshold, BASE_OFFSET>(),
+            XAxisInDegreesPerSecond: XAxisInDegreesPerSecond::<Impl, IMPL_OFFSET>,
+            SetXAxisInDegreesPerSecond: SetXAxisInDegreesPerSecond::<Impl, IMPL_OFFSET>,
+            YAxisInDegreesPerSecond: YAxisInDegreesPerSecond::<Impl, IMPL_OFFSET>,
+            SetYAxisInDegreesPerSecond: SetYAxisInDegreesPerSecond::<Impl, IMPL_OFFSET>,
+            ZAxisInDegreesPerSecond: ZAxisInDegreesPerSecond::<Impl, IMPL_OFFSET>,
+            SetZAxisInDegreesPerSecond: SetZAxisInDegreesPerSecond::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGyrometerDataThreshold as ::windows::core::Interface>::IID
@@ -2374,7 +2453,7 @@ impl IGyrometerDeviceIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGyrometerDeviceId>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGyrometerDeviceId, BASE_OFFSET>(), DeviceId: DeviceId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGyrometerDeviceId as ::windows::core::Interface>::IID
@@ -2438,7 +2517,13 @@ impl IGyrometerReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGyrometerReading>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, AngularVelocityX::<Impl, IMPL_OFFSET>, AngularVelocityY::<Impl, IMPL_OFFSET>, AngularVelocityZ::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGyrometerReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            AngularVelocityX: AngularVelocityX::<Impl, IMPL_OFFSET>,
+            AngularVelocityY: AngularVelocityY::<Impl, IMPL_OFFSET>,
+            AngularVelocityZ: AngularVelocityZ::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGyrometerReading as ::windows::core::Interface>::IID
@@ -2478,7 +2563,11 @@ impl IGyrometerReading2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGyrometerReading2>, ::windows::core::GetTrustLevel, PerformanceCount::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGyrometerReading2, BASE_OFFSET>(),
+            PerformanceCount: PerformanceCount::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGyrometerReading2 as ::windows::core::Interface>::IID
@@ -2506,7 +2595,10 @@ impl IGyrometerReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGyrometerReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGyrometerReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGyrometerReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -2534,7 +2626,7 @@ impl IGyrometerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGyrometerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGyrometerStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGyrometerStatics as ::windows::core::Interface>::IID
@@ -2574,7 +2666,11 @@ impl IGyrometerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGyrometerStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGyrometerStatics2, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGyrometerStatics2 as ::windows::core::Interface>::IID
@@ -2626,7 +2722,12 @@ impl IHingeAngleReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHingeAngleReading>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, AngleInDegrees::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHingeAngleReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            AngleInDegrees: AngleInDegrees::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHingeAngleReading as ::windows::core::Interface>::IID
@@ -2712,21 +2813,16 @@ impl IHingeAngleSensorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHingeAngleSensor>,
-            ::windows::core::GetTrustLevel,
-            GetCurrentReadingAsync::<Impl, IMPL_OFFSET>,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            MinReportThresholdInDegrees::<Impl, IMPL_OFFSET>,
-            ReportThresholdInDegrees::<Impl, IMPL_OFFSET>,
-            SetReportThresholdInDegrees::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHingeAngleSensor, BASE_OFFSET>(),
+            GetCurrentReadingAsync: GetCurrentReadingAsync::<Impl, IMPL_OFFSET>,
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            MinReportThresholdInDegrees: MinReportThresholdInDegrees::<Impl, IMPL_OFFSET>,
+            ReportThresholdInDegrees: ReportThresholdInDegrees::<Impl, IMPL_OFFSET>,
+            SetReportThresholdInDegrees: SetReportThresholdInDegrees::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHingeAngleSensor as ::windows::core::Interface>::IID
@@ -2754,7 +2850,10 @@ impl IHingeAngleSensorReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHingeAngleSensorReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHingeAngleSensorReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHingeAngleSensorReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -2818,7 +2917,13 @@ impl IHingeAngleSensorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHingeAngleSensorStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>, GetRelatedToAdjacentPanelsAsync::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHingeAngleSensorStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+            GetRelatedToAdjacentPanelsAsync: GetRelatedToAdjacentPanelsAsync::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHingeAngleSensorStatics as ::windows::core::Interface>::IID
@@ -2892,20 +2997,15 @@ impl IInclinometerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInclinometer>,
-            ::windows::core::GetTrustLevel,
-            GetCurrentReading::<Impl, IMPL_OFFSET>,
-            MinimumReportInterval::<Impl, IMPL_OFFSET>,
-            SetReportInterval::<Impl, IMPL_OFFSET>,
-            ReportInterval::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometer, BASE_OFFSET>(),
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+            MinimumReportInterval: MinimumReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometer as ::windows::core::Interface>::IID
@@ -2950,7 +3050,12 @@ impl IInclinometer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInclinometer2>, ::windows::core::GetTrustLevel, SetReadingTransform::<Impl, IMPL_OFFSET>, ReadingTransform::<Impl, IMPL_OFFSET>, ReadingType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometer2, BASE_OFFSET>(),
+            SetReadingTransform: SetReadingTransform::<Impl, IMPL_OFFSET>,
+            ReadingTransform: ReadingTransform::<Impl, IMPL_OFFSET>,
+            ReadingType: ReadingType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometer2 as ::windows::core::Interface>::IID
@@ -2995,7 +3100,12 @@ impl IInclinometer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInclinometer3>, ::windows::core::GetTrustLevel, SetReportLatency::<Impl, IMPL_OFFSET>, ReportLatency::<Impl, IMPL_OFFSET>, MaxBatchSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometer3, BASE_OFFSET>(),
+            SetReportLatency: SetReportLatency::<Impl, IMPL_OFFSET>,
+            ReportLatency: ReportLatency::<Impl, IMPL_OFFSET>,
+            MaxBatchSize: MaxBatchSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometer3 as ::windows::core::Interface>::IID
@@ -3023,7 +3133,7 @@ impl IInclinometer4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInclinometer4>, ::windows::core::GetTrustLevel, ReportThreshold::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometer4, BASE_OFFSET>(), ReportThreshold: ReportThreshold::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometer4 as ::windows::core::Interface>::IID
@@ -3090,20 +3200,15 @@ impl IInclinometerDataThresholdVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetYawInDegrees(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInclinometerDataThreshold>,
-            ::windows::core::GetTrustLevel,
-            PitchInDegrees::<Impl, IMPL_OFFSET>,
-            SetPitchInDegrees::<Impl, IMPL_OFFSET>,
-            RollInDegrees::<Impl, IMPL_OFFSET>,
-            SetRollInDegrees::<Impl, IMPL_OFFSET>,
-            YawInDegrees::<Impl, IMPL_OFFSET>,
-            SetYawInDegrees::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometerDataThreshold, BASE_OFFSET>(),
+            PitchInDegrees: PitchInDegrees::<Impl, IMPL_OFFSET>,
+            SetPitchInDegrees: SetPitchInDegrees::<Impl, IMPL_OFFSET>,
+            RollInDegrees: RollInDegrees::<Impl, IMPL_OFFSET>,
+            SetRollInDegrees: SetRollInDegrees::<Impl, IMPL_OFFSET>,
+            YawInDegrees: YawInDegrees::<Impl, IMPL_OFFSET>,
+            SetYawInDegrees: SetYawInDegrees::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometerDataThreshold as ::windows::core::Interface>::IID
@@ -3131,7 +3236,7 @@ impl IInclinometerDeviceIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInclinometerDeviceId>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometerDeviceId, BASE_OFFSET>(), DeviceId: DeviceId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometerDeviceId as ::windows::core::Interface>::IID
@@ -3195,7 +3300,13 @@ impl IInclinometerReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInclinometerReading>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, PitchDegrees::<Impl, IMPL_OFFSET>, RollDegrees::<Impl, IMPL_OFFSET>, YawDegrees::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometerReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            PitchDegrees: PitchDegrees::<Impl, IMPL_OFFSET>,
+            RollDegrees: RollDegrees::<Impl, IMPL_OFFSET>,
+            YawDegrees: YawDegrees::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometerReading as ::windows::core::Interface>::IID
@@ -3235,7 +3346,11 @@ impl IInclinometerReading2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInclinometerReading2>, ::windows::core::GetTrustLevel, PerformanceCount::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometerReading2, BASE_OFFSET>(),
+            PerformanceCount: PerformanceCount::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometerReading2 as ::windows::core::Interface>::IID
@@ -3263,7 +3378,10 @@ impl IInclinometerReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInclinometerReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometerReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometerReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -3291,7 +3409,10 @@ impl IInclinometerReadingYawAccuracyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInclinometerReadingYawAccuracy>, ::windows::core::GetTrustLevel, YawAccuracy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometerReadingYawAccuracy, BASE_OFFSET>(),
+            YawAccuracy: YawAccuracy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometerReadingYawAccuracy as ::windows::core::Interface>::IID
@@ -3319,7 +3440,7 @@ impl IInclinometerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInclinometerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometerStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometerStatics as ::windows::core::Interface>::IID
@@ -3347,7 +3468,10 @@ impl IInclinometerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInclinometerStatics2>, ::windows::core::GetTrustLevel, GetDefaultForRelativeReadings::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometerStatics2, BASE_OFFSET>(),
+            GetDefaultForRelativeReadings: GetDefaultForRelativeReadings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometerStatics2 as ::windows::core::Interface>::IID
@@ -3375,7 +3499,10 @@ impl IInclinometerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInclinometerStatics3>, ::windows::core::GetTrustLevel, GetDefaultWithSensorReadingType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometerStatics3, BASE_OFFSET>(),
+            GetDefaultWithSensorReadingType: GetDefaultWithSensorReadingType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometerStatics3 as ::windows::core::Interface>::IID
@@ -3415,7 +3542,11 @@ impl IInclinometerStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInclinometerStatics4>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInclinometerStatics4, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInclinometerStatics4 as ::windows::core::Interface>::IID
@@ -3489,20 +3620,15 @@ impl ILightSensorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILightSensor>,
-            ::windows::core::GetTrustLevel,
-            GetCurrentReading::<Impl, IMPL_OFFSET>,
-            MinimumReportInterval::<Impl, IMPL_OFFSET>,
-            SetReportInterval::<Impl, IMPL_OFFSET>,
-            ReportInterval::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILightSensor, BASE_OFFSET>(),
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+            MinimumReportInterval: MinimumReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILightSensor as ::windows::core::Interface>::IID
@@ -3547,7 +3673,12 @@ impl ILightSensor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILightSensor2>, ::windows::core::GetTrustLevel, SetReportLatency::<Impl, IMPL_OFFSET>, ReportLatency::<Impl, IMPL_OFFSET>, MaxBatchSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILightSensor2, BASE_OFFSET>(),
+            SetReportLatency: SetReportLatency::<Impl, IMPL_OFFSET>,
+            ReportLatency: ReportLatency::<Impl, IMPL_OFFSET>,
+            MaxBatchSize: MaxBatchSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILightSensor2 as ::windows::core::Interface>::IID
@@ -3575,7 +3706,7 @@ impl ILightSensor3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILightSensor3>, ::windows::core::GetTrustLevel, ReportThreshold::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILightSensor3, BASE_OFFSET>(), ReportThreshold: ReportThreshold::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILightSensor3 as ::windows::core::Interface>::IID
@@ -3625,7 +3756,13 @@ impl ILightSensorDataThresholdVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAbsoluteLux(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILightSensorDataThreshold>, ::windows::core::GetTrustLevel, LuxPercentage::<Impl, IMPL_OFFSET>, SetLuxPercentage::<Impl, IMPL_OFFSET>, AbsoluteLux::<Impl, IMPL_OFFSET>, SetAbsoluteLux::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILightSensorDataThreshold, BASE_OFFSET>(),
+            LuxPercentage: LuxPercentage::<Impl, IMPL_OFFSET>,
+            SetLuxPercentage: SetLuxPercentage::<Impl, IMPL_OFFSET>,
+            AbsoluteLux: AbsoluteLux::<Impl, IMPL_OFFSET>,
+            SetAbsoluteLux: SetAbsoluteLux::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILightSensorDataThreshold as ::windows::core::Interface>::IID
@@ -3653,7 +3790,7 @@ impl ILightSensorDeviceIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILightSensorDeviceId>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILightSensorDeviceId, BASE_OFFSET>(), DeviceId: DeviceId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILightSensorDeviceId as ::windows::core::Interface>::IID
@@ -3693,7 +3830,11 @@ impl ILightSensorReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILightSensorReading>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, IlluminanceInLux::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILightSensorReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            IlluminanceInLux: IlluminanceInLux::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILightSensorReading as ::windows::core::Interface>::IID
@@ -3733,7 +3874,11 @@ impl ILightSensorReading2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILightSensorReading2>, ::windows::core::GetTrustLevel, PerformanceCount::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILightSensorReading2, BASE_OFFSET>(),
+            PerformanceCount: PerformanceCount::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILightSensorReading2 as ::windows::core::Interface>::IID
@@ -3761,7 +3906,10 @@ impl ILightSensorReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILightSensorReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILightSensorReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILightSensorReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -3789,7 +3937,7 @@ impl ILightSensorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILightSensorStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILightSensorStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILightSensorStatics as ::windows::core::Interface>::IID
@@ -3829,7 +3977,11 @@ impl ILightSensorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILightSensorStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILightSensorStatics2, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILightSensorStatics2 as ::windows::core::Interface>::IID
@@ -3903,20 +4055,15 @@ impl IMagnetometerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMagnetometer>,
-            ::windows::core::GetTrustLevel,
-            GetCurrentReading::<Impl, IMPL_OFFSET>,
-            MinimumReportInterval::<Impl, IMPL_OFFSET>,
-            SetReportInterval::<Impl, IMPL_OFFSET>,
-            ReportInterval::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMagnetometer, BASE_OFFSET>(),
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+            MinimumReportInterval: MinimumReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMagnetometer as ::windows::core::Interface>::IID
@@ -3949,7 +4096,11 @@ impl IMagnetometer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagnetometer2>, ::windows::core::GetTrustLevel, SetReadingTransform::<Impl, IMPL_OFFSET>, ReadingTransform::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMagnetometer2, BASE_OFFSET>(),
+            SetReadingTransform: SetReadingTransform::<Impl, IMPL_OFFSET>,
+            ReadingTransform: ReadingTransform::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMagnetometer2 as ::windows::core::Interface>::IID
@@ -3994,7 +4145,12 @@ impl IMagnetometer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagnetometer3>, ::windows::core::GetTrustLevel, SetReportLatency::<Impl, IMPL_OFFSET>, ReportLatency::<Impl, IMPL_OFFSET>, MaxBatchSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMagnetometer3, BASE_OFFSET>(),
+            SetReportLatency: SetReportLatency::<Impl, IMPL_OFFSET>,
+            ReportLatency: ReportLatency::<Impl, IMPL_OFFSET>,
+            MaxBatchSize: MaxBatchSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMagnetometer3 as ::windows::core::Interface>::IID
@@ -4022,7 +4178,7 @@ impl IMagnetometer4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagnetometer4>, ::windows::core::GetTrustLevel, ReportThreshold::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMagnetometer4, BASE_OFFSET>(), ReportThreshold: ReportThreshold::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMagnetometer4 as ::windows::core::Interface>::IID
@@ -4089,20 +4245,15 @@ impl IMagnetometerDataThresholdVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetZAxisMicroteslas(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMagnetometerDataThreshold>,
-            ::windows::core::GetTrustLevel,
-            XAxisMicroteslas::<Impl, IMPL_OFFSET>,
-            SetXAxisMicroteslas::<Impl, IMPL_OFFSET>,
-            YAxisMicroteslas::<Impl, IMPL_OFFSET>,
-            SetYAxisMicroteslas::<Impl, IMPL_OFFSET>,
-            ZAxisMicroteslas::<Impl, IMPL_OFFSET>,
-            SetZAxisMicroteslas::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMagnetometerDataThreshold, BASE_OFFSET>(),
+            XAxisMicroteslas: XAxisMicroteslas::<Impl, IMPL_OFFSET>,
+            SetXAxisMicroteslas: SetXAxisMicroteslas::<Impl, IMPL_OFFSET>,
+            YAxisMicroteslas: YAxisMicroteslas::<Impl, IMPL_OFFSET>,
+            SetYAxisMicroteslas: SetYAxisMicroteslas::<Impl, IMPL_OFFSET>,
+            ZAxisMicroteslas: ZAxisMicroteslas::<Impl, IMPL_OFFSET>,
+            SetZAxisMicroteslas: SetZAxisMicroteslas::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMagnetometerDataThreshold as ::windows::core::Interface>::IID
@@ -4130,7 +4281,7 @@ impl IMagnetometerDeviceIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagnetometerDeviceId>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMagnetometerDeviceId, BASE_OFFSET>(), DeviceId: DeviceId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMagnetometerDeviceId as ::windows::core::Interface>::IID
@@ -4206,7 +4357,14 @@ impl IMagnetometerReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagnetometerReading>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, MagneticFieldX::<Impl, IMPL_OFFSET>, MagneticFieldY::<Impl, IMPL_OFFSET>, MagneticFieldZ::<Impl, IMPL_OFFSET>, DirectionalAccuracy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMagnetometerReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            MagneticFieldX: MagneticFieldX::<Impl, IMPL_OFFSET>,
+            MagneticFieldY: MagneticFieldY::<Impl, IMPL_OFFSET>,
+            MagneticFieldZ: MagneticFieldZ::<Impl, IMPL_OFFSET>,
+            DirectionalAccuracy: DirectionalAccuracy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMagnetometerReading as ::windows::core::Interface>::IID
@@ -4246,7 +4404,11 @@ impl IMagnetometerReading2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagnetometerReading2>, ::windows::core::GetTrustLevel, PerformanceCount::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMagnetometerReading2, BASE_OFFSET>(),
+            PerformanceCount: PerformanceCount::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMagnetometerReading2 as ::windows::core::Interface>::IID
@@ -4274,7 +4436,10 @@ impl IMagnetometerReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagnetometerReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMagnetometerReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMagnetometerReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -4302,7 +4467,7 @@ impl IMagnetometerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagnetometerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMagnetometerStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMagnetometerStatics as ::windows::core::Interface>::IID
@@ -4342,7 +4507,11 @@ impl IMagnetometerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagnetometerStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMagnetometerStatics2, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMagnetometerStatics2 as ::windows::core::Interface>::IID
@@ -4416,20 +4585,15 @@ impl IOrientationSensorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IOrientationSensor>,
-            ::windows::core::GetTrustLevel,
-            GetCurrentReading::<Impl, IMPL_OFFSET>,
-            MinimumReportInterval::<Impl, IMPL_OFFSET>,
-            SetReportInterval::<Impl, IMPL_OFFSET>,
-            ReportInterval::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientationSensor, BASE_OFFSET>(),
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+            MinimumReportInterval: MinimumReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientationSensor as ::windows::core::Interface>::IID
@@ -4474,7 +4638,12 @@ impl IOrientationSensor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOrientationSensor2>, ::windows::core::GetTrustLevel, SetReadingTransform::<Impl, IMPL_OFFSET>, ReadingTransform::<Impl, IMPL_OFFSET>, ReadingType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientationSensor2, BASE_OFFSET>(),
+            SetReadingTransform: SetReadingTransform::<Impl, IMPL_OFFSET>,
+            ReadingTransform: ReadingTransform::<Impl, IMPL_OFFSET>,
+            ReadingType: ReadingType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientationSensor2 as ::windows::core::Interface>::IID
@@ -4519,7 +4688,12 @@ impl IOrientationSensor3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOrientationSensor3>, ::windows::core::GetTrustLevel, SetReportLatency::<Impl, IMPL_OFFSET>, ReportLatency::<Impl, IMPL_OFFSET>, MaxBatchSize::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientationSensor3, BASE_OFFSET>(),
+            SetReportLatency: SetReportLatency::<Impl, IMPL_OFFSET>,
+            ReportLatency: ReportLatency::<Impl, IMPL_OFFSET>,
+            MaxBatchSize: MaxBatchSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientationSensor3 as ::windows::core::Interface>::IID
@@ -4547,7 +4721,7 @@ impl IOrientationSensorDeviceIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOrientationSensorDeviceId>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientationSensorDeviceId, BASE_OFFSET>(), DeviceId: DeviceId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientationSensorDeviceId as ::windows::core::Interface>::IID
@@ -4599,7 +4773,12 @@ impl IOrientationSensorReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOrientationSensorReading>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, RotationMatrix::<Impl, IMPL_OFFSET>, Quaternion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientationSensorReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            RotationMatrix: RotationMatrix::<Impl, IMPL_OFFSET>,
+            Quaternion: Quaternion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientationSensorReading as ::windows::core::Interface>::IID
@@ -4639,7 +4818,11 @@ impl IOrientationSensorReading2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOrientationSensorReading2>, ::windows::core::GetTrustLevel, PerformanceCount::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientationSensorReading2, BASE_OFFSET>(),
+            PerformanceCount: PerformanceCount::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientationSensorReading2 as ::windows::core::Interface>::IID
@@ -4667,7 +4850,10 @@ impl IOrientationSensorReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOrientationSensorReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientationSensorReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientationSensorReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -4695,7 +4881,10 @@ impl IOrientationSensorReadingYawAccuracyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOrientationSensorReadingYawAccuracy>, ::windows::core::GetTrustLevel, YawAccuracy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientationSensorReadingYawAccuracy, BASE_OFFSET>(),
+            YawAccuracy: YawAccuracy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientationSensorReadingYawAccuracy as ::windows::core::Interface>::IID
@@ -4723,7 +4912,7 @@ impl IOrientationSensorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOrientationSensorStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientationSensorStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientationSensorStatics as ::windows::core::Interface>::IID
@@ -4751,7 +4940,10 @@ impl IOrientationSensorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOrientationSensorStatics2>, ::windows::core::GetTrustLevel, GetDefaultForRelativeReadings::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientationSensorStatics2, BASE_OFFSET>(),
+            GetDefaultForRelativeReadings: GetDefaultForRelativeReadings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientationSensorStatics2 as ::windows::core::Interface>::IID
@@ -4791,7 +4983,11 @@ impl IOrientationSensorStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOrientationSensorStatics3>, ::windows::core::GetTrustLevel, GetDefaultWithSensorReadingType::<Impl, IMPL_OFFSET>, GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientationSensorStatics3, BASE_OFFSET>(),
+            GetDefaultWithSensorReadingType: GetDefaultWithSensorReadingType::<Impl, IMPL_OFFSET>,
+            GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal: GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientationSensorStatics3 as ::windows::core::Interface>::IID
@@ -4843,7 +5039,12 @@ impl IOrientationSensorStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOrientationSensorStatics4>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOrientationSensorStatics4, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal: GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOrientationSensorStatics4 as ::windows::core::Interface>::IID
@@ -4929,21 +5130,16 @@ impl IPedometerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPedometer>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            PowerInMilliwatts::<Impl, IMPL_OFFSET>,
-            MinimumReportInterval::<Impl, IMPL_OFFSET>,
-            SetReportInterval::<Impl, IMPL_OFFSET>,
-            ReportInterval::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPedometer, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            PowerInMilliwatts: PowerInMilliwatts::<Impl, IMPL_OFFSET>,
+            MinimumReportInterval: MinimumReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPedometer as ::windows::core::Interface>::IID
@@ -4971,7 +5167,10 @@ impl IPedometer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPedometer2>, ::windows::core::GetTrustLevel, GetCurrentReadings::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPedometer2, BASE_OFFSET>(),
+            GetCurrentReadings: GetCurrentReadings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPedometer2 as ::windows::core::Interface>::IID
@@ -4999,7 +5198,7 @@ impl IPedometerDataThresholdFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPedometerDataThresholdFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPedometerDataThresholdFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPedometerDataThresholdFactory as ::windows::core::Interface>::IID
@@ -5063,7 +5262,13 @@ impl IPedometerReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPedometerReading>, ::windows::core::GetTrustLevel, StepKind::<Impl, IMPL_OFFSET>, CumulativeSteps::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>, CumulativeStepsDuration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPedometerReading, BASE_OFFSET>(),
+            StepKind: StepKind::<Impl, IMPL_OFFSET>,
+            CumulativeSteps: CumulativeSteps::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            CumulativeStepsDuration: CumulativeStepsDuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPedometerReading as ::windows::core::Interface>::IID
@@ -5091,7 +5296,10 @@ impl IPedometerReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPedometerReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPedometerReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPedometerReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -5167,19 +5375,14 @@ impl IPedometerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPedometerStatics>,
-            ::windows::core::GetTrustLevel,
-            FromIdAsync::<Impl, IMPL_OFFSET>,
-            GetDefaultAsync::<Impl, IMPL_OFFSET>,
-            GetDeviceSelector::<Impl, IMPL_OFFSET>,
-            GetSystemHistoryAsync::<Impl, IMPL_OFFSET>,
-            GetSystemHistoryWithDurationAsync::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPedometerStatics, BASE_OFFSET>(),
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetSystemHistoryAsync: GetSystemHistoryAsync::<Impl, IMPL_OFFSET>,
+            GetSystemHistoryWithDurationAsync: GetSystemHistoryWithDurationAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPedometerStatics as ::windows::core::Interface>::IID
@@ -5207,7 +5410,10 @@ impl IPedometerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPedometerStatics2>, ::windows::core::GetTrustLevel, GetReadingsFromTriggerDetails::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPedometerStatics2, BASE_OFFSET>(),
+            GetReadingsFromTriggerDetails: GetReadingsFromTriggerDetails::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPedometerStatics2 as ::windows::core::Interface>::IID
@@ -5300,21 +5506,16 @@ impl IProximitySensorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IProximitySensor>,
-            ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, IMPL_OFFSET>,
-            MaxDistanceInMillimeters::<Impl, IMPL_OFFSET>,
-            MinDistanceInMillimeters::<Impl, IMPL_OFFSET>,
-            GetCurrentReading::<Impl, IMPL_OFFSET>,
-            ReadingChanged::<Impl, IMPL_OFFSET>,
-            RemoveReadingChanged::<Impl, IMPL_OFFSET>,
-            CreateDisplayOnOffController::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProximitySensor, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            MaxDistanceInMillimeters: MaxDistanceInMillimeters::<Impl, IMPL_OFFSET>,
+            MinDistanceInMillimeters: MinDistanceInMillimeters::<Impl, IMPL_OFFSET>,
+            GetCurrentReading: GetCurrentReading::<Impl, IMPL_OFFSET>,
+            ReadingChanged: ReadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveReadingChanged: RemoveReadingChanged::<Impl, IMPL_OFFSET>,
+            CreateDisplayOnOffController: CreateDisplayOnOffController::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProximitySensor as ::windows::core::Interface>::IID
@@ -5342,7 +5543,10 @@ impl IProximitySensorDataThresholdFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProximitySensorDataThresholdFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProximitySensorDataThresholdFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProximitySensorDataThresholdFactory as ::windows::core::Interface>::IID
@@ -5394,7 +5598,12 @@ impl IProximitySensorReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProximitySensorReading>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, IsDetected::<Impl, IMPL_OFFSET>, DistanceInMillimeters::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProximitySensorReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            IsDetected: IsDetected::<Impl, IMPL_OFFSET>,
+            DistanceInMillimeters: DistanceInMillimeters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProximitySensorReading as ::windows::core::Interface>::IID
@@ -5422,7 +5631,10 @@ impl IProximitySensorReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProximitySensorReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProximitySensorReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProximitySensorReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -5462,7 +5674,11 @@ impl IProximitySensorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProximitySensorStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProximitySensorStatics, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromId: FromId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProximitySensorStatics as ::windows::core::Interface>::IID
@@ -5490,7 +5706,10 @@ impl IProximitySensorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProximitySensorStatics2>, ::windows::core::GetTrustLevel, GetReadingsFromTriggerDetails::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IProximitySensorStatics2, BASE_OFFSET>(),
+            GetReadingsFromTriggerDetails: GetReadingsFromTriggerDetails::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProximitySensorStatics2 as ::windows::core::Interface>::IID
@@ -5502,7 +5721,7 @@ impl ::windows::core::RuntimeName for ISensorDataThreshold {
 }
 impl ISensorDataThresholdVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensorDataThresholdImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISensorDataThresholdVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISensorDataThreshold>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISensorDataThreshold, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensorDataThreshold as ::windows::core::Interface>::IID
@@ -5542,7 +5761,11 @@ impl ISensorDataThresholdTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISensorDataThresholdTriggerDetails>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, SensorType::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISensorDataThresholdTriggerDetails, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            SensorType: SensorType::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensorDataThresholdTriggerDetails as ::windows::core::Interface>::IID
@@ -5606,7 +5829,13 @@ impl ISensorQuaternionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISensorQuaternion>, ::windows::core::GetTrustLevel, W::<Impl, IMPL_OFFSET>, X::<Impl, IMPL_OFFSET>, Y::<Impl, IMPL_OFFSET>, Z::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISensorQuaternion, BASE_OFFSET>(),
+            W: W::<Impl, IMPL_OFFSET>,
+            X: X::<Impl, IMPL_OFFSET>,
+            Y: Y::<Impl, IMPL_OFFSET>,
+            Z: Z::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensorQuaternion as ::windows::core::Interface>::IID
@@ -5730,23 +5959,18 @@ impl ISensorRotationMatrixVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISensorRotationMatrix>,
-            ::windows::core::GetTrustLevel,
-            M11::<Impl, IMPL_OFFSET>,
-            M12::<Impl, IMPL_OFFSET>,
-            M13::<Impl, IMPL_OFFSET>,
-            M21::<Impl, IMPL_OFFSET>,
-            M22::<Impl, IMPL_OFFSET>,
-            M23::<Impl, IMPL_OFFSET>,
-            M31::<Impl, IMPL_OFFSET>,
-            M32::<Impl, IMPL_OFFSET>,
-            M33::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISensorRotationMatrix, BASE_OFFSET>(),
+            M11: M11::<Impl, IMPL_OFFSET>,
+            M12: M12::<Impl, IMPL_OFFSET>,
+            M13: M13::<Impl, IMPL_OFFSET>,
+            M21: M21::<Impl, IMPL_OFFSET>,
+            M22: M22::<Impl, IMPL_OFFSET>,
+            M23: M23::<Impl, IMPL_OFFSET>,
+            M31: M31::<Impl, IMPL_OFFSET>,
+            M32: M32::<Impl, IMPL_OFFSET>,
+            M33: M33::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensorRotationMatrix as ::windows::core::Interface>::IID
@@ -5791,7 +6015,12 @@ impl ISimpleOrientationSensorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveOrientationChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISimpleOrientationSensor>, ::windows::core::GetTrustLevel, GetCurrentOrientation::<Impl, IMPL_OFFSET>, OrientationChanged::<Impl, IMPL_OFFSET>, RemoveOrientationChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISimpleOrientationSensor, BASE_OFFSET>(),
+            GetCurrentOrientation: GetCurrentOrientation::<Impl, IMPL_OFFSET>,
+            OrientationChanged: OrientationChanged::<Impl, IMPL_OFFSET>,
+            RemoveOrientationChanged: RemoveOrientationChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISimpleOrientationSensor as ::windows::core::Interface>::IID
@@ -5824,7 +6053,11 @@ impl ISimpleOrientationSensor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISimpleOrientationSensor2>, ::windows::core::GetTrustLevel, SetReadingTransform::<Impl, IMPL_OFFSET>, ReadingTransform::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISimpleOrientationSensor2, BASE_OFFSET>(),
+            SetReadingTransform: SetReadingTransform::<Impl, IMPL_OFFSET>,
+            ReadingTransform: ReadingTransform::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISimpleOrientationSensor2 as ::windows::core::Interface>::IID
@@ -5852,7 +6085,10 @@ impl ISimpleOrientationSensorDeviceIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISimpleOrientationSensorDeviceId>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISimpleOrientationSensorDeviceId, BASE_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISimpleOrientationSensorDeviceId as ::windows::core::Interface>::IID
@@ -5892,7 +6128,11 @@ impl ISimpleOrientationSensorOrientationChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISimpleOrientationSensorOrientationChangedEventArgs>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, Orientation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISimpleOrientationSensorOrientationChangedEventArgs, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            Orientation: Orientation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISimpleOrientationSensorOrientationChangedEventArgs as ::windows::core::Interface>::IID
@@ -5920,7 +6160,10 @@ impl ISimpleOrientationSensorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISimpleOrientationSensorStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISimpleOrientationSensorStatics, BASE_OFFSET>(),
+            GetDefault: GetDefault::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISimpleOrientationSensorStatics as ::windows::core::Interface>::IID
@@ -5960,7 +6203,11 @@ impl ISimpleOrientationSensorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISimpleOrientationSensorStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISimpleOrientationSensorStatics2, BASE_OFFSET>(),
+            GetDeviceSelector: GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync: FromIdAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISimpleOrientationSensorStatics2 as ::windows::core::Interface>::IID

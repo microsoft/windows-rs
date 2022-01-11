@@ -20,7 +20,10 @@ impl IKeyboardCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyboardCapabilities>, ::windows::core::GetTrustLevel, KeyboardPresent::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyboardCapabilities, BASE_OFFSET>(),
+            KeyboardPresent: KeyboardPresent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyboardCapabilities as ::windows::core::Interface>::IID
@@ -96,7 +99,14 @@ impl IMouseCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMouseCapabilities>, ::windows::core::GetTrustLevel, MousePresent::<Impl, IMPL_OFFSET>, VerticalWheelPresent::<Impl, IMPL_OFFSET>, HorizontalWheelPresent::<Impl, IMPL_OFFSET>, SwapButtons::<Impl, IMPL_OFFSET>, NumberOfButtons::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMouseCapabilities, BASE_OFFSET>(),
+            MousePresent: MousePresent::<Impl, IMPL_OFFSET>,
+            VerticalWheelPresent: VerticalWheelPresent::<Impl, IMPL_OFFSET>,
+            HorizontalWheelPresent: HorizontalWheelPresent::<Impl, IMPL_OFFSET>,
+            SwapButtons: SwapButtons::<Impl, IMPL_OFFSET>,
+            NumberOfButtons: NumberOfButtons::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMouseCapabilities as ::windows::core::Interface>::IID
@@ -129,7 +139,11 @@ impl IMouseDeviceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMouseMoved(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMouseDevice>, ::windows::core::GetTrustLevel, MouseMoved::<Impl, IMPL_OFFSET>, RemoveMouseMoved::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMouseDevice, BASE_OFFSET>(),
+            MouseMoved: MouseMoved::<Impl, IMPL_OFFSET>,
+            RemoveMouseMoved: RemoveMouseMoved::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMouseDevice as ::windows::core::Interface>::IID
@@ -157,7 +171,10 @@ impl IMouseDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMouseDeviceStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMouseDeviceStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMouseDeviceStatics as ::windows::core::Interface>::IID
@@ -185,7 +202,7 @@ impl IMouseEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMouseEventArgs>, ::windows::core::GetTrustLevel, MouseDelta::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMouseEventArgs, BASE_OFFSET>(), MouseDelta: MouseDelta::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMouseEventArgs as ::windows::core::Interface>::IID
@@ -281,23 +298,18 @@ impl IPenButtonListenerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTailButtonLongPressed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPenButtonListener>,
-            ::windows::core::GetTrustLevel,
-            IsSupported::<Impl, IMPL_OFFSET>,
-            IsSupportedChanged::<Impl, IMPL_OFFSET>,
-            RemoveIsSupportedChanged::<Impl, IMPL_OFFSET>,
-            TailButtonClicked::<Impl, IMPL_OFFSET>,
-            RemoveTailButtonClicked::<Impl, IMPL_OFFSET>,
-            TailButtonDoubleClicked::<Impl, IMPL_OFFSET>,
-            RemoveTailButtonDoubleClicked::<Impl, IMPL_OFFSET>,
-            TailButtonLongPressed::<Impl, IMPL_OFFSET>,
-            RemoveTailButtonLongPressed::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPenButtonListener, BASE_OFFSET>(),
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+            IsSupportedChanged: IsSupportedChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsSupportedChanged: RemoveIsSupportedChanged::<Impl, IMPL_OFFSET>,
+            TailButtonClicked: TailButtonClicked::<Impl, IMPL_OFFSET>,
+            RemoveTailButtonClicked: RemoveTailButtonClicked::<Impl, IMPL_OFFSET>,
+            TailButtonDoubleClicked: TailButtonDoubleClicked::<Impl, IMPL_OFFSET>,
+            RemoveTailButtonDoubleClicked: RemoveTailButtonDoubleClicked::<Impl, IMPL_OFFSET>,
+            TailButtonLongPressed: TailButtonLongPressed::<Impl, IMPL_OFFSET>,
+            RemoveTailButtonLongPressed: RemoveTailButtonLongPressed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenButtonListener as ::windows::core::Interface>::IID
@@ -325,7 +337,7 @@ impl IPenButtonListenerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPenButtonListenerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenButtonListenerStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenButtonListenerStatics as ::windows::core::Interface>::IID
@@ -353,7 +365,7 @@ impl IPenDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPenDevice>, ::windows::core::GetTrustLevel, PenId::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenDevice, BASE_OFFSET>(), PenId: PenId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenDevice as ::windows::core::Interface>::IID
@@ -381,7 +393,10 @@ impl IPenDevice2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPenDevice2>, ::windows::core::GetTrustLevel, SimpleHapticsController::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPenDevice2, BASE_OFFSET>(),
+            SimpleHapticsController: SimpleHapticsController::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenDevice2 as ::windows::core::Interface>::IID
@@ -409,7 +424,10 @@ impl IPenDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPenDeviceStatics>, ::windows::core::GetTrustLevel, GetFromPointerId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPenDeviceStatics, BASE_OFFSET>(),
+            GetFromPointerId: GetFromPointerId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenDeviceStatics as ::windows::core::Interface>::IID
@@ -488,21 +506,16 @@ impl IPenDockListenerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUndocked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPenDockListener>,
-            ::windows::core::GetTrustLevel,
-            IsSupported::<Impl, IMPL_OFFSET>,
-            IsSupportedChanged::<Impl, IMPL_OFFSET>,
-            RemoveIsSupportedChanged::<Impl, IMPL_OFFSET>,
-            Docked::<Impl, IMPL_OFFSET>,
-            RemoveDocked::<Impl, IMPL_OFFSET>,
-            Undocked::<Impl, IMPL_OFFSET>,
-            RemoveUndocked::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPenDockListener, BASE_OFFSET>(),
+            IsSupported: IsSupported::<Impl, IMPL_OFFSET>,
+            IsSupportedChanged: IsSupportedChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsSupportedChanged: RemoveIsSupportedChanged::<Impl, IMPL_OFFSET>,
+            Docked: Docked::<Impl, IMPL_OFFSET>,
+            RemoveDocked: RemoveDocked::<Impl, IMPL_OFFSET>,
+            Undocked: Undocked::<Impl, IMPL_OFFSET>,
+            RemoveUndocked: RemoveUndocked::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenDockListener as ::windows::core::Interface>::IID
@@ -530,7 +543,7 @@ impl IPenDockListenerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPenDockListenerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenDockListenerStatics, BASE_OFFSET>(), GetDefault: GetDefault::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenDockListenerStatics as ::windows::core::Interface>::IID
@@ -545,7 +558,7 @@ impl ::windows::core::RuntimeName for IPenDockedEventArgs {
 #[cfg(feature = "implement_exclusive")]
 impl IPenDockedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenDockedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenDockedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPenDockedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenDockedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenDockedEventArgs as ::windows::core::Interface>::IID
@@ -560,7 +573,7 @@ impl ::windows::core::RuntimeName for IPenTailButtonClickedEventArgs {
 #[cfg(feature = "implement_exclusive")]
 impl IPenTailButtonClickedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenTailButtonClickedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenTailButtonClickedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPenTailButtonClickedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenTailButtonClickedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenTailButtonClickedEventArgs as ::windows::core::Interface>::IID
@@ -575,7 +588,7 @@ impl ::windows::core::RuntimeName for IPenTailButtonDoubleClickedEventArgs {
 #[cfg(feature = "implement_exclusive")]
 impl IPenTailButtonDoubleClickedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenTailButtonDoubleClickedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenTailButtonDoubleClickedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPenTailButtonDoubleClickedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenTailButtonDoubleClickedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenTailButtonDoubleClickedEventArgs as ::windows::core::Interface>::IID
@@ -590,7 +603,7 @@ impl ::windows::core::RuntimeName for IPenTailButtonLongPressedEventArgs {
 #[cfg(feature = "implement_exclusive")]
 impl IPenTailButtonLongPressedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenTailButtonLongPressedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenTailButtonLongPressedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPenTailButtonLongPressedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenTailButtonLongPressedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenTailButtonLongPressedEventArgs as ::windows::core::Interface>::IID
@@ -605,7 +618,7 @@ impl ::windows::core::RuntimeName for IPenUndockedEventArgs {
 #[cfg(feature = "implement_exclusive")]
 impl IPenUndockedEventArgsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenUndockedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenUndockedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPenUndockedEventArgs>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenUndockedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPenUndockedEventArgs as ::windows::core::Interface>::IID
@@ -693,20 +706,15 @@ impl IPointerDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPointerDevice>,
-            ::windows::core::GetTrustLevel,
-            PointerDeviceType::<Impl, IMPL_OFFSET>,
-            IsIntegrated::<Impl, IMPL_OFFSET>,
-            MaxContacts::<Impl, IMPL_OFFSET>,
-            PhysicalDeviceRect::<Impl, IMPL_OFFSET>,
-            ScreenRect::<Impl, IMPL_OFFSET>,
-            SupportedUsages::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPointerDevice, BASE_OFFSET>(),
+            PointerDeviceType: PointerDeviceType::<Impl, IMPL_OFFSET>,
+            IsIntegrated: IsIntegrated::<Impl, IMPL_OFFSET>,
+            MaxContacts: MaxContacts::<Impl, IMPL_OFFSET>,
+            PhysicalDeviceRect: PhysicalDeviceRect::<Impl, IMPL_OFFSET>,
+            ScreenRect: ScreenRect::<Impl, IMPL_OFFSET>,
+            SupportedUsages: SupportedUsages::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPointerDevice as ::windows::core::Interface>::IID
@@ -734,7 +742,10 @@ impl IPointerDevice2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerDevice2>, ::windows::core::GetTrustLevel, MaxPointersWithZDistance::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPointerDevice2, BASE_OFFSET>(),
+            MaxPointersWithZDistance: MaxPointersWithZDistance::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPointerDevice2 as ::windows::core::Interface>::IID
@@ -774,7 +785,11 @@ impl IPointerDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerDeviceStatics>, ::windows::core::GetTrustLevel, GetPointerDevice::<Impl, IMPL_OFFSET>, GetPointerDevices::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPointerDeviceStatics, BASE_OFFSET>(),
+            GetPointerDevice: GetPointerDevice::<Impl, IMPL_OFFSET>,
+            GetPointerDevices: GetPointerDevices::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPointerDeviceStatics as ::windows::core::Interface>::IID
@@ -814,7 +829,11 @@ impl ITouchCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITouchCapabilities>, ::windows::core::GetTrustLevel, TouchPresent::<Impl, IMPL_OFFSET>, Contacts::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITouchCapabilities, BASE_OFFSET>(),
+            TouchPresent: TouchPresent::<Impl, IMPL_OFFSET>,
+            Contacts: Contacts::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITouchCapabilities as ::windows::core::Interface>::IID

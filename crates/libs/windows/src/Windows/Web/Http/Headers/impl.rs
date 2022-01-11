@@ -93,24 +93,19 @@ impl IHttpCacheDirectiveHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpCacheDirectiveHeaderValueCollection>,
-            ::windows::core::GetTrustLevel,
-            MaxAge::<Impl, IMPL_OFFSET>,
-            SetMaxAge::<Impl, IMPL_OFFSET>,
-            MaxStale::<Impl, IMPL_OFFSET>,
-            SetMaxStale::<Impl, IMPL_OFFSET>,
-            MinFresh::<Impl, IMPL_OFFSET>,
-            SetMinFresh::<Impl, IMPL_OFFSET>,
-            SharedMaxAge::<Impl, IMPL_OFFSET>,
-            SetSharedMaxAge::<Impl, IMPL_OFFSET>,
-            ParseAdd::<Impl, IMPL_OFFSET>,
-            TryParseAdd::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpCacheDirectiveHeaderValueCollection, BASE_OFFSET>(),
+            MaxAge: MaxAge::<Impl, IMPL_OFFSET>,
+            SetMaxAge: SetMaxAge::<Impl, IMPL_OFFSET>,
+            MaxStale: MaxStale::<Impl, IMPL_OFFSET>,
+            SetMaxStale: SetMaxStale::<Impl, IMPL_OFFSET>,
+            MinFresh: MinFresh::<Impl, IMPL_OFFSET>,
+            SetMinFresh: SetMinFresh::<Impl, IMPL_OFFSET>,
+            SharedMaxAge: SharedMaxAge::<Impl, IMPL_OFFSET>,
+            SetSharedMaxAge: SetSharedMaxAge::<Impl, IMPL_OFFSET>,
+            ParseAdd: ParseAdd::<Impl, IMPL_OFFSET>,
+            TryParseAdd: TryParseAdd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpCacheDirectiveHeaderValueCollection as ::windows::core::Interface>::IID
@@ -162,7 +157,12 @@ impl IHttpChallengeHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpChallengeHeaderValue>, ::windows::core::GetTrustLevel, Parameters::<Impl, IMPL_OFFSET>, Scheme::<Impl, IMPL_OFFSET>, Token::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpChallengeHeaderValue, BASE_OFFSET>(),
+            Parameters: Parameters::<Impl, IMPL_OFFSET>,
+            Scheme: Scheme::<Impl, IMPL_OFFSET>,
+            Token: Token::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpChallengeHeaderValue as ::windows::core::Interface>::IID
@@ -195,7 +195,11 @@ impl IHttpChallengeHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpChallengeHeaderValueCollection>, ::windows::core::GetTrustLevel, ParseAdd::<Impl, IMPL_OFFSET>, TryParseAdd::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpChallengeHeaderValueCollection, BASE_OFFSET>(),
+            ParseAdd: ParseAdd::<Impl, IMPL_OFFSET>,
+            TryParseAdd: TryParseAdd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpChallengeHeaderValueCollection as ::windows::core::Interface>::IID
@@ -235,7 +239,11 @@ impl IHttpChallengeHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpChallengeHeaderValueFactory>, ::windows::core::GetTrustLevel, CreateFromScheme::<Impl, IMPL_OFFSET>, CreateFromSchemeWithToken::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpChallengeHeaderValueFactory, BASE_OFFSET>(),
+            CreateFromScheme: CreateFromScheme::<Impl, IMPL_OFFSET>,
+            CreateFromSchemeWithToken: CreateFromSchemeWithToken::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpChallengeHeaderValueFactory as ::windows::core::Interface>::IID
@@ -275,7 +283,11 @@ impl IHttpChallengeHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpChallengeHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpChallengeHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpChallengeHeaderValueStatics as ::windows::core::Interface>::IID
@@ -303,7 +315,7 @@ impl IHttpConnectionOptionHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpConnectionOptionHeaderValue>, ::windows::core::GetTrustLevel, Token::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpConnectionOptionHeaderValue, BASE_OFFSET>(), Token: Token::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpConnectionOptionHeaderValue as ::windows::core::Interface>::IID
@@ -336,7 +348,11 @@ impl IHttpConnectionOptionHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpConnectionOptionHeaderValueCollection>, ::windows::core::GetTrustLevel, ParseAdd::<Impl, IMPL_OFFSET>, TryParseAdd::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpConnectionOptionHeaderValueCollection, BASE_OFFSET>(),
+            ParseAdd: ParseAdd::<Impl, IMPL_OFFSET>,
+            TryParseAdd: TryParseAdd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpConnectionOptionHeaderValueCollection as ::windows::core::Interface>::IID
@@ -364,7 +380,10 @@ impl IHttpConnectionOptionHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpConnectionOptionHeaderValueFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpConnectionOptionHeaderValueFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpConnectionOptionHeaderValueFactory as ::windows::core::Interface>::IID
@@ -404,7 +423,11 @@ impl IHttpConnectionOptionHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpConnectionOptionHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpConnectionOptionHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpConnectionOptionHeaderValueStatics as ::windows::core::Interface>::IID
@@ -432,7 +455,10 @@ impl IHttpContentCodingHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpContentCodingHeaderValue>, ::windows::core::GetTrustLevel, ContentCoding::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentCodingHeaderValue, BASE_OFFSET>(),
+            ContentCoding: ContentCoding::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentCodingHeaderValue as ::windows::core::Interface>::IID
@@ -465,7 +491,11 @@ impl IHttpContentCodingHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpContentCodingHeaderValueCollection>, ::windows::core::GetTrustLevel, ParseAdd::<Impl, IMPL_OFFSET>, TryParseAdd::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentCodingHeaderValueCollection, BASE_OFFSET>(),
+            ParseAdd: ParseAdd::<Impl, IMPL_OFFSET>,
+            TryParseAdd: TryParseAdd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentCodingHeaderValueCollection as ::windows::core::Interface>::IID
@@ -493,7 +523,10 @@ impl IHttpContentCodingHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpContentCodingHeaderValueFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentCodingHeaderValueFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentCodingHeaderValueFactory as ::windows::core::Interface>::IID
@@ -533,7 +566,11 @@ impl IHttpContentCodingHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpContentCodingHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentCodingHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentCodingHeaderValueStatics as ::windows::core::Interface>::IID
@@ -573,7 +610,11 @@ impl IHttpContentCodingWithQualityHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpContentCodingWithQualityHeaderValue>, ::windows::core::GetTrustLevel, ContentCoding::<Impl, IMPL_OFFSET>, Quality::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentCodingWithQualityHeaderValue, BASE_OFFSET>(),
+            ContentCoding: ContentCoding::<Impl, IMPL_OFFSET>,
+            Quality: Quality::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentCodingWithQualityHeaderValue as ::windows::core::Interface>::IID
@@ -606,7 +647,11 @@ impl IHttpContentCodingWithQualityHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpContentCodingWithQualityHeaderValueCollection>, ::windows::core::GetTrustLevel, ParseAdd::<Impl, IMPL_OFFSET>, TryParseAdd::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentCodingWithQualityHeaderValueCollection, BASE_OFFSET>(),
+            ParseAdd: ParseAdd::<Impl, IMPL_OFFSET>,
+            TryParseAdd: TryParseAdd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentCodingWithQualityHeaderValueCollection as ::windows::core::Interface>::IID
@@ -646,7 +691,11 @@ impl IHttpContentCodingWithQualityHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpContentCodingWithQualityHeaderValueFactory>, ::windows::core::GetTrustLevel, CreateFromValue::<Impl, IMPL_OFFSET>, CreateFromValueWithQuality::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentCodingWithQualityHeaderValueFactory, BASE_OFFSET>(),
+            CreateFromValue: CreateFromValue::<Impl, IMPL_OFFSET>,
+            CreateFromValueWithQuality: CreateFromValueWithQuality::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentCodingWithQualityHeaderValueFactory as ::windows::core::Interface>::IID
@@ -686,7 +735,11 @@ impl IHttpContentCodingWithQualityHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpContentCodingWithQualityHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentCodingWithQualityHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentCodingWithQualityHeaderValueStatics as ::windows::core::Interface>::IID
@@ -799,25 +852,20 @@ impl IHttpContentDispositionHeaderValueVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSize(&*(&value as *const <super::super::super::Foundation::IReference<u64> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpContentDispositionHeaderValue>,
-            ::windows::core::GetTrustLevel,
-            DispositionType::<Impl, IMPL_OFFSET>,
-            SetDispositionType::<Impl, IMPL_OFFSET>,
-            FileName::<Impl, IMPL_OFFSET>,
-            SetFileName::<Impl, IMPL_OFFSET>,
-            FileNameStar::<Impl, IMPL_OFFSET>,
-            SetFileNameStar::<Impl, IMPL_OFFSET>,
-            Name::<Impl, IMPL_OFFSET>,
-            SetName::<Impl, IMPL_OFFSET>,
-            Parameters::<Impl, IMPL_OFFSET>,
-            Size::<Impl, IMPL_OFFSET>,
-            SetSize::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentDispositionHeaderValue, BASE_OFFSET>(),
+            DispositionType: DispositionType::<Impl, IMPL_OFFSET>,
+            SetDispositionType: SetDispositionType::<Impl, IMPL_OFFSET>,
+            FileName: FileName::<Impl, IMPL_OFFSET>,
+            SetFileName: SetFileName::<Impl, IMPL_OFFSET>,
+            FileNameStar: FileNameStar::<Impl, IMPL_OFFSET>,
+            SetFileNameStar: SetFileNameStar::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetName: SetName::<Impl, IMPL_OFFSET>,
+            Parameters: Parameters::<Impl, IMPL_OFFSET>,
+            Size: Size::<Impl, IMPL_OFFSET>,
+            SetSize: SetSize::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentDispositionHeaderValue as ::windows::core::Interface>::IID
@@ -845,7 +893,10 @@ impl IHttpContentDispositionHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpContentDispositionHeaderValueFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentDispositionHeaderValueFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentDispositionHeaderValueFactory as ::windows::core::Interface>::IID
@@ -885,7 +936,11 @@ impl IHttpContentDispositionHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpContentDispositionHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentDispositionHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentDispositionHeaderValueStatics as ::windows::core::Interface>::IID
@@ -1078,34 +1133,29 @@ impl IHttpContentHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpContentHeaderCollection>,
-            ::windows::core::GetTrustLevel,
-            ContentDisposition::<Impl, IMPL_OFFSET>,
-            SetContentDisposition::<Impl, IMPL_OFFSET>,
-            ContentEncoding::<Impl, IMPL_OFFSET>,
-            ContentLanguage::<Impl, IMPL_OFFSET>,
-            ContentLength::<Impl, IMPL_OFFSET>,
-            SetContentLength::<Impl, IMPL_OFFSET>,
-            ContentLocation::<Impl, IMPL_OFFSET>,
-            SetContentLocation::<Impl, IMPL_OFFSET>,
-            ContentMD5::<Impl, IMPL_OFFSET>,
-            SetContentMD5::<Impl, IMPL_OFFSET>,
-            ContentRange::<Impl, IMPL_OFFSET>,
-            SetContentRange::<Impl, IMPL_OFFSET>,
-            ContentType::<Impl, IMPL_OFFSET>,
-            SetContentType::<Impl, IMPL_OFFSET>,
-            Expires::<Impl, IMPL_OFFSET>,
-            SetExpires::<Impl, IMPL_OFFSET>,
-            LastModified::<Impl, IMPL_OFFSET>,
-            SetLastModified::<Impl, IMPL_OFFSET>,
-            Append::<Impl, IMPL_OFFSET>,
-            TryAppendWithoutValidation::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentHeaderCollection, BASE_OFFSET>(),
+            ContentDisposition: ContentDisposition::<Impl, IMPL_OFFSET>,
+            SetContentDisposition: SetContentDisposition::<Impl, IMPL_OFFSET>,
+            ContentEncoding: ContentEncoding::<Impl, IMPL_OFFSET>,
+            ContentLanguage: ContentLanguage::<Impl, IMPL_OFFSET>,
+            ContentLength: ContentLength::<Impl, IMPL_OFFSET>,
+            SetContentLength: SetContentLength::<Impl, IMPL_OFFSET>,
+            ContentLocation: ContentLocation::<Impl, IMPL_OFFSET>,
+            SetContentLocation: SetContentLocation::<Impl, IMPL_OFFSET>,
+            ContentMD5: ContentMD5::<Impl, IMPL_OFFSET>,
+            SetContentMD5: SetContentMD5::<Impl, IMPL_OFFSET>,
+            ContentRange: ContentRange::<Impl, IMPL_OFFSET>,
+            SetContentRange: SetContentRange::<Impl, IMPL_OFFSET>,
+            ContentType: ContentType::<Impl, IMPL_OFFSET>,
+            SetContentType: SetContentType::<Impl, IMPL_OFFSET>,
+            Expires: Expires::<Impl, IMPL_OFFSET>,
+            SetExpires: SetExpires::<Impl, IMPL_OFFSET>,
+            LastModified: LastModified::<Impl, IMPL_OFFSET>,
+            SetLastModified: SetLastModified::<Impl, IMPL_OFFSET>,
+            Append: Append::<Impl, IMPL_OFFSET>,
+            TryAppendWithoutValidation: TryAppendWithoutValidation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentHeaderCollection as ::windows::core::Interface>::IID
@@ -1174,7 +1224,14 @@ impl IHttpContentRangeHeaderValueVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUnit(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpContentRangeHeaderValue>, ::windows::core::GetTrustLevel, FirstBytePosition::<Impl, IMPL_OFFSET>, LastBytePosition::<Impl, IMPL_OFFSET>, Length::<Impl, IMPL_OFFSET>, Unit::<Impl, IMPL_OFFSET>, SetUnit::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentRangeHeaderValue, BASE_OFFSET>(),
+            FirstBytePosition: FirstBytePosition::<Impl, IMPL_OFFSET>,
+            LastBytePosition: LastBytePosition::<Impl, IMPL_OFFSET>,
+            Length: Length::<Impl, IMPL_OFFSET>,
+            Unit: Unit::<Impl, IMPL_OFFSET>,
+            SetUnit: SetUnit::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentRangeHeaderValue as ::windows::core::Interface>::IID
@@ -1226,7 +1283,12 @@ impl IHttpContentRangeHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpContentRangeHeaderValueFactory>, ::windows::core::GetTrustLevel, CreateFromLength::<Impl, IMPL_OFFSET>, CreateFromRange::<Impl, IMPL_OFFSET>, CreateFromRangeWithLength::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentRangeHeaderValueFactory, BASE_OFFSET>(),
+            CreateFromLength: CreateFromLength::<Impl, IMPL_OFFSET>,
+            CreateFromRange: CreateFromRange::<Impl, IMPL_OFFSET>,
+            CreateFromRangeWithLength: CreateFromRangeWithLength::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentRangeHeaderValueFactory as ::windows::core::Interface>::IID
@@ -1266,7 +1328,11 @@ impl IHttpContentRangeHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpContentRangeHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContentRangeHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpContentRangeHeaderValueStatics as ::windows::core::Interface>::IID
@@ -1311,7 +1377,12 @@ impl IHttpCookiePairHeaderValueVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCookiePairHeaderValue>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpCookiePairHeaderValue, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpCookiePairHeaderValue as ::windows::core::Interface>::IID
@@ -1344,7 +1415,11 @@ impl IHttpCookiePairHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCookiePairHeaderValueCollection>, ::windows::core::GetTrustLevel, ParseAdd::<Impl, IMPL_OFFSET>, TryParseAdd::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpCookiePairHeaderValueCollection, BASE_OFFSET>(),
+            ParseAdd: ParseAdd::<Impl, IMPL_OFFSET>,
+            TryParseAdd: TryParseAdd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpCookiePairHeaderValueCollection as ::windows::core::Interface>::IID
@@ -1384,7 +1459,11 @@ impl IHttpCookiePairHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCookiePairHeaderValueFactory>, ::windows::core::GetTrustLevel, CreateFromName::<Impl, IMPL_OFFSET>, CreateFromNameWithValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpCookiePairHeaderValueFactory, BASE_OFFSET>(),
+            CreateFromName: CreateFromName::<Impl, IMPL_OFFSET>,
+            CreateFromNameWithValue: CreateFromNameWithValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpCookiePairHeaderValueFactory as ::windows::core::Interface>::IID
@@ -1424,7 +1503,11 @@ impl IHttpCookiePairHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCookiePairHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpCookiePairHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpCookiePairHeaderValueStatics as ::windows::core::Interface>::IID
@@ -1476,7 +1559,12 @@ impl IHttpCredentialsHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCredentialsHeaderValue>, ::windows::core::GetTrustLevel, Parameters::<Impl, IMPL_OFFSET>, Scheme::<Impl, IMPL_OFFSET>, Token::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpCredentialsHeaderValue, BASE_OFFSET>(),
+            Parameters: Parameters::<Impl, IMPL_OFFSET>,
+            Scheme: Scheme::<Impl, IMPL_OFFSET>,
+            Token: Token::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpCredentialsHeaderValue as ::windows::core::Interface>::IID
@@ -1516,7 +1604,11 @@ impl IHttpCredentialsHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCredentialsHeaderValueFactory>, ::windows::core::GetTrustLevel, CreateFromScheme::<Impl, IMPL_OFFSET>, CreateFromSchemeWithToken::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpCredentialsHeaderValueFactory, BASE_OFFSET>(),
+            CreateFromScheme: CreateFromScheme::<Impl, IMPL_OFFSET>,
+            CreateFromSchemeWithToken: CreateFromSchemeWithToken::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpCredentialsHeaderValueFactory as ::windows::core::Interface>::IID
@@ -1556,7 +1648,11 @@ impl IHttpCredentialsHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCredentialsHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpCredentialsHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpCredentialsHeaderValueStatics as ::windows::core::Interface>::IID
@@ -1596,7 +1692,11 @@ impl IHttpDateOrDeltaHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpDateOrDeltaHeaderValue>, ::windows::core::GetTrustLevel, Date::<Impl, IMPL_OFFSET>, Delta::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpDateOrDeltaHeaderValue, BASE_OFFSET>(),
+            Date: Date::<Impl, IMPL_OFFSET>,
+            Delta: Delta::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpDateOrDeltaHeaderValue as ::windows::core::Interface>::IID
@@ -1636,7 +1736,11 @@ impl IHttpDateOrDeltaHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpDateOrDeltaHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpDateOrDeltaHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpDateOrDeltaHeaderValueStatics as ::windows::core::Interface>::IID
@@ -1693,7 +1797,13 @@ impl IHttpExpectationHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpExpectationHeaderValue>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>, Parameters::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpExpectationHeaderValue, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+            Parameters: Parameters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpExpectationHeaderValue as ::windows::core::Interface>::IID
@@ -1726,7 +1836,11 @@ impl IHttpExpectationHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpExpectationHeaderValueCollection>, ::windows::core::GetTrustLevel, ParseAdd::<Impl, IMPL_OFFSET>, TryParseAdd::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpExpectationHeaderValueCollection, BASE_OFFSET>(),
+            ParseAdd: ParseAdd::<Impl, IMPL_OFFSET>,
+            TryParseAdd: TryParseAdd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpExpectationHeaderValueCollection as ::windows::core::Interface>::IID
@@ -1766,7 +1880,11 @@ impl IHttpExpectationHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpExpectationHeaderValueFactory>, ::windows::core::GetTrustLevel, CreateFromName::<Impl, IMPL_OFFSET>, CreateFromNameWithValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpExpectationHeaderValueFactory, BASE_OFFSET>(),
+            CreateFromName: CreateFromName::<Impl, IMPL_OFFSET>,
+            CreateFromNameWithValue: CreateFromNameWithValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpExpectationHeaderValueFactory as ::windows::core::Interface>::IID
@@ -1806,7 +1924,11 @@ impl IHttpExpectationHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpExpectationHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpExpectationHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpExpectationHeaderValueStatics as ::windows::core::Interface>::IID
@@ -1839,7 +1961,11 @@ impl IHttpLanguageHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpLanguageHeaderValueCollection>, ::windows::core::GetTrustLevel, ParseAdd::<Impl, IMPL_OFFSET>, TryParseAdd::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpLanguageHeaderValueCollection, BASE_OFFSET>(),
+            ParseAdd: ParseAdd::<Impl, IMPL_OFFSET>,
+            TryParseAdd: TryParseAdd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpLanguageHeaderValueCollection as ::windows::core::Interface>::IID
@@ -1879,7 +2005,11 @@ impl IHttpLanguageRangeWithQualityHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpLanguageRangeWithQualityHeaderValue>, ::windows::core::GetTrustLevel, LanguageRange::<Impl, IMPL_OFFSET>, Quality::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpLanguageRangeWithQualityHeaderValue, BASE_OFFSET>(),
+            LanguageRange: LanguageRange::<Impl, IMPL_OFFSET>,
+            Quality: Quality::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpLanguageRangeWithQualityHeaderValue as ::windows::core::Interface>::IID
@@ -1912,7 +2042,11 @@ impl IHttpLanguageRangeWithQualityHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpLanguageRangeWithQualityHeaderValueCollection>, ::windows::core::GetTrustLevel, ParseAdd::<Impl, IMPL_OFFSET>, TryParseAdd::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpLanguageRangeWithQualityHeaderValueCollection, BASE_OFFSET>(),
+            ParseAdd: ParseAdd::<Impl, IMPL_OFFSET>,
+            TryParseAdd: TryParseAdd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpLanguageRangeWithQualityHeaderValueCollection as ::windows::core::Interface>::IID
@@ -1952,7 +2086,11 @@ impl IHttpLanguageRangeWithQualityHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpLanguageRangeWithQualityHeaderValueFactory>, ::windows::core::GetTrustLevel, CreateFromLanguageRange::<Impl, IMPL_OFFSET>, CreateFromLanguageRangeWithQuality::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpLanguageRangeWithQualityHeaderValueFactory, BASE_OFFSET>(),
+            CreateFromLanguageRange: CreateFromLanguageRange::<Impl, IMPL_OFFSET>,
+            CreateFromLanguageRangeWithQuality: CreateFromLanguageRangeWithQuality::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpLanguageRangeWithQualityHeaderValueFactory as ::windows::core::Interface>::IID
@@ -1992,7 +2130,11 @@ impl IHttpLanguageRangeWithQualityHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpLanguageRangeWithQualityHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpLanguageRangeWithQualityHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpLanguageRangeWithQualityHeaderValueStatics as ::windows::core::Interface>::IID
@@ -2054,7 +2196,14 @@ impl IHttpMediaTypeHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMediaTypeHeaderValue>, ::windows::core::GetTrustLevel, CharSet::<Impl, IMPL_OFFSET>, SetCharSet::<Impl, IMPL_OFFSET>, MediaType::<Impl, IMPL_OFFSET>, SetMediaType::<Impl, IMPL_OFFSET>, Parameters::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMediaTypeHeaderValue, BASE_OFFSET>(),
+            CharSet: CharSet::<Impl, IMPL_OFFSET>,
+            SetCharSet: SetCharSet::<Impl, IMPL_OFFSET>,
+            MediaType: MediaType::<Impl, IMPL_OFFSET>,
+            SetMediaType: SetMediaType::<Impl, IMPL_OFFSET>,
+            Parameters: Parameters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMediaTypeHeaderValue as ::windows::core::Interface>::IID
@@ -2082,7 +2231,7 @@ impl IHttpMediaTypeHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMediaTypeHeaderValueFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMediaTypeHeaderValueFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMediaTypeHeaderValueFactory as ::windows::core::Interface>::IID
@@ -2122,7 +2271,11 @@ impl IHttpMediaTypeHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMediaTypeHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMediaTypeHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMediaTypeHeaderValueStatics as ::windows::core::Interface>::IID
@@ -2201,21 +2354,16 @@ impl IHttpMediaTypeWithQualityHeaderValueVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetQuality(&*(&value as *const <super::super::super::Foundation::IReference<f64> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<f64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpMediaTypeWithQualityHeaderValue>,
-            ::windows::core::GetTrustLevel,
-            CharSet::<Impl, IMPL_OFFSET>,
-            SetCharSet::<Impl, IMPL_OFFSET>,
-            MediaType::<Impl, IMPL_OFFSET>,
-            SetMediaType::<Impl, IMPL_OFFSET>,
-            Parameters::<Impl, IMPL_OFFSET>,
-            Quality::<Impl, IMPL_OFFSET>,
-            SetQuality::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMediaTypeWithQualityHeaderValue, BASE_OFFSET>(),
+            CharSet: CharSet::<Impl, IMPL_OFFSET>,
+            SetCharSet: SetCharSet::<Impl, IMPL_OFFSET>,
+            MediaType: MediaType::<Impl, IMPL_OFFSET>,
+            SetMediaType: SetMediaType::<Impl, IMPL_OFFSET>,
+            Parameters: Parameters::<Impl, IMPL_OFFSET>,
+            Quality: Quality::<Impl, IMPL_OFFSET>,
+            SetQuality: SetQuality::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMediaTypeWithQualityHeaderValue as ::windows::core::Interface>::IID
@@ -2248,7 +2396,11 @@ impl IHttpMediaTypeWithQualityHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMediaTypeWithQualityHeaderValueCollection>, ::windows::core::GetTrustLevel, ParseAdd::<Impl, IMPL_OFFSET>, TryParseAdd::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMediaTypeWithQualityHeaderValueCollection, BASE_OFFSET>(),
+            ParseAdd: ParseAdd::<Impl, IMPL_OFFSET>,
+            TryParseAdd: TryParseAdd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMediaTypeWithQualityHeaderValueCollection as ::windows::core::Interface>::IID
@@ -2288,7 +2440,11 @@ impl IHttpMediaTypeWithQualityHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMediaTypeWithQualityHeaderValueFactory>, ::windows::core::GetTrustLevel, CreateFromMediaType::<Impl, IMPL_OFFSET>, CreateFromMediaTypeWithQuality::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMediaTypeWithQualityHeaderValueFactory, BASE_OFFSET>(),
+            CreateFromMediaType: CreateFromMediaType::<Impl, IMPL_OFFSET>,
+            CreateFromMediaTypeWithQuality: CreateFromMediaTypeWithQuality::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMediaTypeWithQualityHeaderValueFactory as ::windows::core::Interface>::IID
@@ -2328,7 +2484,11 @@ impl IHttpMediaTypeWithQualityHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMediaTypeWithQualityHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMediaTypeWithQualityHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMediaTypeWithQualityHeaderValueStatics as ::windows::core::Interface>::IID
@@ -2361,7 +2521,11 @@ impl IHttpMethodHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMethodHeaderValueCollection>, ::windows::core::GetTrustLevel, ParseAdd::<Impl, IMPL_OFFSET>, TryParseAdd::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpMethodHeaderValueCollection, BASE_OFFSET>(),
+            ParseAdd: ParseAdd::<Impl, IMPL_OFFSET>,
+            TryParseAdd: TryParseAdd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpMethodHeaderValueCollection as ::windows::core::Interface>::IID
@@ -2406,7 +2570,12 @@ impl IHttpNameValueHeaderValueVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpNameValueHeaderValue>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpNameValueHeaderValue, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            SetValue: SetValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpNameValueHeaderValue as ::windows::core::Interface>::IID
@@ -2446,7 +2615,11 @@ impl IHttpNameValueHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpNameValueHeaderValueFactory>, ::windows::core::GetTrustLevel, CreateFromName::<Impl, IMPL_OFFSET>, CreateFromNameWithValue::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpNameValueHeaderValueFactory, BASE_OFFSET>(),
+            CreateFromName: CreateFromName::<Impl, IMPL_OFFSET>,
+            CreateFromNameWithValue: CreateFromNameWithValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpNameValueHeaderValueFactory as ::windows::core::Interface>::IID
@@ -2486,7 +2659,11 @@ impl IHttpNameValueHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpNameValueHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpNameValueHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpNameValueHeaderValueStatics as ::windows::core::Interface>::IID
@@ -2526,7 +2703,11 @@ impl IHttpProductHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpProductHeaderValue>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Version::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpProductHeaderValue, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Version: Version::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpProductHeaderValue as ::windows::core::Interface>::IID
@@ -2566,7 +2747,11 @@ impl IHttpProductHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpProductHeaderValueFactory>, ::windows::core::GetTrustLevel, CreateFromName::<Impl, IMPL_OFFSET>, CreateFromNameWithVersion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpProductHeaderValueFactory, BASE_OFFSET>(),
+            CreateFromName: CreateFromName::<Impl, IMPL_OFFSET>,
+            CreateFromNameWithVersion: CreateFromNameWithVersion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpProductHeaderValueFactory as ::windows::core::Interface>::IID
@@ -2606,7 +2791,11 @@ impl IHttpProductHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpProductHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpProductHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpProductHeaderValueStatics as ::windows::core::Interface>::IID
@@ -2646,7 +2835,11 @@ impl IHttpProductInfoHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpProductInfoHeaderValue>, ::windows::core::GetTrustLevel, Product::<Impl, IMPL_OFFSET>, Comment::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpProductInfoHeaderValue, BASE_OFFSET>(),
+            Product: Product::<Impl, IMPL_OFFSET>,
+            Comment: Comment::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpProductInfoHeaderValue as ::windows::core::Interface>::IID
@@ -2679,7 +2872,11 @@ impl IHttpProductInfoHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpProductInfoHeaderValueCollection>, ::windows::core::GetTrustLevel, ParseAdd::<Impl, IMPL_OFFSET>, TryParseAdd::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpProductInfoHeaderValueCollection, BASE_OFFSET>(),
+            ParseAdd: ParseAdd::<Impl, IMPL_OFFSET>,
+            TryParseAdd: TryParseAdd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpProductInfoHeaderValueCollection as ::windows::core::Interface>::IID
@@ -2719,7 +2916,11 @@ impl IHttpProductInfoHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpProductInfoHeaderValueFactory>, ::windows::core::GetTrustLevel, CreateFromComment::<Impl, IMPL_OFFSET>, CreateFromNameWithVersion::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpProductInfoHeaderValueFactory, BASE_OFFSET>(),
+            CreateFromComment: CreateFromComment::<Impl, IMPL_OFFSET>,
+            CreateFromNameWithVersion: CreateFromNameWithVersion::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpProductInfoHeaderValueFactory as ::windows::core::Interface>::IID
@@ -2759,7 +2960,11 @@ impl IHttpProductInfoHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpProductInfoHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpProductInfoHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpProductInfoHeaderValueStatics as ::windows::core::Interface>::IID
@@ -3053,43 +3258,38 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpRequestHeaderCollection>,
-            ::windows::core::GetTrustLevel,
-            Accept::<Impl, IMPL_OFFSET>,
-            AcceptEncoding::<Impl, IMPL_OFFSET>,
-            AcceptLanguage::<Impl, IMPL_OFFSET>,
-            Authorization::<Impl, IMPL_OFFSET>,
-            SetAuthorization::<Impl, IMPL_OFFSET>,
-            CacheControl::<Impl, IMPL_OFFSET>,
-            Connection::<Impl, IMPL_OFFSET>,
-            Cookie::<Impl, IMPL_OFFSET>,
-            Date::<Impl, IMPL_OFFSET>,
-            SetDate::<Impl, IMPL_OFFSET>,
-            Expect::<Impl, IMPL_OFFSET>,
-            From::<Impl, IMPL_OFFSET>,
-            SetFrom::<Impl, IMPL_OFFSET>,
-            Host::<Impl, IMPL_OFFSET>,
-            SetHost::<Impl, IMPL_OFFSET>,
-            IfModifiedSince::<Impl, IMPL_OFFSET>,
-            SetIfModifiedSince::<Impl, IMPL_OFFSET>,
-            IfUnmodifiedSince::<Impl, IMPL_OFFSET>,
-            SetIfUnmodifiedSince::<Impl, IMPL_OFFSET>,
-            MaxForwards::<Impl, IMPL_OFFSET>,
-            SetMaxForwards::<Impl, IMPL_OFFSET>,
-            ProxyAuthorization::<Impl, IMPL_OFFSET>,
-            SetProxyAuthorization::<Impl, IMPL_OFFSET>,
-            Referer::<Impl, IMPL_OFFSET>,
-            SetReferer::<Impl, IMPL_OFFSET>,
-            TransferEncoding::<Impl, IMPL_OFFSET>,
-            UserAgent::<Impl, IMPL_OFFSET>,
-            Append::<Impl, IMPL_OFFSET>,
-            TryAppendWithoutValidation::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpRequestHeaderCollection, BASE_OFFSET>(),
+            Accept: Accept::<Impl, IMPL_OFFSET>,
+            AcceptEncoding: AcceptEncoding::<Impl, IMPL_OFFSET>,
+            AcceptLanguage: AcceptLanguage::<Impl, IMPL_OFFSET>,
+            Authorization: Authorization::<Impl, IMPL_OFFSET>,
+            SetAuthorization: SetAuthorization::<Impl, IMPL_OFFSET>,
+            CacheControl: CacheControl::<Impl, IMPL_OFFSET>,
+            Connection: Connection::<Impl, IMPL_OFFSET>,
+            Cookie: Cookie::<Impl, IMPL_OFFSET>,
+            Date: Date::<Impl, IMPL_OFFSET>,
+            SetDate: SetDate::<Impl, IMPL_OFFSET>,
+            Expect: Expect::<Impl, IMPL_OFFSET>,
+            From: From::<Impl, IMPL_OFFSET>,
+            SetFrom: SetFrom::<Impl, IMPL_OFFSET>,
+            Host: Host::<Impl, IMPL_OFFSET>,
+            SetHost: SetHost::<Impl, IMPL_OFFSET>,
+            IfModifiedSince: IfModifiedSince::<Impl, IMPL_OFFSET>,
+            SetIfModifiedSince: SetIfModifiedSince::<Impl, IMPL_OFFSET>,
+            IfUnmodifiedSince: IfUnmodifiedSince::<Impl, IMPL_OFFSET>,
+            SetIfUnmodifiedSince: SetIfUnmodifiedSince::<Impl, IMPL_OFFSET>,
+            MaxForwards: MaxForwards::<Impl, IMPL_OFFSET>,
+            SetMaxForwards: SetMaxForwards::<Impl, IMPL_OFFSET>,
+            ProxyAuthorization: ProxyAuthorization::<Impl, IMPL_OFFSET>,
+            SetProxyAuthorization: SetProxyAuthorization::<Impl, IMPL_OFFSET>,
+            Referer: Referer::<Impl, IMPL_OFFSET>,
+            SetReferer: SetReferer::<Impl, IMPL_OFFSET>,
+            TransferEncoding: TransferEncoding::<Impl, IMPL_OFFSET>,
+            UserAgent: UserAgent::<Impl, IMPL_OFFSET>,
+            Append: Append::<Impl, IMPL_OFFSET>,
+            TryAppendWithoutValidation: TryAppendWithoutValidation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpRequestHeaderCollection as ::windows::core::Interface>::IID
@@ -3262,30 +3462,25 @@ impl IHttpResponseHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IHttpResponseHeaderCollection>,
-            ::windows::core::GetTrustLevel,
-            Age::<Impl, IMPL_OFFSET>,
-            SetAge::<Impl, IMPL_OFFSET>,
-            Allow::<Impl, IMPL_OFFSET>,
-            CacheControl::<Impl, IMPL_OFFSET>,
-            Connection::<Impl, IMPL_OFFSET>,
-            Date::<Impl, IMPL_OFFSET>,
-            SetDate::<Impl, IMPL_OFFSET>,
-            Location::<Impl, IMPL_OFFSET>,
-            SetLocation::<Impl, IMPL_OFFSET>,
-            ProxyAuthenticate::<Impl, IMPL_OFFSET>,
-            RetryAfter::<Impl, IMPL_OFFSET>,
-            SetRetryAfter::<Impl, IMPL_OFFSET>,
-            TransferEncoding::<Impl, IMPL_OFFSET>,
-            WwwAuthenticate::<Impl, IMPL_OFFSET>,
-            Append::<Impl, IMPL_OFFSET>,
-            TryAppendWithoutValidation::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpResponseHeaderCollection, BASE_OFFSET>(),
+            Age: Age::<Impl, IMPL_OFFSET>,
+            SetAge: SetAge::<Impl, IMPL_OFFSET>,
+            Allow: Allow::<Impl, IMPL_OFFSET>,
+            CacheControl: CacheControl::<Impl, IMPL_OFFSET>,
+            Connection: Connection::<Impl, IMPL_OFFSET>,
+            Date: Date::<Impl, IMPL_OFFSET>,
+            SetDate: SetDate::<Impl, IMPL_OFFSET>,
+            Location: Location::<Impl, IMPL_OFFSET>,
+            SetLocation: SetLocation::<Impl, IMPL_OFFSET>,
+            ProxyAuthenticate: ProxyAuthenticate::<Impl, IMPL_OFFSET>,
+            RetryAfter: RetryAfter::<Impl, IMPL_OFFSET>,
+            SetRetryAfter: SetRetryAfter::<Impl, IMPL_OFFSET>,
+            TransferEncoding: TransferEncoding::<Impl, IMPL_OFFSET>,
+            WwwAuthenticate: WwwAuthenticate::<Impl, IMPL_OFFSET>,
+            Append: Append::<Impl, IMPL_OFFSET>,
+            TryAppendWithoutValidation: TryAppendWithoutValidation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpResponseHeaderCollection as ::windows::core::Interface>::IID
@@ -3325,7 +3520,11 @@ impl IHttpTransferCodingHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpTransferCodingHeaderValue>, ::windows::core::GetTrustLevel, Parameters::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpTransferCodingHeaderValue, BASE_OFFSET>(),
+            Parameters: Parameters::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpTransferCodingHeaderValue as ::windows::core::Interface>::IID
@@ -3358,7 +3557,11 @@ impl IHttpTransferCodingHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpTransferCodingHeaderValueCollection>, ::windows::core::GetTrustLevel, ParseAdd::<Impl, IMPL_OFFSET>, TryParseAdd::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpTransferCodingHeaderValueCollection, BASE_OFFSET>(),
+            ParseAdd: ParseAdd::<Impl, IMPL_OFFSET>,
+            TryParseAdd: TryParseAdd::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpTransferCodingHeaderValueCollection as ::windows::core::Interface>::IID
@@ -3386,7 +3589,10 @@ impl IHttpTransferCodingHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpTransferCodingHeaderValueFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpTransferCodingHeaderValueFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpTransferCodingHeaderValueFactory as ::windows::core::Interface>::IID
@@ -3426,7 +3632,11 @@ impl IHttpTransferCodingHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpTransferCodingHeaderValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpTransferCodingHeaderValueStatics, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            TryParse: TryParse::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpTransferCodingHeaderValueStatics as ::windows::core::Interface>::IID

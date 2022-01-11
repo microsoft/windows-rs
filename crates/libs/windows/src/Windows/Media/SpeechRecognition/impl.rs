@@ -20,7 +20,10 @@ impl ISpeechContinuousRecognitionCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechContinuousRecognitionCompletedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechContinuousRecognitionCompletedEventArgs, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechContinuousRecognitionCompletedEventArgs as ::windows::core::Interface>::IID
@@ -48,7 +51,10 @@ impl ISpeechContinuousRecognitionResultGeneratedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechContinuousRecognitionResultGeneratedEventArgs>, ::windows::core::GetTrustLevel, Result::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechContinuousRecognitionResultGeneratedEventArgs, BASE_OFFSET>(),
+            Result: Result::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechContinuousRecognitionResultGeneratedEventArgs as ::windows::core::Interface>::IID
@@ -180,26 +186,21 @@ impl ISpeechContinuousRecognitionSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveResultGenerated(&*(&value as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpeechContinuousRecognitionSession>,
-            ::windows::core::GetTrustLevel,
-            AutoStopSilenceTimeout::<Impl, IMPL_OFFSET>,
-            SetAutoStopSilenceTimeout::<Impl, IMPL_OFFSET>,
-            StartAsync::<Impl, IMPL_OFFSET>,
-            StartWithModeAsync::<Impl, IMPL_OFFSET>,
-            StopAsync::<Impl, IMPL_OFFSET>,
-            CancelAsync::<Impl, IMPL_OFFSET>,
-            PauseAsync::<Impl, IMPL_OFFSET>,
-            Resume::<Impl, IMPL_OFFSET>,
-            Completed::<Impl, IMPL_OFFSET>,
-            RemoveCompleted::<Impl, IMPL_OFFSET>,
-            ResultGenerated::<Impl, IMPL_OFFSET>,
-            RemoveResultGenerated::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechContinuousRecognitionSession, BASE_OFFSET>(),
+            AutoStopSilenceTimeout: AutoStopSilenceTimeout::<Impl, IMPL_OFFSET>,
+            SetAutoStopSilenceTimeout: SetAutoStopSilenceTimeout::<Impl, IMPL_OFFSET>,
+            StartAsync: StartAsync::<Impl, IMPL_OFFSET>,
+            StartWithModeAsync: StartWithModeAsync::<Impl, IMPL_OFFSET>,
+            StopAsync: StopAsync::<Impl, IMPL_OFFSET>,
+            CancelAsync: CancelAsync::<Impl, IMPL_OFFSET>,
+            PauseAsync: PauseAsync::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+            Completed: Completed::<Impl, IMPL_OFFSET>,
+            RemoveCompleted: RemoveCompleted::<Impl, IMPL_OFFSET>,
+            ResultGenerated: ResultGenerated::<Impl, IMPL_OFFSET>,
+            RemoveResultGenerated: RemoveResultGenerated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechContinuousRecognitionSession as ::windows::core::Interface>::IID
@@ -227,7 +228,10 @@ impl ISpeechRecognitionCompilationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognitionCompilationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionCompilationResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionCompilationResult as ::windows::core::Interface>::IID
@@ -303,21 +307,16 @@ impl ISpeechRecognitionConstraintVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProbability(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpeechRecognitionConstraint>,
-            ::windows::core::GetTrustLevel,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            SetIsEnabled::<Impl, IMPL_OFFSET>,
-            Tag::<Impl, IMPL_OFFSET>,
-            SetTag::<Impl, IMPL_OFFSET>,
-            Type::<Impl, IMPL_OFFSET>,
-            Probability::<Impl, IMPL_OFFSET>,
-            SetProbability::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionConstraint, BASE_OFFSET>(),
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled: SetIsEnabled::<Impl, IMPL_OFFSET>,
+            Tag: Tag::<Impl, IMPL_OFFSET>,
+            SetTag: SetTag::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+            Probability: Probability::<Impl, IMPL_OFFSET>,
+            SetProbability: SetProbability::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionConstraint as ::windows::core::Interface>::IID
@@ -345,7 +344,10 @@ impl ISpeechRecognitionGrammarFileConstraintVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognitionGrammarFileConstraint>, ::windows::core::GetTrustLevel, GrammarFile::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionGrammarFileConstraint, BASE_OFFSET>(),
+            GrammarFile: GrammarFile::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionGrammarFileConstraint as ::windows::core::Interface>::IID
@@ -385,7 +387,11 @@ impl ISpeechRecognitionGrammarFileConstraintFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognitionGrammarFileConstraintFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithTag::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionGrammarFileConstraintFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithTag: CreateWithTag::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionGrammarFileConstraintFactory as ::windows::core::Interface>::IID
@@ -413,7 +419,7 @@ impl ISpeechRecognitionHypothesisVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognitionHypothesis>, ::windows::core::GetTrustLevel, Text::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionHypothesis, BASE_OFFSET>(), Text: Text::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionHypothesis as ::windows::core::Interface>::IID
@@ -441,7 +447,10 @@ impl ISpeechRecognitionHypothesisGeneratedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognitionHypothesisGeneratedEventArgs>, ::windows::core::GetTrustLevel, Hypothesis::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionHypothesisGeneratedEventArgs, BASE_OFFSET>(),
+            Hypothesis: Hypothesis::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionHypothesisGeneratedEventArgs as ::windows::core::Interface>::IID
@@ -469,7 +478,10 @@ impl ISpeechRecognitionListConstraintVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognitionListConstraint>, ::windows::core::GetTrustLevel, Commands::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionListConstraint, BASE_OFFSET>(),
+            Commands: Commands::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionListConstraint as ::windows::core::Interface>::IID
@@ -509,7 +521,11 @@ impl ISpeechRecognitionListConstraintFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognitionListConstraintFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithTag::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionListConstraintFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithTag: CreateWithTag::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionListConstraintFactory as ::windows::core::Interface>::IID
@@ -537,7 +553,10 @@ impl ISpeechRecognitionQualityDegradingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognitionQualityDegradingEventArgs>, ::windows::core::GetTrustLevel, Problem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionQualityDegradingEventArgs, BASE_OFFSET>(),
+            Problem: Problem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionQualityDegradingEventArgs as ::windows::core::Interface>::IID
@@ -649,22 +668,17 @@ impl ISpeechRecognitionResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpeechRecognitionResult>,
-            ::windows::core::GetTrustLevel,
-            Status::<Impl, IMPL_OFFSET>,
-            Text::<Impl, IMPL_OFFSET>,
-            Confidence::<Impl, IMPL_OFFSET>,
-            SemanticInterpretation::<Impl, IMPL_OFFSET>,
-            GetAlternates::<Impl, IMPL_OFFSET>,
-            Constraint::<Impl, IMPL_OFFSET>,
-            RulePath::<Impl, IMPL_OFFSET>,
-            RawConfidence::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionResult, BASE_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+            Confidence: Confidence::<Impl, IMPL_OFFSET>,
+            SemanticInterpretation: SemanticInterpretation::<Impl, IMPL_OFFSET>,
+            GetAlternates: GetAlternates::<Impl, IMPL_OFFSET>,
+            Constraint: Constraint::<Impl, IMPL_OFFSET>,
+            RulePath: RulePath::<Impl, IMPL_OFFSET>,
+            RawConfidence: RawConfidence::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionResult as ::windows::core::Interface>::IID
@@ -704,7 +718,11 @@ impl ISpeechRecognitionResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognitionResult2>, ::windows::core::GetTrustLevel, PhraseStartTime::<Impl, IMPL_OFFSET>, PhraseDuration::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionResult2, BASE_OFFSET>(),
+            PhraseStartTime: PhraseStartTime::<Impl, IMPL_OFFSET>,
+            PhraseDuration: PhraseDuration::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionResult2 as ::windows::core::Interface>::IID
@@ -732,7 +750,10 @@ impl ISpeechRecognitionSemanticInterpretationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognitionSemanticInterpretation>, ::windows::core::GetTrustLevel, Properties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionSemanticInterpretation, BASE_OFFSET>(),
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionSemanticInterpretation as ::windows::core::Interface>::IID
@@ -772,7 +793,11 @@ impl ISpeechRecognitionTopicConstraintVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognitionTopicConstraint>, ::windows::core::GetTrustLevel, Scenario::<Impl, IMPL_OFFSET>, TopicHint::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionTopicConstraint, BASE_OFFSET>(),
+            Scenario: Scenario::<Impl, IMPL_OFFSET>,
+            TopicHint: TopicHint::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionTopicConstraint as ::windows::core::Interface>::IID
@@ -812,7 +837,11 @@ impl ISpeechRecognitionTopicConstraintFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognitionTopicConstraintFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithTag::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionTopicConstraintFactory, BASE_OFFSET>(),
+            Create: Create::<Impl, IMPL_OFFSET>,
+            CreateWithTag: CreateWithTag::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionTopicConstraintFactory as ::windows::core::Interface>::IID
@@ -827,7 +856,7 @@ impl ::windows::core::RuntimeName for ISpeechRecognitionVoiceCommandDefinitionCo
 #[cfg(feature = "implement_exclusive")]
 impl ISpeechRecognitionVoiceCommandDefinitionConstraintVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecognitionVoiceCommandDefinitionConstraintImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechRecognitionVoiceCommandDefinitionConstraintVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognitionVoiceCommandDefinitionConstraint>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionVoiceCommandDefinitionConstraint, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognitionVoiceCommandDefinitionConstraint as ::windows::core::Interface>::IID
@@ -961,25 +990,20 @@ impl ISpeechRecognizerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStateChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpeechRecognizer>,
-            ::windows::core::GetTrustLevel,
-            CurrentLanguage::<Impl, IMPL_OFFSET>,
-            Constraints::<Impl, IMPL_OFFSET>,
-            Timeouts::<Impl, IMPL_OFFSET>,
-            UIOptions::<Impl, IMPL_OFFSET>,
-            CompileConstraintsAsync::<Impl, IMPL_OFFSET>,
-            RecognizeAsync::<Impl, IMPL_OFFSET>,
-            RecognizeWithUIAsync::<Impl, IMPL_OFFSET>,
-            RecognitionQualityDegrading::<Impl, IMPL_OFFSET>,
-            RemoveRecognitionQualityDegrading::<Impl, IMPL_OFFSET>,
-            StateChanged::<Impl, IMPL_OFFSET>,
-            RemoveStateChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognizer, BASE_OFFSET>(),
+            CurrentLanguage: CurrentLanguage::<Impl, IMPL_OFFSET>,
+            Constraints: Constraints::<Impl, IMPL_OFFSET>,
+            Timeouts: Timeouts::<Impl, IMPL_OFFSET>,
+            UIOptions: UIOptions::<Impl, IMPL_OFFSET>,
+            CompileConstraintsAsync: CompileConstraintsAsync::<Impl, IMPL_OFFSET>,
+            RecognizeAsync: RecognizeAsync::<Impl, IMPL_OFFSET>,
+            RecognizeWithUIAsync: RecognizeWithUIAsync::<Impl, IMPL_OFFSET>,
+            RecognitionQualityDegrading: RecognitionQualityDegrading::<Impl, IMPL_OFFSET>,
+            RemoveRecognitionQualityDegrading: RemoveRecognitionQualityDegrading::<Impl, IMPL_OFFSET>,
+            StateChanged: StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged: RemoveStateChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognizer as ::windows::core::Interface>::IID
@@ -1048,19 +1072,14 @@ impl ISpeechRecognizer2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveHypothesisGenerated(&*(&value as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpeechRecognizer2>,
-            ::windows::core::GetTrustLevel,
-            ContinuousRecognitionSession::<Impl, IMPL_OFFSET>,
-            State::<Impl, IMPL_OFFSET>,
-            StopRecognitionAsync::<Impl, IMPL_OFFSET>,
-            HypothesisGenerated::<Impl, IMPL_OFFSET>,
-            RemoveHypothesisGenerated::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognizer2, BASE_OFFSET>(),
+            ContinuousRecognitionSession: ContinuousRecognitionSession::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            StopRecognitionAsync: StopRecognitionAsync::<Impl, IMPL_OFFSET>,
+            HypothesisGenerated: HypothesisGenerated::<Impl, IMPL_OFFSET>,
+            RemoveHypothesisGenerated: RemoveHypothesisGenerated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognizer2 as ::windows::core::Interface>::IID
@@ -1088,7 +1107,7 @@ impl ISpeechRecognizerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognizerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognizerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognizerFactory as ::windows::core::Interface>::IID
@@ -1116,7 +1135,10 @@ impl ISpeechRecognizerStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognizerStateChangedEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognizerStateChangedEventArgs, BASE_OFFSET>(),
+            State: State::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognizerStateChangedEventArgs as ::windows::core::Interface>::IID
@@ -1168,7 +1190,12 @@ impl ISpeechRecognizerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognizerStatics>, ::windows::core::GetTrustLevel, SystemSpeechLanguage::<Impl, IMPL_OFFSET>, SupportedTopicLanguages::<Impl, IMPL_OFFSET>, SupportedGrammarLanguages::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognizerStatics, BASE_OFFSET>(),
+            SystemSpeechLanguage: SystemSpeechLanguage::<Impl, IMPL_OFFSET>,
+            SupportedTopicLanguages: SupportedTopicLanguages::<Impl, IMPL_OFFSET>,
+            SupportedGrammarLanguages: SupportedGrammarLanguages::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognizerStatics as ::windows::core::Interface>::IID
@@ -1196,7 +1223,10 @@ impl ISpeechRecognizerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechRecognizerStatics2>, ::windows::core::GetTrustLevel, TrySetSystemSpeechLanguageAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognizerStatics2, BASE_OFFSET>(),
+            TrySetSystemSpeechLanguageAsync: TrySetSystemSpeechLanguageAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognizerStatics2 as ::windows::core::Interface>::IID
@@ -1263,20 +1293,15 @@ impl ISpeechRecognizerTimeoutsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBabbleTimeout(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpeechRecognizerTimeouts>,
-            ::windows::core::GetTrustLevel,
-            InitialSilenceTimeout::<Impl, IMPL_OFFSET>,
-            SetInitialSilenceTimeout::<Impl, IMPL_OFFSET>,
-            EndSilenceTimeout::<Impl, IMPL_OFFSET>,
-            SetEndSilenceTimeout::<Impl, IMPL_OFFSET>,
-            BabbleTimeout::<Impl, IMPL_OFFSET>,
-            SetBabbleTimeout::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognizerTimeouts, BASE_OFFSET>(),
+            InitialSilenceTimeout: InitialSilenceTimeout::<Impl, IMPL_OFFSET>,
+            SetInitialSilenceTimeout: SetInitialSilenceTimeout::<Impl, IMPL_OFFSET>,
+            EndSilenceTimeout: EndSilenceTimeout::<Impl, IMPL_OFFSET>,
+            SetEndSilenceTimeout: SetEndSilenceTimeout::<Impl, IMPL_OFFSET>,
+            BabbleTimeout: BabbleTimeout::<Impl, IMPL_OFFSET>,
+            SetBabbleTimeout: SetBabbleTimeout::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognizerTimeouts as ::windows::core::Interface>::IID
@@ -1360,22 +1385,17 @@ impl ISpeechRecognizerUIOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShowConfirmation(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpeechRecognizerUIOptions>,
-            ::windows::core::GetTrustLevel,
-            ExampleText::<Impl, IMPL_OFFSET>,
-            SetExampleText::<Impl, IMPL_OFFSET>,
-            AudiblePrompt::<Impl, IMPL_OFFSET>,
-            SetAudiblePrompt::<Impl, IMPL_OFFSET>,
-            IsReadBackEnabled::<Impl, IMPL_OFFSET>,
-            SetIsReadBackEnabled::<Impl, IMPL_OFFSET>,
-            ShowConfirmation::<Impl, IMPL_OFFSET>,
-            SetShowConfirmation::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognizerUIOptions, BASE_OFFSET>(),
+            ExampleText: ExampleText::<Impl, IMPL_OFFSET>,
+            SetExampleText: SetExampleText::<Impl, IMPL_OFFSET>,
+            AudiblePrompt: AudiblePrompt::<Impl, IMPL_OFFSET>,
+            SetAudiblePrompt: SetAudiblePrompt::<Impl, IMPL_OFFSET>,
+            IsReadBackEnabled: IsReadBackEnabled::<Impl, IMPL_OFFSET>,
+            SetIsReadBackEnabled: SetIsReadBackEnabled::<Impl, IMPL_OFFSET>,
+            ShowConfirmation: ShowConfirmation::<Impl, IMPL_OFFSET>,
+            SetShowConfirmation: SetShowConfirmation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecognizerUIOptions as ::windows::core::Interface>::IID
@@ -1415,7 +1435,11 @@ impl IVoiceCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandManager>, ::windows::core::GetTrustLevel, InstallCommandSetsFromStorageFileAsync::<Impl, IMPL_OFFSET>, InstalledCommandSets::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandManager, BASE_OFFSET>(),
+            InstallCommandSetsFromStorageFileAsync: InstallCommandSetsFromStorageFileAsync::<Impl, IMPL_OFFSET>,
+            InstalledCommandSets: InstalledCommandSets::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandManager as ::windows::core::Interface>::IID
@@ -1467,7 +1491,12 @@ impl IVoiceCommandSetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandSet>, ::windows::core::GetTrustLevel, Language::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, SetPhraseListAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandSet, BASE_OFFSET>(),
+            Language: Language::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SetPhraseListAsync: SetPhraseListAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandSet as ::windows::core::Interface>::IID

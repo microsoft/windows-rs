@@ -127,28 +127,23 @@ impl IInjectedInputGamepadInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRightTrigger(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInjectedInputGamepadInfo>,
-            ::windows::core::GetTrustLevel,
-            Buttons::<Impl, IMPL_OFFSET>,
-            SetButtons::<Impl, IMPL_OFFSET>,
-            LeftThumbstickX::<Impl, IMPL_OFFSET>,
-            SetLeftThumbstickX::<Impl, IMPL_OFFSET>,
-            LeftThumbstickY::<Impl, IMPL_OFFSET>,
-            SetLeftThumbstickY::<Impl, IMPL_OFFSET>,
-            LeftTrigger::<Impl, IMPL_OFFSET>,
-            SetLeftTrigger::<Impl, IMPL_OFFSET>,
-            RightThumbstickX::<Impl, IMPL_OFFSET>,
-            SetRightThumbstickX::<Impl, IMPL_OFFSET>,
-            RightThumbstickY::<Impl, IMPL_OFFSET>,
-            SetRightThumbstickY::<Impl, IMPL_OFFSET>,
-            RightTrigger::<Impl, IMPL_OFFSET>,
-            SetRightTrigger::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInjectedInputGamepadInfo, BASE_OFFSET>(),
+            Buttons: Buttons::<Impl, IMPL_OFFSET>,
+            SetButtons: SetButtons::<Impl, IMPL_OFFSET>,
+            LeftThumbstickX: LeftThumbstickX::<Impl, IMPL_OFFSET>,
+            SetLeftThumbstickX: SetLeftThumbstickX::<Impl, IMPL_OFFSET>,
+            LeftThumbstickY: LeftThumbstickY::<Impl, IMPL_OFFSET>,
+            SetLeftThumbstickY: SetLeftThumbstickY::<Impl, IMPL_OFFSET>,
+            LeftTrigger: LeftTrigger::<Impl, IMPL_OFFSET>,
+            SetLeftTrigger: SetLeftTrigger::<Impl, IMPL_OFFSET>,
+            RightThumbstickX: RightThumbstickX::<Impl, IMPL_OFFSET>,
+            SetRightThumbstickX: SetRightThumbstickX::<Impl, IMPL_OFFSET>,
+            RightThumbstickY: RightThumbstickY::<Impl, IMPL_OFFSET>,
+            SetRightThumbstickY: SetRightThumbstickY::<Impl, IMPL_OFFSET>,
+            RightTrigger: RightTrigger::<Impl, IMPL_OFFSET>,
+            SetRightTrigger: SetRightTrigger::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInjectedInputGamepadInfo as ::windows::core::Interface>::IID
@@ -176,7 +171,10 @@ impl IInjectedInputGamepadInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInjectedInputGamepadInfoFactory>, ::windows::core::GetTrustLevel, CreateInstanceFromGamepadReading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInjectedInputGamepadInfoFactory, BASE_OFFSET>(),
+            CreateInstanceFromGamepadReading: CreateInstanceFromGamepadReading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInjectedInputGamepadInfoFactory as ::windows::core::Interface>::IID
@@ -243,20 +241,15 @@ impl IInjectedInputKeyboardInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVirtualKey(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInjectedInputKeyboardInfo>,
-            ::windows::core::GetTrustLevel,
-            KeyOptions::<Impl, IMPL_OFFSET>,
-            SetKeyOptions::<Impl, IMPL_OFFSET>,
-            ScanCode::<Impl, IMPL_OFFSET>,
-            SetScanCode::<Impl, IMPL_OFFSET>,
-            VirtualKey::<Impl, IMPL_OFFSET>,
-            SetVirtualKey::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInjectedInputKeyboardInfo, BASE_OFFSET>(),
+            KeyOptions: KeyOptions::<Impl, IMPL_OFFSET>,
+            SetKeyOptions: SetKeyOptions::<Impl, IMPL_OFFSET>,
+            ScanCode: ScanCode::<Impl, IMPL_OFFSET>,
+            SetScanCode: SetScanCode::<Impl, IMPL_OFFSET>,
+            VirtualKey: VirtualKey::<Impl, IMPL_OFFSET>,
+            SetVirtualKey: SetVirtualKey::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInjectedInputKeyboardInfo as ::windows::core::Interface>::IID
@@ -357,24 +350,19 @@ impl IInjectedInputMouseInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTimeOffsetInMilliseconds(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInjectedInputMouseInfo>,
-            ::windows::core::GetTrustLevel,
-            MouseOptions::<Impl, IMPL_OFFSET>,
-            SetMouseOptions::<Impl, IMPL_OFFSET>,
-            MouseData::<Impl, IMPL_OFFSET>,
-            SetMouseData::<Impl, IMPL_OFFSET>,
-            DeltaY::<Impl, IMPL_OFFSET>,
-            SetDeltaY::<Impl, IMPL_OFFSET>,
-            DeltaX::<Impl, IMPL_OFFSET>,
-            SetDeltaX::<Impl, IMPL_OFFSET>,
-            TimeOffsetInMilliseconds::<Impl, IMPL_OFFSET>,
-            SetTimeOffsetInMilliseconds::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInjectedInputMouseInfo, BASE_OFFSET>(),
+            MouseOptions: MouseOptions::<Impl, IMPL_OFFSET>,
+            SetMouseOptions: SetMouseOptions::<Impl, IMPL_OFFSET>,
+            MouseData: MouseData::<Impl, IMPL_OFFSET>,
+            SetMouseData: SetMouseData::<Impl, IMPL_OFFSET>,
+            DeltaY: DeltaY::<Impl, IMPL_OFFSET>,
+            SetDeltaY: SetDeltaY::<Impl, IMPL_OFFSET>,
+            DeltaX: DeltaX::<Impl, IMPL_OFFSET>,
+            SetDeltaX: SetDeltaX::<Impl, IMPL_OFFSET>,
+            TimeOffsetInMilliseconds: TimeOffsetInMilliseconds::<Impl, IMPL_OFFSET>,
+            SetTimeOffsetInMilliseconds: SetTimeOffsetInMilliseconds::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInjectedInputMouseInfo as ::windows::core::Interface>::IID
@@ -509,28 +497,23 @@ impl IInjectedInputPenInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTiltY(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInjectedInputPenInfo>,
-            ::windows::core::GetTrustLevel,
-            PointerInfo::<Impl, IMPL_OFFSET>,
-            SetPointerInfo::<Impl, IMPL_OFFSET>,
-            PenButtons::<Impl, IMPL_OFFSET>,
-            SetPenButtons::<Impl, IMPL_OFFSET>,
-            PenParameters::<Impl, IMPL_OFFSET>,
-            SetPenParameters::<Impl, IMPL_OFFSET>,
-            Pressure::<Impl, IMPL_OFFSET>,
-            SetPressure::<Impl, IMPL_OFFSET>,
-            Rotation::<Impl, IMPL_OFFSET>,
-            SetRotation::<Impl, IMPL_OFFSET>,
-            TiltX::<Impl, IMPL_OFFSET>,
-            SetTiltX::<Impl, IMPL_OFFSET>,
-            TiltY::<Impl, IMPL_OFFSET>,
-            SetTiltY::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInjectedInputPenInfo, BASE_OFFSET>(),
+            PointerInfo: PointerInfo::<Impl, IMPL_OFFSET>,
+            SetPointerInfo: SetPointerInfo::<Impl, IMPL_OFFSET>,
+            PenButtons: PenButtons::<Impl, IMPL_OFFSET>,
+            SetPenButtons: SetPenButtons::<Impl, IMPL_OFFSET>,
+            PenParameters: PenParameters::<Impl, IMPL_OFFSET>,
+            SetPenParameters: SetPenParameters::<Impl, IMPL_OFFSET>,
+            Pressure: Pressure::<Impl, IMPL_OFFSET>,
+            SetPressure: SetPressure::<Impl, IMPL_OFFSET>,
+            Rotation: Rotation::<Impl, IMPL_OFFSET>,
+            SetRotation: SetRotation::<Impl, IMPL_OFFSET>,
+            TiltX: TiltX::<Impl, IMPL_OFFSET>,
+            SetTiltX: SetTiltX::<Impl, IMPL_OFFSET>,
+            TiltY: TiltY::<Impl, IMPL_OFFSET>,
+            SetTiltY: SetTiltY::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInjectedInputPenInfo as ::windows::core::Interface>::IID
@@ -631,24 +614,19 @@ impl IInjectedInputTouchInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTouchParameters(value).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInjectedInputTouchInfo>,
-            ::windows::core::GetTrustLevel,
-            Contact::<Impl, IMPL_OFFSET>,
-            SetContact::<Impl, IMPL_OFFSET>,
-            Orientation::<Impl, IMPL_OFFSET>,
-            SetOrientation::<Impl, IMPL_OFFSET>,
-            PointerInfo::<Impl, IMPL_OFFSET>,
-            SetPointerInfo::<Impl, IMPL_OFFSET>,
-            Pressure::<Impl, IMPL_OFFSET>,
-            SetPressure::<Impl, IMPL_OFFSET>,
-            TouchParameters::<Impl, IMPL_OFFSET>,
-            SetTouchParameters::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInjectedInputTouchInfo, BASE_OFFSET>(),
+            Contact: Contact::<Impl, IMPL_OFFSET>,
+            SetContact: SetContact::<Impl, IMPL_OFFSET>,
+            Orientation: Orientation::<Impl, IMPL_OFFSET>,
+            SetOrientation: SetOrientation::<Impl, IMPL_OFFSET>,
+            PointerInfo: PointerInfo::<Impl, IMPL_OFFSET>,
+            SetPointerInfo: SetPointerInfo::<Impl, IMPL_OFFSET>,
+            Pressure: Pressure::<Impl, IMPL_OFFSET>,
+            SetPressure: SetPressure::<Impl, IMPL_OFFSET>,
+            TouchParameters: TouchParameters::<Impl, IMPL_OFFSET>,
+            SetTouchParameters: SetTouchParameters::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInjectedInputTouchInfo as ::windows::core::Interface>::IID
@@ -709,23 +687,18 @@ impl IInputInjectorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InjectShortcut(shortcut).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IInputInjector>,
-            ::windows::core::GetTrustLevel,
-            InjectKeyboardInput::<Impl, IMPL_OFFSET>,
-            InjectMouseInput::<Impl, IMPL_OFFSET>,
-            InitializeTouchInjection::<Impl, IMPL_OFFSET>,
-            InjectTouchInput::<Impl, IMPL_OFFSET>,
-            UninitializeTouchInjection::<Impl, IMPL_OFFSET>,
-            InitializePenInjection::<Impl, IMPL_OFFSET>,
-            InjectPenInput::<Impl, IMPL_OFFSET>,
-            UninitializePenInjection::<Impl, IMPL_OFFSET>,
-            InjectShortcut::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputInjector, BASE_OFFSET>(),
+            InjectKeyboardInput: InjectKeyboardInput::<Impl, IMPL_OFFSET>,
+            InjectMouseInput: InjectMouseInput::<Impl, IMPL_OFFSET>,
+            InitializeTouchInjection: InitializeTouchInjection::<Impl, IMPL_OFFSET>,
+            InjectTouchInput: InjectTouchInput::<Impl, IMPL_OFFSET>,
+            UninitializeTouchInjection: UninitializeTouchInjection::<Impl, IMPL_OFFSET>,
+            InitializePenInjection: InitializePenInjection::<Impl, IMPL_OFFSET>,
+            InjectPenInput: InjectPenInput::<Impl, IMPL_OFFSET>,
+            UninitializePenInjection: UninitializePenInjection::<Impl, IMPL_OFFSET>,
+            InjectShortcut: InjectShortcut::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputInjector as ::windows::core::Interface>::IID
@@ -756,7 +729,12 @@ impl IInputInjector2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UninitializeGamepadInjection().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputInjector2>, ::windows::core::GetTrustLevel, InitializeGamepadInjection::<Impl, IMPL_OFFSET>, InjectGamepadInput::<Impl, IMPL_OFFSET>, UninitializeGamepadInjection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputInjector2, BASE_OFFSET>(),
+            InitializeGamepadInjection: InitializeGamepadInjection::<Impl, IMPL_OFFSET>,
+            InjectGamepadInput: InjectGamepadInput::<Impl, IMPL_OFFSET>,
+            UninitializeGamepadInjection: UninitializeGamepadInjection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputInjector2 as ::windows::core::Interface>::IID
@@ -784,7 +762,7 @@ impl IInputInjectorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputInjectorStatics>, ::windows::core::GetTrustLevel, TryCreate::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInputInjectorStatics, BASE_OFFSET>(), TryCreate: TryCreate::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputInjectorStatics as ::windows::core::Interface>::IID
@@ -812,7 +790,10 @@ impl IInputInjectorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputInjectorStatics2>, ::windows::core::GetTrustLevel, TryCreateForAppBroadcastOnly::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputInjectorStatics2, BASE_OFFSET>(),
+            TryCreateForAppBroadcastOnly: TryCreateForAppBroadcastOnly::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputInjectorStatics2 as ::windows::core::Interface>::IID

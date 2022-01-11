@@ -37,7 +37,12 @@ impl ITwoPanelHingedDevicePosturePreviewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePostureChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITwoPanelHingedDevicePosturePreview>, ::windows::core::GetTrustLevel, GetCurrentPostureAsync::<Impl, IMPL_OFFSET>, PostureChanged::<Impl, IMPL_OFFSET>, RemovePostureChanged::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITwoPanelHingedDevicePosturePreview, BASE_OFFSET>(),
+            GetCurrentPostureAsync: GetCurrentPostureAsync::<Impl, IMPL_OFFSET>,
+            PostureChanged: PostureChanged::<Impl, IMPL_OFFSET>,
+            RemovePostureChanged: RemovePostureChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITwoPanelHingedDevicePosturePreview as ::windows::core::Interface>::IID
@@ -125,20 +130,15 @@ impl ITwoPanelHingedDevicePosturePreviewReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ITwoPanelHingedDevicePosturePreviewReading>,
-            ::windows::core::GetTrustLevel,
-            Timestamp::<Impl, IMPL_OFFSET>,
-            HingeState::<Impl, IMPL_OFFSET>,
-            Panel1Orientation::<Impl, IMPL_OFFSET>,
-            Panel1Id::<Impl, IMPL_OFFSET>,
-            Panel2Orientation::<Impl, IMPL_OFFSET>,
-            Panel2Id::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITwoPanelHingedDevicePosturePreviewReading, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            HingeState: HingeState::<Impl, IMPL_OFFSET>,
+            Panel1Orientation: Panel1Orientation::<Impl, IMPL_OFFSET>,
+            Panel1Id: Panel1Id::<Impl, IMPL_OFFSET>,
+            Panel2Orientation: Panel2Orientation::<Impl, IMPL_OFFSET>,
+            Panel2Id: Panel2Id::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITwoPanelHingedDevicePosturePreviewReading as ::windows::core::Interface>::IID
@@ -166,7 +166,10 @@ impl ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs>, ::windows::core::GetTrustLevel, Reading::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs, BASE_OFFSET>(),
+            Reading: Reading::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs as ::windows::core::Interface>::IID
@@ -194,7 +197,10 @@ impl ITwoPanelHingedDevicePosturePreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITwoPanelHingedDevicePosturePreviewStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITwoPanelHingedDevicePosturePreviewStatics, BASE_OFFSET>(),
+            GetDefaultAsync: GetDefaultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITwoPanelHingedDevicePosturePreviewStatics as ::windows::core::Interface>::IID

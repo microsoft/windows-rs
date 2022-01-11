@@ -280,46 +280,41 @@ impl ISpatialGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialGestureRecognizer>,
-            ::windows::core::GetTrustLevel,
-            RecognitionStarted::<Impl, IMPL_OFFSET>,
-            RemoveRecognitionStarted::<Impl, IMPL_OFFSET>,
-            RecognitionEnded::<Impl, IMPL_OFFSET>,
-            RemoveRecognitionEnded::<Impl, IMPL_OFFSET>,
-            Tapped::<Impl, IMPL_OFFSET>,
-            RemoveTapped::<Impl, IMPL_OFFSET>,
-            HoldStarted::<Impl, IMPL_OFFSET>,
-            RemoveHoldStarted::<Impl, IMPL_OFFSET>,
-            HoldCompleted::<Impl, IMPL_OFFSET>,
-            RemoveHoldCompleted::<Impl, IMPL_OFFSET>,
-            HoldCanceled::<Impl, IMPL_OFFSET>,
-            RemoveHoldCanceled::<Impl, IMPL_OFFSET>,
-            ManipulationStarted::<Impl, IMPL_OFFSET>,
-            RemoveManipulationStarted::<Impl, IMPL_OFFSET>,
-            ManipulationUpdated::<Impl, IMPL_OFFSET>,
-            RemoveManipulationUpdated::<Impl, IMPL_OFFSET>,
-            ManipulationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveManipulationCompleted::<Impl, IMPL_OFFSET>,
-            ManipulationCanceled::<Impl, IMPL_OFFSET>,
-            RemoveManipulationCanceled::<Impl, IMPL_OFFSET>,
-            NavigationStarted::<Impl, IMPL_OFFSET>,
-            RemoveNavigationStarted::<Impl, IMPL_OFFSET>,
-            NavigationUpdated::<Impl, IMPL_OFFSET>,
-            RemoveNavigationUpdated::<Impl, IMPL_OFFSET>,
-            NavigationCompleted::<Impl, IMPL_OFFSET>,
-            RemoveNavigationCompleted::<Impl, IMPL_OFFSET>,
-            NavigationCanceled::<Impl, IMPL_OFFSET>,
-            RemoveNavigationCanceled::<Impl, IMPL_OFFSET>,
-            CaptureInteraction::<Impl, IMPL_OFFSET>,
-            CancelPendingGestures::<Impl, IMPL_OFFSET>,
-            TrySetGestureSettings::<Impl, IMPL_OFFSET>,
-            GestureSettings::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialGestureRecognizer, BASE_OFFSET>(),
+            RecognitionStarted: RecognitionStarted::<Impl, IMPL_OFFSET>,
+            RemoveRecognitionStarted: RemoveRecognitionStarted::<Impl, IMPL_OFFSET>,
+            RecognitionEnded: RecognitionEnded::<Impl, IMPL_OFFSET>,
+            RemoveRecognitionEnded: RemoveRecognitionEnded::<Impl, IMPL_OFFSET>,
+            Tapped: Tapped::<Impl, IMPL_OFFSET>,
+            RemoveTapped: RemoveTapped::<Impl, IMPL_OFFSET>,
+            HoldStarted: HoldStarted::<Impl, IMPL_OFFSET>,
+            RemoveHoldStarted: RemoveHoldStarted::<Impl, IMPL_OFFSET>,
+            HoldCompleted: HoldCompleted::<Impl, IMPL_OFFSET>,
+            RemoveHoldCompleted: RemoveHoldCompleted::<Impl, IMPL_OFFSET>,
+            HoldCanceled: HoldCanceled::<Impl, IMPL_OFFSET>,
+            RemoveHoldCanceled: RemoveHoldCanceled::<Impl, IMPL_OFFSET>,
+            ManipulationStarted: ManipulationStarted::<Impl, IMPL_OFFSET>,
+            RemoveManipulationStarted: RemoveManipulationStarted::<Impl, IMPL_OFFSET>,
+            ManipulationUpdated: ManipulationUpdated::<Impl, IMPL_OFFSET>,
+            RemoveManipulationUpdated: RemoveManipulationUpdated::<Impl, IMPL_OFFSET>,
+            ManipulationCompleted: ManipulationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveManipulationCompleted: RemoveManipulationCompleted::<Impl, IMPL_OFFSET>,
+            ManipulationCanceled: ManipulationCanceled::<Impl, IMPL_OFFSET>,
+            RemoveManipulationCanceled: RemoveManipulationCanceled::<Impl, IMPL_OFFSET>,
+            NavigationStarted: NavigationStarted::<Impl, IMPL_OFFSET>,
+            RemoveNavigationStarted: RemoveNavigationStarted::<Impl, IMPL_OFFSET>,
+            NavigationUpdated: NavigationUpdated::<Impl, IMPL_OFFSET>,
+            RemoveNavigationUpdated: RemoveNavigationUpdated::<Impl, IMPL_OFFSET>,
+            NavigationCompleted: NavigationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveNavigationCompleted: RemoveNavigationCompleted::<Impl, IMPL_OFFSET>,
+            NavigationCanceled: NavigationCanceled::<Impl, IMPL_OFFSET>,
+            RemoveNavigationCanceled: RemoveNavigationCanceled::<Impl, IMPL_OFFSET>,
+            CaptureInteraction: CaptureInteraction::<Impl, IMPL_OFFSET>,
+            CancelPendingGestures: CancelPendingGestures::<Impl, IMPL_OFFSET>,
+            TrySetGestureSettings: TrySetGestureSettings::<Impl, IMPL_OFFSET>,
+            GestureSettings: GestureSettings::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialGestureRecognizer as ::windows::core::Interface>::IID
@@ -347,7 +342,7 @@ impl ISpatialGestureRecognizerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialGestureRecognizerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialGestureRecognizerFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialGestureRecognizerFactory as ::windows::core::Interface>::IID
@@ -375,7 +370,10 @@ impl ISpatialHoldCanceledEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialHoldCanceledEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialHoldCanceledEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialHoldCanceledEventArgs as ::windows::core::Interface>::IID
@@ -403,7 +401,10 @@ impl ISpatialHoldCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialHoldCompletedEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialHoldCompletedEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialHoldCompletedEventArgs as ::windows::core::Interface>::IID
@@ -443,7 +444,11 @@ impl ISpatialHoldStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialHoldStartedEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>, TryGetPointerPose::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialHoldStartedEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+            TryGetPointerPose: TryGetPointerPose::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialHoldStartedEventArgs as ::windows::core::Interface>::IID
@@ -471,7 +476,7 @@ impl ISpatialInteractionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteraction>, ::windows::core::GetTrustLevel, SourceState::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteraction, BASE_OFFSET>(), SourceState: SourceState::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteraction as ::windows::core::Interface>::IID
@@ -559,20 +564,15 @@ impl ISpatialInteractionControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialInteractionController>,
-            ::windows::core::GetTrustLevel,
-            HasTouchpad::<Impl, IMPL_OFFSET>,
-            HasThumbstick::<Impl, IMPL_OFFSET>,
-            SimpleHapticsController::<Impl, IMPL_OFFSET>,
-            VendorId::<Impl, IMPL_OFFSET>,
-            ProductId::<Impl, IMPL_OFFSET>,
-            Version::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionController, BASE_OFFSET>(),
+            HasTouchpad: HasTouchpad::<Impl, IMPL_OFFSET>,
+            HasThumbstick: HasThumbstick::<Impl, IMPL_OFFSET>,
+            SimpleHapticsController: SimpleHapticsController::<Impl, IMPL_OFFSET>,
+            VendorId: VendorId::<Impl, IMPL_OFFSET>,
+            ProductId: ProductId::<Impl, IMPL_OFFSET>,
+            Version: Version::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionController as ::windows::core::Interface>::IID
@@ -600,7 +600,10 @@ impl ISpatialInteractionController2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionController2>, ::windows::core::GetTrustLevel, TryGetRenderableModelAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionController2, BASE_OFFSET>(),
+            TryGetRenderableModelAsync: TryGetRenderableModelAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionController2 as ::windows::core::Interface>::IID
@@ -628,7 +631,10 @@ impl ISpatialInteractionController3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionController3>, ::windows::core::GetTrustLevel, TryGetBatteryReport::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionController3, BASE_OFFSET>(),
+            TryGetBatteryReport: TryGetBatteryReport::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionController3 as ::windows::core::Interface>::IID
@@ -728,21 +734,16 @@ impl ISpatialInteractionControllerPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialInteractionControllerProperties>,
-            ::windows::core::GetTrustLevel,
-            IsTouchpadTouched::<Impl, IMPL_OFFSET>,
-            IsTouchpadPressed::<Impl, IMPL_OFFSET>,
-            IsThumbstickPressed::<Impl, IMPL_OFFSET>,
-            ThumbstickX::<Impl, IMPL_OFFSET>,
-            ThumbstickY::<Impl, IMPL_OFFSET>,
-            TouchpadX::<Impl, IMPL_OFFSET>,
-            TouchpadY::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionControllerProperties, BASE_OFFSET>(),
+            IsTouchpadTouched: IsTouchpadTouched::<Impl, IMPL_OFFSET>,
+            IsTouchpadPressed: IsTouchpadPressed::<Impl, IMPL_OFFSET>,
+            IsThumbstickPressed: IsThumbstickPressed::<Impl, IMPL_OFFSET>,
+            ThumbstickX: ThumbstickX::<Impl, IMPL_OFFSET>,
+            ThumbstickY: ThumbstickY::<Impl, IMPL_OFFSET>,
+            TouchpadX: TouchpadX::<Impl, IMPL_OFFSET>,
+            TouchpadY: TouchpadY::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionControllerProperties as ::windows::core::Interface>::IID
@@ -794,7 +795,12 @@ impl ISpatialInteractionDetectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionDetectedEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>, TryGetPointerPose::<Impl, IMPL_OFFSET>, Interaction::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionDetectedEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+            TryGetPointerPose: TryGetPointerPose::<Impl, IMPL_OFFSET>,
+            Interaction: Interaction::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionDetectedEventArgs as ::windows::core::Interface>::IID
@@ -822,7 +828,10 @@ impl ISpatialInteractionDetectedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionDetectedEventArgs2>, ::windows::core::GetTrustLevel, InteractionSource::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionDetectedEventArgs2, BASE_OFFSET>(),
+            InteractionSource: InteractionSource::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionDetectedEventArgs2 as ::windows::core::Interface>::IID
@@ -952,27 +961,22 @@ impl ISpatialInteractionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialInteractionManager>,
-            ::windows::core::GetTrustLevel,
-            SourceDetected::<Impl, IMPL_OFFSET>,
-            RemoveSourceDetected::<Impl, IMPL_OFFSET>,
-            SourceLost::<Impl, IMPL_OFFSET>,
-            RemoveSourceLost::<Impl, IMPL_OFFSET>,
-            SourceUpdated::<Impl, IMPL_OFFSET>,
-            RemoveSourceUpdated::<Impl, IMPL_OFFSET>,
-            SourcePressed::<Impl, IMPL_OFFSET>,
-            RemoveSourcePressed::<Impl, IMPL_OFFSET>,
-            SourceReleased::<Impl, IMPL_OFFSET>,
-            RemoveSourceReleased::<Impl, IMPL_OFFSET>,
-            InteractionDetected::<Impl, IMPL_OFFSET>,
-            RemoveInteractionDetected::<Impl, IMPL_OFFSET>,
-            GetDetectedSourcesAtTimestamp::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionManager, BASE_OFFSET>(),
+            SourceDetected: SourceDetected::<Impl, IMPL_OFFSET>,
+            RemoveSourceDetected: RemoveSourceDetected::<Impl, IMPL_OFFSET>,
+            SourceLost: SourceLost::<Impl, IMPL_OFFSET>,
+            RemoveSourceLost: RemoveSourceLost::<Impl, IMPL_OFFSET>,
+            SourceUpdated: SourceUpdated::<Impl, IMPL_OFFSET>,
+            RemoveSourceUpdated: RemoveSourceUpdated::<Impl, IMPL_OFFSET>,
+            SourcePressed: SourcePressed::<Impl, IMPL_OFFSET>,
+            RemoveSourcePressed: RemoveSourcePressed::<Impl, IMPL_OFFSET>,
+            SourceReleased: SourceReleased::<Impl, IMPL_OFFSET>,
+            RemoveSourceReleased: RemoveSourceReleased::<Impl, IMPL_OFFSET>,
+            InteractionDetected: InteractionDetected::<Impl, IMPL_OFFSET>,
+            RemoveInteractionDetected: RemoveInteractionDetected::<Impl, IMPL_OFFSET>,
+            GetDetectedSourcesAtTimestamp: GetDetectedSourcesAtTimestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionManager as ::windows::core::Interface>::IID
@@ -1000,7 +1004,10 @@ impl ISpatialInteractionManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionManagerStatics, BASE_OFFSET>(),
+            GetForCurrentView: GetForCurrentView::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionManagerStatics as ::windows::core::Interface>::IID
@@ -1028,7 +1035,10 @@ impl ISpatialInteractionManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionManagerStatics2>, ::windows::core::GetTrustLevel, IsSourceKindSupported::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionManagerStatics2, BASE_OFFSET>(),
+            IsSourceKindSupported: IsSourceKindSupported::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionManagerStatics2 as ::windows::core::Interface>::IID
@@ -1068,7 +1078,11 @@ impl ISpatialInteractionSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionSource>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionSource, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Kind: Kind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionSource as ::windows::core::Interface>::IID
@@ -1144,7 +1158,14 @@ impl ISpatialInteractionSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionSource2>, ::windows::core::GetTrustLevel, IsPointingSupported::<Impl, IMPL_OFFSET>, IsMenuSupported::<Impl, IMPL_OFFSET>, IsGraspSupported::<Impl, IMPL_OFFSET>, Controller::<Impl, IMPL_OFFSET>, TryGetStateAtTimestamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionSource2, BASE_OFFSET>(),
+            IsPointingSupported: IsPointingSupported::<Impl, IMPL_OFFSET>,
+            IsMenuSupported: IsMenuSupported::<Impl, IMPL_OFFSET>,
+            IsGraspSupported: IsGraspSupported::<Impl, IMPL_OFFSET>,
+            Controller: Controller::<Impl, IMPL_OFFSET>,
+            TryGetStateAtTimestamp: TryGetStateAtTimestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionSource2 as ::windows::core::Interface>::IID
@@ -1172,7 +1193,7 @@ impl ISpatialInteractionSource3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionSource3>, ::windows::core::GetTrustLevel, Handedness::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionSource3, BASE_OFFSET>(), Handedness: Handedness::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionSource3 as ::windows::core::Interface>::IID
@@ -1212,7 +1233,11 @@ impl ISpatialInteractionSource4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionSource4>, ::windows::core::GetTrustLevel, TryCreateHandMeshObserver::<Impl, IMPL_OFFSET>, TryCreateHandMeshObserverAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionSource4, BASE_OFFSET>(),
+            TryCreateHandMeshObserver: TryCreateHandMeshObserver::<Impl, IMPL_OFFSET>,
+            TryCreateHandMeshObserverAsync: TryCreateHandMeshObserverAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionSource4 as ::windows::core::Interface>::IID
@@ -1240,7 +1265,7 @@ impl ISpatialInteractionSourceEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionSourceEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionSourceEventArgs, BASE_OFFSET>(), State: State::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionSourceEventArgs as ::windows::core::Interface>::IID
@@ -1268,7 +1293,10 @@ impl ISpatialInteractionSourceEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionSourceEventArgs2>, ::windows::core::GetTrustLevel, PressKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionSourceEventArgs2, BASE_OFFSET>(),
+            PressKind: PressKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionSourceEventArgs2 as ::windows::core::Interface>::IID
@@ -1308,7 +1336,11 @@ impl ISpatialInteractionSourceLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionSourceLocation>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, Velocity::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionSourceLocation, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            Velocity: Velocity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionSourceLocation as ::windows::core::Interface>::IID
@@ -1336,7 +1368,10 @@ impl ISpatialInteractionSourceLocation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionSourceLocation2>, ::windows::core::GetTrustLevel, Orientation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionSourceLocation2, BASE_OFFSET>(),
+            Orientation: Orientation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionSourceLocation2 as ::windows::core::Interface>::IID
@@ -1388,7 +1423,12 @@ impl ISpatialInteractionSourceLocation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionSourceLocation3>, ::windows::core::GetTrustLevel, PositionAccuracy::<Impl, IMPL_OFFSET>, AngularVelocity::<Impl, IMPL_OFFSET>, SourcePointerPose::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionSourceLocation3, BASE_OFFSET>(),
+            PositionAccuracy: PositionAccuracy::<Impl, IMPL_OFFSET>,
+            AngularVelocity: AngularVelocity::<Impl, IMPL_OFFSET>,
+            SourcePointerPose: SourcePointerPose::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionSourceLocation3 as ::windows::core::Interface>::IID
@@ -1440,7 +1480,12 @@ impl ISpatialInteractionSourcePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionSourceProperties>, ::windows::core::GetTrustLevel, TryGetSourceLossMitigationDirection::<Impl, IMPL_OFFSET>, SourceLossRisk::<Impl, IMPL_OFFSET>, TryGetLocation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionSourceProperties, BASE_OFFSET>(),
+            TryGetSourceLossMitigationDirection: TryGetSourceLossMitigationDirection::<Impl, IMPL_OFFSET>,
+            SourceLossRisk: SourceLossRisk::<Impl, IMPL_OFFSET>,
+            TryGetLocation: TryGetLocation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionSourceProperties as ::windows::core::Interface>::IID
@@ -1516,7 +1561,14 @@ impl ISpatialInteractionSourceStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionSourceState>, ::windows::core::GetTrustLevel, Source::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>, IsPressed::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>, TryGetPointerPose::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionSourceState, BASE_OFFSET>(),
+            Source: Source::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            IsPressed: IsPressed::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            TryGetPointerPose: TryGetPointerPose::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionSourceState as ::windows::core::Interface>::IID
@@ -1592,7 +1644,14 @@ impl ISpatialInteractionSourceState2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionSourceState2>, ::windows::core::GetTrustLevel, IsSelectPressed::<Impl, IMPL_OFFSET>, IsMenuPressed::<Impl, IMPL_OFFSET>, IsGrasped::<Impl, IMPL_OFFSET>, SelectPressedValue::<Impl, IMPL_OFFSET>, ControllerProperties::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionSourceState2, BASE_OFFSET>(),
+            IsSelectPressed: IsSelectPressed::<Impl, IMPL_OFFSET>,
+            IsMenuPressed: IsMenuPressed::<Impl, IMPL_OFFSET>,
+            IsGrasped: IsGrasped::<Impl, IMPL_OFFSET>,
+            SelectPressedValue: SelectPressedValue::<Impl, IMPL_OFFSET>,
+            ControllerProperties: ControllerProperties::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionSourceState2 as ::windows::core::Interface>::IID
@@ -1620,7 +1679,10 @@ impl ISpatialInteractionSourceState3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialInteractionSourceState3>, ::windows::core::GetTrustLevel, TryGetHandPose::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionSourceState3, BASE_OFFSET>(),
+            TryGetHandPose: TryGetHandPose::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialInteractionSourceState3 as ::windows::core::Interface>::IID
@@ -1648,7 +1710,10 @@ impl ISpatialManipulationCanceledEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialManipulationCanceledEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialManipulationCanceledEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialManipulationCanceledEventArgs as ::windows::core::Interface>::IID
@@ -1688,7 +1753,11 @@ impl ISpatialManipulationCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialManipulationCompletedEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>, TryGetCumulativeDelta::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialManipulationCompletedEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+            TryGetCumulativeDelta: TryGetCumulativeDelta::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialManipulationCompletedEventArgs as ::windows::core::Interface>::IID
@@ -1716,7 +1785,10 @@ impl ISpatialManipulationDeltaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialManipulationDelta>, ::windows::core::GetTrustLevel, Translation::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialManipulationDelta, BASE_OFFSET>(),
+            Translation: Translation::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialManipulationDelta as ::windows::core::Interface>::IID
@@ -1756,7 +1828,11 @@ impl ISpatialManipulationStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialManipulationStartedEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>, TryGetPointerPose::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialManipulationStartedEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+            TryGetPointerPose: TryGetPointerPose::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialManipulationStartedEventArgs as ::windows::core::Interface>::IID
@@ -1796,7 +1872,11 @@ impl ISpatialManipulationUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialManipulationUpdatedEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>, TryGetCumulativeDelta::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialManipulationUpdatedEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+            TryGetCumulativeDelta: TryGetCumulativeDelta::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialManipulationUpdatedEventArgs as ::windows::core::Interface>::IID
@@ -1824,7 +1904,10 @@ impl ISpatialNavigationCanceledEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialNavigationCanceledEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialNavigationCanceledEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialNavigationCanceledEventArgs as ::windows::core::Interface>::IID
@@ -1864,7 +1947,11 @@ impl ISpatialNavigationCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialNavigationCompletedEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>, NormalizedOffset::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialNavigationCompletedEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+            NormalizedOffset: NormalizedOffset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialNavigationCompletedEventArgs as ::windows::core::Interface>::IID
@@ -1940,19 +2027,14 @@ impl ISpatialNavigationStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ISpatialNavigationStartedEventArgs>,
-            ::windows::core::GetTrustLevel,
-            InteractionSourceKind::<Impl, IMPL_OFFSET>,
-            TryGetPointerPose::<Impl, IMPL_OFFSET>,
-            IsNavigatingX::<Impl, IMPL_OFFSET>,
-            IsNavigatingY::<Impl, IMPL_OFFSET>,
-            IsNavigatingZ::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialNavigationStartedEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+            TryGetPointerPose: TryGetPointerPose::<Impl, IMPL_OFFSET>,
+            IsNavigatingX: IsNavigatingX::<Impl, IMPL_OFFSET>,
+            IsNavigatingY: IsNavigatingY::<Impl, IMPL_OFFSET>,
+            IsNavigatingZ: IsNavigatingZ::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialNavigationStartedEventArgs as ::windows::core::Interface>::IID
@@ -1992,7 +2074,11 @@ impl ISpatialNavigationUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialNavigationUpdatedEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>, NormalizedOffset::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialNavigationUpdatedEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+            NormalizedOffset: NormalizedOffset::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialNavigationUpdatedEventArgs as ::windows::core::Interface>::IID
@@ -2044,7 +2130,12 @@ impl ISpatialPointerInteractionSourcePoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialPointerInteractionSourcePose>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, ForwardDirection::<Impl, IMPL_OFFSET>, UpDirection::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialPointerInteractionSourcePose, BASE_OFFSET>(),
+            Position: Position::<Impl, IMPL_OFFSET>,
+            ForwardDirection: ForwardDirection::<Impl, IMPL_OFFSET>,
+            UpDirection: UpDirection::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialPointerInteractionSourcePose as ::windows::core::Interface>::IID
@@ -2084,7 +2175,11 @@ impl ISpatialPointerInteractionSourcePose2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialPointerInteractionSourcePose2>, ::windows::core::GetTrustLevel, Orientation::<Impl, IMPL_OFFSET>, PositionAccuracy::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialPointerInteractionSourcePose2, BASE_OFFSET>(),
+            Orientation: Orientation::<Impl, IMPL_OFFSET>,
+            PositionAccuracy: PositionAccuracy::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialPointerInteractionSourcePose2 as ::windows::core::Interface>::IID
@@ -2124,7 +2219,11 @@ impl ISpatialPointerPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialPointerPose>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, Head::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialPointerPose, BASE_OFFSET>(),
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+            Head: Head::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialPointerPose as ::windows::core::Interface>::IID
@@ -2152,7 +2251,10 @@ impl ISpatialPointerPose2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialPointerPose2>, ::windows::core::GetTrustLevel, TryGetInteractionSourcePose::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialPointerPose2, BASE_OFFSET>(),
+            TryGetInteractionSourcePose: TryGetInteractionSourcePose::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialPointerPose2 as ::windows::core::Interface>::IID
@@ -2192,7 +2294,11 @@ impl ISpatialPointerPose3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialPointerPose3>, ::windows::core::GetTrustLevel, Eyes::<Impl, IMPL_OFFSET>, IsHeadCapturedBySystem::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialPointerPose3, BASE_OFFSET>(),
+            Eyes: Eyes::<Impl, IMPL_OFFSET>,
+            IsHeadCapturedBySystem: IsHeadCapturedBySystem::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialPointerPose3 as ::windows::core::Interface>::IID
@@ -2220,7 +2326,10 @@ impl ISpatialPointerPoseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialPointerPoseStatics>, ::windows::core::GetTrustLevel, TryGetAtTimestamp::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialPointerPoseStatics, BASE_OFFSET>(),
+            TryGetAtTimestamp: TryGetAtTimestamp::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialPointerPoseStatics as ::windows::core::Interface>::IID
@@ -2248,7 +2357,10 @@ impl ISpatialRecognitionEndedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialRecognitionEndedEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialRecognitionEndedEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialRecognitionEndedEventArgs as ::windows::core::Interface>::IID
@@ -2300,7 +2412,12 @@ impl ISpatialRecognitionStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialRecognitionStartedEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>, TryGetPointerPose::<Impl, IMPL_OFFSET>, IsGesturePossible::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialRecognitionStartedEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+            TryGetPointerPose: TryGetPointerPose::<Impl, IMPL_OFFSET>,
+            IsGesturePossible: IsGesturePossible::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialRecognitionStartedEventArgs as ::windows::core::Interface>::IID
@@ -2352,7 +2469,12 @@ impl ISpatialTappedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialTappedEventArgs>, ::windows::core::GetTrustLevel, InteractionSourceKind::<Impl, IMPL_OFFSET>, TryGetPointerPose::<Impl, IMPL_OFFSET>, TapCount::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialTappedEventArgs, BASE_OFFSET>(),
+            InteractionSourceKind: InteractionSourceKind::<Impl, IMPL_OFFSET>,
+            TryGetPointerPose: TryGetPointerPose::<Impl, IMPL_OFFSET>,
+            TapCount: TapCount::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpatialTappedEventArgs as ::windows::core::Interface>::IID
