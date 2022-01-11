@@ -1144,9 +1144,11 @@ pub struct IITDatabaseVtbl {
 }
 #[repr(C)]
 pub struct IITGroup(pub u8);
-#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
+#[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IITPropList(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IITPropList {
     #[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1309,46 +1311,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersist> for
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IITPropList> for ::windows::core::IUnknown {
     fn from(value: IITPropList) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IITPropList> for ::windows::core::IUnknown {
     fn from(value: &IITPropList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IITPropList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IITPropList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IITPropList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IITPropList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IITPropList {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IITPropList {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IITPropList").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IITPropList {
     type Vtable = IITPropListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f403bb1_9997_11d0_a850_00aa006c7d01);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IITPropListVtbl {

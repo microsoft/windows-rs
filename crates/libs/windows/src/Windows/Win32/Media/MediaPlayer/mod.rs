@@ -1089,9 +1089,11 @@ pub const FXSP_DOWNLOADTIME: FEEDS_XML_SORT_PROPERTY = 2i32;
 pub const FeedFolderWatcher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x281001ed_7765_4cb0_84af_e9b387af01ff);
 pub const FeedWatcher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18a6737b_f433_4687_89bc_a1b4dfb9f123);
 pub const FeedsManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaeb54c4_f66f_4806_83a0_805299f5e3ad);
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFeed(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IFeed {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1368,46 +1370,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeed> for ::windows::core::IUnknown {
     fn from(value: IFeed) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeed> for ::windows::core::IUnknown {
     fn from(value: &IFeed) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeed {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFeed {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFeed {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFeed {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IFeed {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IFeed {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IFeed").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFeed {
     type Vtable = IFeedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7f915d8_2ede_42bc_98e7_a5d05063a757);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedVtbl {
@@ -1520,9 +1532,11 @@ pub struct IFeedVtbl {
     pub UnreadItemCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub ItemCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFeed2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IFeed2 {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1807,21 +1821,25 @@ impl IFeed2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeed2> for IFeed {
     fn from(value: IFeed2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeed2> for IFeed {
     fn from(value: &IFeed2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IFeed> for IFeed2 {
     fn into_param(self) -> ::windows::core::Param<'a, IFeed> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IFeed> for &IFeed2 {
     fn into_param(self) -> ::windows::core::Param<'a, IFeed> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -1851,46 +1869,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeed2> for ::windows::core::IUnknown {
     fn from(value: IFeed2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeed2> for ::windows::core::IUnknown {
     fn from(value: &IFeed2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeed2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFeed2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFeed2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFeed2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IFeed2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IFeed2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IFeed2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFeed2 {
     type Vtable = IFeed2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33f2ea09_1398_4ab9_b6a4_f94b49d0a42e);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeed2Vtbl {
@@ -1914,9 +1942,11 @@ pub struct IFeed2Vtbl {
     SetCredentials: usize,
     pub ClearCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFeedEnclosure(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IFeedEnclosure {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2033,46 +2063,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedEnclosure> for ::windows::core::IUnknown {
     fn from(value: IFeedEnclosure) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedEnclosure> for ::windows::core::IUnknown {
     fn from(value: &IFeedEnclosure) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedEnclosure {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFeedEnclosure {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFeedEnclosure {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFeedEnclosure {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IFeedEnclosure {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IFeedEnclosure {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IFeedEnclosure").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFeedEnclosure {
     type Vtable = IFeedEnclosureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x361c26f7_90a4_4e67_ae09_3a36a546436a);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedEnclosureVtbl {
@@ -2112,9 +2152,11 @@ pub struct IFeedEnclosureVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetFile: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFeedEvents(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IFeedEvents {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn Error(&self) -> ::windows::core::Result<()> {
@@ -2202,46 +2244,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedEvents> for ::windows::core::IUnknown {
     fn from(value: IFeedEvents) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedEvents> for ::windows::core::IUnknown {
     fn from(value: &IFeedEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFeedEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFeedEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFeedEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IFeedEvents {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IFeedEvents {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IFeedEvents").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFeedEvents {
     type Vtable = IFeedEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf35c99_0681_47ea_9a8c_1436a375a99e);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedEventsVtbl {
@@ -2276,9 +2328,11 @@ pub struct IFeedEventsVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     FeedItemCountChanged: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFeedFolder(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IFeedFolder {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2428,46 +2482,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedFolder> for ::windows::core::IUnknown {
     fn from(value: IFeedFolder) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedFolder> for ::windows::core::IUnknown {
     fn from(value: &IFeedFolder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedFolder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFeedFolder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFeedFolder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFeedFolder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IFeedFolder {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IFeedFolder {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IFeedFolder").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFeedFolder {
     type Vtable = IFeedFolderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81f04ad1_4194_4d7d_86d6_11813cec163c);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedFolderVtbl {
@@ -2533,9 +2597,11 @@ pub struct IFeedFolderVtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetWatcher: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFeedFolderEvents(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IFeedFolderEvents {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn Error(&self) -> ::windows::core::Result<()> {
@@ -2663,46 +2729,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedFolderEvents> for ::windows::core::IUnknown {
     fn from(value: IFeedFolderEvents) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedFolderEvents> for ::windows::core::IUnknown {
     fn from(value: &IFeedFolderEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedFolderEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFeedFolderEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFeedFolderEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFeedFolderEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IFeedFolderEvents {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IFeedFolderEvents {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IFeedFolderEvents").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFeedFolderEvents {
     type Vtable = IFeedFolderEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20a59fa6_a844_4630_9e98_175f70b4d55b);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedFolderEventsVtbl {
@@ -2769,9 +2845,11 @@ pub struct IFeedFolderEventsVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     FeedItemCountChanged: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFeedItem(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IFeedItem {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2913,46 +2991,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedItem> for ::windows::core::IUnknown {
     fn from(value: IFeedItem) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedItem> for ::windows::core::IUnknown {
     fn from(value: &IFeedItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFeedItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFeedItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFeedItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IFeedItem {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IFeedItem {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IFeedItem").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFeedItem {
     type Vtable = IFeedItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a1e6cad_0a47_4da2_a13d_5baaa5c8bd4f);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedItemVtbl {
@@ -3005,9 +3093,11 @@ pub struct IFeedItemVtbl {
     pub LastDownloadTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lastdownload: *mut f64) -> ::windows::core::HRESULT,
     pub Modified: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modified: *mut f64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFeedItem2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IFeedItem2 {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn EffectiveId(&self) -> ::windows::core::Result<i32> {
@@ -3130,21 +3220,25 @@ impl IFeedItem2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedItem2> for IFeedItem {
     fn from(value: IFeedItem2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedItem2> for IFeedItem {
     fn from(value: &IFeedItem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IFeedItem> for IFeedItem2 {
     fn into_param(self) -> ::windows::core::Param<'a, IFeedItem> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IFeedItem> for &IFeedItem2 {
     fn into_param(self) -> ::windows::core::Param<'a, IFeedItem> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -3174,55 +3268,67 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedItem2> for ::windows::core::IUnknown {
     fn from(value: IFeedItem2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedItem2> for ::windows::core::IUnknown {
     fn from(value: &IFeedItem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedItem2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFeedItem2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFeedItem2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFeedItem2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IFeedItem2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IFeedItem2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IFeedItem2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFeedItem2 {
     type Vtable = IFeedItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79ac9ef4_f9c1_4d2b_a50b_a7ffba4dcf37);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedItem2Vtbl {
     pub base: IFeedItemVtbl,
     pub EffectiveId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectiveid: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFeedsEnum(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IFeedsEnum {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -3288,46 +3394,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedsEnum> for ::windows::core::IUnknown {
     fn from(value: IFeedsEnum) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedsEnum> for ::windows::core::IUnknown {
     fn from(value: &IFeedsEnum) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedsEnum {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFeedsEnum {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFeedsEnum {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFeedsEnum {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IFeedsEnum {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IFeedsEnum {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IFeedsEnum").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFeedsEnum {
     type Vtable = IFeedsEnumVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3cd0028_2eed_4c60_8fae_a3225309a836);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedsEnumVtbl {
@@ -3342,9 +3458,11 @@ pub struct IFeedsEnumVtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFeedsManager(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IFeedsManager {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3478,46 +3596,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedsManager> for ::windows::core::IUnknown {
     fn from(value: IFeedsManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedsManager> for ::windows::core::IUnknown {
     fn from(value: &IFeedsManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedsManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFeedsManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFeedsManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFeedsManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IFeedsManager {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IFeedsManager {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IFeedsManager").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFeedsManager {
     type Vtable = IFeedsManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74029cc_1f1a_4906_88f0_810638d86591);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedsManagerVtbl {
@@ -3641,16 +3769,19 @@ pub struct IWMPAudioRenderConfigVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetaudioOutputDevice: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPCdrom(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPCdrom {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn driveSpecifier(&self, pbstrdrive: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).driveSpecifier)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrdrive)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).playlist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
@@ -3706,46 +3837,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCdrom> for ::windows::core::IUnknown {
     fn from(value: IWMPCdrom) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPCdrom> for ::windows::core::IUnknown {
     fn from(value: &IWMPCdrom) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPCdrom {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPCdrom {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPCdrom {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPCdrom {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPCdrom {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPCdrom {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPCdrom").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPCdrom {
     type Vtable = IWMPCdromVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfab6e98_8730_11d3_b388_00c04f68574b);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCdromVtbl {
@@ -3754,7 +3895,10 @@ pub struct IWMPCdromVtbl {
     pub driveSpecifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdrive: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     driveSpecifier: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub playlist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppplaylist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    playlist: usize,
     pub eject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
@@ -3789,12 +3933,14 @@ impl IWMPCdromBurn {
     pub unsafe fn SetburnFormat(&self, wmpbf: WMPBurnFormat) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetburnFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmpbf)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn burnPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).burnPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetburnPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pplaylist: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetburnPlaylist)(::core::mem::transmute_copy(self), pplaylist.into_param().abi()).ok()
     }
@@ -3885,8 +4031,14 @@ pub struct IWMPCdromBurnVtbl {
     Setlabel: usize,
     pub burnFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwmpbf: *mut WMPBurnFormat) -> ::windows::core::HRESULT,
     pub SetburnFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmpbf: WMPBurnFormat) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub burnPlaylist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppplaylist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    burnPlaylist: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub SetburnPlaylist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplaylist: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetburnPlaylist: usize,
     pub refreshStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub burnState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwmpbs: *mut WMPBurnState) -> ::windows::core::HRESULT,
     pub burnProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprogress: *mut i32) -> ::windows::core::HRESULT,
@@ -3894,21 +4046,24 @@ pub struct IWMPCdromBurnVtbl {
     pub stopBurn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub erase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPCdromCollection(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPCdromCollection {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).count)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn item(&self, lindex: i32) -> ::windows::core::Result<IWMPCdrom> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).item)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdrom>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByDriveSpecifier<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdrivespecifier: Param0) -> ::windows::core::Result<IWMPCdrom> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getByDriveSpecifier)(::core::mem::transmute_copy(self), bstrdrivespecifier.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdrom>(result__)
@@ -3960,55 +4115,68 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCdromCollection> for ::windows::core::IUnknown {
     fn from(value: IWMPCdromCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPCdromCollection> for ::windows::core::IUnknown {
     fn from(value: &IWMPCdromCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPCdromCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPCdromCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPCdromCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPCdromCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPCdromCollection {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPCdromCollection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPCdromCollection").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPCdromCollection {
     type Vtable = IWMPCdromCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee4c8fe2_34b2_11d3_a3bf_006097c9b344);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCdromCollectionVtbl {
     pub base: IDispatchVtbl,
     pub count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(not(feature = "Win32_System_Com"))]
+    item: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub getByDriveSpecifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdrivespecifier: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppcdrom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     getByDriveSpecifier: usize,
 }
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
@@ -4081,9 +4249,11 @@ pub struct IWMPCdromRipVtbl {
     pub startRip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub stopRip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPClosedCaption(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPClosedCaption {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4172,46 +4342,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPClosedCaption> for ::windows::core::IUnknown {
     fn from(value: IWMPClosedCaption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPClosedCaption> for ::windows::core::IUnknown {
     fn from(value: &IWMPClosedCaption) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPClosedCaption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPClosedCaption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPClosedCaption {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPClosedCaption {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPClosedCaption {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPClosedCaption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPClosedCaption").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPClosedCaption {
     type Vtable = IWMPClosedCaptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f2df574_c588_11d3_9ed0_00c04fb6e937);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPClosedCaptionVtbl {
@@ -4249,9 +4429,11 @@ pub struct IWMPClosedCaptionVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetcaptioningId: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPClosedCaption2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPClosedCaption2 {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn SAMILangCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
@@ -4338,21 +4520,25 @@ impl IWMPClosedCaption2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPClosedCaption2> for IWMPClosedCaption {
     fn from(value: IWMPClosedCaption2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPClosedCaption2> for IWMPClosedCaption {
     fn from(value: &IWMPClosedCaption2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPClosedCaption> for IWMPClosedCaption2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPClosedCaption> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPClosedCaption> for &IWMPClosedCaption2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPClosedCaption> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -4382,46 +4568,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPClosedCaption2> for ::windows::core::IUnknown {
     fn from(value: IWMPClosedCaption2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPClosedCaption2> for ::windows::core::IUnknown {
     fn from(value: &IWMPClosedCaption2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPClosedCaption2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPClosedCaption2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPClosedCaption2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPClosedCaption2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPClosedCaption2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPClosedCaption2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPClosedCaption2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPClosedCaption2 {
     type Vtable = IWMPClosedCaption2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x350ba78b_6bc8_4113_a5f5_312056934eb6);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPClosedCaption2Vtbl {
@@ -4988,9 +5184,11 @@ pub struct IWMPContentPartnerCallbackVtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     VerifyPermissionComplete: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPControls(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPControls {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5038,12 +5236,14 @@ impl IWMPControls {
     pub unsafe fn previous(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).previous)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentItem(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).currentItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetcurrentItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
     }
@@ -5055,7 +5255,8 @@ impl IWMPControls {
     pub unsafe fn SetcurrentMarker(&self, lmarker: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetcurrentMarker)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmarker)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).playItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
     }
@@ -5106,46 +5307,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls> for ::windows::core::IUnknown {
     fn from(value: IWMPControls) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPControls> for ::windows::core::IUnknown {
     fn from(value: &IWMPControls) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPControls {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPControls {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPControls {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPControls {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPControls {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPControls {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPControls").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPControls {
     type Vtable = IWMPControlsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74c09e02_f828_11d2_a74b_00a0c905f36e);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPControlsVtbl {
@@ -5167,15 +5378,26 @@ pub struct IWMPControlsVtbl {
     currentPositionString: usize,
     pub next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub previous: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub currentItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwmpmedia: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    currentItem: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub SetcurrentItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpmedia: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetcurrentItem: usize,
     pub currentMarker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmarker: *mut i32) -> ::windows::core::HRESULT,
     pub SetcurrentMarker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmarker: i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub playItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpmedia: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    playItem: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPControls2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPControls2 {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn step(&self, lstep: i32) -> ::windows::core::Result<()> {
@@ -5227,12 +5449,14 @@ impl IWMPControls2 {
     pub unsafe fn previous(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.previous)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentItem(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.currentItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetcurrentItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
     }
@@ -5244,7 +5468,8 @@ impl IWMPControls2 {
     pub unsafe fn SetcurrentMarker(&self, lmarker: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetcurrentMarker)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmarker)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.playItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
     }
@@ -5271,21 +5496,25 @@ impl IWMPControls2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls2> for IWMPControls {
     fn from(value: IWMPControls2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPControls2> for IWMPControls {
     fn from(value: &IWMPControls2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPControls> for IWMPControls2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPControls> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPControls> for &IWMPControls2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPControls> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -5315,55 +5544,67 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls2> for ::windows::core::IUnknown {
     fn from(value: IWMPControls2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPControls2> for ::windows::core::IUnknown {
     fn from(value: &IWMPControls2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPControls2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPControls2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPControls2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPControls2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPControls2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPControls2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPControls2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPControls2 {
     type Vtable = IWMPControls2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f030d25_0890_480f_9775_1f7e40ab5b8e);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPControls2Vtbl {
     pub base: IWMPControlsVtbl,
     pub step: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstep: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPControls3(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPControls3 {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn audioLanguageCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
@@ -5459,12 +5700,14 @@ impl IWMPControls3 {
     pub unsafe fn previous(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.previous)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentItem(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.currentItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetcurrentItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
     }
@@ -5476,7 +5719,8 @@ impl IWMPControls3 {
     pub unsafe fn SetcurrentMarker(&self, lmarker: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetcurrentMarker)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmarker)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.playItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
     }
@@ -5503,41 +5747,49 @@ impl IWMPControls3 {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls3> for IWMPControls2 {
     fn from(value: IWMPControls3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPControls3> for IWMPControls2 {
     fn from(value: &IWMPControls3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPControls2> for IWMPControls3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPControls2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPControls2> for &IWMPControls3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPControls2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls3> for IWMPControls {
     fn from(value: IWMPControls3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPControls3> for IWMPControls {
     fn from(value: &IWMPControls3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPControls> for IWMPControls3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPControls> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPControls> for &IWMPControls3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPControls> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -5567,46 +5819,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls3> for ::windows::core::IUnknown {
     fn from(value: IWMPControls3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPControls3> for ::windows::core::IUnknown {
     fn from(value: &IWMPControls3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPControls3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPControls3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPControls3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPControls3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPControls3 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPControls3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPControls3").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPControls3 {
     type Vtable = IWMPControls3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1d1110e_d545_476a_9a78_ac3e4cb1e6bd);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPControls3Vtbl {
@@ -5702,9 +5964,11 @@ pub struct IWMPConvertVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetErrorURL: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPCore(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPCore {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn close(&self) -> ::windows::core::Result<()> {
@@ -5728,31 +5992,37 @@ impl IWMPCore {
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
@@ -5767,26 +6037,31 @@ impl IWMPCore {
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
@@ -5795,7 +6070,8 @@ impl IWMPCore {
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
@@ -5852,46 +6128,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCore> for ::windows::core::IUnknown {
     fn from(value: IWMPCore) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPCore> for ::windows::core::IUnknown {
     fn from(value: &IWMPCore) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPCore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPCore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPCore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPCore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPCore {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPCore {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPCore").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPCore {
     type Vtable = IWMPCoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd84cca99_cce2_11d2_9ecc_0000f8085981);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCoreVtbl {
@@ -5907,12 +6193,30 @@ pub struct IWMPCoreVtbl {
     SetURL: usize,
     pub openState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwmpos: *mut WMPOpenState) -> ::windows::core::HRESULT,
     pub playState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwmpps: *mut WMPPlayState) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub controls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontrol: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    controls: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub settings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    settings: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub currentMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmedia: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    currentMedia: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub SetcurrentMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmedia: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetcurrentMedia: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub mediaCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediacollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    mediaCollection: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub playlistCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppplaylistcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    playlistCollection: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub versionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrversioninfo: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5921,23 +6225,44 @@ pub struct IWMPCoreVtbl {
     pub launchURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     launchURL: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub network: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqni: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    network: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub currentPlaylist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppl: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    currentPlaylist: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub SetcurrentPlaylist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppl: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetcurrentPlaylist: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub cdromCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcdromcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    cdromCollection: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub closedCaption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclosedcaption: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    closedCaption: usize,
     pub isOnline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfonline: *mut i16) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperror: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    error: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     status: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPCore2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPCore2 {
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn dvd(&self) -> ::windows::core::Result<IWMPDVD> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).dvd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDVD>(result__)
@@ -5964,31 +6289,37 @@ impl IWMPCore2 {
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
@@ -6003,26 +6334,31 @@ impl IWMPCore2 {
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
@@ -6031,7 +6367,8 @@ impl IWMPCore2 {
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
@@ -6064,21 +6401,25 @@ impl IWMPCore2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCore2> for IWMPCore {
     fn from(value: IWMPCore2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPCore2> for IWMPCore {
     fn from(value: &IWMPCore2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for IWMPCore2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for &IWMPCore2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -6108,69 +6449,85 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCore2> for ::windows::core::IUnknown {
     fn from(value: IWMPCore2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPCore2> for ::windows::core::IUnknown {
     fn from(value: &IWMPCore2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPCore2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPCore2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPCore2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPCore2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPCore2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPCore2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPCore2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPCore2 {
     type Vtable = IWMPCore2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc17e5b7_7561_4c18_bb90_17d485775659);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCore2Vtbl {
     pub base: IWMPCoreVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub dvd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdvd: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    dvd: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPCore3(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPCore3 {
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn newPlaylist<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrurl: Param1) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).newPlaylist)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn newMedia<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).newMedia)(::core::mem::transmute_copy(self), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn dvd(&self) -> ::windows::core::Result<IWMPDVD> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.dvd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDVD>(result__)
@@ -6197,31 +6554,37 @@ impl IWMPCore3 {
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
@@ -6236,26 +6599,31 @@ impl IWMPCore3 {
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
@@ -6264,7 +6632,8 @@ impl IWMPCore3 {
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
@@ -6297,41 +6666,49 @@ impl IWMPCore3 {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCore3> for IWMPCore2 {
     fn from(value: IWMPCore3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPCore3> for IWMPCore2 {
     fn from(value: &IWMPCore3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore2> for IWMPCore3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore2> for &IWMPCore3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCore3> for IWMPCore {
     fn from(value: IWMPCore3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPCore3> for IWMPCore {
     fn from(value: &IWMPCore3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for IWMPCore3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for &IWMPCore3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -6361,62 +6738,74 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCore3> for ::windows::core::IUnknown {
     fn from(value: IWMPCore3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPCore3> for ::windows::core::IUnknown {
     fn from(value: &IWMPCore3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPCore3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPCore3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPCore3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPCore3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPCore3 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPCore3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPCore3").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPCore3 {
     type Vtable = IWMPCore3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7587c667_628f_499f_88e7_6a6f4e888464);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCore3Vtbl {
     pub base: IWMPCore2Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub newPlaylist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppplaylist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     newPlaylist: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub newMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppmedia: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     newMedia: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPDVD(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPDVD {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6491,46 +6880,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPDVD> for ::windows::core::IUnknown {
     fn from(value: IWMPDVD) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDVD> for ::windows::core::IUnknown {
     fn from(value: &IWMPDVD) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPDVD {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPDVD {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPDVD {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPDVD {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPDVD {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPDVD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPDVD").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPDVD {
     type Vtable = IWMPDVDVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8da61686_4668_4a5c_ae5d_803193293dbe);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDVDVtbl {
@@ -6548,9 +6947,11 @@ pub struct IWMPDVDVtbl {
     pub back: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPDownloadCollection(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPDownloadCollection {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn id(&self, plid: *mut i32) -> ::windows::core::Result<()> {
@@ -6560,13 +6961,14 @@ impl IWMPDownloadCollection {
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).count)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn item(&self, litem: i32) -> ::windows::core::Result<IWMPDownloadItem2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).item)(::core::mem::transmute_copy(self), ::core::mem::transmute(litem), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDownloadItem2>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn startDownload<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsourceurl: Param0, bstrtype: Param1) -> ::windows::core::Result<IWMPDownloadItem2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).startDownload)(::core::mem::transmute_copy(self), bstrsourceurl.into_param().abi(), bstrtype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDownloadItem2>(result__)
@@ -6626,63 +7028,78 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPDownloadCollection> for ::windows::core::IUnknown {
     fn from(value: IWMPDownloadCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDownloadCollection> for ::windows::core::IUnknown {
     fn from(value: &IWMPDownloadCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPDownloadCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPDownloadCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPDownloadCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPDownloadCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPDownloadCollection {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPDownloadCollection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPDownloadCollection").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPDownloadCollection {
     type Vtable = IWMPDownloadCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a319c7f_85f9_436c_b88e_82fd88000e1c);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDownloadCollectionVtbl {
     pub base: IDispatchVtbl,
     pub id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plid: *mut i32) -> ::windows::core::HRESULT,
     pub count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, litem: i32, ppdownload: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(not(feature = "Win32_System_Com"))]
+    item: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub startDownload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsourceurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrtype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdownload: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     startDownload: usize,
     pub removeItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, litem: i32) -> ::windows::core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPDownloadItem(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPDownloadItem {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6765,46 +7182,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPDownloadItem> for ::windows::core::IUnknown {
     fn from(value: IWMPDownloadItem) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDownloadItem> for ::windows::core::IUnknown {
     fn from(value: &IWMPDownloadItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPDownloadItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPDownloadItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPDownloadItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPDownloadItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPDownloadItem {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPDownloadItem {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPDownloadItem").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPDownloadItem {
     type Vtable = IWMPDownloadItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9470e8e_3f6b_46a9_a0a9_452815c34297);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDownloadItemVtbl {
@@ -6824,9 +7251,11 @@ pub struct IWMPDownloadItemVtbl {
     pub resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPDownloadItem2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPDownloadItem2 {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6890,21 +7319,25 @@ impl IWMPDownloadItem2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPDownloadItem2> for IWMPDownloadItem {
     fn from(value: IWMPDownloadItem2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDownloadItem2> for IWMPDownloadItem {
     fn from(value: &IWMPDownloadItem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPDownloadItem> for IWMPDownloadItem2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPDownloadItem> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPDownloadItem> for &IWMPDownloadItem2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPDownloadItem> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -6934,46 +7367,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPDownloadItem2> for ::windows::core::IUnknown {
     fn from(value: IWMPDownloadItem2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDownloadItem2> for ::windows::core::IUnknown {
     fn from(value: &IWMPDownloadItem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPDownloadItem2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPDownloadItem2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPDownloadItem2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPDownloadItem2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPDownloadItem2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPDownloadItem2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPDownloadItem2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPDownloadItem2 {
     type Vtable = IWMPDownloadItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fbb3336_6da3_479d_b8ff_67d46e20a987);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDownloadItem2Vtbl {
@@ -6983,16 +7426,20 @@ pub struct IWMPDownloadItem2Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     getItemInfo: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPDownloadManager(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPDownloadManager {
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getDownloadCollection(&self, lcollectionid: i32) -> ::windows::core::Result<IWMPDownloadCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getDownloadCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcollectionid), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDownloadCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createDownloadCollection(&self) -> ::windows::core::Result<IWMPDownloadCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).createDownloadCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDownloadCollection>(result__)
@@ -7044,52 +7491,68 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPDownloadManager> for ::windows::core::IUnknown {
     fn from(value: IWMPDownloadManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDownloadManager> for ::windows::core::IUnknown {
     fn from(value: &IWMPDownloadManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPDownloadManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPDownloadManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPDownloadManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPDownloadManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPDownloadManager {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPDownloadManager {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPDownloadManager").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPDownloadManager {
     type Vtable = IWMPDownloadManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe15e9ad1_8f20_4cc4_9ec7_1a328ca86a0d);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDownloadManagerVtbl {
     pub base: IDispatchVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub getDownloadCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcollectionid: i32, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    getDownloadCollection: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub createDownloadCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    createDownloadCollection: usize,
 }
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
@@ -7224,7 +7687,8 @@ pub struct IWMPEffectsVtbl {
 #[repr(transparent)]
 pub struct IWMPEffects2(::windows::core::IUnknown);
 impl IWMPEffects2 {
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCore<'a, Param0: ::windows::core::IntoParam<'a, IWMPCore>>(&self, pplayer: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCore)(::core::mem::transmute_copy(self), pplayer.into_param().abi()).ok()
     }
@@ -7237,7 +7701,8 @@ impl IWMPEffects2 {
     pub unsafe fn Destroy(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Destroy)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NotifyNewMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).NotifyNewMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
     }
@@ -7366,13 +7831,19 @@ unsafe impl ::windows::core::Interface for IWMPEffects2 {
 #[doc(hidden)]
 pub struct IWMPEffects2Vtbl {
     pub base: IWMPEffectsVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub SetCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplayer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetCore: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Create: usize,
     pub Destroy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub NotifyNewMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmedia: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    NotifyNewMedia: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub OnWindowMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresultparam: *mut super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7382,9 +7853,11 @@ pub struct IWMPEffects2Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RenderWindowed: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPError(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPError {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn clearErrorQueue(&self) -> ::windows::core::Result<()> {
@@ -7394,7 +7867,8 @@ impl IWMPError {
     pub unsafe fn errorCount(&self, plnumerrors: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).errorCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plnumerrors)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn item(&self, dwindex: i32) -> ::windows::core::Result<IWMPErrorItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).item)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPErrorItem>(result__)
@@ -7450,58 +7924,73 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPError> for ::windows::core::IUnknown {
     fn from(value: IWMPError) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPError> for ::windows::core::IUnknown {
     fn from(value: &IWMPError) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPError {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPError {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPError {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPError {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPError {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPError {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPError").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPError {
     type Vtable = IWMPErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa12dcf7d_14ab_4c1b_a8cd_63909f06025b);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPErrorVtbl {
     pub base: IDispatchVtbl,
     pub clearErrorQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub errorCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plnumerrors: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: i32, pperroritem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    item: usize,
     pub webHelp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPErrorItem(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPErrorItem {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn errorCode(&self, phr: *mut i32) -> ::windows::core::Result<()> {
@@ -7573,46 +8062,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPErrorItem> for ::windows::core::IUnknown {
     fn from(value: IWMPErrorItem) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPErrorItem> for ::windows::core::IUnknown {
     fn from(value: &IWMPErrorItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPErrorItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPErrorItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPErrorItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPErrorItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPErrorItem {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPErrorItem {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPErrorItem").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPErrorItem {
     type Vtable = IWMPErrorItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3614c646_3b3b_4de7_a81e_930e3f2127b3);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPErrorItemVtbl {
@@ -7632,9 +8131,11 @@ pub struct IWMPErrorItemVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     customUrl: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPErrorItem2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPErrorItem2 {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn condition(&self, plcondition: *mut i32) -> ::windows::core::Result<()> {
@@ -7686,21 +8187,25 @@ impl IWMPErrorItem2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPErrorItem2> for IWMPErrorItem {
     fn from(value: IWMPErrorItem2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPErrorItem2> for IWMPErrorItem {
     fn from(value: &IWMPErrorItem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPErrorItem> for IWMPErrorItem2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPErrorItem> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPErrorItem> for &IWMPErrorItem2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPErrorItem> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -7730,46 +8235,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPErrorItem2> for ::windows::core::IUnknown {
     fn from(value: IWMPErrorItem2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPErrorItem2> for ::windows::core::IUnknown {
     fn from(value: &IWMPErrorItem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPErrorItem2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPErrorItem2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPErrorItem2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPErrorItem2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPErrorItem2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPErrorItem2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPErrorItem2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPErrorItem2 {
     type Vtable = IWMPErrorItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf75ccec0_c67c_475c_931e_8719870bee7d);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPErrorItem2Vtbl {
@@ -9388,7 +9903,8 @@ impl IWMPLibrary {
     pub unsafe fn r#type(&self, pwmplt: *mut WMPLibraryType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).r#type)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmplt)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
@@ -9447,7 +9963,10 @@ pub struct IWMPLibraryVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     name: usize,
     pub r#type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwmplt: *mut WMPLibraryType) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub mediaCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwmpmediacollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    mediaCollection: usize,
     pub isIdentical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmplibrary: ::windows::core::RawPtr, pvbool: *mut i16) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
@@ -9468,7 +9987,8 @@ impl IWMPLibrary2 {
     pub unsafe fn r#type(&self, pwmplt: *mut WMPLibraryType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.r#type)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmplt)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
@@ -9673,11 +10193,14 @@ pub struct IWMPLibrarySharingServicesVtbl {
     pub isLibrarySharingEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbenabled: *mut i16) -> ::windows::core::HRESULT,
     pub showLibrarySharing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPMedia(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPMedia {
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).isIdentical)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
@@ -9750,7 +10273,8 @@ impl IWMPMedia {
     pub unsafe fn getItemInfoByAtom(&self, latom: i32, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).getItemInfoByAtom)(::core::mem::transmute_copy(self), ::core::mem::transmute(latom), ::core::mem::transmute(pbstrval)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isMemberOf<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pplaylist: Param0, pvarfismemberof: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).isMemberOf)(::core::mem::transmute_copy(self), pplaylist.into_param().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
     }
@@ -9806,51 +10330,64 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia> for ::windows::core::IUnknown {
     fn from(value: IWMPMedia) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMedia> for ::windows::core::IUnknown {
     fn from(value: &IWMPMedia) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMedia {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPMedia {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPMedia {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPMedia {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPMedia {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPMedia {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPMedia").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPMedia {
     type Vtable = IWMPMediaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94d55e95_3fac_11d3_b155_00c04f79faa6);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMediaVtbl {
     pub base: IDispatchVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub isIdentical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpmedia: ::windows::core::RawPtr, pvbool: *mut i16) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    isIdentical: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub sourceURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsourceurl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9893,22 +10430,29 @@ pub struct IWMPMediaVtbl {
     pub getItemInfoByAtom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, latom: i32, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     getItemInfoByAtom: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub isMemberOf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplaylist: ::windows::core::RawPtr, pvarfismemberof: *mut i16) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    isMemberOf: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub isReadOnlyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritemname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarfisreadonly: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     isReadOnlyItem: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPMedia2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPMedia2 {
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPErrorItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPErrorItem>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.isIdentical)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
@@ -9981,7 +10525,8 @@ impl IWMPMedia2 {
     pub unsafe fn getItemInfoByAtom(&self, latom: i32, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.getItemInfoByAtom)(::core::mem::transmute_copy(self), ::core::mem::transmute(latom), ::core::mem::transmute(pbstrval)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isMemberOf<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pplaylist: Param0, pvarfismemberof: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.isMemberOf)(::core::mem::transmute_copy(self), pplaylist.into_param().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
     }
@@ -10013,21 +10558,25 @@ impl IWMPMedia2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia2> for IWMPMedia {
     fn from(value: IWMPMedia2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMedia2> for IWMPMedia {
     fn from(value: &IWMPMedia2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPMedia> for IWMPMedia2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPMedia> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPMedia> for &IWMPMedia2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPMedia> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -10057,55 +10606,70 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia2> for ::windows::core::IUnknown {
     fn from(value: IWMPMedia2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMedia2> for ::windows::core::IUnknown {
     fn from(value: &IWMPMedia2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMedia2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPMedia2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPMedia2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPMedia2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPMedia2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPMedia2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPMedia2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPMedia2 {
     type Vtable = IWMPMedia2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab7c88bb_143e_4ea4_acc3_e4350b2106c3);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMedia2Vtbl {
     pub base: IWMPMediaVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwmperroritem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    error: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPMedia3(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPMedia3 {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10117,12 +10681,14 @@ impl IWMPMedia3 {
     pub unsafe fn getItemInfoByType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtype: Param0, bstrlanguage: Param1, lindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).getItemInfoByType)(::core::mem::transmute_copy(self), bstrtype.into_param().abi(), bstrlanguage.into_param().abi(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvarvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPErrorItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPErrorItem>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.isIdentical)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
@@ -10195,7 +10761,8 @@ impl IWMPMedia3 {
     pub unsafe fn getItemInfoByAtom(&self, latom: i32, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.getItemInfoByAtom)(::core::mem::transmute_copy(self), ::core::mem::transmute(latom), ::core::mem::transmute(pbstrval)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isMemberOf<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pplaylist: Param0, pvarfismemberof: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.isMemberOf)(::core::mem::transmute_copy(self), pplaylist.into_param().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
     }
@@ -10227,41 +10794,49 @@ impl IWMPMedia3 {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia3> for IWMPMedia2 {
     fn from(value: IWMPMedia3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMedia3> for IWMPMedia2 {
     fn from(value: &IWMPMedia3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPMedia2> for IWMPMedia3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPMedia2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPMedia2> for &IWMPMedia3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPMedia2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia3> for IWMPMedia {
     fn from(value: IWMPMedia3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMedia3> for IWMPMedia {
     fn from(value: &IWMPMedia3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPMedia> for IWMPMedia3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPMedia> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPMedia> for &IWMPMedia3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPMedia> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -10291,46 +10866,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia3> for ::windows::core::IUnknown {
     fn from(value: IWMPMedia3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMedia3> for ::windows::core::IUnknown {
     fn from(value: &IWMPMedia3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMedia3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPMedia3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPMedia3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPMedia3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPMedia3 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPMedia3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPMedia3").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPMedia3 {
     type Vtable = IWMPMedia3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf118efc7_f03a_4fb4_99c9_1c02a5c1065b);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMedia3Vtbl {
@@ -10344,57 +10929,61 @@ pub struct IWMPMedia3Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     getItemInfoByType: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPMediaCollection(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPMediaCollection {
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).add)(::core::mem::transmute_copy(self), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getAll(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getAll)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getByName)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByGenre<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrgenre: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getByGenre)(::core::mem::transmute_copy(self), bstrgenre.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAuthor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthor: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getByAuthor)(::core::mem::transmute_copy(self), bstrauthor.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAlbum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstralbum: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getByAlbum)(::core::mem::transmute_copy(self), bstralbum.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrvalue: Param1) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getByAttribute)(::core::mem::transmute_copy(self), bstrattribute.into_param().abi(), bstrvalue.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn remove<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, varfdeletefile: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).remove)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(varfdeletefile)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getAttributeStringCollection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrmediatype: Param1) -> ::windows::core::Result<IWMPStringCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getAttributeStringCollection)(::core::mem::transmute_copy(self), bstrattribute.into_param().abi(), bstrmediatype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPStringCollection>(result__)
@@ -10404,11 +10993,13 @@ impl IWMPMediaCollection {
     pub unsafe fn getMediaAtom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, platom: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).getMediaAtom)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(platom)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn setDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, varfisdeleted: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).setDeleted)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(varfisdeleted)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).isDeleted)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
     }
@@ -10459,161 +11050,188 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMediaCollection> for ::windows::core::IUnknown {
     fn from(value: IWMPMediaCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMediaCollection> for ::windows::core::IUnknown {
     fn from(value: &IWMPMediaCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMediaCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPMediaCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPMediaCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPMediaCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPMediaCollection {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPMediaCollection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPMediaCollection").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPMediaCollection {
     type Vtable = IWMPMediaCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8363bc22_b4b4_4b19_989d_1cd765749dd1);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMediaCollectionVtbl {
     pub base: IDispatchVtbl,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     add: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub getAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediaitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(not(feature = "Win32_System_Com"))]
+    getAll: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub getByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppmediaitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     getByName: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub getByGenre: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgenre: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppmediaitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     getByGenre: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub getByAuthor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrauthor: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppmediaitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     getByAuthor: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub getByAlbum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstralbum: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppmediaitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     getByAlbum: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub getByAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrattribute: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppmediaitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     getByAttribute: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: ::windows::core::RawPtr, varfdeletefile: i16) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(not(feature = "Win32_System_Com"))]
+    remove: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub getAttributeStringCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrattribute: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrmediatype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppstringcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     getAttributeStringCollection: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub getMediaAtom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritemname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, platom: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     getMediaAtom: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub setDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: ::windows::core::RawPtr, varfisdeleted: i16) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    setDeleted: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub isDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: ::windows::core::RawPtr, pvarfisdeleted: *mut i16) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    isDeleted: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPMediaCollection2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPMediaCollection2 {
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createQuery(&self) -> ::windows::core::Result<IWMPQuery> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).createQuery)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPQuery>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getPlaylistByQuery<'a, Param0: ::windows::core::IntoParam<'a, IWMPQuery>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pquery: Param0, bstrmediatype: Param1, bstrsortattribute: Param2, fsortascending: i16) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getPlaylistByQuery)(::core::mem::transmute_copy(self), pquery.into_param().abi(), bstrmediatype.into_param().abi(), bstrsortattribute.into_param().abi(), ::core::mem::transmute(fsortascending), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getStringCollectionByQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, IWMPQuery>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, pquery: Param1, bstrmediatype: Param2, bstrsortattribute: Param3, fsortascending: i16) -> ::windows::core::Result<IWMPStringCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getStringCollectionByQuery)(::core::mem::transmute_copy(self), bstrattribute.into_param().abi(), pquery.into_param().abi(), bstrmediatype.into_param().abi(), bstrsortattribute.into_param().abi(), ::core::mem::transmute(fsortascending), ::core::mem::transmute(&mut result__)).from_abi::<IWMPStringCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAttributeAndMediaType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrvalue: Param1, bstrmediatype: Param2) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getByAttributeAndMediaType)(::core::mem::transmute_copy(self), bstrattribute.into_param().abi(), bstrvalue.into_param().abi(), bstrmediatype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.add)(::core::mem::transmute_copy(self), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getAll(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.getAll)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.getByName)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByGenre<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrgenre: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.getByGenre)(::core::mem::transmute_copy(self), bstrgenre.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAuthor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthor: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.getByAuthor)(::core::mem::transmute_copy(self), bstrauthor.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAlbum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstralbum: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.getByAlbum)(::core::mem::transmute_copy(self), bstralbum.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrvalue: Param1) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.getByAttribute)(::core::mem::transmute_copy(self), bstrattribute.into_param().abi(), bstrvalue.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn remove<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, varfdeletefile: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.remove)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(varfdeletefile)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getAttributeStringCollection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrmediatype: Param1) -> ::windows::core::Result<IWMPStringCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.getAttributeStringCollection)(::core::mem::transmute_copy(self), bstrattribute.into_param().abi(), bstrmediatype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPStringCollection>(result__)
@@ -10623,11 +11241,13 @@ impl IWMPMediaCollection2 {
     pub unsafe fn getMediaAtom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, platom: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.getMediaAtom)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(platom)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn setDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, varfisdeleted: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.setDeleted)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(varfisdeleted)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.isDeleted)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
     }
@@ -10654,21 +11274,25 @@ impl IWMPMediaCollection2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMediaCollection2> for IWMPMediaCollection {
     fn from(value: IWMPMediaCollection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMediaCollection2> for IWMPMediaCollection {
     fn from(value: &IWMPMediaCollection2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPMediaCollection> for IWMPMediaCollection2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPMediaCollection> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPMediaCollection> for &IWMPMediaCollection2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPMediaCollection> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -10698,62 +11322,75 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMediaCollection2> for ::windows::core::IUnknown {
     fn from(value: IWMPMediaCollection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMediaCollection2> for ::windows::core::IUnknown {
     fn from(value: &IWMPMediaCollection2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMediaCollection2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPMediaCollection2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPMediaCollection2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPMediaCollection2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPMediaCollection2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPMediaCollection2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPMediaCollection2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPMediaCollection2 {
     type Vtable = IWMPMediaCollection2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ba957f5_fd8c_4791_b82d_f840401ee474);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMediaCollection2Vtbl {
     pub base: IWMPMediaCollectionVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub createQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppquery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(not(feature = "Win32_System_Com"))]
+    createQuery: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub getPlaylistByQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pquery: ::windows::core::RawPtr, bstrmediatype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsortattribute: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fsortascending: i16, ppplaylist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     getPlaylistByQuery: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub getStringCollectionByQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrattribute: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pquery: ::windows::core::RawPtr, bstrmediatype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsortattribute: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fsortascending: i16, ppstringcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     getStringCollectionByQuery: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub getByAttributeAndMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrattribute: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrmediatype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppmediaitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     getByAttributeAndMediaType: usize,
 }
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
@@ -10820,9 +11457,11 @@ pub struct IWMPMediaPluginRegistrarVtbl {
     WMPRegisterPlayerPlugin: usize,
     pub WMPUnRegisterPlayerPlugin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPMetadataPicture(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPMetadataPicture {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10891,46 +11530,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMetadataPicture> for ::windows::core::IUnknown {
     fn from(value: IWMPMetadataPicture) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMetadataPicture> for ::windows::core::IUnknown {
     fn from(value: &IWMPMetadataPicture) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMetadataPicture {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPMetadataPicture {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPMetadataPicture {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPMetadataPicture {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPMetadataPicture {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPMetadataPicture {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPMetadataPicture").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPMetadataPicture {
     type Vtable = IWMPMetadataPictureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c29bbe0_f87d_4c45_aa28_a70f0230ffa9);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMetadataPictureVtbl {
@@ -10952,9 +11601,11 @@ pub struct IWMPMetadataPictureVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     URL: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPMetadataText(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPMetadataText {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11013,46 +11664,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMetadataText> for ::windows::core::IUnknown {
     fn from(value: IWMPMetadataText) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMetadataText> for ::windows::core::IUnknown {
     fn from(value: &IWMPMetadataText) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMetadataText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPMetadataText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPMetadataText {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPMetadataText {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPMetadataText {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPMetadataText {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPMetadataText").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPMetadataText {
     type Vtable = IWMPMetadataTextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x769a72db_13d2_45e2_9c48_53ca9d5b7450);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMetadataTextVtbl {
@@ -11066,9 +11727,11 @@ pub struct IWMPMetadataTextVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     text: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPNetwork(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPNetwork {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn bandWidth(&self, plbandwidth: *mut i32) -> ::windows::core::Result<()> {
@@ -11240,46 +11903,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPNetwork> for ::windows::core::IUnknown {
     fn from(value: IWMPNetwork) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPNetwork> for ::windows::core::IUnknown {
     fn from(value: &IWMPNetwork) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPNetwork {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPNetwork {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPNetwork {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPNetwork {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPNetwork {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPNetwork {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPNetwork").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPNetwork {
     type Vtable = IWMPNetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec21b779_edef_462d_bba4_ad9dde2b29a7);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNetworkVtbl {
@@ -11789,9 +12462,11 @@ pub struct IWMPNodeWindowlessHostVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     InvalidateRect: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPPlayer(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPPlayer {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn enabled(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
@@ -11849,31 +12524,37 @@ impl IWMPPlayer {
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
@@ -11888,26 +12569,31 @@ impl IWMPPlayer {
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
@@ -11916,7 +12602,8 @@ impl IWMPPlayer {
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
@@ -11949,21 +12636,25 @@ impl IWMPPlayer {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer> for IWMPCore {
     fn from(value: IWMPPlayer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer> for IWMPCore {
     fn from(value: &IWMPPlayer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for IWMPPlayer {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for &IWMPPlayer {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -11993,46 +12684,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer> for ::windows::core::IUnknown {
     fn from(value: IWMPPlayer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlayer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlayer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPPlayer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPPlayer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPPlayer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPPlayer {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPPlayer {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPPlayer").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPPlayer {
     type Vtable = IWMPPlayerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a4f_394a_11d3_b153_00c04f79faa6);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayerVtbl {
@@ -12052,9 +12753,11 @@ pub struct IWMPPlayerVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     uiMode: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPPlayer2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPPlayer2 {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn enabled(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
@@ -12128,31 +12831,37 @@ impl IWMPPlayer2 {
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
@@ -12167,26 +12876,31 @@ impl IWMPPlayer2 {
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
@@ -12195,7 +12909,8 @@ impl IWMPPlayer2 {
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
@@ -12228,21 +12943,25 @@ impl IWMPPlayer2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer2> for IWMPCore {
     fn from(value: IWMPPlayer2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer2> for IWMPCore {
     fn from(value: &IWMPPlayer2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for IWMPPlayer2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for &IWMPPlayer2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -12272,46 +12991,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer2> for ::windows::core::IUnknown {
     fn from(value: IWMPPlayer2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer2> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlayer2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlayer2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPPlayer2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPPlayer2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPPlayer2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPPlayer2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPPlayer2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPPlayer2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPPlayer2 {
     type Vtable = IWMPPlayer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e6b01d1_d407_4c85_bf5f_1c01f6150280);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayer2Vtbl {
@@ -12335,9 +13064,11 @@ pub struct IWMPPlayer2Vtbl {
     pub windowlessVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut i16) -> ::windows::core::HRESULT,
     pub SetwindowlessVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPPlayer3(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPPlayer3 {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn enabled(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
@@ -12389,7 +13120,8 @@ impl IWMPPlayer3 {
     pub unsafe fn SetwindowlessVideo(&self, benabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetwindowlessVideo)(::core::mem::transmute_copy(self), ::core::mem::transmute(benabled)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn dvd(&self) -> ::windows::core::Result<IWMPDVD> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.dvd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDVD>(result__)
@@ -12416,31 +13148,37 @@ impl IWMPPlayer3 {
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
@@ -12455,26 +13193,31 @@ impl IWMPPlayer3 {
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
@@ -12483,7 +13226,8 @@ impl IWMPPlayer3 {
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
@@ -12516,41 +13260,49 @@ impl IWMPPlayer3 {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer3> for IWMPCore2 {
     fn from(value: IWMPPlayer3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer3> for IWMPCore2 {
     fn from(value: &IWMPPlayer3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore2> for IWMPPlayer3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore2> for &IWMPPlayer3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer3> for IWMPCore {
     fn from(value: IWMPPlayer3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer3> for IWMPCore {
     fn from(value: &IWMPPlayer3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for IWMPPlayer3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for &IWMPPlayer3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -12580,46 +13332,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer3> for ::windows::core::IUnknown {
     fn from(value: IWMPPlayer3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer3> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlayer3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlayer3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPPlayer3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPPlayer3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPPlayer3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPPlayer3 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPPlayer3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPPlayer3").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPPlayer3 {
     type Vtable = IWMPPlayer3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54062b68_052a_4c25_a39f_8b63346511d4);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayer3Vtbl {
@@ -12643,9 +13405,11 @@ pub struct IWMPPlayer3Vtbl {
     pub windowlessVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut i16) -> ::windows::core::HRESULT,
     pub SetwindowlessVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPPlayer4(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPPlayer4 {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn enabled(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
@@ -12701,7 +13465,8 @@ impl IWMPPlayer4 {
     pub unsafe fn isRemote(&self, pvarfisremote: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).isRemote)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvarfisremote)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playerApplication(&self) -> ::windows::core::Result<IWMPPlayerApplication> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).playerApplication)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlayerApplication>(result__)
@@ -12711,19 +13476,20 @@ impl IWMPPlayer4 {
     pub unsafe fn openPlayer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).openPlayer)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn newPlaylist<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrurl: Param1) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.newPlaylist)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn newMedia<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.newMedia)(::core::mem::transmute_copy(self), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn dvd(&self) -> ::windows::core::Result<IWMPDVD> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.dvd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDVD>(result__)
@@ -12750,31 +13516,37 @@ impl IWMPPlayer4 {
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
@@ -12789,26 +13561,31 @@ impl IWMPPlayer4 {
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
@@ -12817,7 +13594,8 @@ impl IWMPPlayer4 {
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
@@ -12850,61 +13628,73 @@ impl IWMPPlayer4 {
         (::windows::core::Interface::vtable(self).base.base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer4> for IWMPCore3 {
     fn from(value: IWMPPlayer4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer4> for IWMPCore3 {
     fn from(value: &IWMPPlayer4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore3> for IWMPPlayer4 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore3> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore3> for &IWMPPlayer4 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer4> for IWMPCore2 {
     fn from(value: IWMPPlayer4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer4> for IWMPCore2 {
     fn from(value: &IWMPPlayer4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore2> for IWMPPlayer4 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore2> for &IWMPPlayer4 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer4> for IWMPCore {
     fn from(value: IWMPPlayer4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer4> for IWMPCore {
     fn from(value: &IWMPPlayer4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for IWMPPlayer4 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for &IWMPPlayer4 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -12934,46 +13724,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer4> for ::windows::core::IUnknown {
     fn from(value: IWMPPlayer4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer4> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlayer4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlayer4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPPlayer4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPPlayer4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPPlayer4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPPlayer4 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPPlayer4 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPPlayer4").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPPlayer4 {
     type Vtable = IWMPPlayer4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c497d62_8919_413c_82db_e935fb3ec584);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayer4Vtbl {
@@ -12997,15 +13797,20 @@ pub struct IWMPPlayer4Vtbl {
     pub windowlessVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut i16) -> ::windows::core::HRESULT,
     pub SetwindowlessVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: i16) -> ::windows::core::HRESULT,
     pub isRemote: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarfisremote: *mut i16) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub playerApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwmpplayerapplication: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    playerApplication: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub openPlayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     openPlayer: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPPlayerApplication(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPPlayerApplication {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn switchToPlayerApplication(&self) -> ::windows::core::Result<()> {
@@ -13070,46 +13875,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayerApplication> for ::windows::core::IUnknown {
     fn from(value: IWMPPlayerApplication) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayerApplication> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlayerApplication) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlayerApplication {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPPlayerApplication {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPPlayerApplication {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPPlayerApplication {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPPlayerApplication {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPPlayerApplication {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPPlayerApplication").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPPlayerApplication {
     type Vtable = IWMPPlayerApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40897764_ceab_47be_ad4a_8e28537f9bbf);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayerApplicationVtbl {
@@ -13290,9 +14105,11 @@ pub struct IWMPPlayerServices2Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     setBackgroundProcessingPriority: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPPlaylist(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPPlaylist {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
@@ -13317,7 +14134,8 @@ impl IWMPPlaylist {
     pub unsafe fn attributeName(&self, lindex: i32, pbstrattributename: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).attributeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstrattributename)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn item(&self, lindex: i32) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).item)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
@@ -13332,7 +14150,8 @@ impl IWMPPlaylist {
     pub unsafe fn setItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).setItemInfo)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, piwmpplaylist: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).isIdentical)(::core::mem::transmute_copy(self), piwmpplaylist.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
@@ -13340,15 +14159,18 @@ impl IWMPPlaylist {
     pub unsafe fn clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).clear)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn insertItem<'a, Param1: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, lindex: i32, piwmpmedia: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).insertItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), piwmpmedia.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).appendItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).removeItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
     }
@@ -13403,46 +14225,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlaylist> for ::windows::core::IUnknown {
     fn from(value: IWMPPlaylist) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlaylist> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlaylist) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlaylist {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPPlaylist {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPPlaylist {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPPlaylist {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPPlaylist {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPPlaylist {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPPlaylist").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPPlaylist {
     type Vtable = IWMPPlaylistVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5f0f4f1_130c_11d3_b14e_00c04f79faa6);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlaylistVtbl {
@@ -13461,7 +14293,10 @@ pub struct IWMPPlaylistVtbl {
     pub attributeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pbstrattributename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     attributeName: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ppiwmpmedia: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    item: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub getItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13470,22 +14305,37 @@ pub struct IWMPPlaylistVtbl {
     pub setItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     setItemInfo: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub isIdentical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpplaylist: ::windows::core::RawPtr, pvbool: *mut i16) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    isIdentical: usize,
     pub clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub insertItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, piwmpmedia: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    insertItem: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub appendItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpmedia: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    appendItem: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub removeItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpmedia: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    removeItem: usize,
     pub moveItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindexold: i32, lindexnew: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPPlaylistArray(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPPlaylistArray {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).count)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn item(&self, lindex: i32) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).item)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
@@ -13537,87 +14387,107 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlaylistArray> for ::windows::core::IUnknown {
     fn from(value: IWMPPlaylistArray) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlaylistArray> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlaylistArray) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlaylistArray {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPPlaylistArray {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPPlaylistArray {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPPlaylistArray {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPPlaylistArray {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPPlaylistArray {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPPlaylistArray").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPPlaylistArray {
     type Vtable = IWMPPlaylistArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x679409c0_99f7_11d3_9fb7_00105aa620bb);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlaylistArrayVtbl {
     pub base: IDispatchVtbl,
     pub count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    item: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPPlaylistCollection(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPPlaylistCollection {
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn newPlaylist<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).newPlaylist)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getAll(&self) -> ::windows::core::Result<IWMPPlaylistArray> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getAll)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistArray>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylistArray> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).getByName)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistArray>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn remove<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pitem: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).remove)(::core::mem::transmute_copy(self), pitem.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn setDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pitem: Param0, varfisdeleted: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).setDeleted)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(varfisdeleted)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pitem: Param0, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).isDeleted)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn importPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pitem: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).importPlaylist)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
@@ -13669,63 +14539,88 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlaylistCollection> for ::windows::core::IUnknown {
     fn from(value: IWMPPlaylistCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlaylistCollection> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlaylistCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlaylistCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPPlaylistCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPPlaylistCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPPlaylistCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPPlaylistCollection {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPPlaylistCollection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPPlaylistCollection").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPPlaylistCollection {
     type Vtable = IWMPPlaylistCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10a13217_23a7_439b_b1c0_d847c79b7774);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlaylistCollectionVtbl {
     pub base: IDispatchVtbl,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub newPlaylist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     newPlaylist: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub getAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppplaylistarray: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(not(feature = "Win32_System_Com"))]
+    getAll: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub getByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppplaylistarray: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     getByName: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    remove: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub setDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: ::windows::core::RawPtr, varfisdeleted: i16) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    setDeleted: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub isDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: ::windows::core::RawPtr, pvarfisdeleted: *mut i16) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    isDeleted: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub importPlaylist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: ::windows::core::RawPtr, ppimporteditem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    importPlaylist: usize,
 }
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
@@ -13879,7 +14774,8 @@ pub struct IWMPPluginEnableVtbl {
 #[repr(transparent)]
 pub struct IWMPPluginUI(::windows::core::IUnknown);
 impl IWMPPluginUI {
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCore<'a, Param0: ::windows::core::IntoParam<'a, IWMPCore>>(&self, pcore: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCore)(::core::mem::transmute_copy(self), pcore.into_param().abi()).ok()
     }
@@ -13957,7 +14853,10 @@ unsafe impl ::windows::core::Interface for IWMPPluginUI {
 #[doc(hidden)]
 pub struct IWMPPluginUIVtbl {
     pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub SetCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcore: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetCore: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, phwndwindow: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13980,9 +14879,11 @@ pub struct IWMPPluginUIVtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
     TranslateAccelerator: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPQuery(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPQuery {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14040,46 +14941,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPQuery> for ::windows::core::IUnknown {
     fn from(value: IWMPQuery) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPQuery> for ::windows::core::IUnknown {
     fn from(value: &IWMPQuery) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPQuery {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPQuery {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPQuery {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPQuery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPQuery {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPQuery {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPQuery").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPQuery {
     type Vtable = IWMPQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa00918f3_a6b0_4bfb_9189_fd834c7bc5a5);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPQueryVtbl {
@@ -14304,9 +15215,11 @@ pub struct IWMPServicesVtbl {
     pub GetStreamTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prt: *mut i64) -> ::windows::core::HRESULT,
     pub GetStreamState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut WMPServices_StreamState) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPSettings(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPSettings {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14454,46 +15367,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPSettings> for ::windows::core::IUnknown {
     fn from(value: IWMPSettings) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPSettings> for ::windows::core::IUnknown {
     fn from(value: &IWMPSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPSettings {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPSettings {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPSettings").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPSettings {
     type Vtable = IWMPSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9104d1ab_80c9_4fed_abf0_2e6417a6df14);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSettingsVtbl {
@@ -14543,9 +15466,11 @@ pub struct IWMPSettingsVtbl {
     pub enableErrorDialogs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenableerrordialogs: *mut i16) -> ::windows::core::HRESULT,
     pub SetenableErrorDialogs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenableerrordialogs: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPSettings2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPSettings2 {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn defaultAudioLanguage(&self, pllangid: *mut i32) -> ::windows::core::Result<()> {
@@ -14683,21 +15608,25 @@ impl IWMPSettings2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPSettings2> for IWMPSettings {
     fn from(value: IWMPSettings2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPSettings2> for IWMPSettings {
     fn from(value: &IWMPSettings2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPSettings> for IWMPSettings2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPSettings> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPSettings> for &IWMPSettings2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPSettings> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -14727,46 +15656,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPSettings2> for ::windows::core::IUnknown {
     fn from(value: IWMPSettings2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPSettings2> for ::windows::core::IUnknown {
     fn from(value: &IWMPSettings2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPSettings2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPSettings2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPSettings2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPSettings2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPSettings2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPSettings2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPSettings2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPSettings2 {
     type Vtable = IWMPSettings2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfda937a4_eece_4da5_a0b6_39bf89ade2c2);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSettings2Vtbl {
@@ -14840,9 +15779,11 @@ pub struct IWMPSkinManagerVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetVisualStyle: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPStringCollection(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPStringCollection {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
@@ -14900,46 +15841,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPStringCollection> for ::windows::core::IUnknown {
     fn from(value: IWMPStringCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPStringCollection> for ::windows::core::IUnknown {
     fn from(value: &IWMPStringCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPStringCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPStringCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPStringCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPStringCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPStringCollection {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPStringCollection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPStringCollection").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPStringCollection {
     type Vtable = IWMPStringCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a976298_8c0d_11d3_b389_00c04f68574b);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPStringCollectionVtbl {
@@ -14950,11 +15901,14 @@ pub struct IWMPStringCollectionVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     item: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWMPStringCollection2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWMPStringCollection2 {
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPStringCollection2>>(&self, piwmpstringcollection2: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).isIdentical)(::core::mem::transmute_copy(self), piwmpstringcollection2.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
@@ -15005,21 +15959,25 @@ impl IWMPStringCollection2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPStringCollection2> for IWMPStringCollection {
     fn from(value: IWMPStringCollection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPStringCollection2> for IWMPStringCollection {
     fn from(value: &IWMPStringCollection2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPStringCollection> for IWMPStringCollection2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPStringCollection> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWMPStringCollection> for &IWMPStringCollection2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWMPStringCollection> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -15049,51 +16007,64 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPStringCollection2> for ::windows::core::IUnknown {
     fn from(value: IWMPStringCollection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPStringCollection2> for ::windows::core::IUnknown {
     fn from(value: &IWMPStringCollection2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPStringCollection2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMPStringCollection2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWMPStringCollection2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMPStringCollection2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWMPStringCollection2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWMPStringCollection2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWMPStringCollection2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWMPStringCollection2 {
     type Vtable = IWMPStringCollection2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46ad648d_53f1_4a74_92e2_2a1b68d63fd4);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPStringCollection2Vtbl {
     pub base: IWMPStringCollectionVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub isIdentical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpstringcollection2: ::windows::core::RawPtr, pvbool: *mut i16) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    isIdentical: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub getItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcollectionindex: i32, bstritemname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -15111,18 +16082,18 @@ pub struct IWMPStringCollection2Vtbl {
 #[repr(transparent)]
 pub struct IWMPSubscriptionService(::windows::core::IUnknown);
 impl IWMPSubscriptionService {
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn allowPlay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, hwnd: Param0, pmedia: Param1, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).allowPlay)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pmedia.into_param().abi(), ::core::mem::transmute(pfallowplay)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn allowCDBurn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, hwnd: Param0, pplaylist: Param1, pfallowburn: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).allowCDBurn)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowburn)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn allowPDATransfer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, hwnd: Param0, pplaylist: Param1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).allowPDATransfer)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowtransfer)).ok()
     }
@@ -15176,17 +16147,17 @@ unsafe impl ::windows::core::Interface for IWMPSubscriptionService {
 #[doc(hidden)]
 pub struct IWMPSubscriptionServiceVtbl {
     pub base: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub allowPlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pmedia: ::windows::core::RawPtr, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     allowPlay: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub allowCDBurn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pplaylist: ::windows::core::RawPtr, pfallowburn: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     allowCDBurn: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub allowPDATransfer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pplaylist: ::windows::core::RawPtr, pfallowtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     allowPDATransfer: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub startBackgroundProcessing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
@@ -15215,18 +16186,18 @@ impl IWMPSubscriptionService2 {
     pub unsafe fn prepareForSync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWMPSubscriptionServiceCallback>>(&self, bstrfilename: Param0, bstrdevicename: Param1, pcb: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).prepareForSync)(::core::mem::transmute_copy(self), bstrfilename.into_param().abi(), bstrdevicename.into_param().abi(), pcb.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn allowPlay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, hwnd: Param0, pmedia: Param1, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.allowPlay)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pmedia.into_param().abi(), ::core::mem::transmute(pfallowplay)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn allowCDBurn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, hwnd: Param0, pplaylist: Param1, pfallowburn: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.allowCDBurn)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowburn)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn allowPDATransfer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, hwnd: Param0, pplaylist: Param1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.allowPDATransfer)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowtransfer)).ok()
     }
@@ -15668,7 +16639,8 @@ pub struct IWMPSyncDevice2Vtbl {
 #[repr(transparent)]
 pub struct IWMPSyncDevice3(::windows::core::IUnknown);
 impl IWMPSyncDevice3 {
-    #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn estimateSyncSize<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pnonruleplaylist: Param0, prulesplaylist: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).estimateSyncSize)(::core::mem::transmute_copy(self), pnonruleplaylist.into_param().abi(), prulesplaylist.into_param().abi()).ok()
     }
@@ -15835,7 +16807,10 @@ unsafe impl ::windows::core::Interface for IWMPSyncDevice3 {
 #[doc(hidden)]
 pub struct IWMPSyncDevice3Vtbl {
     pub base: IWMPSyncDevice2Vtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub estimateSyncSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnonruleplaylist: ::windows::core::RawPtr, prulesplaylist: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    estimateSyncSize: usize,
     pub cancelEstimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
@@ -18739,9 +19714,11 @@ pub const WMProfile_V80_BESTVBRVideo: ::windows::core::GUID = ::windows::core::G
 pub const WMProfile_V80_FAIRVBRVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3510a862_5850_4886_835f_d78ec6a64042);
 pub const WMProfile_V80_HIGHVBRVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f10d9d3_3b04_4fb0_a3d3_88d4ac854acc);
 pub const WindowsMediaPlayer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a52_394a_11d3_b153_00c04f79faa6);
-#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct _WMPOCXEvents(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl _WMPOCXEvents {
     #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -18790,46 +19767,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<_WMPOCXEvents> for ::windows::core::IUnknown {
     fn from(value: _WMPOCXEvents) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_WMPOCXEvents> for ::windows::core::IUnknown {
     fn from(value: &_WMPOCXEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _WMPOCXEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &_WMPOCXEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for _WMPOCXEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _WMPOCXEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for _WMPOCXEvents {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for _WMPOCXEvents {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("_WMPOCXEvents").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _WMPOCXEvents {
     type Vtable = _WMPOCXEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a51_394a_11d3_b153_00c04f79faa6);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct _WMPOCXEventsVtbl {

@@ -573,9 +573,11 @@ impl ::core::fmt::Debug for HwtsVirtualChannelHandle {
 unsafe impl ::windows::core::Abi for HwtsVirtualChannelHandle {
     type Abi = Self;
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IADsTSUserEx(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IADsTSUserEx {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -769,46 +771,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IADsTSUserEx
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsTSUserEx> for ::windows::core::IUnknown {
     fn from(value: IADsTSUserEx) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsTSUserEx> for ::windows::core::IUnknown {
     fn from(value: &IADsTSUserEx) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsTSUserEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IADsTSUserEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IADsTSUserEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IADsTSUserEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IADsTSUserEx {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IADsTSUserEx {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IADsTSUserEx").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IADsTSUserEx {
     type Vtable = IADsTSUserExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4930e79_2989_4462_8a60_2fcf2f2955ef);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsTSUserExVtbl {
@@ -1313,9 +1325,11 @@ pub struct IAudioOutputEndpointRTVtbl {
     ReleaseOutputDataPointer: usize,
     pub PulseEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRemoteDesktopClient(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRemoteDesktopClient {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
     pub unsafe fn Connect(&self) -> ::windows::core::Result<()> {
@@ -1329,17 +1343,20 @@ impl IRemoteDesktopClient {
     pub unsafe fn Reconnect(&self, width: u32, height: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reconnect)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Settings(&self) -> ::windows::core::Result<IRemoteDesktopClientSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRemoteDesktopClientSettings>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Actions(&self) -> ::windows::core::Result<IRemoteDesktopClientActions> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Actions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRemoteDesktopClientActions>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TouchPointer(&self) -> ::windows::core::Result<IRemoteDesktopClientTouchPointer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).TouchPointer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRemoteDesktopClientTouchPointer>(result__)
@@ -1410,46 +1427,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRemoteDeskt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRemoteDesktopClient> for ::windows::core::IUnknown {
     fn from(value: IRemoteDesktopClient) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRemoteDesktopClient> for ::windows::core::IUnknown {
     fn from(value: &IRemoteDesktopClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRemoteDesktopClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRemoteDesktopClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRemoteDesktopClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRemoteDesktopClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRemoteDesktopClient {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRemoteDesktopClient {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRemoteDesktopClient").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRemoteDesktopClient {
     type Vtable = IRemoteDesktopClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d25668_625a_4905_be4e_304caa13f89c);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopClientVtbl {
@@ -1457,9 +1484,18 @@ pub struct IRemoteDesktopClientVtbl {
     pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Reconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub Settings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Settings: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub Actions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Actions: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub TouchPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, touchpointer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    TouchPointer: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub DeleteSavedCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1474,9 +1510,11 @@ pub struct IRemoteDesktopClientVtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     detachEvent: usize,
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRemoteDesktopClientActions(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRemoteDesktopClientActions {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
     pub unsafe fn SuspendScreenUpdates(&self) -> ::windows::core::Result<()> {
@@ -1543,46 +1581,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRemoteDeskt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRemoteDesktopClientActions> for ::windows::core::IUnknown {
     fn from(value: IRemoteDesktopClientActions) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRemoteDesktopClientActions> for ::windows::core::IUnknown {
     fn from(value: &IRemoteDesktopClientActions) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRemoteDesktopClientActions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRemoteDesktopClientActions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRemoteDesktopClientActions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRemoteDesktopClientActions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRemoteDesktopClientActions {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRemoteDesktopClientActions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRemoteDesktopClientActions").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRemoteDesktopClientActions {
     type Vtable = IRemoteDesktopClientActionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d54bc4e_1028_45d4_8b0a_b9b6bffba176);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopClientActionsVtbl {
@@ -1595,9 +1643,11 @@ pub struct IRemoteDesktopClientActionsVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetSnapshot: usize,
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRemoteDesktopClientSettings(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRemoteDesktopClientSettings {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1668,46 +1718,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRemoteDeskt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRemoteDesktopClientSettings> for ::windows::core::IUnknown {
     fn from(value: IRemoteDesktopClientSettings) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRemoteDesktopClientSettings> for ::windows::core::IUnknown {
     fn from(value: &IRemoteDesktopClientSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRemoteDesktopClientSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRemoteDesktopClientSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRemoteDesktopClientSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRemoteDesktopClientSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRemoteDesktopClientSettings {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRemoteDesktopClientSettings {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRemoteDesktopClientSettings").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRemoteDesktopClientSettings {
     type Vtable = IRemoteDesktopClientSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48a0f2a7_2713_431f_bbac_6f4558e7d64d);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopClientSettingsVtbl {
@@ -1729,9 +1789,11 @@ pub struct IRemoteDesktopClientSettingsVtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetRdpProperty: usize,
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRemoteDesktopClientTouchPointer(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRemoteDesktopClientTouchPointer {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
@@ -1807,46 +1869,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRemoteDeskt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRemoteDesktopClientTouchPointer> for ::windows::core::IUnknown {
     fn from(value: IRemoteDesktopClientTouchPointer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRemoteDesktopClientTouchPointer> for ::windows::core::IUnknown {
     fn from(value: &IRemoteDesktopClientTouchPointer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRemoteDesktopClientTouchPointer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRemoteDesktopClientTouchPointer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRemoteDesktopClientTouchPointer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRemoteDesktopClientTouchPointer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRemoteDesktopClientTouchPointer {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRemoteDesktopClientTouchPointer {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRemoteDesktopClientTouchPointer").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRemoteDesktopClientTouchPointer {
     type Vtable = IRemoteDesktopClientTouchPointerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x260ec22d_8cbc_44b5_9e88_2a37f6c93ae9);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopClientTouchPointerVtbl {
@@ -2424,7 +2496,8 @@ impl ITsSbClientConnection {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SamUserAccount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn ClientConnectionPropertySet(&self) -> ::windows::core::Result<ITsSbClientConnectionPropertySet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ClientConnectionPropertySet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITsSbClientConnectionPropertySet>(result__)
@@ -2526,7 +2599,10 @@ pub struct ITsSbClientConnectionVtbl {
     pub SamUserAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SamUserAccount: usize,
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub ClientConnectionPropertySet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertyset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
+    ClientConnectionPropertySet: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub IsFirstAssignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2535,9 +2611,11 @@ pub struct ITsSbClientConnectionVtbl {
     pub UserSidString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszusersidstring: *mut *mut i8) -> ::windows::core::HRESULT,
     pub GetDisconnectedSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(transparent)]
 pub struct ITsSbClientConnectionPropertySet(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbClientConnectionPropertySet {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
@@ -2550,21 +2628,25 @@ impl ITsSbClientConnectionPropertySet {
         (::windows::core::Interface::vtable(self).base.base.Write)(::core::mem::transmute_copy(self), pszpropname.into_param().abi(), ::core::mem::transmute(pvar)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<ITsSbClientConnectionPropertySet> for ITsSbPropertySet {
     fn from(value: ITsSbClientConnectionPropertySet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<&ITsSbClientConnectionPropertySet> for ITsSbPropertySet {
     fn from(value: &ITsSbClientConnectionPropertySet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ITsSbPropertySet> for ITsSbClientConnectionPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ITsSbPropertySet> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ITsSbPropertySet> for &ITsSbClientConnectionPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ITsSbPropertySet> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -2594,46 +2676,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IProperty
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<ITsSbClientConnectionPropertySet> for ::windows::core::IUnknown {
     fn from(value: ITsSbClientConnectionPropertySet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<&ITsSbClientConnectionPropertySet> for ::windows::core::IUnknown {
     fn from(value: &ITsSbClientConnectionPropertySet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITsSbClientConnectionPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITsSbClientConnectionPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for ITsSbClientConnectionPropertySet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::PartialEq for ITsSbClientConnectionPropertySet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::Eq for ITsSbClientConnectionPropertySet {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::fmt::Debug for ITsSbClientConnectionPropertySet {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ITsSbClientConnectionPropertySet").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows::core::Interface for ITsSbClientConnectionPropertySet {
     type Vtable = ITsSbClientConnectionPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe51995b0_46d6_11dd_aa21_cedc55d89593);
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbClientConnectionPropertySetVtbl {
@@ -2654,12 +2746,14 @@ impl ITsSbEnvironment {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ServerWeight)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn EnvironmentPropertySet(&self) -> ::windows::core::Result<ITsSbEnvironmentPropertySet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnvironmentPropertySet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITsSbEnvironmentPropertySet>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn SetEnvironmentPropertySet<'a, Param0: ::windows::core::IntoParam<'a, ITsSbEnvironmentPropertySet>>(&self, pval: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEnvironmentPropertySet)(::core::mem::transmute_copy(self), pval.into_param().abi()).ok()
     }
@@ -2713,12 +2807,20 @@ pub struct ITsSbEnvironmentVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Name: usize,
     pub ServerWeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub EnvironmentPropertySet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertyset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
+    EnvironmentPropertySet: usize,
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub SetEnvironmentPropertySet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
+    SetEnvironmentPropertySet: usize,
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(transparent)]
 pub struct ITsSbEnvironmentPropertySet(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbEnvironmentPropertySet {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
@@ -2731,21 +2833,25 @@ impl ITsSbEnvironmentPropertySet {
         (::windows::core::Interface::vtable(self).base.base.Write)(::core::mem::transmute_copy(self), pszpropname.into_param().abi(), ::core::mem::transmute(pvar)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<ITsSbEnvironmentPropertySet> for ITsSbPropertySet {
     fn from(value: ITsSbEnvironmentPropertySet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<&ITsSbEnvironmentPropertySet> for ITsSbPropertySet {
     fn from(value: &ITsSbEnvironmentPropertySet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ITsSbPropertySet> for ITsSbEnvironmentPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ITsSbPropertySet> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ITsSbPropertySet> for &ITsSbEnvironmentPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ITsSbPropertySet> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -2775,46 +2881,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IProperty
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<ITsSbEnvironmentPropertySet> for ::windows::core::IUnknown {
     fn from(value: ITsSbEnvironmentPropertySet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<&ITsSbEnvironmentPropertySet> for ::windows::core::IUnknown {
     fn from(value: &ITsSbEnvironmentPropertySet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITsSbEnvironmentPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITsSbEnvironmentPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for ITsSbEnvironmentPropertySet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::PartialEq for ITsSbEnvironmentPropertySet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::Eq for ITsSbEnvironmentPropertySet {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::fmt::Debug for ITsSbEnvironmentPropertySet {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ITsSbEnvironmentPropertySet").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows::core::Interface for ITsSbEnvironmentPropertySet {
     type Vtable = ITsSbEnvironmentPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0d1bf7e_7acf_11dd_a243_e51156d89593);
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbEnvironmentPropertySetVtbl {
@@ -2824,11 +2940,13 @@ pub struct ITsSbEnvironmentPropertySetVtbl {
 #[repr(transparent)]
 pub struct ITsSbFilterPluginStore(::windows::core::IUnknown);
 impl ITsSbFilterPluginStore {
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn SaveProperties<'a, Param0: ::windows::core::IntoParam<'a, ITsSbPropertySet>>(&self, ppropertyset: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SaveProperties)(::core::mem::transmute_copy(self), ppropertyset.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn EnumerateProperties(&self) -> ::windows::core::Result<ITsSbPropertySet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITsSbPropertySet>(result__)
@@ -2883,8 +3001,14 @@ unsafe impl ::windows::core::Interface for ITsSbFilterPluginStore {
 #[doc(hidden)]
 pub struct ITsSbFilterPluginStoreVtbl {
     pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub SaveProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropertyset: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
+    SaveProperties: usize,
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub EnumerateProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertyset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
+    EnumerateProperties: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub DeleteProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3138,7 +3262,8 @@ impl ITsSbLoadBalancing {
     pub unsafe fn GetMostSuitableTarget<'a, Param0: ::windows::core::IntoParam<'a, ITsSbClientConnection>, Param1: ::windows::core::IntoParam<'a, ITsSbLoadBalancingNotifySink>>(&self, pconnection: Param0, plbsink: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetMostSuitableTarget)(::core::mem::transmute_copy(self), pconnection.into_param().abi(), plbsink.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ITsSbProvider>, Param1: ::windows::core::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::core::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Initialize)(::core::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
@@ -3308,7 +3433,8 @@ impl ITsSbOrchestration {
     pub unsafe fn PrepareTargetForConnect<'a, Param0: ::windows::core::IntoParam<'a, ITsSbClientConnection>, Param1: ::windows::core::IntoParam<'a, ITsSbOrchestrationNotifySink>>(&self, pconnection: Param0, porchestrationnotifysink: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PrepareTargetForConnect)(::core::mem::transmute_copy(self), pconnection.into_param().abi(), porchestrationnotifysink.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ITsSbProvider>, Param1: ::windows::core::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::core::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Initialize)(::core::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
@@ -3474,7 +3600,8 @@ impl ITsSbPlacement {
     pub unsafe fn QueryEnvironmentForTarget<'a, Param0: ::windows::core::IntoParam<'a, ITsSbClientConnection>, Param1: ::windows::core::IntoParam<'a, ITsSbPlacementNotifySink>>(&self, pconnection: Param0, pplacementsink: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryEnvironmentForTarget)(::core::mem::transmute_copy(self), pconnection.into_param().abi(), pplacementsink.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ITsSbProvider>, Param1: ::windows::core::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::core::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Initialize)(::core::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
@@ -3636,7 +3763,8 @@ pub struct ITsSbPlacementNotifySinkVtbl {
 #[repr(transparent)]
 pub struct ITsSbPlugin(::windows::core::IUnknown);
 impl ITsSbPlugin {
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ITsSbProvider>, Param1: ::windows::core::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::core::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
@@ -3689,7 +3817,10 @@ unsafe impl ::windows::core::Interface for ITsSbPlugin {
 #[doc(hidden)]
 pub struct ITsSbPluginVtbl {
     pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprovider: ::windows::core::RawPtr, pnotifysink: ::windows::core::RawPtr, ppropertyset: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
+    Initialize: usize,
     pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -3780,9 +3911,11 @@ pub struct ITsSbPluginNotifySinkVtbl {
     pub OnInitialized: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnTerminated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(transparent)]
 pub struct ITsSbPluginPropertySet(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbPluginPropertySet {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
@@ -3795,21 +3928,25 @@ impl ITsSbPluginPropertySet {
         (::windows::core::Interface::vtable(self).base.base.Write)(::core::mem::transmute_copy(self), pszpropname.into_param().abi(), ::core::mem::transmute(pvar)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<ITsSbPluginPropertySet> for ITsSbPropertySet {
     fn from(value: ITsSbPluginPropertySet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<&ITsSbPluginPropertySet> for ITsSbPropertySet {
     fn from(value: &ITsSbPluginPropertySet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ITsSbPropertySet> for ITsSbPluginPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ITsSbPropertySet> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ITsSbPropertySet> for &ITsSbPluginPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ITsSbPropertySet> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -3839,54 +3976,66 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IProperty
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<ITsSbPluginPropertySet> for ::windows::core::IUnknown {
     fn from(value: ITsSbPluginPropertySet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<&ITsSbPluginPropertySet> for ::windows::core::IUnknown {
     fn from(value: &ITsSbPluginPropertySet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITsSbPluginPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITsSbPluginPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for ITsSbPluginPropertySet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::PartialEq for ITsSbPluginPropertySet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::Eq for ITsSbPluginPropertySet {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::fmt::Debug for ITsSbPluginPropertySet {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ITsSbPluginPropertySet").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows::core::Interface for ITsSbPluginPropertySet {
     type Vtable = ITsSbPluginPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95006e34_7eff_4b6c_bb40_49a4fda7cea6);
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbPluginPropertySetVtbl {
     pub base: ITsSbPropertySetVtbl,
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(transparent)]
 pub struct ITsSbPropertySet(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbPropertySet {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
@@ -3923,46 +4072,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IProperty
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<ITsSbPropertySet> for ::windows::core::IUnknown {
     fn from(value: ITsSbPropertySet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<&ITsSbPropertySet> for ::windows::core::IUnknown {
     fn from(value: &ITsSbPropertySet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITsSbPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITsSbPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for ITsSbPropertySet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::PartialEq for ITsSbPropertySet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::Eq for ITsSbPropertySet {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::fmt::Debug for ITsSbPropertySet {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ITsSbPropertySet").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows::core::Interface for ITsSbPropertySet {
     type Vtable = ITsSbPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c025171_bb1e_4baf_a212_6d5e9774b33b);
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbPropertySetVtbl {
@@ -3990,12 +4149,14 @@ impl ITsSbProvider {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateSessionObject)(::core::mem::transmute_copy(self), targetname.into_param().abi(), username.into_param().abi(), domain.into_param().abi(), ::core::mem::transmute(sessionid), ::core::mem::transmute(&mut result__)).from_abi::<ITsSbSession>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn CreatePluginPropertySet(&self) -> ::windows::core::Result<ITsSbPluginPropertySet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreatePluginPropertySet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITsSbPluginPropertySet>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn CreateTargetPropertySetObject(&self) -> ::windows::core::Result<ITsSbTargetPropertySet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateTargetPropertySetObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITsSbTargetPropertySet>(result__)
@@ -4031,7 +4192,8 @@ impl ITsSbProvider {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetInstanceOfGlobalStore)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITsSbGlobalStore>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn CreateEnvironmentPropertySetObject(&self) -> ::windows::core::Result<ITsSbEnvironmentPropertySet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateEnvironmentPropertySetObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITsSbEnvironmentPropertySet>(result__)
@@ -4093,8 +4255,14 @@ pub struct ITsSbProviderVtbl {
     pub CreateSessionObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, username: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, domain: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, sessionid: u32, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     CreateSessionObject: usize,
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub CreatePluginPropertySet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertyset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
+    CreatePluginPropertySet: usize,
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub CreateTargetPropertySetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertyset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
+    CreateTargetPropertySetObject: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateEnvironmentObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, serverweight: u32, ppenvironment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4110,7 +4278,10 @@ pub struct ITsSbProviderVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     UnRegisterForNotification: usize,
     pub GetInstanceOfGlobalStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppglobalstore: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub CreateEnvironmentPropertySetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertyset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
+    CreateEnvironmentPropertySetObject: usize,
 }
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 #[repr(transparent)]
@@ -4136,7 +4307,8 @@ impl ITsSbProvisioning {
     pub unsafe fn CancelJob<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, jobguid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CancelJob)(::core::mem::transmute_copy(self), jobguid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ITsSbProvider>, Param1: ::windows::core::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::core::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Initialize)(::core::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
@@ -4464,7 +4636,8 @@ pub struct ITsSbResourceNotificationExVtbl {
 #[repr(transparent)]
 pub struct ITsSbResourcePlugin(::windows::core::IUnknown);
 impl ITsSbResourcePlugin {
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ITsSbProvider>, Param1: ::windows::core::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::core::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Initialize)(::core::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
@@ -5129,12 +5302,14 @@ impl ITsSbTarget {
     pub unsafe fn SetTargetState(&self, state: TARGET_STATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTargetState)(::core::mem::transmute_copy(self), ::core::mem::transmute(state)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn TargetPropertySet(&self) -> ::windows::core::Result<ITsSbTargetPropertySet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).TargetPropertySet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITsSbTargetPropertySet>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn SetTargetPropertySet<'a, Param0: ::windows::core::IntoParam<'a, ITsSbTargetPropertySet>>(&self, pval: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTargetPropertySet)(::core::mem::transmute_copy(self), pval.into_param().abi()).ok()
     }
@@ -5245,8 +5420,14 @@ pub struct ITsSbTargetVtbl {
     pub SetIpAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sockaddr: *const TSSD_ConnectionPoint, numaddresses: u32) -> ::windows::core::HRESULT,
     pub TargetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut TARGET_STATE) -> ::windows::core::HRESULT,
     pub SetTargetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: TARGET_STATE) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub TargetPropertySet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertyset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
+    TargetPropertySet: usize,
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub SetTargetPropertySet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
+    SetTargetPropertySet: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub EnvironmentName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5259,9 +5440,11 @@ pub struct ITsSbTargetVtbl {
     pub NumPendingConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumpendingconnections: *mut u32) -> ::windows::core::HRESULT,
     pub TargetLoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptargetload: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(transparent)]
 pub struct ITsSbTargetPropertySet(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbTargetPropertySet {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
@@ -5274,21 +5457,25 @@ impl ITsSbTargetPropertySet {
         (::windows::core::Interface::vtable(self).base.base.Write)(::core::mem::transmute_copy(self), pszpropname.into_param().abi(), ::core::mem::transmute(pvar)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<ITsSbTargetPropertySet> for ITsSbPropertySet {
     fn from(value: ITsSbTargetPropertySet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<&ITsSbTargetPropertySet> for ITsSbPropertySet {
     fn from(value: &ITsSbTargetPropertySet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ITsSbPropertySet> for ITsSbTargetPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ITsSbPropertySet> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ITsSbPropertySet> for &ITsSbTargetPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ITsSbPropertySet> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -5318,46 +5505,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IProperty
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<ITsSbTargetPropertySet> for ::windows::core::IUnknown {
     fn from(value: ITsSbTargetPropertySet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::convert::From<&ITsSbTargetPropertySet> for ::windows::core::IUnknown {
     fn from(value: &ITsSbTargetPropertySet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITsSbTargetPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITsSbTargetPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for ITsSbTargetPropertySet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::PartialEq for ITsSbTargetPropertySet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::Eq for ITsSbTargetPropertySet {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::fmt::Debug for ITsSbTargetPropertySet {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ITsSbTargetPropertySet").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows::core::Interface for ITsSbTargetPropertySet {
     type Vtable = ITsSbTargetPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7bda5d6_994c_4e11_a079_2763b61830ac);
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbTargetPropertySetVtbl {
@@ -5512,7 +5709,8 @@ impl ITsSbTaskPlugin {
     pub unsafe fn SetTaskQueue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pszhostname: Param0, sbtaskinfosize: u32, pitssbtaskinfo: *const ::core::option::Option<ITsSbTaskInfo>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTaskQueue)(::core::mem::transmute_copy(self), pszhostname.into_param().abi(), ::core::mem::transmute(sbtaskinfosize), ::core::mem::transmute(pitssbtaskinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ITsSbProvider>, Param1: ::windows::core::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::core::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Initialize)(::core::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
@@ -9088,9 +9286,11 @@ pub struct IWorkspaceReportMessageVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RegisterErrorEvent: usize,
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWorkspaceResTypeRegistry(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWorkspaceResTypeRegistry {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9166,46 +9366,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWorkspaceRe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWorkspaceResTypeRegistry> for ::windows::core::IUnknown {
     fn from(value: IWorkspaceResTypeRegistry) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWorkspaceResTypeRegistry> for ::windows::core::IUnknown {
     fn from(value: &IWorkspaceResTypeRegistry) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWorkspaceResTypeRegistry {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWorkspaceResTypeRegistry {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWorkspaceResTypeRegistry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWorkspaceResTypeRegistry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWorkspaceResTypeRegistry {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWorkspaceResTypeRegistry {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWorkspaceResTypeRegistry").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWorkspaceResTypeRegistry {
     type Vtable = IWorkspaceResTypeRegistryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d428c79_6e2e_4351_a361_c0401a03a0ba);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspaceResTypeRegistryVtbl {
@@ -9231,9 +9441,11 @@ pub struct IWorkspaceResTypeRegistryVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ModifyResourceType: usize,
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWorkspaceScriptable(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWorkspaceScriptable {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9318,46 +9530,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWorkspaceSc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWorkspaceScriptable> for ::windows::core::IUnknown {
     fn from(value: IWorkspaceScriptable) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWorkspaceScriptable> for ::windows::core::IUnknown {
     fn from(value: &IWorkspaceScriptable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWorkspaceScriptable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWorkspaceScriptable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWorkspaceScriptable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWorkspaceScriptable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWorkspaceScriptable {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWorkspaceScriptable {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWorkspaceScriptable").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWorkspaceScriptable {
     type Vtable = IWorkspaceScriptableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefea49a2_dda5_429d_8f42_b23b92c4c347);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspaceScriptableVtbl {
@@ -9388,9 +9610,11 @@ pub struct IWorkspaceScriptableVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     DisconnectWorkspaceByFriendlyName: usize,
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWorkspaceScriptable2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWorkspaceScriptable2 {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9461,21 +9685,25 @@ impl IWorkspaceScriptable2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWorkspaceScriptable2> for IWorkspaceScriptable {
     fn from(value: IWorkspaceScriptable2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWorkspaceScriptable2> for IWorkspaceScriptable {
     fn from(value: &IWorkspaceScriptable2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWorkspaceScriptable> for IWorkspaceScriptable2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWorkspaceScriptable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWorkspaceScriptable> for &IWorkspaceScriptable2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWorkspaceScriptable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -9505,46 +9733,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWorkspaceSc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWorkspaceScriptable2> for ::windows::core::IUnknown {
     fn from(value: IWorkspaceScriptable2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWorkspaceScriptable2> for ::windows::core::IUnknown {
     fn from(value: &IWorkspaceScriptable2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWorkspaceScriptable2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWorkspaceScriptable2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWorkspaceScriptable2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWorkspaceScriptable2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWorkspaceScriptable2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWorkspaceScriptable2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWorkspaceScriptable2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWorkspaceScriptable2 {
     type Vtable = IWorkspaceScriptable2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefea49a2_dda5_429d_8f42_b33ba2c4c348);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspaceScriptable2Vtbl {
@@ -9558,9 +9796,11 @@ pub struct IWorkspaceScriptable2Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ResourceDismissed: usize,
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWorkspaceScriptable3(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWorkspaceScriptable3 {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9649,41 +9889,49 @@ impl IWorkspaceScriptable3 {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWorkspaceScriptable3> for IWorkspaceScriptable2 {
     fn from(value: IWorkspaceScriptable3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWorkspaceScriptable3> for IWorkspaceScriptable2 {
     fn from(value: &IWorkspaceScriptable3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWorkspaceScriptable2> for IWorkspaceScriptable3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWorkspaceScriptable2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWorkspaceScriptable2> for &IWorkspaceScriptable3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWorkspaceScriptable2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWorkspaceScriptable3> for IWorkspaceScriptable {
     fn from(value: IWorkspaceScriptable3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWorkspaceScriptable3> for IWorkspaceScriptable {
     fn from(value: &IWorkspaceScriptable3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWorkspaceScriptable> for IWorkspaceScriptable3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWorkspaceScriptable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWorkspaceScriptable> for &IWorkspaceScriptable3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWorkspaceScriptable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -9713,46 +9961,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWorkspaceSc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWorkspaceScriptable3> for ::windows::core::IUnknown {
     fn from(value: IWorkspaceScriptable3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWorkspaceScriptable3> for ::windows::core::IUnknown {
     fn from(value: &IWorkspaceScriptable3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWorkspaceScriptable3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWorkspaceScriptable3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWorkspaceScriptable3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWorkspaceScriptable3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWorkspaceScriptable3 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWorkspaceScriptable3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWorkspaceScriptable3").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWorkspaceScriptable3 {
     type Vtable = IWorkspaceScriptable3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x531e6512_2cbf_4bd2_80a5_d90a71636a9a);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspaceScriptable3Vtbl {
@@ -15451,9 +15709,11 @@ pub const WTS_WSD_REBOOT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
 pub const Workspace: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f1dfca6_3aad_48e1_8406_4bc21a501d7c);
-#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct _ITSWkspEvents(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl _ITSWkspEvents {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -15502,46 +15762,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &_ITSWkspEven
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<_ITSWkspEvents> for ::windows::core::IUnknown {
     fn from(value: _ITSWkspEvents) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_ITSWkspEvents> for ::windows::core::IUnknown {
     fn from(value: &_ITSWkspEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _ITSWkspEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &_ITSWkspEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for _ITSWkspEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _ITSWkspEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for _ITSWkspEvents {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for _ITSWkspEvents {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("_ITSWkspEvents").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _ITSWkspEvents {
     type Vtable = _ITSWkspEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb922bbb8_4c55_4fea_8496_beb0b44285e9);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ITSWkspEventsVtbl {

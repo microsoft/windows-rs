@@ -2509,31 +2509,38 @@ impl ::core::default::Default for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     pub pMotionVectorHeap: ::core::option::Option<ID3D12VideoMotionVectorHeap>,
     pub PixelWidth: u32,
     pub PixelHeight: u32,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     fn clone(&self) -> Self {
         Self { pMotionVectorHeap: self.pMotionVectorHeap.clone(), PixelWidth: self.PixelWidth, PixelHeight: self.PixelHeight }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT").field("pMotionVectorHeap", &self.pMotionVectorHeap).field("PixelWidth", &self.PixelWidth).field("PixelHeight", &self.PixelHeight).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     fn eq(&self, other: &Self) -> bool {
         self.pMotionVectorHeap == other.pMotionVectorHeap && self.PixelWidth == other.PixelWidth && self.PixelHeight == other.PixelHeight
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::default::Default for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5904,29 +5911,36 @@ impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     pub pMotionVectorHeap: ::core::option::Option<ID3D12VideoMotionVectorHeap>,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     fn clone(&self) -> Self {
         Self { pMotionVectorHeap: self.pMotionVectorHeap.clone() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT").field("pMotionVectorHeap", &self.pMotionVectorHeap).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
         self.pMotionVectorHeap == other.pMotionVectorHeap
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11735,9 +11749,11 @@ pub struct ICodecAPIVtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetAllSettingsWithNotify: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoDecodeCommandList(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecodeCommandList {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -11907,46 +11923,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoDecodeCommandList> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoDecodeCommandList) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoDecodeCommandList> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoDecodeCommandList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoDecodeCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecodeCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecodeCommandList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecodeCommandList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoDecodeCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoDecodeCommandList {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoDecodeCommandList").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecodeCommandList {
     type Vtable = ID3D12VideoDecodeCommandListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b60536e_ad29_4e64_a269_f853837e5e53);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoDecodeCommandListVtbl {
@@ -11993,9 +12019,11 @@ pub struct ID3D12VideoDecodeCommandListVtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     WriteBufferImmediate: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoDecodeCommandList1(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecodeCommandList1 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -12098,21 +12126,25 @@ impl ID3D12VideoDecodeCommandList1 {
         (::windows::core::Interface::vtable(self).base.base.base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoDecodeCommandList1> for ID3D12VideoDecodeCommandList {
     fn from(value: ID3D12VideoDecodeCommandList1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoDecodeCommandList1> for ID3D12VideoDecodeCommandList {
     fn from(value: &ID3D12VideoDecodeCommandList1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList> for ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecodeCommandList> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList> for &ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecodeCommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -12190,46 +12222,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoDecodeCommandList1> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoDecodeCommandList1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoDecodeCommandList1> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoDecodeCommandList1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecodeCommandList1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecodeCommandList1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoDecodeCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoDecodeCommandList1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoDecodeCommandList1").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecodeCommandList1 {
     type Vtable = ID3D12VideoDecodeCommandList1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd52f011b_b56e_453c_a05a_a7f311c8f472);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoDecodeCommandList1Vtbl {
@@ -12239,20 +12281,24 @@ pub struct ID3D12VideoDecodeCommandList1Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))]
     DecodeFrame1: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoDecodeCommandList2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecodeCommandList2 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
         (::windows::core::Interface::vtable(self).SetProtectedResourceSession)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi())
     }
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn InitializeExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize) {
         (::windows::core::Interface::vtable(self).InitializeExtensionCommand)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pinitializationparameters), ::core::mem::transmute(initializationparameterssizeinbytes))
     }
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize) {
         (::windows::core::Interface::vtable(self).ExecuteExtensionCommand)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes))
     }
@@ -12357,41 +12403,49 @@ impl ID3D12VideoDecodeCommandList2 {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoDecodeCommandList2> for ID3D12VideoDecodeCommandList1 {
     fn from(value: ID3D12VideoDecodeCommandList2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoDecodeCommandList2> for ID3D12VideoDecodeCommandList1 {
     fn from(value: &ID3D12VideoDecodeCommandList2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList1> for ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecodeCommandList1> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList1> for &ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecodeCommandList1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoDecodeCommandList2> for ID3D12VideoDecodeCommandList {
     fn from(value: ID3D12VideoDecodeCommandList2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoDecodeCommandList2> for ID3D12VideoDecodeCommandList {
     fn from(value: &ID3D12VideoDecodeCommandList2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList> for ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecodeCommandList> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList> for &ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecodeCommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -12469,46 +12523,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoDecodeCommandList2> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoDecodeCommandList2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoDecodeCommandList2> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoDecodeCommandList2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecodeCommandList2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecodeCommandList2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoDecodeCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoDecodeCommandList2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoDecodeCommandList2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecodeCommandList2 {
     type Vtable = ID3D12VideoDecodeCommandList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e120880_c114_4153_8036_d247051e1729);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoDecodeCommandList2Vtbl {
@@ -12517,12 +12581,20 @@ pub struct ID3D12VideoDecodeCommandList2Vtbl {
     pub SetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotectedresourcesession: ::windows::core::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     SetProtectedResourceSession: usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub InitializeExtensionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
+    InitializeExtensionCommand: usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub ExecuteExtensionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
+    ExecuteExtensionCommand: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoDecoder(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecoder {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_DECODER_DESC {
@@ -12628,55 +12700,67 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoDecoder> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoDecoder) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoDecoder> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoDecoder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoDecoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecoder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoDecoder {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoDecoder {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoDecoder").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecoder {
     type Vtable = ID3D12VideoDecoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc59b6bdc_7720_4074_a136_17a156037470);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoDecoderVtbl {
     pub base: ID3D12PageableVtbl,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_DESC),
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoDecoder1(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecoder1 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub unsafe fn GetProtectedResourceSession<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -12714,21 +12798,25 @@ impl ID3D12VideoDecoder1 {
         (::windows::core::Interface::vtable(self).base.base.base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoDecoder1> for ID3D12VideoDecoder {
     fn from(value: ID3D12VideoDecoder1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoDecoder1> for ID3D12VideoDecoder {
     fn from(value: &ID3D12VideoDecoder1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecoder> for ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecoder> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecoder> for &ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecoder> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -12806,55 +12894,67 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoDecoder1> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoDecoder1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoDecoder1> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoDecoder1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecoder1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecoder1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoDecoder1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoDecoder1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoDecoder1").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecoder1 {
     type Vtable = ID3D12VideoDecoder1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79a2e5fb_ccd2_469a_9fde_195d10951f7e);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoDecoder1Vtbl {
     pub base: ID3D12VideoDecoderVtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoDecoderHeap(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecoderHeap {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -12961,46 +13061,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoDecoderHeap> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoDecoderHeap) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoDecoderHeap> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoDecoderHeap) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoDecoderHeap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecoderHeap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecoderHeap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecoderHeap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoDecoderHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoDecoderHeap {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoDecoderHeap").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecoderHeap {
     type Vtable = ID3D12VideoDecoderHeapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0946b7c9_ebf6_4047_bb73_8683e27dbb1f);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoDecoderHeapVtbl {
@@ -13010,9 +13120,11 @@ pub struct ID3D12VideoDecoderHeapVtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoDecoderHeap1(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecoderHeap1 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub unsafe fn GetProtectedResourceSession<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -13051,21 +13163,25 @@ impl ID3D12VideoDecoderHeap1 {
         (::windows::core::Interface::vtable(self).base.base.base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoDecoderHeap1> for ID3D12VideoDecoderHeap {
     fn from(value: ID3D12VideoDecoderHeap1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoDecoderHeap1> for ID3D12VideoDecoderHeap {
     fn from(value: &ID3D12VideoDecoderHeap1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecoderHeap> for ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecoderHeap> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecoderHeap> for &ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecoderHeap> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -13143,46 +13259,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoDecoderHeap1> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoDecoderHeap1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoDecoderHeap1> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoDecoderHeap1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecoderHeap1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecoderHeap1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoDecoderHeap1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoDecoderHeap1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoDecoderHeap1").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecoderHeap1 {
     type Vtable = ID3D12VideoDecoderHeap1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda1d98c5_539f_41b2_bf6b_1198a03b6d26);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoDecoderHeap1Vtbl {
@@ -13409,7 +13535,8 @@ impl ID3D12VideoDevice2 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).CreateVideoExtensionCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pcreationparameters), ::core::mem::transmute(creationparametersdatasizeinbytes), pprotectedresourcesession.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut ::core::ffi::c_void, outputdatasizeinbytes: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ExecuteExtensionCommand)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes), ::core::mem::transmute(poutputdata), ::core::mem::transmute(outputdatasizeinbytes)).ok()
     }
@@ -13547,7 +13674,10 @@ pub struct ID3D12VideoDevice2Vtbl {
     pub CreateVideoExtensionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoextensioncommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     CreateVideoExtensionCommand: usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub ExecuteExtensionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut ::core::ffi::c_void, outputdatasizeinbytes: usize) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
+    ExecuteExtensionCommand: usize,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -13588,7 +13718,8 @@ impl ID3D12VideoDevice3 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base.CreateVideoExtensionCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pcreationparameters), ::core::mem::transmute(creationparametersdatasizeinbytes), pprotectedresourcesession.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut ::core::ffi::c_void, outputdatasizeinbytes: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ExecuteExtensionCommand)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes), ::core::mem::transmute(poutputdata), ::core::mem::transmute(outputdatasizeinbytes)).ok()
     }
@@ -13736,9 +13867,11 @@ pub struct ID3D12VideoDevice3Vtbl {
     CreateVideoEncoder: usize,
     pub CreateVideoEncoderHeap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideoencoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoEncodeCommandList(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncodeCommandList {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -13918,46 +14051,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoEncodeCommandList> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoEncodeCommandList) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoEncodeCommandList> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoEncodeCommandList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoEncodeCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoEncodeCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoEncodeCommandList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoEncodeCommandList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoEncodeCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoEncodeCommandList {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoEncodeCommandList").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncodeCommandList {
     type Vtable = ID3D12VideoEncodeCommandListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8455293a_0cbd_4831_9b39_fbdbab724723);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoEncodeCommandListVtbl {
@@ -14012,15 +14155,19 @@ pub struct ID3D12VideoEncodeCommandListVtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     SetProtectedResourceSession: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoEncodeCommandList1(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncodeCommandList1 {
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn InitializeExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize) {
         (::windows::core::Interface::vtable(self).InitializeExtensionCommand)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pinitializationparameters), ::core::mem::transmute(initializationparameterssizeinbytes))
     }
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize) {
         (::windows::core::Interface::vtable(self).ExecuteExtensionCommand)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes))
     }
@@ -14130,21 +14277,25 @@ impl ID3D12VideoEncodeCommandList1 {
         (::windows::core::Interface::vtable(self).base.base.base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoEncodeCommandList1> for ID3D12VideoEncodeCommandList {
     fn from(value: ID3D12VideoEncodeCommandList1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoEncodeCommandList1> for ID3D12VideoEncodeCommandList {
     fn from(value: &ID3D12VideoEncodeCommandList1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList> for ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoEncodeCommandList> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList> for &ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoEncodeCommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -14222,56 +14373,74 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoEncodeCommandList1> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoEncodeCommandList1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoEncodeCommandList1> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoEncodeCommandList1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoEncodeCommandList1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoEncodeCommandList1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoEncodeCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoEncodeCommandList1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoEncodeCommandList1").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncodeCommandList1 {
     type Vtable = ID3D12VideoEncodeCommandList1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94971eca_2bdb_4769_88cf_3675ea757ebc);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoEncodeCommandList1Vtbl {
     pub base: ID3D12VideoEncodeCommandListVtbl,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub InitializeExtensionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
+    InitializeExtensionCommand: usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub ExecuteExtensionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
+    ExecuteExtensionCommand: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoEncodeCommandList2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncodeCommandList2 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -14283,11 +14452,13 @@ impl ID3D12VideoEncodeCommandList2 {
     pub unsafe fn ResolveEncoderOutputMetadata(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS) {
         (::windows::core::Interface::vtable(self).ResolveEncoderOutputMetadata)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputarguments), ::core::mem::transmute(poutputarguments))
     }
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn InitializeExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize) {
         (::windows::core::Interface::vtable(self).base.InitializeExtensionCommand)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pinitializationparameters), ::core::mem::transmute(initializationparameterssizeinbytes))
     }
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize) {
         (::windows::core::Interface::vtable(self).base.ExecuteExtensionCommand)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes))
     }
@@ -14397,41 +14568,49 @@ impl ID3D12VideoEncodeCommandList2 {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoEncodeCommandList2> for ID3D12VideoEncodeCommandList1 {
     fn from(value: ID3D12VideoEncodeCommandList2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoEncodeCommandList2> for ID3D12VideoEncodeCommandList1 {
     fn from(value: &ID3D12VideoEncodeCommandList2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList1> for ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoEncodeCommandList1> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList1> for &ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoEncodeCommandList1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoEncodeCommandList2> for ID3D12VideoEncodeCommandList {
     fn from(value: ID3D12VideoEncodeCommandList2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoEncodeCommandList2> for ID3D12VideoEncodeCommandList {
     fn from(value: &ID3D12VideoEncodeCommandList2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList> for ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoEncodeCommandList> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList> for &ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoEncodeCommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -14509,46 +14688,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoEncodeCommandList2> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoEncodeCommandList2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoEncodeCommandList2> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoEncodeCommandList2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoEncodeCommandList2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoEncodeCommandList2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoEncodeCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoEncodeCommandList2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoEncodeCommandList2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncodeCommandList2 {
     type Vtable = ID3D12VideoEncodeCommandList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x895491e2_e701_46a9_9a1f_8d3480ed867a);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoEncodeCommandList2Vtbl {
@@ -14562,9 +14751,11 @@ pub struct ID3D12VideoEncodeCommandList2Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))]
     ResolveEncoderOutputMetadata: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoEncoder(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncoder {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub unsafe fn GetNodeMask(&self) -> u32 {
@@ -14693,46 +14884,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoEncoder> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoEncoder) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoEncoder> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoEncoder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoEncoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoEncoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoEncoder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoEncoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoEncoder {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoEncoder {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoEncoder").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncoder {
     type Vtable = ID3D12VideoEncoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e0d212d_8df9_44a6_a770_bb289b182737);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoEncoderVtbl {
@@ -14748,9 +14949,11 @@ pub struct ID3D12VideoEncoderVtbl {
     GetInputFormat: usize,
     pub GetMaxMotionEstimationPrecision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoEncoderHeap(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncoderHeap {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub unsafe fn GetNodeMask(&self) -> u32 {
@@ -14878,46 +15081,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoEncoderHeap> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoEncoderHeap) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoEncoderHeap> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoEncoderHeap) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoEncoderHeap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoEncoderHeap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoEncoderHeap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoEncoderHeap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoEncoderHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoEncoderHeap {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoEncoderHeap").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncoderHeap {
     type Vtable = ID3D12VideoEncoderHeapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b35d96_876a_44c0_b25e_fb8c9c7f1c4a);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoEncoderHeapVtbl {
@@ -14930,9 +15143,11 @@ pub struct ID3D12VideoEncoderHeapVtbl {
     pub GetResolutionListCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetResolutionList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resolutionslistcount: u32, presolutionlist: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoExtensionCommand(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoExtensionCommand {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_EXTENSION_COMMAND_DESC {
@@ -15042,46 +15257,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoExtensionCommand> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoExtensionCommand) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoExtensionCommand> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoExtensionCommand) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoExtensionCommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoExtensionCommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoExtensionCommand {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoExtensionCommand {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoExtensionCommand {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoExtensionCommand {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoExtensionCommand").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoExtensionCommand {
     type Vtable = ID3D12VideoExtensionCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x554e41e8_ae8e_4a8c_b7d2_5b4f274a30e4);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoExtensionCommandVtbl {
@@ -15089,9 +15314,11 @@ pub struct ID3D12VideoExtensionCommandVtbl {
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_EXTENSION_COMMAND_DESC),
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoMotionEstimator(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoMotionEstimator {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -15202,46 +15429,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoMotionEstimator> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoMotionEstimator) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoMotionEstimator> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoMotionEstimator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoMotionEstimator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoMotionEstimator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoMotionEstimator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoMotionEstimator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoMotionEstimator {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoMotionEstimator {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoMotionEstimator").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoMotionEstimator {
     type Vtable = ID3D12VideoMotionEstimatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33fdae0e_098b_428f_87bb_34b695de08f8);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoMotionEstimatorVtbl {
@@ -15252,9 +15489,11 @@ pub struct ID3D12VideoMotionEstimatorVtbl {
     GetDesc: usize,
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoMotionVectorHeap(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoMotionVectorHeap {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -15365,46 +15604,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoMotionVectorHeap> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoMotionVectorHeap) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoMotionVectorHeap> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoMotionVectorHeap) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoMotionVectorHeap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoMotionVectorHeap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoMotionVectorHeap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoMotionVectorHeap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoMotionVectorHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoMotionVectorHeap {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoMotionVectorHeap").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoMotionVectorHeap {
     type Vtable = ID3D12VideoMotionVectorHeapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5be17987_743a_4061_834b_23d22daea505);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoMotionVectorHeapVtbl {
@@ -15415,9 +15664,11 @@ pub struct ID3D12VideoMotionVectorHeapVtbl {
     GetDesc: usize,
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoProcessCommandList(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessCommandList {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -15587,46 +15838,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoProcessCommandList> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoProcessCommandList) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoProcessCommandList> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoProcessCommandList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoProcessCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoProcessCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoProcessCommandList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoProcessCommandList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoProcessCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoProcessCommandList {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoProcessCommandList").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessCommandList {
     type Vtable = ID3D12VideoProcessCommandListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeb2543a_167f_4682_acc8_d159ed4a6209);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoProcessCommandListVtbl {
@@ -15673,9 +15934,11 @@ pub struct ID3D12VideoProcessCommandListVtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     WriteBufferImmediate: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoProcessCommandList1(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessCommandList1 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
@@ -15778,21 +16041,25 @@ impl ID3D12VideoProcessCommandList1 {
         (::windows::core::Interface::vtable(self).base.base.base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoProcessCommandList1> for ID3D12VideoProcessCommandList {
     fn from(value: ID3D12VideoProcessCommandList1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoProcessCommandList1> for ID3D12VideoProcessCommandList {
     fn from(value: &ID3D12VideoProcessCommandList1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList> for ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoProcessCommandList> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList> for &ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoProcessCommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -15870,46 +16137,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoProcessCommandList1> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoProcessCommandList1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoProcessCommandList1> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoProcessCommandList1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoProcessCommandList1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoProcessCommandList1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoProcessCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoProcessCommandList1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoProcessCommandList1").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessCommandList1 {
     type Vtable = ID3D12VideoProcessCommandList1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x542c5c4d_7596_434f_8c93_4efa6766f267);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoProcessCommandList1Vtbl {
@@ -15919,20 +16196,24 @@ pub struct ID3D12VideoProcessCommandList1Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))]
     ProcessFrames1: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoProcessCommandList2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessCommandList2 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
         (::windows::core::Interface::vtable(self).SetProtectedResourceSession)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi())
     }
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn InitializeExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize) {
         (::windows::core::Interface::vtable(self).InitializeExtensionCommand)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pinitializationparameters), ::core::mem::transmute(initializationparameterssizeinbytes))
     }
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize) {
         (::windows::core::Interface::vtable(self).ExecuteExtensionCommand)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes))
     }
@@ -16037,41 +16318,49 @@ impl ID3D12VideoProcessCommandList2 {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoProcessCommandList2> for ID3D12VideoProcessCommandList1 {
     fn from(value: ID3D12VideoProcessCommandList2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoProcessCommandList2> for ID3D12VideoProcessCommandList1 {
     fn from(value: &ID3D12VideoProcessCommandList2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList1> for ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoProcessCommandList1> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList1> for &ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoProcessCommandList1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoProcessCommandList2> for ID3D12VideoProcessCommandList {
     fn from(value: ID3D12VideoProcessCommandList2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoProcessCommandList2> for ID3D12VideoProcessCommandList {
     fn from(value: &ID3D12VideoProcessCommandList2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList> for ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoProcessCommandList> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList> for &ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoProcessCommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -16149,46 +16438,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoProcessCommandList2> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoProcessCommandList2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoProcessCommandList2> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoProcessCommandList2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoProcessCommandList2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoProcessCommandList2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoProcessCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoProcessCommandList2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoProcessCommandList2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessCommandList2 {
     type Vtable = ID3D12VideoProcessCommandList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb525ae4_6ad6_473c_baa7_59b2e37082e4);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoProcessCommandList2Vtbl {
@@ -16197,12 +16496,20 @@ pub struct ID3D12VideoProcessCommandList2Vtbl {
     pub SetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotectedresourcesession: ::windows::core::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     SetProtectedResourceSession: usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub InitializeExtensionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
+    InitializeExtensionCommand: usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub ExecuteExtensionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
+    ExecuteExtensionCommand: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoProcessor(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessor {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub unsafe fn GetNodeMask(&self) -> u32 {
@@ -16322,46 +16629,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoProcessor> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoProcessor) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoProcessor> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoProcessor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoProcessor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoProcessor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoProcessor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoProcessor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoProcessor {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoProcessor {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoProcessor").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessor {
     type Vtable = ID3D12VideoProcessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x304fdb32_bede_410a_8545_943ac6a46138);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoProcessorVtbl {
@@ -16377,9 +16694,11 @@ pub struct ID3D12VideoProcessorVtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
     GetOutputStreamDesc: usize,
 }
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 pub struct ID3D12VideoProcessor1(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessor1 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub unsafe fn GetProtectedResourceSession<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -16431,21 +16750,25 @@ impl ID3D12VideoProcessor1 {
         (::windows::core::Interface::vtable(self).base.base.base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoProcessor1> for ID3D12VideoProcessor {
     fn from(value: ID3D12VideoProcessor1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoProcessor1> for ID3D12VideoProcessor {
     fn from(value: &ID3D12VideoProcessor1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessor> for ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoProcessor> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessor> for &ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoProcessor> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -16523,46 +16846,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<ID3D12VideoProcessor1> for ::windows::core::IUnknown {
     fn from(value: ID3D12VideoProcessor1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::convert::From<&ID3D12VideoProcessor1> for ::windows::core::IUnknown {
     fn from(value: &ID3D12VideoProcessor1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoProcessor1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoProcessor1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::Eq for ID3D12VideoProcessor1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for ID3D12VideoProcessor1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID3D12VideoProcessor1").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessor1 {
     type Vtable = ID3D12VideoProcessor1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3cfe615_553f_425c_86d8_ee8c1b1fb01c);
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VideoProcessor1Vtbl {

@@ -143,7 +143,8 @@ impl IWICImagingFactory2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateBitmapFlipRotator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::IWICBitmapFlipRotator>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging_D2D'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Imaging_D2D', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateStream(&self) -> ::windows::core::Result<super::IWICStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::IWICStream>(result__)

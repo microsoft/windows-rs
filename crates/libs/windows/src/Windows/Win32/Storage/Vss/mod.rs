@@ -1384,8 +1384,8 @@ impl IVssCreateWriterMetadata {
     pub unsafe fn SetBackupSchema(&self, dwschemamask: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBackupSchema)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwschemamask)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Data_Xml_MsXml'*"]
-    #[cfg(feature = "Win32_Data_Xml_MsXml")]
+    #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Data_Xml_MsXml', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetDocument(&self) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMDocument>(result__)
@@ -1456,9 +1456,9 @@ pub struct IVssCreateWriterMetadataVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddComponentDependency: usize,
     pub SetBackupSchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwschemamask: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Data_Xml_MsXml")]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub GetDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Data_Xml_MsXml"))]
+    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
     GetDocument: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub SaveAsXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrxml: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,

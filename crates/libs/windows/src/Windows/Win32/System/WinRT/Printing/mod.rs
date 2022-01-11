@@ -93,20 +93,20 @@ pub struct IPrintManagerInteropVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowConfigurationNative(::windows::core::IUnknown);
 impl IPrintWorkflowConfigurationNative {
-    #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Graphics_Printing'*"]
-    #[cfg(feature = "Win32_Graphics_Printing")]
+    #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub unsafe fn PrinterQueue(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterQueue> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PrinterQueue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Printing::IPrinterQueue>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Graphics_Printing'*"]
-    #[cfg(feature = "Win32_Graphics_Printing")]
+    #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub unsafe fn DriverProperties(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DriverProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Printing::IPrinterPropertyBag>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Graphics_Printing'*"]
-    #[cfg(feature = "Win32_Graphics_Printing")]
+    #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub unsafe fn UserProperties(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).UserProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Graphics::Printing::IPrinterPropertyBag>(result__)
@@ -156,17 +156,17 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowConfigurationNative {
 #[doc(hidden)]
 pub struct IPrintWorkflowConfigurationNativeVtbl {
     pub base: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Graphics_Printing")]
+    #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub PrinterQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Printing"))]
+    #[cfg(not(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com")))]
     PrinterQueue: usize,
-    #[cfg(feature = "Win32_Graphics_Printing")]
+    #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub DriverProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Printing"))]
+    #[cfg(not(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com")))]
     DriverProperties: usize,
-    #[cfg(feature = "Win32_Graphics_Printing")]
+    #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub UserProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Printing"))]
+    #[cfg(not(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com")))]
     UserProperties: usize,
 }
 #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]

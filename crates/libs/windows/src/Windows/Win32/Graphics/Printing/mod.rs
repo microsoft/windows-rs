@@ -10245,9 +10245,11 @@ pub struct IPrintJobVtbl {
     pub SubmissionTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psubmissiontime: *mut f64) -> ::windows::core::HRESULT,
     pub RequestCancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintJobCollection(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintJobCollection {
     #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
@@ -10311,46 +10313,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintJobCollection> for ::windows::core::IUnknown {
     fn from(value: IPrintJobCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintJobCollection> for ::windows::core::IUnknown {
     fn from(value: &IPrintJobCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintJobCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintJobCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintJobCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintJobCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintJobCollection {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintJobCollection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintJobCollection").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintJobCollection {
     type Vtable = IPrintJobCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72b82a24_a598_4e87_895f_cdb23a49e9dc);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintJobCollectionVtbl {
@@ -11385,9 +11397,11 @@ impl ::core::default::Default for IPrintReadStreamVtbl {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaAsyncOperation(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaAsyncOperation {
     #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
     pub unsafe fn Start(&self) -> ::windows::core::Result<()> {
@@ -11444,46 +11458,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaAsyncOperation> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaAsyncOperation) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaAsyncOperation> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaAsyncOperation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaAsyncOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaAsyncOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaAsyncOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaAsyncOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaAsyncOperation {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaAsyncOperation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaAsyncOperation").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaAsyncOperation {
     type Vtable = IPrintSchemaAsyncOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143c8dcb_d37f_47f7_88e8_6b1d21f2c5f7);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaAsyncOperationVtbl {
@@ -11491,11 +11515,14 @@ pub struct IPrintSchemaAsyncOperationVtbl {
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaAsyncOperationEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaAsyncOperationEvent {
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Completed<'a, Param0: ::windows::core::IntoParam<'a, IPrintSchemaTicket>>(&self, pticket: Param0, hroperation: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Completed)(::core::mem::transmute_copy(self), pticket.into_param().abi(), ::core::mem::transmute(hroperation)).ok()
     }
@@ -11546,69 +11573,85 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaAsyncOperationEvent> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaAsyncOperationEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaAsyncOperationEvent> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaAsyncOperationEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaAsyncOperationEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaAsyncOperationEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaAsyncOperationEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaAsyncOperationEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaAsyncOperationEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaAsyncOperationEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaAsyncOperationEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaAsyncOperationEvent {
     type Vtable = IPrintSchemaAsyncOperationEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23adbb16_0133_4906_b29a_1dce1d026379);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaAsyncOperationEventVtbl {
     pub base: IDispatchVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub Completed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pticket: ::windows::core::RawPtr, hroperation: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Completed: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaCapabilities(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaCapabilities {
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFeatureByKeyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrkeyname: Param0) -> ::windows::core::Result<IPrintSchemaFeature> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFeatureByKeyName)(::core::mem::transmute_copy(self), bstrkeyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaFeature>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFeature<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrnamespaceuri: Param1) -> ::windows::core::Result<IPrintSchemaFeature> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFeature)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrnamespaceuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaFeature>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PageImageableSize(&self) -> ::windows::core::Result<IPrintSchemaPageImageableSize> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PageImageableSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaPageImageableSize>(result__)
@@ -11623,12 +11666,14 @@ impl IPrintSchemaCapabilities {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).JobCopiesAllDocumentsMaxValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelectedOptionInPrintTicket<'a, Param0: ::windows::core::IntoParam<'a, IPrintSchemaFeature>>(&self, pfeature: Param0) -> ::windows::core::Result<IPrintSchemaOption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSelectedOptionInPrintTicket)(::core::mem::transmute_copy(self), pfeature.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaOption>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetOptions<'a, Param0: ::windows::core::IntoParam<'a, IPrintSchemaFeature>>(&self, pfeature: Param0) -> ::windows::core::Result<IPrintSchemaOptionCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetOptions)(::core::mem::transmute_copy(self), pfeature.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaOptionCollection>(result__)
@@ -11673,21 +11718,25 @@ impl IPrintSchemaCapabilities {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaCapabilities> for IPrintSchemaElement {
     fn from(value: IPrintSchemaCapabilities) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaCapabilities> for IPrintSchemaElement {
     fn from(value: &IPrintSchemaCapabilities) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -11717,87 +11766,109 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaCapabilities> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaCapabilities) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaCapabilities> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaCapabilities) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaCapabilities {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaCapabilities {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaCapabilities").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaCapabilities {
     type Vtable = IPrintSchemaCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a577640_501d_4927_bcd0_5ef57a7ed175);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaCapabilitiesVtbl {
     pub base: IPrintSchemaElementVtbl,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetFeatureByKeyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrkeyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfeature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetFeatureByKeyName: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrnamespaceuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfeature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetFeature: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub PageImageableSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppageimageablesize: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    PageImageableSize: usize,
     pub JobCopiesAllDocumentsMinValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puljobcopiesalldocumentsminvalue: *mut u32) -> ::windows::core::HRESULT,
     pub JobCopiesAllDocumentsMaxValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puljobcopiesalldocumentsmaxvalue: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub GetSelectedOptionInPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfeature: ::windows::core::RawPtr, ppoption: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetSelectedOptionInPrintTicket: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub GetOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfeature: ::windows::core::RawPtr, ppoptioncollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetOptions: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaCapabilities2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaCapabilities2 {
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetParameterDefinition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrnamespaceuri: Param1) -> ::windows::core::Result<IPrintSchemaParameterDefinition> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetParameterDefinition)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrnamespaceuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaParameterDefinition>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFeatureByKeyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrkeyname: Param0) -> ::windows::core::Result<IPrintSchemaFeature> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetFeatureByKeyName)(::core::mem::transmute_copy(self), bstrkeyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaFeature>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFeature<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrnamespaceuri: Param1) -> ::windows::core::Result<IPrintSchemaFeature> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetFeature)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrnamespaceuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaFeature>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PageImageableSize(&self) -> ::windows::core::Result<IPrintSchemaPageImageableSize> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.PageImageableSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaPageImageableSize>(result__)
@@ -11812,12 +11883,14 @@ impl IPrintSchemaCapabilities2 {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.JobCopiesAllDocumentsMaxValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelectedOptionInPrintTicket<'a, Param0: ::windows::core::IntoParam<'a, IPrintSchemaFeature>>(&self, pfeature: Param0) -> ::windows::core::Result<IPrintSchemaOption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetSelectedOptionInPrintTicket)(::core::mem::transmute_copy(self), pfeature.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaOption>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetOptions<'a, Param0: ::windows::core::IntoParam<'a, IPrintSchemaFeature>>(&self, pfeature: Param0) -> ::windows::core::Result<IPrintSchemaOptionCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetOptions)(::core::mem::transmute_copy(self), pfeature.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaOptionCollection>(result__)
@@ -11862,41 +11935,49 @@ impl IPrintSchemaCapabilities2 {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaCapabilities2> for IPrintSchemaCapabilities {
     fn from(value: IPrintSchemaCapabilities2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaCapabilities2> for IPrintSchemaCapabilities {
     fn from(value: &IPrintSchemaCapabilities2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaCapabilities> for IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaCapabilities> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaCapabilities> for &IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaCapabilities> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaCapabilities2> for IPrintSchemaElement {
     fn from(value: IPrintSchemaCapabilities2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaCapabilities2> for IPrintSchemaElement {
     fn from(value: &IPrintSchemaCapabilities2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -11926,58 +12007,70 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaCapabilities2> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaCapabilities2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaCapabilities2> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaCapabilities2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaCapabilities2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaCapabilities2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaCapabilities2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaCapabilities2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaCapabilities2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaCapabilities2 {
     type Vtable = IPrintSchemaCapabilities2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb58845f4_9970_4d87_a636_169fb82ed642);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaCapabilities2Vtbl {
     pub base: IPrintSchemaCapabilitiesVtbl,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetParameterDefinition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrnamespaceuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppparameterdefinition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetParameterDefinition: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaDisplayableElement(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaDisplayableElement {
     #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12025,21 +12118,25 @@ impl IPrintSchemaDisplayableElement {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaDisplayableElement> for IPrintSchemaElement {
     fn from(value: IPrintSchemaDisplayableElement) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaDisplayableElement> for IPrintSchemaElement {
     fn from(value: &IPrintSchemaDisplayableElement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaDisplayableElement {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaDisplayableElement {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -12069,46 +12166,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaDisplayableElement> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaDisplayableElement) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaDisplayableElement> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaDisplayableElement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaDisplayableElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaDisplayableElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaDisplayableElement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaDisplayableElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaDisplayableElement {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaDisplayableElement {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaDisplayableElement").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaDisplayableElement {
     type Vtable = IPrintSchemaDisplayableElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf45af49_d6aa_407d_bf87_3912236e9d94);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaDisplayableElementVtbl {
@@ -12118,9 +12225,11 @@ pub struct IPrintSchemaDisplayableElementVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     DisplayName: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaElement(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaElement {
     #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -12186,46 +12295,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaElement> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaElement) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaElement> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaElement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaElement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaElement {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaElement {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaElement").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaElement {
     type Vtable = IPrintSchemaElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x724c1646_e64b_4bbf_8eb4_d45e4fd580da);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaElementVtbl {
@@ -12240,16 +12359,20 @@ pub struct IPrintSchemaElementVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     NamespaceUri: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaFeature(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaFeature {
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SelectedOption(&self) -> ::windows::core::Result<IPrintSchemaOption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SelectedOption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaOption>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSelectedOption<'a, Param0: ::windows::core::IntoParam<'a, IPrintSchemaOption>>(&self, poption: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSelectedOption)(::core::mem::transmute_copy(self), poption.into_param().abi()).ok()
     }
@@ -12258,8 +12381,8 @@ impl IPrintSchemaFeature {
         let mut result__: PrintSchemaSelectionType = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SelectionType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PrintSchemaSelectionType>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetOption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrnamespaceuri: Param1) -> ::windows::core::Result<IPrintSchemaOption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetOption)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrnamespaceuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaOption>(result__)
@@ -12316,41 +12439,49 @@ impl IPrintSchemaFeature {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaFeature> for IPrintSchemaDisplayableElement {
     fn from(value: IPrintSchemaFeature) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaFeature> for IPrintSchemaDisplayableElement {
     fn from(value: &IPrintSchemaFeature) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaFeature {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaDisplayableElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaFeature {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaDisplayableElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaFeature> for IPrintSchemaElement {
     fn from(value: IPrintSchemaFeature) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaFeature> for IPrintSchemaElement {
     fn from(value: &IPrintSchemaFeature) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaFeature {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaFeature {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -12380,65 +12511,83 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaFeature> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaFeature) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaFeature> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaFeature) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaFeature {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaFeature {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaFeature {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaFeature {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaFeature {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaFeature {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaFeature").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaFeature {
     type Vtable = IPrintSchemaFeatureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef189461_5d62_4626_8e57_ff83583c4826);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaFeatureVtbl {
     pub base: IPrintSchemaDisplayableElementVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub SelectedOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppoption: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SelectedOption: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub SetSelectedOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poption: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetSelectedOption: usize,
     pub SelectionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pselectiontype: *mut PrintSchemaSelectionType) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrnamespaceuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppoption: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetOption: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub DisplayUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbshow: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     DisplayUI: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaNUpOption(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaNUpOption {
     #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
     pub unsafe fn PagesPerSheet(&self) -> ::windows::core::Result<u32> {
@@ -12508,61 +12657,73 @@ impl IPrintSchemaNUpOption {
         (::windows::core::Interface::vtable(self).base.base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaNUpOption> for IPrintSchemaOption {
     fn from(value: IPrintSchemaNUpOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaNUpOption> for IPrintSchemaOption {
     fn from(value: &IPrintSchemaNUpOption) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaOption> for IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaOption> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaOption> for &IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaOption> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaNUpOption> for IPrintSchemaDisplayableElement {
     fn from(value: IPrintSchemaNUpOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaNUpOption> for IPrintSchemaDisplayableElement {
     fn from(value: &IPrintSchemaNUpOption) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaDisplayableElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaDisplayableElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaNUpOption> for IPrintSchemaElement {
     fn from(value: IPrintSchemaNUpOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaNUpOption> for IPrintSchemaElement {
     fn from(value: &IPrintSchemaNUpOption) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -12592,55 +12753,67 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaNUpOption> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaNUpOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaNUpOption> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaNUpOption) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaNUpOption {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaNUpOption {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaNUpOption {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaNUpOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaNUpOption").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaNUpOption {
     type Vtable = IPrintSchemaNUpOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f6342f2_d848_42e3_8995_c10a9ef9a3ba);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaNUpOptionVtbl {
     pub base: IPrintSchemaOptionVtbl,
     pub PagesPerSheet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulpagespersheet: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaOption(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaOption {
     #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12705,41 +12878,49 @@ impl IPrintSchemaOption {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaOption> for IPrintSchemaDisplayableElement {
     fn from(value: IPrintSchemaOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaOption> for IPrintSchemaDisplayableElement {
     fn from(value: &IPrintSchemaOption) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaDisplayableElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaDisplayableElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaOption> for IPrintSchemaElement {
     fn from(value: IPrintSchemaOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaOption> for IPrintSchemaElement {
     fn from(value: &IPrintSchemaOption) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -12769,46 +12950,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaOption> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaOption> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaOption) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaOption {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaOption {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaOption {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaOption").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaOption {
     type Vtable = IPrintSchemaOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66bb2f51_5844_4997_8d70_4b7cc221cf92);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaOptionVtbl {
@@ -12823,16 +13014,19 @@ pub struct IPrintSchemaOptionVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPropertyValue: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaOptionCollection(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaOptionCollection {
     #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<IPrintSchemaOption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulindex), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaOption>(result__)
@@ -12889,57 +13083,72 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaOptionCollection> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaOptionCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaOptionCollection> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaOptionCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaOptionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaOptionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaOptionCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaOptionCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaOptionCollection {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaOptionCollection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaOptionCollection").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaOptionCollection {
     type Vtable = IPrintSchemaOptionCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbaecb0bd_a946_4771_bc30_e8b24f8d45c1);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaOptionCollectionVtbl {
     pub base: IDispatchVtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcount: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, ppoption: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetAt: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaPageImageableSize(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaPageImageableSize {
     #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
     pub unsafe fn ImageableSizeWidthInMicrons(&self) -> ::windows::core::Result<u32> {
@@ -13011,21 +13220,25 @@ impl IPrintSchemaPageImageableSize {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaPageImageableSize> for IPrintSchemaElement {
     fn from(value: IPrintSchemaPageImageableSize) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaPageImageableSize> for IPrintSchemaElement {
     fn from(value: &IPrintSchemaPageImageableSize) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaPageImageableSize {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaPageImageableSize {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -13055,46 +13268,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaPageImageableSize> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaPageImageableSize) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaPageImageableSize> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaPageImageableSize) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaPageImageableSize {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaPageImageableSize {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaPageImageableSize {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaPageImageableSize {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaPageImageableSize {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaPageImageableSize {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaPageImageableSize").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaPageImageableSize {
     type Vtable = IPrintSchemaPageImageableSizeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c85bf5e_dc7c_4f61_839b_4107e1c9b68e);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaPageImageableSizeVtbl {
@@ -13106,9 +13329,11 @@ pub struct IPrintSchemaPageImageableSizeVtbl {
     pub ExtentWidthInMicrons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulextentwidth: *mut u32) -> ::windows::core::HRESULT,
     pub ExtentHeightInMicrons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulextentheight: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaPageMediaSizeOption(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaPageMediaSizeOption {
     #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
     pub unsafe fn WidthInMicrons(&self) -> ::windows::core::Result<u32> {
@@ -13183,61 +13408,73 @@ impl IPrintSchemaPageMediaSizeOption {
         (::windows::core::Interface::vtable(self).base.base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaPageMediaSizeOption> for IPrintSchemaOption {
     fn from(value: IPrintSchemaPageMediaSizeOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaPageMediaSizeOption> for IPrintSchemaOption {
     fn from(value: &IPrintSchemaPageMediaSizeOption) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaOption> for IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaOption> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaOption> for &IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaOption> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaPageMediaSizeOption> for IPrintSchemaDisplayableElement {
     fn from(value: IPrintSchemaPageMediaSizeOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaPageMediaSizeOption> for IPrintSchemaDisplayableElement {
     fn from(value: &IPrintSchemaPageMediaSizeOption) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaDisplayableElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaDisplayableElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaPageMediaSizeOption> for IPrintSchemaElement {
     fn from(value: IPrintSchemaPageMediaSizeOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaPageMediaSizeOption> for IPrintSchemaElement {
     fn from(value: &IPrintSchemaPageMediaSizeOption) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -13267,46 +13504,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaPageMediaSizeOption> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaPageMediaSizeOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaPageMediaSizeOption> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaPageMediaSizeOption) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaPageMediaSizeOption {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaPageMediaSizeOption {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaPageMediaSizeOption {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaPageMediaSizeOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaPageMediaSizeOption").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaPageMediaSizeOption {
     type Vtable = IPrintSchemaPageMediaSizeOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68746729_f493_4830_a10f_69028774605d);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaPageMediaSizeOptionVtbl {
@@ -13314,9 +13561,11 @@ pub struct IPrintSchemaPageMediaSizeOptionVtbl {
     pub WidthInMicrons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulwidth: *mut u32) -> ::windows::core::HRESULT,
     pub HeightInMicrons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulheight: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaParameterDefinition(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaParameterDefinition {
     #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13391,41 +13640,49 @@ impl IPrintSchemaParameterDefinition {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaParameterDefinition> for IPrintSchemaDisplayableElement {
     fn from(value: IPrintSchemaParameterDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaParameterDefinition> for IPrintSchemaDisplayableElement {
     fn from(value: &IPrintSchemaParameterDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaDisplayableElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaDisplayableElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaParameterDefinition> for IPrintSchemaElement {
     fn from(value: IPrintSchemaParameterDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaParameterDefinition> for IPrintSchemaElement {
     fn from(value: &IPrintSchemaParameterDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -13455,46 +13712,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaParameterDefinition> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaParameterDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaParameterDefinition> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaParameterDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaParameterDefinition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaParameterDefinition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaParameterDefinition {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaParameterDefinition {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaParameterDefinition").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaParameterDefinition {
     type Vtable = IPrintSchemaParameterDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ade81e_0e61_4fe1_81c6_c333e4ffe0f1);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaParameterDefinitionVtbl {
@@ -13511,9 +13778,11 @@ pub struct IPrintSchemaParameterDefinitionVtbl {
     pub RangeMin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prangemin: *mut i32) -> ::windows::core::HRESULT,
     pub RangeMax: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prangemax: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaParameterInitializer(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaParameterInitializer {
     #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13566,21 +13835,25 @@ impl IPrintSchemaParameterInitializer {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaParameterInitializer> for IPrintSchemaElement {
     fn from(value: IPrintSchemaParameterInitializer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaParameterInitializer> for IPrintSchemaElement {
     fn from(value: &IPrintSchemaParameterInitializer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaParameterInitializer {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaParameterInitializer {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -13610,46 +13883,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaParameterInitializer> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaParameterInitializer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaParameterInitializer> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaParameterInitializer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaParameterInitializer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaParameterInitializer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaParameterInitializer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaParameterInitializer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaParameterInitializer {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaParameterInitializer {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaParameterInitializer").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaParameterInitializer {
     type Vtable = IPrintSchemaParameterInitializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52027082_0b74_4648_9564_828cc6cb656c);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaParameterInitializerVtbl {
@@ -13663,28 +13946,32 @@ pub struct IPrintSchemaParameterInitializerVtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetValue: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaTicket(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaTicket {
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFeatureByKeyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrkeyname: Param0) -> ::windows::core::Result<IPrintSchemaFeature> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFeatureByKeyName)(::core::mem::transmute_copy(self), bstrkeyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaFeature>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFeature<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrnamespaceuri: Param1) -> ::windows::core::Result<IPrintSchemaFeature> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFeature)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrnamespaceuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaFeature>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ValidateAsync(&self) -> ::windows::core::Result<IPrintSchemaAsyncOperation> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ValidateAsync)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaAsyncOperation>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAsync<'a, Param0: ::windows::core::IntoParam<'a, IPrintSchemaTicket>>(&self, pprintticketcommit: Param0) -> ::windows::core::Result<IPrintSchemaAsyncOperation> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CommitAsync)(::core::mem::transmute_copy(self), pprintticketcommit.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaAsyncOperation>(result__)
@@ -13693,7 +13980,8 @@ impl IPrintSchemaTicket {
     pub unsafe fn NotifyXmlChanged(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).NotifyXmlChanged)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<IPrintSchemaCapabilities> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaCapabilities>(result__)
@@ -13747,21 +14035,25 @@ impl IPrintSchemaTicket {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaTicket> for IPrintSchemaElement {
     fn from(value: IPrintSchemaTicket) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaTicket> for IPrintSchemaElement {
     fn from(value: &IPrintSchemaTicket) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaTicket {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaTicket {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -13791,93 +14083,116 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaTicket> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaTicket) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaTicket> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaTicket) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaTicket {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaTicket {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaTicket {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaTicket {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaTicket {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaTicket {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaTicket").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaTicket {
     type Vtable = IPrintSchemaTicketVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe480b861_4708_4e6d_a5b4_a2b4eeb9baa4);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaTicketVtbl {
     pub base: IPrintSchemaElementVtbl,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetFeatureByKeyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrkeyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfeature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetFeatureByKeyName: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrnamespaceuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfeature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetFeature: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub ValidateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppasyncoperation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    ValidateAsync: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub CommitAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintticketcommit: ::windows::core::RawPtr, ppasyncoperation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CommitAsync: usize,
     pub NotifyXmlChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcapabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetCapabilities: usize,
     pub JobCopiesAllDocuments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puljobcopiesalldocuments: *mut u32) -> ::windows::core::HRESULT,
     pub SetJobCopiesAllDocuments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uljobcopiesalldocuments: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrintSchemaTicket2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaTicket2 {
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetParameterInitializer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrnamespaceuri: Param1) -> ::windows::core::Result<IPrintSchemaParameterInitializer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetParameterInitializer)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrnamespaceuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaParameterInitializer>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFeatureByKeyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrkeyname: Param0) -> ::windows::core::Result<IPrintSchemaFeature> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetFeatureByKeyName)(::core::mem::transmute_copy(self), bstrkeyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaFeature>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFeature<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrnamespaceuri: Param1) -> ::windows::core::Result<IPrintSchemaFeature> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetFeature)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrnamespaceuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaFeature>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ValidateAsync(&self) -> ::windows::core::Result<IPrintSchemaAsyncOperation> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ValidateAsync)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaAsyncOperation>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAsync<'a, Param0: ::windows::core::IntoParam<'a, IPrintSchemaTicket>>(&self, pprintticketcommit: Param0) -> ::windows::core::Result<IPrintSchemaAsyncOperation> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CommitAsync)(::core::mem::transmute_copy(self), pprintticketcommit.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaAsyncOperation>(result__)
@@ -13886,7 +14201,8 @@ impl IPrintSchemaTicket2 {
     pub unsafe fn NotifyXmlChanged(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.NotifyXmlChanged)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<IPrintSchemaCapabilities> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaCapabilities>(result__)
@@ -13940,41 +14256,49 @@ impl IPrintSchemaTicket2 {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaTicket2> for IPrintSchemaTicket {
     fn from(value: IPrintSchemaTicket2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaTicket2> for IPrintSchemaTicket {
     fn from(value: &IPrintSchemaTicket2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaTicket> for IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaTicket> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaTicket> for &IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaTicket> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaTicket2> for IPrintSchemaElement {
     fn from(value: IPrintSchemaTicket2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaTicket2> for IPrintSchemaElement {
     fn from(value: &IPrintSchemaTicket2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::core::Param<'a, IPrintSchemaElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -14004,53 +14328,63 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrintSchemaTicket2> for ::windows::core::IUnknown {
     fn from(value: IPrintSchemaTicket2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrintSchemaTicket2> for ::windows::core::IUnknown {
     fn from(value: &IPrintSchemaTicket2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintSchemaTicket2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaTicket2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrintSchemaTicket2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrintSchemaTicket2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrintSchemaTicket2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaTicket2 {
     type Vtable = IPrintSchemaTicket2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec1f844_766a_47a1_91f4_2eeb6190f80c);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchemaTicket2Vtbl {
     pub base: IPrintSchemaTicketVtbl,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetParameterInitializer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrnamespaceuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppparameterinitializer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetParameterInitializer: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -14072,24 +14406,24 @@ impl IPrintTicketProvider {
     pub unsafe fn QueryDeviceNamespace(&self, pdefaultnamespace: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryDeviceNamespace)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdefaultnamespace)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn ConvertPrintTicketToDevMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMDocument2>>(&self, pprintticket: Param0, cbdevmodein: u32, pdevmodein: *mut super::Gdi::DEVMODEA, pcbdevmodeout: *mut u32, ppdevmodeout: *mut *mut super::Gdi::DEVMODEA) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConvertPrintTicketToDevMode)(::core::mem::transmute_copy(self), pprintticket.into_param().abi(), ::core::mem::transmute(cbdevmodein), ::core::mem::transmute(pdevmodein), ::core::mem::transmute(pcbdevmodeout), ::core::mem::transmute(ppdevmodeout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn ConvertDevModeToPrintTicket<'a, Param2: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMDocument2>>(&self, cbdevmode: u32, pdevmode: *mut super::Gdi::DEVMODEA, pprintticket: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConvertDevModeToPrintTicket)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbdevmode), ::core::mem::transmute(pdevmode), pprintticket.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml'*"]
-    #[cfg(feature = "Win32_Data_Xml_MsXml")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetPrintCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMDocument2>>(&self, pprintticket: Param0) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPrintCapabilities)(::core::mem::transmute_copy(self), pprintticket.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMDocument2>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml'*"]
-    #[cfg(feature = "Win32_Data_Xml_MsXml")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn ValidatePrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMDocument2>>(&self, pbaseticket: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ValidatePrintTicket)(::core::mem::transmute_copy(self), pbaseticket.into_param().abi()).ok()
     }
@@ -14150,35 +14484,35 @@ pub struct IPrintTicketProviderVtbl {
     pub QueryDeviceNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdefaultnamespace: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     QueryDeviceNamespace: usize,
-    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub ConvertPrintTicketToDevMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintticket: ::windows::core::RawPtr, cbdevmodein: u32, pdevmodein: *mut super::Gdi::DEVMODEA, pcbdevmodeout: *mut u32, ppdevmodeout: *mut *mut super::Gdi::DEVMODEA) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
+    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
     ConvertPrintTicketToDevMode: usize,
-    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub ConvertDevModeToPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbdevmode: u32, pdevmode: *mut super::Gdi::DEVMODEA, pprintticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
+    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
     ConvertDevModeToPrintTicket: usize,
-    #[cfg(feature = "Win32_Data_Xml_MsXml")]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub GetPrintCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintticket: ::windows::core::RawPtr, ppcapabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Data_Xml_MsXml"))]
+    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
     GetPrintCapabilities: usize,
-    #[cfg(feature = "Win32_Data_Xml_MsXml")]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub ValidatePrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbaseticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Data_Xml_MsXml"))]
+    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
     ValidatePrintTicket: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintTicketProvider2(::windows::core::IUnknown);
 impl IPrintTicketProvider2 {
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml'*"]
-    #[cfg(feature = "Win32_Data_Xml_MsXml")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetPrintDeviceCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMDocument2>>(&self, pprintticket: Param0) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPrintDeviceCapabilities)(::core::mem::transmute_copy(self), pprintticket.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMDocument2>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_Foundation'*"]
-    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPrintDeviceResources<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMDocument2>>(&self, pszlocalename: Param0, pprintticket: Param1) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPrintDeviceResources)(::core::mem::transmute_copy(self), pszlocalename.into_param().abi(), pprintticket.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMDocument2>(result__)
@@ -14198,24 +14532,24 @@ impl IPrintTicketProvider2 {
     pub unsafe fn QueryDeviceNamespace(&self, pdefaultnamespace: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.QueryDeviceNamespace)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdefaultnamespace)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn ConvertPrintTicketToDevMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMDocument2>>(&self, pprintticket: Param0, cbdevmodein: u32, pdevmodein: *mut super::Gdi::DEVMODEA, pcbdevmodeout: *mut u32, ppdevmodeout: *mut *mut super::Gdi::DEVMODEA) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ConvertPrintTicketToDevMode)(::core::mem::transmute_copy(self), pprintticket.into_param().abi(), ::core::mem::transmute(cbdevmodein), ::core::mem::transmute(pdevmodein), ::core::mem::transmute(pcbdevmodeout), ::core::mem::transmute(ppdevmodeout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn ConvertDevModeToPrintTicket<'a, Param2: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMDocument2>>(&self, cbdevmode: u32, pdevmode: *mut super::Gdi::DEVMODEA, pprintticket: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ConvertDevModeToPrintTicket)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbdevmode), ::core::mem::transmute(pdevmode), pprintticket.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml'*"]
-    #[cfg(feature = "Win32_Data_Xml_MsXml")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetPrintCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMDocument2>>(&self, pprintticket: Param0) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetPrintCapabilities)(::core::mem::transmute_copy(self), pprintticket.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMDocument2>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml'*"]
-    #[cfg(feature = "Win32_Data_Xml_MsXml")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Data_Xml_MsXml', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn ValidatePrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMDocument2>>(&self, pbaseticket: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ValidatePrintTicket)(::core::mem::transmute_copy(self), pbaseticket.into_param().abi()).ok()
     }
@@ -14284,13 +14618,13 @@ unsafe impl ::windows::core::Interface for IPrintTicketProvider2 {
 #[doc(hidden)]
 pub struct IPrintTicketProvider2Vtbl {
     pub base: IPrintTicketProviderVtbl,
-    #[cfg(feature = "Win32_Data_Xml_MsXml")]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub GetPrintDeviceCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintticket: ::windows::core::RawPtr, ppdevicecapabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Data_Xml_MsXml"))]
+    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
     GetPrintDeviceCapabilities: usize,
-    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetPrintDeviceResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszlocalename: super::super::Foundation::PWSTR, pprintticket: ::windows::core::RawPtr, ppdeviceresources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation")))]
+    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetPrintDeviceResources: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -14617,26 +14951,32 @@ pub struct IPrinterExtensionAsyncOperationVtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterExtensionContext(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionContext {
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrinterQueue(&self) -> ::windows::core::Result<IPrinterQueue> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PrinterQueue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterQueue>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrintSchemaTicket(&self) -> ::windows::core::Result<IPrintSchemaTicket> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PrintSchemaTicket)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaTicket>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DriverProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DriverProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterPropertyBag>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UserProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).UserProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterPropertyBag>(result__)
@@ -14688,65 +15028,90 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterExtensionContext> for ::windows::core::IUnknown {
     fn from(value: IPrinterExtensionContext) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterExtensionContext> for ::windows::core::IUnknown {
     fn from(value: &IPrinterExtensionContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterExtensionContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterExtensionContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterExtensionContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterExtensionContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterExtensionContext {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterExtensionContext {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterExtensionContext").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterExtensionContext {
     type Vtable = IPrinterExtensionContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39843bf2_c4d2_41fd_b4b2_aedbee5e1900);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterExtensionContextVtbl {
     pub base: IDispatchVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub PrinterQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    PrinterQueue: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub PrintSchemaTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppticket: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    PrintSchemaTicket: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub DriverProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertybag: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    DriverProperties: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub UserProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertybag: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    UserProperties: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterExtensionContextCollection(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionContextCollection {
     #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<IPrinterExtensionContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulindex), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterExtensionContext>(result__)
@@ -14803,63 +15168,80 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterExtensionContextCollection> for ::windows::core::IUnknown {
     fn from(value: IPrinterExtensionContextCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterExtensionContextCollection> for ::windows::core::IUnknown {
     fn from(value: &IPrinterExtensionContextCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterExtensionContextCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterExtensionContextCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterExtensionContextCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterExtensionContextCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterExtensionContextCollection {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterExtensionContextCollection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterExtensionContextCollection").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterExtensionContextCollection {
     type Vtable = IPrinterExtensionContextCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb476970_9bab_4861_811e_3e98b0c5addf);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterExtensionContextCollectionVtbl {
     pub base: IDispatchVtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcount: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, ppcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetAt: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterExtensionEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionEvent {
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnDriverEvent<'a, Param0: ::windows::core::IntoParam<'a, IPrinterExtensionEventArgs>>(&self, peventargs: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnDriverEvent)(::core::mem::transmute_copy(self), peventargs.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnPrinterQueuesEnumerated<'a, Param0: ::windows::core::IntoParam<'a, IPrinterExtensionContextCollection>>(&self, pcontextcollection: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnPrinterQueuesEnumerated)(::core::mem::transmute_copy(self), pcontextcollection.into_param().abi()).ok()
     }
@@ -14910,56 +15292,74 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterExtensionEvent> for ::windows::core::IUnknown {
     fn from(value: IPrinterExtensionEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterExtensionEvent> for ::windows::core::IUnknown {
     fn from(value: &IPrinterExtensionEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterExtensionEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterExtensionEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterExtensionEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterExtensionEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterExtensionEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterExtensionEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterExtensionEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterExtensionEvent {
     type Vtable = IPrinterExtensionEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc093cb63_5ef5_4585_af8e_4d5637487b57);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterExtensionEventVtbl {
     pub base: IDispatchVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub OnDriverEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    OnDriverEvent: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub OnPrinterQueuesEnumerated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontextcollection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    OnPrinterQueuesEnumerated: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterExtensionEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionEventArgs {
     #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14972,7 +15372,8 @@ impl IPrinterExtensionEventArgs {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ReasonId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Request(&self) -> ::windows::core::Result<IPrinterExtensionRequest> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Request)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterExtensionRequest>(result__)
@@ -15000,22 +15401,26 @@ impl IPrinterExtensionEventArgs {
         let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).WindowParent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrinterQueue(&self) -> ::windows::core::Result<IPrinterQueue> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.PrinterQueue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterQueue>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrintSchemaTicket(&self) -> ::windows::core::Result<IPrintSchemaTicket> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.PrintSchemaTicket)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintSchemaTicket>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DriverProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.DriverProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterPropertyBag>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UserProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.UserProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterPropertyBag>(result__)
@@ -15043,21 +15448,25 @@ impl IPrinterExtensionEventArgs {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterExtensionEventArgs> for IPrinterExtensionContext {
     fn from(value: IPrinterExtensionEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterExtensionEventArgs> for IPrinterExtensionContext {
     fn from(value: &IPrinterExtensionEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrinterExtensionContext> for IPrinterExtensionEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IPrinterExtensionContext> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrinterExtensionContext> for &IPrinterExtensionEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IPrinterExtensionContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -15087,46 +15496,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterExtensionEventArgs> for ::windows::core::IUnknown {
     fn from(value: IPrinterExtensionEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterExtensionEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IPrinterExtensionEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterExtensionEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterExtensionEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterExtensionEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterExtensionEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterExtensionEventArgs {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterExtensionEventArgs {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterExtensionEventArgs").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterExtensionEventArgs {
     type Vtable = IPrinterExtensionEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39843bf4_c4d2_41fd_b4b2_aedbee5e1900);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterExtensionEventArgsVtbl {
@@ -15136,7 +15555,10 @@ pub struct IPrinterExtensionEventArgsVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     BidiNotification: usize,
     pub ReasonId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preasonid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprequest: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Request: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub SourceApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrapplication: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -15211,9 +15633,11 @@ pub struct IPrinterExtensionManagerVtbl {
     pub EnableEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printerdriverid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub DisableEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterExtensionRequest(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionRequest {
     #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15271,46 +15695,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterExtensionRequest> for ::windows::core::IUnknown {
     fn from(value: IPrinterExtensionRequest) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterExtensionRequest> for ::windows::core::IUnknown {
     fn from(value: &IPrinterExtensionRequest) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterExtensionRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterExtensionRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterExtensionRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterExtensionRequest {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterExtensionRequest {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterExtensionRequest {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterExtensionRequest").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterExtensionRequest {
     type Vtable = IPrinterExtensionRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39843bf3_c4d2_41fd_b4b2_aedbee5e1900);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterExtensionRequestVtbl {
@@ -15321,9 +15755,11 @@ pub struct IPrinterExtensionRequestVtbl {
     Cancel: usize,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterPropertyBag(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterPropertyBag {
     #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15427,46 +15863,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterPropertyBag> for ::windows::core::IUnknown {
     fn from(value: IPrinterPropertyBag) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterPropertyBag> for ::windows::core::IUnknown {
     fn from(value: &IPrinterPropertyBag) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterPropertyBag {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterPropertyBag {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterPropertyBag {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterPropertyBag {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterPropertyBag {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterPropertyBag {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterPropertyBag").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterPropertyBag {
     type Vtable = IPrinterPropertyBagVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea77364_df95_4a23_a905_019b79a8e481);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterPropertyBagVtbl {
@@ -15512,9 +15958,11 @@ pub struct IPrinterPropertyBagVtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetWriteStream: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterQueue(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueue {
     #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15533,7 +15981,8 @@ impl IPrinterQueue {
     pub unsafe fn SendBidiQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbidiquery: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SendBidiQuery)(::core::mem::transmute_copy(self), bstrbidiquery.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterPropertyBag>(result__)
@@ -15585,46 +16034,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterQueue> for ::windows::core::IUnknown {
     fn from(value: IPrinterQueue) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterQueue> for ::windows::core::IUnknown {
     fn from(value: &IPrinterQueue) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterQueue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterQueue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterQueue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterQueue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterQueue {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterQueue {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterQueue").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterQueue {
     type Vtable = IPrinterQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3580a828_07fe_4b94_ac1a_757d9d2d3056);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterQueueVtbl {
@@ -15641,11 +16100,16 @@ pub struct IPrinterQueueVtbl {
     pub SendBidiQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbidiquery: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SendBidiQuery: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertybag: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetProperties: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterQueue2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueue2 {
     #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15653,7 +16117,8 @@ impl IPrinterQueue2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SendBidiSetRequestAsync)(::core::mem::transmute_copy(self), bstrbidirequest.into_param().abi(), pcallback.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterExtensionAsyncOperation>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPrinterQueueView(&self, ulviewoffset: u32, ulviewsize: u32) -> ::windows::core::Result<IPrinterQueueView> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPrinterQueueView)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulviewoffset), ::core::mem::transmute(ulviewsize), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterQueueView>(result__)
@@ -15675,7 +16140,8 @@ impl IPrinterQueue2 {
     pub unsafe fn SendBidiQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbidiquery: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SendBidiQuery)(::core::mem::transmute_copy(self), bstrbidiquery.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterPropertyBag>(result__)
@@ -15703,21 +16169,25 @@ impl IPrinterQueue2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterQueue2> for IPrinterQueue {
     fn from(value: IPrinterQueue2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterQueue2> for IPrinterQueue {
     fn from(value: &IPrinterQueue2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrinterQueue> for IPrinterQueue2 {
     fn into_param(self) -> ::windows::core::Param<'a, IPrinterQueue> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrinterQueue> for &IPrinterQueue2 {
     fn into_param(self) -> ::windows::core::Param<'a, IPrinterQueue> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -15747,46 +16217,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterQueue2> for ::windows::core::IUnknown {
     fn from(value: IPrinterQueue2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterQueue2> for ::windows::core::IUnknown {
     fn from(value: &IPrinterQueue2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterQueue2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterQueue2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterQueue2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterQueue2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterQueue2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterQueue2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterQueue2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterQueue2 {
     type Vtable = IPrinterQueue2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cd444e8_c9bb_49b3_8e38_e03209416131);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterQueue2Vtbl {
@@ -15795,11 +16275,16 @@ pub struct IPrinterQueue2Vtbl {
     pub SendBidiSetRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbidirequest: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcallback: ::windows::core::RawPtr, ppasyncoperation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SendBidiSetRequestAsync: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub GetPrinterQueueView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulviewoffset: u32, ulviewsize: u32, ppjobview: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetPrinterQueueView: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterQueueEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueueEvent {
     #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15853,46 +16338,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterQueueEvent> for ::windows::core::IUnknown {
     fn from(value: IPrinterQueueEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterQueueEvent> for ::windows::core::IUnknown {
     fn from(value: &IPrinterQueueEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterQueueEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterQueueEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterQueueEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterQueueEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterQueueEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterQueueEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterQueueEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterQueueEvent {
     type Vtable = IPrinterQueueEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x214685f6_7b78_4681_87e0_495f739273d1);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterQueueEventVtbl {
@@ -15902,9 +16397,11 @@ pub struct IPrinterQueueEventVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnBidiResponseReceived: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterQueueView(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueueView {
     #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
     pub unsafe fn SetViewRange(&self, ulviewoffset: u32, ulviewsize: u32) -> ::windows::core::Result<()> {
@@ -15957,57 +16454,70 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterQueueView> for ::windows::core::IUnknown {
     fn from(value: IPrinterQueueView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterQueueView> for ::windows::core::IUnknown {
     fn from(value: &IPrinterQueueView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterQueueView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterQueueView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterQueueView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterQueueView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterQueueView {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterQueueView {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterQueueView").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterQueueView {
     type Vtable = IPrinterQueueViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x476e2969_3b2b_4b3f_8277_cff6056042aa);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterQueueViewVtbl {
     pub base: IDispatchVtbl,
     pub SetViewRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulviewoffset: u32, ulviewsize: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterQueueViewEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueueViewEvent {
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnChanged<'a, Param0: ::windows::core::IntoParam<'a, IPrintJobCollection>>(&self, pcollection: Param0, ulviewoffset: u32, ulviewsize: u32, ulcountjobsinprintqueue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnChanged)(::core::mem::transmute_copy(self), pcollection.into_param().abi(), ::core::mem::transmute(ulviewoffset), ::core::mem::transmute(ulviewsize), ::core::mem::transmute(ulcountjobsinprintqueue)).ok()
     }
@@ -16058,67 +16568,85 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterQueueViewEvent> for ::windows::core::IUnknown {
     fn from(value: IPrinterQueueViewEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterQueueViewEvent> for ::windows::core::IUnknown {
     fn from(value: &IPrinterQueueViewEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterQueueViewEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterQueueViewEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterQueueViewEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterQueueViewEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterQueueViewEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterQueueViewEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterQueueViewEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterQueueViewEvent {
     type Vtable = IPrinterQueueViewEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5b6042b_fd21_404a_a0ef_e2fbb52b9080);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterQueueViewEventVtbl {
     pub base: IDispatchVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub OnChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcollection: ::windows::core::RawPtr, ulviewoffset: u32, ulviewsize: u32, ulcountjobsinprintqueue: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    OnChanged: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterScriptContext(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterScriptContext {
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DriverProperties(&self) -> ::windows::core::Result<IPrinterScriptablePropertyBag> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DriverProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterScriptablePropertyBag>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueueProperties(&self) -> ::windows::core::Result<IPrinterScriptablePropertyBag> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).QueueProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterScriptablePropertyBag>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UserProperties(&self) -> ::windows::core::Result<IPrinterScriptablePropertyBag> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).UserProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterScriptablePropertyBag>(result__)
@@ -16170,57 +16698,78 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterScriptContext> for ::windows::core::IUnknown {
     fn from(value: IPrinterScriptContext) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterScriptContext> for ::windows::core::IUnknown {
     fn from(value: &IPrinterScriptContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterScriptContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterScriptContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterScriptContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterScriptContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterScriptContext {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterScriptContext {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterScriptContext").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterScriptContext {
     type Vtable = IPrinterScriptContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x066acbca_8881_49c9_bb98_fae16b4889e1);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterScriptContextVtbl {
     pub base: IDispatchVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub DriverProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertybag: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    DriverProperties: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub QueueProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertybag: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    QueueProperties: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub UserProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertybag: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    UserProperties: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterScriptablePropertyBag(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterScriptablePropertyBag {
     #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16266,14 +16815,14 @@ impl IPrinterScriptablePropertyBag {
     pub unsafe fn SetBytes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, bstrname: Param0, parray: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBytes)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), parray.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetReadStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IPrinterScriptableStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetReadStream)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterScriptableStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetWriteStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IPrinterScriptableStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetWriteStream)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterScriptableStream>(result__)
@@ -16325,46 +16874,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterScriptablePropertyBag> for ::windows::core::IUnknown {
     fn from(value: IPrinterScriptablePropertyBag) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterScriptablePropertyBag> for ::windows::core::IUnknown {
     fn from(value: &IPrinterScriptablePropertyBag) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterScriptablePropertyBag {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterScriptablePropertyBag {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterScriptablePropertyBag {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterScriptablePropertyBag {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterScriptablePropertyBag {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterScriptablePropertyBag {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterScriptablePropertyBag").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterScriptablePropertyBag {
     type Vtable = IPrinterScriptablePropertyBagVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91c7765f_ed57_49ad_8b01_dc24816a5294);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterScriptablePropertyBagVtbl {
@@ -16401,18 +16960,20 @@ pub struct IPrinterScriptablePropertyBagVtbl {
     pub SetBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, parray: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     SetBytes: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetReadStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetReadStream: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetWriteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetWriteStream: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterScriptablePropertyBag2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterScriptablePropertyBag2 {
     #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16464,14 +17025,14 @@ impl IPrinterScriptablePropertyBag2 {
     pub unsafe fn SetBytes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, bstrname: Param0, parray: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetBytes)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), parray.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetReadStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IPrinterScriptableStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetReadStream)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterScriptableStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetWriteStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IPrinterScriptableStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetWriteStream)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrinterScriptableStream>(result__)
@@ -16499,21 +17060,25 @@ impl IPrinterScriptablePropertyBag2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterScriptablePropertyBag2> for IPrinterScriptablePropertyBag {
     fn from(value: IPrinterScriptablePropertyBag2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterScriptablePropertyBag2> for IPrinterScriptablePropertyBag {
     fn from(value: &IPrinterScriptablePropertyBag2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrinterScriptablePropertyBag> for IPrinterScriptablePropertyBag2 {
     fn into_param(self) -> ::windows::core::Param<'a, IPrinterScriptablePropertyBag> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrinterScriptablePropertyBag> for &IPrinterScriptablePropertyBag2 {
     fn into_param(self) -> ::windows::core::Param<'a, IPrinterScriptablePropertyBag> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -16543,46 +17108,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterScriptablePropertyBag2> for ::windows::core::IUnknown {
     fn from(value: IPrinterScriptablePropertyBag2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterScriptablePropertyBag2> for ::windows::core::IUnknown {
     fn from(value: &IPrinterScriptablePropertyBag2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterScriptablePropertyBag2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterScriptablePropertyBag2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterScriptablePropertyBag2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterScriptablePropertyBag2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterScriptablePropertyBag2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterScriptablePropertyBag2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterScriptablePropertyBag2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterScriptablePropertyBag2 {
     type Vtable = IPrinterScriptablePropertyBag2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a1c53c4_8638_4b3e_b518_2773c94556a3);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterScriptablePropertyBag2Vtbl {
@@ -16592,9 +17167,11 @@ pub struct IPrinterScriptablePropertyBag2Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetReadStreamAsXML: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterScriptableSequentialStream(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterScriptableSequentialStream {
     #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -16655,46 +17232,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterScriptableSequentialStream> for ::windows::core::IUnknown {
     fn from(value: IPrinterScriptableSequentialStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterScriptableSequentialStream> for ::windows::core::IUnknown {
     fn from(value: &IPrinterScriptableSequentialStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterScriptableSequentialStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterScriptableSequentialStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterScriptableSequentialStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterScriptableSequentialStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterScriptableSequentialStream {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterScriptableSequentialStream {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterScriptableSequentialStream").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterScriptableSequentialStream {
     type Vtable = IPrinterScriptableSequentialStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2072838a_316f_467a_a949_27f68c44a854);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterScriptableSequentialStreamVtbl {
@@ -16708,9 +17295,11 @@ pub struct IPrinterScriptableSequentialStreamVtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Write: usize,
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrinterScriptableStream(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterScriptableStream {
     #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
@@ -16761,21 +17350,25 @@ impl IPrinterScriptableStream {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterScriptableStream> for IPrinterScriptableSequentialStream {
     fn from(value: IPrinterScriptableStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterScriptableStream> for IPrinterScriptableSequentialStream {
     fn from(value: &IPrinterScriptableStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrinterScriptableSequentialStream> for IPrinterScriptableStream {
     fn into_param(self) -> ::windows::core::Param<'a, IPrinterScriptableSequentialStream> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IPrinterScriptableSequentialStream> for &IPrinterScriptableStream {
     fn into_param(self) -> ::windows::core::Param<'a, IPrinterScriptableSequentialStream> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -16805,46 +17398,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrinterScriptableStream> for ::windows::core::IUnknown {
     fn from(value: IPrinterScriptableStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPrinterScriptableStream> for ::windows::core::IUnknown {
     fn from(value: &IPrinterScriptableStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinterScriptableStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinterScriptableStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrinterScriptableStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterScriptableStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPrinterScriptableStream {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPrinterScriptableStream {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPrinterScriptableStream").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterScriptableStream {
     type Vtable = IPrinterScriptableStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7edf9a92_4750_41a5_a17f_879a6f4f7dcb);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterScriptableStreamVtbl {

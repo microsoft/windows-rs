@@ -1,9 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 pub const CONNECTION_AOL: u32 = 4u32;
-#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
+#[doc = "*Required features: 'Win32_System_EventNotificationService', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISensLogon(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl ISensLogon {
     #[doc = "*Required features: 'Win32_System_EventNotificationService', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -87,46 +89,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &ISensLogon {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISensLogon> for ::windows::core::IUnknown {
     fn from(value: ISensLogon) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISensLogon> for ::windows::core::IUnknown {
     fn from(value: &ISensLogon) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISensLogon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISensLogon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISensLogon {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISensLogon {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for ISensLogon {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for ISensLogon {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ISensLogon").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISensLogon {
     type Vtable = ISensLogonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab3_5b9f_11d1_8dd2_00aa004abd5e);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensLogonVtbl {
@@ -160,9 +172,11 @@ pub struct ISensLogonVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     StopScreenSaver: usize,
 }
-#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
+#[doc = "*Required features: 'Win32_System_EventNotificationService', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISensLogon2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl ISensLogon2 {
     #[doc = "*Required features: 'Win32_System_EventNotificationService', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -236,46 +250,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &ISensLogon2 
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISensLogon2> for ::windows::core::IUnknown {
     fn from(value: ISensLogon2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISensLogon2> for ::windows::core::IUnknown {
     fn from(value: &ISensLogon2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISensLogon2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISensLogon2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISensLogon2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISensLogon2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for ISensLogon2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for ISensLogon2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ISensLogon2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISensLogon2 {
     type Vtable = ISensLogon2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab4_5b9f_11d1_8dd2_00aa004abd5e);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensLogon2Vtbl {
@@ -301,9 +325,11 @@ pub struct ISensLogon2Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     PostShell: usize,
 }
-#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
+#[doc = "*Required features: 'Win32_System_EventNotificationService', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISensNetwork(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl ISensNetwork {
     #[doc = "*Required features: 'Win32_System_EventNotificationService', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -377,46 +403,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &ISensNetwork
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISensNetwork> for ::windows::core::IUnknown {
     fn from(value: ISensNetwork) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISensNetwork> for ::windows::core::IUnknown {
     fn from(value: &ISensNetwork) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISensNetwork {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISensNetwork {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISensNetwork {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISensNetwork {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for ISensNetwork {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for ISensNetwork {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ISensNetwork").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISensNetwork {
     type Vtable = ISensNetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab1_5b9f_11d1_8dd2_00aa004abd5e);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensNetworkVtbl {
@@ -442,9 +478,11 @@ pub struct ISensNetworkVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     DestinationReachableNoQOCInfo: usize,
 }
-#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
+#[doc = "*Required features: 'Win32_System_EventNotificationService', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISensOnNow(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl ISensOnNow {
     #[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
     pub unsafe fn OnACPower(&self) -> ::windows::core::Result<()> {
@@ -505,46 +543,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &ISensOnNow {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISensOnNow> for ::windows::core::IUnknown {
     fn from(value: ISensOnNow) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISensOnNow> for ::windows::core::IUnknown {
     fn from(value: &ISensOnNow) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISensOnNow {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISensOnNow {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISensOnNow {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISensOnNow {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for ISensOnNow {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for ISensOnNow {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ISensOnNow").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISensOnNow {
     type Vtable = ISensOnNowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab2_5b9f_11d1_8dd2_00aa004abd5e);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensOnNowVtbl {

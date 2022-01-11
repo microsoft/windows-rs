@@ -1739,8 +1739,8 @@ pub unsafe fn EapHostPeerClearConnection(pconnectionid: *mut ::windows::core::GU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Data_Xml_MsXml', 'Win32_Foundation'*"]
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
+#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Data_Xml_MsXml', 'Win32_Foundation', 'Win32_System_Com'*"]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn EapHostPeerConfigBlob2Xml<'a, Param1: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>>(dwflags: u32, eapmethodtype: Param1, dwsizeofconfigin: u32, pconfigin: *const u8, ppconfigdoc: *mut ::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
@@ -1754,8 +1754,8 @@ pub unsafe fn EapHostPeerConfigBlob2Xml<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Data_Xml_MsXml', 'Win32_Foundation'*"]
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
+#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Data_Xml_MsXml', 'Win32_Foundation', 'Win32_System_Com'*"]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn EapHostPeerConfigXml2Blob<'a, Param1: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMNode>>(dwflags: u32, pconfigdoc: Param1, pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, peapmethodtype: *mut EAP_METHOD_TYPE, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
@@ -1769,8 +1769,8 @@ pub unsafe fn EapHostPeerConfigXml2Blob<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Data_Xml_MsXml', 'Win32_Foundation'*"]
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
+#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Data_Xml_MsXml', 'Win32_Foundation', 'Win32_System_Com'*"]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn EapHostPeerCredentialsXml2Blob<'a, Param1: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMNode>>(dwflags: u32, pcredentialsdoc: Param1, dwsizeofconfigin: u32, pconfigin: *const u8, pdwsizeofcredentialsout: *mut u32, ppcredentialsout: *mut *mut u8, peapmethodtype: *mut EAP_METHOD_TYPE, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]

@@ -1052,9 +1052,11 @@ pub const GROUPPROP_PROGRESSTIME: GROUPPROP = 10i32;
 pub const GROUPPROP_DISPLAYNAME: GROUPPROP = 11i32;
 #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
 pub const GROUPPROP_DESCRIPTION: GROUPPROP = 12i32;
-#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
+#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IBITSExtensionSetup(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IBITSExtensionSetup {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn EnableBITSUploads(&self) -> ::windows::core::Result<()> {
@@ -1122,46 +1124,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IBITSExtensionSetup> for ::windows::core::IUnknown {
     fn from(value: IBITSExtensionSetup) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IBITSExtensionSetup> for ::windows::core::IUnknown {
     fn from(value: &IBITSExtensionSetup) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBITSExtensionSetup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBITSExtensionSetup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IBITSExtensionSetup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IBITSExtensionSetup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IBITSExtensionSetup {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IBITSExtensionSetup {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IBITSExtensionSetup").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IBITSExtensionSetup {
     type Vtable = IBITSExtensionSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29cfbbf7_09e4_4b97_b0bc_f2287e3d8eb3);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBITSExtensionSetupVtbl {
@@ -1174,12 +1186,14 @@ pub struct IBITSExtensionSetupVtbl {
     GetCleanupTaskName: usize,
     pub GetCleanupTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
+#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IBITSExtensionSetupFactory(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IBITSExtensionSetupFactory {
-    #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IBITSExtensionSetup> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetObject)(::core::mem::transmute_copy(self), path.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IBITSExtensionSetup>(result__)
@@ -1231,53 +1245,63 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IBITSExtensionSetupFactory> for ::windows::core::IUnknown {
     fn from(value: IBITSExtensionSetupFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IBITSExtensionSetupFactory> for ::windows::core::IUnknown {
     fn from(value: &IBITSExtensionSetupFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBITSExtensionSetupFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBITSExtensionSetupFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IBITSExtensionSetupFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IBITSExtensionSetupFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IBITSExtensionSetupFactory {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IBITSExtensionSetupFactory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IBITSExtensionSetupFactory").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IBITSExtensionSetupFactory {
     type Vtable = IBITSExtensionSetupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5d2d542_5503_4e64_8b48_72ef91a32ee1);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBITSExtensionSetupFactoryVtbl {
     pub base: IDispatchVtbl,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppextensionsetup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetObject: usize,
 }
 #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]

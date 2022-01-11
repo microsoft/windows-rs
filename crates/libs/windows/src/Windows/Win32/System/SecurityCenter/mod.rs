@@ -1,7 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWSCDefaultProduct(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWSCDefaultProduct {
     #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -55,46 +57,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWSCDefaultP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWSCDefaultProduct> for ::windows::core::IUnknown {
     fn from(value: IWSCDefaultProduct) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWSCDefaultProduct> for ::windows::core::IUnknown {
     fn from(value: &IWSCDefaultProduct) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSCDefaultProduct {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSCDefaultProduct {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWSCDefaultProduct {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWSCDefaultProduct {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWSCDefaultProduct {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWSCDefaultProduct {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWSCDefaultProduct").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWSCDefaultProduct {
     type Vtable = IWSCDefaultProductVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0476d69c_f21a_11e5_9ce9_5e5517507c66);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSCDefaultProductVtbl {
@@ -104,9 +116,11 @@ pub struct IWSCDefaultProductVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDefaultProduct: usize,
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWSCProductList(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWSCProductList {
     #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
     pub unsafe fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> ::windows::core::Result<()> {
@@ -117,7 +131,8 @@ impl IWSCProductList {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: u32) -> ::windows::core::Result<IWscProduct> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<IWscProduct>(result__)
@@ -169,57 +184,72 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWSCProductL
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWSCProductList> for ::windows::core::IUnknown {
     fn from(value: IWSCProductList) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWSCProductList> for ::windows::core::IUnknown {
     fn from(value: &IWSCProductList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSCProductList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSCProductList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWSCProductList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWSCProductList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWSCProductList {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWSCProductList {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWSCProductList").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWSCProductList {
     type Vtable = IWSCProductListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x722a338c_6e8e_4e72_ac27_1417fb0c81c2);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSCProductListVtbl {
     pub base: IDispatchVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: WSC_SECURITY_PROVIDER) -> ::windows::core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Item: usize,
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWscProduct(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWscProduct {
     #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -308,46 +338,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWscProduct 
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWscProduct> for ::windows::core::IUnknown {
     fn from(value: IWscProduct) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWscProduct> for ::windows::core::IUnknown {
     fn from(value: &IWscProduct) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWscProduct {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWscProduct {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWscProduct {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWscProduct {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWscProduct {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWscProduct {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWscProduct").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWscProduct {
     type Vtable = IWscProductVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c38232e_3a45_4a27_92b0_1a16a975f669);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWscProductVtbl {
@@ -375,9 +415,11 @@ pub struct IWscProductVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ProductIsDefault: usize,
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWscProduct2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWscProduct2 {
     #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
     pub unsafe fn AntivirusScanSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
@@ -472,21 +514,25 @@ impl IWscProduct2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWscProduct2> for IWscProduct {
     fn from(value: IWscProduct2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWscProduct2> for IWscProduct {
     fn from(value: &IWscProduct2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWscProduct> for IWscProduct2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWscProduct> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWscProduct> for &IWscProduct2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWscProduct> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -516,46 +562,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWscProduct2
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWscProduct2> for ::windows::core::IUnknown {
     fn from(value: IWscProduct2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWscProduct2> for ::windows::core::IUnknown {
     fn from(value: &IWscProduct2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWscProduct2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWscProduct2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWscProduct2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWscProduct2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWscProduct2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWscProduct2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWscProduct2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWscProduct2 {
     type Vtable = IWscProduct2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf896ca54_fe09_4403_86d4_23cb488d81d8);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWscProduct2Vtbl {
@@ -567,9 +623,11 @@ pub struct IWscProduct2Vtbl {
     pub FirewallPrivateProfileSubstatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows::core::HRESULT,
     pub FirewallPublicProfileSubstatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWscProduct3(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWscProduct3 {
     #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
     pub unsafe fn AntivirusDaysUntilExpired(&self) -> ::windows::core::Result<u32> {
@@ -669,41 +727,49 @@ impl IWscProduct3 {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWscProduct3> for IWscProduct2 {
     fn from(value: IWscProduct3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWscProduct3> for IWscProduct2 {
     fn from(value: &IWscProduct3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWscProduct2> for IWscProduct3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWscProduct2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWscProduct2> for &IWscProduct3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWscProduct2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWscProduct3> for IWscProduct {
     fn from(value: IWscProduct3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWscProduct3> for IWscProduct {
     fn from(value: &IWscProduct3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWscProduct> for IWscProduct3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWscProduct> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWscProduct> for &IWscProduct3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWscProduct> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -733,46 +799,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWscProduct3
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWscProduct3> for ::windows::core::IUnknown {
     fn from(value: IWscProduct3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWscProduct3> for ::windows::core::IUnknown {
     fn from(value: &IWscProduct3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWscProduct3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWscProduct3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWscProduct3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWscProduct3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWscProduct3 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWscProduct3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWscProduct3").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWscProduct3 {
     type Vtable = IWscProduct3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55536524_d1d1_4726_8c7c_04996a1904e7);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWscProduct3Vtbl {

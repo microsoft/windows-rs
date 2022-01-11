@@ -1,10 +1,10 @@
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IXMLGraphBuilderImpl: Sized {
     fn BuildFromXML();
     fn SaveToXML();
     fn BuildFromXMLFile();
 }
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXMLGraphBuilderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLGraphBuilderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLGraphBuilderVtbl {
         unsafe extern "system" fn BuildFromXML<Impl: IXMLGraphBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgraph: ::windows::core::RawPtr, pxml: ::windows::core::RawPtr) -> ::windows::core::HRESULT {

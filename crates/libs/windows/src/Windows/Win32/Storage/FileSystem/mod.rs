@@ -7453,9 +7453,11 @@ pub unsafe fn HandleLogFull<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IDiskQuotaControl(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IDiskQuotaControl {
     #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7591,46 +7593,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IConnectionPo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IDiskQuotaControl> for ::windows::core::IUnknown {
     fn from(value: IDiskQuotaControl) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IDiskQuotaControl> for ::windows::core::IUnknown {
     fn from(value: &IDiskQuotaControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuotaControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDiskQuotaControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IDiskQuotaControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDiskQuotaControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IDiskQuotaControl {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IDiskQuotaControl {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IDiskQuotaControl").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDiskQuotaControl {
     type Vtable = IDiskQuotaControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b572_ec89_11cf_9c00_00aa00a14f56);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaControlVtbl {

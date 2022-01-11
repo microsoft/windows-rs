@@ -1105,9 +1105,11 @@ pub struct IPortableDeviceContent2Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     UpdateObjectWithPropertiesAndData: usize,
 }
-#[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
+#[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPortableDeviceDataStream(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPortableDeviceDataStream {
     #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1226,46 +1228,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialSt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPortableDeviceDataStream> for ::windows::core::IUnknown {
     fn from(value: IPortableDeviceDataStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPortableDeviceDataStream> for ::windows::core::IUnknown {
     fn from(value: &IPortableDeviceDataStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortableDeviceDataStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceDataStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPortableDeviceDataStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPortableDeviceDataStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPortableDeviceDataStream {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPortableDeviceDataStream {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPortableDeviceDataStream").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPortableDeviceDataStream {
     type Vtable = IPortableDeviceDataStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88e04db3_1012_4d64_9996_f703a950d3f4);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceDataStreamVtbl {
@@ -3186,9 +3198,11 @@ pub struct IPortableDeviceValuesCollectionVtbl {
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
+#[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPortableDeviceWebControl(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPortableDeviceWebControl {
     #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3248,46 +3262,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPortableDeviceWebControl> for ::windows::core::IUnknown {
     fn from(value: IPortableDeviceWebControl) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPortableDeviceWebControl> for ::windows::core::IUnknown {
     fn from(value: &IPortableDeviceWebControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortableDeviceWebControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceWebControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPortableDeviceWebControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPortableDeviceWebControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPortableDeviceWebControl {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPortableDeviceWebControl {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPortableDeviceWebControl").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPortableDeviceWebControl {
     type Vtable = IPortableDeviceWebControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94fc7953_5ca1_483a_8aee_df52e7747d00);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceWebControlVtbl {

@@ -1374,9 +1374,11 @@ pub struct IAccPropServicesVtbl {
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     DecomposeHmenuIdentityString: usize,
 }
-#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IAccessible(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IAccessible {
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1544,46 +1546,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IAccessible> for ::windows::core::IUnknown {
     fn from(value: IAccessible) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IAccessible> for ::windows::core::IUnknown {
     fn from(value: &IAccessible) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAccessible {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAccessible {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAccessible {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAccessible {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IAccessible {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IAccessible {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IAccessible").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IAccessible {
     type Vtable = IAccessibleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x618736e0_3c3d_11cf_810c_00aa00389b71);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleVtbl {
@@ -1679,7 +1691,8 @@ impl IAccessibleEx {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetObjectForChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(idchild), ::core::mem::transmute(&mut result__)).from_abi::<IAccessibleEx>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIAccessiblePair(&self, ppacc: *mut ::core::option::Option<IAccessible>, pidchild: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetIAccessiblePair)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppacc), ::core::mem::transmute(pidchild)).ok()
     }
@@ -1740,7 +1753,10 @@ unsafe impl ::windows::core::Interface for IAccessibleEx {
 pub struct IAccessibleExVtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetObjectForChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idchild: i32, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub GetIAccessiblePair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppacc: *mut ::windows::core::RawPtr, pidchild: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetIAccessiblePair: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub GetRuntimeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1751,7 +1767,8 @@ pub struct IAccessibleExVtbl {
 #[repr(transparent)]
 pub struct IAccessibleHandler(::windows::core::IUnknown);
 impl IAccessibleHandler {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> ::windows::core::Result<IAccessible> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AccessibleObjectFromID)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd), ::core::mem::transmute(lobjectid), ::core::mem::transmute(&mut result__)).from_abi::<IAccessible>(result__)
@@ -1801,7 +1818,10 @@ unsafe impl ::windows::core::Interface for IAccessibleHandler {
 #[doc(hidden)]
 pub struct IAccessibleHandlerVtbl {
     pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub AccessibleObjectFromID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: i32, lobjectid: i32, piaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    AccessibleObjectFromID: usize,
 }
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 #[repr(transparent)]
@@ -1888,7 +1908,8 @@ impl IAccessibleWindowlessSite {
         let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).QueryObjectIdRanges)(::core::mem::transmute_copy(self), prangesowner.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetParentAccessible(&self) -> ::windows::core::Result<IAccessible> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetParentAccessible)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAccessible>(result__)
@@ -1944,7 +1965,10 @@ pub struct IAccessibleWindowlessSiteVtbl {
     pub QueryObjectIdRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prangesowner: ::windows::core::RawPtr, psaranges: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     QueryObjectIdRanges: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub GetParentAccessible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetParentAccessible: usize,
 }
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 #[repr(transparent)]
@@ -2663,7 +2687,8 @@ impl ILegacyIAccessibleProvider {
     pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szvalue: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValue)(::core::mem::transmute_copy(self), szvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIAccessible(&self) -> ::windows::core::Result<IAccessible> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetIAccessible)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAccessible>(result__)
@@ -2776,7 +2801,10 @@ pub struct ILegacyIAccessibleProviderVtbl {
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetValue: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub GetIAccessible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetIAccessible: usize,
     pub ChildId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -6191,12 +6219,14 @@ impl IUIAutomation {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ReservedMixedAttributeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(&self, accessible: Param0, childid: i32) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ElementFromIAccessible)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>>(&self, accessible: Param0, childid: i32, cacherequest: Param2) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ElementFromIAccessibleBuildCache)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
@@ -6362,8 +6392,14 @@ pub struct IUIAutomationVtbl {
     CheckNotSupported: usize,
     pub ReservedNotSupportedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notsupportedvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ReservedMixedAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mixedattributevalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub ElementFromIAccessible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accessible: ::windows::core::RawPtr, childid: i32, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    ElementFromIAccessible: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub ElementFromIAccessibleBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accessible: ::windows::core::RawPtr, childid: i32, cacherequest: ::windows::core::RawPtr, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    ElementFromIAccessibleBuildCache: usize,
 }
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 #[repr(transparent)]
@@ -6670,12 +6706,14 @@ impl IUIAutomation2 {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ReservedMixedAttributeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(&self, accessible: Param0, childid: i32) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ElementFromIAccessible)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>>(&self, accessible: Param0, childid: i32, cacherequest: Param2) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ElementFromIAccessibleBuildCache)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
@@ -7071,12 +7109,14 @@ impl IUIAutomation3 {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.ReservedMixedAttributeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(&self, accessible: Param0, childid: i32) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.ElementFromIAccessible)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>>(&self, accessible: Param0, childid: i32, cacherequest: Param2) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.ElementFromIAccessibleBuildCache)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
@@ -7490,12 +7530,14 @@ impl IUIAutomation4 {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.ReservedMixedAttributeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(&self, accessible: Param0, childid: i32) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.ElementFromIAccessible)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>>(&self, accessible: Param0, childid: i32, cacherequest: Param2) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.ElementFromIAccessibleBuildCache)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
@@ -7937,12 +7979,14 @@ impl IUIAutomation5 {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.ReservedMixedAttributeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(&self, accessible: Param0, childid: i32) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.ElementFromIAccessible)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>>(&self, accessible: Param0, childid: i32, cacherequest: Param2) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.ElementFromIAccessibleBuildCache)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
@@ -8443,12 +8487,14 @@ impl IUIAutomation6 {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.ReservedMixedAttributeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(&self, accessible: Param0, childid: i32) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.ElementFromIAccessible)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>>(&self, accessible: Param0, childid: i32, cacherequest: Param2) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.ElementFromIAccessibleBuildCache)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
@@ -16866,7 +16912,8 @@ impl IUIAutomationLegacyIAccessiblePattern {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CachedDefaultAction)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIAccessible(&self) -> ::windows::core::Result<IAccessible> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetIAccessible)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAccessible>(result__)
@@ -16978,7 +17025,10 @@ pub struct IUIAutomationLegacyIAccessiblePatternVtbl {
     pub CachedDefaultAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdefaultaction: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     CachedDefaultAction: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub GetIAccessible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetIAccessible: usize,
 }
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 #[repr(transparent)]
@@ -21656,7 +21706,8 @@ pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<'a, Param0: ::windows::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<IAccessible> {
     #[cfg(windows)]
@@ -25399,7 +25450,8 @@ pub unsafe fn UiaProviderForNonClient<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaProviderFromIAccessible<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(paccessible: Param0, idchild: i32, dwflags: u32) -> ::windows::core::Result<IRawElementProviderSimple> {
     #[cfg(windows)]
@@ -25842,8 +25894,8 @@ pub const VisualEffects_Property_GUID: ::windows::core::GUID = ::windows::core::
 #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINEVENTPROC = ::core::option::Option<unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32)>;
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WindowFromAccessibleObject<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(param0: Param0) -> ::windows::core::Result<super::super::Foundation::HWND> {
     #[cfg(windows)]

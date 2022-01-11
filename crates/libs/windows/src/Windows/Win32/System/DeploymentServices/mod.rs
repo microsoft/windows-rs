@@ -53,9 +53,11 @@ pub const FACILITY_WDSMCCLIENT: u32 = 290u32;
 pub const FACILITY_WDSMCSERVER: u32 = 289u32;
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const FACILITY_WDSTPTMGMT: u32 = 272u32;
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportCacheable(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportCacheable {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub unsafe fn Dirty(&self) -> ::windows::core::Result<i16> {
@@ -121,46 +123,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportCacheable> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportCacheable) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportCacheable> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportCacheable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportCacheable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportCacheable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportCacheable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportCacheable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportCacheable {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportCacheable {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportCacheable").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportCacheable {
     type Vtable = IWdsTransportCacheableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46ad894b_0bab_47dc_84b2_7b553f1d8f80);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportCacheableVtbl {
@@ -170,11 +182,14 @@ pub struct IWdsTransportCacheableVtbl {
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportClient(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportClient {
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Session(&self) -> ::windows::core::Result<IWdsTransportSession> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Session)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportSession>(result__)
@@ -284,51 +299,64 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportClient> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportClient) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportClient> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportClient {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportClient {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportClient").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportClient {
     type Vtable = IWdsTransportClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5dbc93a_cabe_46ca_837f_3e44e93c6545);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportClientVtbl {
     pub base: IDispatchVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Session: usize,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -353,9 +381,11 @@ pub struct IWdsTransportClientVtbl {
     UserIdentity: usize,
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportCollection(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportCollection {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
@@ -420,46 +450,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportCollection> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportCollection> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportCollection {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportCollection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportCollection").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportCollection {
     type Vtable = IWdsTransportCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8ba4b1a_2ff4_43ab_996c_b2b10a91a6eb);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportCollectionVtbl {
@@ -471,16 +511,20 @@ pub struct IWdsTransportCollectionVtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportConfigurationManager(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportConfigurationManager {
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ServicePolicy(&self) -> ::windows::core::Result<IWdsTransportServicePolicy> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ServicePolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportServicePolicy>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DiagnosticsPolicy(&self) -> ::windows::core::Result<IWdsTransportDiagnosticsPolicy> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DiagnosticsPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportDiagnosticsPolicy>(result__)
@@ -561,52 +605,68 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportConfigurationManager> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportConfigurationManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportConfigurationManager> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportConfigurationManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportConfigurationManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportConfigurationManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportConfigurationManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportConfigurationManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportConfigurationManager {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportConfigurationManager {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportConfigurationManager").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportConfigurationManager {
     type Vtable = IWdsTransportConfigurationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84cc4779_42dd_4792_891e_1321d6d74b44);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportConfigurationManagerVtbl {
     pub base: IDispatchVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub ServicePolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportservicepolicy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    ServicePolicy: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub DiagnosticsPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportdiagnosticspolicy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    DiagnosticsPolicy: usize,
     pub WdsTransportServicesRunning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brealtimestatus: i16, pbservicesrunning: *mut i16) -> ::windows::core::HRESULT,
     pub EnableWdsTransportServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DisableWdsTransportServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -615,21 +675,26 @@ pub struct IWdsTransportConfigurationManagerVtbl {
     pub RestartWdsTransportServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NotifyWdsTransportServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportConfigurationManager2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportConfigurationManager2 {
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MulticastSessionPolicy(&self) -> ::windows::core::Result<IWdsTransportMulticastSessionPolicy> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MulticastSessionPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportMulticastSessionPolicy>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ServicePolicy(&self) -> ::windows::core::Result<IWdsTransportServicePolicy> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ServicePolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportServicePolicy>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DiagnosticsPolicy(&self) -> ::windows::core::Result<IWdsTransportDiagnosticsPolicy> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.DiagnosticsPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportDiagnosticsPolicy>(result__)
@@ -686,21 +751,25 @@ impl IWdsTransportConfigurationManager2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportConfigurationManager2> for IWdsTransportConfigurationManager {
     fn from(value: IWdsTransportConfigurationManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportConfigurationManager2> for IWdsTransportConfigurationManager {
     fn from(value: &IWdsTransportConfigurationManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportConfigurationManager> for IWdsTransportConfigurationManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportConfigurationManager> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportConfigurationManager> for &IWdsTransportConfigurationManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportConfigurationManager> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -730,57 +799,73 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportConfigurationManager2> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportConfigurationManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportConfigurationManager2> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportConfigurationManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportConfigurationManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportConfigurationManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportConfigurationManager2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportConfigurationManager2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportConfigurationManager2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportConfigurationManager2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportConfigurationManager2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportConfigurationManager2 {
     type Vtable = IWdsTransportConfigurationManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0d85caf_a153_4f1d_a9dd_96f431c50717);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportConfigurationManager2Vtbl {
     pub base: IWdsTransportConfigurationManagerVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub MulticastSessionPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportmulticastsessionpolicy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    MulticastSessionPolicy: usize,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportContent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportContent {
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Namespace(&self) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Namespace)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
@@ -796,7 +881,8 @@ impl IWdsTransportContent {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveSessions(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RetrieveSessions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
@@ -852,62 +938,80 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportContent> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportContent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportContent> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportContent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportContent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportContent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportContent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportContent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportContent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportContent {
     type Vtable = IWdsTransportContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd405d711_0296_4ab4_a860_ac7d32e65798);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportContentVtbl {
     pub base: IDispatchVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub Namespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportnamespace: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Namespace: usize,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Name: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub RetrieveSessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportsessions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    RetrieveSessions: usize,
     pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportContentProvider(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportContentProvider {
     #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -980,46 +1084,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportContentProvider> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportContentProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportContentProvider> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportContentProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportContentProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportContentProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportContentProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportContentProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportContentProvider {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportContentProvider {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportContentProvider").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportContentProvider {
     type Vtable = IWdsTransportContentProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9489f24_f219_4acf_aad7_265c7c08a6ae);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportContentProviderVtbl {
@@ -1041,9 +1155,11 @@ pub struct IWdsTransportContentProviderVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     InitializationRoutine: usize,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportDiagnosticsPolicy(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportDiagnosticsPolicy {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub unsafe fn Enabled(&self) -> ::windows::core::Result<i16> {
@@ -1103,21 +1219,25 @@ impl IWdsTransportDiagnosticsPolicy {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportDiagnosticsPolicy> for IWdsTransportCacheable {
     fn from(value: IWdsTransportDiagnosticsPolicy) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportDiagnosticsPolicy> for IWdsTransportCacheable {
     fn from(value: &IWdsTransportDiagnosticsPolicy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for IWdsTransportDiagnosticsPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &IWdsTransportDiagnosticsPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -1147,46 +1267,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportDiagnosticsPolicy> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportDiagnosticsPolicy) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportDiagnosticsPolicy> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportDiagnosticsPolicy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportDiagnosticsPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportDiagnosticsPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportDiagnosticsPolicy {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportDiagnosticsPolicy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportDiagnosticsPolicy {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportDiagnosticsPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportDiagnosticsPolicy").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportDiagnosticsPolicy {
     type Vtable = IWdsTransportDiagnosticsPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13b33efc_7856_4f61_9a59_8de67b6b87b6);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportDiagnosticsPolicyVtbl {
@@ -1196,12 +1326,14 @@ pub struct IWdsTransportDiagnosticsPolicyVtbl {
     pub Components: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcomponents: *mut u32) -> ::windows::core::HRESULT,
     pub SetComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcomponents: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportManager(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportManager {
-    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetWdsTransportServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszservername: Param0) -> ::windows::core::Result<IWdsTransportServer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetWdsTransportServer)(::core::mem::transmute_copy(self), bszservername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportServer>(result__)
@@ -1253,58 +1385,70 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportManager> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportManager> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportManager {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportManager {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportManager").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportManager {
     type Vtable = IWdsTransportManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b0d35f5_1b13_4afd_b878_6526dc340b5d);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportManagerVtbl {
     pub base: IDispatchVtbl,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetWdsTransportServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwdstransportserver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetWdsTransportServer: usize,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportMulticastSessionPolicy(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportMulticastSessionPolicy {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub unsafe fn SlowClientHandling(&self) -> ::windows::core::Result<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE> {
@@ -1382,21 +1526,25 @@ impl IWdsTransportMulticastSessionPolicy {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportMulticastSessionPolicy> for IWdsTransportCacheable {
     fn from(value: IWdsTransportMulticastSessionPolicy) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportMulticastSessionPolicy> for IWdsTransportCacheable {
     fn from(value: &IWdsTransportMulticastSessionPolicy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for IWdsTransportMulticastSessionPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &IWdsTransportMulticastSessionPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -1426,46 +1574,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportMulticastSessionPolicy> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportMulticastSessionPolicy) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportMulticastSessionPolicy> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportMulticastSessionPolicy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportMulticastSessionPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportMulticastSessionPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportMulticastSessionPolicy {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportMulticastSessionPolicy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportMulticastSessionPolicy {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportMulticastSessionPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportMulticastSessionPolicy").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportMulticastSessionPolicy {
     type Vtable = IWdsTransportMulticastSessionPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e5753cf_68ec_4504_a951_4a003266606b);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportMulticastSessionPolicyVtbl {
@@ -1479,9 +1637,11 @@ pub struct IWdsTransportMulticastSessionPolicyVtbl {
     pub SlowClientFallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbclientfallback: *mut i16) -> ::windows::core::HRESULT,
     pub SetSlowClientFallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bclientfallback: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportNamespace(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespace {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<WDSTRANSPORT_NAMESPACE_TYPE> {
@@ -1576,7 +1736,8 @@ impl IWdsTransportNamespace {
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Deregister)(::core::mem::transmute_copy(self), ::core::mem::transmute(bterminatesessions)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
@@ -1585,7 +1746,8 @@ impl IWdsTransportNamespace {
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RetrieveContents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
@@ -1637,46 +1799,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespace> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportNamespace) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespace> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportNamespace) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportNamespace {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportNamespace {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportNamespace {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportNamespace {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportNamespace {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportNamespace {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportNamespace").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportNamespace {
     type Vtable = IWdsTransportNamespaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa561f57_fbef_4ed3_b056_127cb1b33b84);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportNamespaceVtbl {
@@ -1729,13 +1901,21 @@ pub struct IWdsTransportNamespaceVtbl {
     pub TransmissionStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbtransmissionstarted: *mut i16) -> ::windows::core::HRESULT,
     pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Deregister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bterminatesessions: i16) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportnamespaceclone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Clone: usize,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub RetrieveContents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportcontents: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    RetrieveContents: usize,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceAutoCast(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespaceAutoCast {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<WDSTRANSPORT_NAMESPACE_TYPE> {
@@ -1830,7 +2010,8 @@ impl IWdsTransportNamespaceAutoCast {
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Deregister)(::core::mem::transmute_copy(self), ::core::mem::transmute(bterminatesessions)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
@@ -1839,7 +2020,8 @@ impl IWdsTransportNamespaceAutoCast {
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Refresh)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.RetrieveContents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
@@ -1867,21 +2049,25 @@ impl IWdsTransportNamespaceAutoCast {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceAutoCast> for IWdsTransportNamespace {
     fn from(value: IWdsTransportNamespaceAutoCast) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceAutoCast> for IWdsTransportNamespace {
     fn from(value: &IWdsTransportNamespaceAutoCast) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for IWdsTransportNamespaceAutoCast {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &IWdsTransportNamespaceAutoCast {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -1911,69 +2097,81 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceAutoCast> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportNamespaceAutoCast) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceAutoCast> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportNamespaceAutoCast) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportNamespaceAutoCast {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportNamespaceAutoCast {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportNamespaceAutoCast {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportNamespaceAutoCast {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportNamespaceAutoCast {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportNamespaceAutoCast {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportNamespaceAutoCast").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportNamespaceAutoCast {
     type Vtable = IWdsTransportNamespaceAutoCastVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad931a72_c4bd_4c41_8fbc_59c9c748df9e);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportNamespaceAutoCastVtbl {
     pub base: IWdsTransportNamespaceVtbl,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceManager(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespaceManager {
-    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateNamespace<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: Param1, bszcontentprovider: Param2, bszconfiguration: Param3) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateNamespace)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespacetype), bsznamespacename.into_param().abi(), bszcontentprovider.into_param().abi(), bszconfiguration.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RetrieveNamespace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bsznamespacename: Param0) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RetrieveNamespace)(::core::mem::transmute_copy(self), bsznamespacename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RetrieveNamespaces<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0, bsznamespacename: Param1, bincludetombstones: i16) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RetrieveNamespaces)(::core::mem::transmute_copy(self), bszcontentprovider.into_param().abi(), bsznamespacename.into_param().abi(), ::core::mem::transmute(bincludetombstones), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
@@ -2025,66 +2223,78 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceManager> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportNamespaceManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceManager> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportNamespaceManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportNamespaceManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportNamespaceManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportNamespaceManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportNamespaceManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportNamespaceManager {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportNamespaceManager {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportNamespaceManager").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportNamespaceManager {
     type Vtable = IWdsTransportNamespaceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e22d9f6_3777_4d98_83e1_f98696717ba3);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportNamespaceManagerVtbl {
     pub base: IDispatchVtbl,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub CreateNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bszcontentprovider: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bszconfiguration: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwdstransportnamespace: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     CreateNamespace: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub RetrieveNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bsznamespacename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwdstransportnamespace: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     RetrieveNamespace: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub RetrieveNamespaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszcontentprovider: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bsznamespacename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bincludetombstones: i16, ppwdstransportnamespaces: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     RetrieveNamespaces: usize,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceScheduledCast(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespaceScheduledCast {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub unsafe fn StartTransmission(&self) -> ::windows::core::Result<()> {
@@ -2183,7 +2393,8 @@ impl IWdsTransportNamespaceScheduledCast {
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Deregister)(::core::mem::transmute_copy(self), ::core::mem::transmute(bterminatesessions)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
@@ -2192,7 +2403,8 @@ impl IWdsTransportNamespaceScheduledCast {
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Refresh)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.RetrieveContents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
@@ -2220,21 +2432,25 @@ impl IWdsTransportNamespaceScheduledCast {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCast> for IWdsTransportNamespace {
     fn from(value: IWdsTransportNamespaceScheduledCast) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCast> for IWdsTransportNamespace {
     fn from(value: &IWdsTransportNamespaceScheduledCast) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for IWdsTransportNamespaceScheduledCast {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &IWdsTransportNamespaceScheduledCast {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -2264,55 +2480,67 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCast> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportNamespaceScheduledCast) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCast> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportNamespaceScheduledCast) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportNamespaceScheduledCast {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportNamespaceScheduledCast {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCast {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportNamespaceScheduledCast {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportNamespaceScheduledCast {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportNamespaceScheduledCast {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportNamespaceScheduledCast").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportNamespaceScheduledCast {
     type Vtable = IWdsTransportNamespaceScheduledCastVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3840cecf_d76c_416e_a4cc_31c741d2874b);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportNamespaceScheduledCastVtbl {
     pub base: IWdsTransportNamespaceVtbl,
     pub StartTransmission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceScheduledCastAutoStart(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespaceScheduledCastAutoStart {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub unsafe fn MinimumClients(&self) -> ::windows::core::Result<u32> {
@@ -2429,7 +2657,8 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Deregister)(::core::mem::transmute_copy(self), ::core::mem::transmute(bterminatesessions)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
@@ -2438,7 +2667,8 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Refresh)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.RetrieveContents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
@@ -2466,41 +2696,49 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for IWdsTransportNamespaceScheduledCast {
     fn from(value: IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastAutoStart> for IWdsTransportNamespaceScheduledCast {
     fn from(value: &IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for IWdsTransportNamespaceScheduledCastAutoStart {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespaceScheduledCast> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for &IWdsTransportNamespaceScheduledCastAutoStart {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespaceScheduledCast> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for IWdsTransportNamespace {
     fn from(value: IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastAutoStart> for IWdsTransportNamespace {
     fn from(value: &IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for IWdsTransportNamespaceScheduledCastAutoStart {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &IWdsTransportNamespaceScheduledCastAutoStart {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -2530,46 +2768,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastAutoStart> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportNamespaceScheduledCastAutoStart {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportNamespaceScheduledCastAutoStart {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCastAutoStart {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportNamespaceScheduledCastAutoStart {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportNamespaceScheduledCastAutoStart {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportNamespaceScheduledCastAutoStart {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportNamespaceScheduledCastAutoStart").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportNamespaceScheduledCastAutoStart {
     type Vtable = IWdsTransportNamespaceScheduledCastAutoStartVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd606af3d_ea9c_4219_961e_7491d618d9b9);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportNamespaceScheduledCastAutoStartVtbl {
@@ -2579,9 +2827,11 @@ pub struct IWdsTransportNamespaceScheduledCastAutoStartVtbl {
     pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstarttime: *mut f64) -> ::windows::core::HRESULT,
     pub SetStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: f64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceScheduledCastManualStart(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespaceScheduledCastManualStart {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub unsafe fn StartTransmission(&self) -> ::windows::core::Result<()> {
@@ -2680,7 +2930,8 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Deregister)(::core::mem::transmute_copy(self), ::core::mem::transmute(bterminatesessions)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
@@ -2689,7 +2940,8 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Refresh)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.RetrieveContents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
@@ -2717,41 +2969,49 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for IWdsTransportNamespaceScheduledCast {
     fn from(value: IWdsTransportNamespaceScheduledCastManualStart) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastManualStart> for IWdsTransportNamespaceScheduledCast {
     fn from(value: &IWdsTransportNamespaceScheduledCastManualStart) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for IWdsTransportNamespaceScheduledCastManualStart {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespaceScheduledCast> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for &IWdsTransportNamespaceScheduledCastManualStart {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespaceScheduledCast> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for IWdsTransportNamespace {
     fn from(value: IWdsTransportNamespaceScheduledCastManualStart) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastManualStart> for IWdsTransportNamespace {
     fn from(value: &IWdsTransportNamespaceScheduledCastManualStart) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for IWdsTransportNamespaceScheduledCastManualStart {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &IWdsTransportNamespaceScheduledCastManualStart {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -2781,54 +3041,66 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportNamespaceScheduledCastManualStart) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastManualStart> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportNamespaceScheduledCastManualStart) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportNamespaceScheduledCastManualStart {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportNamespaceScheduledCastManualStart {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCastManualStart {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportNamespaceScheduledCastManualStart {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportNamespaceScheduledCastManualStart {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportNamespaceScheduledCastManualStart {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportNamespaceScheduledCastManualStart").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportNamespaceScheduledCastManualStart {
     type Vtable = IWdsTransportNamespaceScheduledCastManualStartVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x013e6e4c_e6a7_4fb5_b7ff_d9f5da805c31);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportNamespaceScheduledCastManualStartVtbl {
     pub base: IWdsTransportNamespaceScheduledCastVtbl,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportServer(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportServer {
     #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2836,17 +3108,20 @@ impl IWdsTransportServer {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetupManager(&self) -> ::windows::core::Result<IWdsTransportSetupManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SetupManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportSetupManager>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConfigurationManager(&self) -> ::windows::core::Result<IWdsTransportConfigurationManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ConfigurationManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportConfigurationManager>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceManager(&self) -> ::windows::core::Result<IWdsTransportNamespaceManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).NamespaceManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespaceManager>(result__)
@@ -2902,46 +3177,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServer> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportServer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportServer> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportServer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportServer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportServer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportServer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportServer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportServer {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportServer {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportServer").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportServer {
     type Vtable = IWdsTransportServerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09ccd093_830d_4344_a30a_73ae8e8fca90);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportServerVtbl {
@@ -2950,16 +3235,28 @@ pub struct IWdsTransportServerVtbl {
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Name: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub SetupManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportsetupmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SetupManager: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub ConfigurationManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportconfigurationmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    ConfigurationManager: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub NamespaceManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportnamespacemanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    NamespaceManager: usize,
     pub DisconnectClient: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportServer2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportServer2 {
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TftpManager(&self) -> ::windows::core::Result<IWdsTransportTftpManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).TftpManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportTftpManager>(result__)
@@ -2970,17 +3267,20 @@ impl IWdsTransportServer2 {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetupManager(&self) -> ::windows::core::Result<IWdsTransportSetupManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.SetupManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportSetupManager>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConfigurationManager(&self) -> ::windows::core::Result<IWdsTransportConfigurationManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ConfigurationManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportConfigurationManager>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceManager(&self) -> ::windows::core::Result<IWdsTransportNamespaceManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.NamespaceManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespaceManager>(result__)
@@ -3012,21 +3312,25 @@ impl IWdsTransportServer2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServer2> for IWdsTransportServer {
     fn from(value: IWdsTransportServer2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportServer2> for IWdsTransportServer {
     fn from(value: &IWdsTransportServer2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServer> for IWdsTransportServer2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportServer> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServer> for &IWdsTransportServer2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportServer> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -3056,55 +3360,70 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServer2> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportServer2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportServer2> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportServer2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportServer2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportServer2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportServer2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportServer2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportServer2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportServer2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportServer2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportServer2 {
     type Vtable = IWdsTransportServer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x256e999f_6df4_4538_81b9_857b9ab8fb47);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportServer2Vtbl {
     pub base: IWdsTransportServerVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub TftpManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransporttftpmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    TftpManager: usize,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportServicePolicy(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportServicePolicy {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub unsafe fn IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
@@ -3204,21 +3523,25 @@ impl IWdsTransportServicePolicy {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServicePolicy> for IWdsTransportCacheable {
     fn from(value: IWdsTransportServicePolicy) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportServicePolicy> for IWdsTransportCacheable {
     fn from(value: &IWdsTransportServicePolicy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for IWdsTransportServicePolicy {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &IWdsTransportServicePolicy {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -3248,46 +3571,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServicePolicy> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportServicePolicy) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportServicePolicy> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportServicePolicy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportServicePolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportServicePolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportServicePolicy {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportServicePolicy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportServicePolicy {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportServicePolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportServicePolicy").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportServicePolicy {
     type Vtable = IWdsTransportServicePolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9468578_9f2b_48cc_b27a_a60799c2750c);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportServicePolicyVtbl {
@@ -3317,9 +3650,11 @@ pub struct IWdsTransportServicePolicyVtbl {
     pub NetworkProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofiletype: *mut WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::core::HRESULT,
     pub SetNetworkProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportServicePolicy2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportServicePolicy2 {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub unsafe fn UdpPortPolicy(&self) -> ::windows::core::Result<WDSTRANSPORT_UDP_PORT_POLICY> {
@@ -3446,41 +3781,49 @@ impl IWdsTransportServicePolicy2 {
         (::windows::core::Interface::vtable(self).base.base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServicePolicy2> for IWdsTransportServicePolicy {
     fn from(value: IWdsTransportServicePolicy2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportServicePolicy2> for IWdsTransportServicePolicy {
     fn from(value: &IWdsTransportServicePolicy2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServicePolicy> for IWdsTransportServicePolicy2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportServicePolicy> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServicePolicy> for &IWdsTransportServicePolicy2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportServicePolicy> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServicePolicy2> for IWdsTransportCacheable {
     fn from(value: IWdsTransportServicePolicy2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportServicePolicy2> for IWdsTransportCacheable {
     fn from(value: &IWdsTransportServicePolicy2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for IWdsTransportServicePolicy2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &IWdsTransportServicePolicy2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -3510,46 +3853,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServicePolicy2> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportServicePolicy2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportServicePolicy2> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportServicePolicy2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportServicePolicy2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportServicePolicy2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportServicePolicy2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportServicePolicy2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportServicePolicy2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportServicePolicy2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportServicePolicy2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportServicePolicy2 {
     type Vtable = IWdsTransportServicePolicy2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65c19e5c_aa7e_4b91_8944_91e0e5572797);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportServicePolicy2Vtbl {
@@ -3561,11 +3914,14 @@ pub struct IWdsTransportServicePolicy2Vtbl {
     pub EnableTftpVariableWindowExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabletftpvariablewindowextension: *mut i16) -> ::windows::core::HRESULT,
     pub SetEnableTftpVariableWindowExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabletftpvariablewindowextension: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportSession(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportSession {
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Content(&self) -> ::windows::core::Result<IWdsTransportContent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Content)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportContent>(result__)
@@ -3597,7 +3953,8 @@ impl IWdsTransportSession {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MasterClientId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveClients(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RetrieveClients)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
@@ -3653,51 +4010,64 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportSession> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportSession) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportSession> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportSession {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportSession {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportSession").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportSession {
     type Vtable = IWdsTransportSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4efea88_65b1_4f30_a4b9_2793987796fb);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportSessionVtbl {
     pub base: IDispatchVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportcontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Content: usize,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub NetworkInterfaceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsznetworkinterfacename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -3709,12 +4079,17 @@ pub struct IWdsTransportSessionVtbl {
     NetworkInterfaceAddress: usize,
     pub TransferRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pultransferrate: *mut u32) -> ::windows::core::HRESULT,
     pub MasterClientId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulmasterclientid: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub RetrieveClients: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportclients: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    RetrieveClients: usize,
     pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportSetupManager(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportSetupManager {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub unsafe fn Version(&self) -> ::windows::core::Result<u64> {
@@ -3788,46 +4163,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportSetupManager> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportSetupManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportSetupManager> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportSetupManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportSetupManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportSetupManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportSetupManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportSetupManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportSetupManager {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportSetupManager {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportSetupManager").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportSetupManager {
     type Vtable = IWdsTransportSetupManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7238425_efa8_40a4_aef9_c98d969c0b75);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportSetupManagerVtbl {
@@ -3844,16 +4229,19 @@ pub struct IWdsTransportSetupManagerVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     DeregisterContentProvider: usize,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportSetupManager2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportSetupManager2 {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub unsafe fn TftpCapabilities(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).TftpCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ContentProviders(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ContentProviders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
@@ -3906,21 +4294,25 @@ impl IWdsTransportSetupManager2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportSetupManager2> for IWdsTransportSetupManager {
     fn from(value: IWdsTransportSetupManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportSetupManager2> for IWdsTransportSetupManager {
     fn from(value: &IWdsTransportSetupManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportSetupManager> for IWdsTransportSetupManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportSetupManager> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IWdsTransportSetupManager> for &IWdsTransportSetupManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportSetupManager> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -3950,56 +4342,71 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportSetupManager2> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportSetupManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportSetupManager2> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportSetupManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportSetupManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportSetupManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportSetupManager2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportSetupManager2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportSetupManager2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportSetupManager2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportSetupManager2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportSetupManager2 {
     type Vtable = IWdsTransportSetupManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02be79da_7e9e_4366_8b6e_2aa9a91be47f);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportSetupManager2Vtbl {
     pub base: IWdsTransportSetupManagerVtbl,
     pub TftpCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pultftpcapabilities: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub ContentProviders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprovidercollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    ContentProviders: usize,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportTftpClient(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportTftpClient {
     #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4085,46 +4492,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportTftpClient> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportTftpClient) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportTftpClient> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportTftpClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportTftpClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportTftpClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportTftpClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportTftpClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportTftpClient {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportTftpClient {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportTftpClient").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportTftpClient {
     type Vtable = IWdsTransportTftpClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb022d3ae_884d_4d85_b146_53320e76ef62);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportTftpClientVtbl {
@@ -4143,11 +4560,14 @@ pub struct IWdsTransportTftpClientVtbl {
     pub BlockSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulblocksize: *mut u32) -> ::windows::core::HRESULT,
     pub WindowSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulwindowsize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+#[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWdsTransportTftpManager(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportTftpManager {
-    #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
+    #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveTftpClients(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RetrieveTftpClients)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
@@ -4199,51 +4619,64 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTranspor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportTftpManager> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportTftpManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportTftpManager> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportTftpManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportTftpManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportTftpManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportTftpManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWdsTransportTftpManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IWdsTransportTftpManager {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IWdsTransportTftpManager {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWdsTransportTftpManager").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWdsTransportTftpManager {
     type Vtable = IWdsTransportTftpManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1327a7c8_ae8a_4fb3_8150_136227c37e9a);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportTftpManagerVtbl {
     pub base: IDispatchVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub RetrieveTftpClients: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransporttftpclients: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    RetrieveTftpClients: usize,
 }
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const MC_SERVER_CURRENT_VERSION: u32 = 1u32;

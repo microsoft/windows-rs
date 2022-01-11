@@ -3,9 +3,11 @@ pub const Catalog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e
 pub const CatalogCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22883_8a19_11d0_81b6_00a0c9231c29);
 pub const CatalogObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22882_8a19_11d0_81b6_00a0c9231c29);
 pub const ComponentUtil: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22884_8a19_11d0_81b6_00a0c9231c29);
-#[doc = "*Required features: 'Win32_System_TransactionServer'*"]
+#[doc = "*Required features: 'Win32_System_TransactionServer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ICatalog(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl ICatalog {
     #[doc = "*Required features: 'Win32_System_TransactionServer', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -74,46 +76,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &ICatalog {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ICatalog> for ::windows::core::IUnknown {
     fn from(value: ICatalog) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ICatalog> for ::windows::core::IUnknown {
     fn from(value: &ICatalog) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICatalog {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICatalog {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ICatalog {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICatalog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for ICatalog {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for ICatalog {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ICatalog").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICatalog {
     type Vtable = ICatalogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22870_8a19_11d0_81b6_00a0c9231c29);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICatalogVtbl {
@@ -129,9 +141,11 @@ pub struct ICatalogVtbl {
     pub MajorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub MinorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_TransactionServer'*"]
+#[doc = "*Required features: 'Win32_System_TransactionServer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IComponentUtil(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IComponentUtil {
     #[doc = "*Required features: 'Win32_System_TransactionServer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -200,46 +214,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IComponentUt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IComponentUtil> for ::windows::core::IUnknown {
     fn from(value: IComponentUtil) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IComponentUtil> for ::windows::core::IUnknown {
     fn from(value: &IComponentUtil) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IComponentUtil {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IComponentUtil {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IComponentUtil {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IComponentUtil {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IComponentUtil {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IComponentUtil {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IComponentUtil").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IComponentUtil {
     type Vtable = IComponentUtilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22873_8a19_11d0_81b6_00a0c9231c29);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentUtilVtbl {
@@ -261,9 +285,11 @@ pub struct IComponentUtilVtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetCLSIDs: usize,
 }
-#[doc = "*Required features: 'Win32_System_TransactionServer'*"]
+#[doc = "*Required features: 'Win32_System_TransactionServer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPackageUtil(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IPackageUtil {
     #[doc = "*Required features: 'Win32_System_TransactionServer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -327,46 +353,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IPackageUtil
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPackageUtil> for ::windows::core::IUnknown {
     fn from(value: IPackageUtil) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPackageUtil> for ::windows::core::IUnknown {
     fn from(value: &IPackageUtil) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPackageUtil {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPackageUtil {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPackageUtil {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPackageUtil {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IPackageUtil {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IPackageUtil {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPackageUtil").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPackageUtil {
     type Vtable = IPackageUtilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22874_8a19_11d0_81b6_00a0c9231c29);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageUtilVtbl {
@@ -384,9 +420,11 @@ pub struct IPackageUtilVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ShutdownPackage: usize,
 }
-#[doc = "*Required features: 'Win32_System_TransactionServer'*"]
+#[doc = "*Required features: 'Win32_System_TransactionServer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRemoteComponentUtil(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRemoteComponentUtil {
     #[doc = "*Required features: 'Win32_System_TransactionServer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -445,46 +483,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRemoteCompo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRemoteComponentUtil> for ::windows::core::IUnknown {
     fn from(value: IRemoteComponentUtil) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRemoteComponentUtil> for ::windows::core::IUnknown {
     fn from(value: &IRemoteComponentUtil) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRemoteComponentUtil {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRemoteComponentUtil {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRemoteComponentUtil {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRemoteComponentUtil {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRemoteComponentUtil {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRemoteComponentUtil {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRemoteComponentUtil").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRemoteComponentUtil {
     type Vtable = IRemoteComponentUtilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22875_8a19_11d0_81b6_00a0c9231c29);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteComponentUtilVtbl {
@@ -498,9 +546,11 @@ pub struct IRemoteComponentUtilVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     InstallRemoteComponentByName: usize,
 }
-#[doc = "*Required features: 'Win32_System_TransactionServer'*"]
+#[doc = "*Required features: 'Win32_System_TransactionServer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRoleAssociationUtil(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRoleAssociationUtil {
     #[doc = "*Required features: 'Win32_System_TransactionServer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -559,46 +609,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRoleAssocia
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRoleAssociationUtil> for ::windows::core::IUnknown {
     fn from(value: IRoleAssociationUtil) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRoleAssociationUtil> for ::windows::core::IUnknown {
     fn from(value: &IRoleAssociationUtil) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRoleAssociationUtil {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRoleAssociationUtil {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRoleAssociationUtil {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRoleAssociationUtil {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRoleAssociationUtil {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRoleAssociationUtil {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRoleAssociationUtil").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRoleAssociationUtil {
     type Vtable = IRoleAssociationUtilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22876_8a19_11d0_81b6_00a0c9231c29);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRoleAssociationUtilVtbl {

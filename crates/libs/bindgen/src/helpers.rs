@@ -165,8 +165,8 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         Some(ElementType::IInspectable) => methods.combine(&quote! { pub base: ::windows::core::IInspectableVtbl, }),
         Some(ElementType::TypeDef(def)) => {
             let vtbl = gen_vtbl_ident(&def, gen);
-            // TODO: need namespace?
-            methods.combine(&quote! { pub base: #vtbl, });
+            let namespace = gen.namespace(def.namespace());
+            methods.combine(&quote! { pub base: #namespace #vtbl, });
         }
         _ => {}
     }

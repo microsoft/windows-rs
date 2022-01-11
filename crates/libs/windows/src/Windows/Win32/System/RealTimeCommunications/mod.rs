@@ -279,7 +279,8 @@ impl IRTCBuddy2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateGroups)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCEnumGroups>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Groups(&self) -> ::windows::core::Result<IRTCCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Groups)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCCollection>(result__)
@@ -295,7 +296,8 @@ impl IRTCBuddy2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumeratePresenceDevices)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCEnumPresenceDevices>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PresenceDevices(&self) -> ::windows::core::Result<IRTCCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PresenceDevices)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCCollection>(result__)
@@ -446,18 +448,26 @@ pub struct IRTCBuddy2Vtbl {
     pub Profile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub Groups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Groups: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub PresenceProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     PresenceProperty: usize,
     pub EnumeratePresenceDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevices: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub PresenceDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevicescollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    PresenceDevices: usize,
     pub SubscriptionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pensubscriptiontype: *mut RTC_BUDDY_SUBSCRIPTION_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCBuddyEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddyEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Buddy(&self) -> ::windows::core::Result<IRTCBuddy> {
@@ -511,55 +521,67 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCBuddyEve
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCBuddyEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCBuddyEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCBuddyEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCBuddyEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddyEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCBuddyEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCBuddyEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCBuddyEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCBuddyEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCBuddyEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCBuddyEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCBuddyEvent {
     type Vtable = IRTCBuddyEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf36d755d_17e6_404e_954f_0fc07574c78d);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCBuddyEventVtbl {
     pub base: IDispatchVtbl,
     pub Buddy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbuddy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCBuddyEvent2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddyEvent2 {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn EventType(&self) -> ::windows::core::Result<RTC_BUDDY_EVENT_TYPE> {
@@ -605,21 +627,25 @@ impl IRTCBuddyEvent2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCBuddyEvent2> for IRTCBuddyEvent {
     fn from(value: IRTCBuddyEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCBuddyEvent2> for IRTCBuddyEvent {
     fn from(value: &IRTCBuddyEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IRTCBuddyEvent> for IRTCBuddyEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCBuddyEvent> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IRTCBuddyEvent> for &IRTCBuddyEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCBuddyEvent> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -649,46 +675,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCBuddyEve
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCBuddyEvent2> for ::windows::core::IUnknown {
     fn from(value: IRTCBuddyEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCBuddyEvent2> for ::windows::core::IUnknown {
     fn from(value: &IRTCBuddyEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddyEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCBuddyEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCBuddyEvent2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCBuddyEvent2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCBuddyEvent2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCBuddyEvent2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCBuddyEvent2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCBuddyEvent2 {
     type Vtable = IRTCBuddyEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x484a7f1e_73f0_4990_bfc2_60bc3978a720);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCBuddyEvent2Vtbl {
@@ -728,7 +764,8 @@ impl IRTCBuddyGroup {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateBuddies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCEnumBuddies>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Buddies(&self) -> ::windows::core::Result<IRTCCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Buddies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCCollection>(result__)
@@ -805,7 +842,10 @@ pub struct IRTCBuddyGroupVtbl {
     pub AddBuddy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuddy: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RemoveBuddy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuddy: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub EnumerateBuddies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub Buddies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Buddies: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -816,9 +856,11 @@ pub struct IRTCBuddyGroupVtbl {
     SetData: usize,
     pub Profile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCBuddyGroupEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddyGroupEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn EventType(&self) -> ::windows::core::Result<RTC_GROUP_EVENT_TYPE> {
@@ -887,46 +929,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCBuddyGro
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCBuddyGroupEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCBuddyGroupEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCBuddyGroupEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCBuddyGroupEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddyGroupEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCBuddyGroupEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCBuddyGroupEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCBuddyGroupEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCBuddyGroupEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCBuddyGroupEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCBuddyGroupEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCBuddyGroupEvent {
     type Vtable = IRTCBuddyGroupEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a79e1d1_b736_4414_96f8_bbc7f08863e4);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCBuddyGroupEventVtbl {
@@ -1014,8 +1066,8 @@ impl IRTCClient {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioMuted)(::core::mem::transmute_copy(self), ::core::mem::transmute(endevice), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_Media_DirectShow'*"]
-    #[cfg(feature = "Win32_Media_DirectShow")]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_Media_DirectShow', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
     pub unsafe fn IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).IVideoWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(endevice), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Media::DirectShow::IVideoWindow>(result__)
@@ -1207,9 +1259,9 @@ pub struct IRTCClientVtbl {
     pub Volume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, plvolume: *mut i32) -> ::windows::core::HRESULT,
     pub SetAudioMuted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, fmuted: i16) -> ::windows::core::HRESULT,
     pub AudioMuted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, pfmuted: *mut i16) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Media_DirectShow")]
+    #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
     pub IVideoWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endevice: RTC_VIDEO_DEVICE, ppivideowindow: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Media_DirectShow"))]
+    #[cfg(not(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com")))]
     IVideoWindow: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub SetPreferredAudioDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, bstrdevicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -1399,8 +1451,8 @@ impl IRTCClient2 {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.AudioMuted)(::core::mem::transmute_copy(self), ::core::mem::transmute(endevice), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_Media_DirectShow'*"]
-    #[cfg(feature = "Win32_Media_DirectShow")]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_Media_DirectShow', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
     pub unsafe fn IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.IVideoWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(endevice), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Media::DirectShow::IVideoWindow>(result__)
@@ -1613,9 +1665,11 @@ pub struct IRTCClient2Vtbl {
     pub SetAllowedPorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> ::windows::core::HRESULT,
     pub AllowedPorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltransport: i32, penlistenmode: *mut RTC_LISTEN_MODE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCClientEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCClientEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn EventType(&self) -> ::windows::core::Result<RTC_CLIENT_EVENT_TYPE> {
@@ -1674,46 +1728,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCClientEv
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCClientEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCClientEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCClientEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCClientEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClientEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCClientEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCClientEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCClientEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCClientEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCClientEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCClientEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCClientEvent {
     type Vtable = IRTCClientEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b493b7a_3cba_4170_9c8b_76a9dacdd644);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCClientEventVtbl {
@@ -1818,7 +1882,8 @@ impl IRTCClientPresence {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateBuddies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCEnumBuddies>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Buddies(&self) -> ::windows::core::Result<IRTCCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Buddies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCCollection>(result__)
@@ -1844,7 +1909,8 @@ impl IRTCClientPresence {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateWatchers)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCEnumWatchers>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Watchers(&self) -> ::windows::core::Result<IRTCCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Watchers)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCCollection>(result__)
@@ -1946,7 +2012,10 @@ pub struct IRTCClientPresenceVtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Import: usize,
     pub EnumerateBuddies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub Buddies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Buddies: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub Buddy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppbuddy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1957,7 +2026,10 @@ pub struct IRTCClientPresenceVtbl {
     AddBuddy: usize,
     pub RemoveBuddy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuddy: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub EnumerateWatchers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub Watchers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Watchers: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub Watcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwatcher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2004,7 +2076,8 @@ impl IRTCClientPresence2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateGroups)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCEnumGroups>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Groups(&self) -> ::windows::core::Result<IRTCCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Groups)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCCollection>(result__)
@@ -2079,7 +2152,8 @@ impl IRTCClientPresence2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumerateBuddies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCEnumBuddies>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Buddies(&self) -> ::windows::core::Result<IRTCCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Buddies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCCollection>(result__)
@@ -2105,7 +2179,8 @@ impl IRTCClientPresence2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumerateWatchers)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCEnumWatchers>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Watchers(&self) -> ::windows::core::Result<IRTCCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Watchers)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCCollection>(result__)
@@ -2225,7 +2300,10 @@ pub struct IRTCClientPresence2Vtbl {
     AddGroup: usize,
     pub RemoveGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub EnumerateGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub Groups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Groups: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub Group: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2286,7 +2364,8 @@ impl IRTCClientProvisioning {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateProfiles)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCEnumProfiles>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Profiles(&self) -> ::windows::core::Result<IRTCCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Profiles)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCCollection>(result__)
@@ -2353,7 +2432,10 @@ pub struct IRTCClientProvisioningVtbl {
     pub EnableProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofile: ::windows::core::RawPtr, lregisterflags: i32) -> ::windows::core::HRESULT,
     pub DisableProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofile: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub EnumerateProfiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub Profiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Profiles: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub GetProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstruseraccount: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstruserpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstruseruri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrserver: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ltransport: i32, lcookie: isize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2387,7 +2469,8 @@ impl IRTCClientProvisioning2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumerateProfiles)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCEnumProfiles>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Profiles(&self) -> ::windows::core::Result<IRTCCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Profiles)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCCollection>(result__)
@@ -2469,9 +2552,11 @@ pub struct IRTCClientProvisioning2Vtbl {
     pub base: IRTCClientProvisioningVtbl,
     pub EnableProfileEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofile: ::windows::core::RawPtr, lregisterflags: i32, lroamingflags: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCCollection(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCCollection {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -2536,46 +2621,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCCollecti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCCollection> for ::windows::core::IUnknown {
     fn from(value: IRTCCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCCollection> for ::windows::core::IUnknown {
     fn from(value: &IRTCCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCCollection {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCCollection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCCollection").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCCollection {
     type Vtable = IRTCCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec7c8096_b918_4044_94f1_e4fba0361d5c);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCCollectionVtbl {
@@ -2587,9 +2682,11 @@ pub struct IRTCCollectionVtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnewenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCDispatchEventNotification(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCDispatchEventNotification {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2638,46 +2735,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCDispatch
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCDispatchEventNotification> for ::windows::core::IUnknown {
     fn from(value: IRTCDispatchEventNotification) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCDispatchEventNotification> for ::windows::core::IUnknown {
     fn from(value: &IRTCDispatchEventNotification) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCDispatchEventNotification {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCDispatchEventNotification {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCDispatchEventNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCDispatchEventNotification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCDispatchEventNotification {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCDispatchEventNotification {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCDispatchEventNotification").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCDispatchEventNotification {
     type Vtable = IRTCDispatchEventNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x176ddfbe_fec0_4d55_bc87_84cff1ef7f91);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCDispatchEventNotificationVtbl {
@@ -3239,9 +3346,11 @@ pub struct IRTCEventNotificationVtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Event: usize,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCInfoEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCInfoEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Session(&self) -> ::windows::core::Result<IRTCSession2> {
@@ -3312,46 +3421,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCInfoEven
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCInfoEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCInfoEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCInfoEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCInfoEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCInfoEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCInfoEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCInfoEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCInfoEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCInfoEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCInfoEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCInfoEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCInfoEvent {
     type Vtable = IRTCInfoEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e1d68ae_1912_4f49_b2c3_594fadfd425f);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCInfoEventVtbl {
@@ -3367,9 +3486,11 @@ pub struct IRTCInfoEventVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     InfoHeader: usize,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCIntensityEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCIntensityEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Level(&self) -> ::windows::core::Result<i32> {
@@ -3438,46 +3559,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCIntensit
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCIntensityEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCIntensityEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCIntensityEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCIntensityEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCIntensityEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCIntensityEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCIntensityEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCIntensityEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCIntensityEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCIntensityEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCIntensityEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCIntensityEvent {
     type Vtable = IRTCIntensityEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c23bf51_390c_4992_a41d_41eec05b2a4b);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCIntensityEventVtbl {
@@ -3487,9 +3618,11 @@ pub struct IRTCIntensityEventVtbl {
     pub Max: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmax: *mut i32) -> ::windows::core::HRESULT,
     pub Direction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pendirection: *mut RTC_AUDIO_DEVICE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCMediaEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCMediaEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn MediaType(&self) -> ::windows::core::Result<i32> {
@@ -3553,46 +3686,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCMediaEve
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCMediaEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCMediaEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCMediaEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCMediaEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCMediaEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCMediaEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCMediaEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCMediaEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCMediaEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCMediaEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCMediaEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCMediaEvent {
     type Vtable = IRTCMediaEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x099944fb_bcda_453e_8c41_e13da2adf7f3);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCMediaEventVtbl {
@@ -3601,9 +3744,11 @@ pub struct IRTCMediaEventVtbl {
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peneventtype: *mut RTC_MEDIA_EVENT_TYPE) -> ::windows::core::HRESULT,
     pub EventReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peneventreason: *mut RTC_MEDIA_EVENT_REASON) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCMediaRequestEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCMediaRequestEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Session(&self) -> ::windows::core::Result<IRTCSession2> {
@@ -3685,46 +3830,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCMediaReq
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCMediaRequestEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCMediaRequestEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCMediaRequestEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCMediaRequestEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCMediaRequestEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCMediaRequestEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCMediaRequestEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCMediaRequestEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCMediaRequestEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCMediaRequestEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCMediaRequestEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCMediaRequestEvent {
     type Vtable = IRTCMediaRequestEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52572d15_148c_4d97_a36c_2da55c289d63);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCMediaRequestEventVtbl {
@@ -3737,9 +3892,11 @@ pub struct IRTCMediaRequestEventVtbl {
     pub Reject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut RTC_REINVITE_STATE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCMessagingEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCMessagingEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Session(&self) -> ::windows::core::Result<IRTCSession> {
@@ -3820,46 +3977,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCMessagin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCMessagingEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCMessagingEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCMessagingEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCMessagingEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCMessagingEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCMessagingEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCMessagingEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCMessagingEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCMessagingEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCMessagingEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCMessagingEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCMessagingEvent {
     type Vtable = IRTCMessagingEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3609541_1b29_4de5_a4ad_5aebaf319512);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCMessagingEventVtbl {
@@ -3965,9 +4132,11 @@ pub struct IRTCParticipantVtbl {
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstate: *mut RTC_PARTICIPANT_STATE) -> ::windows::core::HRESULT,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCParticipantStateChangeEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCParticipantStateChangeEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Participant(&self) -> ::windows::core::Result<IRTCParticipant> {
@@ -4031,46 +4200,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCParticip
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCParticipantStateChangeEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCParticipantStateChangeEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCParticipantStateChangeEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCParticipantStateChangeEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCParticipantStateChangeEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCParticipantStateChangeEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCParticipantStateChangeEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCParticipantStateChangeEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCParticipantStateChangeEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCParticipantStateChangeEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCParticipantStateChangeEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCParticipantStateChangeEvent {
     type Vtable = IRTCParticipantStateChangeEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09bcb597_f0fa_48f9_b420_468cea7fde04);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCParticipantStateChangeEventVtbl {
@@ -4274,9 +4453,11 @@ pub struct IRTCPresenceContactVtbl {
     pub Persistent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfpersistent: *mut i16) -> ::windows::core::HRESULT,
     pub SetPersistent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fpersistent: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCPresenceDataEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCPresenceDataEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn StatusCode(&self) -> ::windows::core::Result<i32> {
@@ -4341,46 +4522,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCPresence
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCPresenceDataEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCPresenceDataEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCPresenceDataEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCPresenceDataEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPresenceDataEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCPresenceDataEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCPresenceDataEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCPresenceDataEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCPresenceDataEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCPresenceDataEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCPresenceDataEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCPresenceDataEvent {
     type Vtable = IRTCPresenceDataEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38f0e78c_8b87_4c04_a82d_aedd83c909bb);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCPresenceDataEventVtbl {
@@ -4480,9 +4671,11 @@ pub struct IRTCPresenceDeviceVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPresenceData: usize,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCPresencePropertyEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCPresencePropertyEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn StatusCode(&self) -> ::windows::core::Result<i32> {
@@ -4553,46 +4746,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCPresence
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCPresencePropertyEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCPresencePropertyEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCPresencePropertyEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCPresencePropertyEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPresencePropertyEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCPresencePropertyEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCPresencePropertyEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCPresencePropertyEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCPresencePropertyEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCPresencePropertyEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCPresencePropertyEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCPresencePropertyEvent {
     type Vtable = IRTCPresencePropertyEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf777f570_a820_49d5_86bd_e099493f1518);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCPresencePropertyEventVtbl {
@@ -4608,9 +4811,11 @@ pub struct IRTCPresencePropertyEventVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Value: usize,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCPresenceStatusEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCPresenceStatusEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn StatusCode(&self) -> ::windows::core::Result<i32> {
@@ -4675,46 +4880,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCPresence
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCPresenceStatusEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCPresenceStatusEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCPresenceStatusEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCPresenceStatusEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPresenceStatusEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCPresenceStatusEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCPresenceStatusEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCPresenceStatusEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCPresenceStatusEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCPresenceStatusEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCPresenceStatusEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCPresenceStatusEvent {
     type Vtable = IRTCPresenceStatusEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78673f32_4a0f_462c_89aa_ee7706707678);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCPresenceStatusEventVtbl {
@@ -5150,9 +5365,11 @@ pub struct IRTCProfile2Vtbl {
     pub AllowedAuth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plallowedauth: *mut i32) -> ::windows::core::HRESULT,
     pub SetAllowedAuth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lallowedauth: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCProfileEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCProfileEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Profile(&self) -> ::windows::core::Result<IRTCProfile> {
@@ -5216,46 +5433,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCProfileE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCProfileEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCProfileEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCProfileEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCProfileEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCProfileEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCProfileEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCProfileEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCProfileEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCProfileEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCProfileEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCProfileEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCProfileEvent {
     type Vtable = IRTCProfileEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6d5ab3b_770e_43e8_800a_79b062395fca);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCProfileEventVtbl {
@@ -5264,9 +5491,11 @@ pub struct IRTCProfileEventVtbl {
     pub Cookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcookie: *mut isize) -> ::windows::core::HRESULT,
     pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCProfileEvent2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCProfileEvent2 {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn EventType(&self) -> ::windows::core::Result<RTC_PROFILE_EVENT_TYPE> {
@@ -5311,21 +5540,25 @@ impl IRTCProfileEvent2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCProfileEvent2> for IRTCProfileEvent {
     fn from(value: IRTCProfileEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCProfileEvent2> for IRTCProfileEvent {
     fn from(value: &IRTCProfileEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IRTCProfileEvent> for IRTCProfileEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCProfileEvent> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IRTCProfileEvent> for &IRTCProfileEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCProfileEvent> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -5355,55 +5588,67 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCProfileE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCProfileEvent2> for ::windows::core::IUnknown {
     fn from(value: IRTCProfileEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCProfileEvent2> for ::windows::core::IUnknown {
     fn from(value: &IRTCProfileEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCProfileEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCProfileEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCProfileEvent2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCProfileEvent2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCProfileEvent2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCProfileEvent2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCProfileEvent2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCProfileEvent2 {
     type Vtable = IRTCProfileEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62e56edc_03fa_4121_94fb_23493fd0ae64);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCProfileEvent2Vtbl {
     pub base: IRTCProfileEventVtbl,
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventtype: *mut RTC_PROFILE_EVENT_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCReInviteEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCReInviteEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Session(&self) -> ::windows::core::Result<IRTCSession2> {
@@ -5476,46 +5721,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCReInvite
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCReInviteEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCReInviteEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCReInviteEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCReInviteEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCReInviteEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCReInviteEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCReInviteEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCReInviteEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCReInviteEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCReInviteEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCReInviteEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCReInviteEvent {
     type Vtable = IRTCReInviteEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11558d84_204c_43e7_99b0_2034e9417f7d);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCReInviteEventVtbl {
@@ -5532,9 +5787,11 @@ pub struct IRTCReInviteEventVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetRemoteSessionDescription: usize,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCRegistrationStateChangeEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCRegistrationStateChangeEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Profile(&self) -> ::windows::core::Result<IRTCProfile> {
@@ -5604,46 +5861,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCRegistra
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCRegistrationStateChangeEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCRegistrationStateChangeEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCRegistrationStateChangeEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCRegistrationStateChangeEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCRegistrationStateChangeEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCRegistrationStateChangeEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCRegistrationStateChangeEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCRegistrationStateChangeEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCRegistrationStateChangeEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCRegistrationStateChangeEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCRegistrationStateChangeEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCRegistrationStateChangeEvent {
     type Vtable = IRTCRegistrationStateChangeEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62d0991b_50ab_4f02_b948_ca94f26f8f95);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCRegistrationStateChangeEventVtbl {
@@ -5656,9 +5923,11 @@ pub struct IRTCRegistrationStateChangeEventVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     StatusText: usize,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCRoamingEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCRoamingEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn EventType(&self) -> ::windows::core::Result<RTC_ROAMING_EVENT_TYPE> {
@@ -5728,46 +5997,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCRoamingE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCRoamingEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCRoamingEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCRoamingEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCRoamingEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCRoamingEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCRoamingEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCRoamingEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCRoamingEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCRoamingEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCRoamingEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCRoamingEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCRoamingEvent {
     type Vtable = IRTCRoamingEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79960a6b_0cb1_4dc8_a805_7318e99902e8);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCRoamingEventVtbl {
@@ -5804,7 +6083,8 @@ impl IRTCSession {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Profile)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCProfile>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Participants(&self) -> ::windows::core::Result<IRTCCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Participants)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCCollection>(result__)
@@ -5929,7 +6209,10 @@ pub struct IRTCSessionVtbl {
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstate: *mut RTC_SESSION_STATE) -> ::windows::core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pentype: *mut RTC_SESSION_TYPE) -> ::windows::core::HRESULT,
     pub Profile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub Participants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Participants: usize,
     pub Answer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enreason: RTC_TERMINATE_REASON) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -6017,7 +6300,8 @@ impl IRTCSession2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Profile)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCProfile>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Participants(&self) -> ::windows::core::Result<IRTCCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Participants)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCCollection>(result__)
@@ -6355,9 +6639,11 @@ pub struct IRTCSessionDescriptionManagerVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     EvaluateSessionDescription: usize,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCSessionOperationCompleteEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionOperationCompleteEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Session(&self) -> ::windows::core::Result<IRTCSession> {
@@ -6427,46 +6713,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCSessionO
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionOperationCompleteEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCSessionOperationCompleteEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionOperationCompleteEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionOperationCompleteEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionOperationCompleteEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionOperationCompleteEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCSessionOperationCompleteEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCSessionOperationCompleteEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCSessionOperationCompleteEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCSessionOperationCompleteEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCSessionOperationCompleteEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCSessionOperationCompleteEvent {
     type Vtable = IRTCSessionOperationCompleteEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6bff4c0_f7c8_4d3c_9a41_3550f78a95b0);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionOperationCompleteEventVtbl {
@@ -6479,9 +6775,11 @@ pub struct IRTCSessionOperationCompleteEventVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     StatusText: usize,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCSessionOperationCompleteEvent2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionOperationCompleteEvent2 {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Participant(&self) -> ::windows::core::Result<IRTCParticipant> {
@@ -6537,21 +6835,25 @@ impl IRTCSessionOperationCompleteEvent2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionOperationCompleteEvent2> for IRTCSessionOperationCompleteEvent {
     fn from(value: IRTCSessionOperationCompleteEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionOperationCompleteEvent2> for IRTCSessionOperationCompleteEvent {
     fn from(value: &IRTCSessionOperationCompleteEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IRTCSessionOperationCompleteEvent> for IRTCSessionOperationCompleteEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCSessionOperationCompleteEvent> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IRTCSessionOperationCompleteEvent> for &IRTCSessionOperationCompleteEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCSessionOperationCompleteEvent> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -6581,46 +6883,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCSessionO
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionOperationCompleteEvent2> for ::windows::core::IUnknown {
     fn from(value: IRTCSessionOperationCompleteEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionOperationCompleteEvent2> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionOperationCompleteEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionOperationCompleteEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionOperationCompleteEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCSessionOperationCompleteEvent2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCSessionOperationCompleteEvent2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCSessionOperationCompleteEvent2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCSessionOperationCompleteEvent2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCSessionOperationCompleteEvent2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCSessionOperationCompleteEvent2 {
     type Vtable = IRTCSessionOperationCompleteEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6fc2a9b_d5bc_4241_b436_1b8460c13832);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionOperationCompleteEvent2Vtbl {
@@ -6686,9 +6998,11 @@ pub struct IRTCSessionPortManagementVtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetPortManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportmanager: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCSessionReferStatusEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionReferStatusEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Session(&self) -> ::windows::core::Result<IRTCSession2> {
@@ -6758,46 +7072,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCSessionR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionReferStatusEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCSessionReferStatusEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionReferStatusEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionReferStatusEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionReferStatusEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionReferStatusEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCSessionReferStatusEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCSessionReferStatusEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCSessionReferStatusEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCSessionReferStatusEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCSessionReferStatusEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCSessionReferStatusEvent {
     type Vtable = IRTCSessionReferStatusEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d8fc2cd_5d76_44ab_bb68_2a80353b34a2);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionReferStatusEventVtbl {
@@ -6810,9 +7134,11 @@ pub struct IRTCSessionReferStatusEventVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     StatusText: usize,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCSessionReferredEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionReferredEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Session(&self) -> ::windows::core::Result<IRTCSession2> {
@@ -6896,46 +7222,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCSessionR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionReferredEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCSessionReferredEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionReferredEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionReferredEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionReferredEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionReferredEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCSessionReferredEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCSessionReferredEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCSessionReferredEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCSessionReferredEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCSessionReferredEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCSessionReferredEvent {
     type Vtable = IRTCSessionReferredEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x176a6828_4fcc_4f28_a862_04597a6cf1c4);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionReferredEventVtbl {
@@ -6957,9 +7293,11 @@ pub struct IRTCSessionReferredEventVtbl {
     pub Reject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetReferredSessionState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enstate: RTC_SESSION_STATE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCSessionStateChangeEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionStateChangeEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Session(&self) -> ::windows::core::Result<IRTCSession> {
@@ -7029,46 +7367,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCSessionS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionStateChangeEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCSessionStateChangeEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionStateChangeEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionStateChangeEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionStateChangeEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionStateChangeEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCSessionStateChangeEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCSessionStateChangeEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCSessionStateChangeEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCSessionStateChangeEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCSessionStateChangeEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCSessionStateChangeEvent {
     type Vtable = IRTCSessionStateChangeEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5bad703_5952_48b3_9321_7f4500521506);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionStateChangeEventVtbl {
@@ -7081,9 +7429,11 @@ pub struct IRTCSessionStateChangeEventVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     StatusText: usize,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCSessionStateChangeEvent2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionStateChangeEvent2 {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn MediaTypes(&self) -> ::windows::core::Result<i32> {
@@ -7149,21 +7499,25 @@ impl IRTCSessionStateChangeEvent2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionStateChangeEvent2> for IRTCSessionStateChangeEvent {
     fn from(value: IRTCSessionStateChangeEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionStateChangeEvent2> for IRTCSessionStateChangeEvent {
     fn from(value: &IRTCSessionStateChangeEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IRTCSessionStateChangeEvent> for IRTCSessionStateChangeEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCSessionStateChangeEvent> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IRTCSessionStateChangeEvent> for &IRTCSessionStateChangeEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCSessionStateChangeEvent> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -7193,46 +7547,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCSessionS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionStateChangeEvent2> for ::windows::core::IUnknown {
     fn from(value: IRTCSessionStateChangeEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionStateChangeEvent2> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionStateChangeEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionStateChangeEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionStateChangeEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCSessionStateChangeEvent2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCSessionStateChangeEvent2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCSessionStateChangeEvent2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCSessionStateChangeEvent2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCSessionStateChangeEvent2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCSessionStateChangeEvent2 {
     type Vtable = IRTCSessionStateChangeEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f933171_6f95_4880_80d9_2ec8d495d261);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionStateChangeEvent2Vtbl {
@@ -7475,16 +7839,19 @@ pub struct IRTCUserSearchResultVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Value: usize,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCUserSearchResultsEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCUserSearchResultsEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn EnumerateResults(&self) -> ::windows::core::Result<IRTCEnumUserSearchResults> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateResults)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCEnumUserSearchResults>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+    #[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Results(&self) -> ::windows::core::Result<IRTCCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Results)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRTCCollection>(result__)
@@ -7561,52 +7928,65 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCUserSear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCUserSearchResultsEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCUserSearchResultsEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCUserSearchResultsEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCUserSearchResultsEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCUserSearchResultsEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCUserSearchResultsEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCUserSearchResultsEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCUserSearchResultsEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCUserSearchResultsEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCUserSearchResultsEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCUserSearchResultsEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCUserSearchResultsEvent {
     type Vtable = IRTCUserSearchResultsEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c8c3cd_7fac_4088_81c5_c24cbc0938e3);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCUserSearchResultsEventVtbl {
     pub base: IDispatchVtbl,
     pub EnumerateResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub Results: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Results: usize,
     pub Profile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Query: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppquery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Cookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcookie: *mut isize) -> ::windows::core::HRESULT,
@@ -7889,9 +8269,11 @@ pub struct IRTCWatcher2Vtbl {
     pub Profile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Scope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penscope: *mut RTC_ACE_SCOPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCWatcherEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCWatcherEvent {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn Watcher(&self) -> ::windows::core::Result<IRTCWatcher> {
@@ -7945,55 +8327,67 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCWatcherE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCWatcherEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCWatcherEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCWatcherEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCWatcherEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCWatcherEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCWatcherEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCWatcherEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCWatcherEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCWatcherEvent {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCWatcherEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCWatcherEvent").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCWatcherEvent {
     type Vtable = IRTCWatcherEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf30d7261_587a_424f_822c_312788f43548);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCWatcherEventVtbl {
     pub base: IDispatchVtbl,
     pub Watcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwatcher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRTCWatcherEvent2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCWatcherEvent2 {
     #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
     pub unsafe fn EventType(&self) -> ::windows::core::Result<RTC_WATCHER_EVENT_TYPE> {
@@ -8033,21 +8427,25 @@ impl IRTCWatcherEvent2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCWatcherEvent2> for IRTCWatcherEvent {
     fn from(value: IRTCWatcherEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCWatcherEvent2> for IRTCWatcherEvent {
     fn from(value: &IRTCWatcherEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IRTCWatcherEvent> for IRTCWatcherEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCWatcherEvent> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, IRTCWatcherEvent> for &IRTCWatcherEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCWatcherEvent> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -8077,46 +8475,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCWatcherE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCWatcherEvent2> for ::windows::core::IUnknown {
     fn from(value: IRTCWatcherEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCWatcherEvent2> for ::windows::core::IUnknown {
     fn from(value: &IRTCWatcherEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCWatcherEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCWatcherEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCWatcherEvent2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCWatcherEvent2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IRTCWatcherEvent2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IRTCWatcherEvent2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IRTCWatcherEvent2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRTCWatcherEvent2 {
     type Vtable = IRTCWatcherEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe52891e8_188c_49af_b005_98ed13f83f9c);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCWatcherEvent2Vtbl {

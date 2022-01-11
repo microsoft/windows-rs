@@ -2834,9 +2834,11 @@ pub struct IEnumRegisterWordWVtbl {
 }
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFEC_S_ALREADY_DEFAULT: ::windows::core::HRESULT = ::windows::core::HRESULT(291840i32);
-#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFEClassFactory(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IFEClassFactory {
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2874,46 +2876,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IClass
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFEClassFactory> for ::windows::core::IUnknown {
     fn from(value: IFEClassFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFEClassFactory> for ::windows::core::IUnknown {
     fn from(value: &IFEClassFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFEClassFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFEClassFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFEClassFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFEClassFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IFEClassFactory {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IFEClassFactory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IFEClassFactory").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFEClassFactory {
     type Vtable = IFEClassFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFEClassFactoryVtbl {

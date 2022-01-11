@@ -3556,9 +3556,11 @@ pub struct IAVIFileVtbl {
     pub EndRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DeleteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Multimedia'*"]
+#[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IAVIPersistFile(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl IAVIPersistFile {
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub unsafe fn Reserved1(&self) -> ::windows::core::Result<()> {
@@ -3645,46 +3647,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersist> for
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IAVIPersistFile> for ::windows::core::IUnknown {
     fn from(value: IAVIPersistFile) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IAVIPersistFile> for ::windows::core::IUnknown {
     fn from(value: &IAVIPersistFile) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAVIPersistFile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAVIPersistFile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAVIPersistFile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAVIPersistFile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IAVIPersistFile {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for IAVIPersistFile {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IAVIPersistFile").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IAVIPersistFile {
     type Vtable = IAVIPersistFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020025_0000_0000_c000_000000000046);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIPersistFileVtbl {

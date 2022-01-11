@@ -18881,9 +18881,11 @@ unsafe impl ::windows::core::Interface for ID2D1GeometryRealization {
 pub struct ID2D1GeometryRealizationVtbl {
     pub base: ID2D1ResourceVtbl,
 }
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(transparent)]
 pub struct ID2D1GeometrySink(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1GeometrySink {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -18970,46 +18972,56 @@ impl<'a> ::windows::core::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink> for
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::convert::From<ID2D1GeometrySink> for ::windows::core::IUnknown {
     fn from(value: ID2D1GeometrySink) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::convert::From<&ID2D1GeometrySink> for ::windows::core::IUnknown {
     fn from(value: &ID2D1GeometrySink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1GeometrySink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1GeometrySink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::clone::Clone for ID2D1GeometrySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for ID2D1GeometrySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::Eq for ID2D1GeometrySink {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::fmt::Debug for ID2D1GeometrySink {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ID2D1GeometrySink").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Interface for ID2D1GeometrySink {
     type Vtable = ID2D1GeometrySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069f_12e2_11dc_9fed_001143a055f9);
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1GeometrySinkVtbl {
@@ -21043,12 +21055,14 @@ pub struct ID2D1OffsetTransformVtbl {
 #[repr(transparent)]
 pub struct ID2D1PathGeometry(::windows::core::IUnknown);
 impl ID2D1PathGeometry {
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn Open(&self) -> ::windows::core::Result<ID2D1GeometrySink> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GeometrySink>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn Stream<'a, Param0: ::windows::core::IntoParam<'a, ID2D1GeometrySink>>(&self, geometrysink: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Stream)(::core::mem::transmute_copy(self), geometrysink.into_param().abi()).ok()
     }
@@ -21223,8 +21237,14 @@ unsafe impl ::windows::core::Interface for ID2D1PathGeometry {
 #[doc(hidden)]
 pub struct ID2D1PathGeometryVtbl {
     pub base: ID2D1GeometryVtbl,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometrysink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
+    Open: usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub Stream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometrysink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
+    Stream: usize,
     pub GetSegmentCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetFigureCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -21238,12 +21258,14 @@ impl ID2D1PathGeometry1 {
         let mut result__: D2D1_POINT_DESCRIPTION = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ComputePointAndSegmentAtLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(length), ::core::mem::transmute(startsegment), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), ::core::mem::transmute(&mut result__)).from_abi::<D2D1_POINT_DESCRIPTION>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn Open(&self) -> ::windows::core::Result<ID2D1GeometrySink> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Open)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GeometrySink>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn Stream<'a, Param0: ::windows::core::IntoParam<'a, ID2D1GeometrySink>>(&self, geometrysink: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Stream)(::core::mem::transmute_copy(self), geometrysink.into_param().abi()).ok()
     }

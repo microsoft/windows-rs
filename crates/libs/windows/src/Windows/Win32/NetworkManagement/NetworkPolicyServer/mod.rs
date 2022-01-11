@@ -773,9 +773,11 @@ pub const IAS_IDENTITY_NO_DEFAULT: IDENTITY_TYPE = 1i32;
 pub type IPFILTERPROPERTIES = i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 pub const PROPERTY_IPFILTER_ATTRIBUTES_COLLECTION: IPFILTERPROPERTIES = 1024i32;
-#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISdo(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl ISdo {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
     pub unsafe fn GetPropertyInfo(&self, id: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -857,46 +859,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISdo> for ::windows::core::IUnknown {
     fn from(value: ISdo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISdo> for ::windows::core::IUnknown {
     fn from(value: &ISdo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISdo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISdo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISdo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISdo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for ISdo {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for ISdo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ISdo").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISdo {
     type Vtable = ISdoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56bc53de_96db_11d1_bf3f_000000000000);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoVtbl {
@@ -915,9 +927,11 @@ pub struct ISdoVtbl {
     pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISdoCollection(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl ISdoCollection {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -1006,46 +1020,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISdoCollection> for ::windows::core::IUnknown {
     fn from(value: ISdoCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISdoCollection> for ::windows::core::IUnknown {
     fn from(value: &ISdoCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISdoCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISdoCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISdoCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISdoCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for ISdoCollection {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for ISdoCollection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ISdoCollection").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISdoCollection {
     type Vtable = ISdoCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56bc53e2_96db_11d1_bf3f_000000000000);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoCollectionVtbl {
@@ -1071,9 +1095,11 @@ pub struct ISdoCollectionVtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISdoDictionaryOld(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl ISdoDictionaryOld {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1150,46 +1176,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISdoDictionaryOld> for ::windows::core::IUnknown {
     fn from(value: ISdoDictionaryOld) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISdoDictionaryOld> for ::windows::core::IUnknown {
     fn from(value: &ISdoDictionaryOld) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISdoDictionaryOld {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISdoDictionaryOld {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISdoDictionaryOld {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISdoDictionaryOld {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for ISdoDictionaryOld {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for ISdoDictionaryOld {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ISdoDictionaryOld").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISdoDictionaryOld {
     type Vtable = ISdoDictionaryOldVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd432e5f4_53d8_11d2_9a3a_00c04fb998ac);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoDictionaryOldVtbl {
@@ -1215,9 +1251,11 @@ pub struct ISdoDictionaryOldVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetAttributeID: usize,
 }
-#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISdoMachine(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl ISdoMachine {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1314,46 +1352,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISdoMachine> for ::windows::core::IUnknown {
     fn from(value: ISdoMachine) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISdoMachine> for ::windows::core::IUnknown {
     fn from(value: &ISdoMachine) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISdoMachine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISdoMachine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISdoMachine {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISdoMachine {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for ISdoMachine {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for ISdoMachine {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ISdoMachine").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISdoMachine {
     type Vtable = ISdoMachineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x479f6e75_49a2_11d2_8eca_00c04fc2f519);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoMachineVtbl {
@@ -1380,9 +1428,11 @@ pub struct ISdoMachineVtbl {
     GetAttachedComputer: usize,
     pub GetSDOSchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsdoschema: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISdoMachine2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl ISdoMachine2 {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1479,21 +1529,25 @@ impl ISdoMachine2 {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISdoMachine2> for ISdoMachine {
     fn from(value: ISdoMachine2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISdoMachine2> for ISdoMachine {
     fn from(value: &ISdoMachine2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ISdoMachine> for ISdoMachine2 {
     fn into_param(self) -> ::windows::core::Param<'a, ISdoMachine> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ISdoMachine> for &ISdoMachine2 {
     fn into_param(self) -> ::windows::core::Param<'a, ISdoMachine> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -1523,46 +1577,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISdoMachine2> for ::windows::core::IUnknown {
     fn from(value: ISdoMachine2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISdoMachine2> for ::windows::core::IUnknown {
     fn from(value: &ISdoMachine2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISdoMachine2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISdoMachine2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISdoMachine2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISdoMachine2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for ISdoMachine2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for ISdoMachine2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ISdoMachine2").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISdoMachine2 {
     type Vtable = ISdoMachine2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x518e5ffe_d8ce_4f7e_a5db_b40a35419d3b);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoMachine2Vtbl {
@@ -1582,9 +1646,11 @@ pub struct ISdoMachine2Vtbl {
     ImportRemoteTemplates: usize,
     pub Reload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISdoServiceControl(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl ISdoServiceControl {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
     pub unsafe fn StartService(&self) -> ::windows::core::Result<()> {
@@ -1650,46 +1716,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISdoServiceControl> for ::windows::core::IUnknown {
     fn from(value: ISdoServiceControl) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISdoServiceControl> for ::windows::core::IUnknown {
     fn from(value: &ISdoServiceControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISdoServiceControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISdoServiceControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISdoServiceControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISdoServiceControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for ISdoServiceControl {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for ISdoServiceControl {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ISdoServiceControl").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISdoServiceControl {
     type Vtable = ISdoServiceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x479f6e74_49a2_11d2_8eca_00c04fc2f519);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoServiceControlVtbl {
@@ -1699,9 +1775,11 @@ pub struct ISdoServiceControlVtbl {
     pub GetServiceStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut i32) -> ::windows::core::HRESULT,
     pub ResetService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITemplateSdo(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
 impl ITemplateSdo {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1774,21 +1852,25 @@ impl ITemplateSdo {
         (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITemplateSdo> for ISdo {
     fn from(value: ITemplateSdo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITemplateSdo> for ISdo {
     fn from(value: &ITemplateSdo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ISdo> for ITemplateSdo {
     fn into_param(self) -> ::windows::core::Param<'a, ISdo> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ISdo> for &ITemplateSdo {
     fn into_param(self) -> ::windows::core::Param<'a, ISdo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -1818,46 +1900,56 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITemplateSdo> for ::windows::core::IUnknown {
     fn from(value: ITemplateSdo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITemplateSdo> for ::windows::core::IUnknown {
     fn from(value: &ITemplateSdo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITemplateSdo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITemplateSdo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITemplateSdo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITemplateSdo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for ITemplateSdo {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for ITemplateSdo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ITemplateSdo").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITemplateSdo {
     type Vtable = ITemplateSdoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8aa85302_d2e2_4e20_8b1f_a571e437d6c9);
 }
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITemplateSdoVtbl {
