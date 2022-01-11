@@ -11,6 +11,6 @@ windows = { path = "../../../libs/windows", features = ["build", "alloc"] }
 windows = { path = "../../../libs/windows", features = ["build", "alloc"] }
 
 [features]
-default = ["alloc", "std"]
+default = ["alloc"]
 alloc = []
 std = []

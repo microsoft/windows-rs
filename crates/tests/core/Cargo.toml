@@ -5,4 +5,4 @@ authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies]
-windows = { path = "../../libs/windows", features = ["std"] }
+windows = { path = "../../libs/windows" }

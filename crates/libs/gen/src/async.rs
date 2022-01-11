@@ -53,7 +53,6 @@ fn gen_async_kind(kind: AsyncKind, name: &TypeDef, self_name: &TypeDef, gen: &Ge
         },
         quote! {
             #cfg
-            #[cfg(feature = "std")]
             impl<#constraints> ::std::future::Future for #name {
                 type Output = ::windows::core::Result<#return_sig>;
 
