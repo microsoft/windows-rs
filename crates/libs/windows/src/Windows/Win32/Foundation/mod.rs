@@ -197,7 +197,40 @@ impl<'a> ::windows::core::IntoParam<'a, BOOL> for bool {
         ::windows::core::Param::Owned(self.into())
     }
 }
-pub type BOOLEAN = u8;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BOOLEAN(pub u8);
+impl BOOLEAN {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for BOOLEAN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for BOOLEAN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for BOOLEAN {}
+impl ::core::fmt::Debug for BOOLEAN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BOOLEAN").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BOOLEAN {
+    type Abi = Self;
+}
 #[repr(transparent)]
 pub struct BSTR(*mut u16);
 impl BSTR {
@@ -504,7 +537,40 @@ pub const CERT_E_UNTRUSTEDTESTROOT: ::windows::core::HRESULT = ::windows::core::
 pub const CERT_E_VALIDITYPERIODNESTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146762494i32);
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const CERT_E_WRONG_USAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146762480i32);
-pub type CHAR = u8;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CHAR(pub u8);
+impl CHAR {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for CHAR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for CHAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for CHAR {}
+impl ::core::fmt::Debug for CHAR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CHAR").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CHAR {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const CI_CORRUPT_CATALOG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473535i32);
 #[doc = "*Required features: 'Win32_Foundation'*"]
@@ -3836,7 +3902,40 @@ pub type HANDLE_FLAGS = u32;
 pub const HANDLE_FLAG_INHERIT: HANDLE_FLAGS = 1u32;
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const HANDLE_FLAG_PROTECT_FROM_CLOSE: HANDLE_FLAGS = 2u32;
-pub type HANDLE_PTR = usize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HANDLE_PTR(pub usize);
+impl HANDLE_PTR {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HANDLE_PTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HANDLE_PTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HANDLE_PTR {}
+impl ::core::fmt::Debug for HANDLE_PTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HANDLE_PTR").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HANDLE_PTR {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const HCN_E_ADAPTER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143617018i32);
 #[doc = "*Required features: 'Win32_Foundation'*"]
@@ -3991,7 +4090,40 @@ pub const HCS_E_UNKNOWN_MESSAGE: ::windows::core::HRESULT = ::windows::core::HRE
 pub const HCS_E_UNSUPPORTED_PROTOCOL_VERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143878900i32);
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const HCS_E_WINDOWS_INSIDER_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143878893i32);
-pub type HINSTANCE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HINSTANCE(pub isize);
+impl HINSTANCE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HINSTANCE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HINSTANCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HINSTANCE {}
+impl ::core::fmt::Debug for HINSTANCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HINSTANCE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HINSTANCE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub struct HLSURF__ {
@@ -4022,7 +4154,40 @@ impl ::core::default::Default for HLSURF__ {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type HRSRC = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HRSRC(pub isize);
+impl HRSRC {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HRSRC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HRSRC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HRSRC {}
+impl ::core::fmt::Debug for HRSRC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HRSRC").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HRSRC {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub struct HSPRITE__ {
@@ -4239,7 +4404,40 @@ impl ::core::default::Default for HUMPD__ {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type HWND = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HWND(pub isize);
+impl HWND {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HWND {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HWND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HWND {}
+impl ::core::fmt::Debug for HWND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HWND").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HWND {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const INPLACE_E_FIRST: i32 = -2147221088i32;
 #[doc = "*Required features: 'Win32_Foundation'*"]
@@ -4294,8 +4492,74 @@ pub const JSCRIPT_E_CANTEXECUTE: ::windows::core::HRESULT = ::windows::core::HRE
 pub const LANGUAGE_E_DATABASE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215484i32);
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const LANGUAGE_S_LARGE_WORD: ::windows::core::HRESULT = ::windows::core::HRESULT(268161i32);
-pub type LPARAM = isize;
-pub type LRESULT = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LPARAM(pub isize);
+impl LPARAM {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for LPARAM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for LPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for LPARAM {}
+impl ::core::fmt::Debug for LPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LPARAM").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LPARAM {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LRESULT(pub isize);
+impl LRESULT {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for LRESULT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for LRESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for LRESULT {}
+impl ::core::fmt::Debug for LRESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LRESULT").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LRESULT {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub struct LUID {
@@ -5459,7 +5723,40 @@ impl ::core::default::Default for POINTS {
 pub const PRESENTATION_ERROR_LOST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004811775i32);
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
-pub type PSID = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PSID(pub isize);
+impl PSID {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for PSID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PSID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PSID {}
+impl ::core::fmt::Debug for PSID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PSID").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PSID {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const PSINK_E_INDEX_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215471i32);
 #[doc = "*Required features: 'Win32_Foundation'*"]
@@ -6633,7 +6930,40 @@ pub const SEC_I_SIGNATURE_NEEDED: ::windows::core::HRESULT = ::windows::core::HR
 pub const SEVERITY_ERROR: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const SEVERITY_SUCCESS: u32 = 0u32;
-pub type SHANDLE_PTR = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SHANDLE_PTR(pub isize);
+impl SHANDLE_PTR {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for SHANDLE_PTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for SHANDLE_PTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for SHANDLE_PTR {}
+impl ::core::fmt::Debug for SHANDLE_PTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SHANDLE_PTR").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SHANDLE_PTR {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub struct SIZE {
@@ -20622,7 +20952,40 @@ pub const WINML_ERR_VALUE_NOTFOUND: ::windows::core::HRESULT = ::windows::core::
 pub const WINVER: u32 = 1280u32;
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const WINVER_MAXVER: u32 = 2560u32;
-pub type WPARAM = usize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WPARAM(pub usize);
+impl WPARAM {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for WPARAM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for WPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for WPARAM {}
+impl ::core::fmt::Debug for WPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WPARAM").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WPARAM {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const WPN_E_ACCESS_DENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420137i32);
 #[doc = "*Required features: 'Win32_Foundation'*"]

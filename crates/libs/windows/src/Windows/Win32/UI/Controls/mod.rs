@@ -4309,8 +4309,74 @@ pub const HDM_SETITEMW: u32 = 4620u32;
 pub const HDM_SETORDERARRAY: u32 = 4626u32;
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HDM_SETUNICODEFORMAT: u32 = 8197u32;
-pub type HDPA = isize;
-pub type HDSA = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HDPA(pub isize);
+impl HDPA {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HDPA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDPA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDPA {}
+impl ::core::fmt::Debug for HDPA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDPA").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HDPA {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HDSA(pub isize);
+impl HDSA {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HDSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDSA {}
+impl ::core::fmt::Debug for HDSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDSA").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HDSA {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HDSIL_NORMAL: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
@@ -4449,7 +4515,40 @@ pub const HHT_ONOVERFLOW: u32 = 16384u32;
 pub const HHT_TOLEFT: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HHT_TORIGHT: u32 = 1024u32;
-pub type HIMAGELIST = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HIMAGELIST(pub isize);
+impl HIMAGELIST {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HIMAGELIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HIMAGELIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HIMAGELIST {}
+impl ::core::fmt::Debug for HIMAGELIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HIMAGELIST").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HIMAGELIST {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 #[inline]
 pub unsafe fn HIMAGELIST_QueryInterface<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -4506,9 +4605,108 @@ pub const HOTKEYF_EXT: u32 = 128u32;
 pub const HOTKEYF_SHIFT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HOVER_DEFAULT: u32 = 4294967295u32;
-pub type HPROPSHEETPAGE = isize;
-pub type HSYNTHETICPOINTERDEVICE = isize;
-pub type HTREEITEM = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HPROPSHEETPAGE(pub isize);
+impl HPROPSHEETPAGE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HPROPSHEETPAGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HPROPSHEETPAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HPROPSHEETPAGE {}
+impl ::core::fmt::Debug for HPROPSHEETPAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HPROPSHEETPAGE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HPROPSHEETPAGE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HSYNTHETICPOINTERDEVICE(pub isize);
+impl HSYNTHETICPOINTERDEVICE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HSYNTHETICPOINTERDEVICE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HSYNTHETICPOINTERDEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HSYNTHETICPOINTERDEVICE {}
+impl ::core::fmt::Debug for HSYNTHETICPOINTERDEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HSYNTHETICPOINTERDEVICE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HSYNTHETICPOINTERDEVICE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HTREEITEM(pub isize);
+impl HTREEITEM {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HTREEITEM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HTREEITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HTREEITEM {}
+impl ::core::fmt::Debug for HTREEITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HTREEITEM").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HTREEITEM {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HTTB_BACKGROUNDSEG: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
@@ -19041,13 +19239,13 @@ pub const TVIF_INTEGRAL: TVITEM_MASK = 128u32;
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVIF_STATEEX: TVITEM_MASK = 256u32;
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
-pub const TVI_FIRST: HTREEITEM = -65535i32 as _;
+pub const TVI_FIRST: HTREEITEM = HTREEITEM(-65535i32 as _);
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
-pub const TVI_LAST: HTREEITEM = -65534i32 as _;
+pub const TVI_LAST: HTREEITEM = HTREEITEM(-65534i32 as _);
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
-pub const TVI_ROOT: HTREEITEM = -65536i32 as _;
+pub const TVI_ROOT: HTREEITEM = HTREEITEM(-65536i32 as _);
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
-pub const TVI_SORT: HTREEITEM = -65533i32 as _;
+pub const TVI_SORT: HTREEITEM = HTREEITEM(-65533i32 as _);
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVM_CREATEDRAGIMAGE: u32 = 4370u32;
 #[doc = "*Required features: 'Win32_UI_Controls'*"]

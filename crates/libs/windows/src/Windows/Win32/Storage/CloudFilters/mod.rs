@@ -850,7 +850,40 @@ pub type CF_CALLBACK_VALIDATE_DATA_FLAGS = u32;
 pub const CF_CALLBACK_VALIDATE_DATA_FLAG_NONE: CF_CALLBACK_VALIDATE_DATA_FLAGS = 0u32;
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub const CF_CALLBACK_VALIDATE_DATA_FLAG_EXPLICIT_HYDRATION: CF_CALLBACK_VALIDATE_DATA_FLAGS = 2u32;
-pub type CF_CONNECTION_KEY = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CONNECTION_KEY(pub isize);
+impl CF_CONNECTION_KEY {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for CF_CONNECTION_KEY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for CF_CONNECTION_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for CF_CONNECTION_KEY {}
+impl ::core::fmt::Debug for CF_CONNECTION_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CONNECTION_KEY").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CONNECTION_KEY {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub type CF_CONNECT_FLAGS = u32;
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]

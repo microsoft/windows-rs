@@ -6272,7 +6272,40 @@ pub unsafe fn LsaGetLogonSessionData(logonid: *const super::super::super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type LsaHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LsaHandle(pub isize);
+impl LsaHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for LsaHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for LsaHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for LsaHandle {}
+impl ::core::fmt::Debug for LsaHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LsaHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LsaHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]

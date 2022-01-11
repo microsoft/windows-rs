@@ -33,6 +33,7 @@ impl TokenStream {
         self.0.push_str(&other.0)
     }
 
+    #[must_use]
     pub fn join(&self, value: &str) -> Self {
         Self(format!("{}{}", self.0, value))
     }

@@ -2488,7 +2488,40 @@ pub const GenericFileTransferServiceClassID_UUID16: u32 = 4610u32;
 pub const GenericNetworkingServiceClassID_UUID16: u32 = 4609u32;
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
 pub const GenericTelephonyServiceClassID_UUID16: u32 = 4612u32;
-pub type HANDLE_SDP_TYPE = u64;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HANDLE_SDP_TYPE(pub u64);
+impl HANDLE_SDP_TYPE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HANDLE_SDP_TYPE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HANDLE_SDP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HANDLE_SDP_TYPE {}
+impl ::core::fmt::Debug for HANDLE_SDP_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HANDLE_SDP_TYPE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HANDLE_SDP_TYPE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
 pub const HCCC_PROTOCOL_UUID16: u32 = 18u32;
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
